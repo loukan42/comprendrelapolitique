@@ -1,5 +1,5 @@
 import { Anchor, Box, Container, Stack, Table, Text, Title } from "@mantine/core";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: Accueil,
@@ -154,6 +154,12 @@ function Accueil() {
               Open Data de l&apos;Assemblée nationale
             </Anchor>
             , Licence Ouverte. Mesuré le 13 septembre 2026 sur les corpus complets.
+          </Text>
+
+          <Text mt="lg">
+            <Anchor component={Link} to="/lois">
+              Parcourir les dossiers législatifs
+            </Anchor>
           </Text>
         </Box>
 

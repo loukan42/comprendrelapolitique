@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LoisIndexRouteImport } from './routes/lois/index'
 import { Route as LoisIdRouteImport } from './routes/lois/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoisIndexRoute = LoisIndexRouteImport.update({
+  id: '/lois/',
+  path: '/lois/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoisIdRoute = LoisIdRouteImport.update({
@@ -26,27 +32,31 @@ const LoisIdRoute = LoisIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/lois/$id': typeof LoisIdRoute
+  '/lois/': typeof LoisIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/lois/$id': typeof LoisIdRoute
+  '/lois': typeof LoisIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/lois/$id': typeof LoisIdRoute
+  '/lois/': typeof LoisIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lois/$id'
+  fullPaths: '/' | '/lois/$id' | '/lois/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lois/$id'
-  id: '__root__' | '/' | '/lois/$id'
+  to: '/' | '/lois/$id' | '/lois'
+  id: '__root__' | '/' | '/lois/$id' | '/lois/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoisIdRoute: typeof LoisIdRoute
+  LoisIndexRoute: typeof LoisIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lois/': {
+      id: '/lois/'
+      path: '/lois'
+      fullPath: '/lois/'
+      preLoaderRoute: typeof LoisIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lois/$id': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoisIdRoute: LoisIdRoute,
+  LoisIndexRoute: LoisIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
