@@ -36,3 +36,7 @@ dist-ssr
 /data/
 /data assemblee nationale/
 *.crdownload
+
+# Cache Python des scripts d exploration
+__pycache__/
+*.pyc
