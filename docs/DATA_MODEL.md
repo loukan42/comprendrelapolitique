@@ -155,7 +155,7 @@ député lors d'un vote : voir section 5.
 ```sql
 CREATE TABLE officiel.dossier (
     uid                 text PRIMARY KEY,       -- 'DLR5L16N47035'
-    legislature         smallint NOT NULL REFERENCES officiel.legislature(id),
+    legislature         smallint,               -- sans FK, voir ci-dessous
     titre               text,                   -- titre court, éditorialisé
     titre_chemin        text,
     senat_chemin        text,                   -- amorce de la navette
@@ -170,21 +170,35 @@ CREATE TABLE officiel.dossier (
 `senat_chemin` est renseigné dès la XVe. C'est le point d'accroche de la future
 intégration du Sénat, disponible sans rien ajouter.
 
+`legislature` ne porte pas de clé étrangère, et c'est une correction imposée par
+les données : **l'archive d'une législature contient des dossiers déposés sous des
+législatures antérieures** et toujours vivants. L'archive de la XVIe en contient
+jusqu'à la Xe. La contrainte faisait échouer l'import au premier dossier hérité.
+
 ```sql
 CREATE TABLE officiel.document (
     uid               text PRIMARY KEY,         -- 'PIONANR5L16B0739'
-    dossier_uid       text REFERENCES officiel.dossier(uid),
-    legislature       smallint REFERENCES officiel.legislature(id),
+    dossier_uid       text,                     -- sans FK, voir ci-dessous
+    legislature       smallint,
     type_document     text,                     -- 'texteLoi_Type', 'rapportParlementaire_Type'…
     denomination      text,                     -- 'Projet de loi', 'Proposition de loi'
     titre_principal   text NOT NULL,
     titre_court       text,
     statut_adoption   text,
+    -- Titre normalisé : clé de jointure du rattachement scrutin / dossier.
+    -- Stockée plutôt que recalculée, c'est la jointure la plus sollicitée.
+    cle_titre         text,
     lot_id            bigint NOT NULL REFERENCES officiel.import_lot(id),
     lot_maj_id        bigint REFERENCES officiel.import_lot(id)
 );
 CREATE INDEX ON officiel.document (dossier_uid);
+CREATE INDEX ON officiel.document (cle_titre);
 ```
+
+`dossier_uid` est également sans clé étrangère : un document peut renvoyer à un
+dossier absent de l'archive en cours d'import, la référence se résolvant quand
+les autres législatures sont chargées. L'intégrité se contrôle après coup — un
+seul document orphelin subsiste après l'import de la XVIe.
 
 Cette table n'est pas un confort d'affichage : c'est elle qui porte le titre
 légal complet, et donc le rattachement des scrutins aux dossiers (section 6). Le
@@ -193,33 +207,46 @@ titre court du dossier ne suffit pas — « Baux ruraux pour les communes d'au p
 
 ```sql
 CREATE TABLE officiel.acte_legislatif (
-    uid             text PRIMARY KEY,
-    dossier_uid     text NOT NULL REFERENCES officiel.dossier(uid),
-    acte_parent_uid text REFERENCES officiel.acte_legislatif(uid),
-    profondeur      smallint NOT NULL,
-    code_acte       text,
-    libelle_canonique text,                   -- libelleActe.nomCanonique
-    libelle_court   text,                     -- libelleActe.libelleCourt
-    organe_uid      text REFERENCES officiel.organe(uid),
-    date_acte       timestamptz,
-    lot_id          bigint NOT NULL REFERENCES officiel.import_lot(id)
+    dossier_uid       text NOT NULL REFERENCES officiel.dossier(uid),
+    uid               text NOT NULL,
+    acte_parent_uid   text,
+    profondeur        smallint NOT NULL,
+    code_acte         text,
+    libelle_canonique text,
+    libelle_court     text,
+    organe_uid        text,
+    date_acte         timestamptz,
+    lot_id            bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (dossier_uid, uid)
 );
-CREATE INDEX ON officiel.acte_legislatif (dossier_uid, date_acte);
-CREATE INDEX ON officiel.acte_legislatif (code_acte);
+
+CREATE INDEX ON officiel.acte_legislatif (uid);
 ```
 
-L'auto-référence est indispensable : `acteLegislatif` est **récursif** et de
-profondeur variable dans la source — les références de vote ont été constatées à
-trois et quatre niveaux d'imbrication. Un parseur à profondeur fixe perd des
-données en silence. `profondeur` est stockée pour rendre ce fait visible.
+**La clé est `(dossier, uid)`, et ce n'est pas une précaution.** Sur la XVIe,
+99 `uid` d'actes apparaissent dans deux dossiers, et ils n'y portent pas le même
+code : `CMP-MOTION` dans le dossier de la réforme des retraites, `AN21-MOTION`
+dans le dossier d'engagement de responsabilité. Le code décrit le rôle de l'acte
+dans cette procédure, pas une propriété de l'événement.
+
+Une clé primaire sur le seul `uid` fait donc disparaître une version sur deux,
+sans erreur ni avertissement. C'est ce qui effaçait la motion de censure du
+dossier de la réforme, et c'est un contrôle sur un fait connu qui l'a rattrapé —
+pas l'import, qui se terminait proprement.
+
+L'auto-référence `acte_parent_uid` est indispensable : `acteLegislatif` est
+**récursif** et de profondeur variable dans la source — les références de vote
+ont été constatées à trois et quatre niveaux d'imbrication. Un parseur à
+profondeur fixe perd des données en silence. `profondeur` est stockée pour rendre
+ce fait visible, et appartient au couple : le même acte n'occupe pas forcément la
+même place dans deux dossiers.
 
 Deux colonnes de libellé, parce que `libelleActe` n'est **pas une chaîne** dans
 la source mais un objet `{nomCanonique, libelleCourt}`. Le stocker tel quel
 produirait un libellé illisible sur toute la frise.
 
 `date_acte` est un `timestamptz` et non une `date` : la source renseigne un
-horodatage complet avec fuseau (`2023-03-17T00:00:00.000+01:00`). Autant le
-conserver que le tronquer sans le savoir.
+horodatage complet avec fuseau (`2023-03-17T00:00:00.000+01:00`).
 
 C'est cette table qui alimente la frise « Dépôt → Commission → Assemblée →
 Sénat → CMP → Conseil constitutionnel → promulgation » de la page loi. Les codes
@@ -230,11 +257,24 @@ constitutionnel.
 ### Le 49.3 est un concept de premier rang
 
 ```sql
--- Un engagement de responsabilité se reconnait au code d'acte AN21.
+-- Un engagement de responsabilite porte le code d'acte AN21.
 CREATE VIEW officiel.dossier_49_3 AS
-SELECT DISTINCT dossier_uid
-FROM officiel.acte_legislatif
+SELECT DISTINCT dossier_uid FROM officiel.acte_legislatif
 WHERE code_acte LIKE 'AN21%';
+
+-- Deux dossiers qui partagent un acte decrivent le meme evenement sous deux
+-- angles. C'est le seul lien entre un texte et l'engagement qui l'a fait
+-- adopter : la source ne l'ecrit nulle part ailleurs.
+CREATE VIEW officiel.dossier_lie_par_acte AS
+SELECT DISTINCT a.dossier_uid, b.dossier_uid AS dossier_lie_uid
+FROM officiel.acte_legislatif a
+JOIN officiel.acte_legislatif b ON b.uid = a.uid AND b.dossier_uid <> a.dossier_uid;
+
+CREATE VIEW officiel.dossier_adopte_sans_vote AS
+SELECT DISTINCT l.dossier_uid
+FROM officiel.dossier_lie_par_acte l
+JOIN officiel.dossier_49_3 e ON e.dossier_uid = l.dossier_lie_uid
+WHERE l.dossier_uid NOT IN (SELECT dossier_uid FROM officiel.dossier_49_3);
 ```
 
 Ce n'est pas un raffinement : sans lui, le produit rate sa question fondatrice.
@@ -243,20 +283,20 @@ La réforme des retraites de 2023 n'a donné lieu à **aucun vote sur son ensemb
 votes finaux renverrait une loi sur les retraites agricoles et manquerait la
 réforme (voir DATA_SOURCES 7.1).
 
+Le dossier de la loi ne porte pas `AN21` ; c'est le dossier d'engagement, séparé,
+qui le porte. Sur la XVIe, 32 dossiers d'engagement permettent d'identifier
+6 textes adoptés sans vote.
+
 Une page loi doit donc distinguer trois états, et non deux :
 
 | État | Ce que le produit affiche |
 | --- | --- |
 | Voté sur l'ensemble | Le scrutin, sa ventilation par groupe, les votes individuels |
-| Adopté par 49.3 | « Adopté sans vote. » Les motions de censure déposées et leur résultat |
+| Adopté sans vote (49.3) | « Adopté sans vote. » Les motions de censure déposées et leur résultat |
 | Adopté à main levée | « Vote individuel non disponible » — aucun scrutin n'existe |
 
-Depuis la XVIe, chaque 49.3 crée en outre un **dossier dédié**, intitulé
-« Engagement de la responsabilité du Gouvernement sur… ». Ces dossiers doivent
-être rattachés au texte qu'ils visent et ne jamais apparaître comme des lois
-autonomes dans une liste. La convention n'existe pas en XVe, qui porte des actes
-`AN21` sans dossier dédié : le rattachement se fait par `code_acte`, jamais par
-le titre.
+Ces dossiers d'engagement ne doivent jamais apparaître comme des lois autonomes
+dans une liste : ce sont des actes de procédure, rattachés au texte qu'ils visent.
 
 ---
 

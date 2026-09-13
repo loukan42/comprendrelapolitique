@@ -501,14 +501,53 @@ Gouvernement sur… ».
 
 Les 23 dossiers dédiés de la XVIe correspondent aux usages connus du 49.3 sous
 le gouvernement Borne. **La convention de titrage a changé entre législatures** :
-la XVe a des actes `AN21` sans dossier dédié. Seul `codeActe = 'AN21'` est un
-détecteur fiable ; le titre ne l'est pas.
+la XVe a des actes `AN21` sans dossier dédié. Seul `codeActe = 'AN21'` identifie
+un engagement de responsabilité ; le titre ne le fait pas.
 
 Une hypothèse plus simple a été testée et écartée : « texte promulgué sans
 décision de l'Assemblée » ne désigne qu'un seul dossier en XVIe. Les grandes lois
 budgétaires passées au 49.3 portent malgré tout une décision `AN1-DEBATS-DEC`,
-puisque le texte est réputé adopté. Le critère est donc trompeur et ne doit pas
-être utilisé.
+puisque le texte est réputé adopté. Le critère est trompeur et ne doit pas être
+utilisé.
+
+### 7.2 bis — Le dossier de la loi ne porte pas la marque du 49.3
+
+Point corrigé après vérification en base, et il compte : **le dossier de la
+réforme des retraites ne contient aucun acte `AN21`.** Chercher `AN21` sur le
+dossier d'un texte ne le désigne donc pas comme adopté sans vote.
+
+Le 49.3 vit dans un dossier séparé — ici `DLR5L16N47408`, « Engagement de la
+responsabilité du Gouvernement sur le vote du PLFRSS pour 2023… ». Le lien entre
+les deux n'est écrit nulle part : ni référence croisée, ni champ dédié.
+
+Il se déduit d'une particularité de la structure. **Les deux dossiers partagent
+des actes** : les mêmes `uid` figurent dans l'un et dans l'autre. Et ces actes
+partagés n'y portent pas le même code :
+
+| `uid` de l'acte | Dans le dossier de la loi | Dans le dossier d'engagement |
+| --- | --- | --- |
+| `L16-VD212217` | `CMP-MOTION` | `AN21-MOTION` |
+| `L16-VD212218` | `CMP-MOTION` | `AN21-MOTION` |
+| `L16-VD212198` | `CMP-DGVT` | `AN21-DGVT` |
+
+Le code décrit le **rôle de l'acte dans cette procédure-là**, pas une propriété
+de l'événement : la même motion de censure est un acte du stade CMP vu depuis la
+loi, et la motion déposée contre le 49.3 vue depuis l'engagement.
+
+Sur la XVIe, 99 `uid` d'actes sur 23 058 apparaissent ainsi dans deux dossiers.
+C'est peu, mais ces 99 actes portent précisément l'information qui manque
+ailleurs.
+
+La règle d'identification devient donc : **un texte a été adopté sans vote
+lorsqu'il partage un acte avec un dossier portant `AN21`, sans porter lui-même
+ce code.** Appliquée à la XVIe, elle identifie 6 textes à partir des 32 dossiers
+d'engagement.
+
+Conséquence de modélisation : un acte ne peut pas être stocké une seule fois. Sa
+clé est `(dossier, uid)`, et `uid` sert à retrouver les dossiers qui décrivent le
+même événement. Une clé primaire sur le seul `uid` fait disparaître en silence
+une version sur deux — c'est exactement ce qui effaçait la trace de la motion de
+censure du dossier de la réforme des retraites, et ce qu'un contrôle a rattrapé.
 
 ### 7.3 Le parcours complet d'une loi est déjà dans la donnée Assemblée
 

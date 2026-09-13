@@ -164,9 +164,13 @@ de code touchant aux données.** Ce qui suit est le minimum à ne jamais enfrein
    gabarit POUR / CONTRE / ABSTENTION affiche « 0 contre » et produit un
    contresens. Gabarit dédié obligatoire, et exclusion du quiz de proximité.
 4. **Un texte adopté par 49.3 n'a pas de vote sur son ensemble.** C'est le cas de
-   la réforme des retraites de 2023. Détection par `code_acte LIKE 'AN21%'`,
-   jamais par le titre. Trois états à distinguer sur une page loi : voté, adopté
-   par 49.3, adopté à main levée.
+   la réforme des retraites de 2023, et une recherche fondée sur les votes finaux
+   la manque entièrement. Le dossier de la loi ne porte **pas** `AN21` : le 49.3
+   vit dans un dossier séparé, et le lien ne se lit que dans les actes que les
+   deux dossiers partagent (vue `officiel.dossier_adopte_sans_vote`). Ni le
+   titre, ni `AN21` sur le dossier du texte ne sont des détecteurs. Trois états à
+   distinguer sur une page loi : voté sur l'ensemble, adopté sans vote par 49.3,
+   adopté à main levée.
 5. **Vérifier les données officielles entre elles.** Deux erreurs vérifiées sur
    556 liens scrutin ↔ dossier de la source. En cas de désaccord entre lien
    officiel et lien reconstruit, conserver les deux et signaler le conflit —
