@@ -41,3 +41,25 @@ export async function requeteUne<T = Record<string, unknown>>(
   const lignes = await requete<T>(sql, params);
   return lignes[0] ?? null;
 }
+
+let enrichissementPromise: Promise<boolean> | null = null;
+
+/**
+ * Le schéma `enrichissement` est optionnel : `npm run data:charger` produit
+ * une base complète sans lui, et c'est `data:formations` qui le crée. Une
+ * base chargée sans cette étape doit servir le site, avec les groupes
+ * parlementaires seuls et sans regroupement par formation, plutôt que de
+ * renvoyer une erreur sur chaque page.
+ *
+ * Le résultat est mis en cache pour la durée du processus : le schéma
+ * n'apparaît pas en cours d'exécution du serveur.
+ */
+export function enrichissementDisponible(): Promise<boolean> {
+  if (!enrichissementPromise) {
+    enrichissementPromise = requeteUne<{ existe: boolean }>(
+      `SELECT EXISTS (SELECT 1 FROM information_schema.schemata
+                       WHERE schema_name = 'enrichissement') AS existe`,
+    ).then((r) => r?.existe ?? false);
+  }
+  return enrichissementPromise;
+}

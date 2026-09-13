@@ -26,7 +26,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { requete } from "./db";
+import { enrichissementDisponible, requete } from "./db";
 import { QUESTIONS_VULGARISEES } from "./questionsQuiz";
 import { themeDepuisTitre, themeParSlug } from "./themes";
 
@@ -36,6 +36,12 @@ export interface RepartitionGroupe {
   /** `couleurAssociee` du référentiel de l'Assemblée, ou null si la source
    *  ne la renseigne pas. Jamais remplacée par une teinte choisie ici. */
   couleur: string | null;
+  /** Formation à laquelle ce groupe est rattaché, quand elle est connue
+   *  (`enrichissement.formation_groupe`). Permet de comparer l'utilisateur à
+   *  une famille politique suivie sur plusieurs législatures plutôt qu'à
+   *  chacun de ses groupes successifs. */
+  formationId: string | null;
+  formationLibelle: string | null;
   voixPour: number;
   voixContre: number;
   voixAbstention: number;
@@ -108,25 +114,54 @@ async function chargerDossiersFinaux(): Promise<DossierFinal[]> {
   }));
 }
 
+/**
+ * Les députés non inscrits sont écartés du calcul de proximité.
+ *
+ * Ce n'est pas un groupe politique, c'est l'absence de groupe : ses membres
+ * viennent de toutes les familles et ne partagent aucune ligne. Une
+ * proximité avec « les non-inscrits » ne désigne donc rien, et les afficher
+ * une fois par législature ferait apparaître la même étiquette plusieurs
+ * fois dans un classement, sans qu'il s'agisse d'une continuité.
+ *
+ * Ils restent comptés partout ailleurs : leurs voix figurent sur la page
+ * d'une loi et dans l'hémicycle, où elles ont été réellement exprimées.
+ */
+const FILTRE_NON_INSCRITS = `AND coalesce(o.libelle_abrege, '') <> 'NI'`;
+
 /** Répartition par groupe des scrutins donnés : donnée publique, jamais liée à une réponse. */
 async function chargerRepartitions(
   scrutinUids: string[],
 ): Promise<Map<string, RepartitionGroupe[]>> {
   if (scrutinUids.length === 0) return new Map();
+  const avecFormations = await enrichissementDisponible();
   const rows = await requete<{
     scrutin_uid: string;
     organe_uid: string;
     libelle: string | null;
     couleur: string | null;
+    formation_id: string | null;
+    formation_libelle: string | null;
     voix_pour: number;
     voix_contre: number;
     voix_abstention: number;
   }>(
-    `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, o.couleur,
-            sg.voix_pour, sg.voix_contre, sg.voix_abstention
-       FROM officiel.scrutin_groupe sg
-       LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
-      WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL`,
+    avecFormations
+      ? `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, o.couleur,
+                f.id AS formation_id, f.libelle AS formation_libelle,
+                sg.voix_pour, sg.voix_contre, sg.voix_abstention
+           FROM officiel.scrutin_groupe sg
+           LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
+           LEFT JOIN enrichissement.formation_groupe fg ON fg.organe_uid = sg.organe_uid
+           LEFT JOIN enrichissement.formation f ON f.id = fg.formation_id
+          WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL
+            ${FILTRE_NON_INSCRITS}`
+      : `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, o.couleur,
+                NULL AS formation_id, NULL AS formation_libelle,
+                sg.voix_pour, sg.voix_contre, sg.voix_abstention
+           FROM officiel.scrutin_groupe sg
+           LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
+          WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL
+            ${FILTRE_NON_INSCRITS}`,
     [scrutinUids],
   );
   const parScrutin = new Map<string, RepartitionGroupe[]>();
@@ -136,6 +171,8 @@ async function chargerRepartitions(
       organeUid: r.organe_uid,
       libelle: r.libelle,
       couleur: r.couleur,
+      formationId: r.formation_id,
+      formationLibelle: r.formation_libelle,
       voixPour: r.voix_pour,
       voixContre: r.voix_contre,
       voixAbstention: r.voix_abstention,

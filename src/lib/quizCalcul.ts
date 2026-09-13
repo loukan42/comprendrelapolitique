@@ -80,9 +80,24 @@ export function calculerResultat(
   const utiles = reponses.filter((r) => r.reponse !== "NSP");
   if (utiles.length === 0) return RESULTAT_VIDE;
 
+  // Clé d'agrégation : la formation quand le groupe en a une, le groupe
+  // sinon. Sans cela, un quiz couvrant trois législatures classe « Les
+  // Républicains » et « Droite Républicaine » comme deux familles
+  // distinctes, alors que c'est le même groupe renommé. Un scrutin donné ne
+  // fait voter qu'un seul groupe par formation, puisqu'il appartient à une
+  // seule législature : l'agrégation par formation compte donc exactement
+  // une fois par question, comme l'agrégation par groupe.
   const parGroupe = new Map<
     string,
-    { libelle: string | null; couleur: string | null; sommeProximite: number; questions: number }
+    {
+      libelle: string | null;
+      couleur: string | null;
+      /** Un groupe réel de la formation, pour pouvoir lier vers une page qui
+       *  existe : une formation n'a pas de page à elle. */
+      organeUid: string;
+      sommeProximite: number;
+      questions: number;
+    }
   >();
   const comparees: QuestionComparee[] = [];
 
@@ -94,19 +109,22 @@ export function calculerResultat(
     for (const ligne of question.repartition) {
       if (ligne.voixPour + ligne.voixContre + ligne.voixAbstention === 0) continue;
       const part = partAccord(reponse.reponse, ligne);
-      const courant = parGroupe.get(ligne.organeUid) ?? {
-        libelle: ligne.libelle,
+      const cle = ligne.formationId ?? ligne.organeUid;
+      const libelle = ligne.formationLibelle ?? ligne.libelle;
+      const courant = parGroupe.get(cle) ?? {
+        libelle,
         couleur: ligne.couleur,
+        organeUid: ligne.organeUid,
         sommeProximite: 0,
         questions: 0,
       };
       courant.sommeProximite += part;
       courant.questions += 1;
-      parGroupe.set(ligne.organeUid, courant);
+      parGroupe.set(cle, courant);
 
       groupes.push({
         organeUid: ligne.organeUid,
-        libelle: ligne.libelle,
+        libelle,
         couleur: ligne.couleur,
         accord: part,
       });
@@ -125,8 +143,8 @@ export function calculerResultat(
   }
 
   const parGroupeTrie = Array.from(parGroupe.entries())
-    .map(([organeUid, v]) => ({
-      organeUid,
+    .map(([, v]) => ({
+      organeUid: v.organeUid,
       libelle: v.libelle,
       couleur: v.couleur,
       proximite: v.sommeProximite / v.questions,

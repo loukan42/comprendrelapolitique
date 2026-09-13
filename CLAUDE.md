@@ -39,7 +39,19 @@ développement local utilise PGlite.
 npm run data:telecharger 16 data
 npm run data:charger 16 data/16 --db data/pg16
 npm run data:controler data/pg16
+npm run data:formations -- --db data/pg16
 ```
+
+`data:charger` se rejoue par législature sur la même base : charger la XVe,
+la XVIe et la XVIIe à la suite avec le même `--db` les réunit, la migration
+n'étant appliquée qu'à la première.
+
+`data:formations` crée le schéma `enrichissement` et rattache les groupes
+parlementaires aux formations politiques qu'ils prolongent, sans quoi « Les
+Républicains » et « Droite Républicaine » comptent comme deux familles. Le
+site fonctionne sans cette étape, mais les classements affichent alors un
+groupe par législature. `--preuve` n'écrit rien et réimprime les mandats de
+parti sur lesquels chaque rattachement s'appuie.
 
 `data/` n'est pas versionné : les données sont retéléchargeables, c'est le code
 d'import qui est le livrable.

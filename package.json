@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "data:telecharger": "node scripts/import/telecharger.ts",
     "data:charger": "node scripts/import/charger.ts",
-    "data:controler": "node scripts/import/controler.ts"
+    "data:controler": "node scripts/import/controler.ts",
+    "data:formations": "node scripts/import/formations.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"
