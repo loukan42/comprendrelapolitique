@@ -229,4 +229,13 @@ export const QUESTIONS_VULGARISEES: Record<string, FormulationQuestion> = {
     contexte:
       "Ce texte approuve les comptes définitifs de l'État pour l'année 2022 : ce qui a été réellement dépensé et perçu, par rapport à ce qui avait été voté.",
   },
+
+  // XVIIe législature (depuis 2024) : ajouté après le chargement de cette
+  // législature dans la base locale, qui a fait perdre au thème justice tout
+  // candidat rédigé parmi ses trois textes les plus suivis.
+  DLR5L17N53942: {
+    question: "Faut-il renforcer les moyens des juridictions qui jugent les crimes ?",
+    contexte:
+      "Ce texte vise à renforcer l'organisation et les moyens des juridictions chargées de juger les crimes (cours criminelles, cours d'assises).",
+  },
 };

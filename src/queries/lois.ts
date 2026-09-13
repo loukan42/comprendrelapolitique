@@ -246,3 +246,48 @@ export const chercherDossiers = createServerFn({ method: "GET" })
       legislature: r.legislature,
     }));
   });
+
+export interface DossierRecent {
+  dossierUid: string;
+  titre: string | null;
+  dateScrutin: string;
+  sortCode: string | null;
+  sortLibelle: string | null;
+}
+
+/**
+ * Les votes sur l'ensemble d'un texte les plus récents, toutes législatures
+ * confondues : contrairement au quiz (chargerQuestionsExpress dans
+ * queries/quiz.ts), qui choisit par affluence pour le tirage des questions,
+ * cette liste sert un usage différent (« qu'est-ce qui vient de se passer »)
+ * et doit donc trier par date, pas par popularité.
+ */
+export const chargerScrutinsRecents = createServerFn({ method: "GET" }).handler(
+  async (): Promise<DossierRecent[]> => {
+    const rows = await requete<{
+      dossier_uid: string;
+      titre: string | null;
+      date_scrutin: string;
+      sort_code: string | null;
+      sort_libelle: string | null;
+    }>(
+      `SELECT DISTINCT ON (sd.dossier_uid)
+              sd.dossier_uid, d.titre, s.date_scrutin, s.sort_code, s.sort_libelle
+         FROM officiel.scrutin s
+         JOIN officiel.scrutin_dossier sd ON sd.scrutin_uid = s.uid
+         LEFT JOIN officiel.dossier d ON d.uid = sd.dossier_uid
+        WHERE s.est_vote_sur_ensemble AND sd.dossier_uid IS NOT NULL
+        ORDER BY sd.dossier_uid, s.date_scrutin DESC`,
+    );
+    return rows
+      .map((r) => ({
+        dossierUid: r.dossier_uid,
+        titre: r.titre,
+        dateScrutin: r.date_scrutin,
+        sortCode: r.sort_code,
+        sortLibelle: r.sort_libelle,
+      }))
+      .sort((a, b) => (a.dateScrutin < b.dateScrutin ? 1 : -1))
+      .slice(0, 6);
+  },
+);

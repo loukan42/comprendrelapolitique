@@ -14,13 +14,13 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core";
-import { IconBrain, IconNews, IconSearch } from "@tabler/icons-react";
+import { IconBrain, IconCircleCheck, IconCircleX, IconNews, IconSearch } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CarteLien } from "../components/CarteLien";
-import { chargerQuestionsExpress } from "../queries/quiz";
+import { chargerScrutinsRecents } from "../queries/lois";
 
 export const Route = createFileRoute("/")({
-  loader: () => chargerQuestionsExpress(),
+  loader: () => chargerScrutinsRecents(),
   component: Accueil,
 });
 
@@ -60,6 +60,11 @@ const COUVERTURE = [
 ];
 
 const nombre = new Intl.NumberFormat("fr-FR");
+const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
 const pourcent = (part: number, total: number) =>
   new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 1 }).format(
     part / total,
@@ -170,21 +175,31 @@ function Accueil() {
             <Box>
               <Title order={2}>Des scrutins récents</Title>
               <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-                Parmi les votes sur l&apos;ensemble d&apos;un texte, ceux qui ont réuni le plus de
-                suffrages exprimés : en attendant un score d&apos;importance publique (voir{" "}
-                <Anchor component={Link} to="/methodologie">
-                  la méthodologie
-                </Anchor>
-                ), l&apos;affluence sert de repère provisoire, pas de classement définitif.
+                Les derniers votes sur l&apos;ensemble d&apos;un texte, toutes législatures
+                confondues, du plus récent au plus ancien.
               </Text>
               <SimpleGrid cols={{ base: 1, sm: 2 }} mt="lg" spacing="md">
-                {decisions
-                  .filter((d) => d.dossierUid !== null)
-                  .map((d) => (
-                    <CarteLien key={d.scrutinUid} href={`/lois/${d.dossierUid}`}>
-                      <Text fw={600}>{d.dossierTitre ?? d.objetLibelle}</Text>
-                    </CarteLien>
-                  ))}
+                {decisions.map((d) => (
+                  <CarteLien key={d.dossierUid} href={`/lois/${d.dossierUid}`}>
+                    <Group gap="xs" wrap="nowrap" align="flex-start">
+                      {d.sortCode === "adopté" && (
+                        <IconCircleCheck size={18} style={{ flexShrink: 0, marginTop: 3 }} />
+                      )}
+                      {d.sortCode === "rejeté" && (
+                        <IconCircleX
+                          size={18}
+                          style={{ flexShrink: 0, marginTop: 3, opacity: 0.6 }}
+                        />
+                      )}
+                      <Box>
+                        <Text fw={600}>{d.titre ?? d.dossierUid}</Text>
+                        <Text size="sm" c="dimmed" mt={2}>
+                          {dateCourte.format(new Date(d.dateScrutin))}
+                        </Text>
+                      </Box>
+                    </Group>
+                  </CarteLien>
+                ))}
               </SimpleGrid>
             </Box>
           )}

@@ -106,9 +106,22 @@ async function main() {
 
   const t = chrono();
   const db = await ouvrirPGlite(cheminDb);
-  await appliquerMigration(db, MIGRATION);
+  // Une base déjà migrée (chargement d'une deuxième législature dans le même
+  // fichier persisté) ne doit pas rejouer la migration : les CREATE TABLE n'y
+  // sont pas idempotents, et cette base contiendrait alors des doublons de
+  // schéma. `charger.ts` ne charge qu'une législature par appel (voir l'en-tête
+  // du fichier) ; combiner plusieurs législatures dans une même base persistée
+  // suppose donc plusieurs appels successifs avec le même `--db`.
+  const [{ existe }] = await db.query<{ existe: boolean }>(
+    `SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'officiel') AS existe`,
+  );
+  if (existe) {
+    console.log(`Schéma déjà présent, migration ignorée (${t()})`);
+  } else {
+    await appliquerMigration(db, MIGRATION);
+    console.log(`Schéma appliqué (${t()})`);
+  }
   await semerLegislatures(db);
-  console.log(`Schéma appliqué (${t()})`);
 
   // L'ordre est imposé par les clés étrangères : organes avant acteurs, acteurs
   // avant mandats, dossiers avant documents et actes, scrutins en dernier.
