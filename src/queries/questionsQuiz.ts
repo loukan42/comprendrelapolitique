@@ -138,4 +138,95 @@ export const QUESTIONS_VULGARISEES: Record<string, FormulationQuestion> = {
     contexte:
       "Ce texte réorganise la gouvernance de la sûreté nucléaire et de la radioprotection (fusion des autorités de contrôle) dans le cadre de la relance de la filière nucléaire.",
   },
+
+  // Deuxième et troisième choix par thème, pour que « Refaire le quiz »
+  // (chargerQuestionsGrandQuiz) puisse tirer une question différente du même
+  // thème plutôt que de reproduire toujours le même quiz. Un dossier trop
+  // composite pour tenir en une seule question fidèle (ex. un texte
+  // d'adaptation au droit européen couvrant plusieurs domaines à la fois)
+  // n'est délibérément pas couvert ici : il vaut mieux qu'il ne soit jamais
+  // tiré au sort que mal résumé.
+  DLR5L16N46486: {
+    question:
+      "Faut-il permettre à plus de professionnels de santé (pharmaciens, infirmiers) de prescrire ou de suivre certains soins sans passer par un médecin ?",
+    contexte:
+      "Ce texte élargit les compétences de certains professionnels de santé pour faciliter l'accès aux soins face au manque de médecins.",
+  },
+  DLR5L16N47721: {
+    question:
+      "Faut-il inciter davantage les professionnels de santé à s'engager dans les zones où les médecins manquent ?",
+    contexte:
+      "Ce texte vise à mieux répartir l'offre de soins sur le territoire en encourageant l'engagement des professionnels de santé dans les zones sous-dotées en médecins.",
+  },
+  DLR5L16N48597: {
+    question:
+      "Faut-il moduler les aides de l'État aux communes pour rénover les écoles selon leurs moyens financiers ?",
+    contexte:
+      "Ce texte prévoit que les subventions de l'État pour la rénovation écologique des bâtiments scolaires tiennent compte de la capacité financière de chaque commune.",
+  },
+  DLR5L16N49799: {
+    question:
+      "Faut-il développer l'enseignement des langues régionales pour améliorer la réussite scolaire des jeunes ultramarins ?",
+    contexte:
+      "Ce texte vise à mieux prendre en compte les langues régionales des outre-mer dans l'enseignement pour favoriser la réussite scolaire des élèves.",
+  },
+  DLR5L16N46266: {
+    question: "Faut-il prendre des mesures d'urgence pour faciliter le retour à l'emploi ?",
+    contexte:
+      "Ce texte adopte des mesures d'urgence sur le fonctionnement du marché du travail, dans la perspective du plein emploi.",
+  },
+  DLR5L16N49096: {
+    question: "Faut-il simplifier les procédures pour rénover plus vite les logements dégradés ?",
+    contexte:
+      "Ce texte accélère et simplifie les démarches administratives pour la rénovation de l'habitat dégradé et les grandes opérations d'aménagement urbain.",
+  },
+  DLR5L16N49107: {
+    question: "Faut-il faciliter la transformation de bureaux vides en logements ?",
+    contexte:
+      "Ce texte simplifie les règles permettant de transformer des locaux de bureaux en logements.",
+  },
+  DLR5L16N46205: {
+    question:
+      "Faut-il approuver cet accord de coopération judiciaire et d'extradition avec le Sénégal ?",
+    contexte:
+      "Ce texte approuve une convention d'entraide judiciaire en matière pénale et un accord d'extradition entre la France et le Sénégal.",
+  },
+  DLR5L16N47917: {
+    question:
+      "Faut-il faciliter l'implantation d'usines en France pour développer l'industrie verte ?",
+    contexte:
+      "Ce texte simplifie les procédures administratives et fiscales pour faciliter l'implantation d'usines liées à la transition écologique (batteries, panneaux solaires, éoliennes) en France.",
+  },
+  DLR5L16N47979: {
+    question:
+      "Faut-il généraliser le partage des bénéfices avec les salariés dans les entreprises ?",
+    contexte:
+      "Ce texte transpose un accord entre partenaires sociaux sur le partage de la valeur (intéressement, participation, prime) au sein des entreprises.",
+  },
+  DLR5L16N46185: {
+    question: "Faut-il modifier le traitement fiscal des pensions alimentaires ?",
+    contexte:
+      "Ce texte modifie les règles de déduction et d'imposition des pensions alimentaires versées ou reçues.",
+  },
+  DLR5L16N46445: {
+    question: "Faut-il modifier les règles d'organisation des élections sénatoriales ?",
+    contexte:
+      "Ce texte modifie certaines règles pratiques du déroulement des élections sénatoriales.",
+  },
+  DLR5L16N46753: {
+    question:
+      "Faut-il permettre à l'État et aux collectivités de recourir à des tiers financeurs pour rénover leurs bâtiments ?",
+    contexte:
+      "Ce texte ouvre aux collectivités et à l'État la possibilité de faire financer leurs travaux de rénovation énergétique par un tiers, remboursé ensuite grâce aux économies d'énergie réalisées.",
+  },
+  DLR5L16N45929: {
+    question: "Faut-il approuver la manière dont le budget de l'État a été exécuté en 2021 ?",
+    contexte:
+      "Ce texte approuve les comptes définitifs de l'État pour l'année 2021 : ce qui a été réellement dépensé et perçu, par rapport à ce qui avait été voté.",
+  },
+  DLR5L16N47569: {
+    question: "Faut-il approuver la manière dont le budget de l'État a été exécuté en 2022 ?",
+    contexte:
+      "Ce texte approuve les comptes définitifs de l'État pour l'année 2022 : ce qui a été réellement dépensé et perçu, par rapport à ce qui avait été voté.",
+  },
 };

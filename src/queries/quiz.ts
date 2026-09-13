@@ -173,11 +173,19 @@ export const chargerQuestionsExpress = createServerFn({ method: "GET" }).handler
 );
 
 /**
- * Répartit les dossiers entre thèmes par tours : au premier tour, le
- * dossier le plus suivi de chaque thème ; au second tour, le deuxième de
- * chaque thème qui en a un ; ainsi de suite jusqu'à `cible` questions. Un
- * thème ne peut donc dominer qu'après que tous les autres ont contribué au
- * moins autant.
+ * Répartit les dossiers entre thèmes par tours : au premier tour, un
+ * dossier de chaque thème ; au second tour, un autre de chaque thème qui en
+ * a un ; ainsi de suite jusqu'à `cible` questions. Un thème ne peut donc
+ * dominer qu'après que tous les autres ont contribué au moins autant.
+ *
+ * Le dossier retenu au premier tour n'est pas toujours le plus suivi : s'il
+ * existe une fiche rédigée à la main (`questionsQuiz.ts`) pour un autre
+ * dossier parmi les trois plus suivis du thème, le tirage se fait au hasard
+ * parmi ces dossiers déjà rédigés. Sans cela, « Refaire le quiz » posait
+ * toujours exactement les mêmes 16 questions, puisque la sélection par
+ * suffrages exprimés est déterministe. Un dossier sans fiche ne concourt
+ * jamais à ce tirage : mieux vaut ne jamais le proposer que retomber sur la
+ * reformulation générique à chaque partie.
  */
 function repartirParTheme(
   dossiers: DossierFinal[],
@@ -191,8 +199,18 @@ function repartirParTheme(
     liste.push(d);
     parTheme.set(theme, liste);
   }
-  for (const liste of parTheme.values())
+  for (const liste of parTheme.values()) {
     liste.sort((a, b) => b.suffragesExprimes - a.suffragesExprimes);
+    const candidats = liste
+      .slice(0, 3)
+      .map((d, i) => i)
+      .filter((i) => liste[i]?.dossierUid && QUESTIONS_VULGARISEES[liste[i]!.dossierUid!]);
+    if (candidats.length > 0) {
+      const choisi = candidats[Math.floor(Math.random() * candidats.length)]!;
+      const [tire] = liste.splice(choisi, 1);
+      liste.unshift(tire!);
+    }
+  }
 
   const selection: (DossierFinal & { theme: string; themeLibelle: string })[] = [];
   for (let tour = 0; selection.length < cible; tour++) {
