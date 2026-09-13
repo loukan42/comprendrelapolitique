@@ -137,8 +137,11 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
         {/* Sans ce script, le thème clignote au chargement : le navigateur peint
-            d'abord le thème clair avant que React ne rétablisse le bon. */}
-        <ColorSchemeScript />
+            d'abord le thème clair avant que React ne rétablisse le bon. Le
+            défaut doit être le même que celui du MantineProvider, sinon le
+            clignotement revient pour les visiteurs qui n'ont pas encore
+            choisi. */}
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
         {children}
@@ -152,7 +155,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <MantineProvider theme={theme} defaultColorScheme="auto">
+    <MantineProvider theme={theme} defaultColorScheme="dark">
       <QueryClientProvider client={queryClient}>
         <SiteHeader />
         {/* Requis : les routes enfants s'affichent ici. Retirer l'Outlet les
