@@ -22,16 +22,17 @@ import {
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  calculerProximite,
-  chargerQuestionsExpress,
-  type ProximiteGroupe,
+  calculerResultat,
+  chargerQuestionsGrandQuiz,
+  type QuestionComparee,
   type QuestionQuiz,
   type ReponseQuiz,
   type ReponseUtilisateur,
+  type ResultatQuiz,
 } from "../queries/quiz";
 
 export const Route = createFileRoute("/quiz")({
-  loader: () => chargerQuestionsExpress(),
+  loader: () => chargerQuestionsGrandQuiz(),
   component: PageQuiz,
 });
 
@@ -66,7 +67,8 @@ function EcranQuestion({
         <Box>
           <Progress value={(index / total) * 100} size={6} radius="xl" />
           <Text c="dimmed" size="sm" mt="xs">
-            Question {index + 1} sur {total} · scrutin du{" "}
+            Question {index + 1} sur {total}
+            {question.themeLibelle && <> · {question.themeLibelle}</>} · scrutin du{" "}
             {dateCourte.format(new Date(question.dateScrutin))}
           </Text>
         </Box>
@@ -98,35 +100,62 @@ function EcranQuestion({
   );
 }
 
-function BarreProximite({ groupe, meilleur }: { groupe: ProximiteGroupe; meilleur: number }) {
+function BarreProximite({
+  libelle,
+  href,
+  valeur,
+  reference,
+}: {
+  libelle: string;
+  href?: string;
+  valeur: number;
+  reference: number;
+}) {
   return (
     <Card withBorder radius="md" padding="md">
       <Stack gap={6}>
         <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-          <Anchor href={`/groupes/${groupe.organeUid}`} fw={600} underline="hover">
-            {groupe.libelle ?? groupe.organeUid}
-          </Anchor>
-          <Text fw={700}>{pourcent.format(groupe.proximite)}</Text>
+          {href ? (
+            <Anchor href={href} fw={600} underline="hover">
+              {libelle}
+            </Anchor>
+          ) : (
+            <Text fw={600}>{libelle}</Text>
+          )}
+          <Text fw={700}>{pourcent.format(valeur)}</Text>
         </Box>
-        <Progress
-          value={(groupe.proximite / meilleur) * 100}
-          size="md"
-          radius="xl"
-          color="graphite"
-        />
+        <Progress value={(valeur / reference) * 100} size="md" radius="xl" color="graphite" />
       </Stack>
     </Card>
   );
 }
 
+function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
+  return (
+    <Card withBorder radius="md" padding="md">
+      <Text fw={600}>{question.dossierTitre ?? question.objetLibelle}</Text>
+      <Text c="dimmed" size="sm" mt={4}>
+        Vous avez répondu «&nbsp;
+        {question.reponse === "POUR"
+          ? "pour"
+          : question.reponse === "CONTRE"
+            ? "contre"
+            : "abstention"}
+        &nbsp;», comme {pourcent.format(question.soutienChambre)} des votants de l&apos;Assemblée
+        sur ce texte.
+      </Text>
+    </Card>
+  );
+}
+
 function EcranResultat({
-  resultats,
+  resultat,
   onRecommencer,
 }: {
-  resultats: ProximiteGroupe[];
+  resultat: ResultatQuiz;
   onRecommencer: () => void;
 }) {
-  if (resultats.length === 0) {
+  if (resultat.parGroupe.length === 0) {
     return (
       <Card withBorder radius="md" padding="xl" maw={560} mx="auto">
         <Stack gap="md">
@@ -144,20 +173,75 @@ function EcranResultat({
       </Card>
     );
   }
-  const meilleur = resultats[0]?.proximite ?? 1;
+  const meilleurGroupe = resultat.parGroupe[0]?.proximite ?? 1;
+  const meilleurTheme = resultat.parTheme[0]?.soutienMoyen ?? 1;
+
   return (
-    <Stack gap="lg" maw={560} mx="auto">
-      <Title order={2}>Vos réponses sont les plus proches de…</Title>
-      <Stack gap="sm">
-        {resultats.map((r) => (
-          <BarreProximite key={r.organeUid} groupe={r} meilleur={meilleur} />
-        ))}
+    <Stack gap={40} maw={640} mx="auto">
+      <Stack gap="md">
+        <Title order={2}>Vos réponses sont les plus proches de…</Title>
+        <Stack gap="sm">
+          {resultat.parGroupe.map((g) => (
+            <BarreProximite
+              key={g.organeUid}
+              libelle={g.libelle ?? g.organeUid}
+              href={`/groupes/${g.organeUid}`}
+              valeur={g.proximite}
+              reference={meilleurGroupe}
+            />
+          ))}
+        </Stack>
+        <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
+          Ce résultat compare uniquement vos réponses à des votes parlementaires passés. Il ne
+          constitue pas une recommandation électorale et ne tient pas compte de l&apos;ensemble des
+          programmes, candidats ou enjeux futurs.
+        </Alert>
       </Stack>
-      <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-        Ce résultat compare uniquement vos réponses à des votes parlementaires passés. Il ne
-        constitue pas une recommandation électorale et ne tient pas compte de l&apos;ensemble des
-        programmes, candidats ou enjeux futurs.
-      </Alert>
+
+      {resultat.parTheme.length > 0 && (
+        <Stack gap="md">
+          <Box>
+            <Title order={2}>Par thème</Title>
+            <Text c="dimmed" size="sm" mt={4}>
+              La part de l&apos;Assemblée qui a voté comme vous, en moyenne sur les questions de
+              chaque thème.
+            </Text>
+          </Box>
+          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
+            {resultat.parTheme.map((t) => (
+              <BarreProximite
+                key={t.theme}
+                libelle={t.libelle}
+                valeur={t.soutienMoyen}
+                reference={meilleurTheme}
+              />
+            ))}
+          </SimpleGrid>
+        </Stack>
+      )}
+
+      {resultat.accords.length > 0 && (
+        <Stack gap="md">
+          <Title order={2}>Vos principaux points d&apos;accord avec l&apos;Assemblée</Title>
+          <Stack gap="sm">
+            {resultat.accords.map((q) => (
+              <BlocQuestionComparee key={q.scrutinUid} question={q} />
+            ))}
+          </Stack>
+        </Stack>
+      )}
+
+      {resultat.desaccords.length > 0 && (
+        <Stack gap="md">
+          <Title order={2}>Vos principaux désaccords</Title>
+          <Stack gap="sm">
+            {resultat.desaccords.map((q) => (
+              <BlocQuestionComparee key={q.scrutinUid} question={q} />
+            ))}
+          </Stack>
+        </Stack>
+      )}
+
       <Button variant="default" onClick={onRecommencer} w="fit-content">
         Refaire le quiz
       </Button>
@@ -169,7 +253,7 @@ function PageQuiz() {
   const questions = Route.useLoaderData();
   const [indexCourant, setIndexCourant] = useState(0);
   const [reponses, setReponses] = useState<ReponseUtilisateur[]>([]);
-  const [resultats, setResultats] = useState<ProximiteGroupe[] | null>(null);
+  const [resultat, setResultat] = useState<ResultatQuiz | null>(null);
   const [enCalcul, setEnCalcul] = useState(false);
 
   if (questions.length === 0) {
@@ -192,15 +276,15 @@ function PageQuiz() {
       return;
     }
     setEnCalcul(true);
-    const r = await calculerProximite({ data: nouvelles });
-    setResultats(r);
+    const r = await calculerResultat({ data: nouvelles });
+    setResultat(r);
     setEnCalcul(false);
   }
 
   function recommencer() {
     setIndexCourant(0);
     setReponses([]);
-    setResultats(null);
+    setResultat(null);
   }
 
   return (
@@ -209,18 +293,19 @@ function PageQuiz() {
         <Box maw="var(--mesure-texte)" mx="auto" ta="center">
           <Title order={1}>Et vous, vous auriez voté quoi ?</Title>
           <Text mt="sm" c="dimmed">
-            Cinq scrutins réels de l&apos;Assemblée nationale, choisis parmi les plus suivis.
-            Répondez, puis comparez votre position à celle des groupes parlementaires.
+            {questions.length} scrutins réels de l&apos;Assemblée nationale, répartis entre les
+            grands thèmes. Répondez, puis comparez votre position à celle des groupes
+            parlementaires.
           </Text>
           <Badge mt="xs" variant="outline" color="graphite">
-            format express · 5 questions
+            grand quiz · {questions.length} questions
           </Badge>
         </Box>
 
         {enCalcul ? (
           <Progress value={100} size={6} radius="xl" animated maw={560} mx="auto" w="100%" />
-        ) : resultats ? (
-          <EcranResultat resultats={resultats} onRecommencer={recommencer} />
+        ) : resultat ? (
+          <EcranResultat resultat={resultat} onRecommencer={recommencer} />
         ) : (
           questions[indexCourant] && (
             <EcranQuestion
