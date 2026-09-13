@@ -27,6 +27,29 @@ function afficher(intitule: string, valeur: unknown): void {
   console.log(`         ${intitule} : ${valeur}`);
 }
 
+/**
+ * Pour un écart connu et documenté (référence orpheline vers un autre jeu,
+ * qualité inégale d'une archive historique) plutôt qu'un chiffre exact : échoue
+ * seulement si l'écart mesuré dépasse le seuil, pour absorber une variation
+ * mineure déjà documentée sans masquer une régression de l'importeur.
+ */
+function verifierMax(intitule: string, obtenu: unknown, seuil: number): void {
+  const n = Number(obtenu);
+  const ok = Number.isFinite(n) && n <= seuil;
+  if (!ok) echecs++;
+  console.log(`  ${ok ? "OK  " : "ECHEC"}  ${intitule} : ${obtenu}`);
+  if (!ok) console.log(`          seuil ${seuil}, obtenu ${obtenu}`);
+}
+
+/** Symétrique de verifierMax, pour un plancher de couverture. */
+function verifierMin(intitule: string, obtenu: unknown, seuil: number): void {
+  const n = Number(obtenu);
+  const ok = Number.isFinite(n) && n >= seuil;
+  if (!ok) echecs++;
+  console.log(`  ${ok ? "OK  " : "ECHEC"}  ${intitule} : ${obtenu}`);
+  if (!ok) console.log(`          seuil ${seuil}, obtenu ${obtenu}`);
+}
+
 async function un<T>(db: Db, sql: string, params: unknown[] = []): Promise<T | undefined> {
   const r = await db.query<Record<string, T>>(sql, params);
   return r[0] ? (Object.values(r[0])[0] as T) : undefined;
@@ -308,7 +331,12 @@ async function main() {
       "amendements sans décision (non discutés)",
       await un(db, "SELECT count(*) FROM officiel.amendement WHERE sort_brut IS NULL"),
     );
-    afficher(
+    // Seuils fixés avec une marge au-dessus des valeurs mesurées sur la XVIe
+    // (docs/DATA_MODEL.md section 7 bis, docs/DATA_SOURCES.md section 7 bis.4) :
+    // assez de marge pour absorber le gradient de qualité déjà documenté sur
+    // une archive historique, pas assez pour laisser passer une régression de
+    // l'importeur sans échec.
+    verifierMax(
       "amendements référençant un document absent du jeu Dossiers",
       await un(
         db,
@@ -316,8 +344,9 @@ async function main() {
           LEFT JOIN officiel.document d ON d.uid = a.document_uid
          WHERE d.uid IS NULL`,
       ),
+      70, // mesuré : 47 sur 163 789 (0,03 %)
     );
-    afficher(
+    verifierMax(
       "amendements référençant un dossier absent",
       await un(
         db,
@@ -325,8 +354,9 @@ async function main() {
           LEFT JOIN officiel.dossier d ON d.uid = a.dossier_uid
          WHERE d.uid IS NULL`,
       ),
+      5, // mesuré : 0, la référence concorde sur l'intégralité du corpus
     );
-    afficher(
+    verifierMax(
       "auteurs d'amendement absents du jeu Acteurs",
       await un(
         db,
@@ -334,8 +364,9 @@ async function main() {
           LEFT JOIN officiel.acteur ac ON ac.uid = a.auteur_acteur_uid
          WHERE a.auteur_acteur_uid IS NOT NULL AND ac.uid IS NULL`,
       ),
+      25, // mesuré : 13 sur 162 290 auteurs de type acteur
     );
-    afficher(
+    verifierMax(
       "cosignataires absents du jeu Acteurs",
       await un(
         db,
@@ -343,6 +374,7 @@ async function main() {
           LEFT JOIN officiel.acteur ac ON ac.uid = c.acteur_uid
          WHERE ac.uid IS NULL`,
       ),
+      5000, // mesuré : 3 681 sur 3 148 274 (0,12 %)
     );
   }
 
@@ -354,9 +386,21 @@ async function main() {
     // mesurée à ce stade.
     const ATTENDUS_DEBATS: Record<
       number,
-      { seances: number; points: number; interventions: number; orateurs: number }
+      {
+        seances: number;
+        points: number;
+        interventions: number;
+        orateurs: number;
+        sansActeur: number;
+      }
     > = {
-      16: { seances: 605, points: 31392, interventions: 337041, orateurs: 312097 },
+      16: {
+        seances: 605,
+        points: 31392,
+        interventions: 337041,
+        orateurs: 312097,
+        sansActeur: 29733,
+      },
     };
     const attenduDeb = ATTENDUS_DEBATS[legislature];
     if (attenduDeb) {
@@ -376,8 +420,21 @@ async function main() {
         await un(db, "SELECT count(*) FROM officiel.intervention_orateur"),
         attenduDeb.orateurs,
       );
+      // Compte les paragraphes sans attribut id_acteur dans le XML : une
+      // mention procédurale (didascalie, ouverture/fermeture de séance), pas
+      // un orateur non identifié (docs/DATA_SOURCES.md section 7 ter.3). Fixé
+      // par la source, donc vérifié à l'identique plutôt qu'avec un seuil.
+      verifier(
+        "interventions sans acteur identifié par la source",
+        await un(db, "SELECT count(*) FROM officiel.intervention WHERE acteur_uid IS NULL"),
+        attenduDeb.sansActeur,
+      );
     } else {
       afficher("interventions chargées", nInterventions);
+      afficher(
+        "interventions sans acteur identifié par la source",
+        await un(db, "SELECT count(*) FROM officiel.intervention WHERE acteur_uid IS NULL"),
+      );
     }
     // 'PA0' et les identifiants négatifs ne sont pas des acteurs (voir
     // db/migrations/001_officiel.sql) : jamais recopiés dans acteur_uid.
@@ -386,11 +443,10 @@ async function main() {
       await un(db, `SELECT count(*) FROM officiel.intervention WHERE acteur_uid = 'PA0'`),
       0,
     );
-    afficher(
-      "interventions sans acteur identifié par la source",
-      await un(db, "SELECT count(*) FROM officiel.intervention WHERE acteur_uid IS NULL"),
-    );
-    afficher(
+    // Gradient de qualité déjà documenté (docs/DATA_SOURCES.md section 7 ter.3,
+    // même nature que les orphelins d'amendements) : mesuré à 13 sur 656
+    // acteurs distincts référencés par les débats de la XVIe (2 %).
+    verifierMax(
       "acteurs référencés par les débats mais absents du jeu Acteurs",
       await un(
         db,
@@ -398,25 +454,30 @@ async function main() {
           LEFT JOIN officiel.acteur a ON a.uid = i.acteur_uid
          WHERE i.acteur_uid IS NOT NULL AND a.uid IS NULL`,
       ),
+      25,
     );
     // Le seul point d'ancrage vers le reste du modèle : `seanceRef`, identique
     // à `officiel.scrutin.seance_ref`. Combien de séances chargées ont au
-    // moins un scrutin, et réciproquement.
-    afficher(
+    // moins un scrutin, et réciproquement. Une couverture, pas un orphelin :
+    // un plancher, mesuré sur la XVIe à 506 séances sur 605 (83,6 %) et 4 097
+    // scrutins sur 4 106 (99,8 %).
+    verifierMin(
       "séances de débat avec au moins un scrutin rattaché",
       await un(
         db,
         `SELECT count(*) FROM officiel.debat_seance ds
           WHERE EXISTS (SELECT 1 FROM officiel.scrutin s WHERE s.seance_ref = ds.uid)`,
       ),
+      480,
     );
-    afficher(
+    verifierMin(
       "scrutins dont la séance de débat est chargée",
       await un(
         db,
         `SELECT count(*) FROM officiel.scrutin s
           WHERE EXISTS (SELECT 1 FROM officiel.debat_seance ds WHERE ds.uid = s.seance_ref)`,
       ),
+      4050,
     );
   }
 
