@@ -43,8 +43,8 @@ export interface ProximiteTheme {
 
 export interface QuestionComparee {
   scrutinUid: string;
+  question: string;
   dossierTitre: string | null;
-  objetLibelle: string;
   reponse: ReponseQuiz;
   theme: string | null;
   soutienChambre: number;
@@ -118,8 +118,8 @@ export function calculerResultat(
             : soutienTotalAbstention / totalChambre;
       comparees.push({
         scrutinUid: reponse.scrutinUid,
+        question: question.question,
         dossierTitre: question.dossierTitre,
-        objetLibelle: question.objetLibelle,
         reponse: reponse.reponse,
         theme: question.theme,
         soutienChambre,

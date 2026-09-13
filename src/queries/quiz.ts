@@ -10,10 +10,12 @@
  * docs/SCORING.md n'est pas encore calculé (aucune table ne le porte) : le
  * nombre de suffrages exprimés sert de proxy provisoire, pas au score
  * d'importance définitif, et l'attribution thématique par mots-clés
- * (`themes.ts`) est provisoire elle aussi. Le libellé de chaque question est
- * celui de la source (`objet_libelle`), jamais une reformulation : la
- * spécification interdit explicitement de fabriquer une question qui
- * déforme le scrutin réel.
+ * (`themes.ts`) est provisoire elle aussi. Le libellé affiché à
+ * l'utilisateur est une question vulgarisée rédigée à la main
+ * (`questionsQuiz.ts`), jamais générée à la volée : la spécification
+ * interdit explicitement de fabriquer une question qui déforme le scrutin
+ * réel, et le texte officiel (`objet_libelle`) reste toujours affiché à côté
+ * pour la traçabilité.
  *
  * Contrainte non négociable (QUIZ_METHODOLOGY.md section 1) : une réponse au
  * quiz est une opinion politique, donnée sensible au sens de l'article 9 du
@@ -25,6 +27,7 @@
 
 import { createServerFn } from "@tanstack/react-start";
 import { requete } from "./db";
+import { QUESTIONS_VULGARISEES } from "./questionsQuiz";
 import { themeDepuisTitre, themeParSlug } from "./themes";
 
 export interface RepartitionGroupe {
@@ -40,10 +43,29 @@ export interface QuestionQuiz {
   dossierUid: string | null;
   dossierTitre: string | null;
   objetLibelle: string;
+  /** Question vulgarisée, avec point d'interrogation. Voir questionsQuiz.ts. */
+  question: string;
+  /** Un ou deux phrases de contexte sur ce que fait réellement le texte. */
+  contexte: string | null;
   dateScrutin: string;
   theme: string | null;
   themeLibelle: string | null;
   repartition: RepartitionGroupe[];
+}
+
+/**
+ * Reprend la fiche rédigée à la main pour ce dossier (questionsQuiz.ts).
+ * À défaut, retombe sur le libellé officiel transformé en question : moins
+ * lisible, mais jamais un texte inventé au-delà de ce que dit la source.
+ */
+function formulerQuestion(
+  dossierUid: string | null,
+  objetLibelle: string,
+): { question: string; contexte: string | null } {
+  const fiche = dossierUid ? QUESTIONS_VULGARISEES[dossierUid] : undefined;
+  if (fiche) return fiche;
+  const propos = objetLibelle.replace(/\.$/, "");
+  return { question: `Êtes-vous favorable à ${propos} ?`, contexte: null };
 }
 
 interface DossierFinal {
@@ -121,16 +143,21 @@ async function assemblerQuestions(
   dossiers: (DossierFinal & { theme: string | null; themeLibelle: string | null })[],
 ): Promise<QuestionQuiz[]> {
   const repartitions = await chargerRepartitions(dossiers.map((d) => d.scrutinUid));
-  return dossiers.map((d) => ({
-    scrutinUid: d.scrutinUid,
-    dossierUid: d.dossierUid,
-    dossierTitre: d.dossierTitre,
-    objetLibelle: d.objetLibelle,
-    dateScrutin: d.dateScrutin,
-    theme: d.theme,
-    themeLibelle: d.themeLibelle,
-    repartition: repartitions.get(d.scrutinUid) ?? [],
-  }));
+  return dossiers.map((d) => {
+    const { question, contexte } = formulerQuestion(d.dossierUid, d.objetLibelle);
+    return {
+      scrutinUid: d.scrutinUid,
+      dossierUid: d.dossierUid,
+      dossierTitre: d.dossierTitre,
+      objetLibelle: d.objetLibelle,
+      question,
+      contexte,
+      dateScrutin: d.dateScrutin,
+      theme: d.theme,
+      themeLibelle: d.themeLibelle,
+      repartition: repartitions.get(d.scrutinUid) ?? [],
+    };
+  });
 }
 
 /** Les 5 dossiers les plus suivis, tous thèmes confondus : pour la homepage. */

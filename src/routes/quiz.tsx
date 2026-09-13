@@ -73,10 +73,11 @@ function EcranQuestion({
         </Box>
         <Box>
           <Title order={2} fz="xl">
-            {question.dossierTitre ?? "Ce qui était soumis au vote"}
+            {question.question}
           </Title>
-          <Text mt="sm" c="dimmed">
-            Le vote portait sur {question.objetLibelle}
+          {question.contexte && <Text mt="sm">{question.contexte}</Text>}
+          <Text mt="sm" c="dimmed" size="sm">
+            Texte réellement soumis au vote : {question.dossierTitre ?? question.objetLibelle}.
           </Text>
         </Box>
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
@@ -132,7 +133,7 @@ function BarreProximite({
 function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
   return (
     <Card withBorder radius="md" padding="md">
-      <Text fw={600}>{question.dossierTitre ?? question.objetLibelle}</Text>
+      <Text fw={600}>{question.question}</Text>
       <Text c="dimmed" size="sm" mt={4}>
         Vous avez répondu «&nbsp;
         {question.reponse === "POUR"
