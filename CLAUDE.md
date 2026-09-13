@@ -38,3 +38,20 @@ npm run data:controler data/pg16
 
 `data/` n'est pas versionné : les données sont retéléchargeables, c'est le code
 d'import qui est le livrable.
+
+## L'équipe d'agents
+
+Cinq agents spécialisés sont définis dans `.claude/agents/`. Chacun porte ce que
+le projet a appris, pour qu'une session neuve n'ait pas à le réapprendre.
+
+| Agent | Quand l'appeler |
+| --- | --- |
+| `procedure-parlementaire` | Avant d'afficher un vote, un scrutin ou un parcours de loi, et pour trancher si une formulation trahit ce qui s'est passé. |
+| `ingestion-donnees` | Pour étendre la chaîne d'import à une nouvelle source, ou maintenir celle de l'Assemblée. |
+| `methodologie-quantitative` | Avant d'implémenter une formule qui produit un chiffre public : score d'importance, proximité du quiz, taux d'unité. |
+| `vulgarisation` | Pour rédiger un résumé de loi, une fiche « ce qui change », un énoncé de quiz. |
+| `verification` | Avant toute mise en ligne d'un contenu qui affiche des données, et après toute modification de l'importeur. |
+
+`verification` ne modifie rien, il signale. Ce rôle existe parce que dans ce
+projet, chaque défaut réel a été trouvé par un contrôle sur un fait connu, et
+aucun par le code, qui s'exécutait proprement à chaque fois.
