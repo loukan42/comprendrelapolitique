@@ -602,9 +602,14 @@ export async function importerScrutins(
 
     const organe = (s.ventilationVotes ?? {}) as Obj;
     const conteneur = (organe.organe ?? {}) as Obj;
+    let ordre = 0;
     for (const g of liste<Obj>(((conteneur.groupes ?? {}) as Obj).groupe as Obj | Obj[])) {
-      const orgUid = texte(g.organeRef);
-      if (!orgUid) continue;
+      // 'PO0' n'est pas un organe : c'est l'absence d'organe. 14 scrutins de la
+      // XVIIe listent ainsi leurs douze groupes sans en identifier aucun. On
+      // conserve les blocs et les votes, sans inventer d'appartenance.
+      const brut = texte(g.organeRef);
+      const orgUid = brut === "PO0" ? null : brut;
+      ordre += 1;
       const vote = (g.vote ?? {}) as Obj;
       const dv = (vote.decompteVoix ?? {}) as Obj;
       const dn = (vote.decompteNominatif ?? {}) as Obj;
@@ -637,6 +642,7 @@ export async function importerScrutins(
 
       groupes.push([
         uid,
+        ordre,
         orgUid,
         entier(g.nombreMembresGroupe),
         texte(vote.positionMajoritaire),
@@ -718,6 +724,7 @@ export async function importerScrutins(
       table: "officiel.scrutin_groupe",
       colonnes: [
         "scrutin_uid",
+        "ordre",
         "organe_uid",
         "nombre_membres",
         "position_majoritaire",
@@ -731,6 +738,7 @@ export async function importerScrutins(
       ],
       types: [
         "text",
+        "smallint",
         "text",
         "integer",
         "text",
@@ -743,7 +751,7 @@ export async function importerScrutins(
         "text",
       ],
       cles: [0, 1],
-      conflit: `ON CONFLICT (scrutin_uid, organe_uid) DO UPDATE SET
+      conflit: `ON CONFLICT (scrutin_uid, ordre) DO UPDATE SET
         voix_pour = EXCLUDED.voix_pour, voix_contre = EXCLUDED.voix_contre,
         voix_abstention = EXCLUDED.voix_abstention,
         nominatif_complet = EXCLUDED.nominatif_complet,

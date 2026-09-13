@@ -219,9 +219,17 @@ CREATE INDEX idx_scrutin_ensemble ON officiel.scrutin (est_vote_sur_ensemble)
     WHERE est_vote_sur_ensemble;
 CREATE INDEX idx_scrutin_cle_titre ON officiel.scrutin (cle_titre);
 
+-- La cle est (scrutin, ordre) et non (scrutin, organe), parce que l'organe peut
+-- manquer : 14 scrutins de la XVIIe listent leurs 12 groupes avec un organeRef
+-- factice 'PO0' pour tous. Les effectifs montrent qu'il s'agit bien de groupes
+-- distincts -- 124, 93, 71, 66... -- mais la source n'a pas renseigne lesquels.
+-- Les cleffer sur l'organe ecraserait 11 blocs sur 12 et attribuerait tous ces
+-- votes a un meme faux groupe.
 CREATE TABLE officiel.scrutin_groupe (
     scrutin_uid                text     NOT NULL REFERENCES officiel.scrutin(uid) ON DELETE CASCADE,
-    organe_uid                 text     NOT NULL,
+    ordre                      smallint NOT NULL,
+    -- NULL = groupe non identifie par la source. Jamais un identifiant invente.
+    organe_uid                 text,
     nombre_membres             integer,
     position_majoritaire       text,
     voix_pour                  integer  NOT NULL DEFAULT 0,
@@ -233,15 +241,19 @@ CREATE TABLE officiel.scrutin_groupe (
     -- 17 cas en XVe, 39 en XVIe, 0 en XVIIe (DATA_SOURCES 5.5).
     nominatif_complet          boolean  NOT NULL DEFAULT true,
     ecart_constate             text,
-    PRIMARY KEY (scrutin_uid, organe_uid)
+    PRIMARY KEY (scrutin_uid, ordre)
 );
+
+CREATE INDEX idx_scrutin_groupe_organe ON officiel.scrutin_groupe (organe_uid);
 
 CREATE TABLE officiel.vote (
     scrutin_uid    text NOT NULL REFERENCES officiel.scrutin(uid) ON DELETE CASCADE,
     acteur_uid     text NOT NULL,
-    -- Groupe AU MOMENT DU VOTE. Donné par la structure de la source, jamais
-    -- calculé par intervalle de dates (DATA_SOURCES 5.1).
-    organe_uid     text NOT NULL,
+    -- Groupe AU MOMENT DU VOTE. Donne par la structure de la source, jamais
+    -- calcule par intervalle de dates (DATA_SOURCES 5.1).
+    -- NULL quand la source ne l'a pas renseigne : 1 916 votes de la XVIIe sont
+    -- dans ce cas. Un groupe inconnu s'affiche comme inconnu.
+    organe_uid     text,
     mandat_uid     text,
     position       officiel.position_vote NOT NULL,
     -- 15,1 % des votes de la XVIIe. À afficher, pas à masquer.
@@ -303,6 +315,14 @@ SELECT DISTINCT l.dossier_uid
 FROM officiel.dossier_lie_par_acte l
 JOIN officiel.dossier_49_3 e ON e.dossier_uid = l.dossier_lie_uid
 WHERE l.dossier_uid NOT IN (SELECT dossier_uid FROM officiel.dossier_49_3);
+
+-- Scrutins dont la repartition par groupe est inexploitable : la source n'a
+-- identifie aucun des groupes. Le produit doit le dire au lieu d'afficher une
+-- ventilation fausse.
+CREATE VIEW officiel.scrutin_groupe_non_identifie AS
+SELECT DISTINCT scrutin_uid
+FROM officiel.scrutin_groupe
+WHERE organe_uid IS NULL;
 
 -- Les motions de censure n'enregistrent que les votes POUR : les afficher avec
 -- un gabarit POUR/CONTRE/ABSTENTION produit un « 0 contre » trompeur.

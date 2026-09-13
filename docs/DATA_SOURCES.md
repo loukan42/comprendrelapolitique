@@ -426,6 +426,32 @@ Vérifié par ailleurs sur l'ensemble du corpus : **aucun acteur n'apparaît deu
 fois dans un même scrutin**. La contrainte d'unicité `(scrutin, acteur)` est donc
 sûre.
 
+### 5.6 Quatorze scrutins n'identifient aucun de leurs groupes
+
+Sur la XVIIe, 14 scrutins listent leurs douze blocs de groupe avec
+`organeRef: "PO0"` pour tous. `PO0` n'existe comme organe dans aucune des trois
+législatures : c'est un identifiant de remplissage, pas une référence.
+
+Les effectifs ne laissent pourtant aucun doute sur le fait qu'il s'agit bien de
+groupes distincts — 124, 93, 71, 66, 47, 38, 36, 34, 23, 17, 16 et 9 membres,
+soit exactement la composition de l'Assemblée sous cette législature. La source a
+simplement omis de renseigner lesquels.
+
+Cela représente 146 blocs et **1 916 votes individuels**, soit 0,15 % du corpus.
+Les XVe et XVIe ne sont pas touchées.
+
+Deux conséquences, qui sont la même :
+
+Une clé `(scrutin, organe)` sur la ventilation écrase onze blocs sur douze —
+c'est ce qui faisait apparaître 101 076 blocs en XVIIe au lieu des 101 208
+mesurés. La clé doit être `(scrutin, ordre de la source)`.
+
+Et surtout, recopier `PO0` dans le vote attribuerait ces 1 916 votes à un même
+groupe imaginaire. **Le groupe inconnu se stocke en `NULL` et s'affiche comme
+inconnu.** Inventer une appartenance de groupe est précisément ce que le produit
+s'interdit ; le faire par recopie mécanique d'un identifiant de remplissage n'est
+pas moins grave que de le déduire.
+
 ---
 
 ## 6. Acteurs, mandats et organes

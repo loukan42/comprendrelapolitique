@@ -345,7 +345,8 @@ dérive entre législatures ; le modèle l'absorbe plutôt que de le nier.
 ```sql
 CREATE TABLE officiel.scrutin_groupe (
     scrutin_uid            text NOT NULL REFERENCES officiel.scrutin(uid),
-    organe_uid             text NOT NULL REFERENCES officiel.organe(uid),
+    ordre                  smallint NOT NULL,      -- position dans la source
+    organe_uid             text,                   -- NULL = groupe non identifié
     nombre_membres         integer,
     position_majoritaire   text,
     voix_pour              integer NOT NULL DEFAULT 0,
@@ -355,7 +356,7 @@ CREATE TABLE officiel.scrutin_groupe (
     voix_non_votant_volontaire integer NOT NULL DEFAULT 0,
     nominatif_complet      boolean NOT NULL,
     ecart_constate         text,
-    PRIMARY KEY (scrutin_uid, organe_uid)
+    PRIMARY KEY (scrutin_uid, ordre)
 );
 ```
 
@@ -363,16 +364,21 @@ Les colonnes `voix_*` viennent de `decompteVoix` et sont **la** vérité du
 décompte. `nominatif_complet` dit si les listes nominatives correspondent à ces
 totaux ; `ecart_constate` décrit l'écart le cas échéant.
 
-Ces deux colonnes existent parce que l'incohérence est réelle : 17 cas en XVe, 39
-en XVIe, dont un « 21 voix pour, aucun nom listé ». L'interface doit pouvoir
-afficher l'agrégat tout en disant que le détail manque, plutôt que de choisir en
-silence entre deux chiffres qui se contredisent.
+Ces deux colonnes existent parce que l'incohérence est réelle : 17 catégories
+divergentes en XVe, 39 en XVIe, dont un « 21 voix pour, aucun nom listé ».
+L'interface doit pouvoir afficher l'agrégat tout en disant que le détail manque,
+plutôt que de choisir en silence entre deux chiffres qui se contredisent.
+
+**La clé est `(scrutin, ordre)` et non `(scrutin, organe)`**, parce que l'organe
+peut manquer : 14 scrutins de la XVIIe listent leurs douze groupes avec un
+`organeRef` de remplissage identique pour tous. Les clefer sur l'organe écrase
+onze blocs sur douze (voir DATA_SOURCES 5.6).
 
 ```sql
 CREATE TABLE officiel.vote (
     scrutin_uid     text NOT NULL REFERENCES officiel.scrutin(uid),
     acteur_uid      text NOT NULL REFERENCES officiel.acteur(uid),
-    organe_uid      text NOT NULL REFERENCES officiel.organe(uid),  -- groupe AU MOMENT DU VOTE
+    organe_uid      text,           -- groupe AU MOMENT DU VOTE ; NULL si inconnu
     mandat_uid      text REFERENCES officiel.mandat(uid),
     position        officiel.position_vote NOT NULL,
     par_delegation  boolean,
@@ -389,7 +395,13 @@ Quatre décisions structurantes tiennent dans cette table.
 2 346 018 votes des trois législatures : aucun acteur n'apparaît deux fois dans
 un même scrutin.
 
-**`organe_uid` est le groupe au moment du vote, et il n'est pas calculé.** Dans
+**`organe_uid` est nullable, et c'est une règle, pas une tolérance.** Quand la
+source n'identifie pas le groupe — 1 916 votes de la XVIIe —, la colonne reste
+vide. Recopier l'identifiant de remplissage `PO0` attribuerait ces votes à un
+groupe imaginaire : inventer une appartenance par recopie mécanique n'est pas
+moins grave que de la déduire.
+
+**Le groupe au moment du vote n'est pas calculé.** Dans
 la source, les votants sont imbriqués dans le bloc de leur groupe : chaque
 scrutin enregistre la ventilation telle qu'elle était ce jour-là. Aucune
 résolution par intervalle de dates n'est nécessaire, et donc aucun risque de se
