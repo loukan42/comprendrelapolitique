@@ -20,10 +20,11 @@ import {
   IconThumbUp,
 } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../components/BarreHorizontale";
 import {
   calculerResultat,
+  type ProximiteGroupe,
   type QuestionComparee,
   type ReponseQuiz,
   type ReponseUtilisateur,
@@ -49,6 +50,28 @@ const BOUTONS: { valeur: ReponseQuiz; libelle: string; icone: React.ReactNode }[
   { valeur: "ABSTENTION", libelle: "Je m'abstiens", icone: <IconMinus size={22} /> },
   { valeur: "NSP", libelle: "Je ne sais pas", icone: <IconHelpCircle size={22} /> },
 ];
+
+/**
+ * Indicateur « groupe le plus proche » mis à jour après chaque réponse,
+ * pas seulement affiché en fin de parcours : voir l'écran de résultat pour
+ * le disclaimer complet, répété une fois la réponse la plus proche connue.
+ * Affiche « ? » tant que le calcul n'a pas assez de réponses exploitables
+ * (même seuil que calculerResultat : au moins trois).
+ */
+function IndicateurEnDirect({ groupeTop }: { groupeTop: ProximiteGroupe | null }) {
+  return (
+    <Box maw={560} mx="auto" w="100%">
+      <Text size="xs" c="dimmed" tt="uppercase" fw={700} style={{ letterSpacing: "0.04em" }}>
+        Groupe le plus proche :{" "}
+        <Text span c="var(--mantine-color-text)">
+          {groupeTop
+            ? `${groupeTop.libelle ?? groupeTop.organeUid} (${pourcent.format(groupeTop.proximite)})`
+            : "?"}
+        </Text>
+      </Text>
+    </Box>
+  );
+}
 
 function EcranQuestion({
   question,
@@ -229,6 +252,14 @@ function PageQuiz() {
   const [reponses, setReponses] = useState<ReponseUtilisateur[]>([]);
   const [resultat, setResultat] = useState<ResultatQuiz | null>(null);
 
+  // Recalculé après chaque réponse pour l'indicateur « en direct » : le
+  // même calcul local que le résultat final (rien ne quitte le navigateur),
+  // juste rejoué sur les réponses données jusqu'ici.
+  const resultatEnDirect = useMemo(
+    () => calculerResultat(questions, reponses),
+    [questions, reponses],
+  );
+
   if (questions.length === 0) {
     return (
       <Container size="md" py={80}>
@@ -278,12 +309,15 @@ function PageQuiz() {
           <EcranResultat resultat={resultat} onRecommencer={recommencer} />
         ) : (
           questions[indexCourant] && (
-            <EcranQuestion
-              question={questions[indexCourant]}
-              index={indexCourant}
-              total={questions.length}
-              onReponse={repondre}
-            />
+            <>
+              <IndicateurEnDirect groupeTop={resultatEnDirect.parGroupe[0] ?? null} />
+              <EcranQuestion
+                question={questions[indexCourant]}
+                index={indexCourant}
+                total={questions.length}
+                onReponse={repondre}
+              />
+            </>
           )
         )}
       </Stack>
