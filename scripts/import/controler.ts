@@ -356,7 +356,7 @@ async function main() {
       number,
       { seances: number; points: number; interventions: number; orateurs: number }
     > = {
-      16: { seances: 605, points: 31392, interventions: 337041, orateurs: 312097 },
+      16: { seances: 605, points: 31541, interventions: 337041, orateurs: 312097 },
     };
     const attenduDeb = ATTENDUS_DEBATS[legislature];
     if (attenduDeb) {

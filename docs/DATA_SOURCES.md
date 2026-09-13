@@ -765,13 +765,16 @@ parseur retenu ne plafonne la profondeur nulle part, donc ce cas ne pose pas de
 problème pratique.
 
 Une balise distincte, `changementPresidence` (149 occurrences, 131 fichiers sur
-605), porte son propre `id_syceron` et son propre titre (« Présidence de
-Mme… ») mais n'est pas reconnue par le tokenizer actuel, qui ne matche que
-`point`, `ouvertureSeance`, `finSeance`, `paragraphe` et `texte` : ses
-paragraphes sont importés (rattachés au `point` englobant), mais l'information
-« qui présidait à cet instant précis » ne l'est pas. Sans conséquence
-aujourd'hui (aucune page ni aucun contrôle n'en dépend), mais à corriger avant
-d'afficher un jour cette information.
+605), suit la même grammaire que `point` : elle porte son propre `id_syceron`,
+un `nivpoint` (souvent `100` ou `101`, code de procédure comme les autres
+suspensions) et un `<texte>` de titre (« Présidence de Mme… »). Le tokenizer la
+reconnaît comme un conteneur de structure à part entière, au même titre que
+`point`, `ouvertureSeance` et `finSeance` : ses paragraphes sont rattachés à
+son `id_syceron`, pas au `point` englobant, et son titre est conservé dans
+`officiel.debat_point.intitule`. La balise porte aussi, quand la source
+l'identifie, `id_acteur`/`id_mandat` du nouveau président de séance ; cette
+information n'est pas dupliquée dans le modèle, mais se retrouve déjà sur le
+premier `paragraphe` enfant via `role_debat = 'president'`.
 
 **`paragraphe`, en revanche, ne s'imbrique jamais** : vérifié sur
 l'intégralité du corpus XVIe (337 041 occurrences), profondeur maximale 1.

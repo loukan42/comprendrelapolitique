@@ -38,7 +38,7 @@ export interface LigneSeance {
 export interface LignePoint {
   idSyceron: string;
   parentIdSyceron: string | null;
-  typeConteneur: "point" | "ouvertureSeance" | "finSeance";
+  typeConteneur: "point" | "ouvertureSeance" | "finSeance" | "changementPresidence";
   nivpoint: number | null;
   ordreAbsolu: number | null;
   intitule: string | null;
@@ -183,7 +183,7 @@ function extraireSeance(xml: string): LigneSeance {
 // ---------------------------------------------------------------------------
 
 interface Cadre {
-  tag: "point" | "ouvertureSeance" | "finSeance";
+  tag: "point" | "ouvertureSeance" | "finSeance" | "changementPresidence";
   idSyceron: string | null;
   nivpoint: number | null;
   ordreAbsolu: number | null;
@@ -194,7 +194,7 @@ interface Cadre {
 }
 
 const BALISE =
-  /<(point|\/point|ouvertureSeance|\/ouvertureSeance|finSeance|\/finSeance|paragraphe|texte)\b([^>]*)>/g;
+  /<(point|\/point|ouvertureSeance|\/ouvertureSeance|finSeance|\/finSeance|changementPresidence|\/changementPresidence|paragraphe|texte)\b([^>]*)>/g;
 
 function analyserOrateurs(inner: string): LigneOrateur[] {
   const bloc = inner.match(/<orateurs>([\s\S]*?)<\/orateurs>/);
@@ -218,14 +218,21 @@ function analyserOrateurs(inner: string): LigneOrateur[] {
 
 /**
  * Parcourt le corps de `<contenu>` en maintenant une pile des conteneurs
- * ouverts (`point`, `ouvertureSeance`, `finSeance`). `paragraphe` ne
- * s'imbrique jamais (vérifié sur l'intégralité du corpus XVIe, profondeur
- * maximale 1) : chaque occurrence est traitée comme une feuille, son contenu
- * extrait par une recherche de la fermeture correspondante plutôt que par un
- * parcours récursif. `point`, lui, EST récursif et de profondeur variable
- * (1 à 5, plus les codes de procédure 99 et 100) : la pile absorbe n'importe
- * quelle profondeur sans code dédié par niveau, même précaution que pour
- * `acteLegislatif` (DATA_SOURCES section 4).
+ * ouverts (`point`, `ouvertureSeance`, `finSeance`, `changementPresidence`).
+ * `paragraphe` ne s'imbrique jamais (vérifié sur l'intégralité du corpus
+ * XVIe, profondeur maximale 1) : chaque occurrence est traitée comme une
+ * feuille, son contenu extrait par une recherche de la fermeture
+ * correspondante plutôt que par un parcours récursif. `point`, lui, EST
+ * récursif et de profondeur variable (1 à 5, plus les codes de procédure 99
+ * et 100) : la pile absorbe n'importe quelle profondeur sans code dédié par
+ * niveau, même précaution que pour `acteLegislatif` (DATA_SOURCES section 4).
+ *
+ * `changementPresidence` (149 occurrences sur 605 fichiers de la XVIe) suit
+ * la même grammaire que `point` : `id_syceron`, `nivpoint` (souvent `100` ou
+ * `101`, code de procédure), un `<texte>` de titre (« Présidence de Mme… »)
+ * et des `paragraphe` enfants. Elle est traitée comme un conteneur de
+ * structure à part entière plutôt que fondue dans le `point` englobant :
+ * DATA_SOURCES section 7 ter.2.
  */
 export function analyserContenu(xml: string): {
   points: LignePoint[];
@@ -246,7 +253,12 @@ export function analyserContenu(xml: string): {
     const tag = m[1]!;
     const attrsBrut = m[2]!;
 
-    if (tag === "point" || tag === "ouvertureSeance" || tag === "finSeance") {
+    if (
+      tag === "point" ||
+      tag === "ouvertureSeance" ||
+      tag === "finSeance" ||
+      tag === "changementPresidence"
+    ) {
       const parent = pile[pile.length - 1];
       if (parent) parent.aUnEnfant = true;
       const attrs = parserAttrs(attrsBrut);
@@ -261,7 +273,12 @@ export function analyserContenu(xml: string): {
       continue;
     }
 
-    if (tag === "/point" || tag === "/ouvertureSeance" || tag === "/finSeance") {
+    if (
+      tag === "/point" ||
+      tag === "/ouvertureSeance" ||
+      tag === "/finSeance" ||
+      tag === "/changementPresidence"
+    ) {
       const cadre = pile.pop();
       if (cadre?.idSyceron) {
         const parent = pile[pile.length - 1];

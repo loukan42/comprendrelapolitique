@@ -452,19 +452,23 @@ CREATE TABLE officiel.debat_seance (
 CREATE INDEX idx_debat_seance_date ON officiel.debat_seance (legislature, date_seance);
 
 -- Sommaire hierarchique d'une seance : un `point` XML (ou le conteneur
--- `ouvertureSeance`/`finSeance`) porte un intitule qui est le sujet en
--- discussion -- utile pour situer une intervention sans avoir a deviner le
--- dossier legislatif concerne. L'arbre est recursif et de profondeur variable
--- (nivpoint observe de 1 a 5, plus les codes de procedure 99 et 100), meme
--- piege que `acte_legislatif` : le parcours doit etre recursif, jamais a
--- profondeur fixe.
+-- `ouvertureSeance`/`finSeance`/`changementPresidence`) porte un intitule qui
+-- est le sujet en discussion -- utile pour situer une intervention sans avoir
+-- a deviner le dossier legislatif concerne. `changementPresidence` (149
+-- occurrences sur 605 fichiers XVIe) suit la meme grammaire que `point` :
+-- meme id_syceron/nivpoint/intitule, et porte le titre "Presidence de Mme/M.
+-- ..." -- c'est le seul endroit ou "qui presidait a cet instant" est
+-- disponible. L'arbre est recursif et de profondeur variable (nivpoint
+-- observe de 1 a 5, plus les codes de procedure 99 et 100), meme piege que
+-- `acte_legislatif` : le parcours doit etre recursif, jamais a profondeur
+-- fixe.
 CREATE TABLE officiel.debat_point (
     seance_uid         text     NOT NULL REFERENCES officiel.debat_seance(uid) ON DELETE CASCADE,
     id_syceron         text     NOT NULL,
     -- Pas de cle etrangere sur le parent : coherent avec acte_legislatif,
     -- l'ordre d'insertion d'un lot ne garantit pas que le parent precede.
     parent_id_syceron  text,
-    type_conteneur     text     NOT NULL,    -- 'point' | 'ouvertureSeance' | 'finSeance'
+    type_conteneur     text     NOT NULL,    -- 'point' | 'ouvertureSeance' | 'finSeance' | 'changementPresidence'
     nivpoint           smallint,
     ordre_absolu_seance integer,
     intitule           text,
