@@ -4,15 +4,21 @@ import {
   Badge,
   Box,
   Button,
+  Card,
   Container,
-  Group,
-  Loader,
   Progress,
+  SimpleGrid,
   Stack,
-  Table,
   Text,
   Title,
 } from "@mantine/core";
+import {
+  IconHelpCircle,
+  IconInfoCircle,
+  IconMinus,
+  IconThumbDown,
+  IconThumbUp,
+} from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
@@ -36,11 +42,11 @@ const dateCourte = new Intl.DateTimeFormat("fr-FR", {
 });
 const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
 
-const BOUTONS: { valeur: ReponseQuiz; libelle: string }[] = [
-  { valeur: "POUR", libelle: "Pour" },
-  { valeur: "CONTRE", libelle: "Contre" },
-  { valeur: "ABSTENTION", libelle: "Je m'abstiens" },
-  { valeur: "NSP", libelle: "Je ne sais pas / passer" },
+const BOUTONS: { valeur: ReponseQuiz; libelle: string; icone: React.ReactNode }[] = [
+  { valeur: "POUR", libelle: "Pour", icone: <IconThumbUp size={22} /> },
+  { valeur: "CONTRE", libelle: "Contre", icone: <IconThumbDown size={22} /> },
+  { valeur: "ABSTENTION", libelle: "Je m'abstiens", icone: <IconMinus size={22} /> },
+  { valeur: "NSP", libelle: "Je ne sais pas", icone: <IconHelpCircle size={22} /> },
 ];
 
 function EcranQuestion({
@@ -55,63 +61,106 @@ function EcranQuestion({
   onReponse: (r: ReponseQuiz) => void;
 }) {
   return (
-    <Stack gap="lg" maw="var(--mesure-texte)">
-      <Progress value={(index / total) * 100} size="xs" />
-      <Text c="dimmed" size="sm">
-        Question {index + 1} sur {total} · scrutin du{" "}
-        {dateCourte.format(new Date(question.dateScrutin))}
-      </Text>
-      <Title order={2}>{question.dossierTitre ?? "Ce qui était soumis au vote"}</Title>
-      <Text>Le vote portait sur {question.objetLibelle}</Text>
-      <Group gap="sm">
-        {BOUTONS.map((b) => (
-          <Button
-            key={b.valeur}
-            variant={b.valeur === "NSP" ? "subtle" : "default"}
-            onClick={() => onReponse(b.valeur)}
-          >
-            {b.libelle}
-          </Button>
-        ))}
-      </Group>
-    </Stack>
+    <Card withBorder radius="md" padding="xl" maw={560} mx="auto">
+      <Stack gap="lg">
+        <Box>
+          <Progress value={(index / total) * 100} size={6} radius="xl" />
+          <Text c="dimmed" size="sm" mt="xs">
+            Question {index + 1} sur {total} · scrutin du{" "}
+            {dateCourte.format(new Date(question.dateScrutin))}
+          </Text>
+        </Box>
+        <Box>
+          <Title order={2} fz="xl">
+            {question.dossierTitre ?? "Ce qui était soumis au vote"}
+          </Title>
+          <Text mt="sm" c="dimmed">
+            Le vote portait sur {question.objetLibelle}
+          </Text>
+        </Box>
+        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
+          {BOUTONS.map((b) => (
+            <Button
+              key={b.valeur}
+              size="md"
+              variant={b.valeur === "NSP" ? "subtle" : "light"}
+              color="graphite"
+              leftSection={b.icone}
+              onClick={() => onReponse(b.valeur)}
+              justify="flex-start"
+            >
+              {b.libelle}
+            </Button>
+          ))}
+        </SimpleGrid>
+      </Stack>
+    </Card>
   );
 }
 
-function EcranResultat({ resultats }: { resultats: ProximiteGroupe[] }) {
+function BarreProximite({ groupe, meilleur }: { groupe: ProximiteGroupe; meilleur: number }) {
+  return (
+    <Card withBorder radius="md" padding="md">
+      <Stack gap={6}>
+        <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+          <Anchor href={`/groupes/${groupe.organeUid}`} fw={600} underline="hover">
+            {groupe.libelle ?? groupe.organeUid}
+          </Anchor>
+          <Text fw={700}>{pourcent.format(groupe.proximite)}</Text>
+        </Box>
+        <Progress
+          value={(groupe.proximite / meilleur) * 100}
+          size="md"
+          radius="xl"
+          color="graphite"
+        />
+      </Stack>
+    </Card>
+  );
+}
+
+function EcranResultat({
+  resultats,
+  onRecommencer,
+}: {
+  resultats: ProximiteGroupe[];
+  onRecommencer: () => void;
+}) {
   if (resultats.length === 0) {
     return (
-      <Stack gap="md" maw="var(--mesure-texte)">
-        <Title order={2}>Pas assez de réponses exploitables</Title>
-        <Text c="dimmed">
-          Répondez à au moins trois questions par « pour », « contre » ou « abstention » pour
-          obtenir un résultat.
-        </Text>
-      </Stack>
+      <Card withBorder radius="md" padding="xl" maw={560} mx="auto">
+        <Stack gap="md">
+          <Title order={2} fz="xl">
+            Pas assez de réponses exploitables
+          </Title>
+          <Text c="dimmed">
+            Répondez à au moins trois questions par « pour », « contre » ou « abstention » pour
+            obtenir un résultat.
+          </Text>
+          <Button variant="default" onClick={onRecommencer} w="fit-content">
+            Recommencer
+          </Button>
+        </Stack>
+      </Card>
     );
   }
+  const meilleur = resultats[0]?.proximite ?? 1;
   return (
-    <Stack gap="lg" maw="var(--mesure-texte)">
+    <Stack gap="lg" maw={560} mx="auto">
       <Title order={2}>Vos réponses sont les plus proches de…</Title>
-      <Table.ScrollContainer minWidth={420}>
-        <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders>
-          <Table.Tbody>
-            {resultats.map((r) => (
-              <Table.Tr key={r.organeUid}>
-                <Table.Td>
-                  <Anchor href={`/groupes/${r.organeUid}`}>{r.libelle ?? r.organeUid}</Anchor>
-                </Table.Td>
-                <Table.Td ta="right">{pourcent.format(r.proximite)}</Table.Td>
-              </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
-      </Table.ScrollContainer>
-      <Alert variant="light" color="graphite">
+      <Stack gap="sm">
+        {resultats.map((r) => (
+          <BarreProximite key={r.organeUid} groupe={r} meilleur={meilleur} />
+        ))}
+      </Stack>
+      <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
         Ce résultat compare uniquement vos réponses à des votes parlementaires passés. Il ne
         constitue pas une recommandation électorale et ne tient pas compte de l&apos;ensemble des
         programmes, candidats ou enjeux futurs.
       </Alert>
+      <Button variant="default" onClick={onRecommencer} w="fit-content">
+        Refaire le quiz
+      </Button>
     </Stack>
   );
 }
@@ -125,7 +174,7 @@ function PageQuiz() {
 
   if (questions.length === 0) {
     return (
-      <Container py={80}>
+      <Container size="md" py={80}>
         <Text c="dimmed">
           Aucun scrutin exploitable n&apos;est disponible pour construire le quiz.
         </Text>
@@ -148,10 +197,16 @@ function PageQuiz() {
     setEnCalcul(false);
   }
 
+  function recommencer() {
+    setIndexCourant(0);
+    setReponses([]);
+    setResultats(null);
+  }
+
   return (
-    <Container py={80}>
-      <Stack gap="xl">
-        <Box maw="var(--mesure-texte)">
+    <Container size="md" py={{ base: 40, sm: 64 }}>
+      <Stack gap={40}>
+        <Box maw="var(--mesure-texte)" mx="auto" ta="center">
           <Title order={1}>Et vous, vous auriez voté quoi ?</Title>
           <Text mt="sm" c="dimmed">
             Cinq scrutins réels de l&apos;Assemblée nationale, choisis parmi les plus suivis.
@@ -163,9 +218,9 @@ function PageQuiz() {
         </Box>
 
         {enCalcul ? (
-          <Loader />
+          <Progress value={100} size={6} radius="xl" animated maw={560} mx="auto" w="100%" />
         ) : resultats ? (
-          <EcranResultat resultats={resultats} />
+          <EcranResultat resultats={resultats} onRecommencer={recommencer} />
         ) : (
           questions[indexCourant] && (
             <EcranQuestion

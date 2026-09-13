@@ -1,6 +1,7 @@
 import {
   Anchor,
   Box,
+  Card,
   Container,
   Group,
   SimpleGrid,
@@ -9,6 +10,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { IconArrowLeft } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { chargerGroupe } from "../../queries/groupes";
 
@@ -41,8 +43,15 @@ function PageGroupe() {
   const { organe, membres, votesEnsemble, tauxUnite } = Route.useLoaderData();
 
   return (
-    <Container py={80}>
+    <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
+        <Anchor href="/recherche" size="sm" c="dimmed" underline="hover" w="fit-content">
+          <Group gap={4} wrap="nowrap">
+            <IconArrowLeft size={14} />
+            Retour à la recherche
+          </Group>
+        </Anchor>
+
         <Box maw="var(--mesure-texte)">
           {organe.legislature !== null && (
             <Text c="dimmed" size="sm" mb={4}>
@@ -57,14 +66,21 @@ function PageGroupe() {
         </Box>
 
         {tauxUnite && tauxUnite.total > 0 && (
-          <Box maw="var(--mesure-texte)">
-            <Title order={2}>Taux d&apos;unité</Title>
-            <Text mt="sm">
-              Sur {tauxUnite.total} votes individuels exprimés par ses membres dans des scrutins où
-              le groupe avait une position majoritaire connue,{" "}
-              {pourcent.format(tauxUnite.accord / tauxUnite.total)} suivaient cette position.
-            </Text>
-          </Box>
+          <Card withBorder radius="md" padding="lg" maw="var(--mesure-texte)">
+            <Group justify="space-between" align="flex-end">
+              <Box>
+                <Text fw={600}>Taux d&apos;unité</Text>
+                <Text c="dimmed" size="sm" mt={4} maw={420}>
+                  Part des votes individuels des membres qui suivaient la position majoritaire du
+                  groupe, sur {tauxUnite.total} votes exprimés dans des scrutins où cette position
+                  était connue.
+                </Text>
+              </Box>
+              <Text fz={32} fw={700} lh={1}>
+                {pourcent.format(tauxUnite.accord / tauxUnite.total)}
+              </Text>
+            </Group>
+          </Card>
         )}
 
         <Box>
@@ -76,7 +92,7 @@ function PageGroupe() {
             </Text>
           ) : (
             <Table.ScrollContainer minWidth={620} mt="sm">
-              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders>
+              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
                 <Table.Thead>
                   <Table.Tr>
                     <Table.Th>Date</Table.Th>
@@ -94,7 +110,9 @@ function PageGroupe() {
                       </Table.Td>
                       <Table.Td>
                         {v.dossierUid ? (
-                          <Anchor href={`/lois/${v.dossierUid}`}>{v.titre}</Anchor>
+                          <Anchor href={`/lois/${v.dossierUid}`} underline="hover">
+                            {v.titre}
+                          </Anchor>
                         ) : (
                           v.titre
                         )}
@@ -115,7 +133,7 @@ function PageGroupe() {
             <Title order={2}>Membres</Title>
             <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} mt="sm" spacing="xs">
               {membres.map((m) => (
-                <Anchor key={m.acteurUid} href={`/deputes/${m.acteurUid}`}>
+                <Anchor key={m.acteurUid} href={`/deputes/${m.acteurUid}`} underline="hover">
                   {m.civilite} {m.prenom} {m.nom}
                 </Anchor>
               ))}

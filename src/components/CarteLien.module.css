@@ -1,0 +1,14 @@
+.carte {
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.1s ease;
+}
+
+.carte:hover {
+  border-color: var(--mantine-primary-color-filled);
+}
+
+.carte:focus-visible {
+  outline: 2px solid var(--mantine-primary-color-filled);
+  outline-offset: 2px;
+}

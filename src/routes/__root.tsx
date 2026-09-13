@@ -27,6 +27,8 @@ import "@mantine/core/styles.css";
 import appCss from "../styles.css?url";
 import { theme } from "../theme";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteHeader } from "../components/SiteHeader";
+import { SiteFooter } from "../components/SiteFooter";
 
 /** Gabarit commun aux pages d'erreur : un titre, une explication, une issue. */
 function PageMessage({
@@ -152,9 +154,11 @@ function RootComponent() {
   return (
     <MantineProvider theme={theme} defaultColorScheme="auto">
       <QueryClientProvider client={queryClient}>
+        <SiteHeader />
         {/* Requis : les routes enfants s'affichent ici. Retirer l'Outlet les
             rend toutes inertes. */}
         <Outlet />
+        <SiteFooter />
       </QueryClientProvider>
     </MantineProvider>
   );

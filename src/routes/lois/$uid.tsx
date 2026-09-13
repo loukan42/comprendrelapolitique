@@ -1,4 +1,16 @@
-import { Anchor, Badge, Box, Container, Stack, Table, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  Badge,
+  Box,
+  Card,
+  Container,
+  Group,
+  Stack,
+  Table,
+  Text,
+  Title,
+} from "@mantine/core";
+import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { chargerDossier, type DossierEngagement, type ScrutinLoi } from "../../queries/lois";
 
@@ -44,32 +56,46 @@ const LIBELLE_POSITION: Record<ScrutinLoi["repartition"][number]["position"], st
  */
 function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
   return (
-    <Box>
-      <Text fw={600}>{scrutin.sortLibelle ?? scrutin.sortCode ?? "Résultat inconnu"}</Text>
-      <Text c="dimmed" size="sm">
-        {formaterDate(scrutin.dateScrutin)} · scrutin public {scrutin.uid}
-        {scrutin.suffragesRequis !== null && <>, majorité requise {scrutin.suffragesRequis}</>}
-      </Text>
-      <Table.ScrollContainer minWidth={320} mt="xs">
+    <Card withBorder radius="md" padding="lg">
+      <Group gap="xs" wrap="nowrap" align="flex-start">
+        {scrutin.sortCode === "adopté" && (
+          <IconCircleCheck size={22} style={{ flexShrink: 0, marginTop: 2 }} />
+        )}
+        {scrutin.sortCode === "rejeté" && (
+          <IconCircleX size={22} style={{ flexShrink: 0, marginTop: 2, opacity: 0.6 }} />
+        )}
+        <Box>
+          <Text fw={600}>{scrutin.sortLibelle ?? scrutin.sortCode ?? "Résultat inconnu"}</Text>
+          <Text c="dimmed" size="sm">
+            {formaterDate(scrutin.dateScrutin)} · scrutin public {scrutin.uid}
+            {scrutin.suffragesRequis !== null && <>, majorité requise {scrutin.suffragesRequis}</>}
+          </Text>
+        </Box>
+      </Group>
+      <Table.ScrollContainer minWidth={280} mt="md">
         <Table horizontalSpacing={0} verticalSpacing={4} withRowBorders={false} maw={360}>
           <Table.Tbody>
             {scrutin.repartition.map((r) => (
               <Table.Tr key={r.position}>
                 <Table.Td c="dimmed">{LIBELLE_POSITION[r.position]}</Table.Td>
-                <Table.Td ta="right">{r.effectif}</Table.Td>
+                <Table.Td ta="right" fw={600}>
+                  {r.effectif}
+                </Table.Td>
               </Table.Tr>
             ))}
           </Table.Tbody>
         </Table>
       </Table.ScrollContainer>
-    </Box>
+    </Card>
   );
 }
 
 function BlocEngagement({ engagement }: { engagement: DossierEngagement }) {
   return (
     <Box>
-      <Text fw={600}>{engagement.titre ?? engagement.uid}</Text>
+      <Text fw={600} mb="xs">
+        {engagement.titre ?? engagement.uid}
+      </Text>
       {engagement.scrutin ? (
         <BlocScrutin scrutin={engagement.scrutin} />
       ) : (
@@ -86,8 +112,15 @@ function PageLoi() {
   const { dossier, actes, scrutinsEnsemble, adopteSansVote, dossiersEngagement } = detail;
 
   return (
-    <Container py={80}>
+    <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
+        <Anchor href="/recherche" size="sm" c="dimmed" underline="hover" w="fit-content">
+          <Group gap={4} wrap="nowrap">
+            <IconArrowLeft size={14} />
+            Retour à la recherche
+          </Group>
+        </Anchor>
+
         <Box maw="var(--mesure-texte)">
           {dossier.procedureLibelle && (
             <Text c="dimmed" size="sm" mb={4}>
@@ -101,22 +134,22 @@ function PageLoi() {
         <Box>
           <Title order={2}>Ce qui a été voté</Title>
           {scrutinsEnsemble.length > 0 ? (
-            <Stack gap="lg" mt="sm">
+            <Stack gap="md" mt="sm" maw="var(--mesure-texte)">
               {scrutinsEnsemble.map((s) => (
                 <BlocScrutin key={s.uid} scrutin={s} />
               ))}
             </Stack>
           ) : adopteSansVote ? (
-            <Stack gap="xs" mt="sm" maw="var(--mesure-texte)">
+            <Card withBorder radius="md" padding="lg" mt="sm" maw="var(--mesure-texte)">
               <Badge variant="outline" color="graphite" w="fit-content">
                 Adopté sans vote sur l&apos;ensemble
               </Badge>
-              <Text>
+              <Text mt="sm">
                 Ce texte a été adopté par l&apos;article 49 alinéa 3 de la Constitution :
                 l&apos;Assemblée nationale ne s&apos;est jamais prononcée sur son ensemble. Ce qui a
                 été voté, ce sont les motions de censure déposées en réaction.
               </Text>
-            </Stack>
+            </Card>
           ) : (
             <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
               Aucun vote sur l&apos;ensemble de ce texte n&apos;est présent dans les données
@@ -130,7 +163,7 @@ function PageLoi() {
         {dossiersEngagement.length > 0 && (
           <Box>
             <Title order={2}>Motions de censure liées</Title>
-            <Stack gap="lg" mt="sm">
+            <Stack gap="lg" mt="sm" maw="var(--mesure-texte)">
               {dossiersEngagement.map((e) => (
                 <BlocEngagement key={e.uid} engagement={e} />
               ))}
@@ -142,7 +175,7 @@ function PageLoi() {
           <Box>
             <Title order={2}>Étapes de la procédure</Title>
             <Table.ScrollContainer minWidth={480} mt="sm">
-              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders>
+              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
                 <Table.Tbody>
                   {actes.map((a) => (
                     <Table.Tr key={a.uid}>

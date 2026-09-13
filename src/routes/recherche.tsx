@@ -1,8 +1,10 @@
-import { Anchor, Box, Container, Loader, Stack, Text, TextInput, Title } from "@mantine/core";
+import { Box, Container, Loader, Stack, Text, TextInput, Title } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
+import { IconSearch } from "@tabler/icons-react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
+import { CarteLien } from "../components/CarteLien";
 import { chercherDossiers, type DossierListe } from "../queries/lois";
 
 const rechercheSchema = z.object({ q: z.string().optional() });
@@ -42,7 +44,7 @@ function PageRecherche() {
   }, [terme]);
 
   return (
-    <Container py={80}>
+    <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
         <Box maw="var(--mesure-texte)">
           <Title order={1}>Chercher une loi</Title>
@@ -58,6 +60,7 @@ function PageRecherche() {
           placeholder="Ex. retraites, immigration, formation des sages-femmes…"
           value={saisie}
           onChange={(e) => setSaisie(e.currentTarget.value)}
+          leftSection={<IconSearch size={18} />}
           rightSection={enCours ? <Loader size="xs" /> : null}
           autoFocus
         />
@@ -66,20 +69,18 @@ function PageRecherche() {
           <Text c="dimmed">Aucun dossier ne correspond à «&nbsp;{terme}&nbsp;».</Text>
         )}
 
-        <Stack gap="md" maw="var(--mesure-texte)">
+        <Stack gap="sm" maw="var(--mesure-texte)">
           {resultats.map((d) => (
-            <Box key={d.uid}>
-              <Anchor href={`/lois/${d.uid}`} fw={600}>
-                {d.titre ?? d.uid}
-              </Anchor>
+            <CarteLien key={d.uid} href={`/lois/${d.uid}`} padding="md">
+              <Text fw={600}>{d.titre ?? d.uid}</Text>
               {(d.procedureLibelle ?? d.legislature) && (
-                <Text size="sm" c="dimmed">
+                <Text size="sm" c="dimmed" mt={2}>
                   {d.procedureLibelle}
                   {d.procedureLibelle && d.legislature !== null && " · "}
                   {d.legislature !== null && `${d.legislature}e législature`}
                 </Text>
               )}
-            </Box>
+            </CarteLien>
           ))}
         </Stack>
       </Stack>

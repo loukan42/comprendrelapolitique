@@ -1,4 +1,16 @@
-import { Anchor, Badge, Box, Container, Group, Stack, Table, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  Badge,
+  Box,
+  Card,
+  Container,
+  Group,
+  Stack,
+  Table,
+  Text,
+  Title,
+} from "@mantine/core";
+import { IconArrowLeft } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { chargerDepute } from "../../queries/deputes";
 
@@ -39,19 +51,49 @@ function PageDepute() {
   const groupeActuel = groupes.at(-1);
 
   return (
-    <Container py={80}>
+    <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
+        <Anchor href="/recherche" size="sm" c="dimmed" underline="hover" w="fit-content">
+          <Group gap={4} wrap="nowrap">
+            <IconArrowLeft size={14} />
+            Retour à la recherche
+          </Group>
+        </Anchor>
+
         <Box maw="var(--mesure-texte)">
           <Title order={1}>
             {acteur.civilite} {acteur.prenom} {acteur.nom}
           </Title>
           {groupeActuel && (
-            <Text mt={4} c="dimmed">
-              {groupeActuel.libelle ?? groupeActuel.libelleAbrege ?? "Groupe non identifié"}
-              {groupeActuel.dateFin === null ? "" : " (mandat achevé)"}
-            </Text>
+            <Group gap="xs" mt="sm">
+              <Anchor href={`/groupes/${groupeActuel.organeUid}`} underline="hover">
+                {groupeActuel.libelle ?? groupeActuel.libelleAbrege ?? "Groupe non identifié"}
+              </Anchor>
+              {groupeActuel.dateFin !== null && (
+                <Badge variant="outline" color="graphite" size="sm">
+                  mandat achevé
+                </Badge>
+              )}
+            </Group>
           )}
         </Box>
+
+        {tauxUnite && tauxUnite.total > 0 && (
+          <Card withBorder radius="md" padding="lg" maw="var(--mesure-texte)">
+            <Group justify="space-between" align="flex-end">
+              <Box>
+                <Text fw={600}>Taux d&apos;unité avec son groupe</Text>
+                <Text c="dimmed" size="sm" mt={4} maw={420}>
+                  Sur les {tauxUnite.total} scrutins où son groupe avait une position majoritaire
+                  connue, {acteur.civilite === "Mme" ? "elle" : "il"} a voté comme cette majorité.
+                </Text>
+              </Box>
+              <Text fz={32} fw={700} lh={1}>
+                {pourcent.format(tauxUnite.accord / tauxUnite.total)}
+              </Text>
+            </Group>
+          </Card>
+        )}
 
         {groupes.length > 1 && (
           <Box>
@@ -66,23 +108,16 @@ function PageDepute() {
                         {" → "}
                         {g.dateFin ? dateCourte.format(new Date(g.dateFin)) : "en cours"}
                       </Table.Td>
-                      <Table.Td>{g.libelle ?? g.libelleAbrege ?? "Groupe non identifié"}</Table.Td>
+                      <Table.Td>
+                        <Anchor href={`/groupes/${g.organeUid}`} underline="hover">
+                          {g.libelle ?? g.libelleAbrege ?? "Groupe non identifié"}
+                        </Anchor>
+                      </Table.Td>
                     </Table.Tr>
                   ))}
                 </Table.Tbody>
               </Table>
             </Table.ScrollContainer>
-          </Box>
-        )}
-
-        {tauxUnite && tauxUnite.total > 0 && (
-          <Box maw="var(--mesure-texte)">
-            <Title order={2}>Taux d&apos;unité avec son groupe</Title>
-            <Text mt="sm">
-              Sur les {tauxUnite.total} scrutins où son groupe avait une position majoritaire
-              connue, {acteur.civilite === "Mme" ? "elle" : "il"} a voté comme cette majorité dans{" "}
-              {pourcent.format(tauxUnite.accord / tauxUnite.total)} des cas.
-            </Text>
           </Box>
         )}
 
@@ -95,7 +130,7 @@ function PageDepute() {
             </Text>
           ) : (
             <Table.ScrollContainer minWidth={560} mt="sm">
-              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders>
+              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
                 <Table.Tbody>
                   {votesRecents.map((v) => (
                     <Table.Tr key={v.scrutinUid}>
@@ -104,7 +139,9 @@ function PageDepute() {
                       </Table.Td>
                       <Table.Td>
                         {v.dossierUid ? (
-                          <Anchor href={`/lois/${v.dossierUid}`}>{v.titre}</Anchor>
+                          <Anchor href={`/lois/${v.dossierUid}`} underline="hover">
+                            {v.titre}
+                          </Anchor>
                         ) : (
                           v.titre
                         )}
@@ -114,7 +151,9 @@ function PageDepute() {
                           </Badge>
                         )}
                       </Table.Td>
-                      <Table.Td w={110}>{LIBELLE_POSITION[v.position]}</Table.Td>
+                      <Table.Td w={110} fw={600}>
+                        {LIBELLE_POSITION[v.position]}
+                      </Table.Td>
                     </Table.Tr>
                   ))}
                 </Table.Tbody>

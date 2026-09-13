@@ -1,0 +1,63 @@
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--mantine-color-body);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  padding-block: var(--mantine-spacing-sm);
+}
+
+.marque {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  color: var(--mantine-color-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.marque:hover {
+  color: var(--mantine-color-text);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-md);
+}
+
+@media (max-width: 28em) {
+  .nav {
+    gap: var(--mantine-spacing-sm);
+  }
+
+  .lien {
+    font-size: 0.875rem;
+  }
+}
+
+.lien {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--mantine-color-dimmed);
+  text-decoration: none;
+  padding-block: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.lien:hover {
+  color: var(--mantine-color-text);
+}
+
+.lienActif {
+  color: var(--mantine-color-text);
+  border-bottom-color: var(--mantine-primary-color-filled);
+}
