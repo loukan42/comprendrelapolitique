@@ -50,10 +50,29 @@ const graphite: MantineColorsTuple = [
   "#605f59",
 ];
 
+/**
+ * Ocre : seul accent utilisé pour distinguer visuellement deux catégories de
+ * vote (POUR / CONTRE) l'une de l'autre. Choisie dans la liste des teintes
+ * explicitement autorisées par AGENTS.md section 4 (« gris-ardoise,
+ * bleu-encre très désaturé, ocre »), jamais une couleur de parti.
+ */
+const ocre: MantineColorsTuple = [
+  "#faf6ef",
+  "#f0e6d3",
+  "#e2cca8",
+  "#d2af7a",
+  "#c59858",
+  "#bc8a43",
+  "#b78239",
+  "#a06e2b",
+  "#8f6122",
+  "#7c5111",
+];
+
 export const theme = createTheme({
   primaryColor: "encre",
   primaryShade: { light: 8, dark: 4 },
-  colors: { encre, graphite },
+  colors: { encre, graphite, ocre },
 
   white: "#fdfdfc",
   black: "#16161a",
@@ -117,5 +136,20 @@ export const theme = createTheme({
      * aura besoin.
      */
     couleursGroupes: {} as Record<string, string>,
+
+    /**
+     * Couleurs des quatre positions de vote possibles (POUR, CONTRE,
+     * ABSTENTION, NON-VOTANT). Ce ne sont pas des couleurs de parti : elles
+     * qualifient une position, pas une appartenance, et restent neutres
+     * (nuances de gris-graphite, plus l'ocre pour distinguer CONTRE de
+     * POUR). Utilisées par les barres de résultat de scrutin et les
+     * répartitions par groupe de la page loi.
+     */
+    couleursVote: {
+      pour: "var(--mantine-color-graphite-9)",
+      contre: "var(--mantine-color-ocre-6)",
+      abstention: "var(--mantine-color-graphite-4)",
+      nonVotant: "var(--mantine-color-graphite-1)",
+    },
   },
 });
