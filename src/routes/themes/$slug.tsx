@@ -1,8 +1,8 @@
-import { Anchor, Badge, Box, Container, Group, Stack, Table, Text, Title } from "@mantine/core";
+import { Anchor, Badge, Box, Card, Container, Group, Stack, Text, Title } from "@mantine/core";
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { BarreEmpilee, LegendeEmpilee } from "../../components/BarreEmpilee";
-import { chargerPageTheme } from "../../queries/themePages";
+import { chargerPageTheme, type TexteTheme } from "../../queries/themePages";
 
 export const Route = createFileRoute("/themes/$slug")({
   loader: async ({ params }) => {
@@ -18,12 +18,67 @@ export const Route = createFileRoute("/themes/$slug")({
 
 const dateCourte = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
-  month: "short",
+  month: "long",
   year: "numeric",
 });
+const nombre = new Intl.NumberFormat("fr-FR");
+
+/**
+ * Une carte par texte, avec le résultat de son propre scrutin. Le décompte
+ * n'est jamais agrégé à l'échelle du thème : additionner les voix de textes
+ * différents ferait dire à un groupe qu'il « soutient la justice à 100 % »
+ * alors qu'il a pu voter contre la moitié des lois du thème.
+ */
+function CarteTexte({ texte }: { texte: TexteTheme }) {
+  const total = texte.voixPour + texte.voixContre + texte.voixAbstention;
+  return (
+    <Card withBorder radius="md" padding="lg">
+      <Group justify="space-between" wrap="nowrap" align="flex-start" gap="sm">
+        <Box>
+          <Anchor href={`/lois/${texte.dossierUid}`} fw={600} underline="hover">
+            {texte.titre ?? texte.dossierUid}
+          </Anchor>
+          <Text c="dimmed" size="sm" mt={2}>
+            Scrutin du {dateCourte.format(new Date(texte.dateScrutin))}
+          </Text>
+        </Box>
+        {texte.sortCode === "adopté" && (
+          <Badge leftSection={<IconCircleCheck size={12} />} variant="outline" color="graphite">
+            adopté
+          </Badge>
+        )}
+        {texte.sortCode === "rejeté" && (
+          <Badge leftSection={<IconCircleX size={12} />} variant="outline" color="graphite">
+            rejeté
+          </Badge>
+        )}
+      </Group>
+
+      {total > 0 && (
+        <Box mt="md">
+          <BarreEmpilee
+            libelle={`${nombre.format(total)} voix exprimées`}
+            segments={[
+              { libelle: "pour", valeur: texte.voixPour, position: "pour" },
+              { libelle: "contre", valeur: texte.voixContre, position: "contre" },
+              { libelle: "abstention", valeur: texte.voixAbstention, position: "abstention" },
+            ]}
+          />
+          <Text size="xs" c="dimmed" mt={4}>
+            Le détail par groupe et le vote de chaque député sont sur{" "}
+            <Anchor href={`/lois/${texte.dossierUid}`} size="xs" underline="hover">
+              la page du texte
+            </Anchor>
+            .
+          </Text>
+        </Box>
+      )}
+    </Card>
+  );
+}
 
 function PageTheme() {
-  const { libelle, textes, parGroupe } = Route.useLoaderData();
+  const { libelle, textes } = Route.useLoaderData();
 
   return (
     <Container size="md" py={{ base: 32, sm: 56 }}>
@@ -38,108 +93,30 @@ function PageTheme() {
         <Box maw="var(--mesure-texte)">
           <Title order={1}>{libelle}</Title>
           <Text mt="sm" c="dimmed">
-            {textes.length} texte{textes.length > 1 ? "s" : ""} voté{textes.length > 1 ? "s" : ""}{" "}
-            sur l&apos;ensemble depuis 2017, classé{textes.length > 1 ? "s" : ""} dans ce thème par
-            le titre officiel du texte.
+            {textes.length} texte{textes.length > 1 ? "s" : ""} sur lequel l&apos;Assemblée a voté
+            depuis 2017, du plus récent au plus ancien. Le rattachement à ce thème vient du titre
+            officiel du texte. Chaque texte porte le résultat de son propre scrutin : ces chiffres
+            ne sont jamais additionnés entre textes, une loi ne se résumant pas à celles qui
+            partagent son thème.
           </Text>
         </Box>
 
-        {parGroupe.length > 0 && (
+        {textes.length > 0 && (
           <Box>
-            <Title order={2}>Comment les groupes ont voté sur ce thème</Title>
-            <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-              Somme des voix de chaque groupe sur l&apos;ensemble des textes de ce thème, tous
-              scrutins confondus.
-            </Text>
-            <Box mt="lg">
-              <LegendeEmpilee
-                segments={[
-                  { libelle: "pour", teinte: "8" },
-                  { libelle: "contre", teinte: "4" },
-                  { libelle: "abstention", teinte: "2" },
-                ]}
-              />
-              <Stack gap="sm" mt="sm">
-                {parGroupe.map((g) => (
-                  <BarreEmpilee
-                    key={g.organeUid}
-                    libelle={g.libelle ?? g.organeUid}
-                    href={`/groupes/${g.organeUid}`}
-                    segments={[
-                      { libelle: "pour", valeur: g.voixPour, teinte: "8" },
-                      { libelle: "contre", valeur: g.voixContre, teinte: "4" },
-                      { libelle: "abstention", valeur: g.voixAbstention, teinte: "2" },
-                    ]}
-                  />
-                ))}
-              </Stack>
-            </Box>
-            <Table.ScrollContainer minWidth={480} mt="lg">
-              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
-                <Table.Thead>
-                  <Table.Tr>
-                    <Table.Th>Groupe</Table.Th>
-                    <Table.Th ta="right">Pour</Table.Th>
-                    <Table.Th ta="right">Contre</Table.Th>
-                    <Table.Th ta="right">Abst.</Table.Th>
-                  </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>
-                  {parGroupe.map((g) => (
-                    <Table.Tr key={g.organeUid}>
-                      <Table.Td>
-                        <Anchor href={`/groupes/${g.organeUid}`} underline="hover">
-                          {g.libelle ?? g.organeUid}
-                        </Anchor>
-                      </Table.Td>
-                      <Table.Td ta="right">{g.voixPour}</Table.Td>
-                      <Table.Td ta="right">{g.voixContre}</Table.Td>
-                      <Table.Td ta="right">{g.voixAbstention}</Table.Td>
-                    </Table.Tr>
-                  ))}
-                </Table.Tbody>
-              </Table>
-            </Table.ScrollContainer>
+            <LegendeEmpilee
+              segments={[
+                { libelle: "pour", position: "pour" },
+                { libelle: "contre", position: "contre" },
+                { libelle: "abstention", position: "abstention" },
+              ]}
+            />
+            <Stack gap="md" mt="md">
+              {textes.map((t) => (
+                <CarteTexte key={t.dossierUid} texte={t} />
+              ))}
+            </Stack>
           </Box>
         )}
-
-        <Box>
-          <Title order={2}>Les textes</Title>
-          <Stack gap="sm" mt="sm">
-            {textes.map((t) => (
-              <Group
-                key={t.dossierUid}
-                justify="space-between"
-                wrap="nowrap"
-                align="flex-start"
-                gap="sm"
-              >
-                <Box>
-                  <Anchor href={`/lois/${t.dossierUid}`} fw={600} underline="hover">
-                    {t.titre ?? t.dossierUid}
-                  </Anchor>
-                  <Text c="dimmed" size="sm">
-                    {dateCourte.format(new Date(t.dateScrutin))}
-                  </Text>
-                </Box>
-                {t.sortCode === "adopté" && (
-                  <Badge
-                    leftSection={<IconCircleCheck size={12} />}
-                    variant="outline"
-                    color="graphite"
-                  >
-                    adopté
-                  </Badge>
-                )}
-                {t.sortCode === "rejeté" && (
-                  <Badge leftSection={<IconCircleX size={12} />} variant="outline" color="graphite">
-                    rejeté
-                  </Badge>
-                )}
-              </Group>
-            ))}
-          </Stack>
-        </Box>
 
         <Text size="sm" c="dimmed">
           Source :{" "}

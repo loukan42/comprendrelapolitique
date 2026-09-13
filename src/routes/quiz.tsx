@@ -124,7 +124,15 @@ function EcranQuestion({
   );
 }
 
+/**
+ * Le résultat d'une question se lit groupe par groupe. Dire « x % des
+ * votants de l'Assemblée ont voté comme vous » agrège des groupes qui se
+ * sont opposés sur le texte, et transforme un désaccord politique en un
+ * pourcentage sans titulaire.
+ */
 function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
+  const proches = question.groupes.filter((g) => g.accord >= 0.5);
+  const opposes = question.groupes.filter((g) => g.accord < 0.5).reverse();
   return (
     <Card withBorder radius="md" padding="md">
       <Text fw={600}>{question.question}</Text>
@@ -135,9 +143,46 @@ function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
           : question.reponse === "CONTRE"
             ? "contre"
             : "abstention"}
-        &nbsp;», comme {pourcent.format(question.soutienChambre)} des votants de l&apos;Assemblée
-        sur ce texte.
+        &nbsp;».
       </Text>
+      <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md" mt="md">
+        <Box>
+          <Text size="sm" fw={600}>
+            Ont voté comme vous
+          </Text>
+          {proches.length === 0 ? (
+            <Text size="sm" c="dimmed" mt={4}>
+              Aucun groupe, majoritairement.
+            </Text>
+          ) : (
+            <Stack gap={2} mt={4}>
+              {proches.map((g) => (
+                <Text key={g.organeUid} size="sm" c="dimmed">
+                  {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
+                </Text>
+              ))}
+            </Stack>
+          )}
+        </Box>
+        <Box>
+          <Text size="sm" fw={600}>
+            Ont voté autrement
+          </Text>
+          {opposes.length === 0 ? (
+            <Text size="sm" c="dimmed" mt={4}>
+              Aucun groupe, majoritairement.
+            </Text>
+          ) : (
+            <Stack gap={2} mt={4}>
+              {opposes.map((g) => (
+                <Text key={g.organeUid} size="sm" c="dimmed">
+                  {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
+                </Text>
+              ))}
+            </Stack>
+          )}
+        </Box>
+      </SimpleGrid>
     </Card>
   );
 }
@@ -194,45 +239,18 @@ function EcranResultat({
         </Alert>
       </Stack>
 
-      {resultat.parTheme.length > 0 && (
+      {resultat.questions.length > 0 && (
         <Stack gap="md">
           <Box>
-            <Title order={2}>Par thème</Title>
+            <Title order={2}>Question par question</Title>
             <Text c="dimmed" size="sm" mt={4}>
-              La part de l&apos;Assemblée qui a voté comme vous, en moyenne sur les questions de
-              chaque thème.
+              Pour chaque texte, les groupes qui ont voté dans votre sens et ceux qui ont voté
+              autrement. Le pourcentage est la part des voix du groupe allée dans le même sens que
+              votre réponse.
             </Text>
           </Box>
-          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
-            {resultat.parTheme.map((t) => (
-              <BarreHorizontale
-                key={t.theme}
-                libelle={t.libelle}
-                valeur={t.soutienMoyen}
-                reference={1}
-                libelleValeur={pourcent.format(t.soutienMoyen)}
-              />
-            ))}
-          </SimpleGrid>
-        </Stack>
-      )}
-
-      {resultat.accords.length > 0 && (
-        <Stack gap="md">
-          <Title order={2}>Vos principaux points d&apos;accord avec l&apos;Assemblée</Title>
           <Stack gap="sm">
-            {resultat.accords.map((q) => (
-              <BlocQuestionComparee key={q.scrutinUid} question={q} />
-            ))}
-          </Stack>
-        </Stack>
-      )}
-
-      {resultat.desaccords.length > 0 && (
-        <Stack gap="md">
-          <Title order={2}>Vos principaux désaccords</Title>
-          <Stack gap="sm">
-            {resultat.desaccords.map((q) => (
+            {resultat.questions.map((q) => (
               <BlocQuestionComparee key={q.scrutinUid} question={q} />
             ))}
           </Stack>

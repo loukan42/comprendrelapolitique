@@ -33,12 +33,12 @@ export interface ProximiteGroupe {
   questionsRepondues: number;
 }
 
-export interface ProximiteTheme {
-  theme: string;
-  libelle: string;
-  /** Part moyenne de l'Assemblée qui partageait la réponse de l'utilisateur, sur ce thème. */
-  soutienMoyen: number;
-  questions: number;
+/** Part des voix d'un groupe qui sont allées dans le même sens que la réponse
+ *  de l'utilisateur, sur un texte donné. */
+export interface AccordGroupe {
+  organeUid: string;
+  libelle: string | null;
+  accord: number;
 }
 
 export interface QuestionComparee {
@@ -47,17 +47,17 @@ export interface QuestionComparee {
   dossierTitre: string | null;
   reponse: ReponseQuiz;
   theme: string | null;
-  soutienChambre: number;
+  /** Tous les groupes ayant voté sur ce texte, du plus proche au plus éloigné
+   *  de la réponse donnée. */
+  groupes: AccordGroupe[];
 }
 
 export interface ResultatQuiz {
   parGroupe: ProximiteGroupe[];
-  parTheme: ProximiteTheme[];
-  accords: QuestionComparee[];
-  desaccords: QuestionComparee[];
+  questions: QuestionComparee[];
 }
 
-const RESULTAT_VIDE: ResultatQuiz = { parGroupe: [], parTheme: [], accords: [], desaccords: [] };
+const RESULTAT_VIDE: ResultatQuiz = { parGroupe: [], questions: [] };
 
 function partAccord(
   reponse: ReponseQuiz,
@@ -88,11 +88,9 @@ export function calculerResultat(
     const question = questionParScrutin.get(reponse.scrutinUid);
     if (!question) continue;
 
-    let soutienTotalPour = 0;
-    let soutienTotalContre = 0;
-    let soutienTotalAbstention = 0;
-
+    const groupes: AccordGroupe[] = [];
     for (const ligne of question.repartition) {
+      if (ligne.voixPour + ligne.voixContre + ligne.voixAbstention === 0) continue;
       const part = partAccord(reponse.reponse, ligne);
       const courant = parGroupe.get(ligne.organeUid) ?? {
         libelle: ligne.libelle,
@@ -103,26 +101,17 @@ export function calculerResultat(
       courant.questions += 1;
       parGroupe.set(ligne.organeUid, courant);
 
-      soutienTotalPour += ligne.voixPour;
-      soutienTotalContre += ligne.voixContre;
-      soutienTotalAbstention += ligne.voixAbstention;
+      groupes.push({ organeUid: ligne.organeUid, libelle: ligne.libelle, accord: part });
     }
 
-    const totalChambre = soutienTotalPour + soutienTotalContre + soutienTotalAbstention;
-    if (totalChambre > 0) {
-      const soutienChambre =
-        reponse.reponse === "POUR"
-          ? soutienTotalPour / totalChambre
-          : reponse.reponse === "CONTRE"
-            ? soutienTotalContre / totalChambre
-            : soutienTotalAbstention / totalChambre;
+    if (groupes.length > 0) {
       comparees.push({
         scrutinUid: reponse.scrutinUid,
         question: question.question,
         dossierTitre: question.dossierTitre,
         reponse: reponse.reponse,
         theme: question.theme,
-        soutienChambre,
+        groupes: groupes.sort((a, b) => b.accord - a.accord),
       });
     }
   }
@@ -137,32 +126,5 @@ export function calculerResultat(
     .filter((g) => g.questionsRepondues >= Math.min(3, utiles.length))
     .sort((a, b) => b.proximite - a.proximite);
 
-  const libelleParTheme = new Map(
-    questions.filter((q) => q.theme).map((q) => [q.theme as string, q.themeLibelle ?? q.theme]),
-  );
-  const sommeParTheme = new Map<string, { somme: number; questions: number }>();
-  for (const c of comparees) {
-    if (!c.theme) continue;
-    const t = sommeParTheme.get(c.theme) ?? { somme: 0, questions: 0 };
-    t.somme += c.soutienChambre;
-    t.questions += 1;
-    sommeParTheme.set(c.theme, t);
-  }
-  const parTheme = Array.from(sommeParTheme.entries())
-    .map(([theme, v]) => ({
-      theme,
-      libelle: libelleParTheme.get(theme) ?? theme,
-      soutienMoyen: v.somme / v.questions,
-      questions: v.questions,
-    }))
-    .sort((a, b) => b.soutienMoyen - a.soutienMoyen);
-
-  const compareesTriees = [...comparees].sort((a, b) => b.soutienChambre - a.soutienChambre);
-
-  return {
-    parGroupe: parGroupeTrie,
-    parTheme,
-    accords: compareesTriees.slice(0, 3),
-    desaccords: compareesTriees.slice(-3).reverse(),
-  };
+  return { parGroupe: parGroupeTrie, questions: comparees };
 }

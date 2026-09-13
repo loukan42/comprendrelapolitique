@@ -20,11 +20,6 @@ export interface ThemeHub {
   nombreTextes: number;
 }
 
-interface DossierBrut {
-  dossierUid: string;
-  titre: string | null;
-}
-
 async function chargerTousDossiersFinaux(): Promise<
   {
     dossierUid: string;
@@ -84,11 +79,6 @@ export interface TexteTheme {
   dateScrutin: string;
   sortCode: string | null;
   sortLibelle: string | null;
-}
-
-export interface VoteGroupeTheme {
-  organeUid: string;
-  libelle: string | null;
   voixPour: number;
   voixContre: number;
   voixAbstention: number;
@@ -98,7 +88,6 @@ export interface PageTheme {
   slug: string;
   libelle: string;
   textes: TexteTheme[];
-  parGroupe: VoteGroupeTheme[];
 }
 
 export const chargerPageTheme = createServerFn({ method: "GET" })
@@ -111,45 +100,33 @@ export const chargerPageTheme = createServerFn({ method: "GET" })
     if (!theme) return null;
 
     const dossiers = await chargerTousDossiersFinaux();
-    const retenus: DossierBrut[] = [];
-    const texteParDossier = new Map<string, TexteTheme>();
-    for (const d of dossiers) {
-      if (themeDepuisTitre(d.titre) !== slug) continue;
-      retenus.push({ dossierUid: d.dossierUid, titre: d.titre });
-      texteParDossier.set(d.dossierUid, {
-        dossierUid: d.dossierUid,
-        titre: d.titre,
-        dateScrutin: d.dateScrutin,
-        sortCode: d.sortCode,
-        sortLibelle: d.sortLibelle,
-      });
-    }
-    const scrutinUids = dossiers
-      .filter((d) => texteParDossier.has(d.dossierUid))
-      .map((d) => d.scrutinUid);
+    const retenus = dossiers.filter((d) => themeDepuisTitre(d.titre) === slug);
 
-    const parGroupe = new Map<string, VoteGroupeTheme>();
-    if (scrutinUids.length > 0) {
+    // Le décompte est attaché à chaque texte, jamais sommé sur l'ensemble du
+    // thème : additionner les voix de treize lois différentes produirait un
+    // « 100 % pour sur la justice » qui masque les textes sur lesquels un
+    // groupe s'est divisé ou opposé. Un scrutin, un texte, un résultat.
+    const voixParScrutin = new Map<
+      string,
+      { voixPour: number; voixContre: number; voixAbstention: number }
+    >();
+    if (retenus.length > 0) {
       const rows = await requete<{
-        organe_uid: string;
-        libelle: string | null;
+        scrutin_uid: string;
         voix_pour: number;
         voix_contre: number;
         voix_abstention: number;
       }>(
-        `SELECT sg.organe_uid, o.libelle,
+        `SELECT sg.scrutin_uid,
                 sum(sg.voix_pour) AS voix_pour, sum(sg.voix_contre) AS voix_contre,
                 sum(sg.voix_abstention) AS voix_abstention
            FROM officiel.scrutin_groupe sg
-           LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
-          WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL
-          GROUP BY sg.organe_uid, o.libelle`,
-        [scrutinUids],
+          WHERE sg.scrutin_uid = ANY($1)
+          GROUP BY sg.scrutin_uid`,
+        [retenus.map((d) => d.scrutinUid)],
       );
       for (const r of rows) {
-        parGroupe.set(r.organe_uid, {
-          organeUid: r.organe_uid,
-          libelle: r.libelle,
+        voixParScrutin.set(r.scrutin_uid, {
           voixPour: Number(r.voix_pour),
           voixContre: Number(r.voix_contre),
           voixAbstention: Number(r.voix_abstention),
@@ -160,13 +137,20 @@ export const chargerPageTheme = createServerFn({ method: "GET" })
     return {
       slug: theme.slug,
       libelle: theme.libelle,
-      textes: Array.from(texteParDossier.values()).sort((a, b) =>
-        a.dateScrutin < b.dateScrutin ? 1 : -1,
-      ),
-      parGroupe: Array.from(parGroupe.values()).sort((a, b) => {
-        const totalA = a.voixPour + a.voixContre + a.voixAbstention;
-        const totalB = b.voixPour + b.voixContre + b.voixAbstention;
-        return b.voixPour / totalB - a.voixPour / totalA;
-      }),
+      textes: retenus
+        .map((d) => {
+          const voix = voixParScrutin.get(d.scrutinUid);
+          return {
+            dossierUid: d.dossierUid,
+            titre: d.titre,
+            dateScrutin: d.dateScrutin,
+            sortCode: d.sortCode,
+            sortLibelle: d.sortLibelle,
+            voixPour: voix?.voixPour ?? 0,
+            voixContre: voix?.voixContre ?? 0,
+            voixAbstention: voix?.voixAbstention ?? 0,
+          };
+        })
+        .sort((a, b) => (a.dateScrutin < b.dateScrutin ? 1 : -1)),
     };
   });

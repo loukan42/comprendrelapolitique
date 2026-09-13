@@ -3,14 +3,38 @@ import { Anchor, Box, Group, Text } from "@mantine/core";
 export interface SegmentEmpile {
   libelle: string;
   valeur: number;
-  /** Nuance de graphite (jamais une couleur de parti : voir theme.ts). */
-  teinte: "8" | "4" | "2";
+  /** Position du vote que représente ce segment. */
+  position: "pour" | "contre" | "abstention";
+}
+
+/**
+ * Jetons de texte adaptatifs, pas des nuances fixes de graphite : les
+ * mêmes que Hemicycle.tsx, pour la même raison (une nuance pensée pour du
+ * texte sur fond clair perd tout contraste en aplat sur fond sombre). Trois
+ * niveaux nettement distincts, du plus sombre au plus clair.
+ */
+const COULEUR_POSITION: Record<SegmentEmpile["position"], string> = {
+  pour: "var(--mantine-color-text)",
+  contre: "var(--mantine-color-dimmed)",
+  abstention: "var(--mantine-color-placeholder)",
+};
+
+const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
+const nombre = new Intl.NumberFormat("fr-FR");
+
+/** « 0 % » pour deux voix réelles ferait lire une absence de vote là où il y
+ *  en a eu : sous le demi-point, on écrit le seuil plutôt que l'arrondi. */
+function part(valeur: number, total: number): string {
+  const ratio = valeur / total;
+  return ratio > 0 && ratio < 0.005 ? "< 1 %" : pourcent.format(ratio);
 }
 
 /**
  * Barre empilée pour une répartition (pour/contre/abstention) en part du
- * total, avec sa légende. Voir BarreHorizontale.tsx pour le choix d'un
- * composant maison plutôt que `@mantine/charts`.
+ * total, avec sa légende et le détail chiffré en dessous : la couleur seule
+ * ne suffit pas à lire un résultat, surtout entre deux teintes de gris
+ * proches. Voir BarreHorizontale.tsx pour le choix d'un composant maison
+ * plutôt que `@mantine/charts`.
  */
 export function BarreEmpilee({
   libelle,
@@ -47,7 +71,7 @@ export function BarreEmpilee({
               seg.valeur > 0 && (
                 <Box
                   key={seg.libelle}
-                  bg={`var(--mantine-color-graphite-${seg.teinte})`}
+                  bg={COULEUR_POSITION[seg.position]}
                   style={{ width: `${(seg.valeur / total) * 100}%`, height: "100%" }}
                   title={`${seg.libelle} : ${seg.valeur}`}
                 />
@@ -55,6 +79,16 @@ export function BarreEmpilee({
           )
         )}
       </Group>
+      {total > 0 && (
+        <Text size="xs" c="dimmed" mt={4}>
+          {segments
+            .filter((seg) => seg.valeur > 0)
+            .map(
+              (seg) => `${part(seg.valeur, total)} ${seg.libelle} (${nombre.format(seg.valeur)})`,
+            )
+            .join(" · ")}
+        </Text>
+      )}
     </Box>
   );
 }
@@ -65,8 +99,17 @@ export function LegendeEmpilee({ segments }: { segments: Omit<SegmentEmpile, "va
       {segments.map((seg) => (
         <Group key={seg.libelle} gap={6} wrap="nowrap">
           <Box
-            bg={`var(--mantine-color-graphite-${seg.teinte})`}
-            style={{ width: 10, height: 10, borderRadius: 2, flexShrink: 0 }}
+            bg={COULEUR_POSITION[seg.position]}
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: 2,
+              flexShrink: 0,
+              border:
+                seg.position === "abstention"
+                  ? "1px solid var(--mantine-color-default-border)"
+                  : undefined,
+            }}
           />
           <Text size="sm" c="dimmed">
             {seg.libelle}
