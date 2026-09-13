@@ -1,5 +1,6 @@
-import { Container } from "@mantine/core";
+import { Container, Image } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
+import logo from "../assets/politiquiz.png";
 import classes from "./SiteHeader.module.css";
 
 /**
@@ -12,8 +13,8 @@ export function SiteHeader() {
   return (
     <header className={classes["entete"]}>
       <Container size="md" className={classes["barre"]}>
-        <Link to="/" className={classes["marque"]}>
-          Comprendre la Politique
+        <Link to="/" className={classes["marque"]} aria-label="Comprendre la Politique">
+          <Image src={logo} alt="Comprendre la Politique" h={44} w="auto" fit="contain" />
         </Link>
         <nav className={classes["nav"]}>
           <Link

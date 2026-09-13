@@ -7,6 +7,7 @@ import {
   Card,
   Container,
   Group,
+  Image,
   SimpleGrid,
   Stack,
   Table,
@@ -16,6 +17,7 @@ import {
 } from "@mantine/core";
 import { IconBrain, IconCircleCheck, IconCircleX, IconNews, IconSearch } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import logo from "../assets/politiquiz.png";
 import { CarteLien } from "../components/CarteLien";
 import { chargerScrutinsRecents } from "../queries/lois";
 
@@ -120,19 +122,22 @@ function Accueil() {
         bg="var(--mantine-color-default-hover)"
       >
         <Container size="md" py={{ base: 40, sm: 64 }}>
-          <Box maw="var(--mesure-texte)">
-            <Text tt="uppercase" fw={700} fz="xs" c="dimmed" style={{ letterSpacing: "0.06em" }}>
-              Données officielles de l&apos;Assemblée nationale, depuis 2017
-            </Text>
-            <Title order={1} mt="xs">
-              Comprendre la Politique
-            </Title>
-            <Text mt="md" fz="lg" c="dimmed">
-              Ce que les parlementaires français ont voté depuis 2017, à partir des données
-              publiques de l&apos;Assemblée nationale. Les chiffres viennent des sources
-              officielles. Ce que l&apos;on ne sait pas est écrit comme tel.
-            </Text>
-          </Box>
+          <Group justify="space-between" align="center" gap={40} wrap="wrap-reverse">
+            <Box maw="var(--mesure-texte)">
+              <Text tt="uppercase" fw={700} fz="xs" c="dimmed" style={{ letterSpacing: "0.06em" }}>
+                Données officielles de l&apos;Assemblée nationale, depuis 2017
+              </Text>
+              <Title order={1} mt="xs">
+                Comprendre la Politique
+              </Title>
+              <Text mt="md" fz="lg" c="dimmed">
+                Ce que les parlementaires français ont voté depuis 2017, à partir des données
+                publiques de l&apos;Assemblée nationale. Les chiffres viennent des sources
+                officielles. Ce que l&apos;on ne sait pas est écrit comme tel.
+              </Text>
+            </Box>
+            <Image src={logo} alt="" h={{ base: 96, sm: 140 }} w="auto" fit="contain" />
+          </Group>
         </Container>
       </Box>
 
