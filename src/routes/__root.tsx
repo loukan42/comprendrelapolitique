@@ -1,36 +1,69 @@
+import {
+  Anchor,
+  Button,
+  ColorSchemeScript,
+  Container,
+  Group,
+  MantineProvider,
+  Stack,
+  Text,
+  Title,
+  mantineHtmlProps,
+} from "@mantine/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
-  Outlet,
+  HeadContent,
   Link,
+  Outlet,
+  Scripts,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+// Le CSS de Mantine vient en premier : il porte sa remise a zero.
+import "@mantine/core/styles.css";
+
 import appCss from "../styles.css?url";
+import { theme } from "../theme";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+/** Gabarit commun aux pages d'erreur : un titre, une explication, une issue. */
+function PageMessage({
+  titre,
+  children,
+  actions,
+}: {
+  titre: string;
+  children: ReactNode;
+  actions: ReactNode;
+}) {
+  return (
+    <Container size="sm" py={96}>
+      <Stack gap="md">
+        <Title order={1}>{titre}</Title>
+        <Text c="dimmed">{children}</Text>
+        <Group gap="sm" mt="xs">
+          {actions}
+        </Group>
+      </Stack>
+    </Container>
+  );
+}
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
-      </div>
-    </div>
+    <PageMessage
+      titre="Cette page n'existe pas"
+      actions={
+        <Anchor component={Link} to="/">
+          Retour à l'accueil
+        </Anchor>
+      }
+    >
+      L'adresse demandée ne correspond à aucune page du site. Elle a pu être déplacée, ou n'avoir
+      jamais existé.
+    </PageMessage>
   );
 }
 
@@ -42,33 +75,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
+    <PageMessage
+      titre="Cette page n'a pas pu s'afficher"
+      actions={
+        <>
+          <Button
+            variant="default"
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
-          </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
-        </div>
-      </div>
-    </div>
+            Réessayer
+          </Button>
+          <Anchor href="/">Retour à l'accueil</Anchor>
+        </>
+      }
+    >
+      Une erreur s'est produite de notre côté. Aucune donnée n'a été perdue.
+    </PageMessage>
   );
 }
 
@@ -78,19 +103,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Comprendre la Politique" },
-      { name: "description", content: "Un espace pour comprendre la politique." },
-      { name: "author", content: "Comprendre la Politique" },
+      {
+        name: "description",
+        content:
+          "Ce que font réellement les responsables politiques français, à partir des données publiques officielles.",
+      },
       { property: "og:title", content: "Comprendre la Politique" },
-      { property: "og:description", content: "Un espace pour comprendre la politique." },
+      {
+        property: "og:description",
+        content:
+          "Ce que font réellement les responsables politiques français, à partir des données publiques officielles.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@ComprendreLaPolitique" },
+      { property: "og:locale", content: "fr_FR" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
@@ -102,9 +131,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fr" {...mantineHtmlProps}>
       <head>
         <HeadContent />
+        {/* Sans ce script, le thème clignote au chargement : le navigateur peint
+            d'abord le thème clair avant que React ne rétablisse le bon. */}
+        <ColorSchemeScript />
       </head>
       <body>
         {children}
@@ -118,9 +150,12 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-    </QueryClientProvider>
+    <MantineProvider theme={theme} defaultColorScheme="auto">
+      <QueryClientProvider client={queryClient}>
+        {/* Requis : les routes enfants s'affichent ici. Retirer l'Outlet les
+            rend toutes inertes. */}
+        <Outlet />
+      </QueryClientProvider>
+    </MantineProvider>
   );
 }

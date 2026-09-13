@@ -15,6 +15,11 @@ Le serveur de dev écoute sur le port **8080** (imposé par
 npm run dev
 ```
 
+**Le tout premier rendu prend environ 45 secondes**, le temps que Vite
+pré-bundle Mantine. Le navigateur peut afficher une erreur de délai dépassé
+pendant ce temps : recharger une fois le pré-bundling terminé suffit. Les
+rendus suivants sont de l'ordre de 15 ms.
+
 ## Données
 
 La chaîne d'ingestion et ses contrôles sont décrits dans
