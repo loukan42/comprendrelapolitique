@@ -2,7 +2,8 @@
  * Import des jeux Open Data de l'Assemblée nationale vers le schéma `officiel`.
  *
  * Lit des archives déjà décompressées et charge acteurs, organes, mandats,
- * dossiers, documents, actes législatifs, scrutins et votes individuels.
+ * dossiers, documents, actes législatifs, scrutins, votes individuels, et
+ * amendements avec leurs cosignataires (XVIe seulement à ce stade).
  *
  * Idempotent : toutes les tables ont pour clé primaire l'identifiant de la
  * source, et l'import est un `INSERT … ON CONFLICT DO UPDATE`. Le rejouer ne
@@ -18,6 +19,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import type { Dirent } from "node:fs";
 
 import type { Db } from "./db.ts";
 import {
@@ -905,4 +907,216 @@ export async function rattacherScrutins(db: Db, lotId: number): Promise<Record<s
   );
 
   return stats;
+}
+
+// ---------------------------------------------------------------------------
+// Amendements
+// ---------------------------------------------------------------------------
+
+interface FichierAmendement {
+  chemin: string;
+  /**
+   * Nom du dossier au premier niveau de l'arborescence
+   * `json/<dossier>/<document>/*.json`. C'est la seule source du
+   * rattachement au dossier : rien dans le fichier de l'amendement ne porte
+   * cette information. Vérifié sur l'intégralité du corpus de la XVIe : ce
+   * nom concorde toujours avec `document.dossierRef` là où le document
+   * correspondant existe (docs/DATA_SOURCES.md).
+   */
+  dossierUid: string;
+}
+
+/**
+ * Liste les fichiers d'amendements sous `json/<dossier>/<document>/*.json`.
+ * Contrairement aux autres jeux, l'archive Amendements range ses fichiers
+ * dans deux niveaux de répertoires plutôt qu'à plat.
+ */
+async function fichiersAmendements(dirJson: string): Promise<FichierAmendement[]> {
+  const sortie: FichierAmendement[] = [];
+  if (!existsSync(dirJson)) return sortie;
+
+  const dossiers = (await readdir(dirJson, { withFileTypes: true })).filter((d: Dirent) =>
+    d.isDirectory(),
+  );
+  for (const dossierDir of dossiers) {
+    const dossierUid = dossierDir.name;
+    const dossierPath = join(dirJson, dossierDir.name);
+    const documents = (await readdir(dossierPath, { withFileTypes: true })).filter((d: Dirent) =>
+      d.isDirectory(),
+    );
+    for (const docDir of documents) {
+      const docPath = join(dossierPath, docDir.name);
+      for (const f of await readdir(docPath)) {
+        if (f.endsWith(".json")) sortie.push({ chemin: join(docPath, f), dossierUid });
+      }
+    }
+  }
+  return sortie;
+}
+
+export async function importerAmendements(
+  db: Db,
+  dirAmendementsJson: string,
+  lotId: number,
+  legislature: number,
+): Promise<{ amendements: number; cosignataires: number }> {
+  const amendements: unknown[][] = [];
+  const cosignataires: unknown[][] = [];
+
+  for (const { chemin, dossierUid } of await fichiersAmendements(dirAmendementsJson)) {
+    const a = (await lireJson(chemin)).amendement as Obj;
+    const uid = texte(a.uid);
+    const documentUid = texte(a.texteLegislatifRef);
+    if (!uid || !documentUid) continue;
+
+    const ident = (a.identification ?? {}) as Obj;
+    const sig = (a.signataires ?? {}) as Obj;
+    const auteur = (sig.auteur ?? {}) as Obj;
+    const pointeur = (a.pointeurFragmentTexte ?? {}) as Obj;
+    const division = (pointeur.division ?? {}) as Obj;
+    const cycle = (a.cycleDeVie ?? {}) as Obj;
+    const etatBloc = (cycle.etatDesTraitements ?? {}) as Obj;
+    const etat = (etatBloc.etat ?? {}) as Obj;
+    const sousEtat = (etatBloc.sousEtat ?? {}) as Obj;
+    const corps = (a.corps ?? {}) as Obj;
+    const contenuAuteur = (corps.contenuAuteur ?? {}) as Obj;
+
+    // NULL tant que l'amendement n'a pas été discuté : ce n'est pas une
+    // absence à corriger, voir le commentaire sur officiel.amendement.
+    const sortBrut = texte(cycle.sort);
+    const etatLibelle = texte(etat.libelle);
+
+    amendements.push([
+      uid,
+      entier(a.legislature) ?? legislature,
+      dossierUid,
+      documentUid,
+      texte(a.examenRef),
+      texte(ident.prefixeOrganeExamen),
+      texte(ident.numeroLong),
+      entier(ident.numeroOrdreDepot),
+      texte(a.amendementParentRef),
+      texte(auteur.typeAuteur) ?? "Inconnu",
+      texte(auteur.acteurRef),
+      texte(auteur.groupePolitiqueRef),
+      texte(auteur.gouvernementRef),
+      texte(sig.libelle),
+      texte(division.type),
+      texte(division.titre),
+      texte(division.articleDesignationCourte),
+      booleen(division.articleAdditionnel),
+      date(cycle.dateDepot),
+      date(cycle.datePublication),
+      horodatage(cycle.dateSort),
+      texte(etat.code),
+      etatLibelle,
+      texte(sousEtat.code),
+      texte(sousEtat.libelle),
+      sortBrut,
+      sortBrut ?? etatLibelle,
+      booleen(cycle.soumisArticle40),
+      texte(contenuAuteur.dispositif),
+      texte(contenuAuteur.exposeSommaire),
+      lotId,
+    ]);
+
+    for (const ref of liste<unknown>(((sig.cosignataires ?? {}) as Obj).acteurRef as unknown)) {
+      const cUid = texte(ref);
+      if (cUid) cosignataires.push([uid, cUid, lotId]);
+    }
+  }
+
+  const nAmendements = await insererEnMasse(
+    db,
+    {
+      table: "officiel.amendement",
+      colonnes: [
+        "uid",
+        "legislature",
+        "dossier_uid",
+        "document_uid",
+        "examen_ref",
+        "organe_examen_code",
+        "numero_long",
+        "numero_ordre_depot",
+        "amendement_parent_uid",
+        "type_auteur",
+        "auteur_acteur_uid",
+        "auteur_groupe_uid",
+        "auteur_gouvernement_uid",
+        "auteur_libelle",
+        "division_type",
+        "division_titre",
+        "division_designation",
+        "article_additionnel",
+        "date_depot",
+        "date_publication",
+        "date_sort",
+        "etat_code",
+        "etat_libelle",
+        "sous_etat_code",
+        "sous_etat_libelle",
+        "sort_brut",
+        "sort_libelle",
+        "soumis_article_40",
+        "dispositif",
+        "expose_sommaire",
+        "lot_id",
+      ],
+      types: [
+        "text",
+        "smallint",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "integer",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "date",
+        "date",
+        "timestamptz",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "boolean",
+        "text",
+        "text",
+        "bigint",
+      ],
+      cles: [0],
+      conflit: `ON CONFLICT (uid) DO UPDATE SET
+        sort_brut = EXCLUDED.sort_brut, sort_libelle = EXCLUDED.sort_libelle,
+        etat_code = EXCLUDED.etat_code, etat_libelle = EXCLUDED.etat_libelle,
+        sous_etat_code = EXCLUDED.sous_etat_code, sous_etat_libelle = EXCLUDED.sous_etat_libelle,
+        date_sort = EXCLUDED.date_sort, lot_maj_id = EXCLUDED.lot_id`,
+    },
+    amendements,
+  );
+
+  const nCosignataires = await insererEnMasse(
+    db,
+    {
+      table: "officiel.amendement_cosignataire",
+      colonnes: ["amendement_uid", "acteur_uid", "lot_id"],
+      types: ["text", "text", "bigint"],
+      cles: [0, 1],
+      conflit: `ON CONFLICT (amendement_uid, acteur_uid) DO NOTHING`,
+    },
+    cosignataires,
+  );
+
+  return { amendements: nAmendements, cosignataires: nCosignataires };
 }

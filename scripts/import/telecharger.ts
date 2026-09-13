@@ -27,7 +27,7 @@ import { dirname, join, resolve } from "node:path";
 
 import { unzip } from "fflate";
 
-import { sourcesPour, type Source } from "./sources.ts";
+import { JEUX_MVP, sourcesPour, type Source } from "./sources.ts";
 
 /** Métadonnées conservées d'un téléchargement à l'autre. */
 interface Empreinte {
@@ -109,13 +109,19 @@ async function main() {
   const legislature = Number.parseInt(args[0] ?? "", 10);
   const racine = resolve(args.find((a) => !a.startsWith("--") && a !== args[0]) ?? "data");
   const force = args.includes("--force");
+  // Hors MVP par défaut : 347 Mo pour la seule XVIe (docs/DATA_SOURCES.md
+  // section 1.2). Le drapeau est explicite parce que le coût l'est.
+  const avecAmendements = args.includes("--amendements");
 
   if (!legislature) {
-    console.error("usage: telecharger.ts <législature> [dossier] [--force]");
+    console.error("usage: telecharger.ts <législature> [dossier] [--force] [--amendements]");
     process.exit(1);
   }
 
-  const sources = sourcesPour(legislature);
+  const sources = sourcesPour(
+    legislature,
+    avecAmendements ? [...JEUX_MVP, "amendements"] : JEUX_MVP,
+  );
   if (sources.length === 0) {
     console.error(`Aucune source connue pour la législature ${legislature}.`);
     process.exit(1);

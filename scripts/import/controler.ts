@@ -226,6 +226,84 @@ async function main() {
 
   if (legislature === 16) await controlesXVIe(db);
 
+  console.log("\n=== Amendements ===");
+  const nAmendements = await un<string>(db, "SELECT count(*) FROM officiel.amendement");
+  if (Number(nAmendements) > 0) {
+    // Amendements non fournis pour toutes les législatures (voir
+    // docs/PIPELINE.md) : ce bloc ne s'exécute que si le jeu a été chargé.
+    const ATTENDUS_AMENDEMENTS: Record<number, { amendements: number; cosignatures: number }> = {
+      16: { amendements: 163789, cosignatures: 3148274 },
+    };
+    const attenduAm = ATTENDUS_AMENDEMENTS[legislature];
+    if (attenduAm) {
+      verifier("amendements", nAmendements, attenduAm.amendements);
+      verifier(
+        "liens de cosignature",
+        await un(db, "SELECT count(*) FROM officiel.amendement_cosignataire"),
+        attenduAm.cosignatures,
+      );
+    } else {
+      afficher("amendements chargés", nAmendements);
+    }
+    // Un amendement non discuté n'a pas de sort : ce n'est pas une absence à
+    // corriger (docs/DATA_SOURCES.md section 9). On vérifie la répartition
+    // par type d'auteur plutôt qu'un total de « décisions ».
+    for (const r of await db.query<{ type_auteur: string; n: string }>(
+      "SELECT type_auteur, count(*) AS n FROM officiel.amendement GROUP BY 1 ORDER BY 2 DESC",
+    )) {
+      afficher(`auteurs « ${r.type_auteur} »`, r.n);
+    }
+    verifier(
+      "un amendement Gouvernement n'a jamais d'acteur pour auteur",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.amendement
+          WHERE type_auteur = 'Gouvernement' AND auteur_acteur_uid IS NOT NULL`,
+      ),
+      0,
+    );
+    afficher(
+      "amendements sans décision (non discutés)",
+      await un(db, "SELECT count(*) FROM officiel.amendement WHERE sort_brut IS NULL"),
+    );
+    afficher(
+      "amendements référençant un document absent du jeu Dossiers",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.amendement a
+          LEFT JOIN officiel.document d ON d.uid = a.document_uid
+         WHERE d.uid IS NULL`,
+      ),
+    );
+    afficher(
+      "amendements référençant un dossier absent",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.amendement a
+          LEFT JOIN officiel.dossier d ON d.uid = a.dossier_uid
+         WHERE d.uid IS NULL`,
+      ),
+    );
+    afficher(
+      "auteurs d'amendement absents du jeu Acteurs",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.amendement a
+          LEFT JOIN officiel.acteur ac ON ac.uid = a.auteur_acteur_uid
+         WHERE a.auteur_acteur_uid IS NOT NULL AND ac.uid IS NULL`,
+      ),
+    );
+    afficher(
+      "cosignataires absents du jeu Acteurs",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.amendement_cosignataire c
+          LEFT JOIN officiel.acteur ac ON ac.uid = c.acteur_uid
+         WHERE ac.uid IS NULL`,
+      ),
+    );
+  }
+
   console.log("\n=== Rattachement scrutin / dossier ===");
   for (const r of await db.query<{ methode: string; n: string }>(
     "SELECT methode::text AS methode, count(*) AS n FROM officiel.scrutin_dossier GROUP BY 1 ORDER BY 1",

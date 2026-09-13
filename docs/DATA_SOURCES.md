@@ -602,6 +602,104 @@ découvrir en production.
 
 ---
 
+## 7 bis. Structure réelle des amendements (XVIe)
+
+Vérifiée par analyse exhaustive des **163 789 amendements** de la XVIe
+législature, le seul jeu Amendements disponible localement à ce stade (voir
+section 8). Contrairement aux scrutins et aux dossiers, l'archive ne range pas
+ses fichiers à plat : elle se décompresse en
+`json/<dossier>/<document>/<amendement>.json`, avec **260 dossiers** et
+**474 documents**. Rien dans le fichier d'un amendement ne porte son dossier de
+rattachement : c'est le nom du répertoire de premier niveau qui le donne,
+vérifié comme concordant avec `document.dossierRef` sur l'intégralité du
+corpus, partout où le document correspondant existe dans le jeu Dossiers.
+
+Le champ `legislature` de la racine vaut `"16"` sur les 163 789 fichiers, y
+compris pour les 5 dossiers hérités de la XVe visibles au premier niveau de
+l'arborescence (`DLR5L15N…`) : la source date l'amendement par la législature
+où il a été traité, pas par celle où le dossier a été ouvert.
+
+### 7 bis.1 `sort` n'est renseigné que pour les amendements discutés
+
+Piège majeur de ce jeu : `cycleDeVie.sort` (« Adopté », « Rejeté », « Retiré »,
+« Non soutenu », « Tombé ») est encodé `{"@xsi:nil": "true"}` pour **87 266
+amendements sur 163 789, soit 53 %**. Un importeur qui traiterait ce vide comme
+une donnée manquante à corriger se tromperait : la corrélation avec
+`cycleDeVie.etatDesTraitements.etat.code` est totale sur l'ensemble du corpus.
+`sort` n'existe que lorsque `etat.code = 'DI'` (discuté). Dans tous les autres
+cas, l'amendement n'a simplement jamais atteint le stade de la discussion sur
+le fond :
+
+| `etat.code` | `etat.libelle` | Effectif | `sort` |
+| --- | --- | --- | --- |
+| `DI` | Discuté | 76 523 | renseigné (Rejeté 37 635, Adopté 13 392, Non soutenu 10 865, Tombé 9 708, Retiré 4 923) |
+| `AC` | À discuter | 19 047 | nil |
+| `ET` | En traitement | 18 898 + 18 | nil |
+| `IR` / `IRR*` | Irrecevable (11 variantes de motif) | 33 268 | nil |
+| `RT` | Retiré (avant publication) | 14 903 | nil |
+| `effacé` | effacé | 50 | nil |
+
+La couche d'import stocke `sort` brut (nullable) et calcule un affichage
+unique, `sort_libelle`, par `COALESCE(sort, etat.libelle)` : ce n'est pas une
+valeur devinée, les deux composants viennent de la source, seul le choix entre
+eux est fait à l'import. `etatDesTraitements.sousEtat` précise le motif exact
+d'irrecevabilité (`IRR45` = cavalier législatif, `IRR42` = satisfait ou
+inopérant, `IRRHD` = hors délais…) et est conservé séparément.
+
+### 7 bis.2 Trois types d'auteur, trois façons d'identifier l'auteur
+
+`signataires.auteur.typeAuteur` prend une des trois valeurs Député (154 501),
+Rapporteur (7 789), Gouvernement (1 499). L'identifiant de l'auteur change de
+nature selon le type :
+
+- Député ou Rapporteur : `auteur.acteurRef` (`PA…`), toujours accompagné du
+  groupe politique du signataire au moment du dépôt (`groupePolitiqueRef`,
+  absent seulement pour 53 députés).
+- Gouvernement : `acteurRef` et `groupePolitiqueRef` valent tous deux nil.
+  L'auteur est identifié par un **organe** (`gouvernementRef`, un `PO…`), pas
+  par un acteur. Vérifié sur les 1 499 cas : aucun n'a jamais d'`acteurRef`.
+
+Traiter le Gouvernement comme un « acteur » de plus aurait fait planter la
+clé étrangère ou, pire, inventé un faux député auteur d'un amendement
+gouvernemental.
+
+### 7 bis.3 Les cosignataires suivent la même règle d'enveloppement que les listes de vote
+
+`signataires.cosignataires` est `{"@xsi:nil": "true"}` pour 51 346 amendements
+sans cosignataire, et un objet `{acteurRef: […]}`  pour 112 443 amendements
+qui en ont. Comme pour les groupes de scrutin, `acteurRef` n'est enveloppé
+dans un tableau que s'il y a plus d'un élément : 6 765 amendements n'ont qu'un
+seul cosignataire, exposé comme une chaîne nue. La fonction `liste()` de
+`normaliser.ts`, déjà utilisée pour les autres jeux, absorbe les deux formes
+sans code dédié. Total mesuré : **3 148 274 liens de cosignature**, jusqu'à
+170 cosignataires sur un même amendement.
+
+### 7 bis.4 Rattachement et couverture
+
+`texteLegislatifRef` (le document, au format `PRJLANR5L16B0009` ou
+`PIONANR5L16BTC0014` selon le type de texte) est renseigné sur les 163 789
+amendements sans exception, et désigne toujours `officiel.document.uid`. La
+couverture n'est pourtant pas totale : **47 amendements sur 163 789 (0,03 %)**
+référencent un document absent du jeu Dossiers de la même archive — pas un
+document filtré à l'import faute de titre, un document réellement absent du
+répertoire `document/`. Le dossier reste identifiable via le nom de
+répertoire, qui ne dépend pas du jeu Dossiers.
+
+Intégrité des références vers les acteurs, mesurée sur l'intégralité du
+corpus : 13 auteurs sur 162 240 et 3 681 liens de cosignature sur 3 148 274
+(0,12 %) pointent vers un acteur absent du jeu Acteurs (`AMO20`), sans doute
+des députés sortis de mandat avant l'instantané. Trop marginal pour justifier
+une clé étrangère stricte, et cohérent avec le gradient de qualité déjà observé
+sur les autres jeux : la donnée récente est propre, l'historique un peu moins.
+
+### 7 bis.5 Volume et durée
+
+163 789 fichiers, lus et importés en **~96 secondes** sur PGlite (XVIe
+uniquement, machine de développement), pour 163 789 lignes d'amendement et
+3 148 274 lignes de cosignature. C'est le jeu le plus lent du pipeline, cohérent
+avec son poids : 347 Mo compressés pour la seule XVIe contre 21 Mo pour le
+reste du MVP (section 1.2).
+
 ## 8. Sources non encore vérifiées
 
 Les sources ci-dessous sont citées dans la spécification mais **n'ont fait
@@ -614,6 +712,14 @@ acquises tant qu'elles n'ont pas été inspectées comme l'a été l'Assemblée.
 | Légifrance via PISTE | Inscription et OAuth requis. Quotas d'appel, et existence d'un lien direct entre dossier parlementaire et texte consolidé. |
 | Parlement européen | Disponibilité réelle des votes nominatifs, qui est loin d'être systématique. |
 | GDELT | Qualité de la couverture des médias français et taux de faux positifs sur des requêtes construites à partir de titres de loi. À tester avant de fonder 35 % du score d'importance dessus. |
+
+**Amendements XVe et XVIIe.** Seule la XVIe a été inspectée (section 7 bis),
+à partir de fichiers fournis localement, sans passer par le téléchargement.
+Le nommage d'URL est déjà table explicite dans `sources.ts` (section 1.1) et
+la XVe utilise `amendements_legis` plutôt que `amendements_div_legis`, mais le
+format interne des fichiers n'a pas été vérifié sur ces deux législatures. Ne
+pas supposer qu'il est identique : c'est exactement l'erreur que ce document
+existe pour éviter.
 
 ---
 

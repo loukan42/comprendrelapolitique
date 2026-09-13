@@ -3,12 +3,18 @@
  * résultat.
  *
  * Usage :
- *   node scripts/import/charger.ts <législature> <dir_archives> [--db chemin]
+ *   node scripts/import/charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir]
  *
  * `dir_archives` contient les archives décompressées, une par jeu :
  *   <dir>/scrutins/json/            VTANR*.json
  *   <dir>/dossiers/json/            dossierParlementaire/ et document/
  *   <dir>/acteurs/json/             acteur/ et organe/
+ *
+ * Les amendements sont hors MVP (347 Mo pour la seule XVIe) et ne sont chargés
+ * que si `<dir_archives>/amendements/json/` existe ou qu'un chemin est fourni
+ * explicitement via `--amendements`. Ce jeu range ses fichiers sur deux
+ * niveaux de répertoires, `json/<dossier>/<document>/*.json`, contrairement
+ * aux autres (voir docs/DATA_SOURCES.md section 7 bis).
  *
  * Sans `--db`, la base est en mémoire : utile pour vérifier l'import sans rien
  * installer, inutile pour conserver le résultat.
@@ -20,6 +26,7 @@ import { join, resolve } from "node:path";
 import { appliquerMigration, fermerLot, ouvrirLot, ouvrirPGlite, type Db } from "./db.ts";
 import {
   importerActeurs,
+  importerAmendements,
   importerDossiers,
   importerScrutins,
   rattacherScrutins,
@@ -49,9 +56,17 @@ async function main() {
   const racine = args[1];
   const iDb = args.indexOf("--db");
   const cheminDb = iDb >= 0 ? args[iDb + 1] : undefined;
+  const iAmendements = args.indexOf("--amendements");
+  // Les amendements ne font pas partie du MVP (95 % du volume, voir
+  // docs/DATA_SOURCES.md section 1.2) : le répertoire par défaut n'est chargé
+  // que s'il existe, et un chemin explicite reste possible pour une archive
+  // rangée ailleurs que sous <dir_archives>/amendements/json.
+  const dirAmendementsExplicite = iAmendements >= 0 ? args[iAmendements + 1] : undefined;
 
   if (!legislature || !racine) {
-    console.error("usage: charger.ts <législature> <dir_archives> [--db chemin]");
+    console.error(
+      "usage: charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir]",
+    );
     process.exit(1);
   }
 
@@ -65,6 +80,13 @@ async function main() {
       console.error(`Répertoire introuvable pour le jeu « ${nom} » : ${d}`);
       process.exit(1);
     }
+  }
+
+  const dirAmendements = dirAmendementsExplicite ?? join(racine, "amendements", "json");
+  const chargerAmendements = existsSync(dirAmendements);
+  if (dirAmendementsExplicite && !chargerAmendements) {
+    console.error(`Répertoire d'amendements introuvable : ${dirAmendements}`);
+    process.exit(1);
   }
 
   const t = chrono();
@@ -99,6 +121,20 @@ async function main() {
     `Dossiers : ${d.dossiers} dossiers, ${d.documents} documents, ${d.actes} actes, ` +
       `${d.voteRefs} références de vote (${t()})`,
   );
+
+  if (chargerAmendements) {
+    const lotAmendements = await ouvrirLot(db, {
+      jeu: "amendements",
+      legislature,
+      url: `local:${dirAmendements}`,
+      sha256: "local",
+    });
+    const am = await importerAmendements(db, dirAmendements, lotAmendements, legislature);
+    await fermerLot(db, lotAmendements, { inserees: am.amendements + am.cosignataires });
+    console.log(
+      `Amendements : ${am.amendements} amendements, ${am.cosignataires} liens de cosignature (${t()})`,
+    );
+  }
 
   const lotScrutins = await ouvrirLot(db, {
     jeu: "scrutins",

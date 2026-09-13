@@ -4,10 +4,11 @@ Ce modèle découle de l'inspection réelle des jeux Open Data documentée dans
 [DATA_SOURCES.md](DATA_SOURCES.md). Chaque choix qui pourrait surprendre y renvoie.
 
 Il couvre le périmètre du MVP : acteurs, organes, mandats, dossiers, documents,
-actes législatifs, scrutins et votes individuels. Les amendements, débats, médias
-et quiz sont esquissés en fin de document mais pas encore détaillés. Les
-modéliser maintenant, avant d'avoir inspecté leurs formats, produirait exactement
-la spéculation que ce projet cherche à éviter.
+actes législatifs, scrutins et votes individuels — ainsi que les amendements de
+la XVIe législature (section 5 bis), le seul jeu Amendements inspecté à ce
+stade. Les débats, médias et quiz sont esquissés en fin de document mais pas
+encore détaillés. Les modéliser maintenant, avant d'avoir inspecté leurs
+formats, produirait exactement la spéculation que ce projet cherche à éviter.
 
 ---
 
@@ -427,6 +428,94 @@ député de la position de son groupe.
 
 ---
 
+## 5 bis. Amendements (XVIe)
+
+```sql
+CREATE TABLE officiel.amendement (
+    uid                   text PRIMARY KEY,       -- 'AMANR5L16PO59051B0009P0D1N000001'
+    legislature           smallint,
+    dossier_uid           text,                   -- sans FK, voir ci-dessous
+    document_uid          text NOT NULL,           -- sans FK, voir ci-dessous
+    examen_ref            text,
+    organe_examen_code    text,                    -- 'AN' (séance) ou code de commission
+    numero_long           text,                    -- 'CL1', 'CD16 (Rect)'…
+    numero_ordre_depot    integer,
+    amendement_parent_uid text,
+    type_auteur           text NOT NULL,           -- 'Député' | 'Rapporteur' | 'Gouvernement'
+    auteur_acteur_uid     text,                    -- NULL pour un amendement du Gouvernement
+    auteur_groupe_uid     text,
+    auteur_gouvernement_uid text,                  -- organe, seulement si type_auteur = 'Gouvernement'
+    auteur_libelle        text,
+    division_type         text,
+    division_titre        text,
+    division_designation  text,
+    article_additionnel   boolean,
+    date_depot            date,
+    date_publication      date,
+    date_sort             timestamptz,
+    etat_code              text,
+    etat_libelle            text,
+    sous_etat_code          text,
+    sous_etat_libelle       text,
+    sort_brut               text,                  -- NULL si non discuté, voir plus bas
+    sort_libelle             text,                 -- COALESCE(sort_brut, etat_libelle)
+    soumis_article_40        boolean,
+    dispositif                text,
+    expose_sommaire           text,
+    lot_id                    bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id                bigint REFERENCES officiel.import_lot(id)
+);
+
+CREATE TABLE officiel.amendement_cosignataire (
+    amendement_uid text NOT NULL REFERENCES officiel.amendement(uid) ON DELETE CASCADE,
+    acteur_uid     text NOT NULL,
+    lot_id         bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (amendement_uid, acteur_uid)
+);
+```
+
+**`sort_brut` est NULL pour 53 % des amendements de la XVIe, et ce n'est pas
+une absence à corriger.** `cycleDeVie.sort` n'existe dans la source que
+lorsque `etatDesTraitements.etat.code = 'DI'` (discuté) : un amendement jugé
+irrecevable, retiré avant publication, ou jamais atteint parce que l'examen du
+texte s'est arrêté avant, n'a simplement jamais reçu de décision sur le fond.
+`etat_code` et `etat_libelle` restent la source de vérité du statut procédural,
+et `sort_libelle`, calculé par `COALESCE(sort_brut, etat_libelle)`, donne un
+affichage unique sans jamais deviner une valeur absente (voir DATA_SOURCES
+section 7 bis.1).
+
+**Le Gouvernement est un organe, jamais un acteur.** `type_auteur =
+'Gouvernement'` s'accompagne toujours d'un `auteur_gouvernement_uid` (un
+`PO…`) et jamais d'un `auteur_acteur_uid`. Vérifié sur les 1 499 amendements
+gouvernementaux de la XVIe : zéro exception. Confondre les deux inventerait un
+faux député auteur d'un texte du Gouvernement.
+
+**`dossier_uid` et `document_uid` sont sans clé étrangère, comme
+`officiel.document.dossier_uid`.** `dossier_uid` vient du nom de répertoire de
+l'archive, pas d'un champ du fichier lui-même : rien ne le porte ailleurs. Il
+concorde avec `document.dossierRef` sur l'intégralité du corpus mesuré, mais
+peut désigner un dossier hérité d'une législature antérieure (même règle que
+`officiel.dossier`, DATA_SOURCES section 4). `document_uid` (`texteLegislatifRef`
+dans la source) est renseigné sur 100 % des amendements, mais 47 sur 163 789
+(0,03 %) référencent un document absent du jeu Dossiers de la même archive.
+
+**`amendement_cosignataire.acteur_uid` n'a pas de clé étrangère non plus.**
+0,12 % des liens de cosignature (3 681 sur 3 148 274) pointent vers un acteur
+absent du jeu Acteurs, sans doute des députés sortis de mandat avant
+l'instantané `AMO20`. Trop marginal pour bloquer l'import, et cohérent avec le
+gradient de qualité déjà observé ailleurs (`officiel.document`, section 4).
+
+```sql
+CREATE VIEW officiel.amendement_discute AS
+SELECT * FROM officiel.amendement WHERE sort_brut IS NOT NULL;
+```
+
+Cette vue isole les 76 523 amendements de la XVIe qui ont effectivement une
+décision sur le fond, préalable à toute carte « amendements importants » sur
+une page loi.
+
+---
+
 ## 6. Rattachement scrutin ↔ dossier
 
 ```sql
@@ -516,11 +605,20 @@ Pour `vote`, dont la clé est composite, le rejeu d'un scrutin supprime puis
 réinsère l'ensemble de ses votes dans une transaction : un scrutin est un tout
 cohérent, pas une collection de lignes indépendantes.
 
+`amendement_cosignataire` a lui aussi une clé composite, mais suit une règle
+plus simple : `ON CONFLICT DO NOTHING`, sans suppression préalable. Les archives
+XVe et XVIe étant figées depuis 2022 et 2024 (section 1.2), rejouer l'import ne
+change jamais la liste des cosignataires d'un amendement déjà chargé ; la seule
+situation où cela compterait, un cosignataire retiré entre deux imports de la
+XVIIe en cours, laisserait une ligne périmée. Accepté pour l'instant, à
+corriger si l'import d'amendements de la XVIIe est mis en place.
+
 Ordre d'import imposé par les clés étrangères :
 
 ```
 legislature → organe → acteur → mandat
             → dossier → document → acte_legislatif
+            → amendement → amendement_cosignataire
             → scrutin → scrutin_groupe → vote
             → scrutin_dossier
 ```
@@ -532,10 +630,16 @@ les références de mandat échouent.
 
 ## 9. Ce que ce modèle ne fait pas encore
 
-Les amendements (1,25 Go compressés sur trois législatures) et les débats
-(252 Mo de XML) ne sont pas modélisés. Ils représentent 95 % du volume de données
-pour une part marginale du MVP, et leurs formats n'ont pas été inspectés. Les
-modéliser avant serait deviner.
+Les amendements de la XVIe sont modélisés (section 5 bis) ; ceux de la XVe et
+de la XVIIe ne le sont pas encore, leurs formats n'ayant pas été inspectés
+(DATA_SOURCES section 8). Ne pas supposer qu'ils partagent la structure de la
+XVIe : c'est justement l'erreur que l'inspection avant modélisation vise à
+éviter, et déjà commise une fois côté XVe pour les scrutins et les dossiers
+(nommage `_XV`, dossier `amendements_legis`).
+
+Les débats (252 Mo de XML) ne sont pas modélisés. C'est, avec les amendements
+des deux autres législatures, l'essentiel du volume restant hors du MVP, pour
+une part marginale du produit.
 
 Le Sénat, Légifrance et le Parlement européen ne sont pas modélisés non plus,
 mais le modèle ne leur ferme pas la porte : `import_lot.institution`,

@@ -331,3 +331,94 @@ SELECT uid, legislature, date_scrutin, titre, sort_code,
        nombre_votants, suffrages_requis
 FROM officiel.scrutin
 WHERE type_vote_code = 'MOC';
+
+-- ---------------------------------------------------------------------------
+-- Amendements
+-- ---------------------------------------------------------------------------
+
+-- Un amendement n'a pas de decision (« sort ») tant qu'il n'a pas ete discute
+-- en seance ou en commission : mesure sur la XVIe, 87 266 amendements sur
+-- 163 789 (53 %) n'ont jamais de sort, et ce sont exactement ceux dont l'etat
+-- de traitement n'est pas 'DI' (discute) -- irrecevables, retires avant
+-- publication, ou encore a discuter/en traitement quand l'archive a ete
+-- figee. Ce n'est pas une donnee manquante a corriger : l'amendement n'a
+-- simplement jamais recu de decision sur le fond (DATA_SOURCES section 9).
+CREATE TABLE officiel.amendement (
+    uid                  text PRIMARY KEY,
+    legislature          smallint,
+    -- Pas de cle etrangere : le dossier peut avoir ete depose sous une
+    -- legislature anterieure (meme regle que officiel.dossier). Deduit du
+    -- chemin de l'archive (json/<dossier>/<document>/*.json), jamais present
+    -- comme champ dans le fichier de l'amendement lui-meme. Verifie sur
+    -- l'integralite du corpus : cette deduction concorde avec document.dossierRef
+    -- partout ou le document correspondant existe.
+    dossier_uid          text,
+    -- Pas de cle etrangere : 47 amendements sur 163 789 (0,03 %) referencent un
+    -- document absent du jeu Dossiers legislatifs de la meme archive.
+    document_uid         text NOT NULL,
+    examen_ref           text,
+    -- 'AN' = seance publique ; sinon code de la commission saisie (CION_LOIS,
+    -- CION_FIN...).
+    organe_examen_code   text,
+    numero_long          text,
+    numero_ordre_depot   integer,
+    -- Regroupe les amendements identiques deposes ensemble par plusieurs
+    -- signataires. Pas de cle etrangere : la cible appartient au meme corpus,
+    -- mais rien ne garantit qu'elle survit a un import partiel.
+    amendement_parent_uid text,
+    -- 'Depute' | 'Rapporteur' | 'Gouvernement'. Seul un depute ou un
+    -- rapporteur a un acteur_uid ; le Gouvernement est identifie par un
+    -- organe (auteur_gouvernement_uid), jamais par un acteur.
+    type_auteur          text NOT NULL,
+    auteur_acteur_uid    text,
+    auteur_groupe_uid    text,
+    auteur_gouvernement_uid text,
+    auteur_libelle       text,
+    division_type        text,
+    division_titre       text,
+    division_designation text,
+    article_additionnel  boolean,
+    date_depot           date,
+    date_publication     date,
+    date_sort            timestamptz,
+    etat_code            text,
+    etat_libelle         text,
+    sous_etat_code        text,
+    sous_etat_libelle     text,
+    -- NULL quand l'amendement n'a pas ete discute (voir commentaire de table).
+    sort_brut             text,
+    -- sort_brut si present, sinon etat_libelle : les deux champs sont fournis
+    -- par la source, ce n'est pas une valeur devinee. Sert d'affichage unique
+    -- du statut d'un amendement, discute ou non.
+    sort_libelle           text,
+    soumis_article_40      boolean,
+    dispositif             text,
+    expose_sommaire        text,
+    lot_id                 bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id              bigint REFERENCES officiel.import_lot(id)
+);
+
+CREATE INDEX idx_amendement_dossier ON officiel.amendement (dossier_uid);
+CREATE INDEX idx_amendement_document ON officiel.amendement (document_uid);
+CREATE INDEX idx_amendement_auteur ON officiel.amendement (auteur_acteur_uid);
+CREATE INDEX idx_amendement_sort ON officiel.amendement (sort_brut);
+CREATE INDEX idx_amendement_etat ON officiel.amendement (etat_code);
+
+-- Cosignataires. Cle etrangere vers l'amendement seulement : l'acteur peut
+-- manquer du jeu Acteurs (3 681 cas sur 3 148 274 references, 0,12 % --
+-- probablement des deputes sortis de mandat avant l'instantane AMO20).
+-- L'absence d'un depute de ce jeu ne doit pas faire echouer l'import d'un
+-- amendement.
+CREATE TABLE officiel.amendement_cosignataire (
+    amendement_uid text NOT NULL REFERENCES officiel.amendement(uid) ON DELETE CASCADE,
+    acteur_uid     text NOT NULL,
+    lot_id         bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (amendement_uid, acteur_uid)
+);
+
+CREATE INDEX idx_amendement_cosignataire_acteur ON officiel.amendement_cosignataire (acteur_uid);
+
+-- Amendements dont la decision de fond est connue : exclut les amendements
+-- irrecevables, retires avant publication ou jamais discutes.
+CREATE VIEW officiel.amendement_discute AS
+SELECT * FROM officiel.amendement WHERE sort_brut IS NOT NULL;
