@@ -5,6 +5,7 @@ import {
   Card,
   Container,
   Group,
+  SimpleGrid,
   Stack,
   Table,
   Text,
@@ -12,6 +13,7 @@ import {
 } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { BarreHorizontale } from "../../components/BarreHorizontale";
 import { chargerDepute } from "../../queries/deputes";
 
 export const Route = createFileRoute("/deputes/$uid")({
@@ -47,7 +49,8 @@ const LIBELLE_POSITION: Record<string, string> = {
 };
 
 function PageDepute() {
-  const { acteur, groupes, votesRecents, tauxUnite } = Route.useLoaderData();
+  const { acteur, groupes, votesRecents, tauxUnite, participation, proximiteGroupes } =
+    Route.useLoaderData();
   const groupeActuel = groupes.at(-1);
 
   return (
@@ -78,21 +81,58 @@ function PageDepute() {
           )}
         </Box>
 
-        {tauxUnite && tauxUnite.total > 0 && (
-          <Card withBorder radius="md" padding="lg" maw="var(--mesure-texte)">
-            <Group justify="space-between" align="flex-end">
-              <Box>
+        {((tauxUnite && tauxUnite.total > 0) ||
+          (participation && participation.totalScrutins > 0)) && (
+          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
+            {tauxUnite && tauxUnite.total > 0 && (
+              <Card withBorder radius="md" padding="lg">
                 <Text fw={600}>Taux d&apos;unité avec son groupe</Text>
-                <Text c="dimmed" size="sm" mt={4} maw={420}>
+                <Text c="dimmed" size="sm" mt={4}>
                   Sur les {tauxUnite.total} scrutins où son groupe avait une position majoritaire
                   connue, {acteur.civilite === "Mme" ? "elle" : "il"} a voté comme cette majorité.
                 </Text>
-              </Box>
-              <Text fz={32} fw={700} lh={1}>
-                {pourcent.format(tauxUnite.accord / tauxUnite.total)}
-              </Text>
-            </Group>
-          </Card>
+                <Text fz={32} fw={700} lh={1} mt="sm">
+                  {pourcent.format(tauxUnite.accord / tauxUnite.total)}
+                </Text>
+              </Card>
+            )}
+            {participation && participation.totalScrutins > 0 && (
+              <Card withBorder radius="md" padding="lg">
+                <Text fw={600}>Participation aux votes</Text>
+                <Text c="dimmed" size="sm" mt={4}>
+                  Scrutins où {acteur.civilite === "Mme" ? "elle" : "il"} a une position enregistrée
+                  (y compris non-votant), sur les {participation.totalScrutins} scrutins tenus
+                  pendant son ou ses mandats de député.
+                </Text>
+                <Text fz={32} fw={700} lh={1} mt="sm">
+                  {pourcent.format(participation.votesExprimes / participation.totalScrutins)}
+                </Text>
+              </Card>
+            )}
+          </SimpleGrid>
+        )}
+
+        {proximiteGroupes.length > 0 && (
+          <Box>
+            <Title order={2}>Proximité avec les groupes</Title>
+            <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
+              Part des votes de ce parlementaire qui suivaient la position majoritaire de chaque
+              groupe, sur les scrutins où celle-ci était connue (au moins 20 scrutins comparés).
+              Même méthode que le quiz, appliquée à ses votes réels plutôt qu&apos;à des réponses.
+            </Text>
+            <Stack gap="sm" mt="lg" maw="var(--mesure-texte)">
+              {proximiteGroupes.map((p) => (
+                <BarreHorizontale
+                  key={`${p.organeUid}-${p.legislature ?? ""}`}
+                  libelle={`${p.libelle ?? p.organeUid}${p.legislature !== null ? ` (${p.legislature}e légis.)` : ""}`}
+                  href={`/groupes/${p.organeUid}`}
+                  valeur={p.accord / p.total}
+                  reference={1}
+                  libelleValeur={pourcent.format(p.accord / p.total)}
+                />
+              ))}
+            </Stack>
+          </Box>
         )}
 
         {groupes.length > 1 && (

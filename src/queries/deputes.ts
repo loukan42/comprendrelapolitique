@@ -26,6 +26,14 @@ export interface VoteRecent {
   dossierUid: string | null;
 }
 
+export interface ProximiteGroupeDepute {
+  organeUid: string;
+  libelle: string | null;
+  legislature: number | null;
+  accord: number;
+  total: number;
+}
+
 export interface DetailDepute {
   acteur: {
     uid: string;
@@ -36,6 +44,8 @@ export interface DetailDepute {
   groupes: GroupeAppartenance[];
   votesRecents: VoteRecent[];
   tauxUnite: { accord: number; total: number } | null;
+  participation: { votesExprimes: number; totalScrutins: number } | null;
+  proximiteGroupes: ProximiteGroupeDepute[];
 }
 
 export const chargerDepute = createServerFn({ method: "GET" })
@@ -99,6 +109,59 @@ export const chargerDepute = createServerFn({ method: "GET" })
       [uid],
     );
 
+    // Participation : scrutins où le député a une position enregistrée,
+    // rapportés au total des scrutins tenus pendant son ou ses mandats de
+    // député (type ASSEMBLEE), pas depuis le début de la législature entière
+    // si son mandat a commencé ou fini en cours de route.
+    const participationRow = await requeteUne<{
+      votes_exprimes: string;
+      total_scrutins: string;
+    }>(
+      `WITH mandats_an AS (
+          SELECT legislature, date_debut, COALESCE(date_fin, now()) AS date_fin
+            FROM officiel.mandat
+           WHERE acteur_uid = $1 AND type_organe = 'ASSEMBLEE'
+       )
+       SELECT
+          (SELECT count(*)
+             FROM officiel.vote v
+             JOIN officiel.scrutin s ON s.uid = v.scrutin_uid
+             JOIN mandats_an m ON s.legislature = m.legislature
+                              AND s.date_scrutin BETWEEN m.date_debut AND m.date_fin
+            WHERE v.acteur_uid = $1) AS votes_exprimes,
+          (SELECT count(*)
+             FROM officiel.scrutin s
+             JOIN mandats_an m ON s.legislature = m.legislature
+                              AND s.date_scrutin BETWEEN m.date_debut AND m.date_fin
+          ) AS total_scrutins`,
+      [uid],
+    );
+
+    // Proximité avec chaque groupe (pas seulement le sien) : même méthode
+    // que le quiz (docs/QUIZ_METHODOLOGY.md), appliquée aux votes réels de
+    // ce parlementaire plutôt qu'aux réponses d'un visiteur.
+    const proximiteRows = await requete<{
+      organe_uid: string;
+      libelle: string | null;
+      legislature: number | null;
+      accord: string;
+      total: string;
+    }>(
+      `SELECT sg.organe_uid, o.libelle, o.legislature,
+              count(*) FILTER (WHERE upper(sg.position_majoritaire) = v.position::text) AS accord,
+              count(*) AS total
+         FROM officiel.vote v
+         JOIN officiel.scrutin_groupe sg ON sg.scrutin_uid = v.scrutin_uid
+         LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
+        WHERE v.acteur_uid = $1
+          AND v.position IN ('POUR', 'CONTRE', 'ABSTENTION')
+          AND sg.position_majoritaire IS NOT NULL
+          AND sg.organe_uid IS NOT NULL
+        GROUP BY sg.organe_uid, o.libelle, o.legislature
+       HAVING count(*) >= 20`,
+      [uid],
+    );
+
     return {
       acteur: {
         uid: acteur.uid,
@@ -124,5 +187,20 @@ export const chargerDepute = createServerFn({ method: "GET" })
       tauxUnite: uniteRow
         ? { accord: Number(uniteRow.accord), total: Number(uniteRow.total) }
         : null,
+      participation: participationRow
+        ? {
+            votesExprimes: Number(participationRow.votes_exprimes),
+            totalScrutins: Number(participationRow.total_scrutins),
+          }
+        : null,
+      proximiteGroupes: proximiteRows
+        .map((p) => ({
+          organeUid: p.organe_uid,
+          libelle: p.libelle,
+          legislature: p.legislature,
+          accord: Number(p.accord),
+          total: Number(p.total),
+        }))
+        .sort((a, b) => b.accord / b.total - a.accord / a.total),
     };
   });
