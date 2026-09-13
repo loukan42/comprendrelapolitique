@@ -65,30 +65,30 @@ Chiffres mesurés sur la base courante, pas estimés.
 
 ### 2.1 Volumes
 
-| Mesure | XVIe | XVIIe | Total |
-| --- | --- | --- | --- |
-| Scrutins publics | 4 106 | 8 434 | 12 540 |
-| dont votes sur l'ensemble d'un texte | 209 | 214 | 423 |
-| Votes individuels | 602 911 | 1 270 476 | 1 873 387 |
-| Groupes parlementaires | 12 | 14 | 26 |
+| Mesure | XVe | XVIe | XVIIe | Total |
+| --- | --- | --- | --- | --- |
+| Scrutins publics | 4 417 | 4 106 | 8 434 | 16 957 |
+| dont votes sur l'ensemble d'un texte | 376 | 209 | 214 | 799 |
+| dont reliés à leur dossier | 351 | 201 | 209 | 761 |
+| Votes individuels | 472 631 | 602 911 | 1 270 476 | 2 346 018 |
+| Groupes parlementaires | 24 | 12 | 14 | 50 |
 
-Rattachement scrutin vers dossier : 348 officiels, 62 reconstruits, 1 conflit.
+### 2.2 Profondeur historique
 
-### 2.2 Correction importante sur la profondeur historique
+La demande part de « environ 10 ans de données ». La base en couvre
+**neuf**, en trois législatures :
 
-La demande part de « environ 10 ans de données ». **La base en contient
-quatre**, et de façon discontinue :
+- XVe : 4 juillet 2017 au 24 février 2022
+- XVIe : 11 juillet 2022 au 7 juin 2024
+- XVIIe : 8 octobre 2024 au 21 juillet 2026
 
-- XVIe législature : 11 juillet 2022 au 7 juin 2024
-- XVIIe législature : 8 octobre 2024 au 21 juillet 2026
+La XVe a été chargée le 13 septembre 2026 (ticket T0.1), ce qui a doublé le
+nombre de votes sur l'ensemble d'un texte, de 423 à 799. La pondération
+temporelle de la section 4.1 a désormais un corpus à sa mesure.
 
-La XVe législature (2017 à 2022) est téléchargeable par la chaîne d'import
-existante mais **n'est pas chargée**. La charger porterait la couverture à
-environ neuf ans et ferait passer le corpus à près de 17 000 scrutins. C'est
-un préalable à la pondération temporelle : une décote sur dix ans n'a pas de
-sens sur un corpus qui en couvre quatre.
-
-Aucune donnée n'existe avant 2017 dans la source utilisée.
+Aucune donnée n'existe avant 2017 dans la source utilisée. Les interruptions
+entre législatures (février à juillet 2022, juin à octobre 2024) sont des
+périodes sans séance, pas des trous de données.
 
 ### 2.3 Le point structurant : les scrutins non finaux
 
@@ -300,8 +300,9 @@ explicite sur le fait de ne pas trancher sans expliquer. Trois repères :
   qu'une législature est la vraie unité de changement d'une position de
   groupe, et qu'un changement de législature s'accompagne souvent d'un
   changement de nom, de périmètre et de ligne.
-- demi-vie de 24 mois : la XVIe pèse environ un quart. Trop agressif tant que
-  la XVe n'est pas chargée, car le corpus se réduirait à la seule XVIIe.
+- demi-vie de 24 mois : la XVIe pèse environ un quart, la XVe presque rien.
+  Le corpus se ramène de fait à la XVIIe, ce qui gâche les 4 417 scrutins de
+  la XVe pour un gain d'actualité discutable.
 - pas de décote : défendable pour un usage historique, pas pour répondre
   « quel parti me correspond aujourd'hui ».
 
@@ -527,8 +528,10 @@ rapprochement est un choix documenté, pas une évidence.
 compatibilité. « 73 % » avec une confiance moyenne est honnête, « 73,4 % » ne
 l'est pas.
 
-**Couverture réelle.** Tant que la XVe législature n'est pas chargée, le
-moteur parle de quatre ans, pas de dix. Le dire dans la méthodologie publiée.
+**Couverture réelle.** Le moteur parle de neuf ans, de 2017 à 2026, et de
+trois législatures. Ni de dix ans, ni de « la politique française » : le
+Sénat n'y est pas, et rien d'avant 2017 non plus. Le dire dans la
+méthodologie publiée.
 
 ---
 
@@ -597,7 +600,8 @@ Aucune ne reçoit de réponse d'utilisateur, jamais.
 
 ### Phase 0 : préalables
 
-- **T0.1** Charger la XVe législature, porter la couverture à neuf ans.
+- **T0.1** ~~Charger la XVe législature, porter la couverture à neuf ans.~~
+  Fait le 13 septembre 2026.
 - **T0.2** Créer le schéma `enrichissement` et les tables de la section 3.
 - **T0.3** Renseigner `formation` et `formation_groupe` pour les groupes des
   trois législatures, avec sources.
