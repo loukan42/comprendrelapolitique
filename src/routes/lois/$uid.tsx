@@ -13,6 +13,7 @@ import {
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
+import { Hemicycle } from "../../components/Hemicycle";
 import { chargerDossier, type DossierEngagement, type ScrutinLoi } from "../../queries/lois";
 
 export const Route = createFileRoute("/lois/$uid")({
@@ -74,7 +75,18 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
           </Text>
         </Box>
       </Group>
-      <Stack gap="xs" mt="md" maw={420}>
+
+      {scrutin.sieges.length > 0 && (
+        <Box mt="lg">
+          <Hemicycle sieges={scrutin.sieges} />
+          <Text size="xs" c="dimmed" ta="center" mt={4}>
+            Un point par vote individuel enregistré ({scrutin.sieges.length}). Sièges regroupés par
+            groupe parlementaire ; leur disposition ne reproduit pas le plan de salle réel.
+          </Text>
+        </Box>
+      )}
+
+      <Stack gap="xs" mt="lg" maw={420}>
         {scrutin.repartition.map((r) => (
           <BarreHorizontale
             key={r.position}

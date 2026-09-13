@@ -22,6 +22,11 @@ export interface RepartitionVote {
   effectif: number;
 }
 
+export interface SiegeVote {
+  organeUid: string | null;
+  position: "POUR" | "CONTRE" | "ABSTENTION" | "NON_VOTANT";
+}
+
 export interface ScrutinLoi {
   uid: string;
   dateScrutin: string;
@@ -32,6 +37,7 @@ export interface ScrutinLoi {
   nombreVotants: number | null;
   suffragesRequis: number | null;
   repartition: RepartitionVote[];
+  sieges: SiegeVote[];
 }
 
 export interface DossierEngagement {
@@ -65,6 +71,15 @@ async function chargerRepartition(scrutinUid: string): Promise<RepartitionVote[]
   return lignes.map((l) => ({ position: l.position, effectif: Number(l.effectif) }));
 }
 
+/** Un point par vote individuel réellement enregistré, pour l'hémicycle. */
+async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
+  const lignes = await requete<{ organe_uid: string | null; position: SiegeVote["position"] }>(
+    `SELECT organe_uid, position FROM officiel.vote WHERE scrutin_uid = $1`,
+    [scrutinUid],
+  );
+  return lignes.map((l) => ({ organeUid: l.organe_uid, position: l.position }));
+}
+
 async function chargerScrutin(row: {
   uid: string;
   date_scrutin: string;
@@ -85,6 +100,7 @@ async function chargerScrutin(row: {
     nombreVotants: row.nombre_votants,
     suffragesRequis: row.suffrages_requis,
     repartition: await chargerRepartition(row.uid),
+    sieges: await chargerSieges(row.uid),
   };
 }
 
