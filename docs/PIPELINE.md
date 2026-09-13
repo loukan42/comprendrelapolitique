@@ -3,7 +3,7 @@
 Comment charger les données de l'Assemblée nationale en local, et comment
 vérifier que le chargement est correct.
 
-Prérequis : Node 24 ou plus — les scripts sont en TypeScript et Node les exécute
+Prérequis : Node 24 ou plus. Les scripts sont en TypeScript et Node les exécute
 sans transpilation. Aucune base de données à installer : le développement local
 utilise PGlite, PostgreSQL compilé en WebAssembly.
 
@@ -13,7 +13,7 @@ utilise PGlite, PostgreSQL compilé en WebAssembly.
 npm run data:telecharger 16 data
 ```
 
-Télécharge les trois jeux du MVP — scrutins, dossiers, acteurs — pour la XVIe
+Télécharge les trois jeux du MVP (scrutins, dossiers, acteurs) pour la XVIe
 législature, les décompresse dans `data/16/`, et garde les archives et leurs
 empreintes dans `data/_archives/`.
 
@@ -26,7 +26,7 @@ npm run data:charger 16 data/16 --db data/pg16
 ```
 
 Applique la migration, puis importe. Sans `--db`, la base est en mémoire et rien
-n'est conservé — utile pour vérifier un import, inutile pour travailler dessus.
+n'est conservé : utile pour vérifier un import, inutile pour travailler dessus.
 
 ```bash
 npm run data:controler data/pg16

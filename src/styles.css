@@ -5,8 +5,8 @@
  * variables et ses composants. On n'écrit ici que ce qui relève du document
  * lui-même.
  *
- * Le plugin Tailwind reste chargé — il est injecté par
- * `@lovable.dev/vite-tanstack-config` et ne peut pas en être retiré — mais sans
+ * Le plugin Tailwind reste chargé, injecté par
+ * `@lovable.dev/vite-tanstack-config` et impossible à retirer, mais sans
  * `@import "tailwindcss"` il n'émet aucune règle. Son *preflight* n'entre donc
  * pas en concurrence avec celui de Mantine, et aucune classe utilitaire n'existe
  * pour être écrite par inadvertance.

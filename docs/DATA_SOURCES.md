@@ -11,7 +11,7 @@ les erreurs que le produit prétend éliminer.
 
 ---
 
-## 1. Assemblée nationale — jeux Open Data
+## 1. Les jeux Open Data de l'Assemblée nationale
 
 Base : `https://data.assemblee-nationale.fr/static/openData/repository`
 
@@ -37,8 +37,8 @@ Noter les deux irrégularités : le suffixe `_XV`, et `amendements_legis` (XVe)
 contre `amendements_div_legis` (XVIe et XVIIe). Les URLs doivent être une table
 explicite dans le code, jamais une chaîne construite.
 
-**Historique transversal des acteurs** — un jeu à part, qui couvre toutes les
-législatures depuis la XIe et non une seule :
+**Historique transversal des acteurs.** Ce jeu est à part : il couvre toutes les
+législatures depuis la XIe, et non une seule.
 
 ```
 17/amo/tous_acteurs_mandats_organes_xi_legislature/AMO30_tous_acteurs_tous_mandats_tous_organes_historique.json.zip
@@ -175,7 +175,7 @@ Cela renverse la manière d'appliquer la règle « ne jamais inventer un vote
 individuel ». Il n'existe pas de scrutin sans votes nominatifs : un texte adopté
 à main levée ne produit tout simplement **aucun enregistrement de scrutin**.
 
-L'absence se détecte donc au niveau du **dossier**, pas du scrutin — un texte
+L'absence se détecte donc au niveau du **dossier**, pas du scrutin. Un texte
 adopté dont aucun scrutin n'est rattaché a été voté à main levée ou par accord
 tacite. Le message « Vote individuel non disponible » s'affiche sur la page du
 dossier, jamais sur une page de scrutin.
@@ -197,7 +197,7 @@ Le lien existe en revanche dans l'autre sens, côté dossiers :
 dossierParlementaire → actesLegislatifs → acteLegislatif[] → voteRefs.voteRef
 ```
 
-`acteLegislatif` est **récursif** et de profondeur variable — les références ont
+`acteLegislatif` est **récursif** et de profondeur variable, les références ayant
 été constatées à trois et quatre niveaux d'imbrication. Le parseur doit descendre
 l'arbre récursivement, jamais à profondeur fixe.
 
@@ -212,7 +212,7 @@ référencés) :
 
 Lecture : les votes qui comptent sont majoritairement joignables, la faible
 couverture globale venant des votes d'amendements, qui n'ont pas vocation à être
-rattachés au dossier. La faible couverture des motions de censure est normale —
+rattachés au dossier. La faible couverture des motions de censure est normale :
 elles ne relèvent d'aucun dossier législatif.
 
 ### 4.1 La bonne cible n'est pas le scrutin solennel
@@ -227,12 +227,12 @@ a besoin, ne sont que :
 | XVe | 376 | 8,5 % |
 | XVIe | 209 | 5,1 % |
 | XVIIe | 216 | 2,6 % |
-| **Total** | **801** | — |
+| **Total** | **801** | |
 
 **801 votes** sur trois législatures : c'est le noyau qui répond à « qu'est-ce
 qui a vraiment été voté sur les retraites ». Un volume négligeable à traiter, et
-la vraie cible du rattachement — pas les 233 scrutins solennels, dont beaucoup de
-votes finaux importants ne relèvent pas.
+la vraie cible du rattachement. Les 233 scrutins solennels ne le sont pas :
+beaucoup de votes finaux importants n'en relèvent pas.
 
 Ces votes se reconnaissent à la présence de « l'ensemble » dans
 `objet.libelle`, dont la forme est stable : `l'ensemble {du projet de loi | de la
@@ -245,7 +245,7 @@ sont rattachés par `voteRefs`, soit 78,5 %.
 
 La reconstitution s'appuie sur un troisième jeu, `json/document/`, présent dans
 la même archive que les dossiers. Chaque document porte `titres.titrePrincipal`
-— le titre légal complet — et `dossierRef`, lien direct vers son dossier. Les
+qui est le titre légal complet, et `dossierRef`, lien direct vers son dossier. Les
 6 147 documents de la XVIe ont **tous** ces deux champs renseignés.
 
 La méthode combine deux signaux :
@@ -263,7 +263,7 @@ Un rattachement n'est accepté que s'il reste **exactement un** dossier candidat
 après les deux filtres. En cas d'ambiguïté résiduelle, on n'écrit rien.
 
 S'y ajoutent quatre corrections tirées de l'examen des échecs, toutes
-déterministes — aucune correspondance approchée n'est utilisée, la précision
+déterministes. Aucune correspondance approchée n'est utilisée, la précision
 étant la seule chose qui ne doit jamais être sacrifiée :
 
 - les clauses de procédure insérées dans le titre sont retirées des deux côtés
@@ -290,7 +290,7 @@ l'ensemble :
 
 | Indicateur | Valeur |
 | --- | --- |
-| Précision | **100 %** — les 2 conflits sont des erreurs de la source, vérifiées une par une (voir 4.3) |
+| Précision | **100 %**. Les 2 conflits sont des erreurs de la source, vérifiées une par une (voir 4.3) |
 | Rappel | 91,4 % |
 | Couverture des votes sur l'ensemble | **95,5 %** (763 sur 799), contre 69,6 % avec les seuls liens officiels |
 
@@ -308,7 +308,7 @@ Le scrutin du 5 juin 2024 porte, dans son propre `objet.libelle`, sur
 l'état civil du ministère de l'Europe et des affaires étrangères ». Les **neuf**
 documents portant ce titre appartiennent tous à `DLR5L16N49623`. Or le `voteRef`
 officiel rattache ce scrutin à `DLR5L16N49386`, dossier intitulé « Prévenir les
-ingérences étrangères en France » — une loi sans rapport.
+ingérences étrangères en France », une loi sans rapport.
 
 Vérifié par ailleurs : aucun scrutin de la XVIe n'est référencé par plus d'un
 dossier, ce désaccord n'est donc pas un artefact de déduplication.
@@ -363,7 +363,7 @@ d'un vote : c'est la structure qui le dit.
 
 Vérifié sur 116 197 votes : `mandatRef` pointe **toujours** vers le mandat de
 député (`typeOrgane: ASSEMBLEE`), jamais vers le mandat de groupe. Aucune
-référence orpheline sur l'échantillon — l'intégrité référentielle du jeu est
+référence orpheline sur l'échantillon : l'intégrité référentielle du jeu est
 bonne.
 
 Les mandats `GP` datés restent nécessaires pour afficher l'historique des
@@ -375,15 +375,15 @@ groupe.
 Il donne la position majoritaire du groupe. C'est exactement l'attribut qui
 rendrait facile la faute interdite par la règle absolue : déduire le vote d'un
 député de la position de son groupe. Il ne doit jamais servir à peupler un vote
-individuel — uniquement, le cas échéant, à afficher une synthèse de groupe.
+individuel, mais seulement, le cas échéant, à afficher une synthèse de groupe.
 
 ### 5.3 L'absence ne s'écrit nulle part
 
 Quatre catégories seulement sont enregistrées : `pours`, `contres`,
 `abstentions`, `nonVotants`. Un député absent ne figure dans **aucune** liste.
 
-L'absence est donc une déduction — `membres du groupe moins votants
-enregistrés` — et non une donnée. Le non-votant, lui, est présent et
+L'absence est donc une déduction (`membres du groupe moins votants
+enregistrés`) et non une donnée. Le non-votant, lui, est présent et
 explicitement enregistré : c'est une position, pas une absence. Les deux ne
 doivent jamais être confondus, ni l'un ni l'autre présenté comme une abstention.
 
@@ -414,8 +414,8 @@ Comparaison systématique de `decompteVoix` avec la longueur des listes de
 | XVIe | 39 |
 | XVIIe | **0** |
 
-Le cas le plus gênant rencontré : `pours: nominatif=0 vs voix=21` — vingt et une
-voix comptées, aucun nom. Dans ce cas le produit doit afficher l'agrégat et
+Le cas le plus gênant rencontré : `pours: nominatif=0 vs voix=21`, soit vingt et une
+voix comptées sans aucun nom. Dans ce cas le produit doit afficher l'agrégat et
 signaler que le détail nominatif manque pour ce groupe. L'importeur doit
 consigner l'écart plutôt que de choisir un des deux chiffres.
 
@@ -433,7 +433,7 @@ Sur la XVIIe, 14 scrutins listent leurs douze blocs de groupe avec
 législatures : c'est un identifiant de remplissage, pas une référence.
 
 Les effectifs ne laissent pourtant aucun doute sur le fait qu'il s'agit bien de
-groupes distincts — 124, 93, 71, 66, 47, 38, 36, 34, 23, 17, 16 et 9 membres,
+groupes distincts : 124, 93, 71, 66, 47, 38, 36, 34, 23, 17, 16 et 9 membres,
 soit exactement la composition de l'Assemblée sous cette législature. La source a
 simplement omis de renseigner lesquels.
 
@@ -442,8 +442,7 @@ Les XVe et XVIe ne sont pas touchées.
 
 Deux conséquences, qui sont la même :
 
-Une clé `(scrutin, organe)` sur la ventilation écrase onze blocs sur douze —
-c'est ce qui faisait apparaître 101 076 blocs en XVIIe au lieu des 101 208
+Une clé `(scrutin, organe)` sur la ventilation écrase onze blocs sur douze. C'est ce qui faisait apparaître 101 076 blocs en XVIIe au lieu des 101 208
 mesurés. La clé doit être `(scrutin, ordre de la source)`.
 
 Et surtout, recopier `PO0` dans le vote attribuerait ces 1 916 votes à un même
@@ -495,13 +494,13 @@ embarrassant pour le produit.
 ### 7.1 La décision politique majeure de la législature est invisible
 
 Sur 174 scrutins de la XVIe mentionnant « retraite », **un seul** est un vote sur
-l'ensemble d'un texte — et il porte sur la retraite de base des non-salariés
+l'ensemble d'un texte, et il porte sur la retraite de base des non-salariés
 agricoles, en décembre 2022.
 
 La réforme des retraites, elle, n'a produit **aucun vote sur son ensemble** :
 elle a été adoptée par 49.3. Ce qui a été voté, ce sont deux motions de censure
 le 20 mars 2023. Celle de M. Bertrand Pancher a recueilli 278 voix pour 287
-requises — neuf voix de moins que nécessaire. La donnée reproduit exactement
+requises, soit neuf de moins que nécessaire. La donnée reproduit exactement
 l'histoire.
 
 La conséquence est structurante : **une requête « qu'est-ce qui a été voté sur
@@ -536,13 +535,13 @@ budgétaires passées au 49.3 portent malgré tout une décision `AN1-DEBATS-DEC
 puisque le texte est réputé adopté. Le critère est trompeur et ne doit pas être
 utilisé.
 
-### 7.2 bis — Le dossier de la loi ne porte pas la marque du 49.3
+### 7.2 bis. Le dossier de la loi ne porte pas la marque du 49.3
 
 Point corrigé après vérification en base, et il compte : **le dossier de la
 réforme des retraites ne contient aucun acte `AN21`.** Chercher `AN21` sur le
 dossier d'un texte ne le désigne donc pas comme adopté sans vote.
 
-Le 49.3 vit dans un dossier séparé — ici `DLR5L16N47408`, « Engagement de la
+Le 49.3 vit dans un dossier séparé, ici `DLR5L16N47408`, « Engagement de la
 responsabilité du Gouvernement sur le vote du PLFRSS pour 2023… ». Le lien entre
 les deux n'est écrit nulle part : ni référence croisée, ni champ dédié.
 
@@ -572,7 +571,7 @@ d'engagement.
 Conséquence de modélisation : un acte ne peut pas être stocké une seule fois. Sa
 clé est `(dossier, uid)`, et `uid` sert à retrouver les dossiers qui décrivent le
 même événement. Une clé primaire sur le seul `uid` fait disparaître en silence
-une version sur deux — c'est exactement ce qui effaçait la trace de la motion de
+une version sur deux. C'est exactement ce qui effaçait la trace de la motion de
 censure du dossier de la réforme des retraites, et ce qu'un contrôle a rattrapé.
 
 ### 7.3 Le parcours complet d'une loi est déjà dans la donnée Assemblée

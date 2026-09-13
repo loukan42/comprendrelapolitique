@@ -8,7 +8,7 @@
 
 /**
  * La source encode ses valeurs nulles en objet `{"@xsi:nil": "true"}` plutôt
- * qu'en `null` — séquelle de la conversion mécanique depuis XML. Mesuré sur la
+ * qu'en `null`, séquelle de la conversion mécanique depuis XML. Mesuré sur la
  * XVIe : 1 075 trigrammes, 420 professions, 405 villes de naissance.
  *
  * Sans cette normalisation, 420 députés auraient un objet JSON pour profession.

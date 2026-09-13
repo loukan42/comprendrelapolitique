@@ -61,7 +61,7 @@ interface Cible {
  * Insertion en masse par `unnest` de tableaux.
  *
  * Une insertion ligne par ligne sur 2,3 millions de votes est intenable, et
- * l'écriture naïve — un `VALUES ($1,$2),($3,$4)…` géant — se heurte à une
+ * l'écriture naïve, un `VALUES ($1,$2),($3,$4)…` géant, se heurte à une
  * limite dure : le protocole PostgreSQL code le nombre de paramètres sur un
  * entier 16 bits signé, soit 32 767 au maximum. Mesuré sur PGlite, le
  * dépassement ne lève aucune erreur : la requête passe et toutes les suivantes
@@ -318,7 +318,7 @@ interface ActeAplati {
 
 /**
  * Aplatit l'arbre `actesLegislatifs`, qui est récursif et de profondeur
- * variable — les références de vote ont été constatées à trois et quatre
+ * variable : les références de vote ont été constatées à trois et quatre
  * niveaux d'imbrication. Un parcours à profondeur fixe perd des données en
  * silence.
  */
@@ -795,7 +795,7 @@ export async function importerScrutins(
  *
  * Le rapprochement tourne partout, y compris là où le lien officiel existe :
  * c'est un contrôle croisé, pas une roue de secours. La source contient des
- * erreurs — 2 sur 556 liens vérifiés (docs/DATA_SOURCES.md section 4.3) — et
+ * erreurs, 2 sur 556 liens vérifiés (docs/DATA_SOURCES.md section 4.3), et
  * un désaccord se conserve au lieu de se trancher.
  */
 export async function rattacherScrutins(db: Db, lotId: number): Promise<Record<string, number>> {

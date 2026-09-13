@@ -5,7 +5,7 @@ Ce modèle découle de l'inspection réelle des jeux Open Data documentée dans
 
 Il couvre le périmètre du MVP : acteurs, organes, mandats, dossiers, documents,
 actes législatifs, scrutins et votes individuels. Les amendements, débats, médias
-et quiz sont esquissés en fin de document mais pas encore détaillés — les
+et quiz sont esquissés en fin de document mais pas encore détaillés. Les
 modéliser maintenant, avant d'avoir inspecté leurs formats, produirait exactement
 la spéculation que ce projet cherche à éviter.
 
@@ -54,7 +54,7 @@ CREATE TABLE officiel.import_lot (
 
 `sha256` porte la détection de changement. Combiné au `Last-Modified` servi par
 data.assemblee-nationale.fr, il permet de ne rien retélécharger tant que la
-source n'a pas bougé — ce qui compte, les archives des XVe et XVIe étant figées
+source n'a pas bougé, ce qui compte : les archives des XVe et XVIe étant figées
 depuis 2022 et 2024.
 
 **On n'écrase pas l'historique.** Un lot n'est jamais supprimé. Les tables
@@ -98,7 +98,7 @@ CREATE TABLE officiel.acteur (
 ```
 
 Toutes ces colonnes sont nullables à dessein. Dans la XVIe, 420 acteurs sur 1 075
-n'ont pas de profession renseignée et 405 pas de ville de naissance — et ces
+n'ont pas de profession renseignée et 405 pas de ville de naissance, et ces
 absences arrivent encodées `{"@xsi:nil": "true"}`, pas `null`. La normalisation
 de ces sentinelles est à faire à la lecture, récursivement, avant toute écriture
 (voir DATA_SOURCES 6.2). Rappel du second piège du même jeu : `acteur.uid` est un
@@ -197,12 +197,12 @@ CREATE INDEX ON officiel.document (cle_titre);
 
 `dossier_uid` est également sans clé étrangère : un document peut renvoyer à un
 dossier absent de l'archive en cours d'import, la référence se résolvant quand
-les autres législatures sont chargées. L'intégrité se contrôle après coup — un
+les autres législatures sont chargées. L'intégrité se contrôle après coup : un
 seul document orphelin subsiste après l'import de la XVIe.
 
 Cette table n'est pas un confort d'affichage : c'est elle qui porte le titre
 légal complet, et donc le rattachement des scrutins aux dossiers (section 6). Le
-titre court du dossier ne suffit pas — « Baux ruraux pour les communes d'au plus
+titre court du dossier ne suffit pas, « Baux ruraux pour les communes d'au plus
 3.500 habitants » ne ressemble à aucun libellé de scrutin.
 
 ```sql
@@ -231,12 +231,12 @@ dans cette procédure, pas une propriété de l'événement.
 
 Une clé primaire sur le seul `uid` fait donc disparaître une version sur deux,
 sans erreur ni avertissement. C'est ce qui effaçait la motion de censure du
-dossier de la réforme, et c'est un contrôle sur un fait connu qui l'a rattrapé —
-pas l'import, qui se terminait proprement.
+dossier de la réforme, et c'est un contrôle sur un fait connu qui l'a rattrapé,
+et non l'import, qui se terminait proprement.
 
 L'auto-référence `acte_parent_uid` est indispensable : `acteLegislatif` est
-**récursif** et de profondeur variable dans la source — les références de vote
-ont été constatées à trois et quatre niveaux d'imbrication. Un parseur à
+**récursif** et de profondeur variable dans la source, les références de vote
+ayant été constatées à trois et quatre niveaux d'imbrication. Un parseur à
 profondeur fixe perd des données en silence. `profondeur` est stockée pour rendre
 ce fait visible, et appartient au couple : le même acte n'occupe pas forcément la
 même place dans deux dossiers.
@@ -278,8 +278,8 @@ WHERE l.dossier_uid NOT IN (SELECT dossier_uid FROM officiel.dossier_49_3);
 ```
 
 Ce n'est pas un raffinement : sans lui, le produit rate sa question fondatrice.
-La réforme des retraites de 2023 n'a donné lieu à **aucun vote sur son ensemble**
-— une requête « qu'est-ce qui a été voté sur les retraites ? » fondée sur les
+La réforme des retraites de 2023 n'a donné lieu à **aucun vote sur son ensemble**.
+Une requête « qu'est-ce qui a été voté sur les retraites ? » fondée sur les
 votes finaux renverrait une loi sur les retraites agricoles et manquerait la
 réforme (voir DATA_SOURCES 7.1).
 
@@ -293,7 +293,7 @@ Une page loi doit donc distinguer trois états, et non deux :
 | --- | --- |
 | Voté sur l'ensemble | Le scrutin, sa ventilation par groupe, les votes individuels |
 | Adopté sans vote (49.3) | « Adopté sans vote. » Les motions de censure déposées et leur résultat |
-| Adopté à main levée | « Vote individuel non disponible » — aucun scrutin n'existe |
+| Adopté à main levée | « Vote individuel non disponible », aucun scrutin n'existant |
 
 Ces dossiers d'engagement ne doivent jamais apparaître comme des lois autonomes
 dans une liste : ce sont des actes de procédure, rattachés au texte qu'ils visent.
@@ -396,7 +396,7 @@ Quatre décisions structurantes tiennent dans cette table.
 un même scrutin.
 
 **`organe_uid` est nullable, et c'est une règle, pas une tolérance.** Quand la
-source n'identifie pas le groupe — 1 916 votes de la XVIIe —, la colonne reste
+source n'identifie pas le groupe (1 916 votes de la XVIIe), la colonne reste
 vide. Recopier l'identifiant de remplissage `PO0` attribuerait ces votes à un
 groupe imaginaire : inventer une appartenance par recopie mécanique n'est pas
 moins grave que de la déduire.
@@ -422,7 +422,7 @@ dit.
 
 Une colonne absente du modèle, volontairement : `positionMajoritaire` n'est pas
 recopiée dans `vote`. Elle vit dans `scrutin_groupe` et nulle part ailleurs.
-C'est le champ qui rendrait facile la faute interdite — déduire le vote d'un
+C'est le champ qui rendrait facile la faute interdite : déduire le vote d'un
 député de la position de son groupe.
 
 ---
@@ -445,8 +445,8 @@ CREATE TABLE officiel.scrutin_dossier (
 
 Cette table est le cœur technique du produit, parce que le lien n'existe pas dans
 la source pour les XVe et XVIe : `objet.dossierLegislatif` y est vide à 100 %.
-La méthode de reconstitution et ses mesures — précision 100 %, couverture portée
-de 69,6 % à 95,5 % — sont documentées en DATA_SOURCES section 4.
+La méthode de reconstitution et ses mesures, précision de 100 % et couverture portée
+de 69,6 % à 95,5 %, sont documentées en DATA_SOURCES section 4.
 
 Trois colonnes de dossier plutôt qu'une, parce que le lien officiel **se trompe
 parfois**. Deux erreurs vérifiées sur 556 liens : un vote sur la dématérialisation
@@ -495,7 +495,7 @@ CREATE TABLE enrichissement.citation (
 
 La contrainte `CHECK` sur `citation` est le garde-fou anti-hallucination rendu
 structurel : une citation qui ne pointe vers aucune source officielle ne peut pas
-être insérée. Un résumé sans citation associée ne doit pas être publié — règle à
+être insérée. Un résumé sans citation associée ne doit pas être publié, règle à
 faire respecter par une vue ou un déclencheur, pas seulement par convention.
 
 Restent à modéliser, une fois leurs sources inspectées : `theme` et
@@ -510,7 +510,7 @@ Restent à modéliser, une fois leurs sources inspectées : `theme` et
 Toutes les tables importées ont pour clé primaire l'identifiant de la source
 (`PA…`, `PO…`, `PM…`, `DLR…`, `VTANR…`). L'import est donc un `INSERT … ON
 CONFLICT (uid) DO UPDATE`, rejouable autant de fois que voulu sans créer de
-doublon — l'exigence de la spécification §22.
+doublon, comme l'exige la spécification §22.
 
 Pour `vote`, dont la clé est composite, le rejeu d'un scrutin supprime puis
 réinsère l'ensemble de ses votes dans une transaction : un scrutin est un tout
@@ -542,4 +542,4 @@ mais le modèle ne leur ferme pas la porte : `import_lot.institution`,
 `dossier.senat_chemin` et l'absence d'hypothèse « Assemblée » dans les tables de
 votes suffisent à les accueillir. La vraie question ouverte reste l'identifiant
 qui permettra de raccrocher un texte sénatorial à son dossier Assemblée pour
-reconstituer la navette — elle ne se tranchera qu'en inspectant DOSLEG.
+reconstituer la navette. Elle ne se tranchera qu'en inspectant DOSLEG.

@@ -7,6 +7,15 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    optimizeDeps: {
+      // Mantine represente plusieurs centaines de modules. Sans cette
+      // declaration, Vite ne les decouvre qu'a la premiere requete et
+      // relance son pre-bundling pendant le rendu serveur, qui attend
+      // puis abandonne au bout de 60 s. Le premier chargement echouait.
+      include: ["@mantine/core", "@mantine/hooks", "@tabler/icons-react"],
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

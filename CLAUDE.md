@@ -1,8 +1,8 @@
 # Comprendre la Politique
 
-Les règles de contribution du projet — Mantine comme unique bibliothèque
-d'interface, et les interdits esthétiques et rédactionnels — sont dans
-`AGENTS.md`, partagé avec l'agent Lovable. Elles s'appliquent ici à l'identique.
+Les règles de contribution du projet sont dans `AGENTS.md`, partagé avec l'agent
+Lovable : Mantine comme unique bibliothèque d'interface, et les interdits
+esthétiques et rédactionnels. Elles s'appliquent ici à l'identique.
 
 @AGENTS.md
 
@@ -15,10 +15,14 @@ Le serveur de dev écoute sur le port **8080** (imposé par
 npm run dev
 ```
 
-**Le tout premier rendu prend environ 45 secondes**, le temps que Vite
-pré-bundle Mantine. Le navigateur peut afficher une erreur de délai dépassé
-pendant ce temps : recharger une fois le pré-bundling terminé suffit. Les
-rendus suivants sont de l'ordre de 15 ms.
+**Le tout premier rendu prend environ 80 secondes**, le temps que Vite
+pré-bundle les quelques centaines de modules de Mantine. Les rendus suivants
+tombent à une vingtaine de millisecondes, et le cache survit aux redémarrages.
+
+Ce délai n'est pas anodin : sans la déclaration `optimizeDeps.include` de
+`vite.config.ts`, Vite découvrait Mantine à la première requête et relançait son
+pré-bundling pendant le rendu serveur, lequel abandonnait au bout de 60 secondes.
+Le premier chargement échouait alors avec une erreur 500.
 
 ## Données
 

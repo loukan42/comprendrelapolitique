@@ -17,7 +17,7 @@ import { createTheme, type MantineColorsTuple } from "@mantine/core";
  * plutôt qu'un parti, et reste assez distincte du texte pour signaler un lien ou
  * un état actif.
  *
- * Elle est réservée à l'interaction — lien, focus, état actif, élément
+ * Elle est réservée à l'interaction : lien, focus, état actif, élément
  * sélectionné. Jamais à la décoration.
  */
 const encre: MantineColorsTuple = [
@@ -84,7 +84,7 @@ export const theme = createTheme({
   radius: { xs: "2px", sm: "3px", md: "5px", lg: "8px", xl: "12px" },
 
   // Aucune ombre par défaut : elle est réservée à ce qui flotte réellement,
-  // menu, modale, popover — que Mantine gère de lui-même.
+  // menu, modale, popover, que Mantine gère de lui-même.
   shadows: {
     xs: "0 1px 2px rgba(22, 22, 26, 0.06)",
     sm: "0 2px 6px rgba(22, 22, 26, 0.08)",
@@ -107,7 +107,7 @@ export const theme = createTheme({
     mesureTexte: "68ch",
 
     /**
-     * Couleurs des groupes parlementaires — délibérément vide.
+     * Couleurs des groupes parlementaires, délibérément vides.
      *
      * Ces couleurs n'ont leur place que dans les visualisations où elles
      * représentent effectivement ces groupes, accompagnées de leur nom. Les

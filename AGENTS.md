@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-# Comprendre la Politique — règles de contribution
+# Comprendre la Politique : règles de contribution
 
 Site d'éducation civique en français. Deux règles commandent tout le reste :
 **Mantine est la seule bibliothèque d'interface**, et **le site ne doit pas
@@ -41,9 +41,9 @@ générations faites depuis l'éditeur Lovable.
   ajouter. Devant un fichier de ce dossier, le supprimer plutôt que le contourner.
 - Les imports `@radix-ui/*` directs.
 - **Les classes utilitaires Tailwind dans le JSX** (`className="flex gap-4"`).
-  Tailwind reste présent dans le build — il est injecté par
-  `@lovable.dev/vite-tanstack-config` et ne peut pas en être retiré sans casser la
-  configuration — mais on n'écrit plus une seule de ses classes.
+  Tailwind reste présent dans le build, injecté par
+  `@lovable.dev/vite-tanstack-config` et impossible à retirer sans casser la
+  configuration, mais on n'écrit plus une seule de ses classes.
 - `style={{ … }}` en dur, sauf valeur réellement dynamique : une largeur calculée,
   une position. Jamais pour une couleur ou un espacement.
 - Toute autre bibliothèque de composants : MUI, Chakra, Ant Design, Bootstrap,
@@ -62,7 +62,7 @@ ajoute au thème d'abord, on les utilise ensuite.
 `src/routes/__root.tsx` doit comporter, dans cet ordre :
 
 1. `import "@mantine/core/styles.css"`, puis les CSS des paquets Mantine utilisés
-   — leur ordre compte, le CSS de base vient en premier ;
+   (leur ordre compte : le CSS de base vient en premier) ;
 2. `<ColorSchemeScript />` dans le `<head>` : sans lui, le thème clignote au
    chargement ;
 3. `<MantineProvider theme={theme}>` englobant l'`<Outlet />`.
@@ -74,16 +74,16 @@ routes enfants.
 
 ## 2. Ce qui est banni
 
-L'esthétique par défaut des générateurs signale « contenu automatique » avant
-même qu'on ait lu une ligne. Sur un site qui prétend expliquer la politique, elle
-ruine la crédibilité avant l'argument. Ce qui suit est une liste d'interdictions,
-pas de préférences.
+L'esthétique par défaut des générateurs se reconnaît avant même qu'on ait lu une
+ligne, et elle signale « contenu automatique ». Sur un site qui explique la
+politique, le lecteur cesse alors de faire confiance au texte avant de l'avoir
+lu. Ce qui suit est donc une liste d'interdictions et non de préférences.
 
 ### Visuel
 
 | Banni | À la place |
 | --- | --- |
-| Dégradés décoratifs — violet vers indigo en tête —, *mesh gradients*, halos flous animés | Des aplats. Un fond, un texte. |
+| Dégradés décoratifs, violet vers indigo en tête, *mesh gradients*, halos flous animés | Des aplats. Un fond, un texte. |
 | Glassmorphism, `backdrop-filter: blur`, cartes translucides | Des bords nets, un filet à 1px. |
 | Emoji en guise d'icône, de puce ou de titre | Une icône Tabler, ou rien. |
 | La grille de trois cartes « icône dans un carré arrondi, titre, deux lignes » | Une liste, un tableau, ou du texte suivi. |
@@ -92,10 +92,17 @@ pas de préférences.
 | Illustrations 3D génériques, avatars fictifs, logos d'entreprises inventés | Rien, ou un document réel : graphique sourcé, photo d'archive créditée. |
 | Chiffres décoratifs invérifiables (« +10 000 citoyens informés ») | Aucun chiffre sans source. |
 | Animation d'apparition au défilement sur chaque bloc | Des transitions sur les seules interactions : survol, focus, ouverture. |
-| Le hero centré — grand titre, sous-titre qui répète le titre, deux boutons | Une entrée en matière qui annonce le contenu réel et mène quelque part. |
+| Le hero centré : grand titre, sous-titre qui répète le titre, deux boutons | Une entrée en matière qui annonce le contenu réel et mène quelque part. |
 
 ### Rédaction
 
+Ces règles valent pour **tout** texte du projet : pages du site, documentation,
+commentaires de code, messages de commit.
+
+- **Aucun tiret cadratin ni demi-cadratin.** C'est le marqueur d'écriture
+  automatique le plus fiable. Un point, une virgule, un deux-points ou une
+  parenthèse font le même travail. Seuls les fichiers issus du gabarit Lovable y
+  échappent, parce qu'ils sont régénérés.
 - Pas de verbe d'accroche : « Découvrez », « Plongez au cœur de », « Explorez
   l'univers de », « Décryptez ».
 - Pas de superlatif ni de promesse : « la référence », « enfin simple », « tout
@@ -103,10 +110,21 @@ pas de préférences.
 - Pas d'énumération systématique par trois.
 - Pas d'attribution vague : « les experts s'accordent », « des études montrent ».
   On nomme la source, on la date, on y renvoie.
+- Pas de participe présent greffé en fin de phrase pour faire profond :
+  « soulignant l'importance de », « permettant ainsi de », « reflétant une
+  évolution ».
+- Pas de formule d'aphorisme : « X est le Y de Z », « au fond », « la vraie
+  question est ». Écrire l'affirmation concrète que la formule contourne.
+- Pas de phrase-punchline en fin de paragraphe, ni de rafales de phrases courtes
+  destinées à dramatiser.
+- Pas de parallélisme négatif décoratif : « ce n'est pas X, c'est Y ». Dire ce
+  que c'est.
 - Un titre dit quelque chose de précis. « Le budget de l'État » est un titre ;
   « Comprendre les enjeux du budget » n'en est pas un.
 - Le sous-titre n'est pas une reformulation du titre. S'il n'ajoute rien, il saute.
-- Pas de tirets cadratins en série.
+
+Les guillemets français « » sont la bonne typographie et restent, tout comme
+l'espace fine insécable avant les signes doubles et dans les milliers.
 
 ---
 
@@ -121,7 +139,7 @@ Conseil d'analyse économique. Concrètement :
   caractères par ligne, interligne généreux. Une page bien construite reste bonne
   en noir et blanc.
 - **Palette sobre.** Presque-noir sur blanc cassé. Un accent unique, réservé à
-  l'interaction — lien, focus, état actif — jamais à la décoration.
+  l'interaction (lien, focus, état actif), et jamais à la décoration.
 - **La densité est permise.** Un site qui explique a le droit d'être dense. Un
   tableau lisible vaut mieux qu'un carrousel.
 - **Des graphiques quand ils portent une information**, via `@mantine/charts` :
@@ -173,13 +191,14 @@ de code touchant aux données.** Ce qui suit est le minimum à ne jamais enfrein
    adopté à main levée.
 5. **Vérifier les données officielles entre elles.** Deux erreurs vérifiées sur
    556 liens scrutin ↔ dossier de la source. En cas de désaccord entre lien
-   officiel et lien reconstruit, conserver les deux et signaler le conflit —
-   jamais trancher en silence.
+   officiel et lien reconstruit, conserver les deux et signaler le conflit.
+   Ne jamais trancher en silence.
 6. **Séparation physique `officiel` / `enrichissement`.** Une donnée produite par
    IA ne peut pas écrire dans le schéma officiel, et une affirmation sans
    citation vers une source primaire ne se publie pas.
 
-Un chiffre affiché sans source est un bug, pas une imperfection.
+Un chiffre affiché sans sa source doit être traité comme un bug : il se corrige
+avant la mise en ligne, au même titre qu'une erreur de calcul.
 
 ## 6. Avant chaque commit
 
@@ -193,7 +212,7 @@ Un chiffre affiché sans source est un bug, pas une imperfection.
 - [ ] `main` compile : Lovable synchronise cette branche, voir l'encadré en tête
       de fichier.
 
-Ces règles gagnent à être opposables plutôt que déclaratives. Une entrée
-`no-restricted-imports` dans `eslint.config.js` visant `@/components/ui/*`,
-`@radix-ui/*` et `lucide-react` transforme la première ligne de cette liste en
-erreur de lint.
+Mieux vaut que ces règles soient vérifiées par un outil que rappelées dans un
+fichier. Une entrée `no-restricted-imports` dans `eslint.config.js` visant
+`@/components/ui/*`, `@radix-ui/*` et `lucide-react` transformerait la première
+ligne de cette liste en erreur de lint.

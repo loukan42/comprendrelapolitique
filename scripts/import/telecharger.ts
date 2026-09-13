@@ -84,7 +84,7 @@ async function telecharger(source: Source, destination: string): Promise<Emprein
 
 /**
  * Décompresse dans `cible`. Les archives contiennent un répertoire `json/` à
- * leur racine, ce qui donne `<jeu>/json/…` — exactement la disposition que
+ * leur racine, ce qui donne `<jeu>/json/…`, exactement la disposition que
  * charger.ts attend.
  */
 async function decompresser(archive: string, cible: string): Promise<number> {

@@ -2,8 +2,8 @@
  * Accès base de données pour les scripts d'import.
  *
  * L'interface est volontairement minuscule : une requête paramétrée et une
- * transaction. Elle permet de développer et de tester contre PGlite —
- * PostgreSQL compilé en WebAssembly, sans serveur ni installation — puis de
+ * transaction. Elle permet de développer et de tester contre PGlite, qui est
+ * PostgreSQL compilé en WebAssembly, sans serveur ni installation, puis de
  * basculer sur un vrai PostgreSQL (Supabase ou autre) en changeant une
  * variable d'environnement, sans toucher au code d'import.
  *
