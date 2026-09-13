@@ -30,3 +30,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Donnees brutes Open Data : volumineuses et re-telechargeables depuis la source
+# officielle. Ce sont les scripts d import qui sont versionnes, jamais les donnees.
+/data/
+/data assemblee nationale/
+*.crdownload
