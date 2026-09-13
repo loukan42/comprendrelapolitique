@@ -1,4 +1,5 @@
 import {
+  Accordion,
   Anchor,
   Badge,
   Box,
@@ -58,6 +59,24 @@ const LIBELLE_POSITION: Record<ScrutinLoi["repartition"][number]["position"], st
   NON_VOTANT: "non-votants",
 };
 
+/**
+ * L'intitulé complet n'est affiché que s'il dit plus que le titre court.
+ * « proposition de loi pour une montagne vivante et souveraine » en face de
+ * « Pour une montagne vivante et souveraine » n'apprend rien et ajoute une
+ * ligne à lire ; « proposition de loi visant à… » en face d'un titre court
+ * elliptique, si.
+ */
+function apporteQuelqueChose(complet: string | null, court: string | null): boolean {
+  if (!complet) return false;
+  if (!court) return true;
+  const normaliser = (t: string) =>
+    t
+      .toLowerCase()
+      .replace(/^(projet|proposition) de loi (organique |constitutionnelle )?/, "")
+      .replace(/[^a-zà-ÿ0-9]/g, "");
+  return normaliser(complet) !== normaliser(court);
+}
+
 /** Mêmes couleurs de sens de vote que l'hémicycle (voir theme.ts). */
 const COULEUR_POSITION: Record<ScrutinLoi["repartition"][number]["position"], string | null> = {
   POUR: "var(--couleur-vote-pour)",
@@ -113,6 +132,48 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
           />
         ))}
       </Stack>
+
+      {scrutin.explicationsVote.length > 0 && (
+        <Box mt="xl">
+          <Text fw={600}>Pourquoi, dans leurs mots</Text>
+          <Text c="dimmed" size="sm" mt={4}>
+            Les explications de vote prononcées en séance avant ce scrutin, citées telles
+            qu&apos;elles figurent au compte rendu. Chaque orateur parle au nom de son groupe, et le
+            sens de son propre vote est rappelé à côté de son nom.
+          </Text>
+          <Accordion variant="separated" radius="md" mt="md">
+            {scrutin.explicationsVote.map((e) => (
+              <Accordion.Item key={e.acteurUid} value={e.acteurUid}>
+                <Accordion.Control>
+                  <Group gap={8} wrap="nowrap">
+                    <PastilleGroupe couleur={e.couleur} />
+                    <Box>
+                      <Text size="sm" fw={600}>
+                        {e.groupe ?? "Groupe non renseigné"}
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        {e.civilite} {e.prenom} {e.nom}
+                        {e.position && <> · a voté {LIBELLE_POSITION[e.position]}</>}
+                      </Text>
+                    </Box>
+                  </Group>
+                </Accordion.Control>
+                <Accordion.Panel>
+                  {e.texte.split("\n\n").map((paragraphe, i) => (
+                    <Text key={i} size="sm" mt={i === 0 ? 0 : "sm"}>
+                      {paragraphe}
+                    </Text>
+                  ))}
+                </Accordion.Panel>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+          <Text size="xs" c="dimmed" mt="xs">
+            Source : compte rendu de la séance, Assemblée nationale. Les interruptions notées par le
+            compte rendu font partie du texte cité.
+          </Text>
+        </Box>
+      )}
 
       {scrutin.parGroupe.length > 0 && (
         <Box mt="xl">
@@ -225,6 +286,40 @@ function PageLoi() {
             </Text>
           )}
           <Title order={1}>{dossier.titre ?? dossier.uid}</Title>
+
+          {apporteQuelqueChose(dossier.titreComplet, dossier.titre) && (
+            <Text mt="sm">
+              Intitulé complet du texte :{" "}
+              <Text span fs="italic">
+                {dossier.titreComplet}
+              </Text>
+            </Text>
+          )}
+
+          {dossier.initiateur && (
+            <Text mt="sm" c="dimmed">
+              Déposé par{" "}
+              <Anchor href={`/deputes/${dossier.initiateur.uid}`} underline="hover">
+                {dossier.initiateur.civilite} {dossier.initiateur.prenom} {dossier.initiateur.nom}
+              </Anchor>
+              {dossier.initiateur.groupe && <> ({dossier.initiateur.groupe})</>}.
+            </Text>
+          )}
+
+          {(dossier.urlAssemblee ?? dossier.urlSenat) && (
+            <Group gap="md" mt="sm">
+              {dossier.urlAssemblee && (
+                <Anchor href={dossier.urlAssemblee} target="_blank" rel="noreferrer" size="sm">
+                  Le dossier sur assemblee-nationale.fr
+                </Anchor>
+              )}
+              {dossier.urlSenat && (
+                <Anchor href={dossier.urlSenat} target="_blank" rel="noreferrer" size="sm">
+                  Le dossier sur senat.fr
+                </Anchor>
+              )}
+            </Group>
+          )}
         </Box>
 
         <Box>

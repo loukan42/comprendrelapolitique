@@ -37,6 +37,18 @@ export interface VoteGroupeScrutin {
   voixNonVotant: number;
 }
 
+export interface ExplicationVote {
+  acteurUid: string;
+  civilite: string | null;
+  prenom: string | null;
+  nom: string;
+  groupeUid: string | null;
+  groupe: string | null;
+  couleur: string | null;
+  position: "POUR" | "CONTRE" | "ABSTENTION" | "NON_VOTANT" | null;
+  texte: string;
+}
+
 export interface ScrutinLoi {
   uid: string;
   dateScrutin: string;
@@ -49,6 +61,7 @@ export interface ScrutinLoi {
   repartition: RepartitionVote[];
   sieges: SiegeVote[];
   parGroupe: VoteGroupeScrutin[];
+  explicationsVote: ExplicationVote[];
 }
 
 export interface DossierEngagement {
@@ -63,6 +76,20 @@ export interface DetailLoi {
     titre: string | null;
     legislature: number | null;
     procedureLibelle: string | null;
+    /** Titre complet du texte déposé, souvent plus explicite que le titre court. */
+    titreComplet: string | null;
+    /** Auteur du dépôt, quand la source le renseigne. */
+    initiateur: {
+      uid: string;
+      civilite: string | null;
+      prenom: string | null;
+      nom: string;
+      groupe: string | null;
+    } | null;
+    /** Page officielle du dossier sur assemblee-nationale.fr. */
+    urlAssemblee: string | null;
+    /** Page du dossier sur senat.fr, quand le texte y est passé. */
+    urlSenat: string | null;
   };
   actes: ActeLoi[];
   scrutinsEnsemble: ScrutinLoi[];
@@ -136,6 +163,88 @@ async function chargerVotesParGroupe(scrutinUid: string): Promise<VoteGroupeScru
   }));
 }
 
+/**
+ * Explications de vote : ce que les orateurs ont dit avant le scrutin, cité
+ * tel quel.
+ *
+ * Le lien passe par la séance (`scrutin.seance_ref` vers
+ * `debat_seance.uid`), et **uniquement quand la séance ne contient qu'une
+ * seule section « Explications de vote »**. Une séance qui en compte
+ * plusieurs examine plusieurs textes : rien dans les données ne dit laquelle
+ * porte sur ce scrutin, et en choisir une attribuerait à un texte les
+ * arguments tenus sur un autre. Mesuré sur la XVIIe législature : 108 votes
+ * sur l'ensemble sont dans le cas sans ambiguïté, 35 ne le sont pas, 71
+ * n'ont pas de compte rendu rattaché.
+ *
+ * Le groupe de l'orateur est lu depuis son propre vote sur ce scrutin
+ * (`officiel.vote.organe_uid`), donc le groupe qu'il avait à cet instant.
+ *
+ * Aucun résumé n'est produit ici : le texte est celui du compte rendu.
+ */
+async function chargerExplicationsVote(scrutinUid: string): Promise<ExplicationVote[]> {
+  const lignes = await requete<{
+    acteur_uid: string;
+    civilite: string | null;
+    prenom: string | null;
+    nom: string;
+    groupe_uid: string | null;
+    groupe: string | null;
+    couleur: string | null;
+    position: ExplicationVote["position"];
+    texte: string;
+    ordre: number;
+  }>(
+    `WITH seance_unique AS (
+        SELECT s.seance_ref, p.id_syceron
+          FROM officiel.scrutin s
+          JOIN officiel.debat_point p
+            ON p.seance_uid = s.seance_ref AND p.intitule ILIKE 'Explications de vote%'
+         WHERE s.uid = $1
+           AND (SELECT count(*) FROM officiel.debat_point p2
+                 WHERE p2.seance_uid = s.seance_ref
+                   AND p2.intitule ILIKE 'Explications de vote%') = 1
+     )
+     SELECT i.acteur_uid, a.civilite, a.prenom, a.nom,
+            v.organe_uid AS groupe_uid, o.libelle AS groupe, o.couleur,
+            v.position, i.texte, i.ordre_absolu_seance AS ordre
+       FROM seance_unique su
+       JOIN officiel.intervention i
+         ON i.seance_uid = su.seance_ref AND i.point_id_syceron = su.id_syceron
+       JOIN officiel.acteur a ON a.uid = i.acteur_uid
+       LEFT JOIN officiel.vote v ON v.scrutin_uid = $1 AND v.acteur_uid = i.acteur_uid
+       LEFT JOIN officiel.organe o ON o.uid = v.organe_uid
+      WHERE i.texte IS NOT NULL
+        AND length(i.texte) > 120
+        AND (i.role_debat IS NULL OR i.role_debat <> 'president')
+      ORDER BY i.ordre_absolu_seance`,
+    [scrutinUid],
+  );
+
+  // Le compte rendu coupe une même prise de parole en plusieurs paragraphes
+  // dès qu'une interruption s'intercale. Les paragraphes successifs d'un
+  // même orateur sont donc recollés, dans l'ordre de la séance.
+  const parOrateur = new Map<string, ExplicationVote>();
+  for (const l of lignes) {
+    const courant = parOrateur.get(l.acteur_uid);
+    if (courant) {
+      courant.texte += `\n\n${l.texte}`;
+      continue;
+    }
+    parOrateur.set(l.acteur_uid, {
+      acteurUid: l.acteur_uid,
+      civilite: l.civilite,
+      prenom: l.prenom,
+      nom: l.nom,
+      groupeUid: l.groupe_uid,
+      groupe: l.groupe,
+      couleur: l.couleur,
+      position: l.position,
+      texte: l.texte,
+    });
+  }
+  return Array.from(parOrateur.values());
+}
+
 async function chargerScrutin(row: {
   uid: string;
   date_scrutin: string;
@@ -158,6 +267,7 @@ async function chargerScrutin(row: {
     repartition: await chargerRepartition(row.uid),
     sieges: await chargerSieges(row.uid),
     parGroupe: await chargerVotesParGroupe(row.uid),
+    explicationsVote: await chargerExplicationsVote(row.uid),
   };
 }
 
@@ -172,10 +282,58 @@ export const chargerDossier = createServerFn({ method: "GET" })
       titre: string | null;
       legislature: number | null;
       procedure_libelle: string | null;
-    }>(`SELECT uid, titre, legislature, procedure_libelle FROM officiel.dossier WHERE uid = $1`, [
-      uid,
-    ]);
+      titre_chemin: string | null;
+      senat_chemin: string | null;
+      acteur_initiateur: string | null;
+    }>(
+      `SELECT uid, titre, legislature, procedure_libelle, titre_chemin, senat_chemin,
+              acteur_initiateur
+         FROM officiel.dossier WHERE uid = $1`,
+      [uid],
+    );
     if (!dossier) return null;
+
+    // Intitulé complet du texte lui-même (« proposition de loi visant à… »),
+    // là où le titre du dossier est raccourci pour l'affichage. Restreint aux
+    // textes de loi : les rapports rattachés au même dossier portent un titre
+    // de procédure (« rapport de la commission mixte paritaire chargée de… »)
+    // qui décrit une étape, pas le contenu du texte. Le plus court des textes
+    // est retenu, les versions successives ajoutant des mentions de lecture.
+    const titreCompletRow = await requeteUne<{ titre_principal: string | null }>(
+      `SELECT titre_principal
+         FROM officiel.document
+        WHERE dossier_uid = $1
+          AND type_document = 'texteLoi_Type'
+          AND titre_principal IS NOT NULL
+          AND titre_principal NOT ILIKE 'rapport%'
+        ORDER BY length(titre_principal)
+        LIMIT 1`,
+      [uid],
+    );
+
+    // Auteur du dépôt, avec le groupe auquel il appartenait à cette date.
+    // Le groupe est lu depuis le mandat qui couvre la date, jamais supposé.
+    const initiateurRow = dossier.acteur_initiateur
+      ? await requeteUne<{
+          uid: string;
+          civilite: string | null;
+          prenom: string | null;
+          nom: string;
+          groupe: string | null;
+        }>(
+          `SELECT a.uid, a.civilite, a.prenom, a.nom,
+                  (SELECT o.libelle
+                     FROM officiel.mandat m
+                     JOIN officiel.organe o ON o.uid = m.organe_uid
+                    WHERE m.acteur_uid = a.uid AND m.type_organe = 'GP'
+                      AND o.legislature = $2
+                    ORDER BY m.date_debut DESC
+                    LIMIT 1) AS groupe
+             FROM officiel.acteur a
+            WHERE a.uid = $1`,
+          [dossier.acteur_initiateur, dossier.legislature],
+        )
+      : null;
 
     const actesRows = await requete<{
       uid: string;
@@ -265,6 +423,23 @@ export const chargerDossier = createServerFn({ method: "GET" })
         titre: dossier.titre,
         legislature: dossier.legislature,
         procedureLibelle: dossier.procedure_libelle,
+        titreComplet: titreCompletRow?.titre_principal ?? null,
+        initiateur: initiateurRow
+          ? {
+              uid: initiateurRow.uid,
+              civilite: initiateurRow.civilite,
+              prenom: initiateurRow.prenom,
+              nom: initiateurRow.nom,
+              groupe: initiateurRow.groupe,
+            }
+          : null,
+        // Construite depuis `titre_chemin`, le segment d'URL que la source
+        // publie elle-même. Jamais devinée à partir du titre.
+        urlAssemblee:
+          dossier.titre_chemin && dossier.legislature
+            ? `https://www.assemblee-nationale.fr/dyn/${dossier.legislature}/dossiers/${dossier.titre_chemin}`
+            : null,
+        urlSenat: dossier.senat_chemin,
       },
       actes: actesRows.map((a) => ({
         uid: a.uid,
