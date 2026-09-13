@@ -55,8 +55,13 @@ export const theme = createTheme({
   primaryShade: { light: 8, dark: 4 },
   colors: { encre, graphite },
 
-  white: "#fdfdfc",
-  black: "#16161a",
+  // Le fond n'est pas blanc. Un blanc proche de #fff sur une page dense, lue
+  // longtemps, éblouit : la luminance du fond est ramenée vers un papier
+  // chaud, et le texte reste un presque-noir plutôt qu'un noir pur, pour que
+  // le contraste porte la lecture sans la durcir. Le contraste du corps de
+  // texte sur ce fond reste au-dessus de AAA.
+  white: "#f7f5f0",
+  black: "#1b1b1f",
 
   // Une seule famille, hiérarchisée par la taille et la graisse. Aucune police
   // distante n'est chargée pour l'instant : ce choix se fera en connaissance de

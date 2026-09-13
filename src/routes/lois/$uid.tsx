@@ -1,5 +1,4 @@
 import {
-  Accordion,
   Anchor,
   Badge,
   Box,
@@ -13,13 +12,16 @@ import {
 } from "@mantine/core";
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
 import { BarreEmpilee } from "../../components/BarreEmpilee";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import { Hemicycle } from "../../components/Hemicycle";
 import { PastilleGroupe } from "../../components/PastilleGroupe";
+import { extraireEssentiel } from "../../lib/extraitIntervention";
 import {
   chargerDossier,
   type DossierEngagement,
+  type ExplicationVote,
   type ScrutinLoi,
   type VoteGroupeScrutin,
 } from "../../queries/lois";
@@ -141,36 +143,15 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
             qu&apos;elles figurent au compte rendu. Chaque orateur parle au nom de son groupe, et le
             sens de son propre vote est rappelé à côté de son nom.
           </Text>
-          <Accordion variant="separated" radius="md" mt="md">
+          <Stack gap="md" mt="md">
             {scrutin.explicationsVote.map((e) => (
-              <Accordion.Item key={e.acteurUid} value={e.acteurUid}>
-                <Accordion.Control>
-                  <Group gap={8} wrap="nowrap">
-                    <PastilleGroupe couleur={e.couleur} />
-                    <Box>
-                      <Text size="sm" fw={600}>
-                        {e.groupe ?? "Groupe non renseigné"}
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        {e.civilite} {e.prenom} {e.nom}
-                        {e.position && <> · a voté {LIBELLE_POSITION[e.position]}</>}
-                      </Text>
-                    </Box>
-                  </Group>
-                </Accordion.Control>
-                <Accordion.Panel>
-                  {e.texte.split("\n\n").map((paragraphe, i) => (
-                    <Text key={i} size="sm" mt={i === 0 ? 0 : "sm"}>
-                      {paragraphe}
-                    </Text>
-                  ))}
-                </Accordion.Panel>
-              </Accordion.Item>
+              <BlocExplication key={e.acteurUid} explication={e} />
             ))}
-          </Accordion>
-          <Text size="xs" c="dimmed" mt="xs">
-            Source : compte rendu de la séance, Assemblée nationale. Les interruptions notées par le
-            compte rendu font partie du texte cité.
+          </Stack>
+          <Text size="xs" c="dimmed" mt="sm">
+            Source : compte rendu de la séance, Assemblée nationale. L&apos;extrait reprend les
+            phrases où l&apos;orateur annonce le vote de son groupe et le justifie, mot pour mot et
+            dans l&apos;ordre du discours.
           </Text>
         </Box>
       )}
@@ -188,6 +169,63 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
             ))}
           </Stack>
         </Box>
+      )}
+    </Card>
+  );
+}
+
+/**
+ * Une explication de vote : l'essentiel d'abord, le propos entier à la
+ * demande. L'extrait est cité mot pour mot (voir `extraireEssentiel`), jamais
+ * reformulé, et le texte complet reste à un clic pour que la coupe soit
+ * vérifiable.
+ */
+function BlocExplication({ explication }: { explication: ExplicationVote }) {
+  const [complet, setComplet] = useState(false);
+  const resume = useMemo(() => extraireEssentiel(explication.texte), [explication.texte]);
+
+  return (
+    <Card withBorder radius="md" padding="md">
+      <Group gap={8} wrap="nowrap" align="flex-start">
+        <Box mt={5}>
+          <PastilleGroupe couleur={explication.couleur} />
+        </Box>
+        <Box>
+          <Text size="sm" fw={600}>
+            {explication.groupe ?? "Groupe non renseigné"}
+          </Text>
+          <Text size="xs" c="dimmed">
+            {explication.civilite} {explication.prenom} {explication.nom}
+            {explication.position && <> · a voté {LIBELLE_POSITION[explication.position]}</>}
+          </Text>
+        </Box>
+      </Group>
+
+      {complet ? (
+        <Box mt="sm">
+          {explication.texte.split("\n\n").map((paragraphe, i) => (
+            <Text key={i} size="sm" mt={i === 0 ? 0 : "sm"}>
+              {paragraphe}
+            </Text>
+          ))}
+        </Box>
+      ) : (
+        <Text size="sm" mt="sm">
+          {resume.discontinu && <>… </>}
+          {resume.extrait}
+        </Text>
+      )}
+
+      {!resume.complet && (
+        <Anchor
+          component="button"
+          type="button"
+          size="sm"
+          mt="xs"
+          onClick={() => setComplet((v) => !v)}
+        >
+          {complet ? "Réduire" : "Lire l'intervention complète"}
+        </Anchor>
       )}
     </Card>
   );
