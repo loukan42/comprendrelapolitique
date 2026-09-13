@@ -23,13 +23,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   calculerResultat,
-  chargerQuestionsGrandQuiz,
   type QuestionComparee,
-  type QuestionQuiz,
   type ReponseQuiz,
   type ReponseUtilisateur,
   type ResultatQuiz,
-} from "../queries/quiz";
+} from "../lib/quizCalcul";
+import { chargerQuestionsGrandQuiz, type QuestionQuiz } from "../queries/quiz";
 
 export const Route = createFileRoute("/quiz")({
   loader: () => chargerQuestionsGrandQuiz(),
@@ -254,7 +253,6 @@ function PageQuiz() {
   const [indexCourant, setIndexCourant] = useState(0);
   const [reponses, setReponses] = useState<ReponseUtilisateur[]>([]);
   const [resultat, setResultat] = useState<ResultatQuiz | null>(null);
-  const [enCalcul, setEnCalcul] = useState(false);
 
   if (questions.length === 0) {
     return (
@@ -266,7 +264,7 @@ function PageQuiz() {
     );
   }
 
-  async function repondre(reponse: ReponseQuiz) {
+  function repondre(reponse: ReponseQuiz) {
     const question = questions[indexCourant];
     if (!question) return;
     const nouvelles = [...reponses, { scrutinUid: question.scrutinUid, reponse }];
@@ -275,10 +273,9 @@ function PageQuiz() {
       setIndexCourant(indexCourant + 1);
       return;
     }
-    setEnCalcul(true);
-    const r = await calculerResultat({ data: nouvelles });
-    setResultat(r);
-    setEnCalcul(false);
+    // Calcul entièrement local : les réponses ne quittent jamais le
+    // navigateur (docs/QUIZ_METHODOLOGY.md section 1).
+    setResultat(calculerResultat(questions, nouvelles));
   }
 
   function recommencer() {
@@ -302,9 +299,7 @@ function PageQuiz() {
           </Badge>
         </Box>
 
-        {enCalcul ? (
-          <Progress value={100} size={6} radius="xl" animated maw={560} mx="auto" w="100%" />
-        ) : resultat ? (
+        {resultat ? (
           <EcranResultat resultat={resultat} onRecommencer={recommencer} />
         ) : (
           questions[indexCourant] && (

@@ -1,7 +1,7 @@
 /**
- * Grand quiz (spécification sections 5 à 8) : une quinzaine de grandes
- * décisions réparties entre les thèmes, comparaison de la réponse de
- * l'utilisateur aux groupes parlementaires.
+ * Grand quiz (spécification sections 5 à 8, méthodologie détaillée dans
+ * docs/QUIZ_METHODOLOGY.md) : une quinzaine de grandes décisions réparties
+ * entre les thèmes.
  *
  * Sélection des questions : les scrutins sur l'ensemble d'un texte les plus
  * suivis (suffrages exprimés), un par dossier, répartis entre les thèmes de
@@ -15,15 +15,25 @@
  * spécification interdit explicitement de fabriquer une question qui
  * déforme le scrutin réel.
  *
- * La comparaison ne porte que sur les groupes parlementaires, jamais sur un
- * vote individuel déduit (AGENTS.md section 5) : chaque position de groupe
- * vient de `officiel.scrutin_groupe`, qui agrège des votes réellement
- * enregistrés.
+ * Contrainte non négociable (QUIZ_METHODOLOGY.md section 1) : une réponse au
+ * quiz est une opinion politique, donnée sensible au sens de l'article 9 du
+ * RGPD. Ce module ne reçoit donc jamais la réponse de l'utilisateur : il
+ * fournit, pour chaque question, la répartition par groupe déjà publique
+ * (`officiel.scrutin_groupe`), et c'est le client qui calcule la proximité
+ * (`src/lib/quizCalcul.ts`), sans jamais renvoyer les réponses au serveur.
  */
 
 import { createServerFn } from "@tanstack/react-start";
 import { requete } from "./db";
 import { themeDepuisTitre, themeParSlug } from "./themes";
+
+export interface RepartitionGroupe {
+  organeUid: string;
+  libelle: string | null;
+  voixPour: number;
+  voixContre: number;
+  voixAbstention: number;
+}
 
 export interface QuestionQuiz {
   scrutinUid: string;
@@ -33,10 +43,8 @@ export interface QuestionQuiz {
   dateScrutin: string;
   theme: string | null;
   themeLibelle: string | null;
+  repartition: RepartitionGroupe[];
 }
-
-export const REPONSES_POSSIBLES = ["POUR", "CONTRE", "ABSTENTION", "NSP"] as const;
-export type ReponseQuiz = (typeof REPONSES_POSSIBLES)[number];
 
 interface DossierFinal {
   scrutinUid: string;
@@ -75,14 +83,65 @@ async function chargerDossiersFinaux(): Promise<DossierFinal[]> {
   }));
 }
 
+/** Répartition par groupe des scrutins donnés : donnée publique, jamais liée à une réponse. */
+async function chargerRepartitions(
+  scrutinUids: string[],
+): Promise<Map<string, RepartitionGroupe[]>> {
+  if (scrutinUids.length === 0) return new Map();
+  const rows = await requete<{
+    scrutin_uid: string;
+    organe_uid: string;
+    libelle: string | null;
+    voix_pour: number;
+    voix_contre: number;
+    voix_abstention: number;
+  }>(
+    `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, sg.voix_pour, sg.voix_contre, sg.voix_abstention
+       FROM officiel.scrutin_groupe sg
+       LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
+      WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL`,
+    [scrutinUids],
+  );
+  const parScrutin = new Map<string, RepartitionGroupe[]>();
+  for (const r of rows) {
+    const liste = parScrutin.get(r.scrutin_uid) ?? [];
+    liste.push({
+      organeUid: r.organe_uid,
+      libelle: r.libelle,
+      voixPour: r.voix_pour,
+      voixContre: r.voix_contre,
+      voixAbstention: r.voix_abstention,
+    });
+    parScrutin.set(r.scrutin_uid, liste);
+  }
+  return parScrutin;
+}
+
+async function assemblerQuestions(
+  dossiers: (DossierFinal & { theme: string | null; themeLibelle: string | null })[],
+): Promise<QuestionQuiz[]> {
+  const repartitions = await chargerRepartitions(dossiers.map((d) => d.scrutinUid));
+  return dossiers.map((d) => ({
+    scrutinUid: d.scrutinUid,
+    dossierUid: d.dossierUid,
+    dossierTitre: d.dossierTitre,
+    objetLibelle: d.objetLibelle,
+    dateScrutin: d.dateScrutin,
+    theme: d.theme,
+    themeLibelle: d.themeLibelle,
+    repartition: repartitions.get(d.scrutinUid) ?? [],
+  }));
+}
+
 /** Les 5 dossiers les plus suivis, tous thèmes confondus : pour la homepage. */
 export const chargerQuestionsExpress = createServerFn({ method: "GET" }).handler(
   async (): Promise<QuestionQuiz[]> => {
     const dossiers = await chargerDossiersFinaux();
-    return dossiers
+    const top5 = dossiers
       .sort((a, b) => b.suffragesExprimes - a.suffragesExprimes)
       .slice(0, 5)
       .map((d) => ({ ...d, theme: null, themeLibelle: null }));
+    return assemblerQuestions(top5);
   },
 );
 
@@ -93,7 +152,10 @@ export const chargerQuestionsExpress = createServerFn({ method: "GET" }).handler
  * thème ne peut donc dominer qu'après que tous les autres ont contribué au
  * moins autant.
  */
-function repartirParTheme(dossiers: DossierFinal[], cible: number): QuestionQuiz[] {
+function repartirParTheme(
+  dossiers: DossierFinal[],
+  cible: number,
+): (DossierFinal & { theme: string; themeLibelle: string })[] {
   const parTheme = new Map<string, DossierFinal[]>();
   for (const d of dossiers) {
     const theme = themeDepuisTitre(d.dossierTitre);
@@ -105,7 +167,7 @@ function repartirParTheme(dossiers: DossierFinal[], cible: number): QuestionQuiz
   for (const liste of parTheme.values())
     liste.sort((a, b) => b.suffragesExprimes - a.suffragesExprimes);
 
-  const selection: QuestionQuiz[] = [];
+  const selection: (DossierFinal & { theme: string; themeLibelle: string })[] = [];
   for (let tour = 0; selection.length < cible; tour++) {
     let ajoute = false;
     for (const [theme, liste] of parTheme) {
@@ -123,176 +185,6 @@ function repartirParTheme(dossiers: DossierFinal[], cible: number): QuestionQuiz
 export const chargerQuestionsGrandQuiz = createServerFn({ method: "GET" }).handler(
   async (): Promise<QuestionQuiz[]> => {
     const dossiers = await chargerDossiersFinaux();
-    return repartirParTheme(dossiers, 16);
+    return assemblerQuestions(repartirParTheme(dossiers, 16));
   },
 );
-
-export interface ReponseUtilisateur {
-  scrutinUid: string;
-  reponse: ReponseQuiz;
-}
-
-export interface ProximiteGroupe {
-  organeUid: string;
-  libelle: string | null;
-  proximite: number;
-  questionsRepondues: number;
-}
-
-export interface ProximiteTheme {
-  theme: string;
-  libelle: string;
-  /** Part moyenne de l'Assemblée qui partageait la réponse de l'utilisateur, sur ce thème. */
-  soutienMoyen: number;
-  questions: number;
-}
-
-export interface QuestionComparee {
-  scrutinUid: string;
-  dossierTitre: string | null;
-  objetLibelle: string;
-  reponse: ReponseQuiz;
-  theme: string | null;
-  soutienChambre: number;
-}
-
-export interface ResultatQuiz {
-  parGroupe: ProximiteGroupe[];
-  parTheme: ProximiteTheme[];
-  accords: QuestionComparee[];
-  desaccords: QuestionComparee[];
-}
-
-const RESULTAT_VIDE: ResultatQuiz = { parGroupe: [], parTheme: [], accords: [], desaccords: [] };
-
-export const calculerResultat = createServerFn({ method: "POST" })
-  .validator((reponses: unknown): ReponseUtilisateur[] => {
-    if (!Array.isArray(reponses)) throw new Error("réponses invalides");
-    return reponses as ReponseUtilisateur[];
-  })
-  .handler(async ({ data: reponses }): Promise<ResultatQuiz> => {
-    const utiles = reponses.filter((r) => r.reponse !== "NSP");
-    if (utiles.length === 0) return RESULTAT_VIDE;
-
-    const scrutinUids = utiles.map((r) => r.scrutinUid);
-    const lignes = await requete<{
-      scrutin_uid: string;
-      organe_uid: string;
-      libelle: string | null;
-      voix_pour: number;
-      voix_contre: number;
-      voix_abstention: number;
-    }>(
-      `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, sg.voix_pour, sg.voix_contre, sg.voix_abstention
-         FROM officiel.scrutin_groupe sg
-         LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
-        WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL`,
-      [scrutinUids],
-    );
-
-    const dossiers = await requete<{
-      scrutin_uid: string;
-      dossier_titre: string | null;
-      objet_libelle: string;
-    }>(
-      `SELECT s.uid AS scrutin_uid, d.titre AS dossier_titre, s.objet_libelle
-         FROM officiel.scrutin s
-         LEFT JOIN officiel.scrutin_dossier sd ON sd.scrutin_uid = s.uid
-         LEFT JOIN officiel.dossier d ON d.uid = sd.dossier_uid
-        WHERE s.uid = ANY($1)`,
-      [scrutinUids],
-    );
-    const dossierParScrutin = new Map(dossiers.map((d) => [d.scrutin_uid, d]));
-
-    function partAccord(reponse: ReponseQuiz, l: (typeof lignes)[number]): number {
-      const total = l.voix_pour + l.voix_contre + l.voix_abstention;
-      if (total === 0) return 0;
-      if (reponse === "POUR") return l.voix_pour / total;
-      if (reponse === "CONTRE") return l.voix_contre / total;
-      return l.voix_abstention / total;
-    }
-
-    const parGroupe = new Map<
-      string,
-      { libelle: string | null; sommeProximite: number; questions: number }
-    >();
-    const comparees: QuestionComparee[] = [];
-
-    for (const reponse of utiles) {
-      const lignesScrutin = lignes.filter((l) => l.scrutin_uid === reponse.scrutinUid);
-      let soutienTotalPour = 0;
-      let soutienTotalContre = 0;
-      let soutienTotalAbstention = 0;
-
-      for (const ligne of lignesScrutin) {
-        const part = partAccord(reponse.reponse, ligne);
-        const courant = parGroupe.get(ligne.organe_uid) ?? {
-          libelle: ligne.libelle,
-          sommeProximite: 0,
-          questions: 0,
-        };
-        courant.sommeProximite += part;
-        courant.questions += 1;
-        parGroupe.set(ligne.organe_uid, courant);
-
-        soutienTotalPour += ligne.voix_pour;
-        soutienTotalContre += ligne.voix_contre;
-        soutienTotalAbstention += ligne.voix_abstention;
-      }
-
-      const totalChambre = soutienTotalPour + soutienTotalContre + soutienTotalAbstention;
-      if (totalChambre > 0) {
-        const soutienChambre =
-          reponse.reponse === "POUR"
-            ? soutienTotalPour / totalChambre
-            : reponse.reponse === "CONTRE"
-              ? soutienTotalContre / totalChambre
-              : soutienTotalAbstention / totalChambre;
-        const d = dossierParScrutin.get(reponse.scrutinUid);
-        comparees.push({
-          scrutinUid: reponse.scrutinUid,
-          dossierTitre: d?.dossier_titre ?? null,
-          objetLibelle: d?.objet_libelle ?? "",
-          reponse: reponse.reponse,
-          theme: themeDepuisTitre(d?.dossier_titre ?? null),
-          soutienChambre,
-        });
-      }
-    }
-
-    const parGroupeTrie = Array.from(parGroupe.entries())
-      .map(([organeUid, v]) => ({
-        organeUid,
-        libelle: v.libelle,
-        proximite: v.sommeProximite / v.questions,
-        questionsRepondues: v.questions,
-      }))
-      .filter((g) => g.questionsRepondues >= Math.min(3, utiles.length))
-      .sort((a, b) => b.proximite - a.proximite);
-
-    const sommeParTheme = new Map<string, { somme: number; questions: number }>();
-    for (const c of comparees) {
-      if (!c.theme) continue;
-      const t = sommeParTheme.get(c.theme) ?? { somme: 0, questions: 0 };
-      t.somme += c.soutienChambre;
-      t.questions += 1;
-      sommeParTheme.set(c.theme, t);
-    }
-    const parTheme = Array.from(sommeParTheme.entries())
-      .map(([theme, v]) => ({
-        theme,
-        libelle: themeParSlug(theme)?.libelle ?? theme,
-        soutienMoyen: v.somme / v.questions,
-        questions: v.questions,
-      }))
-      .sort((a, b) => b.soutienMoyen - a.soutienMoyen);
-
-    const compareesTriees = [...comparees].sort((a, b) => b.soutienChambre - a.soutienChambre);
-
-    return {
-      parGroupe: parGroupeTrie,
-      parTheme,
-      accords: compareesTriees.slice(0, 3),
-      desaccords: compareesTriees.slice(-3).reverse(),
-    };
-  });
