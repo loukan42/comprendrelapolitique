@@ -1,4 +1,5 @@
 import { Anchor, Container, Group, Text } from "@mantine/core";
+import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   return (
@@ -12,15 +13,20 @@ export function SiteFooter() {
         <Text size="sm" c="dimmed">
           Données : Open Data de l&apos;Assemblée nationale, Licence Ouverte.
         </Text>
-        <Anchor
-          href="https://data.assemblee-nationale.fr/"
-          target="_blank"
-          rel="noreferrer"
-          size="sm"
-          c="dimmed"
-        >
-          data.assemblee-nationale.fr
-        </Anchor>
+        <Group gap="md">
+          <Anchor component={Link} to="/methodologie" size="sm" c="dimmed">
+            Méthodologie
+          </Anchor>
+          <Anchor
+            href="https://data.assemblee-nationale.fr/"
+            target="_blank"
+            rel="noreferrer"
+            size="sm"
+            c="dimmed"
+          >
+            data.assemblee-nationale.fr
+          </Anchor>
+        </Group>
       </Group>
     </Container>
   );

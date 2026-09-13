@@ -14,7 +14,7 @@ import {
   Title,
 } from "@mantine/core";
 import { IconBrain, IconNews, IconSearch } from "@tabler/icons-react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { CarteLien } from "../components/CarteLien";
 import { chargerQuestionsExpress } from "../queries/quiz";
 
@@ -171,7 +171,7 @@ function Accueil() {
               <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
                 Parmi les votes sur l&apos;ensemble d&apos;un texte, ceux qui ont réuni le plus de
                 suffrages exprimés : en attendant un score d&apos;importance publique (voir{" "}
-                <Anchor href="https://github.com/loukan42/comprendrelapolitique/blob/main/docs/SCORING.md">
+                <Anchor component={Link} to="/methodologie">
                   la méthodologie
                 </Anchor>
                 ), l&apos;affluence sert de repère provisoire, pas de classement définitif.

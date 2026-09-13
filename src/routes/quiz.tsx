@@ -19,7 +19,7 @@ import {
   IconThumbDown,
   IconThumbUp,
 } from "@tabler/icons-react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   calculerResultat,
@@ -193,7 +193,11 @@ function EcranResultat({
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
           Ce résultat compare uniquement vos réponses à des votes parlementaires passés. Il ne
           constitue pas une recommandation électorale et ne tient pas compte de l&apos;ensemble des
-          programmes, candidats ou enjeux futurs.
+          programmes, candidats ou enjeux futurs.{" "}
+          <Anchor component={Link} to="/methodologie" c="inherit">
+            Comment ce résultat est calculé
+          </Anchor>
+          .
         </Alert>
       </Stack>
 
