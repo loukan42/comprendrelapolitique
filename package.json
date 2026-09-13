@@ -9,7 +9,10 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "data:telecharger": "node scripts/import/telecharger.ts",
+    "data:charger": "node scripts/import/charger.ts",
+    "data:controler": "node scripts/import/controler.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -81,6 +84,7 @@
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "fflate": "^0.8.3",
     "globals": "^15.15.0",
     "nitro": "3.0.260603-beta",
     "prettier": "^3.7.3",
