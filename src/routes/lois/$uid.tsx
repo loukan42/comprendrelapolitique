@@ -12,9 +12,16 @@ import {
 } from "@mantine/core";
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { BarreEmpilee } from "../../components/BarreEmpilee";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import { Hemicycle } from "../../components/Hemicycle";
-import { chargerDossier, type DossierEngagement, type ScrutinLoi } from "../../queries/lois";
+import { PastilleGroupe } from "../../components/PastilleGroupe";
+import {
+  chargerDossier,
+  type DossierEngagement,
+  type ScrutinLoi,
+  type VoteGroupeScrutin,
+} from "../../queries/lois";
 
 export const Route = createFileRoute("/lois/$uid")({
   loader: async ({ params }) => {
@@ -106,7 +113,76 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
           />
         ))}
       </Stack>
+
+      {scrutin.parGroupe.length > 0 && (
+        <Box mt="xl">
+          <Text fw={600}>Qui a voté quoi</Text>
+          <Text c="dimmed" size="sm" mt={4}>
+            Chaque groupe parlementaire, du plus nombreux au plus petit, avec le sens de ses voix
+            sur ce scrutin.
+          </Text>
+          <Stack gap="md" mt="md">
+            {scrutin.parGroupe.map((g) => (
+              <LigneGroupe key={g.organeUid ?? "inconnu"} groupe={g} />
+            ))}
+          </Stack>
+        </Box>
+      )}
     </Card>
+  );
+}
+
+/**
+ * Un groupe et le détail de ses voix. La position majoritaire est calculée
+ * ici pour l'affichage, jamais attribuée aux députés du groupe : elle résume
+ * une distribution réellement comptée, elle ne remplace aucun vote individuel
+ * (AGENTS.md section 5, règle 1).
+ */
+function LigneGroupe({ groupe }: { groupe: VoteGroupeScrutin }) {
+  const exprimes = groupe.voixPour + groupe.voixContre + groupe.voixAbstention;
+  const majorite =
+    exprimes === 0
+      ? null
+      : groupe.voixPour >= groupe.voixContre && groupe.voixPour >= groupe.voixAbstention
+        ? "pour"
+        : groupe.voixContre >= groupe.voixAbstention
+          ? "contre"
+          : "abstention";
+  return (
+    <Box>
+      <Group justify="space-between" gap="sm" wrap="nowrap" mb={4}>
+        <Group gap={6} wrap="nowrap">
+          <PastilleGroupe couleur={groupe.couleur} />
+          {groupe.organeUid ? (
+            <Anchor href={`/groupes/${groupe.organeUid}`} size="sm" fw={600} underline="hover">
+              {groupe.libelle ?? groupe.organeUid}
+            </Anchor>
+          ) : (
+            <Text size="sm" fw={600}>
+              Groupe non renseigné par la source
+            </Text>
+          )}
+        </Group>
+        {majorite && (
+          <Text size="sm" fw={700}>
+            {majorite}
+          </Text>
+        )}
+      </Group>
+      <BarreEmpilee
+        libelle=""
+        segments={[
+          { libelle: "pour", valeur: groupe.voixPour, position: "pour" },
+          { libelle: "contre", valeur: groupe.voixContre, position: "contre" },
+          { libelle: "abstention", valeur: groupe.voixAbstention, position: "abstention" },
+        ]}
+      />
+      {groupe.voixNonVotant > 0 && (
+        <Text size="xs" c="dimmed" mt={2}>
+          {groupe.voixNonVotant} non-votant{groupe.voixNonVotant > 1 ? "s" : ""}
+        </Text>
+      )}
+    </Box>
   );
 }
 

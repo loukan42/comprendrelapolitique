@@ -27,6 +27,16 @@ export interface SiegeVote {
   position: "POUR" | "CONTRE" | "ABSTENTION" | "NON_VOTANT";
 }
 
+export interface VoteGroupeScrutin {
+  organeUid: string | null;
+  libelle: string | null;
+  couleur: string | null;
+  voixPour: number;
+  voixContre: number;
+  voixAbstention: number;
+  voixNonVotant: number;
+}
+
 export interface ScrutinLoi {
   uid: string;
   dateScrutin: string;
@@ -38,6 +48,7 @@ export interface ScrutinLoi {
   suffragesRequis: number | null;
   repartition: RepartitionVote[];
   sieges: SiegeVote[];
+  parGroupe: VoteGroupeScrutin[];
 }
 
 export interface DossierEngagement {
@@ -80,6 +91,51 @@ async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
   return lignes.map((l) => ({ organeUid: l.organe_uid, position: l.position }));
 }
 
+/**
+ * Décompte par groupe parlementaire, agrégé depuis les votes individuels et
+ * non depuis `officiel.scrutin_groupe`. Les deux existent, et c'est celui-ci
+ * qui est retenu pour une raison : le bloc de groupe de la source porte un
+ * `organe_uid` parfois absent (14 scrutins de la XVIIe listent leurs douze
+ * groupes sous un même identifiant factice, voir la migration), alors que le
+ * vote individuel porte le groupe au moment du vote. Le total affiché ici
+ * coïncide donc toujours avec l'hémicycle, qui lit la même table.
+ *
+ * Le groupe d'un vote n'est jamais recalculé par intervalle de dates : il est
+ * lu tel que la source l'a posé (AGENTS.md section 5, règle 1).
+ */
+async function chargerVotesParGroupe(scrutinUid: string): Promise<VoteGroupeScrutin[]> {
+  const lignes = await requete<{
+    organe_uid: string | null;
+    libelle: string | null;
+    couleur: string | null;
+    voix_pour: string;
+    voix_contre: string;
+    voix_abstention: string;
+    voix_non_votant: string;
+  }>(
+    `SELECT v.organe_uid, o.libelle, o.couleur,
+            count(*) FILTER (WHERE v.position = 'POUR')        AS voix_pour,
+            count(*) FILTER (WHERE v.position = 'CONTRE')      AS voix_contre,
+            count(*) FILTER (WHERE v.position = 'ABSTENTION')  AS voix_abstention,
+            count(*) FILTER (WHERE v.position = 'NON_VOTANT')  AS voix_non_votant
+       FROM officiel.vote v
+       LEFT JOIN officiel.organe o ON o.uid = v.organe_uid
+      WHERE v.scrutin_uid = $1
+      GROUP BY v.organe_uid, o.libelle, o.couleur
+      ORDER BY count(*) DESC`,
+    [scrutinUid],
+  );
+  return lignes.map((l) => ({
+    organeUid: l.organe_uid,
+    libelle: l.libelle,
+    couleur: l.couleur,
+    voixPour: Number(l.voix_pour),
+    voixContre: Number(l.voix_contre),
+    voixAbstention: Number(l.voix_abstention),
+    voixNonVotant: Number(l.voix_non_votant),
+  }));
+}
+
 async function chargerScrutin(row: {
   uid: string;
   date_scrutin: string;
@@ -101,6 +157,7 @@ async function chargerScrutin(row: {
     suffragesRequis: row.suffrages_requis,
     repartition: await chargerRepartition(row.uid),
     sieges: await chargerSieges(row.uid),
+    parGroupe: await chargerVotesParGroupe(row.uid),
   };
 }
 
