@@ -6,13 +6,19 @@ couverture médiatique d'un texte ne mesure pas son effet sur la société, elle
 mesure combien on en a parlé. Le nom du score doit rester fidèle à ce qu'il
 mesure.
 
-État au 13/09/2026 : rien de ce score n'est encore calculé en base, parce que
-`data/` n'existe pas dans ce checkout et que la table qui le porterait
-(`enrichissement.score_importance`, à ajouter selon DATA_MODEL.md section 7)
-n'est pas créée. Ce document fixe la formule à implémenter, pas un résultat
-observé. Chaque sous-section dit explicitement ce qui est calculable avec les
-données déjà importées (scrutins, dossiers, acteurs) et ce qui dépend d'une
-source non encore branchée.
+État au 13/09/2026 : ce document fixait au départ une formule à implémenter,
+pas un résultat observé. C'est désormais partiellement fait : le sous-score
+institutionnel (section 2) et l'intensité parlementaire partielle (section 4)
+sont calculés et vérifiés sur `data/pg16` (XVIe législature), dans
+`enrichissement.score_importance` (DATA_MODEL.md section 7), par
+`scripts/enrichissement/calculer_scores.ts`. Le détail de ce calcul, ses
+vérifications sur des cas connus et ses limites précises sont documentés dans
+[docs/CLASSIFICATION.md](CLASSIFICATION.md), pour ne pas dupliquer deux
+versions de la même information. Les sous-scores médiatique (section 3) et
+portée (section 5) restent NULL en base : aucune donnée réelle ne les
+alimente encore. Chaque sous-section ci-dessous dit explicitement ce qui est
+calculable avec les données déjà importées (scrutins, dossiers, acteurs) et ce
+qui dépend d'une source non encore branchée.
 
 Le score est attaché au **dossier législatif** (`officiel.dossier`), pas au
 scrutin. C'est le dossier qui représente la loi aux yeux de l'utilisateur, et
@@ -74,6 +80,13 @@ identifiés dans DATA_SOURCES.md section 7.2.
 **Calculable dès maintenant** avec les données déjà importées pour la XVIe. À
 étendre aux XVe et XVIIe une fois leurs `document` et `acte_legislatif`
 chargés.
+
+**Calculé** sur les 2914 dossiers scorables de `data/pg16` (les 29 dossiers
+d'engagement de responsabilité du 49.3 sont exclus, voir
+[docs/CLASSIFICATION.md](CLASSIFICATION.md) section 1). Vérifié sur trois cas
+connus : la réforme des retraites (75), une loi de finances rectificative
+d'urgence (95, le maximum observé), une proposition de loi jamais examinée
+(0, comme 93 % des dossiers de la base).
 
 ## 3. Médiatique, 35 %
 
@@ -156,18 +169,22 @@ poids égal :
 | Nombre de scrutins rattachés au dossier | `officiel.scrutin_dossier` | Calculable dès maintenant |
 | Nombre de séances (actes `AN1-DEBATS-SEANCE`) | `officiel.acte_legislatif` | Calculable dès maintenant |
 | Durée du parcours (première date d'acte à la promulgation ou au rejet) | `officiel.acte_legislatif.date_acte` | Calculable dès maintenant |
-| Nombre d'amendements déposés sur le dossier | table `amendement`, pas encore modélisée (DATA_MODEL.md section 9) | **Non calculable tant que l'import des amendements n'existe pas** |
+| Nombre d'amendements déposés sur le dossier | `officiel.amendement` (XVIe, modélisée et chargée, voir DATA_MODEL.md section 5 bis) | **Modélisée, mais pas encore branchée au calcul** : voir docs/CLASSIFICATION.md section 2 pour pourquoi (biais d'obstruction non mesuré) |
 | Nombre d'interventions en débat | XML des comptes rendus, pas encore parsé | **Non calculable** |
 
 ```
 intensite_parlementaire = moyenne des composantes normalisées disponibles
 ```
 
-Tant que les amendements et les débats ne sont pas importés, ce sous-score se
-calcule sur les trois premières composantes seulement, et doit être marqué
-comme partiel dans l'interface (« intensité parlementaire, calculée sur 3
-composantes sur 5 »), pour la même raison que le sous-score médiatique : ne
-jamais présenter une mesure incomplète comme si elle était complète.
+Tant que les amendements ne sont pas branchés au calcul et que les débats ne
+sont pas importés pour compter les interventions, ce sous-score se calcule sur
+les trois premières composantes seulement, et doit être marqué comme partiel
+dans l'interface (« intensité parlementaire, calculée sur 3 composantes sur
+5 »), pour la même raison que le sous-score médiatique : ne jamais présenter
+une mesure incomplète comme si elle était complète. C'est l'état effectif de
+`enrichissement.score_importance.intensite_parlementaire` sur `data/pg16` :
+`intensite_parlementaire_partiel = true` sur toute la table (voir
+docs/CLASSIFICATION.md section 2).
 
 Le nombre d'amendements est probablement biaisé sans transformation
 logarithmique lui aussi (quelques textes très amendés dominent très largement
@@ -221,9 +238,9 @@ paragraphe).
 
 | Sous-score | Poids | État au 13/09/2026 |
 | --- | --- | --- |
-| Institutionnel | 35 % | Calculable avec les données déjà modélisées, poids relatifs non calibrés |
+| Institutionnel | 35 % | **Calculé** sur les 2914 dossiers scorables de `data/pg16`, poids relatifs non calibrés |
 | Médiatique | 35 % | Formule fixée, aucune donnée réelle : GDELT non testé |
-| Intensité parlementaire | 20 % | Calculable partiellement (scrutins, séances, durée) ; amendements et débats manquants |
+| Intensité parlementaire | 20 % | **Calculé partiellement** (scrutins, séances, durée) sur `data/pg16` ; amendements non branchés, débats non importés |
 | Portée | 10 % | Par nature une estimation IA, jamais une mesure |
 
 Tant que le sous-score médiatique n'a pas de données réelles, le total sur 100

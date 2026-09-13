@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "data:telecharger": "node scripts/import/telecharger.ts",
     "data:charger": "node scripts/import/charger.ts",
-    "data:controler": "node scripts/import/controler.ts"
+    "data:controler": "node scripts/import/controler.ts",
+    "enrichissement:scores": "node scripts/enrichissement/calculer_scores.ts",
+    "enrichissement:themes-echantillon": "node scripts/enrichissement/classer_echantillon.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"

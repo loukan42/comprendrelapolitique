@@ -689,9 +689,18 @@ structurel : une citation qui ne pointe vers aucune source officielle ne peut pa
 être insérée. Un résumé sans citation associée ne doit pas être publié, règle à
 faire respecter par une vue ou un déclencheur, pas seulement par convention.
 
-Restent à modéliser, une fois leurs sources inspectées : `theme` et
-`dossier_theme` (avec score de confiance et justification, spec §8),
-`score_importance` et ses quatre sous-scores conservés séparément (§9), `quiz` et
+`theme`, `dossier_theme` et `score_importance` sont modélisés depuis
+`db/migrations/002_enrichissement.sql` et documentés dans
+[docs/CLASSIFICATION.md](CLASSIFICATION.md) : score de confiance et
+justification obligatoires par ligne de `dossier_theme` (spec §8), quatre
+sous-scores de `score_importance` conservés dans des colonnes distinctes,
+`score_total` calculé seulement quand les quatre sont renseignés (§9).
+`score_importance.institutionnel` et `.intensite_parlementaire` sont
+effectivement calculés sur `data/pg16` ; `theme`/`dossier_theme` n'ont qu'un
+échantillon de 10 dossiers classés à la main, la classification en masse
+restant à faire (voir CLASSIFICATION.md section 4).
+
+Restent à modéliser, une fois leurs sources inspectées : `quiz` et
 `question` (§10-11), `mention_media` (§17).
 
 ---
