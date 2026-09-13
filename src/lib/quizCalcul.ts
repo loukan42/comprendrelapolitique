@@ -29,6 +29,7 @@ export interface ReponseUtilisateur {
 export interface ProximiteGroupe {
   organeUid: string;
   libelle: string | null;
+  couleur: string | null;
   proximite: number;
   questionsRepondues: number;
 }
@@ -38,6 +39,7 @@ export interface ProximiteGroupe {
 export interface AccordGroupe {
   organeUid: string;
   libelle: string | null;
+  couleur: string | null;
   accord: number;
 }
 
@@ -80,7 +82,7 @@ export function calculerResultat(
 
   const parGroupe = new Map<
     string,
-    { libelle: string | null; sommeProximite: number; questions: number }
+    { libelle: string | null; couleur: string | null; sommeProximite: number; questions: number }
   >();
   const comparees: QuestionComparee[] = [];
 
@@ -94,6 +96,7 @@ export function calculerResultat(
       const part = partAccord(reponse.reponse, ligne);
       const courant = parGroupe.get(ligne.organeUid) ?? {
         libelle: ligne.libelle,
+        couleur: ligne.couleur,
         sommeProximite: 0,
         questions: 0,
       };
@@ -101,7 +104,12 @@ export function calculerResultat(
       courant.questions += 1;
       parGroupe.set(ligne.organeUid, courant);
 
-      groupes.push({ organeUid: ligne.organeUid, libelle: ligne.libelle, accord: part });
+      groupes.push({
+        organeUid: ligne.organeUid,
+        libelle: ligne.libelle,
+        couleur: ligne.couleur,
+        accord: part,
+      });
     }
 
     if (groupes.length > 0) {
@@ -120,6 +128,7 @@ export function calculerResultat(
     .map(([organeUid, v]) => ({
       organeUid,
       libelle: v.libelle,
+      couleur: v.couleur,
       proximite: v.sommeProximite / v.questions,
       questionsRepondues: v.questions,
     }))

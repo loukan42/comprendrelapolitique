@@ -47,6 +47,12 @@ CREATE TABLE officiel.organe (
     legislature    smallint,
     date_debut     date,
     date_fin       date,
+    -- couleurAssociee du referentiel : la couleur que l'Assemblee elle-meme
+    -- associe au groupe. Seule convention de couleur sourcee dont dispose le
+    -- projet, jamais completee par une teinte choisie a la main.
+    couleur        text,
+    -- positionPolitique du referentiel, quand la source la renseigne.
+    position_politique text,
     lot_id         bigint NOT NULL REFERENCES officiel.import_lot(id),
     lot_maj_id     bigint REFERENCES officiel.import_lot(id)
 );

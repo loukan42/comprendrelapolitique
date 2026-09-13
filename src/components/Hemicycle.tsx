@@ -23,14 +23,14 @@ export interface SiegeVote {
   position: "POUR" | "CONTRE" | "ABSTENTION" | "NON_VOTANT";
 }
 
-// Jetons de texte adaptatifs (--mantine-color-text, -dimmed…) plutôt que des
-// nuances fixes de graphite : ces dernières sont pensées pour du texte sur
-// fond clair (primaryShade.light = 8) et perdent tout contraste une fois
-// affichées en points pleins sur le fond sombre du thème auto.
+// Couleurs de sens de vote définies dans le thème (`other.couleursVote`),
+// pas des nuances de gris : en noir et blanc, un hémicycle de 577 points ne
+// se lit plus. Voir theme.ts pour le choix des teintes et l'écart au duo
+// bleu/rouge.
 const COULEUR_POSITION: Record<SiegeVote["position"], string> = {
-  POUR: "var(--mantine-color-text)",
-  CONTRE: "var(--mantine-color-dimmed)",
-  ABSTENTION: "var(--mantine-color-default-border)",
+  POUR: "var(--couleur-vote-pour)",
+  CONTRE: "var(--couleur-vote-contre)",
+  ABSTENTION: "var(--couleur-vote-abstention)",
   NON_VOTANT: "transparent",
 };
 

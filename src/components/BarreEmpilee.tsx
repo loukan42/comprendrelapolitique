@@ -7,16 +7,11 @@ export interface SegmentEmpile {
   position: "pour" | "contre" | "abstention";
 }
 
-/**
- * Jetons de texte adaptatifs, pas des nuances fixes de graphite : les
- * mêmes que Hemicycle.tsx, pour la même raison (une nuance pensée pour du
- * texte sur fond clair perd tout contraste en aplat sur fond sombre). Trois
- * niveaux nettement distincts, du plus sombre au plus clair.
- */
+/** Mêmes couleurs de sens de vote que l'hémicycle (voir theme.ts). */
 const COULEUR_POSITION: Record<SegmentEmpile["position"], string> = {
-  pour: "var(--mantine-color-text)",
-  contre: "var(--mantine-color-dimmed)",
-  abstention: "var(--mantine-color-placeholder)",
+  pour: "var(--couleur-vote-pour)",
+  contre: "var(--couleur-vote-contre)",
+  abstention: "var(--couleur-vote-abstention)",
 };
 
 const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
@@ -100,16 +95,7 @@ export function LegendeEmpilee({ segments }: { segments: Omit<SegmentEmpile, "va
         <Group key={seg.libelle} gap={6} wrap="nowrap">
           <Box
             bg={COULEUR_POSITION[seg.position]}
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: 2,
-              flexShrink: 0,
-              border:
-                seg.position === "abstention"
-                  ? "1px solid var(--mantine-color-default-border)"
-                  : undefined,
-            }}
+            style={{ width: 10, height: 10, borderRadius: 2, flexShrink: 0 }}
           />
           <Text size="sm" c="dimmed">
             {seg.libelle}

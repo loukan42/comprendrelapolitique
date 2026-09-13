@@ -30,6 +30,8 @@ export interface ProximiteGroupeDepute {
   organeUid: string;
   libelle: string | null;
   legislature: number | null;
+  /** `couleurAssociee` du référentiel de l'Assemblée, ou null. */
+  couleur: string | null;
   accord: number;
   total: number;
 }
@@ -144,10 +146,11 @@ export const chargerDepute = createServerFn({ method: "GET" })
       organe_uid: string;
       libelle: string | null;
       legislature: number | null;
+      couleur: string | null;
       accord: string;
       total: string;
     }>(
-      `SELECT sg.organe_uid, o.libelle, o.legislature,
+      `SELECT sg.organe_uid, o.libelle, o.legislature, o.couleur,
               count(*) FILTER (WHERE upper(sg.position_majoritaire) = v.position::text) AS accord,
               count(*) AS total
          FROM officiel.vote v
@@ -157,7 +160,7 @@ export const chargerDepute = createServerFn({ method: "GET" })
           AND v.position IN ('POUR', 'CONTRE', 'ABSTENTION')
           AND sg.position_majoritaire IS NOT NULL
           AND sg.organe_uid IS NOT NULL
-        GROUP BY sg.organe_uid, o.libelle, o.legislature
+        GROUP BY sg.organe_uid, o.libelle, o.legislature, o.couleur
        HAVING count(*) >= 20`,
       [uid],
     );
@@ -198,6 +201,7 @@ export const chargerDepute = createServerFn({ method: "GET" })
           organeUid: p.organe_uid,
           libelle: p.libelle,
           legislature: p.legislature,
+          couleur: p.couleur,
           accord: Number(p.accord),
           total: Number(p.total),
         }))

@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Container,
+  Group,
   Progress,
   SimpleGrid,
   Stack,
@@ -22,6 +23,7 @@ import {
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../components/BarreHorizontale";
+import { PastilleGroupe } from "../components/PastilleGroupe";
 import {
   calculerResultat,
   type ProximiteGroupe,
@@ -157,9 +159,12 @@ function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
           ) : (
             <Stack gap={2} mt={4}>
               {proches.map((g) => (
-                <Text key={g.organeUid} size="sm" c="dimmed">
-                  {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
-                </Text>
+                <Group key={g.organeUid} gap={6} wrap="nowrap">
+                  <PastilleGroupe couleur={g.couleur} />
+                  <Text size="sm" c="dimmed">
+                    {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
+                  </Text>
+                </Group>
               ))}
             </Stack>
           )}
@@ -175,9 +180,12 @@ function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
           ) : (
             <Stack gap={2} mt={4}>
               {opposes.map((g) => (
-                <Text key={g.organeUid} size="sm" c="dimmed">
-                  {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
-                </Text>
+                <Group key={g.organeUid} gap={6} wrap="nowrap">
+                  <PastilleGroupe couleur={g.couleur} />
+                  <Text size="sm" c="dimmed">
+                    {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
+                  </Text>
+                </Group>
               ))}
             </Stack>
           )}
@@ -225,6 +233,7 @@ function EcranResultat({
               valeur={g.proximite}
               reference={1}
               libelleValeur={pourcent.format(g.proximite)}
+              couleur={g.couleur}
             />
           ))}
         </Stack>

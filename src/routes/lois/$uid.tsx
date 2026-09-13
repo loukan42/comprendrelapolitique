@@ -51,6 +51,14 @@ const LIBELLE_POSITION: Record<ScrutinLoi["repartition"][number]["position"], st
   NON_VOTANT: "non-votants",
 };
 
+/** Mêmes couleurs de sens de vote que l'hémicycle (voir theme.ts). */
+const COULEUR_POSITION: Record<ScrutinLoi["repartition"][number]["position"], string | null> = {
+  POUR: "var(--couleur-vote-pour)",
+  CONTRE: "var(--couleur-vote-contre)",
+  ABSTENTION: "var(--couleur-vote-abstention)",
+  NON_VOTANT: null,
+};
+
 /**
  * Une motion de censure n'enregistre que les voix POUR (AGENTS.md section 5,
  * règle 3) : la répartition ne montre donc jamais de « 0 contre » inventé,
@@ -94,6 +102,7 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
             valeur={r.effectif}
             reference={maxVoix}
             libelleValeur={String(r.effectif)}
+            couleur={COULEUR_POSITION[r.position]}
           />
         ))}
       </Stack>

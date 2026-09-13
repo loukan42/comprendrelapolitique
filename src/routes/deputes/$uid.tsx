@@ -129,6 +129,7 @@ function PageDepute() {
                   valeur={p.accord / p.total}
                   reference={1}
                   libelleValeur={pourcent.format(p.accord / p.total)}
+                  couleur={p.couleur}
                 />
               ))}
             </Stack>

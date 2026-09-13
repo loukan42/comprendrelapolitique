@@ -33,6 +33,9 @@ import { themeDepuisTitre, themeParSlug } from "./themes";
 export interface RepartitionGroupe {
   organeUid: string;
   libelle: string | null;
+  /** `couleurAssociee` du référentiel de l'Assemblée, ou null si la source
+   *  ne la renseigne pas. Jamais remplacée par une teinte choisie ici. */
+  couleur: string | null;
   voixPour: number;
   voixContre: number;
   voixAbstention: number;
@@ -114,11 +117,13 @@ async function chargerRepartitions(
     scrutin_uid: string;
     organe_uid: string;
     libelle: string | null;
+    couleur: string | null;
     voix_pour: number;
     voix_contre: number;
     voix_abstention: number;
   }>(
-    `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, sg.voix_pour, sg.voix_contre, sg.voix_abstention
+    `SELECT sg.scrutin_uid, sg.organe_uid, o.libelle, o.couleur,
+            sg.voix_pour, sg.voix_contre, sg.voix_abstention
        FROM officiel.scrutin_groupe sg
        LEFT JOIN officiel.organe o ON o.uid = sg.organe_uid
       WHERE sg.scrutin_uid = ANY($1) AND sg.organe_uid IS NOT NULL`,
@@ -130,6 +135,7 @@ async function chargerRepartitions(
     liste.push({
       organeUid: r.organe_uid,
       libelle: r.libelle,
+      couleur: r.couleur,
       voixPour: r.voix_pour,
       voixContre: r.voix_contre,
       voixAbstention: r.voix_abstention,

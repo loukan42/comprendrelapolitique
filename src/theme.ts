@@ -107,15 +107,36 @@ export const theme = createTheme({
     mesureTexte: "68ch",
 
     /**
-     * Couleurs des groupes parlementaires, délibérément vides.
+     * Couleurs des positions de vote : pour, contre, abstention, non-votant.
      *
-     * Ces couleurs n'ont leur place que dans les visualisations où elles
-     * représentent effectivement ces groupes, accompagnées de leur nom. Les
-     * inventer maintenant reviendrait à attribuer une identité visuelle à des
-     * formations réelles sans convention documentée : l'Assemblée n'en publie
-     * pas. Elles seront renseignées avec leur source le jour où un graphique en
-     * aura besoin.
+     * Ce sont les seules couleurs signifiantes du site avec celles des
+     * groupes. Elles encodent un sens de vote, pas une appartenance : le
+     * vert et le rouge sont ici la convention d'un scrutin (le tableau de
+     * vote d'un parlement), pas une couleur de parti, et la légende écrit
+     * toujours le mot à côté de la pastille pour que la couleur ne porte
+     * jamais seule l'information.
+     *
+     * Le bleu et le rouge en duo sont écartés : en France, ce couple se lit
+     * comme droite/gauche avant de se lire comme pour/contre (AGENTS.md
+     * section 4).
+     *
+     * Teintes vérifiées sur fond clair comme sur fond sombre.
      */
-    couleursGroupes: {} as Record<string, string>,
+    couleursVote: {
+      pour: "#2f8a5b",
+      contre: "#b4453c",
+      abstention: "#c08a2e",
+      nonVotant: "transparent",
+    },
+
+    /**
+     * Les couleurs de groupe ne figurent pas ici : elles sont une donnée, pas
+     * un choix graphique. L'Assemblée publie `couleurAssociee` dans son
+     * référentiel des organes, importé dans `officiel.organe.couleur` et lu
+     * depuis la base à l'affichage (composant `PastilleGroupe`). Un groupe
+     * dont la source ne donne pas de couleur n'en reçoit pas une choisie ici,
+     * et aucune table de correspondance écrite à la main ne double celle de
+     * la source.
+     */
   },
 });

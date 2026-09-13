@@ -21,6 +21,23 @@
  */
 :root {
   --mesure-texte: 68ch;
+
+  /*
+   * Couleurs de sens de vote. Documentées dans src/theme.ts
+   * (`other.couleursVote`) : elles encodent pour / contre / abstention, pas
+   * une appartenance politique, et la légende écrit toujours le mot à côté
+   * de la couleur.
+   */
+  --couleur-vote-pour: #2f8a5b;
+  --couleur-vote-contre: #b4453c;
+  --couleur-vote-abstention: #c08a2e;
+}
+
+/* Sur fond sombre, les mêmes teintes sont éclaircies pour garder le contraste. */
+:root[data-mantine-color-scheme="dark"] {
+  --couleur-vote-pour: #4caf7d;
+  --couleur-vote-contre: #e0695f;
+  --couleur-vote-abstention: #dfa93f;
 }
 
 html {
