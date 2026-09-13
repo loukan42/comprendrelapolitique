@@ -6,6 +6,11 @@ esthétiques et rédactionnels. Elles s'appliquent ici à l'identique.
 
 @AGENTS.md
 
+L'ambition complète du produit, telle que fournie par le porteur du projet, est
+dans [docs/SPECIFICATION.md](docs/SPECIFICATION.md). C'est le document que les
+autres fichiers de `docs/` citent sous le nom « la spécification ». Il décrit la
+cible, pas l'état d'avancement réel.
+
 ## Développement local
 
 Le serveur de dev écoute sur le port **8080** (imposé par
