@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { BarreHorizontale } from "../../components/BarreHorizontale";
 import { chargerDossier, type DossierEngagement, type ScrutinLoi } from "../../queries/lois";
 
 export const Route = createFileRoute("/lois/$uid")({
@@ -55,6 +56,7 @@ const LIBELLE_POSITION: Record<ScrutinLoi["repartition"][number]["position"], st
  * seulement les positions réellement présentes dans `officiel.vote`.
  */
 function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
+  const maxVoix = Math.max(...scrutin.repartition.map((r) => r.effectif), 1);
   return (
     <Card withBorder radius="md" padding="lg">
       <Group gap="xs" wrap="nowrap" align="flex-start">
@@ -72,20 +74,17 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
           </Text>
         </Box>
       </Group>
-      <Table.ScrollContainer minWidth={280} mt="md">
-        <Table horizontalSpacing={0} verticalSpacing={4} withRowBorders={false} maw={360}>
-          <Table.Tbody>
-            {scrutin.repartition.map((r) => (
-              <Table.Tr key={r.position}>
-                <Table.Td c="dimmed">{LIBELLE_POSITION[r.position]}</Table.Td>
-                <Table.Td ta="right" fw={600}>
-                  {r.effectif}
-                </Table.Td>
-              </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
-      </Table.ScrollContainer>
+      <Stack gap="xs" mt="md" maw={420}>
+        {scrutin.repartition.map((r) => (
+          <BarreHorizontale
+            key={r.position}
+            libelle={LIBELLE_POSITION[r.position]}
+            valeur={r.effectif}
+            reference={maxVoix}
+            libelleValeur={String(r.effectif)}
+          />
+        ))}
+      </Stack>
     </Card>
   );
 }

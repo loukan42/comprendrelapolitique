@@ -1,6 +1,7 @@
 import { Anchor, Badge, Box, Container, Group, Stack, Table, Text, Title } from "@mantine/core";
 import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { BarreEmpilee, LegendeEmpilee } from "../../components/BarreEmpilee";
 import { chargerPageTheme } from "../../queries/themePages";
 
 export const Route = createFileRoute("/themes/$slug")({
@@ -50,7 +51,30 @@ function PageTheme() {
               Somme des voix de chaque groupe sur l&apos;ensemble des textes de ce thème, tous
               scrutins confondus.
             </Text>
-            <Table.ScrollContainer minWidth={480} mt="sm">
+            <Box mt="lg">
+              <LegendeEmpilee
+                segments={[
+                  { libelle: "pour", teinte: "8" },
+                  { libelle: "contre", teinte: "4" },
+                  { libelle: "abstention", teinte: "2" },
+                ]}
+              />
+              <Stack gap="sm" mt="sm">
+                {parGroupe.map((g) => (
+                  <BarreEmpilee
+                    key={g.organeUid}
+                    libelle={g.libelle ?? g.organeUid}
+                    href={`/groupes/${g.organeUid}`}
+                    segments={[
+                      { libelle: "pour", valeur: g.voixPour, teinte: "8" },
+                      { libelle: "contre", valeur: g.voixContre, teinte: "4" },
+                      { libelle: "abstention", valeur: g.voixAbstention, teinte: "2" },
+                    ]}
+                  />
+                ))}
+              </Stack>
+            </Box>
+            <Table.ScrollContainer minWidth={480} mt="lg">
               <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
                 <Table.Thead>
                   <Table.Tr>

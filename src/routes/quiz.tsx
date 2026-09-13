@@ -21,6 +21,7 @@ import {
 } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { BarreHorizontale } from "../components/BarreHorizontale";
 import {
   calculerResultat,
   type QuestionComparee,
@@ -100,36 +101,6 @@ function EcranQuestion({
   );
 }
 
-function BarreProximite({
-  libelle,
-  href,
-  valeur,
-  reference,
-}: {
-  libelle: string;
-  href?: string;
-  valeur: number;
-  reference: number;
-}) {
-  return (
-    <Card withBorder radius="md" padding="md">
-      <Stack gap={6}>
-        <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-          {href ? (
-            <Anchor href={href} fw={600} underline="hover">
-              {libelle}
-            </Anchor>
-          ) : (
-            <Text fw={600}>{libelle}</Text>
-          )}
-          <Text fw={700}>{pourcent.format(valeur)}</Text>
-        </Box>
-        <Progress value={(valeur / reference) * 100} size="md" radius="xl" color="graphite" />
-      </Stack>
-    </Card>
-  );
-}
-
 function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
   return (
     <Card withBorder radius="md" padding="md">
@@ -173,21 +144,19 @@ function EcranResultat({
       </Card>
     );
   }
-  const meilleurGroupe = resultat.parGroupe[0]?.proximite ?? 1;
-  const meilleurTheme = resultat.parTheme[0]?.soutienMoyen ?? 1;
-
   return (
     <Stack gap={40} maw={640} mx="auto">
       <Stack gap="md">
         <Title order={2}>Vos réponses sont les plus proches de…</Title>
         <Stack gap="sm">
           {resultat.parGroupe.map((g) => (
-            <BarreProximite
+            <BarreHorizontale
               key={g.organeUid}
               libelle={g.libelle ?? g.organeUid}
               href={`/groupes/${g.organeUid}`}
               valeur={g.proximite}
-              reference={meilleurGroupe}
+              reference={1}
+              libelleValeur={pourcent.format(g.proximite)}
             />
           ))}
         </Stack>
@@ -213,11 +182,12 @@ function EcranResultat({
           </Box>
           <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
             {resultat.parTheme.map((t) => (
-              <BarreProximite
+              <BarreHorizontale
                 key={t.theme}
                 libelle={t.libelle}
                 valeur={t.soutienMoyen}
-                reference={meilleurTheme}
+                reference={1}
+                libelleValeur={pourcent.format(t.soutienMoyen)}
               />
             ))}
           </SimpleGrid>

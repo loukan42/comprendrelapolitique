@@ -1,4 +1,5 @@
 import {
+  Accordion,
   Anchor,
   Badge,
   Box,
@@ -188,101 +189,117 @@ function Accueil() {
             </Box>
           )}
 
-          <Box>
-            <Title order={2}>Ce qui est couvert aujourd&apos;hui</Title>
-            <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-              Sur {nombre.format(total.scrutins)} scrutins publics, {nombre.format(total.finaux)}{" "}
-              portent sur l&apos;ensemble d&apos;un texte, soit{" "}
-              {pourcent(total.finaux, total.scrutins)}. Ce sont eux qui répondent à la question
-              «&nbsp;qu&apos;est-ce qui a été voté&nbsp;?&nbsp;». Les autres portent sur un
-              amendement ou un article.
-            </Text>
-            <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-              Parmi ces votes sur un texte, {pourcent(total.rattaches, total.finaux)} sont reliés au
-              dossier législatif correspondant. Le reste attend une méthode de rattachement fiable,
-              faute de quoi le vote serait attribué à la mauvaise loi.
-            </Text>
+          <Accordion variant="separated" radius="md">
+            <Accordion.Item value="couverture">
+              <Accordion.Control>En savoir plus sur les données du site</Accordion.Control>
+              <Accordion.Panel>
+                <Stack gap="xl">
+                  <Box>
+                    <Title order={3} fz="lg">
+                      Ce qui est couvert aujourd&apos;hui
+                    </Title>
+                    <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
+                      Sur {nombre.format(total.scrutins)} scrutins publics,{" "}
+                      {nombre.format(total.finaux)} portent sur l&apos;ensemble d&apos;un texte,
+                      soit {pourcent(total.finaux, total.scrutins)}. Ce sont eux qui répondent à la
+                      question «&nbsp;qu&apos;est-ce qui a été voté&nbsp;?&nbsp;». Les autres
+                      portent sur un amendement ou un article.
+                    </Text>
+                    <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
+                      Parmi ces votes sur un texte, {pourcent(total.rattaches, total.finaux)} sont
+                      reliés au dossier législatif correspondant. Le reste attend une méthode de
+                      rattachement fiable, faute de quoi le vote serait attribué à la mauvaise loi.
+                    </Text>
 
-            <Table.ScrollContainer minWidth={640} mt="lg">
-              <Table horizontalSpacing={0} verticalSpacing="sm" withRowBorders>
-                <Table.Thead>
-                  <Table.Tr>
-                    <Table.Th>Législature</Table.Th>
-                    <Table.Th>Période</Table.Th>
-                    <Table.Th ta="right">Scrutins</Table.Th>
-                    <Table.Th ta="right">Votes individuels</Table.Th>
-                    <Table.Th ta="right">Votes sur un texte</Table.Th>
-                    <Table.Th ta="right">Reliés à leur loi</Table.Th>
-                  </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>
-                  {COUVERTURE.map((l) => (
-                    <Table.Tr key={l.legislature}>
-                      <Table.Td>{l.legislature}</Table.Td>
-                      <Table.Td c="dimmed">{l.periode}</Table.Td>
-                      <Table.Td ta="right">{nombre.format(l.scrutins)}</Table.Td>
-                      <Table.Td ta="right">{nombre.format(l.votes)}</Table.Td>
-                      <Table.Td ta="right">
-                        {nombre.format(l.finaux)}{" "}
-                        <Text span c="dimmed" size="sm">
-                          {pourcent(l.finaux, l.scrutins)}
-                        </Text>
-                      </Table.Td>
-                      <Table.Td ta="right">
-                        {nombre.format(l.rattaches)}{" "}
-                        <Text span c="dimmed" size="sm">
-                          {pourcent(l.rattaches, l.finaux)}
-                        </Text>
-                      </Table.Td>
-                    </Table.Tr>
-                  ))}
-                </Table.Tbody>
-                <Table.Tfoot>
-                  <Table.Tr>
-                    <Table.Th colSpan={3}>Total</Table.Th>
-                    <Table.Th ta="right">{nombre.format(total.votes)}</Table.Th>
-                    <Table.Th ta="right">
-                      {nombre.format(total.finaux)}{" "}
-                      <Text span c="dimmed" size="sm" fw={400}>
-                        {pourcent(total.finaux, total.scrutins)}
-                      </Text>
-                    </Table.Th>
-                    <Table.Th ta="right">
-                      {nombre.format(total.rattaches)}{" "}
-                      <Text span c="dimmed" size="sm" fw={400}>
-                        {pourcent(total.rattaches, total.finaux)}
-                      </Text>
-                    </Table.Th>
-                  </Table.Tr>
-                </Table.Tfoot>
-              </Table>
-            </Table.ScrollContainer>
+                    <Table.ScrollContainer minWidth={640} mt="lg">
+                      <Table horizontalSpacing={0} verticalSpacing="sm" withRowBorders>
+                        <Table.Thead>
+                          <Table.Tr>
+                            <Table.Th>Législature</Table.Th>
+                            <Table.Th>Période</Table.Th>
+                            <Table.Th ta="right">Scrutins</Table.Th>
+                            <Table.Th ta="right">Votes individuels</Table.Th>
+                            <Table.Th ta="right">Votes sur un texte</Table.Th>
+                            <Table.Th ta="right">Reliés à leur loi</Table.Th>
+                          </Table.Tr>
+                        </Table.Thead>
+                        <Table.Tbody>
+                          {COUVERTURE.map((l) => (
+                            <Table.Tr key={l.legislature}>
+                              <Table.Td>{l.legislature}</Table.Td>
+                              <Table.Td c="dimmed">{l.periode}</Table.Td>
+                              <Table.Td ta="right">{nombre.format(l.scrutins)}</Table.Td>
+                              <Table.Td ta="right">{nombre.format(l.votes)}</Table.Td>
+                              <Table.Td ta="right">
+                                {nombre.format(l.finaux)}{" "}
+                                <Text span c="dimmed" size="sm">
+                                  {pourcent(l.finaux, l.scrutins)}
+                                </Text>
+                              </Table.Td>
+                              <Table.Td ta="right">
+                                {nombre.format(l.rattaches)}{" "}
+                                <Text span c="dimmed" size="sm">
+                                  {pourcent(l.rattaches, l.finaux)}
+                                </Text>
+                              </Table.Td>
+                            </Table.Tr>
+                          ))}
+                        </Table.Tbody>
+                        <Table.Tfoot>
+                          <Table.Tr>
+                            <Table.Th colSpan={3}>Total</Table.Th>
+                            <Table.Th ta="right">{nombre.format(total.votes)}</Table.Th>
+                            <Table.Th ta="right">
+                              {nombre.format(total.finaux)}{" "}
+                              <Text span c="dimmed" size="sm" fw={400}>
+                                {pourcent(total.finaux, total.scrutins)}
+                              </Text>
+                            </Table.Th>
+                            <Table.Th ta="right">
+                              {nombre.format(total.rattaches)}{" "}
+                              <Text span c="dimmed" size="sm" fw={400}>
+                                {pourcent(total.rattaches, total.finaux)}
+                              </Text>
+                            </Table.Th>
+                          </Table.Tr>
+                        </Table.Tfoot>
+                      </Table>
+                    </Table.ScrollContainer>
 
-            <Text size="sm" c="dimmed" mt="sm">
-              Source :{" "}
-              <Anchor href="https://data.assemblee-nationale.fr/" target="_blank" rel="noreferrer">
-                Open Data de l&apos;Assemblée nationale
-              </Anchor>
-              , Licence Ouverte. Mesuré le 13 septembre 2026 sur les corpus complets.
-            </Text>
-          </Box>
+                    <Text size="sm" c="dimmed" mt="sm">
+                      Source :{" "}
+                      <Anchor
+                        href="https://data.assemblee-nationale.fr/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Open Data de l&apos;Assemblée nationale
+                      </Anchor>
+                      , Licence Ouverte. Mesuré le 13 septembre 2026 sur les corpus complets.
+                    </Text>
+                  </Box>
 
-          <Card
-            withBorder
-            padding="lg"
-            radius="md"
-            style={{ borderLeft: "3px solid var(--mantine-primary-color-filled)" }}
-          >
-            <Title order={2} fz="lg">
-              Une limite à connaître d&apos;emblée
-            </Title>
-            <Text mt="sm">
-              Un texte adopté par l&apos;article 49 alinéa 3 ne donne lieu à aucun vote. C&apos;est
-              le cas de la réforme des retraites de 2023 : l&apos;Assemblée ne s&apos;est jamais
-              prononcée sur son ensemble, et ce qui a été voté, ce sont deux motions de censure.
-              Chercher ce qui a été voté sur les retraites sans le savoir mène donc à côté du sujet.
-            </Text>
-          </Card>
+                  <Box
+                    style={{
+                      borderLeft: "3px solid var(--mantine-primary-color-filled)",
+                      paddingLeft: "var(--mantine-spacing-md)",
+                    }}
+                  >
+                    <Title order={3} fz="lg">
+                      Une limite à connaître d&apos;emblée
+                    </Title>
+                    <Text mt="sm">
+                      Un texte adopté par l&apos;article 49 alinéa 3 ne donne lieu à aucun vote.
+                      C&apos;est le cas de la réforme des retraites de 2023 : l&apos;Assemblée ne
+                      s&apos;est jamais prononcée sur son ensemble, et ce qui a été voté, ce sont
+                      deux motions de censure. Chercher ce qui a été voté sur les retraites sans le
+                      savoir mène donc à côté du sujet.
+                    </Text>
+                  </Box>
+                </Stack>
+              </Accordion.Panel>
+            </Accordion.Item>
+          </Accordion>
         </Stack>
       </Container>
     </>
