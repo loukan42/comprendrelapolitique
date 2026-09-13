@@ -22,6 +22,7 @@ import { join } from "node:path";
 import type { Dirent } from "node:fs";
 
 import type { Db } from "./db.ts";
+import { analyserCompteRendu } from "./debats.ts";
 import {
   booleen,
   cleTitreDocument,
@@ -1119,4 +1120,201 @@ export async function importerAmendements(
   );
 
   return { amendements: nAmendements, cosignataires: nCosignataires };
+}
+
+// ---------------------------------------------------------------------------
+// Débats (comptes rendus intégraux de séance, XML « syceron »)
+// ---------------------------------------------------------------------------
+
+async function fichiersXml(dir: string): Promise<string[]> {
+  if (!existsSync(dir)) return [];
+  return (await readdir(dir)).filter((f) => f.endsWith(".xml")).map((f) => join(dir, f));
+}
+
+export async function importerDebats(
+  db: Db,
+  dirCompteRendu: string,
+  lotId: number,
+  legislature: number,
+): Promise<{ seances: number; points: number; interventions: number; orateurs: number }> {
+  const seances: unknown[][] = [];
+  const points: unknown[][] = [];
+  const interventions: unknown[][] = [];
+  const orateurs: unknown[][] = [];
+
+  for (const f of await fichiersXml(dirCompteRendu)) {
+    const xml = await readFile(f, "utf8");
+    const cr = analyserCompteRendu(xml);
+    const s = cr.seance;
+    if (!s.uid || !s.compteRenduUid) continue; // jamais rencontré sur le corpus mesuré
+
+    seances.push([
+      s.uid,
+      s.compteRenduUid,
+      s.legislature ?? legislature,
+      s.sessionRef,
+      s.sessionLibelle,
+      s.dateSeance,
+      s.dateSeanceJour,
+      s.numSeance,
+      s.numSeanceJour,
+      s.etat,
+      s.diffusion,
+      lotId,
+    ]);
+
+    for (const p of cr.points) {
+      points.push([
+        s.uid,
+        p.idSyceron,
+        p.parentIdSyceron,
+        p.typeConteneur,
+        p.nivpoint,
+        p.ordreAbsolu,
+        p.intitule,
+        lotId,
+      ]);
+    }
+
+    for (const i of cr.interventions) {
+      interventions.push([
+        i.idSyceron,
+        s.uid,
+        i.pointIdSyceron,
+        i.ordreAbsolu,
+        i.codeGrammaire,
+        i.codeStyle,
+        i.roleDebat,
+        i.acteurUid,
+        i.mandatUid,
+        i.texte,
+        lotId,
+      ]);
+      // La quasi-totalité des interventions ont un seul orateur, mais 0,18 %
+      // (mesuré sur la XVIe : 600 sur 337 041) en listent deux, généralement
+      // deux députés s'exprimant au même moment dans une interruption. Une
+      // table à part, plutôt qu'une colonne unique, pour ne pas en perdre un
+      // sur deux (même logique que amendement_cosignataire).
+      i.orateurs.forEach((o, ordre) => {
+        orateurs.push([i.idSyceron, ordre, o.orateurIdBrut, o.nom, o.qualite, lotId]);
+      });
+    }
+  }
+
+  const nSeances = await insererEnMasse(
+    db,
+    {
+      table: "officiel.debat_seance",
+      colonnes: [
+        "uid",
+        "compte_rendu_uid",
+        "legislature",
+        "session_ref",
+        "session_libelle",
+        "date_seance",
+        "date_seance_jour",
+        "num_seance",
+        "num_seance_jour",
+        "etat",
+        "diffusion",
+        "lot_id",
+      ],
+      types: [
+        "text",
+        "text",
+        "smallint",
+        "text",
+        "text",
+        "timestamptz",
+        "text",
+        "integer",
+        "text",
+        "text",
+        "text",
+        "bigint",
+      ],
+      cles: [0],
+      conflit: `ON CONFLICT (uid) DO UPDATE SET
+        compte_rendu_uid = EXCLUDED.compte_rendu_uid, etat = EXCLUDED.etat,
+        lot_maj_id = EXCLUDED.lot_id`,
+    },
+    seances,
+  );
+
+  // Les points référencent leur séance : ils viennent avant les interventions,
+  // dont la clé étrangère composite (seance_uid, point_id_syceron) en dépend.
+  const nPoints = await insererEnMasse(
+    db,
+    {
+      table: "officiel.debat_point",
+      colonnes: [
+        "seance_uid",
+        "id_syceron",
+        "parent_id_syceron",
+        "type_conteneur",
+        "nivpoint",
+        "ordre_absolu_seance",
+        "intitule",
+        "lot_id",
+      ],
+      types: ["text", "text", "text", "text", "smallint", "integer", "text", "bigint"],
+      cles: [0, 1],
+      conflit: `ON CONFLICT (seance_uid, id_syceron) DO UPDATE SET
+        intitule = EXCLUDED.intitule, parent_id_syceron = EXCLUDED.parent_id_syceron`,
+    },
+    points,
+  );
+
+  const nInterventions = await insererEnMasse(
+    db,
+    {
+      table: "officiel.intervention",
+      colonnes: [
+        "id_syceron",
+        "seance_uid",
+        "point_id_syceron",
+        "ordre_absolu_seance",
+        "code_grammaire",
+        "code_style",
+        "role_debat",
+        "acteur_uid",
+        "mandat_uid",
+        "texte",
+        "lot_id",
+      ],
+      types: [
+        "text",
+        "text",
+        "text",
+        "integer",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "bigint",
+      ],
+      cles: [0],
+      conflit: `ON CONFLICT (id_syceron) DO UPDATE SET
+        texte = EXCLUDED.texte, acteur_uid = EXCLUDED.acteur_uid,
+        lot_maj_id = EXCLUDED.lot_id`,
+    },
+    interventions,
+  );
+
+  const nOrateurs = await insererEnMasse(
+    db,
+    {
+      table: "officiel.intervention_orateur",
+      colonnes: ["intervention_id_syceron", "ordre", "orateur_id_brut", "nom", "qualite", "lot_id"],
+      types: ["text", "smallint", "text", "text", "text", "bigint"],
+      cles: [0, 1],
+      conflit: `ON CONFLICT (intervention_id_syceron, ordre) DO UPDATE SET
+        nom = EXCLUDED.nom, qualite = EXCLUDED.qualite`,
+    },
+    orateurs,
+  );
+
+  return { seances: nSeances, points: nPoints, interventions: nInterventions, orateurs: nOrateurs };
 }

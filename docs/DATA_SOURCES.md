@@ -700,6 +700,166 @@ uniquement, machine de développement), pour 163 789 lignes d'amendement et
 avec son poids : 347 Mo compressés pour la seule XVIe contre 21 Mo pour le
 reste du MVP (section 1.2).
 
+## 7 ter. Structure réelle des débats (XVIe), format XML « syceron »
+
+Vérifiée par analyse exhaustive des **605 fichiers** (330 Mo décompressés) du
+seul jeu Débats disponible localement à ce stade, fournis hors téléchargement.
+Contrairement à tous les autres jeux de ce document, celui-ci est un XML brut
+converti par aucun pipeline JSON intermédiaire : c'est le premier format neuf
+du projet, et il porte ses propres pièges, distincts de ceux d'`{"@xsi:nil"}`
+et des enveloppements de liste déjà rencontrés.
+
+Tous les 605 fichiers portent `<legislature>16</legislature>` et un nom
+`CRSANR5L16S…` (un `CRSCGR5L16S…`, un Congrès, à la marge) : c'est bien
+l'intégralité de la XVIe, aucune trace d'une législature étrangère comme
+c'est le cas pour les dossiers (section 4).
+
+### 7 ter.1 Le seul point d'ancrage vers le reste du modèle est `seanceRef`
+
+Chaque fichier `compteRendu` porte un `uid` (l'identifiant du compte rendu
+lui-même, `CRSANR5L16S2022E1N001`) et un `seanceRef`
+(`RUANR5L16S2022IDS26235`), en relation 1:1 vérifiée sur les 605 fichiers
+(aucun `seanceRef` dupliqué).
+
+**`seanceRef` est exactement le même identifiant que `scrutin.seanceRef`**,
+déjà importé dans `officiel.scrutin.seance_ref` sans qu'on en ait jusqu'ici
+tiré parti. Vérifié sur l'événement le plus documenté de la législature : le
+scrutin `VTANR5L16V1240` (motion de censure Pancher, 278 voix pour 287
+requises, 20 mars 2023) porte `seanceRef: "RUANR5L16S2023IDS26958"`, exactement
+celui du fichier `CRSANR5L16S2023O1N182.xml`, dont le texte annonce
+littéralement *« Pour l'adoption 278. La majorité requise n'étant pas
+atteinte… »*. C'est une preuve directe, pas une coïncidence de date.
+
+**Aucun autre champ du XML ne référence un dossier ou un document
+législatif.** Recherche exhaustive sur les 605 fichiers des motifs
+`DLR5L16*`, `PRJLANR5L16*`, `PIONANR5L16*`, `dossierRef`, `texteRef` :
+zéro occurrence. Un débat ne se raccroche donc à un dossier que par la date
+de séance ou, plus précisément, par jointure sur `seanceRef` vers les
+scrutins qu'elle contient, eux-mêmes rattachables à un dossier par la méthode
+de la section 4. Rattacher un débat à un dossier sans passer par un scrutin
+de cette séance n'est pas possible avec ce seul jeu.
+
+### 7 ter.2 Un arbre récursif de `point`, des `paragraphe` jamais imbriqués
+
+```
+compteRendu
+  metadonnees.sommaire          -> table des matières déclarative (titres, orateurs prévus)
+  contenu
+    quantiemes
+    ouvertureSeance             -> conteneur, même grammaire qu'un point
+      paragraphe*                   -> ouverture de séance, annonces de la présidence
+    point*  (nivpoint="1".."5", ou "99"/"100" pour les suspensions/clôtures)
+      texte                         -> titre de la section (ex. « Motions de censure »)
+      paragraphe*                   -> interventions
+      point*                        -> sous-points, récursif
+    finSeance
+      point                         -> ordre du jour de la séance suivante
+```
+
+`point` est **récursif et de profondeur variable**, même piège que
+`acteLegislatif` (section 4) : `nivpoint` observé de 1 à 5, plus deux codes de
+procédure (`99` suspension, `100`) qui s'imbriquent dans les points normaux. Un
+`nivpoint="6"` existe aussi ponctuellement dans le corpus. Un parcours à
+profondeur fixe perdrait les interventions des suspensions de séance ; le
+parseur retenu ne plafonne la profondeur nulle part, donc ce cas ne pose pas de
+problème pratique.
+
+Une balise distincte, `changementPresidence` (149 occurrences, 131 fichiers sur
+605), porte son propre `id_syceron` et son propre titre (« Présidence de
+Mme… ») mais n'est pas reconnue par le tokenizer actuel, qui ne matche que
+`point`, `ouvertureSeance`, `finSeance`, `paragraphe` et `texte` : ses
+paragraphes sont importés (rattachés au `point` englobant), mais l'information
+« qui présidait à cet instant précis » ne l'est pas. Sans conséquence
+aujourd'hui (aucune page ni aucun contrôle n'en dépend), mais à corriger avant
+d'afficher un jour cette information.
+
+**`paragraphe`, en revanche, ne s'imbrique jamais** : vérifié sur
+l'intégralité du corpus XVIe (337 041 occurrences), profondeur maximale 1.
+C'est la feuille de l'arbre — l'unité d'intervention — et elle simplifie le
+modèle : pas besoin d'un parcours récursif pour l'extraire, seulement de
+retrouver sa balise fermante, qui ne peut pas être imbriquée dans une autre.
+
+Piège rencontré en cours d'inspection : une balise `interExtraction`
+(61 496 occurrences sur le corpus) enveloppe le plus souvent deux `paragraphe`
+consécutifs (59 % des cas) — l'annonce « la parole est à Mme X » suivie de son
+intervention — pour signaler un extrait recommandé à la mise en avant
+éditoriale. Certains blocs en contiennent beaucoup plus, jusqu'à 158 dans un
+cas observé, avec des orateurs différents à l'intérieur d'un même bloc : dans
+ce cas, `id_acteur` sur `interExtraction` ne représente qu'un des orateurs, pas
+tous. Le parseur ignore cette balise et lit chaque `paragraphe` pour son propre
+compte, avec son propre `id_acteur` : aucune donnée de vote ou d'orateur n'est
+donc faussée. Seule l'information éditoriale portée par `interExtraction`
+elle-même (quels paragraphes l'Assemblée met en avant comme extrait) est
+perdue, et ce n'est pas une donnée que ce projet cherche à conserver. Vérifié
+en comparant le compte d'interventions avec et sans prise en compte de cette
+balise (337 041 dans les deux cas) : cela confirme l'absence de perte de
+paragraphes, pas l'absence de perte d'information éditoriale.
+
+### 7 ter.3 `id_syceron` est un identifiant global, `id_acteur` un piège classique
+
+`id_syceron`, l'identifiant de chaque `paragraphe`, est **unique sur
+l'intégralité du corpus** : 337 041 valeurs, 337 041 distinctes, tous fichiers
+confondus. C'est la clé primaire naturelle d'une intervention.
+
+`id_acteur` reproduit exactement le piège déjà documenté pour `organeRef` en
+section 5.6 : deux valeurs de remplissage, pas des acteurs.
+
+| Valeur | Signification | Occurrences |
+| --- | --- | --- |
+| `PA0` | Orateur non identifié individuellement (« Un député du groupe LR », « Plusieurs députés du groupe RN »…) | 3 680 |
+| `PA-121449` et 71 autres identifiants négatifs distincts | Même nature, jamais observés ailleurs dans le corpus Assemblée | 684 |
+| absent (pas d'attribut `id_acteur`) | Mention procédurale sans orateur (didascalie, ouverture/fermeture de séance) | 29 733 |
+| `PA` + entier positif | Acteur identifié | 307 072 |
+
+Ni `PA0` ni les identifiants négatifs ne désignent un acteur réel : les
+recopier créerait de faux députés identifiés, au même titre que `PO0` créerait
+un faux groupe (section 5.6). Le nom affiché par la source
+(`<orateur><nom>Un député du groupe LR</nom>`) reste la seule information
+disponible dans ces cas, et n'est déductible d'aucune autre table : elle doit
+être conservée telle quelle, pas recalculée.
+
+**Intégrité vers le jeu Acteurs (AMO20) :** sur les 656 acteurs distincts
+référencés par les débats de la XVIe, 13 (2 %) sont absents du jeu Acteurs
+importé par ailleurs — vraisemblablement des ministres ou des remplaçants
+sortis de fonction avant l'instantané `AMO20`. Cohérent avec le gradient de
+qualité déjà observé sur les amendements (section 7 bis.4) : pas de quoi
+bloquer l'import, mais pas de clé étrangère stricte non plus.
+
+### 7 ter.4 Un `paragraphe` peut avoir deux orateurs
+
+La quasi-totalité des interventions ont un seul orateur, mais **600 sur
+337 041 (0,18 %)** en listent deux — généralement deux députés qui
+s'expriment au même instant lors d'une interruption. Une colonne unique sur
+l'intervention en perdrait un sur deux à chaque occurrence, même raisonnement
+que pour les cosignataires d'amendement (section 7 bis.3) : une table à part
+est nécessaire.
+
+### 7 ter.5 Le texte mêle contenu et mise en forme
+
+Chaque `paragraphe` porte **exactement un** `<texte>` (vérifié sur un
+échantillon de 4 756 paragraphes, jamais zéro, jamais plus d'un), dont le
+contenu est mixte : texte brut entrecoupé de `<italique>`, `<exposant>`,
+`<indice>` (mise en forme, retirée sans perte d'information factuelle) et de
+`<br/>` (retour à la ligne dans une même intervention, converti en `\n`).
+Seule entité XML rencontrée sur un échantillonnage du corpus : `&amp;`.
+
+`dateSeance` est un horodatage compact sans séparateurs,
+`20230320213000000` (17 chiffres : date, heure, milliseconde), vérifié
+toujours sur ce format sur l'intégralité du corpus — encore un format de date
+différent des deux déjà rencontrés (`date` simple des scrutins,
+`dateActe` avec fuseau des actes législatifs, section 7.4).
+
+### 7 ter.6 Volume et durée
+
+337 041 interventions, 31 392 points de sommaire (avec leur hiérarchie et
+leur intitulé), 312 097 liens intervention-orateur, 605 séances : le tout
+analysé en **moins de 4 secondes** en mémoire et importé en base PGlite en
+**environ 25 secondes** (machine de développement), sur un total pipeline
+(acteurs, dossiers, scrutins, débats) de 50 secondes pour la XVIe. Le texte
+brut cumulé des interventions pèse environ 110 Mo une fois les balises de
+mise en forme retirées, cohérent avec les 55 Mo compressés mesurés sur
+l'archive téléchargeable (section 1.2).
+
 ## 8. Sources non encore vérifiées
 
 Les sources ci-dessous sont citées dans la spécification mais **n'ont fait
@@ -720,6 +880,13 @@ la XVe utilise `amendements_legis` plutôt que `amendements_div_legis`, mais le
 format interne des fichiers n'a pas été vérifié sur ces deux législatures. Ne
 pas supposer qu'il est identique : c'est exactement l'erreur que ce document
 existe pour éviter.
+
+**Débats XVe et XVIIe.** Seule la XVIe a été inspectée (section 7 ter), à
+partir de fichiers fournis localement. Le nommage d'URL est déjà table
+explicite dans `sources.ts` (section 1.1). Rien ne garantit que la structure
+XML `syceron` (les codes de grammaire en particulier, `code_grammaire`) soit
+identique sur les deux autres législatures ; à vérifier avant d'étendre
+l'importeur.
 
 ---
 

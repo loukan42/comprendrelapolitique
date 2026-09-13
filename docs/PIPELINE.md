@@ -73,6 +73,39 @@ Durée mesurée sur la XVIe (machine de développement) : environ 96 secondes
 pour les 163 789 amendements et les 3 148 274 liens de cosignature, contre
 20 secondes pour les trois jeux du MVP réunis.
 
+## Débats (XVIe, en option)
+
+Les débats de la XVIe sont importables, mais pas par défaut : c'est le
+premier jeu XML natif de la chaîne (les autres sont du JSON), 55 Mo
+compressés, 605 fichiers de comptes rendus de séance. Le format n'a été
+inspecté et le modèle écrit que pour la XVIe (voir
+[DATA_SOURCES.md](DATA_SOURCES.md) section 7 ter et
+[DATA_MODEL.md](DATA_MODEL.md) section 5 ter) ; la XVe et la XVIIe restent à
+faire.
+
+```bash
+npm run data:telecharger 16 data --debats
+npm run data:charger 16 data/16 --db data/pg16 --debats data/16/debats/xml/compteRendu
+```
+
+Le drapeau `--debats` de `charger.ts` accepte aussi un chemin explicite vers
+un répertoire de fichiers `*.xml` situé ailleurs que sous
+`<dir_archives>/debats/xml/compteRendu`, utile pour une archive récupérée par
+un autre moyen que `data:telecharger`. Sans le drapeau et sans le répertoire
+par défaut, `charger.ts` importe les jeux demandés et ignore les débats
+silencieusement.
+
+Un débat ne se rattache à un dossier législatif par aucun champ direct de sa
+propre source : le seul point d'ancrage est `seanceRef`, le même identifiant
+que `officiel.scrutin.seance_ref`, déjà importé par le jeu Scrutins. Joindre
+un débat à une loi passe donc par ses scrutins, puis par le rattachement
+scrutin ↔ dossier déjà en place.
+
+Durée mesurée sur la XVIe (machine de développement) : environ 25 secondes
+pour les 337 041 interventions, 31 392 points de sommaire et 312 097 liens
+orateur, sur un total pipeline (acteurs, dossiers, scrutins, débats) de
+50 secondes.
+
 Le dossier `data/` n'est pas versionné. Les données sont retéléchargeables ;
 c'est le code d'import qui est le livrable.
 
@@ -105,6 +138,15 @@ XVIe, répartition par type d'auteur, absence systématique d'acteur sur les
 amendements du Gouvernement, et intégrité référentielle vers les jeux Dossiers
 et Acteurs. Le bloc ne s'exécute que si `officiel.amendement` contient des
 lignes : le contrôle reste silencieux sur une base chargée sans ce jeu optionnel.
+
+**Les débats**, si le jeu a été chargé : volumes comparés aux 605 séances,
+337 041 interventions et 312 097 liens orateur mesurés sur l'archive brute
+de la XVIe, absence d'acteur fictif `PA0`, couverture croisée avec le jeu
+Scrutins via `seance_ref`, et un fait vérifiable de l'extérieur — le compte
+rendu de la séance du 20 mars 2023 contient littéralement l'annonce du
+résultat de la motion de censure Pancher (« Pour l'adoption 278 »), preuve
+que le texte importé correspond à l'événement et pas seulement à sa date. Le
+bloc ne s'exécute que si `officiel.intervention` contient des lignes.
 
 ## Passer à un PostgreSQL de production
 

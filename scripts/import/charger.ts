@@ -3,7 +3,7 @@
  * résultat.
  *
  * Usage :
- *   node scripts/import/charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir]
+ *   node scripts/import/charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir] [--debats dir]
  *
  * `dir_archives` contient les archives décompressées, une par jeu :
  *   <dir>/scrutins/json/            VTANR*.json
@@ -16,6 +16,11 @@
  * niveaux de répertoires, `json/<dossier>/<document>/*.json`, contrairement
  * aux autres (voir docs/DATA_SOURCES.md section 7 bis).
  *
+ * Les débats (comptes rendus XML) sont hors MVP eux aussi et ne sont chargés
+ * que si `<dir_archives>/debats/xml/compteRendu/` existe ou qu'un chemin est
+ * fourni via `--debats`. Seule la XVIe a été inspectée à ce stade (voir
+ * docs/DATA_SOURCES.md section 7 ter).
+ *
  * Sans `--db`, la base est en mémoire : utile pour vérifier l'import sans rien
  * installer, inutile pour conserver le résultat.
  */
@@ -27,6 +32,7 @@ import { appliquerMigration, fermerLot, ouvrirLot, ouvrirPGlite, type Db } from 
 import {
   importerActeurs,
   importerAmendements,
+  importerDebats,
   importerDossiers,
   importerScrutins,
   rattacherScrutins,
@@ -62,10 +68,12 @@ async function main() {
   // que s'il existe, et un chemin explicite reste possible pour une archive
   // rangée ailleurs que sous <dir_archives>/amendements/json.
   const dirAmendementsExplicite = iAmendements >= 0 ? args[iAmendements + 1] : undefined;
+  const iDebats = args.indexOf("--debats");
+  const dirDebatsExplicite = iDebats >= 0 ? args[iDebats + 1] : undefined;
 
   if (!legislature || !racine) {
     console.error(
-      "usage: charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir]",
+      "usage: charger.ts <législature> <dir_archives> [--db chemin] [--amendements dir] [--debats dir]",
     );
     process.exit(1);
   }
@@ -86,6 +94,13 @@ async function main() {
   const chargerAmendements = existsSync(dirAmendements);
   if (dirAmendementsExplicite && !chargerAmendements) {
     console.error(`Répertoire d'amendements introuvable : ${dirAmendements}`);
+    process.exit(1);
+  }
+
+  const dirDebats = dirDebatsExplicite ?? join(racine, "debats", "xml", "compteRendu");
+  const chargerDebats = existsSync(dirDebats);
+  if (dirDebatsExplicite && !chargerDebats) {
+    console.error(`Répertoire de débats introuvable : ${dirDebats}`);
     process.exit(1);
   }
 
@@ -155,6 +170,23 @@ async function main() {
     `Rattachement : ${r.concordants} concordants, ${r.conflits} conflits, ` +
       `${r.officiel_seul} officiels seuls, ${r.reconstruit_seul} reconstruits seuls (${t()})`,
   );
+
+  if (chargerDebats) {
+    const lotDebats = await ouvrirLot(db, {
+      jeu: "debats",
+      legislature,
+      url: `local:${dirDebats}`,
+      sha256: "local",
+    });
+    const deb = await importerDebats(db, dirDebats, lotDebats, legislature);
+    await fermerLot(db, lotDebats, {
+      inserees: deb.seances + deb.points + deb.interventions + deb.orateurs,
+    });
+    console.log(
+      `Débats : ${deb.seances} séances, ${deb.points} points de sommaire, ` +
+        `${deb.interventions} interventions, ${deb.orateurs} liens orateur (${t()})`,
+    );
+  }
 
   if (cheminDb) console.log(`\nBase persistée dans ${cheminDb}`);
   else console.log("\nBase en mémoire : rien n'a été conservé.");

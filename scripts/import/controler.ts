@@ -101,6 +101,48 @@ async function controlesXVIe(db: Db): Promise<void> {
     "textes adoptés sans vote qu'ils permettent d'identifier",
     await un(db, "SELECT count(*) FROM officiel.dossier_adopte_sans_vote"),
   );
+
+  console.log("\n=== Débats : la séance des motions de censure du 20 mars 2023 ===");
+  const nDebats = await un<string>(db, "SELECT count(*) FROM officiel.debat_seance");
+  if (Number(nDebats) > 0) {
+    // officiel.scrutin.seance_ref est le seul point d'ancrage entre un débat et
+    // le reste du modèle (DATA_SOURCES section 7 ter) : aucun champ du XML ne
+    // référence un dossier ou un scrutin directement. On vérifie qu'il pointe
+    // bien vers la séance qui a précédé les deux votes.
+    const seanceUid = await un<string>(
+      db,
+      "SELECT DISTINCT seance_ref FROM officiel.scrutin WHERE uid IN ('VTANR5L16V1240', 'VTANR5L16V1241')",
+    );
+    verifier(
+      "la séance des deux motions de censure est chargée",
+      await un(db, "SELECT count(*) FROM officiel.debat_seance WHERE uid = $1", [seanceUid]),
+      1,
+    );
+    verifier(
+      "datée du 20 mars 2023",
+      await un(db, "SELECT date_seance_jour FROM officiel.debat_seance WHERE uid = $1", [
+        seanceUid,
+      ]),
+      "lundi 20 mars 2023",
+    );
+    // Le texte de l'intervention qui annonce le résultat reproduit exactement
+    // les chiffres officiels du scrutin (278 voix pour, 287 requises) : preuve
+    // que le texte importé correspond bien à l'événement, pas seulement sa date.
+    verifier(
+      "le résultat de la motion Pancher est lisible dans le compte rendu",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.intervention
+          WHERE seance_uid = $1 AND texte LIKE '%Pour l' || chr(8217) || 'adoption 278%'`,
+        [seanceUid],
+      ),
+      1,
+    );
+    afficher(
+      "interventions de cette séance",
+      await un(db, "SELECT count(*) FROM officiel.intervention WHERE seance_uid = $1", [seanceUid]),
+    );
+  }
 }
 
 async function main() {
@@ -300,6 +342,80 @@ async function main() {
         `SELECT count(*) FROM officiel.amendement_cosignataire c
           LEFT JOIN officiel.acteur ac ON ac.uid = c.acteur_uid
          WHERE ac.uid IS NULL`,
+      ),
+    );
+  }
+
+  console.log("\n=== Débats ===");
+  const nInterventions = await un<string>(db, "SELECT count(*) FROM officiel.intervention");
+  if (Number(nInterventions) > 0) {
+    // Débats non fournis pour toutes les législatures (voir docs/PIPELINE.md) :
+    // ce bloc ne s'exécute que si le jeu a été chargé. Seule la XVIe a été
+    // mesurée à ce stade.
+    const ATTENDUS_DEBATS: Record<
+      number,
+      { seances: number; points: number; interventions: number; orateurs: number }
+    > = {
+      16: { seances: 605, points: 31392, interventions: 337041, orateurs: 312097 },
+    };
+    const attenduDeb = ATTENDUS_DEBATS[legislature];
+    if (attenduDeb) {
+      verifier(
+        "séances",
+        await un(db, "SELECT count(*) FROM officiel.debat_seance"),
+        attenduDeb.seances,
+      );
+      verifier(
+        "points de sommaire",
+        await un(db, "SELECT count(*) FROM officiel.debat_point"),
+        attenduDeb.points,
+      );
+      verifier("interventions", nInterventions, attenduDeb.interventions);
+      verifier(
+        "liens orateur",
+        await un(db, "SELECT count(*) FROM officiel.intervention_orateur"),
+        attenduDeb.orateurs,
+      );
+    } else {
+      afficher("interventions chargées", nInterventions);
+    }
+    // 'PA0' et les identifiants négatifs ne sont pas des acteurs (voir
+    // db/migrations/001_officiel.sql) : jamais recopiés dans acteur_uid.
+    verifier(
+      "aucun acteur fictif « PA0 » en base",
+      await un(db, `SELECT count(*) FROM officiel.intervention WHERE acteur_uid = 'PA0'`),
+      0,
+    );
+    afficher(
+      "interventions sans acteur identifié par la source",
+      await un(db, "SELECT count(*) FROM officiel.intervention WHERE acteur_uid IS NULL"),
+    );
+    afficher(
+      "acteurs référencés par les débats mais absents du jeu Acteurs",
+      await un(
+        db,
+        `SELECT count(DISTINCT i.acteur_uid) FROM officiel.intervention i
+          LEFT JOIN officiel.acteur a ON a.uid = i.acteur_uid
+         WHERE i.acteur_uid IS NOT NULL AND a.uid IS NULL`,
+      ),
+    );
+    // Le seul point d'ancrage vers le reste du modèle : `seanceRef`, identique
+    // à `officiel.scrutin.seance_ref`. Combien de séances chargées ont au
+    // moins un scrutin, et réciproquement.
+    afficher(
+      "séances de débat avec au moins un scrutin rattaché",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.debat_seance ds
+          WHERE EXISTS (SELECT 1 FROM officiel.scrutin s WHERE s.seance_ref = ds.uid)`,
+      ),
+    );
+    afficher(
+      "scrutins dont la séance de débat est chargée",
+      await un(
+        db,
+        `SELECT count(*) FROM officiel.scrutin s
+          WHERE EXISTS (SELECT 1 FROM officiel.debat_seance ds WHERE ds.uid = s.seance_ref)`,
       ),
     );
   }

@@ -422,3 +422,113 @@ CREATE INDEX idx_amendement_cosignataire_acteur ON officiel.amendement_cosignata
 -- irrecevables, retires avant publication ou jamais discutes.
 CREATE VIEW officiel.amendement_discute AS
 SELECT * FROM officiel.amendement WHERE sort_brut IS NOT NULL;
+
+-- ---------------------------------------------------------------------------
+-- Débats (comptes rendus intégraux de séance, format XML « syceron »)
+-- ---------------------------------------------------------------------------
+
+-- Une séance. La cle est `seanceRef`, pas l'uid du compte rendu : c'est ce
+-- meme identifiant que porte deja `officiel.scrutin.seance_ref`, verifie
+-- concordant (ex. RUANR5L16S2023IDS26958 porte les deux motions de censure du
+-- 20 mars 2023 ET le debat qui les a precedees). C'est le seul point d'ancrage
+-- entre un debat et le reste du modele : rien dans le XML ne reference
+-- directement un dossier ou un document legislatif (DATA_SOURCES section 8).
+CREATE TABLE officiel.debat_seance (
+    uid              text PRIMARY KEY,       -- seanceRef, 'RUANR5L16S2022IDS26235'
+    compte_rendu_uid text NOT NULL,          -- uid du fichier, 'CRSANR5L16S2022E1N001'
+    legislature      smallint NOT NULL REFERENCES officiel.legislature(id),
+    session_ref      text,
+    session_libelle  text,
+    date_seance      timestamptz,
+    date_seance_jour text,                   -- libelle humain source, ex. 'lundi 20 mars 2023'
+    num_seance       integer,
+    num_seance_jour  text,                   -- pas toujours numerique ('Unique')
+    etat             text,
+    diffusion        text,
+    lot_id           bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id       bigint REFERENCES officiel.import_lot(id)
+);
+
+CREATE INDEX idx_debat_seance_date ON officiel.debat_seance (legislature, date_seance);
+
+-- Sommaire hierarchique d'une seance : un `point` XML (ou le conteneur
+-- `ouvertureSeance`/`finSeance`) porte un intitule qui est le sujet en
+-- discussion -- utile pour situer une intervention sans avoir a deviner le
+-- dossier legislatif concerne. L'arbre est recursif et de profondeur variable
+-- (nivpoint observe de 1 a 5, plus les codes de procedure 99 et 100), meme
+-- piege que `acte_legislatif` : le parcours doit etre recursif, jamais a
+-- profondeur fixe.
+CREATE TABLE officiel.debat_point (
+    seance_uid         text     NOT NULL REFERENCES officiel.debat_seance(uid) ON DELETE CASCADE,
+    id_syceron         text     NOT NULL,
+    -- Pas de cle etrangere sur le parent : coherent avec acte_legislatif,
+    -- l'ordre d'insertion d'un lot ne garantit pas que le parent precede.
+    parent_id_syceron  text,
+    type_conteneur     text     NOT NULL,    -- 'point' | 'ouvertureSeance' | 'finSeance'
+    nivpoint           smallint,
+    ordre_absolu_seance integer,
+    intitule           text,
+    lot_id             bigint   NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (seance_uid, id_syceron)
+);
+
+CREATE INDEX idx_debat_point_parent ON officiel.debat_point (seance_uid, parent_id_syceron);
+
+-- Une intervention est un `paragraphe` du compte rendu : la plus petite unite
+-- de parole ou de mention procedurale. `paragraphe` ne s'imbrique jamais dans
+-- la source (verifie sur l'integralite du corpus XVIe, profondeur maximale 1) :
+-- contrairement a `point`, c'est une feuille, ce qui simplifie le modele.
+--
+-- `id_syceron` est l'identifiant de la source et sert de cle primaire : verifie
+-- unique sur les 337 041 paragraphes de la XVIe, tous fichiers confondus.
+CREATE TABLE officiel.intervention (
+    id_syceron          text     PRIMARY KEY,
+    seance_uid           text    NOT NULL REFERENCES officiel.debat_seance(uid) ON DELETE CASCADE,
+    -- Le point (ou ouvertureSeance/finSeance) qui contient directement cette
+    -- intervention : c'est le sujet en discussion au moment ou elle a eu lieu.
+    -- FK composite vers debat_point, qui partage la meme seance_uid : les
+    -- points d'une seance sont toujours importes avant ses interventions.
+    point_id_syceron      text,
+    ordre_absolu_seance    integer,
+    code_grammaire         text,   -- role structurel dans le CR : 'PAROLE_GENERIQUE', 'INTERRUPTION_1_10'...
+    code_style             text,
+    role_debat             text,  -- 'president' quand qui parle preside la seance
+    -- L'acteur identifie par la source. NULL quand la source ne l'identifie
+    -- pas elle-meme : 'PA0' ('Un depute du groupe LR', 3 680 occurrences) et
+    -- les identifiants negatifs observes ('PA-121449'..., 684 occurrences) ne
+    -- sont pas des acteurs, au meme titre que 'PO0' n'est pas un organe. Les
+    -- recopier inventerait un faux depute identifie. Pas de cle etrangere :
+    -- 13 des 656 acteurs distincts references dans les debats de la XVIe sont
+    -- absents du jeu Acteurs (AMO20), gradient de qualite deja observe
+    -- ailleurs (DATA_SOURCES).
+    acteur_uid              text,
+    mandat_uid              text,  -- id_mandat, NULL si source = '-1'
+    texte                    text,
+    lot_id                   bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id               bigint REFERENCES officiel.import_lot(id),
+    FOREIGN KEY (seance_uid, point_id_syceron) REFERENCES officiel.debat_point(seance_uid, id_syceron)
+);
+
+CREATE INDEX idx_intervention_seance ON officiel.intervention (seance_uid, ordre_absolu_seance);
+CREATE INDEX idx_intervention_acteur ON officiel.intervention (acteur_uid);
+CREATE INDEX idx_intervention_point ON officiel.intervention (seance_uid, point_id_syceron);
+
+-- La quasi-totalite des interventions ont un seul orateur, mais la source en
+-- liste parfois deux, et meme trois, sur le meme paragraphe (0,18 % mesure
+-- sur la XVIe, 600 interventions sur 337 041 : deputes s'exprimant en meme
+-- temps lors d'une interruption). Une colonne unique sur `intervention`
+-- perdrait ces cas en silence ; meme logique que `amendement_cosignataire`.
+--
+-- `nom` et `qualite` sont conserves tels quels : c'est le seul endroit ou le
+-- libelle affiche par la source pour un orateur non identifie ('Un depute du
+-- groupe LR', 'Plusieurs deputes du groupe RN') est disponible, et il ne se
+-- deduit d'aucune autre table.
+CREATE TABLE officiel.intervention_orateur (
+    intervention_id_syceron text     NOT NULL REFERENCES officiel.intervention(id_syceron) ON DELETE CASCADE,
+    ordre                   smallint NOT NULL,
+    orateur_id_brut          text,   -- <id> de la source, pas toujours un acteur valide
+    nom                       text,
+    qualite                   text,
+    lot_id                    bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (intervention_id_syceron, ordre)
+);

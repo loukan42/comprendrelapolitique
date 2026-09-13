@@ -112,16 +112,19 @@ async function main() {
   // Hors MVP par défaut : 347 Mo pour la seule XVIe (docs/DATA_SOURCES.md
   // section 1.2). Le drapeau est explicite parce que le coût l'est.
   const avecAmendements = args.includes("--amendements");
+  const avecDebats = args.includes("--debats");
 
   if (!legislature) {
-    console.error("usage: telecharger.ts <législature> [dossier] [--force] [--amendements]");
+    console.error(
+      "usage: telecharger.ts <législature> [dossier] [--force] [--amendements] [--debats]",
+    );
     process.exit(1);
   }
 
-  const sources = sourcesPour(
-    legislature,
-    avecAmendements ? [...JEUX_MVP, "amendements"] : JEUX_MVP,
-  );
+  const jeux = [...JEUX_MVP];
+  if (avecAmendements) jeux.push("amendements");
+  if (avecDebats) jeux.push("debats");
+  const sources = sourcesPour(legislature, jeux);
   if (sources.length === 0) {
     console.error(`Aucune source connue pour la législature ${legislature}.`);
     process.exit(1);

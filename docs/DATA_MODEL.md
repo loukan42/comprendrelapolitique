@@ -4,11 +4,12 @@ Ce modèle découle de l'inspection réelle des jeux Open Data documentée dans
 [DATA_SOURCES.md](DATA_SOURCES.md). Chaque choix qui pourrait surprendre y renvoie.
 
 Il couvre le périmètre du MVP : acteurs, organes, mandats, dossiers, documents,
-actes législatifs, scrutins et votes individuels — ainsi que les amendements de
-la XVIe législature (section 5 bis), le seul jeu Amendements inspecté à ce
-stade. Les débats, médias et quiz sont esquissés en fin de document mais pas
-encore détaillés. Les modéliser maintenant, avant d'avoir inspecté leurs
-formats, produirait exactement la spéculation que ce projet cherche à éviter.
+actes législatifs, scrutins et votes individuels — ainsi que les amendements
+(section 5 bis) et les débats (section 5 ter) de la XVIe législature, les
+seuls jeux Amendements et Débats inspectés à ce stade. Les médias et les quiz
+sont esquissés en fin de document mais pas encore détaillés. Les modéliser
+maintenant, avant d'avoir inspecté leurs formats, produirait exactement la
+spéculation que ce projet cherche à éviter.
 
 ---
 
@@ -516,6 +517,107 @@ une page loi.
 
 ---
 
+## 5 ter. Débats (XVIe)
+
+```sql
+CREATE TABLE officiel.debat_seance (
+    uid              text PRIMARY KEY,       -- seanceRef, le meme identifiant que scrutin.seance_ref
+    compte_rendu_uid text NOT NULL,
+    legislature      smallint NOT NULL REFERENCES officiel.legislature(id),
+    session_ref      text,
+    session_libelle  text,
+    date_seance      timestamptz,
+    date_seance_jour text,
+    num_seance       integer,
+    num_seance_jour  text,
+    etat             text,
+    diffusion        text,
+    lot_id           bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id       bigint REFERENCES officiel.import_lot(id)
+);
+
+CREATE TABLE officiel.debat_point (
+    seance_uid          text NOT NULL REFERENCES officiel.debat_seance(uid) ON DELETE CASCADE,
+    id_syceron          text NOT NULL,
+    parent_id_syceron   text,               -- pas de cle etrangere, meme raison que acte_legislatif
+    type_conteneur       text NOT NULL,      -- 'point' | 'ouvertureSeance' | 'finSeance'
+    nivpoint              smallint,
+    ordre_absolu_seance    integer,
+    intitule               text,
+    lot_id                 bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (seance_uid, id_syceron)
+);
+
+CREATE TABLE officiel.intervention (
+    id_syceron          text PRIMARY KEY,
+    seance_uid           text NOT NULL REFERENCES officiel.debat_seance(uid) ON DELETE CASCADE,
+    point_id_syceron      text,             -- FK composite (seance_uid, point_id_syceron) -> debat_point
+    ordre_absolu_seance    integer,
+    code_grammaire          text,
+    code_style               text,
+    role_debat                text,
+    acteur_uid                 text,        -- pas de cle etrangere, voir plus bas
+    mandat_uid                  text,
+    texte                        text,
+    lot_id                       bigint NOT NULL REFERENCES officiel.import_lot(id),
+    lot_maj_id                   bigint REFERENCES officiel.import_lot(id)
+);
+
+CREATE TABLE officiel.intervention_orateur (
+    intervention_id_syceron text NOT NULL REFERENCES officiel.intervention(id_syceron) ON DELETE CASCADE,
+    ordre                   smallint NOT NULL,
+    orateur_id_brut          text,
+    nom                       text,
+    qualite                   text,
+    lot_id                    bigint NOT NULL REFERENCES officiel.import_lot(id),
+    PRIMARY KEY (intervention_id_syceron, ordre)
+);
+```
+
+C'est le premier jeu XML natif du modèle, et le seul point d'ancrage vers le
+reste des données est `seance_uid` = `seanceRef`, **le même identifiant que**
+`officiel.scrutin.seance_ref`. Rien dans le XML des débats ne référence
+directement un dossier ou un document législatif (DATA_SOURCES section
+7 ter.1) : joindre un débat à une loi passe par ses scrutins, puis par le
+rattachement scrutin ↔ dossier de la section 6.
+
+**`intervention` est le `paragraphe` de la source : la plus petite unité de
+parole.** `paragraphe` ne s'imbrique jamais (profondeur maximale 1 vérifiée
+sur les 337 041 occurrences du corpus XVIe), contrairement à `point`, qui EST
+récursif et de profondeur variable (1 à 5, plus les codes de procédure 99 et
+100 pour les suspensions de séance) — même piège que `acteLegislatif`
+(section 4), même absence de clé étrangère sur `parent_id_syceron`, pour la
+même raison.
+
+**`acteur_uid` est nullable et sans clé étrangère, et c'est une règle, pas une
+tolérance.** Deux identifiants de remplissage existent dans la source, jamais
+recopiés : `PA0` (« Un député du groupe LR », un orateur que la source
+n'identifie pas individuellement, 3 680 occurrences) et une poignée
+d'identifiants négatifs (`PA-121449`…, 684 occurrences), ni l'un ni l'autre
+n'étant un acteur réel — même logique que `PO0` pour les organes
+(DATA_SOURCES section 5.6). Sans clé étrangère parce que 13 des 656 acteurs
+distincts référencés par les débats de la XVIe sont absents du jeu Acteurs
+(AMO20), gradient de qualité déjà observé ailleurs.
+
+**`intervention_orateur` est une table, pas une colonne, parce que 0,18 % des
+interventions (600 sur 337 041) ont deux orateurs** — typiquement deux
+députés qui s'expriment au même instant lors d'une interruption. Une colonne
+unique en perdrait un sur deux, même raisonnement que pour les cosignataires
+d'amendement (section 5 bis). `nom` et `qualite` sont le seul endroit où le
+libellé affiché par la source pour un orateur non identifié
+(« Un député du groupe LR ») est disponible : il ne se déduit d'aucune autre
+table.
+
+Ce que ce modèle importe volontairement, et ce qu'il n'ajoute pas : `texte`
+est le contenu brut de l'intervention, aplati (balises de mise en forme
+retirées, `<br/>` converti en retour à la ligne), mais **aucune tentative
+n'est faite ici de qualifier un argument comme favorable ou défavorable** —
+cette lecture appartient au schéma `enrichissement`, pas à celui-ci. Ce
+module fournit la matière première citable (`intervention.id_syceron`),
+pas l'interprétation.
+
+---
+
 ## 6. Rattachement scrutin ↔ dossier
 
 ```sql
@@ -613,6 +715,11 @@ situation où cela compterait, un cosignataire retiré entre deux imports de la
 XVIIe en cours, laisserait une ligne périmée. Accepté pour l'instant, à
 corriger si l'import d'amendements de la XVIIe est mis en place.
 
+`intervention_orateur` suit la même logique que `scrutin_groupe` plutôt que
+celle de `amendement_cosignataire` : `ON CONFLICT DO UPDATE`, parce que
+c'est la seule table de ce module où le contenu (nom, qualité affichés) peut
+avoir un sens à corriger sans changer de clé.
+
 Ordre d'import imposé par les clés étrangères :
 
 ```
@@ -621,6 +728,7 @@ legislature → organe → acteur → mandat
             → amendement → amendement_cosignataire
             → scrutin → scrutin_groupe → vote
             → scrutin_dossier
+            → debat_seance → debat_point → intervention → intervention_orateur
 ```
 
 Les organes avant les acteurs, et les acteurs avant les mandats, faute de quoi
@@ -637,9 +745,14 @@ XVIe : c'est justement l'erreur que l'inspection avant modélisation vise à
 éviter, et déjà commise une fois côté XVe pour les scrutins et les dossiers
 (nommage `_XV`, dossier `amendements_legis`).
 
-Les débats (252 Mo de XML) ne sont pas modélisés. C'est, avec les amendements
-des deux autres législatures, l'essentiel du volume restant hors du MVP, pour
-une part marginale du produit.
+Les débats de la XVIe sont modélisés (section 5 ter) ; ceux de la XVe et de
+la XVIIe ne le sont pas, leurs formats n'ayant pas été inspectés
+(DATA_SOURCES section 8). Avec les amendements des deux autres législatures,
+c'est l'essentiel du volume restant hors du MVP, pour une part marginale du
+produit. Le modèle importe le texte brut des interventions, mais ne qualifie
+aucun argument comme favorable ou défavorable : cette lecture reste entière à
+construire dans `enrichissement`, à partir de `intervention.id_syceron` comme
+citation.
 
 Le Sénat, Légifrance et le Parlement européen ne sont pas modélisés non plus,
 mais le modèle ne leur ferme pas la porte : `import_lot.institution`,
