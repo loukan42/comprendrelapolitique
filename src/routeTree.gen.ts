@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
+import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
+import { Route as GroupesUidRouteImport } from './routes/groupes/$uid'
 import { Route as LoisUidRouteImport } from './routes/lois/$uid'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +21,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RechercheRoute = RechercheRouteImport.update({
   id: '/recherche',
   path: '/recherche',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeputesUidRoute = DeputesUidRouteImport.update({
+  id: '/deputes/$uid',
+  path: '/deputes/$uid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupesUidRoute = GroupesUidRouteImport.update({
+  id: '/groupes/$uid',
+  path: '/groupes/$uid',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoisUidRoute = LoisUidRouteImport.update({
@@ -31,31 +49,62 @@ const LoisUidRoute = LoisUidRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/deputes/$uid': typeof DeputesUidRoute
+  '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/deputes/$uid': typeof DeputesUidRoute
+  '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/deputes/$uid': typeof DeputesUidRoute
+  '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/recherche' | '/lois/$uid'
+  fullPaths:
+    | '/'
+    | '/quiz'
+    | '/recherche'
+    | '/deputes/$uid'
+    | '/groupes/$uid'
+    | '/lois/$uid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/recherche' | '/lois/$uid'
-  id: '__root__' | '/' | '/recherche' | '/lois/$uid'
+  to:
+    | '/'
+    | '/quiz'
+    | '/recherche'
+    | '/deputes/$uid'
+    | '/groupes/$uid'
+    | '/lois/$uid'
+  id:
+    | '__root__'
+    | '/'
+    | '/quiz'
+    | '/recherche'
+    | '/deputes/$uid'
+    | '/groupes/$uid'
+    | '/lois/$uid'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  QuizRoute: typeof QuizRoute
   RechercheRoute: typeof RechercheRoute
+  DeputesUidRoute: typeof DeputesUidRoute
+  GroupesUidRoute: typeof GroupesUidRoute
   LoisUidRoute: typeof LoisUidRoute
 }
 
@@ -68,11 +117,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recherche': {
       id: '/recherche'
       path: '/recherche'
       fullPath: '/recherche'
       preLoaderRoute: typeof RechercheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/deputes/$uid': {
+      id: '/deputes/$uid'
+      path: '/deputes/$uid'
+      fullPath: '/deputes/$uid'
+      preLoaderRoute: typeof DeputesUidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/groupes/$uid': {
+      id: '/groupes/$uid'
+      path: '/groupes/$uid'
+      fullPath: '/groupes/$uid'
+      preLoaderRoute: typeof GroupesUidRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lois/$uid': {
@@ -87,7 +157,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  QuizRoute: QuizRoute,
   RechercheRoute: RechercheRoute,
+  DeputesUidRoute: DeputesUidRoute,
+  GroupesUidRoute: GroupesUidRoute,
   LoisUidRoute: LoisUidRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,7 +1,19 @@
-import { Anchor, Box, Container, Stack, Table, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  Box,
+  Button,
+  Container,
+  SimpleGrid,
+  Stack,
+  Table,
+  Text,
+  Title,
+} from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
+import { chargerQuestionsExpress } from "../queries/quiz";
 
 export const Route = createFileRoute("/")({
+  loader: () => chargerQuestionsExpress(),
   component: Accueil,
 });
 
@@ -47,6 +59,7 @@ const pourcent = (part: number, total: number) =>
   );
 
 function Accueil() {
+  const decisions = Route.useLoaderData();
   const total = COUVERTURE.reduce(
     (acc, l) => ({
       scrutins: acc.scrutins + l.scrutins,
@@ -69,14 +82,56 @@ function Accueil() {
           </Text>
         </Box>
 
-        <Box maw="var(--mesure-texte)">
-          <Title order={2}>Où en est le site</Title>
-          <Text mt="sm">
-            La chaîne de données fonctionne : les trois législatures s&apos;importent, se vérifient
-            et se rejouent. L&apos;interface reste à construire. Cette page dit donc l&apos;état
-            réel du projet plutôt que d&apos;afficher des écrans vides ou des exemples fabriqués.
-          </Text>
-        </Box>
+        <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
+          <Box>
+            <Title order={3}>Je veux comprendre</Title>
+            <Text mt={4} c="dimmed" size="sm">
+              Chercher une loi par son titre et voir ce qui a réellement été voté.
+            </Text>
+            <Button component="a" href="/recherche" mt="sm" variant="default">
+              Chercher une loi
+            </Button>
+          </Box>
+          <Box>
+            <Title order={3}>Je veux me tester</Title>
+            <Text mt={4} c="dimmed" size="sm">
+              Répondre à cinq vrais scrutins et voir de quel groupe vos positions se rapprochent.
+            </Text>
+            <Button component="a" href="/quiz" mt="sm" variant="default">
+              Faire le quiz
+            </Button>
+          </Box>
+          <Box>
+            <Title order={3}>Je veux voir ce qui se passe</Title>
+            <Text mt={4} c="dimmed" size="sm">
+              La page actualité n&apos;est pas encore construite : rien ne vaut mieux qu&apos;une
+              page vide plutôt qu&apos;un contenu inventé.
+            </Text>
+          </Box>
+        </SimpleGrid>
+
+        {decisions.length > 0 && (
+          <Box>
+            <Title order={2}>Des scrutins récents</Title>
+            <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
+              Parmi les votes sur l&apos;ensemble d&apos;un texte, ceux qui ont réuni le plus de
+              suffrages exprimés : en attendant un score d&apos;importance publique (voir{" "}
+              <Anchor href="https://github.com/loukan42/comprendrelapolitique/blob/main/docs/SCORING.md">
+                la méthodologie
+              </Anchor>
+              ), l&apos;affluence sert de repère provisoire, pas de classement définitif.
+            </Text>
+            <SimpleGrid cols={{ base: 1, sm: 2 }} mt="lg" spacing="md">
+              {decisions
+                .filter((d) => d.dossierUid !== null)
+                .map((d) => (
+                  <Anchor key={d.scrutinUid} href={`/lois/${d.dossierUid}`} underline="hover">
+                    <Text fw={600}>{d.dossierTitre ?? d.objetLibelle}</Text>
+                  </Anchor>
+                ))}
+            </SimpleGrid>
+          </Box>
+        )}
 
         <Box>
           <Title order={2}>Ce qui est couvert aujourd&apos;hui</Title>
