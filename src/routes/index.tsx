@@ -149,7 +149,7 @@ function Accueil() {
               titre="Je veux comprendre"
               description="Chercher une loi par son titre et voir ce qui a réellement été voté."
               action={
-                <Button component="a" href="/recherche" fullWidth variant="light" color="graphite">
+                <Button component="a" href="/recherche" fullWidth variant="filled">
                   Chercher une loi
                 </Button>
               }
@@ -159,7 +159,7 @@ function Accueil() {
               titre="Je veux me tester"
               description="Répondre à cinq vrais scrutins et voir de quel groupe vos positions se rapprochent."
               action={
-                <Button component="a" href="/quiz" fullWidth variant="light" color="graphite">
+                <Button component="a" href="/quiz" fullWidth variant="filled">
                   Faire le quiz
                 </Button>
               }

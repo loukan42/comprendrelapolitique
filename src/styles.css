@@ -45,6 +45,19 @@ html {
   scroll-padding-top: var(--mantine-spacing-xl);
 }
 
+/*
+ * Texte sombre sur un bouton plein en thème sombre.
+ *
+ * L'accent y est une teinte claire (nuance 4, choisie pour que les liens
+ * restent lisibles sur fond sombre). Le texte blanc que Mantine pose par
+ * défaut sur un bouton plein tombe alors à un contraste de 2,7, sous le
+ * minimum AA exigé par AGENTS.md section 2. Le noir du thème sur cette même
+ * teinte remonte au-dessus de 8.
+ */
+:root[data-mantine-color-scheme="dark"] .mantine-Button-root[data-variant="filled"] {
+  color: var(--mantine-color-black);
+}
+
 /* Le focus reste visible au clavier, jamais supprimé. */
 :focus-visible {
   outline: 2px solid var(--mantine-primary-color-filled);

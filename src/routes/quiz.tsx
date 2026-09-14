@@ -108,10 +108,14 @@ function EcranQuestion({
         </Box>
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
           {BOUTONS.map((b) => (
+            // « default » donne un fond et un filet visibles dans les deux
+            // thèmes, là où « light » sur graphite se confondait avec le fond
+            // sombre. Les quatre réponses gardent le même poids visuel : en
+            // mettre une en avant orienterait la réponse.
             <Button
               key={b.valeur}
               size="md"
-              variant={b.valeur === "NSP" ? "subtle" : "light"}
+              variant={b.valeur === "NSP" ? "subtle" : "default"}
               color="graphite"
               leftSection={b.icone}
               onClick={() => onReponse(b.valeur)}
