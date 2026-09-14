@@ -1,7 +1,6 @@
 import {
   Accordion,
   Anchor,
-  Badge,
   Box,
   Button,
   Card,
@@ -178,11 +177,11 @@ function Accueil() {
             <EntreeCard
               icone={<IconNews size={20} />}
               titre="Je veux voir ce qui se passe"
-              description="La page actualité n'est pas encore construite : rien ne vaut mieux qu'une page vide plutôt qu'un contenu inventé."
+              description="Les derniers textes déposés, les derniers votes sur l'ensemble d'un texte et les dernières lois promulguées."
               action={
-                <Badge variant="outline" color="graphite" size="sm">
-                  Bientôt
-                </Badge>
+                <Button component="a" href="/actualite" fullWidth variant="filled">
+                  Voir ce qui se passe
+                </Button>
               }
             />
           </SimpleGrid>

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActualiteRouteImport } from './routes/actualite'
 import { Route as MethodologieRouteImport } from './routes/methodologie'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
@@ -28,6 +29,11 @@ import { Route as ThemesSlugRouteImport } from './routes/themes/$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActualiteRoute = ActualiteRouteImport.update({
+  id: '/actualite',
+  path: '/actualite',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodologieRoute = MethodologieRouteImport.update({
@@ -103,6 +109,7 @@ const ThemesSlugRoute = ThemesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/actualite': typeof ActualiteRoute
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/actualite': typeof ActualiteRoute
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
@@ -138,6 +146,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/actualite': typeof ActualiteRoute
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/actualite'
     | '/methodologie'
     | '/quiz'
     | '/recherche'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/actualite'
     | '/methodologie'
     | '/quiz'
     | '/recherche'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/actualite'
     | '/methodologie'
     | '/quiz'
     | '/recherche'
@@ -209,6 +221,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActualiteRoute: typeof ActualiteRoute
   MethodologieRoute: typeof MethodologieRoute
   QuizRoute: typeof QuizRoute
   RechercheRoute: typeof RechercheRoute
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actualite': {
+      id: '/actualite'
+      path: '/actualite'
+      fullPath: '/actualite'
+      preLoaderRoute: typeof ActualiteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methodologie': {
@@ -337,6 +357,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActualiteRoute: ActualiteRoute,
   MethodologieRoute: MethodologieRoute,
   QuizRoute: QuizRoute,
   RechercheRoute: RechercheRoute,

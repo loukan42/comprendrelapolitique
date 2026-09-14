@@ -109,21 +109,23 @@ const tables = new Map<string, Promise<boolean>>();
  * Chaque requête vérifie la table qu'elle lit, et retombe sur sa version sans
  * enrichissement quand la table manque.
  *
- * Mis en cache pour la durée du processus, comme `enrichissementDisponible` :
- * une couche chargée pendant que le serveur tourne demande un redémarrage.
+ * Seule une réponse positive est gardée en cache. Une réponse négative peut
+ * venir d'une requête échouée pendant le démarrage à froid du serveur : la
+ * garder ferait passer une table présente pour absente jusqu'au redémarrage,
+ * ce qui a vidé le QCM des programmes. Elle est donc revérifiée à la requête
+ * suivante, pour le prix d'une requête minuscule.
  */
-export function tableDisponible(nomQualifie: `${string}.${string}`): Promise<boolean> {
-  let disponible = tables.get(nomQualifie);
-  if (!disponible) {
-    const [schema, table] = nomQualifie.split(".");
-    disponible = requeteUne<{ existe: boolean }>(
-      `SELECT EXISTS (SELECT 1 FROM information_schema.tables
-                       WHERE table_schema = $1 AND table_name = $2) AS existe`,
-      [schema, table],
-    )
-      .then((r) => r?.existe ?? false)
-      .catch(() => false);
-    tables.set(nomQualifie, disponible);
-  }
-  return disponible;
+export async function tableDisponible(nomQualifie: `${string}.${string}`): Promise<boolean> {
+  const connue = tables.get(nomQualifie);
+  if (connue) return connue;
+  const [schema, table] = nomQualifie.split(".");
+  const existe = await requeteUne<{ existe: boolean }>(
+    `SELECT EXISTS (SELECT 1 FROM information_schema.tables
+                     WHERE table_schema = $1 AND table_name = $2) AS existe`,
+    [schema, table],
+  )
+    .then((r) => r?.existe ?? false)
+    .catch(() => false);
+  if (existe) tables.set(nomQualifie, Promise.resolve(true));
+  return existe;
 }

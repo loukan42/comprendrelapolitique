@@ -1,0 +1,23 @@
+/*
+ * Une liste datée : la date dans une colonne étroite, le texte à côté. Sur
+ * petit écran, la date passe au-dessus.
+ */
+.liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.element {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  padding-block: var(--mantine-spacing-sm);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+@media (max-width: 36em) {
+  .element {
+    grid-template-columns: 1fr;
+  }
+}

@@ -25,6 +25,13 @@ export function SiteHeader() {
         </Link>
         <nav className={classes["nav"]}>
           <Link
+            to="/actualite"
+            className={classes["lien"]}
+            activeProps={{ className: `${classes["lien"]} ${classes["lienActif"]}` }}
+          >
+            En ce moment
+          </Link>
+          <Link
             to="/themes"
             className={classes["lien"]}
             activeProps={{ className: `${classes["lien"]} ${classes["lienActif"]}` }}

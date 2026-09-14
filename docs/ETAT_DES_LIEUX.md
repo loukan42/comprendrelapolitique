@@ -59,6 +59,8 @@ commencer avant d'en modifier le contenu.
   formation figurait.
 - **Bilans** (`/bilans/emmanuel-macron`) : engagements face aux faits, sur les
   deux mandats.
+- **En ce moment** (`/actualite`) : derniers dépôts, votes sur l'ensemble et
+  promulgations, lus dans les actes de procédure et les scrutins.
 
 ### Direction visuelle
 
@@ -137,7 +139,10 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 ### Priorité basse
 
 7. Débats et amendements des XVe et XVIe législatures.
-8. Page actualité, toujours un lien « Bientôt » sur l'accueil.
+8. ~~Page actualité.~~ Faite (`/actualite`) : derniers textes déposés, derniers
+   votes sur l'ensemble, dernières lois promulguées. Le bloc « ce qui fait
+   parler » reste vide faute de source médiatique (GDELT, prévu par la
+   spécification, non branché).
 
 ---
 
@@ -182,7 +187,7 @@ cherche dans deux extractions et ramène les ligatures à un seul f des deux
 côtés : sans cela, des citations exactes étaient déclarées introuvables.
 
 **Le contrôle des volumes suppose une seule législature.** Sur une base qui
-réunit la XVe, la XVIe et la XVIIe, comme le recommande `CLAUDE.md),
+réunit la XVe, la XVIe et la XVIIe, comme le recommande `CLAUDE.md`,
 `data:controler` signale quatre échecs de volume dont les chiffres obtenus sont
 exactement la somme des trois législatures (16 957 scrutins, 2 346 018 votes).
 Ce n'est pas un défaut des données. Deux autres contrôles échouent, sur les

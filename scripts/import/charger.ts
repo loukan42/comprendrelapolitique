@@ -25,7 +25,7 @@
  * installer, inutile pour conserver le résultat.
  */
 
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 import { appliquerMigration, fermerLot, ouvrirLot, ouvrirPGlite, type Db } from "./db.ts";
@@ -40,6 +40,47 @@ import {
 import { LEGISLATURES } from "./sources.ts";
 
 const MIGRATION = resolve("db/migrations/001_officiel.sql");
+
+/**
+ * Métadonnées de l'archive d'un jeu, écrites par `telecharger.ts` dans
+ * `<dossier parent>/_archives/<législature>-<jeu>.json` : URL officielle,
+ * date `Last-Modified` servie par l'Assemblée, taille et empreinte.
+ *
+ * Sans elles, un lot ne portait que `local:<dossier>` et aucune date, et le
+ * site ne pouvait pas dire de quand datent ses données. Une archive récupérée
+ * autrement que par `telecharger.ts` n'a pas ce fichier : le lot reste alors
+ * marqué local, sans date inventée.
+ */
+function metadonneesArchive(
+  dirArchives: string,
+  legislature: number,
+  jeu: string,
+): {
+  url: string;
+  lastModified: string | null;
+  tailleOctets: number | null;
+  sha256: string;
+} | null {
+  const chemin = resolve(dirArchives, "..", "_archives", `${legislature}-${jeu}.json`);
+  if (!existsSync(chemin)) return null;
+  try {
+    const m = JSON.parse(readFileSync(chemin, "utf8")) as {
+      url?: string;
+      lastModified?: string | null;
+      tailleOctets?: number | null;
+      sha256?: string;
+    };
+    if (!m.url || !m.sha256) return null;
+    return {
+      url: m.url,
+      lastModified: m.lastModified ? new Date(m.lastModified).toISOString() : null,
+      tailleOctets: m.tailleOctets ?? null,
+      sha256: m.sha256,
+    };
+  } catch {
+    return null;
+  }
+}
 
 function chrono(): () => string {
   const t0 = Date.now();
@@ -122,6 +163,7 @@ async function main() {
     legislature,
     url: `local:${dirs.acteurs}`,
     sha256: "local",
+    ...metadonneesArchive(dirArchives, legislature, "acteurs"),
   });
   const a = await importerActeurs(db, dirs.acteurs, lotActeurs, legislature);
   await fermerLot(db, lotActeurs, { inserees: a.organes + a.acteurs + a.mandats });
@@ -134,6 +176,7 @@ async function main() {
     legislature,
     url: `local:${dirs.dossiers}`,
     sha256: "local",
+    ...metadonneesArchive(dirArchives, legislature, "dossiers"),
   });
   const d = await importerDossiers(db, dirs.dossiers, lotDossiers, legislature);
   await fermerLot(db, lotDossiers, { inserees: d.dossiers + d.documents + d.actes });
@@ -148,6 +191,7 @@ async function main() {
       legislature,
       url: `local:${dirAmendements}`,
       sha256: "local",
+      ...metadonneesArchive(dirArchives, legislature, "amendements"),
     });
     const am = await importerAmendements(db, dirAmendements, lotAmendements, legislature);
     await fermerLot(db, lotAmendements, { inserees: am.amendements + am.cosignataires });
@@ -161,6 +205,7 @@ async function main() {
     legislature,
     url: `local:${dirs.scrutins}`,
     sha256: "local",
+    ...metadonneesArchive(dirArchives, legislature, "scrutins"),
   });
   const s = await importerScrutins(db, dirs.scrutins, lotScrutins);
   await fermerLot(db, lotScrutins, { inserees: s.scrutins + s.groupes + s.votes });
@@ -182,6 +227,7 @@ async function main() {
       legislature,
       url: `local:${dirDebats}`,
       sha256: "local",
+      ...metadonneesArchive(dirArchives, legislature, "debats"),
     });
     const deb = await importerDebats(db, dirDebats, lotDebats, legislature);
     await fermerLot(db, lotDebats, {
