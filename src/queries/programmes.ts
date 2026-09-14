@@ -16,19 +16,29 @@ import {
 import { tableDisponible, requete } from "./db";
 
 export type NatureProgramme =
-  "presidentiel_2027" | "legislatif_2024" | "europeen_2024" | "projet_en_cours" | "aucun";
+  | "presidentiel_2027"
+  | "presidentiel_2022"
+  | "legislatif_2024"
+  | "europeen_2024"
+  | "programme_parti"
+  | "prise_de_position"
+  | "projet_en_cours"
+  | "aucun";
 
 /**
  * Le libellé de nature est la principale information sur un document après
- * son lien. À ce jour, presque aucun parti n'a publié de programme pour la
- * présidentielle de 2027 : ce qui est en ligne est un programme de 2024 ou un
- * projet en cours. Présenter ces documents comme des programmes 2027
- * tromperait le lecteur sur ce qu'il va lire.
+ * son lien. Tous les candidats n'ont pas publié leur programme de campagne :
+ * pour certains, le document cité est un programme de 2022 ou de 2024, des
+ * propositions du parti ou une tribune. Présenter ces documents comme des
+ * programmes 2027 tromperait le lecteur sur ce qu'il va lire.
  */
 export const LIBELLE_NATURE: Record<NatureProgramme, string> = {
-  presidentiel_2027: "programme présidentiel 2027",
+  presidentiel_2027: "programme de campagne 2027",
+  presidentiel_2022: "programme présidentiel 2022",
   legislatif_2024: "programme des législatives 2024",
   europeen_2024: "programme des européennes 2024",
+  programme_parti: "propositions du parti",
+  prise_de_position: "tribune ou déclaration",
   projet_en_cours: "projet du parti, en cours",
   aucun: "aucun document publié",
 };
@@ -158,16 +168,19 @@ export const chargerQcmProgrammes = createServerFn({ method: "GET" }).handler(
       question_id: string;
       theme: string;
       intitule: string;
+      contexte: string | null;
+      source_contexte: string | null;
       position_id: string;
       formation: string;
+      candidat: string | null;
       extrait: string;
       resume_affichage: string | null;
       titre: string | null;
       nature: string;
       url_ancre: string | null;
     }>(
-      `SELECT q.id AS question_id, q.theme, q.intitule, pp.id AS position_id, p.formation,
-              pp.extrait, pp.resume_affichage, p.titre, p.nature::text AS nature, pp.url_ancre
+      `SELECT q.id AS question_id, q.theme, q.intitule, q.contexte, q.source_contexte,
+              pp.id AS position_id, p.formation, p.candidat, pp.extrait, pp.resume_affichage, p.titre, p.nature::text AS nature, pp.url_ancre
          FROM enrichissement.programme_question q
          JOIN enrichissement.programme_position pp ON pp.question_id = q.id
          JOIN enrichissement.programme p ON p.id = pp.programme_id
@@ -180,11 +193,14 @@ export const chargerQcmProgrammes = createServerFn({ method: "GET" }).handler(
         id: l.question_id,
         theme: l.theme,
         intitule: l.intitule,
+        contexte: l.contexte,
+        sourceContexte: l.source_contexte,
         options: [] as OptionQcm[],
       };
       question.options.push({
         positionId: l.position_id,
         formation: l.formation,
+        candidat: l.candidat,
         extrait: l.extrait,
         resumeAffichage: l.resume_affichage,
         titreDocument: l.titre,

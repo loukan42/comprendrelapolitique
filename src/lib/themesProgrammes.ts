@@ -23,6 +23,8 @@ const LIBELLE_THEME: Record<string, string> = {
   logement: "Logement",
   europe: "Europe",
   economie: "Économie",
+  famille: "Famille",
+  finances: "Finances publiques",
 };
 
 export function libelleTheme(theme: string): string {

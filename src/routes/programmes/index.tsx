@@ -69,9 +69,9 @@ function PageProgrammes() {
         <Box maw="var(--mesure-texte)">
           <Title order={1}>Les programmes 2027</Title>
           <Text mt="sm" c="dimmed">
-            Les documents publiés par les partis eux-mêmes, avec le lien vers la source. Le site
-            n&apos;héberge aucun de ces textes et n&apos;en résume pas le contenu : chaque lien mène
-            au document tel que son auteur l&apos;a publié.
+            Les documents publiés par les candidats et leurs partis, avec le lien vers la source. Le
+            site n&apos;héberge aucun de ces textes et n&apos;en résume pas le contenu : chaque lien
+            mène au document tel que son auteur l&apos;a publié.
           </Text>
         </Box>
 
@@ -85,10 +85,11 @@ function PageProgrammes() {
         </Stack>
 
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-          À ce jour, aucun parti n&apos;a publié de programme pour la présidentielle de 2027. Ce qui
-          est en ligne est soit un programme des élections de 2024, soit un projet de parti en cours
-          d&apos;écriture. La nature de chaque document est indiquée à côté de son titre, et
-          l&apos;absence de document est affichée plutôt que passée sous silence.
+          Plusieurs candidats ont publié leur programme de campagne pour 2027. Pour les autres, le
+          document listé est le plus récent de leur formation : programme présidentiel de 2022,
+          programme des législatives de 2024, propositions du parti ou tribune du candidat. La
+          nature de chaque document est indiquée à côté de son titre, et l&apos;absence de document
+          est affichée plutôt que passée sous silence.
         </Alert>
 
         {formations.length === 0 ? (

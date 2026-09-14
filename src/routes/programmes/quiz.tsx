@@ -46,6 +46,29 @@ function libelleNature(nature: string): string {
   return LIBELLE_NATURE[nature as NatureProgramme] ?? nature;
 }
 
+/** Qui porte une proposition : le candidat, quand le document en nomme un. */
+function auteur(option: OptionQcm): string {
+  return option.candidat ? `${option.candidat} (${option.formation})` : option.formation;
+}
+
+/**
+ * Libellé de chaque formation pour le décompte, avec son candidat. Le
+ * décompte reste fait par formation : une formation citée dans deux
+ * documents ne doit pas compter deux fois.
+ */
+function libellesFormations(questions: QuestionQcm[]): Map<string, string> {
+  const libelles = new Map<string, string>();
+  for (const q of questions) {
+    for (const o of q.options) {
+      const connu = libelles.get(o.formation);
+      if (connu === undefined || (o.candidat && connu === o.formation)) {
+        libelles.set(o.formation, auteur(o));
+      }
+    }
+  }
+  return libelles;
+}
+
 /**
  * Une proposition. Avant le choix, elle ne montre que ce que la formation a
  * écrit ; après, elle dit qui l'a écrit, dans quel document et de quelle
@@ -79,7 +102,7 @@ function Proposition({
         </Text>
         {revelee && (
           <Text fw={700} size="sm">
-            {option.formation}
+            {auteur(option)}
           </Text>
         )}
         {revelee && choisie && (
@@ -159,13 +182,24 @@ function EcranQuestion({
         {question.intitule}
       </Title>
 
+      {question.contexte && (
+        <Text size="sm">
+          {question.contexte}{" "}
+          {question.sourceContexte && (
+            <Anchor href={question.sourceContexte} target="_blank" rel="noreferrer" size="sm">
+              Source
+            </Anchor>
+          )}
+        </Text>
+      )}
+
       {revelee ? (
         <Text size="sm" c="dimmed">
           Voici qui porte chaque proposition, et dans quel document elle figure.
         </Text>
       ) : (
         <Text size="sm" c="dimmed">
-          Choisissez la proposition la plus proche de votre avis. Le nom des formations
+          Choisissez la proposition la plus proche de votre avis. Le nom de son auteur
           s&apos;affiche ensuite.
         </Text>
       )}
@@ -216,6 +250,7 @@ function EcranResultat({
   onRecommencer: () => void;
 }) {
   const resultat = useMemo(() => calculerResultatQcm(questions, choix), [questions, choix]);
+  const libelles = useMemo(() => libellesFormations(questions), [questions]);
 
   if (resultat.repondues < MINIMUM_REPONDUES) {
     return (
@@ -249,7 +284,7 @@ function EcranResultat({
           {resultat.lignes.map((l) => (
             <BarreHorizontale
               key={l.formation}
-              libelle={l.formation}
+              libelle={libelles.get(l.formation) ?? l.formation}
               valeur={l.part}
               reference={1}
               libelleValeur={`${l.choisie} sur ${l.proposee}`}
@@ -264,9 +299,10 @@ function EcranResultat({
         )}
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
           Ce décompte porte sur quelques citations retenues par le site dans des documents de nature
-          différente : programmes de 2024 et projets de parti en cours. Il ne mesure pas votre
-          proximité avec une formation et ne constitue pas une recommandation électorale : un autre
-          choix de citations pourrait donner un autre résultat.{" "}
+          différente : programmes de campagne 2027, programme présidentiel de 2022, propositions et
+          projets de parti. Il ne mesure pas votre proximité avec une formation et ne constitue pas
+          une recommandation électorale : un autre choix de citations pourrait donner un autre
+          résultat.{" "}
           <Anchor component={Link} to="/programmes/comparer" c="inherit">
             Lire les propositions côte à côte
           </Anchor>
@@ -298,7 +334,7 @@ function EcranResultat({
                     <Text size="sm">
                       Vous avez choisi la proposition de{" "}
                       <Text span fw={700}>
-                        {retenue.formation}
+                        {auteur(retenue)}
                       </Text>
                       .
                     </Text>
@@ -332,6 +368,7 @@ function EcranResultat({
  * résultat, pas après.
  */
 function Couverture({ questions }: { questions: QuestionQcm[] }) {
+  const libelles = libellesFormations(questions);
   const presence = new Map<string, number>();
   for (const q of questions) {
     for (const f of new Set(q.options.map((o) => o.formation))) {
@@ -352,7 +389,7 @@ function Couverture({ questions }: { questions: QuestionQcm[] }) {
             {lignes.map(([formation, n]) => (
               <Table.Tr key={formation}>
                 <Table.Td>
-                  <Text size="sm">{formation}</Text>
+                  <Text size="sm">{libelles.get(formation) ?? formation}</Text>
                 </Table.Td>
                 <Table.Td>
                   <Text size="sm" c="dimmed">
@@ -420,9 +457,9 @@ function PageQcm() {
           {!partie && (
             <Text mt="sm" c="dimmed">
               {questions.length} questions. Pour chacune, des propositions tirées des documents
-              publiés par les partis, citées mot pour mot et présentées sans le nom de la formation
-              qui les porte. Vous choisissez celle qui se rapproche le plus de votre avis, ou aucune
-              ; l&apos;auteur de chaque proposition s&apos;affiche ensuite.
+              publiés par les candidats et leurs partis, citées mot pour mot et présentées sans le
+              nom de leur auteur. Vous choisissez celle qui se rapproche le plus de votre avis, ou
+              aucune ; l&apos;auteur de chaque proposition s&apos;affiche ensuite.
             </Text>
           )}
         </Box>
@@ -435,11 +472,12 @@ function PageQcm() {
         ) : !partie ? (
           <Stack gap="lg" maw="var(--mesure-texte)">
             <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-              Aucun parti n&apos;a publié de programme présidentiel pour 2027 à ce jour. Les
-              citations viennent de programmes des élections de 2024 et de projets de parti en cours
-              ; la nature de chaque document est indiquée avec son auteur. Toutes les formations ne
-              figurent pas dans toutes les questions : le quiz s&apos;en tient à ce que chaque
-              document dit, et ne comble pas les absences.
+              Quand un candidat a publié son programme de campagne pour 2027, c&apos;est lui qui est
+              cité. Sinon, la citation vient du document le plus récent de sa formation : programme
+              présidentiel de 2022, programme des législatives de 2024, propositions du parti ou
+              tribune du candidat. La nature de chaque document s&apos;affiche avec la réponse.
+              Toutes les formations ne figurent pas dans toutes les questions : le quiz s&apos;en
+              tient à ce que chaque document dit, et ne comble pas les absences.
             </Alert>
             <Couverture questions={questions} />
             <Text size="sm" c="dimmed">

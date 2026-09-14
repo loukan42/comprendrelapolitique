@@ -29,3 +29,9 @@ ALTER TABLE enrichissement.programme_position
 
 CREATE INDEX IF NOT EXISTS idx_programme_position_question
     ON enrichissement.programme_position (question_id);
+
+-- Repere affiche sous la question pour comprendre les reponses : l'etat du
+-- droit, le sens d'un sigle. Factuel, jamais un argument, et toujours avec
+-- l'adresse de sa source officielle.
+ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS contexte text;
+ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS source_contexte text;

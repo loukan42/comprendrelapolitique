@@ -19,9 +19,11 @@
  * jamais de source : chaque URL ci-dessous est sur le domaine du parti ou de
  * la campagne concernée.
  *
- * La `nature` est le champ qui évite le contresens : à ce jour, la plupart
- * des partis n'ont pas de programme présidentiel 2027, et ce qu'ils publient
- * est un programme de 2024 ou un projet en cours. L'écrire est le minimum.
+ * La `nature` est le champ qui évite le contresens. Plusieurs candidats ont
+ * publié leur programme de campagne pour 2027 ; pour les autres, le document
+ * cité est le plus récent de leur formation : programme présidentiel de
+ * 2022, programme des législatives de 2024, propositions du parti, tribune
+ * du candidat. Le lecteur doit savoir lequel il lit.
  */
 
 import { resolve } from "node:path";
@@ -29,7 +31,14 @@ import { resolve } from "node:path";
 import { appliquerMigration, ouvrirPGlite, type Db } from "./db.ts";
 
 type Nature =
-  "presidentiel_2027" | "legislatif_2024" | "europeen_2024" | "projet_en_cours" | "aucun";
+  | "presidentiel_2027"
+  | "presidentiel_2022"
+  | "legislatif_2024"
+  | "europeen_2024"
+  | "programme_parti"
+  | "prise_de_position"
+  | "projet_en_cours"
+  | "aucun";
 
 interface Reference {
   id: string;
@@ -48,17 +57,17 @@ const REFERENCES: Reference[] = [
     formation: "La France insoumise",
     candidat: "Jean-Luc Mélenchon",
     titre: "L'Avenir en commun",
-    nature: "projet_en_cours",
+    nature: "presidentiel_2027",
     datePublication: "2025-01-01",
     url: "https://programme.lafranceinsoumise.fr/",
-    note: "Quatrième version du programme, publiée en janvier 2025. Le PDF complet et les livrets thématiques sont accessibles depuis cette page.",
+    note: "Quatrième version du programme, publiée en janvier 2025. Le site de campagne melenchon2027.fr la présente comme le programme de la candidature et annonce une version réactualisée.",
   },
   {
     id: "lfi-avenir-en-commun-pdf",
     formation: "La France insoumise",
     candidat: "Jean-Luc Mélenchon",
     titre: "L'Avenir en commun, texte intégral (PDF)",
-    nature: "projet_en_cours",
+    nature: "presidentiel_2027",
     datePublication: "2025-01-01",
     url: "https://melenchon2027.fr/wp-content/uploads/2025/avenir_en_commun_2025.pdf",
   },
@@ -70,7 +79,7 @@ const REFERENCES: Reference[] = [
     nature: "legislatif_2024",
     datePublication: "2024-06-01",
     url: "https://www.rassemblementnational.fr/documents/202406-programme.pdf",
-    note: "Programme de législatives, pas de présidentielle. Le parti n'a pas publié de programme présidentiel 2027 à ce jour.",
+    note: "Programme de législatives, pas de présidentielle.",
   },
   {
     id: "rn-europeennes-2024",
@@ -128,7 +137,7 @@ const REFERENCES: Reference[] = [
     id: "lr-propositions",
     formation: "Les Républicains",
     titre: "Nos propositions",
-    nature: "projet_en_cours",
+    nature: "programme_parti",
     url: "https://republicains.fr/nos-propositions/",
   },
   {
@@ -149,16 +158,174 @@ const REFERENCES: Reference[] = [
     url: "https://doc.parti.re/conventions/Restitution-Regalien-Une-Republique-ferme-une-France-apaisee.pdf",
   },
 
+  // Programmes de campagne pour 2027, publiés par les candidats sur leur
+  // site, une page par chapitre : c'est la page du chapitre, et non
+  // l'accueil du site, qui porte le texte cité.
+  {
+    id: "attal-ecole",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : École",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/education",
+  },
+  {
+    id: "attal-travail",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : Travail et salaires",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/travail-salaires",
+  },
+  {
+    id: "attal-frontieres",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : Frontières",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/frontieres",
+  },
+  {
+    id: "attal-dette-etat",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : Dette de l'État",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/dette-de-letat",
+  },
+  {
+    id: "attal-dette-ecologique",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : Dette écologique",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/dette-ecologique",
+  },
+  {
+    id: "attal-ia",
+    formation: "Renaissance",
+    candidat: "Gabriel Attal",
+    titre: "Chantiers capitaux : Intelligence artificielle",
+    nature: "presidentiel_2027",
+    url: "https://attalpresident.fr/programme/intelligence-artificielle",
+  },
+  {
+    id: "philippe-sure",
+    formation: "Horizons",
+    candidat: "Édouard Philippe",
+    titre: "Les priorités : Pour une France plus sûre",
+    nature: "presidentiel_2027",
+    url: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+  },
+  {
+    id: "philippe-prospere",
+    formation: "Horizons",
+    candidat: "Édouard Philippe",
+    titre: "Les priorités : Pour une France plus prospère",
+    nature: "presidentiel_2027",
+    url: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+  },
+  {
+    id: "philippe-enfants",
+    formation: "Horizons",
+    candidat: "Édouard Philippe",
+    titre: "Les priorités : Pour une France plus attentive à ses enfants",
+    nature: "presidentiel_2027",
+    url: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+  },
+  {
+    id: "philippe-conquerante",
+    formation: "Horizons",
+    candidat: "Édouard Philippe",
+    titre: "Les priorités : Pour une France plus conquérante",
+    nature: "presidentiel_2027",
+    url: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+  },
+
+  // Candidats sans programme de campagne 2027 publié à ce jour : le document
+  // cité est le plus récent de leur formation, et sa nature le dit.
+  {
+    id: "rn-presidentiel-2022",
+    formation: "Rassemblement National",
+    candidat: "Marine Le Pen",
+    titre: "M la France, programme présidentiel de 2022",
+    nature: "presidentiel_2022",
+    url: "https://mlafrance.fr/programme",
+    note: "Programme de la présidentielle de 2022, toujours en ligne sur le site de la candidate. Cité faute de programme pour 2027 publié sur ce site.",
+  },
+  {
+    id: "lr-priorite-travail",
+    formation: "Les Républicains",
+    candidat: "Bruno Retailleau",
+    titre: "« Priorité travail », tribune de Bruno Retailleau",
+    nature: "prise_de_position",
+    datePublication: "2026-05-02",
+    url: "https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/",
+    note: "Tribune parue dans La Tribune Dimanche et reprise sur le site du parti.",
+  },
+  {
+    id: "lr-energie",
+    formation: "Les Républicains",
+    candidat: "Bruno Retailleau",
+    titre:
+      "Rebâtir un parc nucléaire et stopper le financement des renouvelables, notre plan pour l'énergie",
+    nature: "prise_de_position",
+    datePublication: "2025-07-02",
+    url: "https://republicains.fr/actualites/2025/07/02/rebatir-un-parc-nucleaire-et-stopper-le-financement-des-renouvelables-notre-plan-pour-lenergie/",
+    note: "Tribune de Bruno Retailleau, François-Xavier Bellamy et Julien Aubert, reprise sur le site du parti.",
+  },
+  {
+    id: "lr-travail-gagnant",
+    formation: "Les Républicains",
+    candidat: "Bruno Retailleau",
+    titre: "Nos propositions pour la France : travail gagnant",
+    nature: "programme_parti",
+    url: "https://republicains.fr/wp-content/uploads/2026/01/LesRepublicains_NosPropositionsPourLaFrance_TravailGagnant.pdf",
+  },
+  {
+    id: "lr-produire-plus",
+    formation: "Les Républicains",
+    candidat: "Bruno Retailleau",
+    titre: "Nos propositions pour la France : produire plus",
+    nature: "programme_parti",
+    url: "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+  },
+  {
+    id: "ne-ambition",
+    formation: "Nouvelle Énergie",
+    candidat: "David Lisnard",
+    titre: "Notre programme : Réussir une nouvelle ambition française",
+    nature: "programme_parti",
+    url: "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+  },
+  {
+    id: "ne-destin",
+    formation: "Nouvelle Énergie",
+    candidat: "David Lisnard",
+    titre: "Notre programme : Être maître de notre destin",
+    nature: "programme_parti",
+    url: "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
+  },
+  {
+    id: "ne-civique",
+    formation: "Nouvelle Énergie",
+    candidat: "David Lisnard",
+    titre: "Notre programme : Générer un renouveau civique",
+    nature: "programme_parti",
+    url: "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/",
+  },
+  {
+    id: "pcf-10-propositions",
+    formation: "Parti communiste français",
+    candidat: "Fabien Roussel",
+    titre: "Les 10 propositions du PCF pour la France",
+    nature: "programme_parti",
+    url: "https://www.pcf.fr/actualite_les_10_propositions_du_pcf_pour_la_france",
+  },
+
   // Formations et personnalités suivies, sans programme publié à ce jour.
   // L'absence est affichée : elle informe le lecteur autant qu'un lien, et
   // évite qu'il conclue à un oubli du site.
-  {
-    id: "horizons-aucun",
-    formation: "Horizons",
-    candidat: "Édouard Philippe",
-    nature: "aucun",
-    note: "Des propositions ont été rendues publiques par voie de presse, notamment une règle d'or budgétaire, mais aucun document de programme n'est publié par le parti à ce jour.",
-  },
   {
     id: "ecologistes-aucun",
     formation: "Les Écologistes",
@@ -218,6 +385,7 @@ const REFERENCES: Reference[] = [
 ];
 
 const MIGRATION = resolve("db/migrations/006_programmes.sql");
+const MIGRATION_NATURES = resolve("db/migrations/009_natures_programme.sql");
 
 /** Contrôle d'accessibilité. Une URL qui ne répond pas n'est pas publiée. */
 async function tester(url: string): Promise<number | string> {
@@ -272,6 +440,8 @@ async function main() {
     await appliquerMigration(db, MIGRATION);
     console.log("Migration 006 appliquée");
   }
+  // Idempotente : ajoute les natures de document aux bases créées avant elle.
+  await appliquerMigration(db, MIGRATION_NATURES);
 
   await db.query(`DELETE FROM enrichissement.programme`);
   let ecrites = 0;

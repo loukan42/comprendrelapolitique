@@ -23,6 +23,8 @@
 export interface OptionQcm {
   positionId: string;
   formation: string;
+  /** Candidat nommé par le document, quand il y en a un. */
+  candidat?: string | null;
   extrait: string;
   resumeAffichage: string | null;
   titreDocument: string | null;
@@ -34,6 +36,9 @@ export interface QuestionQcm {
   id: string;
   theme: string;
   intitule: string;
+  /** Repère factuel affiché sous la question, avec l'adresse de sa source. */
+  contexte?: string | null;
+  sourceContexte?: string | null;
   options: OptionQcm[];
 }
 

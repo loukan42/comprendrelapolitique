@@ -49,13 +49,20 @@ commencer avant d'en modifier le contenu.
 - **Thèmes** : chaque texte avec le résultat de son propre scrutin.
 - **Députés**, **groupes** : taux d'unité, participation, proximité.
 - **Quiz des votes** : 11 questions à six réponses, sur la banque et les positions
-  calculées par formation, calcul entièrement dans le navigateur.
-- **Programmes** (`/programmes`) : documents publiés par les partis, avec leur
-  nature et leur date.
+  calculées par formation, calcul entièrement dans le navigateur. Intitulés en
+  langage courant, un seul sujet par question, et une phrase d'explication
+  quand le texte voté emploie une notion technique (rétention, présomption de
+  légitime défense).
+- **Programmes** (`/programmes`) : documents publiés par les candidats et leurs
+  partis, avec leur nature et leur date. Programmes de campagne 2027 de
+  Gabriel Attal, Édouard Philippe et Jean-Luc Mélenchon ; pour les autres
+  candidats, le document le plus récent de leur formation.
 - **Comparateur** (`/programmes/comparer`) : deux formations côte à côte, sur
-  citations vérifiées. Cinq formations, 40 citations.
-- **Quiz des programmes** (`/programmes/quiz`) : neuf questions, des citations
-  présentées sans leur auteur, révélé après le choix. Le décompte se fait dans
+  citations vérifiées. Huit formations, 97 citations.
+- **Quiz des programmes** (`/programmes/quiz`) : 17 questions, chacune réunissant
+  au moins trois formations, des citations présentées sans leur auteur,
+  révélé après le choix avec le candidat et la nature du document. Un repère
+  sourcé explique les termes techniques (peine plancher, IFI, part fiscale). Le décompte se fait dans
   le navigateur et rapporte chaque choix au nombre de questions où la
   formation figurait.
 - **Bilans** (`/bilans/emmanuel-macron`) : engagements face aux faits, sur les
@@ -81,7 +88,7 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 | `groupe_ordre` | placement gauche-droite dans l'hémicycle | 43 groupes |
 | `question`, `question_scrutin` | banque du quiz des votes | 11 questions, 15 scrutins |
 | `question_position` | positions calculées par formation | 95 |
-| `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 20 références, 40 citations, 9 questions |
+| `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 38 références, 97 citations, 17 questions |
 | `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 24 engagements |
 | `score_importance`, `dossier_theme` | score et classification | 10 647 dossiers |
 
@@ -115,18 +122,26 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
    depuis les pages de chapitre de son projet : sa page d'accueil présente les
    mesures en cartes à retourner et ne les porte pas dans son texte.
 
-   À rétablir : les citations du Parti communiste français, retirées le
-   14 septembre 2026 parce que `pcf.fr/le_programme` répond 404. Les pages
-   encore en ligne sur pcf.fr décrivent le programme sans le reproduire, ce qui
-   ne permet pas de citer.
+   Rétabli : les citations du Parti communiste français viennent désormais de
+   la page des dix propositions du parti, `pcf.fr/le_programme` répondant 404
+   depuis le 14 septembre 2026.
 
 ### Priorité moyenne
 
-4. **QCM des programmes.** En place, sur neuf questions. Renaissance ne figure
-   que dans quatre questions et Les Républicains dans cinq : leurs documents
-   couvrent moins de sujets que ceux de La France insoumise et du
-   Rassemblement National. L'écran d'accueil du quiz l'affiche. Élargir passe
-   par de nouvelles citations, jamais par une position déduite.
+4. **QCM des programmes.** En place sur 17 questions, reconstruit le
+   14 septembre 2026 sur les programmes de campagne 2027 quand ils existent
+   (Attal, Philippe, Mélenchon). Marine Le Pen est citée dans son programme
+   présidentiel de 2022, faute de programme 2027 sur mlafrance.fr ; Bruno
+   Retailleau dans sa tribune « Priorité travail » et les documents des
+   Républicains, avecretailleau.fr ne portant pas de texte de programme.
+   Restent absents, faute de texte citable : Les Écologistes (le site de
+   Marine Tondelier publie des billets, pas de programme), Xavier Bertrand
+   (pages de programme rendues en JavaScript, sans texte lisible par le
+   vérificateur), Reconquête (plateforme participative). La « vision en 42
+   chantiers » de Place publique n'a pas encore été exploitée. À reprendre à
+   la désignation du candidat socialiste, après la primaire des 10 et
+   11 octobre 2026. Élargir passe par de nouvelles citations, jamais par une
+   position déduite.
 5. ~~**Quiz des votes, nouveau modèle.**~~ Fait : `/quiz` lit la banque
    (`chargerBanqueQuiz`), pose les questions avec six réponses et calcule la
    compatibilité dans le navigateur (`quizPosition.ts`). L'ancien modèle
