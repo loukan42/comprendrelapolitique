@@ -295,7 +295,7 @@ const QUESTIONS: QuestionSource[] = [
   },
 ];
 
-const MIGRATION = resolve("db/migrations/003_quiz.sql");
+const MIGRATION = resolve("db/migrations/004_quiz.sql");
 
 async function verifier(db: Db): Promise<void> {
   for (const q of QUESTIONS) {

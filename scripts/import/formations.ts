@@ -235,7 +235,7 @@ const FORMATIONS: Formation[] = [
   },
 ];
 
-const MIGRATION = resolve("db/migrations/002_enrichissement.sql");
+const MIGRATION = resolve("db/migrations/003_formations.sql");
 
 async function imprimerPreuve(db: Db): Promise<void> {
   const lignes = await db.query<{

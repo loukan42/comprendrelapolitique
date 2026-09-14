@@ -15,6 +15,7 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
 import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
 import { Route as GroupesUidRouteImport } from './routes/groupes/$uid'
+import { Route as LoisIndexRouteImport } from './routes/lois/index'
 import { Route as LoisUidRouteImport } from './routes/lois/$uid'
 import { Route as ThemesIndexRouteImport } from './routes/themes/index'
 import { Route as ThemesSlugRouteImport } from './routes/themes/$slug'
@@ -49,6 +50,11 @@ const GroupesUidRoute = GroupesUidRouteImport.update({
   path: '/groupes/$uid',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoisIndexRoute = LoisIndexRouteImport.update({
+  id: '/lois/',
+  path: '/lois/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoisUidRoute = LoisUidRouteImport.update({
   id: '/lois/$uid',
   path: '/lois/$uid',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/lois/': typeof LoisIndexRoute
   '/themes/': typeof ThemesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/lois': typeof LoisIndexRoute
   '/themes': typeof ThemesIndexRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/lois/': typeof LoisIndexRoute
   '/themes/': typeof ThemesIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/themes/$slug'
+    | '/lois/'
     | '/themes/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/themes/$slug'
+    | '/lois'
     | '/themes'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/themes/$slug'
+    | '/lois/'
     | '/themes/'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   GroupesUidRoute: typeof GroupesUidRoute
   LoisUidRoute: typeof LoisUidRoute
   ThemesSlugRoute: typeof ThemesSlugRoute
+  LoisIndexRoute: typeof LoisIndexRoute
   ThemesIndexRoute: typeof ThemesIndexRoute
 }
 
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupesUidRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lois/': {
+      id: '/lois/'
+      path: '/lois'
+      fullPath: '/lois/'
+      preLoaderRoute: typeof LoisIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lois/$uid': {
       id: '/lois/$uid'
       path: '/lois/$uid'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   GroupesUidRoute: GroupesUidRoute,
   LoisUidRoute: LoisUidRoute,
   ThemesSlugRoute: ThemesSlugRoute,
+  LoisIndexRoute: LoisIndexRoute,
   ThemesIndexRoute: ThemesIndexRoute,
 }
 export const routeTree = rootRouteImport

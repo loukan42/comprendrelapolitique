@@ -50,10 +50,29 @@ const graphite: MantineColorsTuple = [
   "#605f59",
 ];
 
+/**
+ * Ocre : seul accent utilisé pour distinguer visuellement deux catégories de
+ * vote (POUR / CONTRE) l'une de l'autre. Choisie dans la liste des teintes
+ * explicitement autorisées par AGENTS.md section 4 (« gris-ardoise,
+ * bleu-encre très désaturé, ocre »), jamais une couleur de parti.
+ */
+const ocre: MantineColorsTuple = [
+  "#faf6ef",
+  "#f0e6d3",
+  "#e2cca8",
+  "#d2af7a",
+  "#c59858",
+  "#bc8a43",
+  "#b78239",
+  "#a06e2b",
+  "#8f6122",
+  "#7c5111",
+];
+
 export const theme = createTheme({
   primaryColor: "encre",
   primaryShade: { light: 8, dark: 4 },
-  colors: { encre, graphite },
+  colors: { encre, graphite, ocre },
 
   // Le fond n'est pas blanc. Un blanc proche de #fff sur une page dense, lue
   // longtemps, éblouit : la luminance du fond est ramenée vers un papier

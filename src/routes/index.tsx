@@ -147,11 +147,16 @@ function Accueil() {
             <EntreeCard
               icone={<IconSearch size={20} />}
               titre="Je veux comprendre"
-              description="Chercher une loi par son titre et voir ce qui a réellement été voté."
+              description="Chercher une loi par son titre, ou parcourir tous les dossiers législatifs."
               action={
-                <Button component="a" href="/recherche" fullWidth variant="filled">
-                  Chercher une loi
-                </Button>
+                <Stack gap="xs">
+                  <Button component="a" href="/recherche" fullWidth variant="filled">
+                    Chercher une loi
+                  </Button>
+                  <Anchor component={Link} to="/lois" size="sm" ta="center">
+                    Parcourir les dossiers
+                  </Anchor>
+                </Stack>
               }
             />
             <EntreeCard
