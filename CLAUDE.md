@@ -35,29 +35,74 @@ La chaîne d'ingestion et ses contrôles sont décrits dans
 [docs/PIPELINE.md](docs/PIPELINE.md). Aucune base à installer : le
 développement local utilise PGlite.
 
+La chaîne complète, dans l'ordre. Les données officielles d'abord, puis les
+couches d'enrichissement qui s'appuient dessus.
+
 ```sh
+# 1. Données officielles, une législature à la fois, sur la même base.
+npm run data:telecharger 15 data
+npm run data:charger 15 data/15 --db data/pg16
 npm run data:telecharger 16 data
 npm run data:charger 16 data/16 --db data/pg16
+npm run data:telecharger 17 data
+npm run data:charger 17 data/17 --db data/pg16
 npm run data:controler data/pg16
+
+# 2. Enrichissement : formations, placement dans l'hémicycle, scores, thèmes.
 npm run data:formations -- --db data/pg16
+npm run data:ordre-groupes -- --db data/pg16
+npm run enrichissement:scores -- --db data/pg16
+npm run enrichissement:themes-echantillon -- --db data/pg16
+
+# 3. Quiz des votes : banque de questions puis positions calculées.
+npm run data:questions -- --db data/pg16
+npm run data:positions -- --db data/pg16
+
+# 4. Programmes : références vers les documents, puis positions citées.
+npm run data:programmes -- --db data/pg16
+npm run data:positions-programme -- --db data/pg16
 ```
+
+Jeux facultatifs, hors chaîne minimale parce qu'ils sont lourds :
+`--debats` ajoute les comptes rendus de séance (311 Mo pour la XVIIe), d'où
+viennent les explications de vote ; `--amendements` ajoute les amendements
+(1,1 Go pour la XVIIe). Les deux se passent à `data:telecharger` puis à
+`data:charger`.
 
 `data:charger` se rejoue par législature sur la même base : charger la XVe,
 la XVIe et la XVIIe à la suite avec le même `--db` les réunit, la migration
 n'étant appliquée qu'à la première.
 
-`data:ordre-groupes` place les groupes sur l'axe gauche-droite de l'hémicycle.
-Sans cette étape, le dessin range les groupes par identifiant, ce qui lui
-retire le seul apport qu'il a sur un tableau de chiffres. La source ne publie
-pas cet ordre : c'est un placement éditorial, justifié groupe par groupe, que
-`--verifier` réimprime de la gauche vers la droite.
+Chaque script d'enrichissement porte un mode de contrôle qui n'écrit rien, et
+c'est par là qu'il faut commencer quand on en modifie le contenu :
 
-`data:formations` crée le schéma `enrichissement` et rattache les groupes
-parlementaires aux formations politiques qu'ils prolongent, sans quoi « Les
-Républicains » et « Droite Républicaine » comptent comme deux familles. Le
-site fonctionne sans cette étape, mais les classements affichent alors un
-groupe par législature. `--preuve` n'écrit rien et réimprime les mandats de
-parti sur lesquels chaque rattachement s'appuie.
+| Script | Contrôle | Ce qu'il montre |
+| --- | --- | --- |
+| `data:formations` | `--preuve` | Les mandats de parti sur lesquels chaque rattachement s'appuie |
+| `data:ordre-groupes` | `--verifier` | L'ordre obtenu, de la gauche vers la droite, par législature |
+| `data:questions` | `--verifier` | L'objet réel de chaque scrutin retenu, en face du sens déclaré |
+| `data:positions` | `--detail <question>` | Le décompte scrutin par scrutin ayant servi au calcul |
+| `data:programmes` | `--verifier` | Le code de réponse de chaque lien |
+| `data:positions-programme` | `--verifier` | Si chaque citation figure bien dans le document source |
+
+Ces contrôles ne sont pas décoratifs : celui de `data:questions` a rattrapé
+quatre erreurs de rattachement, et celui de `data:positions-programme` a
+refusé une citation qui n'existait pas dans le document.
+
+Ce que fait chaque couche d'enrichissement, et ce qu'on perd sans elle :
+
+- `data:formations` rattache les groupes parlementaires aux formations
+  politiques qu'ils prolongent, sans quoi « Les Républicains » et « Droite
+  Républicaine » comptent comme deux familles distinctes.
+- `data:ordre-groupes` place les groupes sur l'axe gauche-droite de
+  l'hémicycle. Sans cette étape, le dessin range les groupes par identifiant,
+  ce qui lui retire le seul apport qu'il a sur un tableau de chiffres. La
+  source ne publie pas cet ordre : c'est un placement éditorial.
+
+Le site fonctionne sans aucune de ces étapes, et même sans base du tout : les
+fonctions serveur renvoient un résultat vide et les pages affichent leur état
+vide plutôt qu'une erreur. C'est ce qui permet à une prévisualisation faite
+depuis le dépôt seul, comme celle de Lovable, de servir le site.
 
 `data/` n'est pas versionné : les données sont retéléchargeables, c'est le code
 d'import qui est le livrable.

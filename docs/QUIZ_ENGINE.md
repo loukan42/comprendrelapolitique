@@ -602,21 +602,59 @@ Aucune ne reçoit de réponse d'utilisateur, jamais.
 
 - **T0.1** ~~Charger la XVe législature, porter la couverture à neuf ans.~~
   Fait le 13 septembre 2026.
-- **T0.2** Créer le schéma `enrichissement` et les tables de la section 3.
-- **T0.3** Renseigner `formation` et `formation_groupe` pour les groupes des
-  trois législatures, avec sources.
+- **T0.2** ~~Créer le schéma `enrichissement` et les tables de la section 3.~~
+  Fait. Migrations 003 (formations), 004 (banque de questions), 005 (ordre
+  gauche-droite des groupes), 006 (programmes). La migration 002 porte le
+  score d'importance et la classification thématique, développés en
+  parallèle.
+- **T0.3** ~~Renseigner `formation` et `formation_groupe`.~~ Fait : onze
+  formations couvrant 32 des 43 groupes des trois législatures, chaque
+  rattachement portant sa preuve tirée des mandats de parti. Onze groupes
+  restent volontairement non rattachés, chacun avec sa raison.
 
 ### Phase 1 : V1, quiz fixe explicable
 
-- **T1.1** Calcul de position et de confiance (`quizPosition.ts`) et tests 1 à 6.
-- **T1.2** Script de recalcul de `question_position`, rejouable.
-- **T1.3** Rédiger 20 à 25 questions avec leurs scrutins, sens, poids et
-  justifications. C'est le poste le plus lourd, et il est éditorial.
+- **T1.1** ~~Calcul de position et de confiance (`quizPosition.ts`).~~ Fait,
+  avec 19 tests dont l'exemple chiffré de la section 4.5 rejoué tel quel.
+- **T1.2** ~~Script de recalcul de `question_position`, rejouable.~~ Fait
+  (`data:positions`), avec un mode `--detail` qui réimprime le décompte
+  scrutin par scrutin pour refaire le calcul à la main.
+- **T1.3** Rédiger 20 à 25 questions. **Partiellement fait** : onze questions
+  adossées à quinze scrutins. Le reste est bloqué par une limite de données,
+  pas par le temps : 12 351 des 16 957 scrutins portent sur un amendement,
+  dont l'objet ne dit jamais ce que l'amendement proposait. Leur sens ne peut
+  donc pas être établi sans le deviner, ce qui est exclu. Charger le jeu
+  Amendements est le préalable à la granularité fine, par exemple un
+  amendement sur la fiscalité des hauts revenus.
 - **T1.4** `chargerBanqueQuiz`, livraison au navigateur.
-- **T1.5** Écrans question et résultat, échelle à 6 réponses.
+- **T1.5** Écrans question et résultat, échelle à 6 réponses. Le quiz en
+  production utilise encore l'ancien modèle, une question pour un scrutin,
+  avec quatre réponses.
 - **T1.6** Explication par question, dépliable jusqu'au scrutin.
-- **T1.7** Test d'invariant de confidentialité (test 7).
+- **T1.7** ~~Test d'invariant de confidentialité.~~ Fait, et il teste aussi
+  son propre détecteur : sans cela, il pourrait passer au vert en ayant cessé
+  de détecter quoi que ce soit.
 - **T1.8** Page méthodologie mise à jour : demi-vie, seuils, couverture réelle.
+
+### Phase 1 bis : quiz des programmes
+
+Ajouté en cours de route, à la demande. Le corpus est distinct de celui des
+votes, mais la structure est commune : une position par formation et par
+thème, dans `enrichissement.programme_position`, que lisent à la fois le
+comparateur et le futur QCM.
+
+- **T1b.1** ~~Page des programmes publiés, avec la nature et la date de chaque
+  document.~~ Fait. Aucun parti n'a publié de programme présidentiel 2027 à
+  ce jour : ce qui est en ligne est un programme de 2024 ou un projet en
+  cours, et la page l'écrit.
+- **T1b.2** ~~Comparateur de deux formations, thème par thème.~~ Fait, sur
+  citations vérifiées contre le document source.
+- **T1b.3** Étendre le corpus. Dix positions sur cinq thèmes, pour deux
+  formations. Bloqué pour LFI et le RN, qui publient en PDF : la vérification
+  de citation lit du HTML, extraire le texte d'un PDF demande une
+  bibliothèque.
+- **T1b.4** QCM des programmes. Demande d'abord du volume : un quiz sur deux
+  formations et cinq thèmes n'a pas de sens.
 
 ### Phase 2 : V2, banque étendue
 
