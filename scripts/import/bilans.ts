@@ -70,11 +70,21 @@ const PRESIDENTS: PresidentSource[] = [
         programmeUrl: "https://www.cnccep.fr/pdfs/Candidat-07-Emmanuel-Macron-Declaration.pdf",
         programmeDate: "2022-04-01",
       },
-      // Mandat 2017-2022 : volontairement absent tant qu'aucune source de
-      // programme n'est vérifiée. Le site de campagne d'alors, en-marche.fr,
-      // répond 404, et les pages d'archive candidates n'ont pas pu être
-      // confirmées automatiquement. Ajouter une entrée ici dès qu'un document
-      // officiel atteignable est identifié.
+      {
+        id: "macron-2017-2022",
+        libelle: "2017-2022",
+        dateDebut: "2017-05-14",
+        dateFin: "2022-05-13",
+        programmeTitre: "Programme d'Emmanuel Macron, élection présidentielle de 2017",
+        // Le site de campagne en-marche.fr répond 404 depuis, mais le PDF du
+        // programme reste servi par le stockage de la campagne. Les
+        // professions de foi 2017 déposées auprès de la commission de
+        // contrôle ne sont, elles, pas archivées : l'index de la Wayback
+        // Machine ne contient pour cnccep.fr en 2017 que des communiqués.
+        programmeUrl:
+          "https://storage.googleapis.com/en-marche-fr/COMMUNICATION/Programme-Emmanuel-Macron.pdf",
+        programmeDate: "2017-03-02",
+      },
     ],
   },
 ];
