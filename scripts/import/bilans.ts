@@ -319,6 +319,56 @@ const ENGAGEMENTS: EngagementSource[] = [
     ],
   },
   {
+    id: "2017-education-dedoublement",
+    mandatId: "macron-2017-2022",
+    theme: "Éducation",
+    titre: "Limiter à 12 élèves par enseignant les classes de CP et CE1 en zone prioritaire",
+    extraitProgramme:
+      "Nous limiterons à 12 élèves par enseignant la taille des 12 000 classes de CP et de CE1 en zone prioritaire.",
+    reformulation:
+      "Diviser par deux les effectifs des classes de CP et CE1 des écoles des quartiers prioritaires, avec un maximum de 12 élèves par enseignant.",
+    pageProgramme: "Chapitre « Les mêmes chances pour tous »",
+    statut: "partiellement",
+    confiance: "moyenne",
+    actionMenee:
+      "Le dédoublement a été déployé sur trois rentrées : CP en REP+ en 2017, puis CE1 en REP+ et CP en REP en 2018, enfin CE1 en REP en 2019. Les classes concernées ont bien été dédoublées et des postes y ont été affectés.",
+    resultat:
+      "La taille moyenne des classes de CP en REP+ est passée d'environ 21,7 élèves en 2015 à environ 12,7 en 2024 selon les données du ministère. La moyenne reste donc au-dessus du plafond de 12 annoncé, et une moyenne n'indique pas combien de classes le dépassent.",
+    justification:
+      "Le dispositif a été mis en place sur le périmètre annoncé, ce qui est l'essentiel de l'engagement. Mais la promesse portait un plafond chiffré, 12 élèves par enseignant, et les données publiées montrent une moyenne légèrement supérieure. Réalisée sur le principe, pas strictement sur le seuil.",
+    interpretations:
+      "Lecture stricte du plafond : l'engagement n'est pas entièrement tenu, la moyenne dépassant 12. Lecture par l'intention, le dédoublement des classes concernées : il l'est. Le statut retenu est intermédiaire parce que le programme donnait un chiffre, et qu'un chiffre s'évalue. La confiance est moyenne : les données publiques disponibles sont des moyennes, et la part des classes réellement au-dessus de 12 n'en ressort pas.",
+    verifieLe: "2026-09-14",
+    actions: [
+      {
+        date: "2017-09-01",
+        description: "Rentrée 2017 : dédoublement des classes de CP en REP+.",
+      },
+      {
+        date: "2018-09-01",
+        description: "Rentrée 2018 : extension aux CE1 en REP+ et aux CP en REP.",
+      },
+      {
+        date: "2019-09-01",
+        description: "Rentrée 2019 : extension aux CE1 en REP.",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Réduction de la taille de classe en éducation prioritaire : que nous apprennent les données de la DEPP",
+        organisme: "Ministère de l'Éducation nationale",
+        url: "https://www.education.gouv.fr/sites/default/files/document/r-duction-de-la-taille-de-classe-en-ducation-prioritaire-que-nous-apprennent-les-donn-es-de-la-depp--478949.pdf",
+      },
+      {
+        titre:
+          "Évaluation de l'impact de la réduction de la taille des classes de CP et de CE1 en REP+ sur les résultats des élèves et les pratiques des enseignants",
+        organisme: "Direction de l'évaluation, de la prospective et de la performance",
+        url: "https://archives-statistiques-depp.education.gouv.fr/Default/doc/SYRACUSE/50756/evaluation-de-l-impact-de-la-reduction-de-la-taille-des-classes-de-cp-et-de-ce1-en-rep-sur-les-resul?_lg=fr-FR",
+      },
+    ],
+  },
+  {
     id: "2017-retraites-systeme-universel",
     mandatId: "macron-2017-2022",
     theme: "Retraites",
