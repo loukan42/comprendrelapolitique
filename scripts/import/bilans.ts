@@ -319,6 +319,51 @@ const ENGAGEMENTS: EngagementSource[] = [
     ],
   },
   {
+    id: "2017-travail-demission-chomage",
+    mandatId: "macron-2017-2022",
+    theme: "Travail",
+    titre: "Ouvrir l'assurance chômage aux salariés qui démissionnent",
+    extraitProgramme:
+      "Nous ouvrirons les droits à l'assurance-chômage aux salariés qui démissionnent. Ce droit ne sera utilisable qu'une fois tous les cinq ans.",
+    reformulation:
+      "Permettre à un salarié qui démissionne de toucher l'assurance chômage, une fois tous les cinq ans.",
+    pageProgramme: "Chapitre « Bien vivre de son travail »",
+    statut: "partiellement",
+    confiance: "moyenne",
+    actionMenee:
+      "La loi du 5 septembre 2018 pour la liberté de choisir son avenir professionnel a ouvert l'assurance chômage aux démissionnaires, en conditionnant ce droit à un projet de reconversion professionnelle préalablement examiné par un organisme de conseil en évolution professionnelle.",
+    resultat:
+      "Le droit existe, mais il est réservé aux démissionnaires porteurs d'un projet de reconversion validé, et non ouvert à l'ensemble des salariés qui démissionnent.",
+    justification:
+      "L'engagement annonçait l'ouverture du droit aux salariés qui démissionnent, sans autre condition que la périodicité de cinq ans. Le dispositif voté ajoute une condition de fond, le projet de reconversion validé, qui restreint sensiblement le périmètre annoncé.",
+    interpretations:
+      "Lecture stricte : le droit n'est pas ouvert à tous les démissionnaires, l'engagement n'est donc pas entièrement tenu. Lecture large : un droit nouveau a bien été créé pour des démissionnaires qui n'en avaient aucun. Le statut retenu est intermédiaire. La confiance est moyenne faute de donnée publique consolidée sur le nombre de bénéficiaires rapporté au nombre de démissions.",
+    verifieLe: "2026-09-14",
+    actions: [
+      {
+        date: "2018-09-05",
+        description:
+          "Loi pour la liberté de choisir son avenir professionnel : ouverture de l'assurance chômage aux démissionnaires ayant un projet de reconversion (article 50).",
+        url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000037367817",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "LOI n° 2018-771 du 5 septembre 2018 pour la liberté de choisir son avenir professionnel",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660/",
+        date: "2018-09-05",
+      },
+      {
+        titre: "Article 50 de la loi du 5 septembre 2018",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000037367817",
+        date: "2018-09-05",
+      },
+    ],
+  },
+  {
     id: "2017-education-dedoublement",
     mandatId: "macron-2017-2022",
     theme: "Éducation",

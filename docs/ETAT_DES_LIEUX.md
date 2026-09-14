@@ -63,8 +63,8 @@ commencer avant d'en modifier le contenu.
 | `groupe_ordre` | placement gauche-droite dans l'hémicycle | 43 groupes |
 | `question`, `question_scrutin` | banque du quiz des votes | 11 questions, 15 scrutins |
 | `question_position` | positions calculées par formation | 95 |
-| `programme`, `programme_position` | programmes et citations | 18 références, 10 citations |
-| `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 8 engagements |
+| `programme`, `programme_position` | programmes et citations | 17 références, 9 citations |
+| `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 9 engagements |
 | `score_importance`, `dossier_theme` | score et classification | 10 647 dossiers |
 
 ---
@@ -73,15 +73,30 @@ commencer avant d'en modifier le contenu.
 
 ### Priorité haute
 
-1. **Corpus des bilans.** Huit engagements sur trois thèmes du mandat
-   2017-2022 (fiscalité, retraites, éducation). Il en manque la plus grande
-   part, et tout le mandat 2022-2027. Méthode dans `scripts/import/bilans.ts`.
+1. **Corpus des bilans.** Neuf engagements sur quatre thèmes du mandat
+   2017-2022 (fiscalité, retraites, éducation, travail). Il en manque la plus
+   grande part, et tout le mandat 2022-2027. Méthode dans
+   `scripts/import/bilans.ts`, à lire avant d'ajouter quoi que ce soit.
+
+   Engagement repéré et non encore traité : le rétablissement des
+   exonérations de cotisations sur les heures supplémentaires, présent dans le
+   programme de 2017. La mesure a bien été prise, mais le numéro de la loi de
+   financement de la sécurité sociale concernée n'a pas été vérifié, et il ne
+   sera pas inscrit tant qu'il ne l'est pas.
+
 2. **Banque du quiz des votes.** Onze questions, il en faut 20 à 25 pour la
    V1. Le blocage est levé depuis le chargement des amendements, voir
    section 5.
-3. **Corpus du comparateur de programmes.** Dix citations, deux formations.
-   LFI et le RN publient en PDF : `pdftotext` est disponible sur la machine,
-   la vérification de citation ne lit pour l'instant que du HTML.
+
+3. **Corpus du comparateur de programmes.** Neuf citations pour trois
+   formations : Les Républicains, La France insoumise, le Rassemblement
+   National. La vérification lit désormais aussi les PDF, via `pdftotext`.
+
+   À rétablir : les cinq citations du Parti communiste français, retirées le
+   14 septembre 2026 parce que `pcf.fr/le_programme` répond 404 depuis, alors
+   que la page était en ligne le matin même. Dès qu'une URL stable est
+   identifiée, les positions sont à ressaisir, leur contenu figure dans
+   l'historique git.
 
 ### Priorité moyenne
 
@@ -136,6 +151,11 @@ choses.
 refusent les requêtes automatisées. Les traiter comme des liens morts
 écarterait du bilan les sources les plus solides, celles du droit publié.
 `bilans.ts` les classe comme bloquées.
+
+**Les sources disparaissent en cours de route.** La page programme du Parti
+communiste français est passée en ligne le matin et en 404 l'après-midi du
+14 septembre 2026. Relancer les modes `--verifier` régulièrement n'est pas une
+précaution théorique : un corpus de citations se dégrade tout seul.
 
 **Les contrôles rattrapent de vraies fautes.** Celui de `data:questions` a
 corrigé quatre rattachements erronés, dont un texte d'orientation agricole
