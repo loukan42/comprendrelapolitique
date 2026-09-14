@@ -11,14 +11,14 @@ import {
   Title,
 } from "@mantine/core";
 import { IconExternalLink, IconInfoCircle } from "@tabler/icons-react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   chargerProgrammes,
   type NatureProgramme,
   type ReferenceProgramme,
-} from "../queries/programmes";
+} from "../../queries/programmes";
 
-export const Route = createFileRoute("/programmes")({
+export const Route = createFileRoute("/programmes/")({
   loader: () => chargerProgrammes(),
   head: () => ({ meta: [{ title: "Les programmes 2027 · Comprendre la Politique" }] }),
   component: PageProgrammes,
@@ -89,6 +89,10 @@ function PageProgrammes() {
             au document tel que son auteur l&apos;a publié.
           </Text>
         </Box>
+
+        <Anchor component={Link} to="/programmes/comparer" fw={600}>
+          Comparer deux programmes thème par thème
+        </Anchor>
 
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
           À ce jour, aucun parti n&apos;a publié de programme pour la présidentielle de 2027. Ce qui

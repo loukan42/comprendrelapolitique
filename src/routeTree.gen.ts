@@ -11,13 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MethodologieRouteImport } from './routes/methodologie'
-import { Route as ProgrammesRouteImport } from './routes/programmes'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
 import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
 import { Route as GroupesUidRouteImport } from './routes/groupes/$uid'
 import { Route as LoisIndexRouteImport } from './routes/lois/index'
 import { Route as LoisUidRouteImport } from './routes/lois/$uid'
+import { Route as ProgrammesIndexRouteImport } from './routes/programmes/index'
+import { Route as ProgrammesComparerRouteImport } from './routes/programmes/comparer'
 import { Route as ThemesIndexRouteImport } from './routes/themes/index'
 import { Route as ThemesSlugRouteImport } from './routes/themes/$slug'
 
@@ -29,11 +30,6 @@ const IndexRoute = IndexRouteImport.update({
 const MethodologieRoute = MethodologieRouteImport.update({
   id: '/methodologie',
   path: '/methodologie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgrammesRoute = ProgrammesRouteImport.update({
-  id: '/programmes',
-  path: '/programmes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -66,6 +62,16 @@ const LoisUidRoute = LoisUidRouteImport.update({
   path: '/lois/$uid',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProgrammesIndexRoute = ProgrammesIndexRouteImport.update({
+  id: '/programmes/',
+  path: '/programmes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgrammesComparerRoute = ProgrammesComparerRouteImport.update({
+  id: '/programmes/comparer',
+  path: '/programmes/comparer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThemesIndexRoute = ThemesIndexRouteImport.update({
   id: '/themes/',
   path: '/themes/',
@@ -80,41 +86,44 @@ const ThemesSlugRoute = ThemesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
-  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
   '/lois/': typeof LoisIndexRoute
+  '/programmes/': typeof ProgrammesIndexRoute
   '/themes/': typeof ThemesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
-  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
   '/lois': typeof LoisIndexRoute
+  '/programmes': typeof ProgrammesIndexRoute
   '/themes': typeof ThemesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
-  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
   '/lois/': typeof LoisIndexRoute
+  '/programmes/': typeof ProgrammesIndexRoute
   '/themes/': typeof ThemesIndexRoute
 }
 export interface FileRouteTypes {
@@ -122,54 +131,58 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/methodologie'
-    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/programmes/comparer'
     | '/themes/$slug'
     | '/lois/'
+    | '/programmes/'
     | '/themes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/methodologie'
-    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/programmes/comparer'
     | '/themes/$slug'
     | '/lois'
+    | '/programmes'
     | '/themes'
   id:
     | '__root__'
     | '/'
     | '/methodologie'
-    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/programmes/comparer'
     | '/themes/$slug'
     | '/lois/'
+    | '/programmes/'
     | '/themes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MethodologieRoute: typeof MethodologieRoute
-  ProgrammesRoute: typeof ProgrammesRoute
   QuizRoute: typeof QuizRoute
   RechercheRoute: typeof RechercheRoute
   DeputesUidRoute: typeof DeputesUidRoute
   GroupesUidRoute: typeof GroupesUidRoute
   LoisUidRoute: typeof LoisUidRoute
+  ProgrammesComparerRoute: typeof ProgrammesComparerRoute
   ThemesSlugRoute: typeof ThemesSlugRoute
   LoisIndexRoute: typeof LoisIndexRoute
+  ProgrammesIndexRoute: typeof ProgrammesIndexRoute
   ThemesIndexRoute: typeof ThemesIndexRoute
 }
 
@@ -187,13 +200,6 @@ declare module '@tanstack/react-router' {
       path: '/methodologie'
       fullPath: '/methodologie'
       preLoaderRoute: typeof MethodologieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programmes': {
-      id: '/programmes'
-      path: '/programmes'
-      fullPath: '/programmes'
-      preLoaderRoute: typeof ProgrammesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -238,6 +244,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoisUidRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programmes/': {
+      id: '/programmes/'
+      path: '/programmes'
+      fullPath: '/programmes/'
+      preLoaderRoute: typeof ProgrammesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programmes/comparer': {
+      id: '/programmes/comparer'
+      path: '/programmes/comparer'
+      fullPath: '/programmes/comparer'
+      preLoaderRoute: typeof ProgrammesComparerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/themes/': {
       id: '/themes/'
       path: '/themes'
@@ -258,14 +278,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MethodologieRoute: MethodologieRoute,
-  ProgrammesRoute: ProgrammesRoute,
   QuizRoute: QuizRoute,
   RechercheRoute: RechercheRoute,
   DeputesUidRoute: DeputesUidRoute,
   GroupesUidRoute: GroupesUidRoute,
   LoisUidRoute: LoisUidRoute,
+  ProgrammesComparerRoute: ProgrammesComparerRoute,
   ThemesSlugRoute: ThemesSlugRoute,
   LoisIndexRoute: LoisIndexRoute,
+  ProgrammesIndexRoute: ProgrammesIndexRoute,
   ThemesIndexRoute: ThemesIndexRoute,
 }
 export const routeTree = rootRouteImport
