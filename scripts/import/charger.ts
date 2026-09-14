@@ -163,7 +163,7 @@ async function main() {
     legislature,
     url: `local:${dirs.acteurs}`,
     sha256: "local",
-    ...metadonneesArchive(dirArchives, legislature, "acteurs"),
+    ...metadonneesArchive(racine, legislature, "acteurs"),
   });
   const a = await importerActeurs(db, dirs.acteurs, lotActeurs, legislature);
   await fermerLot(db, lotActeurs, { inserees: a.organes + a.acteurs + a.mandats });
@@ -176,7 +176,7 @@ async function main() {
     legislature,
     url: `local:${dirs.dossiers}`,
     sha256: "local",
-    ...metadonneesArchive(dirArchives, legislature, "dossiers"),
+    ...metadonneesArchive(racine, legislature, "dossiers"),
   });
   const d = await importerDossiers(db, dirs.dossiers, lotDossiers, legislature);
   await fermerLot(db, lotDossiers, { inserees: d.dossiers + d.documents + d.actes });
@@ -191,7 +191,7 @@ async function main() {
       legislature,
       url: `local:${dirAmendements}`,
       sha256: "local",
-      ...metadonneesArchive(dirArchives, legislature, "amendements"),
+      ...metadonneesArchive(racine, legislature, "amendements"),
     });
     const am = await importerAmendements(db, dirAmendements, lotAmendements, legislature);
     await fermerLot(db, lotAmendements, { inserees: am.amendements + am.cosignataires });
@@ -205,7 +205,7 @@ async function main() {
     legislature,
     url: `local:${dirs.scrutins}`,
     sha256: "local",
-    ...metadonneesArchive(dirArchives, legislature, "scrutins"),
+    ...metadonneesArchive(racine, legislature, "scrutins"),
   });
   const s = await importerScrutins(db, dirs.scrutins, lotScrutins);
   await fermerLot(db, lotScrutins, { inserees: s.scrutins + s.groupes + s.votes });
@@ -227,7 +227,7 @@ async function main() {
       legislature,
       url: `local:${dirDebats}`,
       sha256: "local",
-      ...metadonneesArchive(dirArchives, legislature, "debats"),
+      ...metadonneesArchive(racine, legislature, "debats"),
     });
     const deb = await importerDebats(db, dirDebats, lotDebats, legislature);
     await fermerLot(db, lotDebats, {
