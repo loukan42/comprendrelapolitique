@@ -207,12 +207,16 @@ export const theme = createTheme({
           paddingBlock: "0.5rem",
         },
         inner: { height: "auto" },
+        // Libellé en 14 px, capitales espacées, comme la pastille de la
+        // référence : à la taille du corps (18 px), il passait sur deux lignes.
         label: {
           whiteSpace: "normal",
           textAlign: "center",
           lineHeight: 1.25,
+          fontSize: "var(--mantine-font-size-sm)",
           fontWeight: 600,
-          letterSpacing: "0.01em",
+          textTransform: "uppercase",
+          letterSpacing: "0.04em",
           overflow: "visible",
         },
       },

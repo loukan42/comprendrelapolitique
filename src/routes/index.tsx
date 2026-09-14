@@ -12,10 +12,9 @@ import {
   Stack,
   Table,
   Text,
-  ThemeIcon,
   Title,
 } from "@mantine/core";
-import { IconBrain, IconCircleCheck, IconCircleX, IconNews, IconSearch } from "@tabler/icons-react";
+import { IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logo from "../assets/politiquiz.png";
 import { CarteLien } from "../components/CarteLien";
@@ -72,32 +71,40 @@ const pourcent = (part: number, total: number) =>
     part / total,
   );
 
+/**
+ * Une porte d'entrée de l'accueil : une étiquette, un titre, une phrase et un
+ * seul bouton. Le bouton est poussé en bas de la carte, pour que tous les
+ * boutons d'une rangée s'alignent quelle que soit la longueur du texte. Pas
+ * d'icône dans un carré arrondi : AGENTS.md section 2 la bannit.
+ */
 function EntreeCard({
-  icone,
+  etiquette,
   titre,
   description,
+  href,
   action,
 }: {
-  icone: React.ReactNode;
+  etiquette: string;
   titre: string;
   description: string;
-  action: React.ReactNode;
+  href: string;
+  action: string;
 }) {
   return (
     <Card withBorder padding="lg" radius="md" h="100%">
-      <Stack gap="sm" h="100%">
-        <ThemeIcon variant="light" color="graphite" size={38} radius="md">
-          {icone}
-        </ThemeIcon>
-        <Box style={{ flexGrow: 1 }}>
-          <Title order={3} fz="lg">
-            {titre}
-          </Title>
-          <Text mt={4} c="dimmed" size="sm">
-            {description}
-          </Text>
-        </Box>
-        {action}
+      <Stack gap="xs" h="100%">
+        <Text tt="uppercase" fw={600} fz="xs" c="dimmed" lts="0.06em">
+          {etiquette}
+        </Text>
+        <Title order={3} fz="xl">
+          {titre}
+        </Title>
+        <Text c="dimmed" size="sm" flex={1}>
+          {description}
+        </Text>
+        <Button component="a" href={href} variant="filled" mt="sm" w="fit-content">
+          {action}
+        </Button>
       </Stack>
     </Card>
   );
@@ -143,46 +150,34 @@ function Accueil() {
 
       <Container size="md" py={{ base: 40, sm: 56 }}>
         <Stack gap={56}>
-          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
+          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
             <EntreeCard
-              icone={<IconSearch size={20} />}
-              titre="Je veux comprendre"
-              description="Chercher une loi par son titre, ou parcourir tous les dossiers législatifs."
-              action={
-                <Stack gap="xs">
-                  <Button component="a" href="/recherche" fullWidth variant="filled">
-                    Chercher une loi
-                  </Button>
-                  <Anchor component={Link} to="/lois" size="sm" ta="center">
-                    Parcourir les dossiers
-                  </Anchor>
-                </Stack>
-              }
+              etiquette="Comprendre"
+              titre="Les lois depuis 2017"
+              description="Retrouver un texte par son titre et voir qui l'a voté."
+              href="/lois"
+              action="Voir les lois"
             />
             <EntreeCard
-              icone={<IconBrain size={20} />}
-              titre="Je veux me tester"
-              description="Répondre à de vrais scrutins et voir de quel groupe vos positions se rapprochent, ou choisir entre des propositions de programme sans savoir qui les porte."
-              action={
-                <Stack gap="xs">
-                  <Button component="a" href="/quiz" fullWidth variant="filled">
-                    Faire le quiz des votes
-                  </Button>
-                  <Anchor component={Link} to="/programmes/quiz" size="sm" ta="center">
-                    Le quiz des programmes
-                  </Anchor>
-                </Stack>
-              }
+              etiquette="Se tester"
+              titre="Le quiz des votes"
+              description="De vrais scrutins : votez, puis comparez-vous aux groupes."
+              href="/quiz"
+              action="Faire le quiz"
             />
             <EntreeCard
-              icone={<IconNews size={20} />}
-              titre="Je veux voir ce qui se passe"
-              description="Les derniers textes déposés, les derniers votes sur l'ensemble d'un texte et les dernières lois promulguées."
-              action={
-                <Button component="a" href="/actualite" fullWidth variant="filled">
-                  Voir ce qui se passe
-                </Button>
-              }
+              etiquette="Se tester"
+              titre="Le quiz des programmes"
+              description="Des propositions citées mot pour mot, sans le nom du parti."
+              href="/programmes/quiz"
+              action="Faire le quiz"
+            />
+            <EntreeCard
+              etiquette="Suivre"
+              titre="En ce moment"
+              description="Les derniers textes déposés, votés et promulgués."
+              href="/actualite"
+              action="Voir l'actualité"
             />
           </SimpleGrid>
 
