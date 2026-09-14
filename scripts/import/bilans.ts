@@ -12,12 +12,11 @@
  *
  * ÉTAT DU CORPUS.
  *
- * Un seul thème est traité à ce jour, la fiscalité du mandat 2017-2022, avec
- * cinq engagements. Le reste est à faire, thème par thème : chaque promesse
- * demande l'extrait exact du programme, les textes ou données publiques
- * correspondants, et la comparaison du résultat observable à ce qui avait été
- * annoncé. Rien de cela ne se déduit, et une fiche déduite de ce qu'une mesure
- * au nom voisin existe serait pire que pas de fiche.
+ * Le corpus se construit thème par thème, sur le mandat 2017-2022 d'abord.
+ * Chaque promesse demande l'extrait exact du programme, les textes ou données
+ * publiques correspondants, et la comparaison du résultat observable à ce qui
+ * avait été annoncé. Rien de cela ne se déduit, et une fiche déduite de ce
+ * qu'une mesure au nom voisin existe serait pire que pas de fiche.
  *
  * SUR LA VÉRIFICATION DES LIENS.
  *
@@ -320,6 +319,90 @@ const ENGAGEMENTS: EngagementSource[] = [
     ],
   },
   {
+    id: "2017-retraites-systeme-universel",
+    mandatId: "macron-2017-2022",
+    theme: "Retraites",
+    titre: "Mettre en place un système universel de retraite",
+    extraitProgramme:
+      "Un système universel avec des règles communes de calcul des pensions sera progressivement mis en place. Le fait de changer d'activité ou de secteur sera sans effet sur les droits à la retraite. Avec un principe d'égalité : pour chaque euro cotisé, le même droit à pension pour tous !",
+    reformulation:
+      "Remplacer les 42 régimes de retraite existants par un système unique où un euro cotisé ouvre les mêmes droits pour tout le monde.",
+    pageProgramme: "Chapitre « Les mêmes règles pour tous »",
+    statut: "non_realise",
+    confiance: "haute",
+    actionMenee:
+      "Un projet de loi instituant un système universel de retraite a été déposé en janvier 2020 et considéré comme adopté en première lecture à l'Assemblée nationale le 3 mars 2020 par l'article 49 alinéa 3 de la Constitution. Son examen a ensuite été suspendu et le texte n'est jamais allé au terme de la procédure.",
+    resultat:
+      "Aucun système universel n'est entré en vigueur pendant le mandat : les régimes de retraite existants sont restés en place jusqu'à son terme.",
+    justification:
+      "L'engagement portait sur la mise en place effective d'un système universel. Le texte n'a pas dépassé la première lecture et le mandat s'est achevé sans qu'il s'applique. Le statut ne juge ni le contenu de la réforme ni les raisons de son interruption.",
+    interpretations:
+      "Lecture stricte : l'engagement est non réalisé, aucun système universel n'existant à la fin du mandat. Lecture large : la réforme a été engagée et une première lecture franchie. Le statut retenu est le premier, parce que le programme annonçait une mise en place et non le dépôt d'un texte.",
+    verifieLe: "2026-09-14",
+    actions: [
+      {
+        date: "2020-01-24",
+        description: "Dépôt du projet de loi instituant un système universel de retraite.",
+        url: "https://www.legifrance.gouv.fr/dossierlegislatif/JORFDOLE000041477060/",
+      },
+      {
+        date: "2020-03-03",
+        description:
+          "Texte considéré comme adopté en première lecture par l'Assemblée nationale par l'article 49 alinéa 3, après rejet des motions de censure.",
+        url: "https://www.assemblee-nationale.fr/dyn/15/textes/l15t0409_texte-adopte-seance",
+      },
+    ],
+    sources: [
+      {
+        titre: "Système universel de retraite, dossier législatif",
+        organisme: "Assemblée nationale",
+        url: "https://www.assemblee-nationale.fr/dyn/15/dossiers/systeme_universel_de_retraite",
+      },
+      {
+        titre: "Projet de loi instituant un système universel de retraite, dossier législatif",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/dossierlegislatif/JORFDOLE000041477060/",
+      },
+      {
+        titre: "Texte adopté n° 409, première lecture",
+        organisme: "Assemblée nationale",
+        url: "https://www.assemblee-nationale.fr/dyn/15/textes/l15t0409_texte-adopte-seance",
+        date: "2020-03-03",
+      },
+    ],
+  },
+  {
+    id: "2017-retraites-age-depart",
+    mandatId: "macron-2017-2022",
+    theme: "Retraites",
+    titre: "Ne pas modifier l'âge de départ à la retraite ni le niveau des pensions",
+    extraitProgramme:
+      "Nous ne toucherons pas à l'âge de départ à la retraite, ni au niveau des pensions.",
+    reformulation:
+      "Laisser inchangé l'âge légal de départ à la retraite et ne pas baisser les pensions.",
+    pageProgramme: "Chapitre « Les mêmes règles pour tous »",
+    statut: "realise",
+    confiance: "haute",
+    actionMenee:
+      "Aucune loi modifiant l'âge légal de départ n'a été promulguée entre 2017 et 2022. Le projet de système universel déposé en 2020 ne l'a pas relevé et n'a pas abouti.",
+    resultat: "L'âge légal de départ est resté inchangé pendant toute la durée du mandat.",
+    justification:
+      "L'engagement portait sur ce mandat. Le report de l'âge légal décidé en 2023 relève du mandat suivant et n'entre donc pas dans ce bilan : une mesure prise après une élection ne peut pas invalider un engagement tenu pendant le mandat précédent.",
+    verifieLe: "2026-09-14",
+    sources: [
+      {
+        titre: "Système universel de retraite, dossier législatif",
+        organisme: "Assemblée nationale",
+        url: "https://www.assemblee-nationale.fr/dyn/15/dossiers/systeme_universel_de_retraite",
+      },
+      {
+        titre: "Âge légal de départ à la retraite",
+        organisme: "Service-public.fr",
+        url: "https://www.service-public.fr/particuliers/vosdroits/F14043",
+      },
+    ],
+  },
+  {
     id: "2017-fiscalite-cice",
     mandatId: "macron-2017-2022",
     theme: "Fiscalité",
@@ -386,9 +469,15 @@ async function tester(url: string): Promise<number | string> {
  * droit publié. Le script le signale donc au lieu de les écarter, et c'est à
  * la relecture humaine de les ouvrir.
  */
-function etatLien(code: number | string): "ok" | "bloque" | "mort" {
+/** Domaines dont on sait qu'ils refusent les requêtes automatisées. */
+const DOMAINES_PROTEGES = ["legifrance.gouv.fr", "urssaf.fr", "economie.gouv.fr"];
+
+function etatLien(code: number | string, url: string): "ok" | "bloque" | "mort" {
   if (code === 200) return "ok";
   if (code === 403 || code === 401 || code === 429) return "bloque";
+  // Une coupure de connexion sur un domaine connu pour filtrer n'est pas une
+  // preuve d'absence : ces sites rejettent le client avant de répondre.
+  if (DOMAINES_PROTEGES.some((d) => url.includes(d))) return "bloque";
   return "mort";
 }
 
@@ -410,7 +499,7 @@ async function verifier(): Promise<void> {
   for (const e of ENGAGEMENTS) {
     for (const s of e.sources) {
       const code = await tester(s.url);
-      const etat = etatLien(code);
+      const etat = etatLien(code, s.url);
       if (etat === "mort") morts += 1;
       if (etat === "bloque") bloques += 1;
       const marque = etat === "ok" ? "OK  " : etat === "bloque" ? "BLOQ" : "MORT";
