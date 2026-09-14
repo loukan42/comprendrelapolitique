@@ -39,10 +39,17 @@ export const Route = createFileRoute("/programmes/comparer")({
   component: PageComparer,
 });
 
+/**
+ * Libellés d'affichage des thèmes. Un thème absent de cette table s'affiche
+ * avec son identifiant brut, ce qui se voit : la liste doit suivre les thèmes
+ * réellement utilisés dans `programme_position`.
+ */
 const LIBELLE_THEME: Record<string, string> = {
   retraites: "Retraites",
   travail: "Travail",
   impots: "Impôts",
+  energie: "Énergie",
+  education: "Éducation",
   sante: "Santé",
   immigration: "Immigration",
   environnement: "Environnement",
@@ -51,6 +58,9 @@ const LIBELLE_THEME: Record<string, string> = {
   institutions: "Institutions",
   entreprises: "Entreprises",
   defense: "Défense",
+  logement: "Logement",
+  europe: "Europe",
+  economie: "Économie",
 };
 
 /**
@@ -79,7 +89,9 @@ function BlocPosition({ position }: { position: PositionProgramme }) {
           display="block"
         >
           {position.titreDocument ?? "Source"}
-          {position.pageOuSection ? ` · ${position.pageOuSection}` : ""}
+          {position.pageOuSection && position.pageOuSection !== position.titreDocument
+            ? ` · ${position.pageOuSection}`
+            : ""}
         </Anchor>
       )}
     </Box>
