@@ -32,6 +32,13 @@ export function SiteHeader() {
             Rechercher
           </Link>
           <Link
+            to="/programmes"
+            className={classes["lien"]}
+            activeProps={{ className: `${classes["lien"]} ${classes["lienActif"]}` }}
+          >
+            Programmes
+          </Link>
+          <Link
             to="/quiz"
             className={classes["lien"]}
             activeProps={{ className: `${classes["lien"]} ${classes["lienActif"]}` }}

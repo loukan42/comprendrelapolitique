@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MethodologieRouteImport } from './routes/methodologie'
+import { Route as ProgrammesRouteImport } from './routes/programmes'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
 import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const MethodologieRoute = MethodologieRouteImport.update({
   id: '/methodologie',
   path: '/methodologie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgrammesRoute = ProgrammesRouteImport.update({
+  id: '/programmes',
+  path: '/programmes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -74,6 +80,7 @@ const ThemesSlugRoute = ThemesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
+  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
+  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/methodologie': typeof MethodologieRoute
+  '/programmes': typeof ProgrammesRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
   '/deputes/$uid': typeof DeputesUidRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/methodologie'
+    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/methodologie'
+    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/methodologie'
+    | '/programmes'
     | '/quiz'
     | '/recherche'
     | '/deputes/$uid'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MethodologieRoute: typeof MethodologieRoute
+  ProgrammesRoute: typeof ProgrammesRoute
   QuizRoute: typeof QuizRoute
   RechercheRoute: typeof RechercheRoute
   DeputesUidRoute: typeof DeputesUidRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/methodologie'
       fullPath: '/methodologie'
       preLoaderRoute: typeof MethodologieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programmes': {
+      id: '/programmes'
+      path: '/programmes'
+      fullPath: '/programmes'
+      preLoaderRoute: typeof ProgrammesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MethodologieRoute: MethodologieRoute,
+  ProgrammesRoute: ProgrammesRoute,
   QuizRoute: QuizRoute,
   RechercheRoute: RechercheRoute,
   DeputesUidRoute: DeputesUidRoute,
