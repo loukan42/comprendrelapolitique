@@ -539,10 +539,8 @@ export interface DossierRecent {
 
 /**
  * Les votes sur l'ensemble d'un texte les plus récents, toutes législatures
- * confondues : contrairement au quiz (chargerQuestionsExpress dans
- * queries/quiz.ts), qui choisit par affluence pour le tirage des questions,
- * cette liste sert un usage différent (« qu'est-ce qui vient de se passer »)
- * et doit donc trier par date, pas par popularité.
+ * confondues, triés par date : la liste répond à « qu'est-ce qui vient de se
+ * passer », pas à une sélection par affluence.
  */
 export const chargerScrutinsRecents = createServerFn({ method: "GET" }).handler(
   async (): Promise<DossierRecent[]> => {

@@ -1,77 +1,141 @@
 import {
+  Accordion,
   Alert,
   Anchor,
-  Badge,
   Box,
   Button,
   Card,
+  Checkbox,
+  Collapse,
   Container,
   Group,
   Progress,
-  SimpleGrid,
   Stack,
   Text,
   Title,
+  UnstyledButton,
 } from "@mantine/core";
-import {
-  IconHelpCircle,
-  IconInfoCircle,
-  IconMinus,
-  IconThumbDown,
-  IconThumbUp,
-} from "@tabler/icons-react";
+import { IconArrowLeft, IconInfoCircle } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../components/BarreHorizontale";
-import { PastilleGroupe } from "../components/PastilleGroupe";
+import classes from "../components/OptionQcm.module.css";
 import {
-  calculerResultat,
-  type ProximiteGroupe,
-  type QuestionComparee,
-  type ReponseQuiz,
-  type ReponseUtilisateur,
-  type ResultatQuiz,
-} from "../lib/quizCalcul";
-import { chargerQuestionsGrandQuiz, type QuestionQuiz } from "../queries/quiz";
+  calculerCompatibilite,
+  niveauConfiance,
+  type ParametresScoring,
+  type PositionConnue,
+  type ReponseCalcul,
+  type ReponseEchelle,
+} from "../lib/quizPosition";
+import { libelleTheme } from "../lib/themesProgrammes";
+import { chargerBanqueQuiz, type QuestionBanque, type ScrutinQuestion } from "../queries/quiz";
 
 export const Route = createFileRoute("/quiz")({
-  loader: () => chargerQuestionsGrandQuiz(),
+  loader: () => chargerBanqueQuiz(),
+  head: () => ({ meta: [{ title: "Le quiz des votes · Comprendre la Politique" }] }),
   component: PageQuiz,
 });
 
-const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+/** Les cinq réponses graduées (docs/QUIZ_ENGINE.md section 4.3). */
+const ECHELLE: { valeur: Exclude<ReponseEchelle, "NSP">; libelle: string }[] = [
+  { valeur: "TOUT_A_FAIT_DACCORD", libelle: "Tout à fait d'accord" },
+  { valeur: "PLUTOT_DACCORD", libelle: "Plutôt d'accord" },
+  { valeur: "NI_NI", libelle: "Ni d'accord ni pas d'accord" },
+  { valeur: "PLUTOT_PAS_DACCORD", libelle: "Plutôt pas d'accord" },
+  { valeur: "PAS_DU_TOUT_DACCORD", libelle: "Pas du tout d'accord" },
+];
+
+function libelleReponse(r: ReponseEchelle): string {
+  return r === "NSP" ? "Je ne sais pas" : (ECHELLE.find((e) => e.valeur === r)?.libelle ?? r);
+}
+
+/** Moins de questions communes que cela, et une formation n'est pas classée. */
+const MINIMUM_QUESTIONS_COMMUNES = 3;
+
+const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
+const dateLongue = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
   month: "long",
   year: "numeric",
 });
-const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
 
-const BOUTONS: { valeur: ReponseQuiz; libelle: string; icone: React.ReactNode }[] = [
-  { valeur: "POUR", libelle: "Pour", icone: <IconThumbUp size={22} /> },
-  { valeur: "CONTRE", libelle: "Contre", icone: <IconThumbDown size={22} /> },
-  { valeur: "ABSTENTION", libelle: "Je m'abstiens", icone: <IconMinus size={22} /> },
-  { valeur: "NSP", libelle: "Je ne sais pas", icone: <IconHelpCircle size={22} /> },
-];
+function formaterDate(jour: string): string {
+  return dateLongue.format(new Date(`${jour}T12:00:00`)).replace(/^1 /, "1er ");
+}
 
 /**
- * Indicateur « groupe le plus proche » mis à jour après chaque réponse,
- * pas seulement affiché en fin de parcours : voir l'écran de résultat pour
- * le disclaimer complet, répété une fois la réponse la plus proche connue.
- * Affiche « ? » tant que le calcul n'a pas assez de réponses exploitables
- * (même seuil que calculerResultat : au moins trois).
+ * Lecture en mots d'une position comprise entre -1 et +1. Les seuils sont un
+ * choix d'affichage, pas une donnée : la valeur exacte figure dans la
+ * méthodologie, et le mot ne sert qu'à la rendre lisible.
  */
-function IndicateurEnDirect({ groupeTop }: { groupeTop: ProximiteGroupe | null }) {
+function lirePosition(position: number): string {
+  if (position >= 0.5) return "votes nettement favorables";
+  if (position >= 0.15) return "votes plutôt favorables";
+  if (position > -0.15) return "votes partagés";
+  if (position > -0.5) return "votes plutôt opposés";
+  return "votes nettement opposés";
+}
+
+/** Les scrutins sur lesquels repose une question, avec leur sens. */
+function ScrutinsRetenus({ scrutins }: { scrutins: ScrutinQuestion[] }) {
   return (
-    <Box maw={560} mx="auto" w="100%">
-      <Text size="xs" c="dimmed" tt="uppercase" fw={700} style={{ letterSpacing: "0.04em" }}>
-        Groupe le plus proche :{" "}
-        <Text span c="var(--mantine-color-text)">
-          {groupeTop
-            ? `${groupeTop.libelle ?? groupeTop.organeUid} (${pourcent.format(groupeTop.proximite)})`
-            : "?"}
-        </Text>
+    <Stack gap="sm">
+      {scrutins.map((s) => (
+        <Box key={s.uid}>
+          <Text size="sm">
+            <Text span c="dimmed">
+              {formaterDate(s.date)} ·{" "}
+            </Text>
+            {s.titre}
+          </Text>
+          <Text size="xs" c="dimmed" mt={2}>
+            {s.sens === 1
+              ? "Voter pour ce texte va dans le sens de la question."
+              : "Voter contre ce texte va dans le sens de la question."}
+            {s.dossierUid && (
+              <>
+                {" "}
+                <Anchor href={`/lois/${s.dossierUid}`} size="xs">
+                  Voir le texte
+                </Anchor>
+              </>
+            )}
+          </Text>
+        </Box>
+      ))}
+    </Stack>
+  );
+}
+
+function EcranAccueil({
+  nombreQuestions,
+  nombreFormations,
+  onCommencer,
+}: {
+  nombreQuestions: number;
+  nombreFormations: number;
+  onCommencer: () => void;
+}) {
+  return (
+    <Stack gap="lg" maw="var(--mesure-texte)">
+      <Text c="dimmed">
+        {nombreQuestions} questions, chacune fondée sur de vrais scrutins de l&apos;Assemblée
+        nationale. Dites si vous êtes d&apos;accord ; à la fin, vos réponses sont comparées à la
+        façon dont {nombreFormations} formations politiques ont réellement voté.
       </Text>
-    </Box>
+      <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
+        Le résultat compare vos réponses à des votes passés. Ce n&apos;est pas une recommandation
+        électorale, et il ne tient compte ni des programmes ni des candidats.
+      </Alert>
+      <Text size="sm" c="dimmed">
+        Vos réponses restent dans votre navigateur. Elles ne sont ni envoyées au site, ni
+        conservées.
+      </Text>
+      <Button onClick={onCommencer} w="fit-content">
+        Commencer
+      </Button>
+    </Stack>
   );
 }
 
@@ -79,143 +143,128 @@ function EcranQuestion({
   question,
   index,
   total,
-  onReponse,
+  reponse,
+  onRepondre,
+  onRetour,
 }: {
-  question: QuestionQuiz;
+  question: QuestionBanque;
   index: number;
   total: number;
-  onReponse: (r: ReponseQuiz) => void;
+  /** Réponse déjà donnée, quand l'utilisateur revient en arrière. */
+  reponse: ReponseCalcul | undefined;
+  onRepondre: (r: ReponseCalcul) => void;
+  onRetour: () => void;
 }) {
-  return (
-    <Card withBorder radius="md" padding="xl" maw={560} mx="auto">
-      <Stack gap="lg">
-        <Box>
-          <Progress value={(index / total) * 100} size={6} radius="xl" />
-          <Text c="dimmed" size="sm" mt="xs">
-            Question {index + 1} sur {total}
-            {question.themeLibelle && <> · {question.themeLibelle}</>} · scrutin du{" "}
-            {dateCourte.format(new Date(question.dateScrutin))}
-          </Text>
-        </Box>
-        <Box>
-          <Title order={2} fz="xl">
-            {question.question}
-          </Title>
-          {question.contexte && <Text mt="sm">{question.contexte}</Text>}
-          <Text mt="sm" c="dimmed" size="sm">
-            Texte réellement soumis au vote : {question.dossierTitre ?? question.objetLibelle}.
-          </Text>
-        </Box>
-        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
-          {BOUTONS.map((b) => (
-            // « default » donne un fond et un filet visibles dans les deux
-            // thèmes, là où « light » sur graphite se confondait avec le fond
-            // sombre. Les quatre réponses gardent le même poids visuel : en
-            // mettre une en avant orienterait la réponse.
-            <Button
-              key={b.valeur}
-              size="md"
-              variant={b.valeur === "NSP" ? "subtle" : "default"}
-              color="graphite"
-              leftSection={b.icone}
-              onClick={() => onReponse(b.valeur)}
-              justify="flex-start"
-            >
-              {b.libelle}
-            </Button>
-          ))}
-        </SimpleGrid>
-      </Stack>
-    </Card>
-  );
-}
+  const [important, setImportant] = useState(reponse?.important ?? false);
+  const [details, setDetails] = useState(false);
 
-/**
- * Le résultat d'une question se lit groupe par groupe. Dire « x % des
- * votants de l'Assemblée ont voté comme vous » agrège des groupes qui se
- * sont opposés sur le texte, et transforme un désaccord politique en un
- * pourcentage sans titulaire.
- */
-function BlocQuestionComparee({ question }: { question: QuestionComparee }) {
-  const proches = question.groupes.filter((g) => g.accord >= 0.5);
-  const opposes = question.groupes.filter((g) => g.accord < 0.5).reverse();
+  const repondre = (valeur: ReponseEchelle) =>
+    onRepondre({ questionId: question.id, reponse: valeur, important });
+
   return (
-    <Card withBorder radius="md" padding="md">
-      <Text fw={600}>{question.question}</Text>
-      <Text c="dimmed" size="sm" mt={4}>
-        Vous avez répondu «&nbsp;
-        {question.reponse === "POUR"
-          ? "pour"
-          : question.reponse === "CONTRE"
-            ? "contre"
-            : "abstention"}
-        &nbsp;».
-      </Text>
-      <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md" mt="md">
-        <Box>
-          <Text size="sm" fw={600}>
-            Ont voté comme vous
+    <Stack gap="lg" maw={640} w="100%">
+      <Box>
+        <Progress value={(index / total) * 100} size={6} radius="xl" />
+        <Group justify="space-between" mt="xs">
+          <Text c="dimmed" size="sm">
+            Question {index + 1} sur {total} · {libelleTheme(question.theme)}
           </Text>
-          {proches.length === 0 ? (
-            <Text size="sm" c="dimmed" mt={4}>
-              Aucun groupe, majoritairement.
-            </Text>
-          ) : (
-            <Stack gap={2} mt={4}>
-              {proches.map((g) => (
-                <Group key={g.organeUid} gap={6} wrap="nowrap">
-                  <PastilleGroupe couleur={g.couleur} />
-                  <Text size="sm" c="dimmed">
-                    {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
-                  </Text>
-                </Group>
-              ))}
-            </Stack>
+          {index > 0 && (
+            <Anchor component="button" type="button" size="sm" onClick={onRetour}>
+              <Group gap={4} wrap="nowrap">
+                <IconArrowLeft size={14} />
+                Question précédente
+              </Group>
+            </Anchor>
           )}
-        </Box>
-        <Box>
-          <Text size="sm" fw={600}>
-            Ont voté autrement
+        </Group>
+      </Box>
+
+      <Box>
+        <Title order={2} fz="xl">
+          {question.intitule}
+        </Title>
+        {question.description && (
+          <Text c="dimmed" mt="sm">
+            {question.description}
           </Text>
-          {opposes.length === 0 ? (
-            <Text size="sm" c="dimmed" mt={4}>
-              Aucun groupe, majoritairement.
-            </Text>
-          ) : (
-            <Stack gap={2} mt={4}>
-              {opposes.map((g) => (
-                <Group key={g.organeUid} gap={6} wrap="nowrap">
-                  <PastilleGroupe couleur={g.couleur} />
-                  <Text size="sm" c="dimmed">
-                    {g.libelle ?? g.organeUid} · {pourcent.format(g.accord)}
-                  </Text>
-                </Group>
-              ))}
-            </Stack>
-          )}
-        </Box>
-      </SimpleGrid>
-    </Card>
+        )}
+        <Anchor
+          component="button"
+          type="button"
+          size="sm"
+          mt="xs"
+          onClick={() => setDetails((v) => !v)}
+        >
+          {details ? "Masquer les scrutins" : "En savoir plus : les scrutins retenus"}
+        </Anchor>
+        <Collapse expanded={details}>
+          <Box mt="sm">
+            <ScrutinsRetenus scrutins={question.scrutins} />
+          </Box>
+        </Collapse>
+      </Box>
+
+      <Stack gap="sm">
+        {ECHELLE.map((e) => (
+          <UnstyledButton
+            key={e.valeur}
+            className={`${classes["option"]} ${classes["choisissable"]} ${
+              reponse?.reponse === e.valeur ? classes["choisie"] : ""
+            }`}
+            onClick={() => repondre(e.valeur)}
+          >
+            <Text>{e.libelle}</Text>
+          </UnstyledButton>
+        ))}
+      </Stack>
+
+      <Group justify="space-between" gap="sm">
+        <Checkbox
+          label="Ce sujet compte particulièrement pour moi"
+          checked={important}
+          onChange={(ev) => setImportant(ev.currentTarget.checked)}
+        />
+        <Button variant="subtle" color="graphite" onClick={() => repondre("NSP")}>
+          Je ne sais pas
+        </Button>
+      </Group>
+    </Stack>
   );
 }
 
 function EcranResultat({
-  resultat,
+  questions,
+  reponses,
+  positions,
+  parametres,
+  libelles,
   onRecommencer,
 }: {
-  resultat: ResultatQuiz;
+  questions: QuestionBanque[];
+  reponses: ReponseCalcul[];
+  positions: PositionConnue[];
+  parametres: ParametresScoring;
+  libelles: Map<string, string>;
   onRecommencer: () => void;
 }) {
-  if (resultat.parGroupe.length === 0) {
+  const resultat = useMemo(
+    () => calculerCompatibilite(reponses, positions, parametres),
+    [reponses, positions, parametres],
+  );
+  const utiles = reponses.filter((r) => r.reponse !== "NSP").length;
+  const ecartees = reponses.length - utiles;
+
+  if (utiles < 3) {
     return (
-      <Card withBorder radius="md" padding="xl" maw={560} mx="auto">
+      <Card withBorder radius="md" padding="xl" maw={640}>
         <Stack gap="md">
           <Title order={2} fz="xl">
-            Pas assez de réponses exploitables
+            Pas assez de réponses pour un résultat
           </Title>
           <Text c="dimmed">
-            Répondez à au moins trois questions par « pour », « contre » ou « abstention » pour
-            obtenir un résultat.
+            Répondez à au moins trois questions autrement que par « je ne sais pas » pour obtenir
+            une comparaison.
           </Text>
           <Button variant="default" onClick={onRecommencer} w="fit-content">
             Recommencer
@@ -224,23 +273,44 @@ function EcranResultat({
       </Card>
     );
   }
+
+  const classees = resultat.filter((c) => c.questionsRetenues >= MINIMUM_QUESTIONS_COMMUNES);
+  const peuComparables = resultat.filter((c) => c.questionsRetenues < MINIMUM_QUESTIONS_COMMUNES);
+
   return (
-    <Stack gap={40} maw={640} mx="auto">
+    <Stack gap={40} maw={680} w="100%">
       <Stack gap="md">
-        <Title order={2}>Vos réponses sont les plus proches de…</Title>
-        <Stack gap="sm">
-          {resultat.parGroupe.map((g) => (
-            <BarreHorizontale
-              key={g.organeUid}
-              libelle={g.libelle ?? g.organeUid}
-              href={`/groupes/${g.organeUid}`}
-              valeur={g.proximite}
-              reference={1}
-              libelleValeur={pourcent.format(g.proximite)}
-              couleur={g.couleur}
-            />
+        <Title order={2}>Sur ces scrutins, vos réponses sont les plus proches des votes de…</Title>
+        <Text c="dimmed" size="sm">
+          {utiles} réponse{utiles > 1 ? "s" : ""} comparée{utiles > 1 ? "s" : ""}
+          {ecartees > 0 &&
+            `, ${ecartees} question${ecartees > 1 ? "s" : ""} écartée${ecartees > 1 ? "s" : ""} par « je ne sais pas »`}
+          . Une question sur laquelle une formation a voté de façon incertaine pèse moins dans son
+          score.
+        </Text>
+        <Stack gap="md">
+          {classees.map((c) => (
+            <Box key={c.formationId}>
+              <BarreHorizontale
+                libelle={libelles.get(c.formationId) ?? c.formationId}
+                valeur={c.compatibilite}
+                reference={1}
+                libelleValeur={pourcent.format(c.compatibilite)}
+                couleur="var(--mantine-color-dark-1)"
+              />
+              <Text size="xs" c="dimmed" mt={4}>
+                Confiance {niveauConfiance(c.confianceMoyenne, parametres)} · sur{" "}
+                {c.questionsRetenues} question{c.questionsRetenues > 1 ? "s" : ""}
+              </Text>
+            </Box>
           ))}
         </Stack>
+        {peuComparables.length > 0 && (
+          <Text size="sm" c="dimmed">
+            Trop peu de questions en commun pour être classées :{" "}
+            {peuComparables.map((c) => libelles.get(c.formationId) ?? c.formationId).join(", ")}.
+          </Text>
+        )}
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
           Ce résultat compare uniquement vos réponses à des votes parlementaires passés. Il ne
           constitue pas une recommandation électorale et ne tient pas compte de l&apos;ensemble des
@@ -252,23 +322,46 @@ function EcranResultat({
         </Alert>
       </Stack>
 
-      {resultat.questions.length > 0 && (
-        <Stack gap="md">
-          <Box>
-            <Title order={2}>Question par question</Title>
-            <Text c="dimmed" size="sm" mt={4}>
-              Pour chaque texte, les groupes qui ont voté dans votre sens et ceux qui ont voté
-              autrement. Le pourcentage est la part des voix du groupe allée dans le même sens que
-              votre réponse.
-            </Text>
-          </Box>
-          <Stack gap="sm">
-            {resultat.questions.map((q) => (
-              <BlocQuestionComparee key={q.scrutinUid} question={q} />
-            ))}
-          </Stack>
-        </Stack>
-      )}
+      <Stack gap="md">
+        <Title order={2}>Question par question</Title>
+        <Accordion variant="separated" multiple>
+          {questions.map((q) => {
+            const r = reponses.find((x) => x.questionId === q.id);
+            const dePositions = positions.filter((p) => p.questionId === q.id);
+            return (
+              <Accordion.Item key={q.id} value={q.id}>
+                <Accordion.Control>
+                  <Text fw={600} size="sm">
+                    {q.intitule}
+                  </Text>
+                  <Text size="xs" c="dimmed" mt={2}>
+                    Votre réponse : {r ? libelleReponse(r.reponse) : "question passée"}
+                    {r?.important ? " · sujet important pour vous" : ""}
+                  </Text>
+                </Accordion.Control>
+                <Accordion.Panel>
+                  <Stack gap="md">
+                    <Stack gap={4}>
+                      {dePositions.map((p) => (
+                        <Text key={p.formationId} size="sm">
+                          <Text span fw={600}>
+                            {libelles.get(p.formationId) ?? p.formationId}
+                          </Text>{" "}
+                          <Text span c="dimmed">
+                            : {lirePosition(p.position)}, confiance{" "}
+                            {niveauConfiance(p.confiance, parametres)}
+                          </Text>
+                        </Text>
+                      ))}
+                    </Stack>
+                    <ScrutinsRetenus scrutins={q.scrutins} />
+                  </Stack>
+                </Accordion.Panel>
+              </Accordion.Item>
+            );
+          })}
+        </Accordion>
+      </Stack>
 
       <Button variant="default" onClick={onRecommencer} w="fit-content">
         Refaire le quiz
@@ -278,78 +371,67 @@ function EcranResultat({
 }
 
 function PageQuiz() {
-  const questions = Route.useLoaderData();
-  const [indexCourant, setIndexCourant] = useState(0);
-  const [reponses, setReponses] = useState<ReponseUtilisateur[]>([]);
-  const [resultat, setResultat] = useState<ResultatQuiz | null>(null);
+  const { parametres, questions, formations, positions } = Route.useLoaderData();
+  const [etape, setEtape] = useState<"accueil" | "question" | "resultat">("accueil");
+  const [index, setIndex] = useState(0);
+  // Les réponses vivent dans l'état de la page : elles ne sont ni envoyées ni
+  // conservées (docs/QUIZ_METHODOLOGY.md section 1).
+  const [reponses, setReponses] = useState<Map<string, ReponseCalcul>>(new Map());
 
-  // Recalculé après chaque réponse pour l'indicateur « en direct » : le
-  // même calcul local que le résultat final (rien ne quitte le navigateur),
-  // juste rejoué sur les réponses données jusqu'ici.
-  const resultatEnDirect = useMemo(
-    () => calculerResultat(questions, reponses),
-    [questions, reponses],
-  );
+  const libelles = useMemo(() => new Map(formations.map((f) => [f.id, f.libelle])), [formations]);
 
-  if (questions.length === 0) {
-    return (
-      <Container size="md" py={80}>
-        <Text c="dimmed">
-          Aucun scrutin exploitable n&apos;est disponible pour construire le quiz.
-        </Text>
-      </Container>
-    );
+  function commencer() {
+    setReponses(new Map());
+    setIndex(0);
+    setEtape("question");
   }
 
-  function repondre(reponse: ReponseQuiz) {
-    const question = questions[indexCourant];
-    if (!question) return;
-    const nouvelles = [...reponses, { scrutinUid: question.scrutinUid, reponse }];
-    setReponses(nouvelles);
-    if (indexCourant + 1 < questions.length) {
-      setIndexCourant(indexCourant + 1);
-      return;
-    }
-    // Calcul entièrement local : les réponses ne quittent jamais le
-    // navigateur (docs/QUIZ_METHODOLOGY.md section 1).
-    setResultat(calculerResultat(questions, nouvelles));
+  function repondre(r: ReponseCalcul) {
+    setReponses((avant) => new Map(avant).set(r.questionId, r));
+    if (index + 1 < questions.length) setIndex(index + 1);
+    else setEtape("resultat");
+    window.scrollTo({ top: 0 });
   }
 
-  function recommencer() {
-    setIndexCourant(0);
-    setReponses([]);
-    setResultat(null);
-  }
+  const question = questions[index];
 
   return (
-    <Container size="md" py={{ base: 40, sm: 64 }}>
-      <Stack gap={40}>
-        <Box maw="var(--mesure-texte)" mx="auto" ta="center">
-          <Title order={1}>Et vous, vous auriez voté quoi ?</Title>
-          <Text mt="sm" c="dimmed">
-            {questions.length} scrutins réels de l&apos;Assemblée nationale, répartis entre les
-            grands thèmes. Répondez, puis comparez votre position à celle des groupes
-            parlementaires.
-          </Text>
-          <Badge mt="xs" variant="outline" color="graphite">
-            grand quiz · {questions.length} questions
-          </Badge>
+    <Container size="md" py={{ base: 32, sm: 56 }}>
+      <Stack gap="xl">
+        <Box maw="var(--mesure-texte)">
+          <Title order={1}>Le quiz des votes</Title>
         </Box>
 
-        {resultat ? (
-          <EcranResultat resultat={resultat} onRecommencer={recommencer} />
+        {!parametres || questions.length === 0 ? (
+          <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
+            La banque de questions n&apos;est pas chargée dans cet environnement. Lancer{" "}
+            <code>npm run data:questions</code> puis <code>npm run data:positions</code>.
+          </Alert>
+        ) : etape === "accueil" ? (
+          <EcranAccueil
+            nombreQuestions={questions.length}
+            nombreFormations={formations.length}
+            onCommencer={commencer}
+          />
+        ) : etape === "question" && question ? (
+          <EcranQuestion
+            key={question.id}
+            question={question}
+            index={index}
+            total={questions.length}
+            reponse={reponses.get(question.id)}
+            onRepondre={repondre}
+            onRetour={() => setIndex((i) => Math.max(0, i - 1))}
+          />
         ) : (
-          questions[indexCourant] && (
-            <>
-              <IndicateurEnDirect groupeTop={resultatEnDirect.parGroupe[0] ?? null} />
-              <EcranQuestion
-                question={questions[indexCourant]}
-                index={indexCourant}
-                total={questions.length}
-                onReponse={repondre}
-              />
-            </>
-          )
+          <EcranResultat
+            questions={questions}
+            reponses={[...reponses.values()]}
+            positions={positions}
+            parametres={parametres}
+            libelles={libelles}
+            onRecommencer={commencer}
+          />
         )}
       </Stack>
     </Container>

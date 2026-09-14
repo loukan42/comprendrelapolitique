@@ -48,7 +48,8 @@ commencer avant d'en modifier le contenu.
   texte et liens officiels.
 - **Thèmes** : chaque texte avec le résultat de son propre scrutin.
 - **Députés**, **groupes** : taux d'unité, participation, proximité.
-- **Quiz des votes** : 16 questions, calcul entièrement dans le navigateur.
+- **Quiz des votes** : 11 questions à six réponses, sur la banque et les positions
+  calculées par formation, calcul entièrement dans le navigateur.
 - **Programmes** (`/programmes`) : documents publiés par les partis, avec leur
   nature et leur date.
 - **Comparateur** (`/programmes/comparer`) : deux formations côte à côte, sur
@@ -126,10 +127,12 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
    couvrent moins de sujets que ceux de La France insoumise et du
    Rassemblement National. L'écran d'accueil du quiz l'affiche. Élargir passe
    par de nouvelles citations, jamais par une position déduite.
-5. **Quiz des votes, nouveau modèle.** Le moteur multi-scrutins
-   (`quizPosition.ts`) est écrit et testé, mais la page `/quiz` utilise encore
-   l'ancien modèle, une question pour un scrutin, avec quatre réponses au lieu
-   de six.
+5. ~~**Quiz des votes, nouveau modèle.**~~ Fait : `/quiz` lit la banque
+   (`chargerBanqueQuiz`), pose les questions avec six réponses et calcule la
+   compatibilité dans le navigateur (`quizPosition.ts`). L'ancien modèle
+   (`quizCalcul.ts`, `questionsQuiz.ts`) est supprimé. À surveiller : une
+   formation est classée dès trois questions en commun, et son pourcentage est
+   alors moins comparable à celui d'une formation présente sur toutes.
 6. **Sections rédigées de la page loi.** Le parcours législatif est reporté
    (`src/components/ParcoursLoi.tsx`) : frise des grandes étapes, cochées
    seulement sur un acte qui les prouve, puis détail par lecture. Restent les

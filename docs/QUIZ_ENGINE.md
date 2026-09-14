@@ -637,10 +637,10 @@ Aucune ne reçoit de réponse d'utilisateur, jamais.
   texte rend le sens **établissable**, il ne le rend pas automatique : lire un
   amendement pour décider s'il va dans le sens d'une question reste un travail
   éditorial, scrutin par scrutin. Ce qui a disparu, c'est l'impossibilité.
-- **T1.4** `chargerBanqueQuiz`, livraison au navigateur.
-- **T1.5** Écrans question et résultat, échelle à 6 réponses. Le quiz en
-  production utilise encore l'ancien modèle, une question pour un scrutin,
-  avec quatre réponses.
+- **T1.4** ~~`chargerBanqueQuiz`, livraison au navigateur.~~ Fait (`src/queries/quiz.ts`).
+- **T1.5** ~~Écrans question et résultat, échelle à 6 réponses.~~ Fait
+  (`src/routes/quiz.tsx`) : retour arrière, sujet important, scrutins retenus
+  dépliables, classement avec confiance, détail par question.
 - **T1.6** Explication par question, dépliable jusqu'au scrutin.
 - **T1.7** ~~Test d'invariant de confidentialité.~~ Fait, et il teste aussi
   son propre détecteur : sans cela, il pourrait passer au vert en ayant cessé
