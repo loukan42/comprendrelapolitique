@@ -451,6 +451,46 @@ inconnu.** Inventer une appartenance de groupe est précisément ce que le produ
 s'interdit ; le faire par recopie mécanique d'un identifiant de remplissage n'est
 pas moins grave que de le déduire.
 
+### 5.7 `nombre_votants` exclut systématiquement les non-votants
+
+`officiel.scrutin.nombre_votants` ne se compare pas à la somme des quatre
+catégories de `scrutin_groupe` (`voix_pour + voix_contre + voix_abstention +
+voix_non_votant`) : les deux mesurent autre chose, et rapprocher l'un de l'autre
+fait naître un faux écart. Repéré d'abord sur `VTANR5L16V1098` (dossier
+`DLR5L16N46734`) : `nombre_votants = 196` contre une somme des quatre
+catégories à 197 (109 pour, 71 contre, 16 abstentions, 1 non-votant).
+
+Vérification systématique sur les 4 106 scrutins de la XVIe (seule législature
+chargée localement à ce jour) :
+
+| Comparaison | Correspondance |
+| --- | --- |
+| `nombre_votants` = somme des 4 catégories | 170 / 4 106 |
+| `nombre_votants` = `voix_pour + voix_contre + voix_abstention` (sans les non-votants) | **4 106 / 4 106** |
+
+La seconde égalité est exacte, sans une seule exception, y compris sur le cas
+extrême du corpus : `VTANR5L16V1` (la motion de censure du 11 juillet 2022, où
+le gabarit dédié de la règle 3 s'applique) additionne 22 non-votants dans
+`scrutin_groupe`, et `nombre_votants` (146, le nombre de signataires) les exclut
+tout autant que sur un scrutin ordinaire.
+
+`nombre_votants` compte donc les positions exprimées (pour, contre, abstention),
+pas les présents. Un non-votant est une position enregistrée par la source
+(règle 2), mais l'Assemblée ne le compte pas parmi les « votants » de son propre
+décompte officiel. Ce n'est pas un désaccord entre deux champs de la source
+qu'il faudrait arbitrer : les 4 105 scrutins où les totaux diffèrent ne sont pas
+des erreurs, ce sont des scrutins avec au moins un non-votant. Aucune valeur ne
+fait donc foi au détriment de l'autre ; c'est le rapprochement des deux qui est
+erroné.
+
+Conséquence pour l'affichage : ne jamais recalculer un total agrégé sous le nom
+« nombre de votants » à partir des 4 catégories de `scrutin_groupe`, ni le
+comparer tel quel à `officiel.scrutin.nombre_votants` sans retirer les
+non-votants au préalable. [lois.server.ts](../src/lib/lois.server.ts) affiche
+déjà les deux séparément (`nombreVotants` venant de `officiel.scrutin`, et
+`nonVotant` comme catégorie propre dans `totaux`) : c'est le bon patron, à
+reproduire partout où le champ est repris.
+
 ---
 
 ## 6. Acteurs, mandats et organes
