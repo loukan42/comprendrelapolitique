@@ -9,8 +9,16 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  /* Huit étapes : deux rangées de quatre, ou quatre de deux sur mobile. Un
+     remplissage automatique laissait la dernière seule sur sa ligne. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--mantine-spacing-md) var(--mantine-spacing-sm);
+}
+
+@media (min-width: 48em) {
+  .frise {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .etape {
