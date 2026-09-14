@@ -109,9 +109,10 @@ du corpus.
 
 ### 2.4 Ce qui n'est pas disponible
 
-- `officiel.amendement` et `officiel.intervention` existent dans le schéma
-  mais sont **vides** dans la base courante. Le texte des amendements et des
-  débats n'est donc pas mobilisable aujourd'hui pour aider à la sélection.
+- Les amendements et les débats de la XVIIe sont chargés depuis le
+  14 septembre 2026 : 123 262 amendements et 321 892 interventions. Ceux des
+  XVe et XVIe ne le sont pas encore, et leurs jeux sont lourds (347 Mo pour
+  les seuls amendements de la XVIe).
 - Aucune donnée de programme politique. La distinction votes contre
   programmes demandée en cible reste à ce stade une place réservée dans le
   modèle, pas une source.
@@ -620,12 +621,22 @@ Aucune ne reçoit de réponse d'utilisateur, jamais.
   (`data:positions`), avec un mode `--detail` qui réimprime le décompte
   scrutin par scrutin pour refaire le calcul à la main.
 - **T1.3** Rédiger 20 à 25 questions. **Partiellement fait** : onze questions
-  adossées à quinze scrutins. Le reste est bloqué par une limite de données,
-  pas par le temps : 12 351 des 16 957 scrutins portent sur un amendement,
-  dont l'objet ne dit jamais ce que l'amendement proposait. Leur sens ne peut
-  donc pas être établi sans le deviner, ce qui est exclu. Charger le jeu
-  Amendements est le préalable à la granularité fine, par exemple un
-  amendement sur la fiscalité des hauts revenus.
+  adossées à quinze scrutins, toutes sur des votes sur l'ensemble d'un texte.
+
+  Le blocage qui empêchait d'aller plus loin est levé depuis le 14 septembre
+  2026. Il tenait à ceci : 12 351 des 16 957 scrutins portent sur un
+  amendement, et l'objet d'un tel scrutin dit « l'amendement n° 10 de
+  M. Alexandre après l'article 6 », jamais ce que l'amendement proposait. Son
+  sens ne pouvait donc pas être établi sans le deviner.
+
+  Le jeu Amendements de la XVIIe est maintenant chargé : 123 262 amendements,
+  dont 85 320 avec leur dispositif et 101 143 avec leur exposé sommaire. Le
+  texte est en HTML avec entités, que `src/lib/entites-html.ts` décode.
+
+  Attention à ce que cela change, et à ce que cela ne change pas. Disposer du
+  texte rend le sens **établissable**, il ne le rend pas automatique : lire un
+  amendement pour décider s'il va dans le sens d'une question reste un travail
+  éditorial, scrutin par scrutin. Ce qui a disparu, c'est l'impossibilité.
 - **T1.4** `chargerBanqueQuiz`, livraison au navigateur.
 - **T1.5** Écrans question et résultat, échelle à 6 réponses. Le quiz en
   production utilise encore l'ancien modèle, une question pour un scrutin,
