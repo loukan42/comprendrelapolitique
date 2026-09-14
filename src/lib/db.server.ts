@@ -44,6 +44,29 @@ export async function query<T = Record<string, unknown>>(
   return resultat.rows;
 }
 
+let basePromise: Promise<boolean> | null = null;
+
+/**
+ * La base est-elle chargée dans cet environnement ?
+ *
+ * `data/` n'est pas versionné : un déploiement fait depuis le dépôt seul,
+ * comme la prévisualisation Lovable, démarre sans aucune base et PGlite en
+ * crée une vide. Sans ce contrôle, chaque page interrogeant la base répond
+ * 500 avec « relation officiel.dossier does not exist », et le site entier
+ * paraît cassé alors qu'il lui manque seulement ses données.
+ */
+export function baseDisponible(): Promise<boolean> {
+  if (!basePromise) {
+    basePromise = query<{ existe: boolean }>(
+      `SELECT EXISTS (SELECT 1 FROM information_schema.schemata
+                       WHERE schema_name = 'officiel') AS existe`,
+    )
+      .then((r) => r[0]?.existe ?? false)
+      .catch(() => false);
+  }
+  return basePromise;
+}
+
 /** Une seule ligne, ou `undefined` si la requête n'en renvoie aucune. */
 export async function ligne<T = Record<string, unknown>>(
   sql: string,

@@ -11,7 +11,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { requete } from "./db";
+import { baseDisponible, requete } from "./db";
 import { THEMES, themeDepuisTitre, themeParSlug } from "./themes";
 
 export interface ThemeHub {
@@ -58,6 +58,7 @@ async function chargerTousDossiersFinaux(): Promise<
 
 export const listerHubThemes = createServerFn({ method: "GET" }).handler(
   async (): Promise<ThemeHub[]> => {
+    if (!(await baseDisponible())) return [];
     const dossiers = await chargerTousDossiersFinaux();
     const comptes = new Map<string, number>();
     for (const d of dossiers) {
@@ -96,6 +97,7 @@ export const chargerPageTheme = createServerFn({ method: "GET" })
     return slug;
   })
   .handler(async ({ data: slug }): Promise<PageTheme | null> => {
+    if (!(await baseDisponible())) return null;
     const theme = themeParSlug(slug);
     if (!theme) return null;
 

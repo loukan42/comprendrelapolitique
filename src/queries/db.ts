@@ -42,6 +42,38 @@ export async function requeteUne<T = Record<string, unknown>>(
   return lignes[0] ?? null;
 }
 
+let basePromise: Promise<boolean> | null = null;
+
+/**
+ * La base de données est-elle chargée dans cet environnement ?
+ *
+ * `data/` n'est pas versionné (voir .gitignore) : les données sont
+ * retéléchargeables, c'est le code d'import qui est le livrable. Un
+ * déploiement fait depuis le dépôt seul, comme la prévisualisation Lovable,
+ * démarre donc sans aucune base, et PGlite en crée une vide à la première
+ * requête.
+ *
+ * Sans ce contrôle, chaque page interrogeant la base répond 500 avec
+ * « relation officiel.scrutin does not exist », y compris l'accueil : le site
+ * entier paraît cassé alors qu'il lui manque seulement ses données. Les
+ * fonctions serveur renvoient donc un résultat vide, et les pages affichent
+ * qu'elles attendent un chargement plutôt qu'une erreur.
+ *
+ * Le résultat est mis en cache pour la durée du processus : une base ne se
+ * charge pas pendant que le serveur tourne.
+ */
+export function baseDisponible(): Promise<boolean> {
+  if (!basePromise) {
+    basePromise = requeteUne<{ existe: boolean }>(
+      `SELECT EXISTS (SELECT 1 FROM information_schema.schemata
+                       WHERE schema_name = 'officiel') AS existe`,
+    )
+      .then((r) => r?.existe ?? false)
+      .catch(() => false);
+  }
+  return basePromise;
+}
+
 let enrichissementPromise: Promise<boolean> | null = null;
 
 /**

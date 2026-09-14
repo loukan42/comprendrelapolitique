@@ -7,7 +7,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { requete, requeteUne } from "./db";
+import { baseDisponible, requete, requeteUne } from "./db";
 
 export interface GroupeAppartenance {
   organeUid: string;
@@ -56,6 +56,7 @@ export const chargerDepute = createServerFn({ method: "GET" })
     return uid;
   })
   .handler(async ({ data: uid }): Promise<DetailDepute | null> => {
+    if (!(await baseDisponible())) return null;
     const acteur = await requeteUne<{
       uid: string;
       civilite: string | null;

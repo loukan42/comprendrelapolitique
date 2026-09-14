@@ -26,7 +26,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { enrichissementDisponible, requete } from "./db";
+import { baseDisponible, enrichissementDisponible, requete } from "./db";
 import { QUESTIONS_VULGARISEES } from "./questionsQuiz";
 import { themeDepuisTitre, themeParSlug } from "./themes";
 
@@ -206,6 +206,7 @@ async function assemblerQuestions(
 /** Les 5 dossiers les plus suivis, tous thèmes confondus : pour la homepage. */
 export const chargerQuestionsExpress = createServerFn({ method: "GET" }).handler(
   async (): Promise<QuestionQuiz[]> => {
+    if (!(await baseDisponible())) return [];
     const dossiers = await chargerDossiersFinaux();
     const top5 = dossiers
       .sort((a, b) => b.suffragesExprimes - a.suffragesExprimes)
@@ -272,6 +273,7 @@ function repartirParTheme(
 
 export const chargerQuestionsGrandQuiz = createServerFn({ method: "GET" }).handler(
   async (): Promise<QuestionQuiz[]> => {
+    if (!(await baseDisponible())) return [];
     const dossiers = await chargerDossiersFinaux();
     return assemblerQuestions(repartirParTheme(dossiers, 16));
   },

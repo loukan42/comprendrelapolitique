@@ -6,7 +6,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { enrichissementDisponible, requete, requeteUne } from "./db";
+import { baseDisponible, enrichissementDisponible, requete, requeteUne } from "./db";
 
 export interface ActeLoi {
   uid: string;
@@ -309,6 +309,7 @@ export const chargerDossier = createServerFn({ method: "GET" })
     return uid;
   })
   .handler(async ({ data: uid }): Promise<DetailLoi | null> => {
+    if (!(await baseDisponible())) return null;
     const dossier = await requeteUne<{
       uid: string;
       titre: string | null;
@@ -504,6 +505,7 @@ export interface DossierListe {
 export const chercherDossiers = createServerFn({ method: "GET" })
   .validator((q: unknown): string => (typeof q === "string" ? q : ""))
   .handler(async ({ data: q }): Promise<DossierListe[]> => {
+    if (!(await baseDisponible())) return [];
     const terme = q.trim();
     if (terme.length < 2) return [];
     const rows = await requete<{
@@ -544,6 +546,7 @@ export interface DossierRecent {
  */
 export const chargerScrutinsRecents = createServerFn({ method: "GET" }).handler(
   async (): Promise<DossierRecent[]> => {
+    if (!(await baseDisponible())) return [];
     const rows = await requete<{
       dossier_uid: string;
       titre: string | null;

@@ -21,7 +21,7 @@
  * la liste n'affiche un résultat que quand il est connu et non ambigu.
  */
 
-import { ligne, query } from "./db.server";
+import { baseDisponible, ligne, query } from "./db.server";
 
 export const TAILLE_PAGE = 30;
 
@@ -69,6 +69,8 @@ export async function chargerListeDossiers(options: {
   page: number;
   recherche: string | null;
 }): Promise<ListeDossiers> {
+  if (!(await baseDisponible()))
+    return { dossiers: [], total: 0, page: options.page, nombrePages: 0 };
   const recherche = options.recherche?.trim() || null;
   const motif = recherche ? `%${recherche}%` : null;
 

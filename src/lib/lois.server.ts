@@ -21,7 +21,7 @@
  * et les champs CONTRE/ABSTENTION du scrutin sont structurellement à zéro.
  */
 
-import { query } from "./db.server";
+import { baseDisponible, query } from "./db.server";
 import { decoderEntitesHtml } from "./entites-html";
 
 export interface VoteIndividuel {
@@ -468,6 +468,7 @@ async function chargerAmendementsImportants(dossierUid: string): Promise<Amendem
 }
 
 export async function chargerDossierLoi(uid: string): Promise<DossierLoi | null> {
+  if (!(await baseDisponible())) return null;
   const dossier = await query<{
     uid: string;
     titre: string | null;
