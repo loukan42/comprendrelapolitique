@@ -14,7 +14,9 @@
     "data:telecharger": "node scripts/import/telecharger.ts",
     "data:charger": "node scripts/import/charger.ts",
     "data:controler": "node scripts/import/controler.ts",
-    "data:formations": "node scripts/import/formations.ts"
+    "data:formations": "node scripts/import/formations.ts",
+    "data:questions": "node scripts/import/questions.ts",
+    "data:positions": "node scripts/import/positions.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"
