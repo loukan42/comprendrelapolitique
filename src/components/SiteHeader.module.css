@@ -8,22 +8,15 @@
 .barre {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-  padding-block: var(--mantine-spacing-sm);
+  gap: var(--mantine-spacing-xs) var(--mantine-spacing-xl);
+  padding-block: var(--mantine-spacing-md);
 }
 
 .marque {
   display: flex;
   align-items: center;
-  gap: var(--mantine-spacing-xs);
-  font-weight: 700;
-  font-size: 1.0625rem;
-  letter-spacing: -0.01em;
-  color: var(--mantine-color-text);
   text-decoration: none;
-  white-space: nowrap;
 }
 
 /*
@@ -36,38 +29,24 @@
   padding: 4px 8px;
 }
 
-.marque:hover {
-  color: var(--mantine-color-text);
-}
-
 /*
- * Cinq liens en capitales espacées ne tiennent pas sur une ligne à 375 px :
- * ils passent à la ligne plutôt que d'être coupés au bord de l'écran.
+ * Cinq liens en capitales espacées : ils passent à la ligne sur mobile
+ * plutôt que d'être coupés au bord de l'écran.
  */
 .nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-}
-
-@media (max-width: 28em) {
-  .nav {
-    gap: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
-  }
-
-  .lien {
-    font-size: 0.75rem;
-    letter-spacing: 0.03em;
-  }
+  gap: var(--mantine-spacing-xs) var(--mantine-spacing-lg);
+  margin-left: auto;
 }
 
 /* Libellés de navigation en petites capitales espacées, comme dans la référence. */
 .lien {
-  font-size: 0.8125rem;
+  font-size: var(--mantine-font-size-xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--mantine-color-dimmed);
   text-decoration: none;
   padding-block: 4px;
@@ -80,4 +59,15 @@
 /* Actif : le blanc plein, comme au survol. Le lien porte aussi aria-current. */
 .lienActif {
   color: var(--mantine-color-text);
+}
+
+@media (max-width: 48em) {
+  .nav {
+    margin-left: 0;
+    gap: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  }
+
+  .barre .action {
+    display: none;
+  }
 }

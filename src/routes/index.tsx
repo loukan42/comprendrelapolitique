@@ -5,9 +5,8 @@ import {
   Button,
   Card,
   Container,
+  Grid,
   Group,
-  Image,
-  Paper,
   SimpleGrid,
   Stack,
   Table,
@@ -15,13 +14,19 @@ import {
   Title,
 } from "@mantine/core";
 import { IconCircleCheck, IconCircleX } from "@tabler/icons-react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import logo from "../assets/politiquiz.png";
+import { createFileRoute } from "@tanstack/react-router";
 import { CarteLien } from "../components/CarteLien";
-import { chargerScrutinsRecents } from "../queries/lois";
+import { Hemicycle } from "../components/Hemicycle";
+import { chargerDernierVote, chargerScrutinsRecents } from "../queries/lois";
 
 export const Route = createFileRoute("/")({
-  loader: () => chargerScrutinsRecents(),
+  loader: async () => {
+    const [decisions, dernierVote] = await Promise.all([
+      chargerScrutinsRecents(),
+      chargerDernierVote(),
+    ]);
+    return { decisions, dernierVote };
+  },
   component: Accueil,
 });
 
@@ -60,7 +65,26 @@ const COUVERTURE = [
   },
 ];
 
+const TOTAL = COUVERTURE.reduce(
+  (acc, l) => ({
+    scrutins: acc.scrutins + l.scrutins,
+    votes: acc.votes + l.votes,
+    finaux: acc.finaux + l.finaux,
+    rattaches: acc.rattaches + l.rattaches,
+  }),
+  { scrutins: 0, votes: 0, finaux: 0, rattaches: 0 },
+);
+
+/** Largeur de la page d'accueil : 1 200 px de contenu, comme la référence. */
+const LARGEUR = 1200;
+const MARGES = { base: "md", sm: "xl" } as const;
+
 const nombre = new Intl.NumberFormat("fr-FR");
+const dateLongue = new Intl.DateTimeFormat("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
 const dateCourte = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
   month: "short",
@@ -70,6 +94,19 @@ const pourcent = (part: number, total: number) =>
   new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 1 }).format(
     part / total,
   );
+
+function formaterJour(jour: string): string {
+  return dateLongue.format(new Date(`${jour}T12:00:00`)).replace(/^1 /, "1er ");
+}
+
+/** Petite étiquette en capitales au-dessus d'un texte, reprise de la référence. */
+function Etiquette({ children }: { children: string }) {
+  return (
+    <Text tt="uppercase" fw={600} fz="xs" c="bleu.3" lts="0.06em">
+      {children}
+    </Text>
+  );
+}
 
 /**
  * Une porte d'entrée de l'accueil : une étiquette, un titre, une phrase et un
@@ -93,9 +130,7 @@ function EntreeCard({
   return (
     <Card withBorder padding="lg" radius="md" h="100%">
       <Stack gap="xs" h="100%">
-        <Text tt="uppercase" fw={600} fz="xs" c="dimmed" lts="0.06em">
-          {etiquette}
-        </Text>
+        <Etiquette>{etiquette}</Etiquette>
         <Title order={3} fz="xl">
           {titre}
         </Title>
@@ -111,107 +146,133 @@ function EntreeCard({
 }
 
 function Accueil() {
-  const decisions = Route.useLoaderData();
-  const total = COUVERTURE.reduce(
-    (acc, l) => ({
-      scrutins: acc.scrutins + l.scrutins,
-      votes: acc.votes + l.votes,
-      finaux: acc.finaux + l.finaux,
-      rattaches: acc.rattaches + l.rattaches,
-    }),
-    { scrutins: 0, votes: 0, finaux: 0, rattaches: 0 },
-  );
+  const { decisions, dernierVote } = Route.useLoaderData();
 
   return (
     <>
-      <Box style={{ borderBottom: "1px solid var(--mantine-color-default-border)" }}>
-        <Container size="md" py={{ base: 40, sm: 64 }}>
-          <Group justify="space-between" align="center" gap={40} wrap="wrap-reverse">
-            <Box maw="var(--mesure-texte)">
-              <Text tt="uppercase" fw={700} fz="xs" c="dimmed" style={{ letterSpacing: "0.06em" }}>
-                Données officielles de l&apos;Assemblée nationale, depuis 2017
-              </Text>
-              <Title order={1} mt="xs">
-                Comprendre la Politique
-              </Title>
-              <Text mt="md" fz="lg" c="dimmed">
-                Ce que les parlementaires français ont voté depuis 2017, à partir des données
-                publiques de l&apos;Assemblée nationale. Les chiffres viennent des sources
-                officielles. Ce que l&apos;on ne sait pas est écrit comme tel.
-              </Text>
-            </Box>
-            {/* Pastille claire : le bleu marine du logo disparaît sur le noir. */}
-            <Paper bg="white" radius="md" p="sm">
-              <Image src={logo} alt="" h={{ base: 96, sm: 140 }} w="auto" fit="contain" />
-            </Paper>
-          </Group>
-        </Container>
-      </Box>
+      {/* L'accroche : un très grand titre, puis le texte et l'action à gauche,
+          et à droite un vrai scrutin dessiné député par député. */}
+      <Container size={LARGEUR} px={MARGES} pt={{ base: 48, sm: 96 }} pb={{ base: 48, sm: 80 }}>
+        <Title order={1} fz="clamp(2.75rem, 1rem + 6.4vw, 7rem)" lh={1.02}>
+          Les votes de l&apos;Assemblée nationale, depuis 2017.
+        </Title>
+        <Grid mt={{ base: 32, sm: 56 }} gap={{ base: 40, md: 64 }} align="flex-start">
+          <Grid.Col span={{ base: 12, md: 5 }}>
+            <Etiquette>Données officielles, sources citées</Etiquette>
+            <Text mt="sm" maw={440}>
+              {nombre.format(TOTAL.scrutins)} scrutins publics et {nombre.format(TOTAL.votes)} votes
+              individuels de députés, chacun relié à sa source. Ce que l&apos;on ne sait pas est
+              écrit comme tel.
+            </Text>
+            <Group mt="xl" gap="lg" align="center">
+              <Button component="a" href="/quiz">
+                Faire le quiz des votes
+              </Button>
+              <Anchor href="/lois" size="sm">
+                Voir les lois
+              </Anchor>
+            </Group>
+          </Grid.Col>
 
-      <Container size="md" py={{ base: 40, sm: 56 }}>
-        <Stack gap={56}>
-          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
-            <EntreeCard
-              etiquette="Comprendre"
-              titre="Les lois depuis 2017"
-              description="Retrouver un texte par son titre et voir qui l'a voté."
-              href="/lois"
-              action="Voir les lois"
-            />
-            <EntreeCard
-              etiquette="Se tester"
-              titre="Le quiz des votes"
-              description="De vrais scrutins : votez, puis comparez-vous aux groupes."
-              href="/quiz"
-              action="Faire le quiz"
-            />
-            <EntreeCard
-              etiquette="Se tester"
-              titre="Le quiz des programmes"
-              description="Des propositions citées mot pour mot, sans le nom du parti."
-              href="/programmes/quiz"
-              action="Faire le quiz"
-            />
-            <EntreeCard
-              etiquette="Suivre"
-              titre="En ce moment"
-              description="Les derniers textes déposés, votés et promulgués."
-              href="/actualite"
-              action="Voir l'actualité"
-            />
-          </SimpleGrid>
+          <Grid.Col span={{ base: 12, md: 7 }}>
+            {dernierVote && (
+              <Box component="figure" m={0}>
+                <Hemicycle sieges={dernierVote.sieges} />
+                <Text component="figcaption" size="sm" c="dimmed" mt="md" ta="center">
+                  Dernier vote sur l&apos;ensemble d&apos;un texte, le{" "}
+                  {formaterJour(dernierVote.date)} :{" "}
+                  <Anchor href={`/lois/${dernierVote.dossierUid}`} size="sm">
+                    {dernierVote.titre ?? dernierVote.dossierUid}
+                  </Anchor>
+                  . {nombre.format(dernierVote.pour)} pour, {nombre.format(dernierVote.contre)}{" "}
+                  contre, {nombre.format(dernierVote.abstention)} abstention
+                  {dernierVote.abstention > 1 ? "s" : ""}. Un point par député, scrutin n°{" "}
+                  {dernierVote.numero}.
+                </Text>
+              </Box>
+            )}
+          </Grid.Col>
+        </Grid>
+      </Container>
+
+      <Container size={LARGEUR} px={MARGES} pb={{ base: 48, sm: 96 }}>
+        <Stack gap={96}>
+          <Box>
+            <Title order={2} maw={640}>
+              Les lois, les quiz et l&apos;actualité
+            </Title>
+            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg" mt="xl">
+              <EntreeCard
+                etiquette="Comprendre"
+                titre="Les lois depuis 2017"
+                description="Retrouver un texte par son titre et voir qui l'a voté."
+                href="/lois"
+                action="Voir les lois"
+              />
+              <EntreeCard
+                etiquette="Se tester"
+                titre="Le quiz des votes"
+                description="De vrais scrutins : votez, puis comparez-vous aux groupes."
+                href="/quiz"
+                action="Faire le quiz"
+              />
+              <EntreeCard
+                etiquette="Se tester"
+                titre="Le quiz des programmes"
+                description="Des propositions citées mot pour mot, sans le nom du parti."
+                href="/programmes/quiz"
+                action="Faire le quiz"
+              />
+              <EntreeCard
+                etiquette="Suivre"
+                titre="En ce moment"
+                description="Les derniers textes déposés, votés et promulgués."
+                href="/actualite"
+                action="Voir l'actualité"
+              />
+            </SimpleGrid>
+          </Box>
 
           {decisions.length > 0 && (
-            <Box>
-              <Title order={2}>Des scrutins récents</Title>
-              <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-                Les derniers votes sur l&apos;ensemble d&apos;un texte, toutes législatures
-                confondues, du plus récent au plus ancien.
-              </Text>
-              <SimpleGrid cols={{ base: 1, sm: 2 }} mt="lg" spacing="md">
-                {decisions.map((d) => (
-                  <CarteLien key={d.dossierUid} href={`/lois/${d.dossierUid}`}>
-                    <Group gap="xs" wrap="nowrap" align="flex-start">
-                      {d.sortCode === "adopté" && (
-                        <IconCircleCheck size={18} style={{ flexShrink: 0, marginTop: 3 }} />
-                      )}
-                      {d.sortCode === "rejeté" && (
-                        <IconCircleX
-                          size={18}
-                          style={{ flexShrink: 0, marginTop: 3, opacity: 0.6 }}
-                        />
-                      )}
-                      <Box>
-                        <Text fw={600}>{d.titre ?? d.dossierUid}</Text>
-                        <Text size="sm" c="dimmed" mt={2}>
-                          {dateCourte.format(new Date(d.dateScrutin))}
-                        </Text>
-                      </Box>
-                    </Group>
-                  </CarteLien>
-                ))}
-              </SimpleGrid>
-            </Box>
+            <Grid gap={{ base: 24, md: 64 }}>
+              <Grid.Col span={{ base: 12, md: 5 }}>
+                <Etiquette>Derniers scrutins</Etiquette>
+                <Title order={2} mt="xs">
+                  Les derniers votes sur un texte
+                </Title>
+                <Text mt="sm" c="dimmed">
+                  Toutes législatures confondues, du plus récent au plus ancien.
+                </Text>
+                <Anchor href="/actualite" size="sm" mt="md" display="block">
+                  Tout ce qui se passe en ce moment
+                </Anchor>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 7 }}>
+                <Stack gap="sm">
+                  {decisions.map((d) => (
+                    <CarteLien key={d.dossierUid} href={`/lois/${d.dossierUid}`}>
+                      <Group gap="xs" wrap="nowrap" align="flex-start">
+                        {d.sortCode === "adopté" && (
+                          <IconCircleCheck size={18} style={{ flexShrink: 0, marginTop: 3 }} />
+                        )}
+                        {d.sortCode === "rejeté" && (
+                          <IconCircleX
+                            size={18}
+                            style={{ flexShrink: 0, marginTop: 3, opacity: 0.6 }}
+                          />
+                        )}
+                        <Box>
+                          <Text fw={600}>{d.titre ?? d.dossierUid}</Text>
+                          <Text size="sm" c="dimmed" mt={2}>
+                            {dateCourte.format(new Date(d.dateScrutin))}
+                          </Text>
+                        </Box>
+                      </Group>
+                    </CarteLien>
+                  ))}
+                </Stack>
+              </Grid.Col>
+            </Grid>
           )}
 
           <Accordion variant="separated" radius="md">
@@ -224,14 +285,14 @@ function Accueil() {
                       Ce qui est couvert aujourd&apos;hui
                     </Title>
                     <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-                      Sur {nombre.format(total.scrutins)} scrutins publics,{" "}
-                      {nombre.format(total.finaux)} portent sur l&apos;ensemble d&apos;un texte,
-                      soit {pourcent(total.finaux, total.scrutins)}. Ce sont eux qui répondent à la
+                      Sur {nombre.format(TOTAL.scrutins)} scrutins publics,{" "}
+                      {nombre.format(TOTAL.finaux)} portent sur l&apos;ensemble d&apos;un texte,
+                      soit {pourcent(TOTAL.finaux, TOTAL.scrutins)}. Ce sont eux qui répondent à la
                       question «&nbsp;qu&apos;est-ce qui a été voté&nbsp;?&nbsp;». Les autres
                       portent sur un amendement ou un article.
                     </Text>
                     <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
-                      Parmi ces votes sur un texte, {pourcent(total.rattaches, total.finaux)} sont
+                      Parmi ces votes sur un texte, {pourcent(TOTAL.rattaches, TOTAL.finaux)} sont
                       reliés au dossier législatif correspondant. Le reste attend une méthode de
                       rattachement fiable, faute de quoi le vote serait attribué à la mauvaise loi.
                     </Text>
@@ -273,17 +334,17 @@ function Accueil() {
                         <Table.Tfoot>
                           <Table.Tr>
                             <Table.Th colSpan={3}>Total</Table.Th>
-                            <Table.Th ta="right">{nombre.format(total.votes)}</Table.Th>
+                            <Table.Th ta="right">{nombre.format(TOTAL.votes)}</Table.Th>
                             <Table.Th ta="right">
-                              {nombre.format(total.finaux)}{" "}
+                              {nombre.format(TOTAL.finaux)}{" "}
                               <Text span c="dimmed" size="sm" fw={400}>
-                                {pourcent(total.finaux, total.scrutins)}
+                                {pourcent(TOTAL.finaux, TOTAL.scrutins)}
                               </Text>
                             </Table.Th>
                             <Table.Th ta="right">
-                              {nombre.format(total.rattaches)}{" "}
+                              {nombre.format(TOTAL.rattaches)}{" "}
                               <Text span c="dimmed" size="sm" fw={400}>
-                                {pourcent(total.rattaches, total.finaux)}
+                                {pourcent(TOTAL.rattaches, TOTAL.finaux)}
                               </Text>
                             </Table.Th>
                           </Table.Tr>
@@ -304,16 +365,11 @@ function Accueil() {
                     </Text>
                   </Box>
 
-                  <Box
-                    style={{
-                      borderLeft: "3px solid var(--mantine-primary-color-filled)",
-                      paddingLeft: "var(--mantine-spacing-md)",
-                    }}
-                  >
+                  <Box>
                     <Title order={3} fz="lg">
                       Une limite à connaître d&apos;emblée
                     </Title>
-                    <Text mt="sm">
+                    <Text mt="sm" maw="var(--mesure-texte)">
                       Un texte adopté par l&apos;article 49 alinéa 3 ne donne lieu à aucun vote.
                       C&apos;est le cas de la réforme des retraites de 2023 : l&apos;Assemblée ne
                       s&apos;est jamais prononcée sur son ensemble, et ce qui a été voté, ce sont

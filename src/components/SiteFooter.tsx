@@ -1,33 +1,32 @@
 import { Anchor, Container, Group, Text } from "@mantine/core";
-import { Link } from "@tanstack/react-router";
+import classes from "./SiteFooter.module.css";
 
+/** Pied de page sur la largeur de l'accueil, liens en petites capitales. */
 export function SiteFooter() {
   return (
-    <Container
-      size="md"
-      py="lg"
-      mt={80}
-      style={{ borderTop: "1px solid var(--mantine-color-default-border)" }}
-    >
-      <Group justify="space-between" gap="sm">
-        <Text size="sm" c="dimmed">
-          Données : Open Data de l&apos;Assemblée nationale, Licence Ouverte.
-        </Text>
-        <Group gap="md">
-          <Anchor component={Link} to="/methodologie" size="sm" c="dimmed">
-            Méthodologie
-          </Anchor>
-          <Anchor
-            href="https://data.assemblee-nationale.fr/"
-            target="_blank"
-            rel="noreferrer"
-            size="sm"
-            c="dimmed"
-          >
-            data.assemblee-nationale.fr
-          </Anchor>
+    <footer className={classes["pied"]}>
+      <Container size={1200} px={{ base: "md", sm: "xl" }} py="xl">
+        <Group justify="space-between" align="flex-end" gap="lg">
+          <Text size="sm" c="dimmed" maw={460}>
+            Données : Open Data de l&apos;Assemblée nationale, Licence Ouverte.
+          </Text>
+          <Group gap="lg">
+            <Anchor href="/methodologie" c="dimmed" underline="never" className={classes["lien"]}>
+              Méthodologie
+            </Anchor>
+            <Anchor
+              href="https://data.assemblee-nationale.fr/"
+              target="_blank"
+              rel="noreferrer"
+              c="dimmed"
+              underline="never"
+              className={classes["lien"]}
+            >
+              Données ouvertes de l&apos;Assemblée
+            </Anchor>
+          </Group>
         </Group>
-      </Group>
-    </Container>
+      </Container>
+    </footer>
   );
 }

@@ -1,0 +1,15 @@
+.pied {
+  margin-top: 80px;
+  border-top: 1px solid var(--mantine-color-default-border);
+}
+
+.lien {
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lien:hover {
+  color: var(--mantine-color-text);
+}

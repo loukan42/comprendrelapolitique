@@ -572,3 +572,58 @@ export const chargerScrutinsRecents = createServerFn({ method: "GET" }).handler(
       .slice(0, 6);
   },
 );
+
+export interface DernierVote {
+  dossierUid: string;
+  titre: string | null;
+  numero: number;
+  /** Date au format AAAA-MM-JJ. */
+  date: string;
+  sortLibelle: string | null;
+  pour: number;
+  contre: number;
+  abstention: number;
+  sieges: SiegeVote[];
+}
+
+/**
+ * Le dernier vote sur l'ensemble d'un texte relié à son dossier, avec ses
+ * sièges. Sert l'image de l'accueil : un vrai scrutin dessiné député par
+ * député, à la place d'une illustration décorative (AGENTS.md section 2).
+ * Les décomptes sont faits sur les votes individuels, comme l'hémicycle.
+ */
+export const chargerDernierVote = createServerFn({ method: "GET" }).handler(
+  async (): Promise<DernierVote | null> => {
+    if (!(await baseDisponible())) return null;
+    const [s] = await requete<{
+      uid: string;
+      numero: number;
+      date: string;
+      sort_libelle: string | null;
+      dossier_uid: string;
+      titre: string | null;
+    }>(
+      `SELECT s.uid, s.numero, s.date_scrutin::text AS date, s.sort_libelle, sd.dossier_uid, d.titre
+         FROM officiel.scrutin s
+         JOIN officiel.scrutin_dossier sd ON sd.scrutin_uid = s.uid AND sd.dossier_uid IS NOT NULL
+         LEFT JOIN officiel.dossier d ON d.uid = sd.dossier_uid
+        WHERE s.est_vote_sur_ensemble
+        ORDER BY s.date_scrutin DESC, s.numero DESC
+        LIMIT 1`,
+    );
+    if (!s) return null;
+    const sieges = await chargerSieges(s.uid);
+    const compter = (p: SiegeVote["position"]) => sieges.filter((x) => x.position === p).length;
+    return {
+      dossierUid: s.dossier_uid,
+      titre: s.titre,
+      numero: s.numero,
+      date: s.date,
+      sortLibelle: s.sort_libelle,
+      pour: compter("POUR"),
+      contre: compter("CONTRE"),
+      abstention: compter("ABSTENTION"),
+      sieges,
+    };
+  },
+);

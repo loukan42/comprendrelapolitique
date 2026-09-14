@@ -156,7 +156,8 @@ export const theme = createTheme({
     fontWeight: "400",
     sizes: {
       h1: { fontSize: "clamp(2.125rem, 1.4rem + 2.4vw, 3.5rem)", lineHeight: "1.08" },
-      h2: { fontSize: "clamp(1.625rem, 1.3rem + 1.2vw, 2.25rem)", lineHeight: "1.15" },
+      // 42 px au plus, la taille des titres de section de la référence.
+      h2: { fontSize: "clamp(1.75rem, 1.2rem + 1.6vw, 2.625rem)", lineHeight: "1.15" },
       h3: { fontSize: "1.375rem", lineHeight: "1.3" },
       h4: { fontSize: "1.125rem", lineHeight: "1.35" },
     },
