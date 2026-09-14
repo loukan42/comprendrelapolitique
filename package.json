@@ -15,6 +15,7 @@
     "data:charger": "node scripts/import/charger.ts",
     "data:controler": "node scripts/import/controler.ts",
     "data:formations": "node scripts/import/formations.ts",
+    "data:ordre-groupes": "node scripts/import/ordre_groupes.ts",
     "data:questions": "node scripts/import/questions.ts",
     "data:positions": "node scripts/import/positions.ts",
     "enrichissement:scores": "node scripts/enrichissement/calculer_scores.ts",

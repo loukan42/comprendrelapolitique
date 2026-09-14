@@ -83,22 +83,33 @@ function genererSieges(total: number): PointSiege[] {
 }
 
 export function Hemicycle({ sieges }: { sieges: SiegeVote[] }) {
-  // Regroupe par groupe (les sièges d'un même groupe restent adjacents,
-  // comme dans un hémicycle réel), puis par position au sein du groupe.
-  const parGroupe = new Map<string, SiegeVote[]>();
+  // Les sièges arrivent déjà rangés de la gauche vers la droite de
+  // l'hémicycle (voir `chargerSieges`). On ne les retrie donc pas : une
+  // version antérieure les ordonnait par effectif décroissant, ce qui
+  // détruisait la seule information qu'un hémicycle apporte sur un tableau
+  // de chiffres, la géographie politique.
+  //
+  // Seul l'ordre interne à un groupe est fixé ici, par position, pour que les
+  // voix d'un même groupe forment des blocs lisibles plutôt qu'un damier.
+  const ordrePosition: SiegeVote["position"][] = ["POUR", "CONTRE", "ABSTENTION", "NON_VOTANT"];
+  const donneesOrdonnees: SiegeVote[] = [];
+  let bloc: SiegeVote[] = [];
+  let groupeCourant: string | null = null;
+  const viderBloc = () => {
+    donneesOrdonnees.push(
+      ...[...bloc].sort(
+        (a, b) => ordrePosition.indexOf(a.position) - ordrePosition.indexOf(b.position),
+      ),
+    );
+    bloc = [];
+  };
   for (const s of sieges) {
     const cle = s.organeUid ?? "?";
-    const liste = parGroupe.get(cle) ?? [];
-    liste.push(s);
-    parGroupe.set(cle, liste);
+    if (groupeCourant !== null && cle !== groupeCourant) viderBloc();
+    groupeCourant = cle;
+    bloc.push(s);
   }
-  const ordreGroupes = Array.from(parGroupe.entries()).sort((a, b) => b[1].length - a[1].length);
-  const ordrePosition: SiegeVote["position"][] = ["POUR", "CONTRE", "ABSTENTION", "NON_VOTANT"];
-  const donneesOrdonnees = ordreGroupes.flatMap(([, liste]) =>
-    [...liste].sort(
-      (a, b) => ordrePosition.indexOf(a.position) - ordrePosition.indexOf(b.position),
-    ),
-  );
+  viderBloc();
 
   const points = genererSieges(donneesOrdonnees.length);
 

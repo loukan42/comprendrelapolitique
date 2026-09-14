@@ -6,7 +6,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { requete, requeteUne } from "./db";
+import { enrichissementDisponible, requete, requeteUne } from "./db";
 
 export interface ActeLoi {
   uid: string;
@@ -109,10 +109,29 @@ async function chargerRepartition(scrutinUid: string): Promise<RepartitionVote[]
   return lignes.map((l) => ({ position: l.position, effectif: Number(l.effectif) }));
 }
 
-/** Un point par vote individuel réellement enregistré, pour l'hémicycle. */
+/**
+ * Un point par vote individuel réellement enregistré, pour l'hémicycle.
+ *
+ * Les sièges sortent déjà rangés de la gauche vers la droite de l'hémicycle,
+ * selon `enrichissement.groupe_ordre`. C'est ce qui donne son sens au dessin :
+ * une version antérieure rangeait les groupes par effectif décroissant, et le
+ * lecteur y voyait une géographie politique qui n'existait pas, du type « la
+ * droite a voté contre » alors que la couleur ne dit que le sens du vote.
+ *
+ * Sans la table d'ordre (base chargée sans `data:ordre-groupes`), l'ordre
+ * retombe sur celui des groupes, faute de mieux, et la page reste servie.
+ */
 async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
+  const avecOrdre = await enrichissementDisponible();
   const lignes = await requete<{ organe_uid: string | null; position: SiegeVote["position"] }>(
-    `SELECT organe_uid, position FROM officiel.vote WHERE scrutin_uid = $1`,
+    avecOrdre
+      ? `SELECT v.organe_uid, v.position
+           FROM officiel.vote v
+           LEFT JOIN enrichissement.groupe_ordre go ON go.organe_uid = v.organe_uid
+          WHERE v.scrutin_uid = $1
+          ORDER BY go.rang NULLS LAST, v.organe_uid`
+      : `SELECT organe_uid, position FROM officiel.vote
+          WHERE scrutin_uid = $1 ORDER BY organe_uid`,
     [scrutinUid],
   );
   return lignes.map((l) => ({ organeUid: l.organe_uid, position: l.position }));
@@ -131,6 +150,7 @@ async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
  * lu tel que la source l'a posé (AGENTS.md section 5, règle 1).
  */
 async function chargerVotesParGroupe(scrutinUid: string): Promise<VoteGroupeScrutin[]> {
+  const avecOrdre = await enrichissementDisponible();
   const lignes = await requete<{
     organe_uid: string | null;
     libelle: string | null;
@@ -140,16 +160,28 @@ async function chargerVotesParGroupe(scrutinUid: string): Promise<VoteGroupeScru
     voix_abstention: string;
     voix_non_votant: string;
   }>(
-    `SELECT v.organe_uid, o.libelle, o.couleur,
-            count(*) FILTER (WHERE v.position = 'POUR')        AS voix_pour,
-            count(*) FILTER (WHERE v.position = 'CONTRE')      AS voix_contre,
-            count(*) FILTER (WHERE v.position = 'ABSTENTION')  AS voix_abstention,
-            count(*) FILTER (WHERE v.position = 'NON_VOTANT')  AS voix_non_votant
-       FROM officiel.vote v
-       LEFT JOIN officiel.organe o ON o.uid = v.organe_uid
-      WHERE v.scrutin_uid = $1
-      GROUP BY v.organe_uid, o.libelle, o.couleur
-      ORDER BY count(*) DESC`,
+    avecOrdre
+      ? `SELECT v.organe_uid, o.libelle, o.couleur,
+                count(*) FILTER (WHERE v.position = 'POUR')        AS voix_pour,
+                count(*) FILTER (WHERE v.position = 'CONTRE')      AS voix_contre,
+                count(*) FILTER (WHERE v.position = 'ABSTENTION')  AS voix_abstention,
+                count(*) FILTER (WHERE v.position = 'NON_VOTANT')  AS voix_non_votant
+           FROM officiel.vote v
+           LEFT JOIN officiel.organe o ON o.uid = v.organe_uid
+           LEFT JOIN enrichissement.groupe_ordre go ON go.organe_uid = v.organe_uid
+          WHERE v.scrutin_uid = $1
+          GROUP BY v.organe_uid, o.libelle, o.couleur, go.rang
+          ORDER BY go.rang NULLS LAST, count(*) DESC`
+      : `SELECT v.organe_uid, o.libelle, o.couleur,
+                count(*) FILTER (WHERE v.position = 'POUR')        AS voix_pour,
+                count(*) FILTER (WHERE v.position = 'CONTRE')      AS voix_contre,
+                count(*) FILTER (WHERE v.position = 'ABSTENTION')  AS voix_abstention,
+                count(*) FILTER (WHERE v.position = 'NON_VOTANT')  AS voix_non_votant
+           FROM officiel.vote v
+           LEFT JOIN officiel.organe o ON o.uid = v.organe_uid
+          WHERE v.scrutin_uid = $1
+          GROUP BY v.organe_uid, o.libelle, o.couleur
+          ORDER BY count(*) DESC`,
     [scrutinUid],
   );
   return lignes.map((l) => ({

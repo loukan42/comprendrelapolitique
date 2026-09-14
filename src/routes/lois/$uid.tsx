@@ -116,8 +116,11 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
         <Box mt="lg">
           <Hemicycle sieges={scrutin.sieges} />
           <Text size="xs" c="dimmed" ta="center" mt={4}>
-            Un point par vote individuel enregistré ({scrutin.sieges.length}). Sièges regroupés par
-            groupe parlementaire ; leur disposition ne reproduit pas le plan de salle réel.
+            Un point par vote individuel enregistré ({scrutin.sieges.length}), rangé de la gauche
+            vers la droite de l&apos;hémicycle. L&apos;ordre des groupes est un placement éditorial
+            : l&apos;Assemblée ne publie pas d&apos;axe gauche-droite. Les non-inscrits, qui ne
+            forment pas une famille politique, sont regroupés à l&apos;extrémité droite du dessin
+            sans que cela leur attribue une orientation.
           </Text>
         </Box>
       )}
@@ -160,8 +163,10 @@ function BlocScrutin({ scrutin }: { scrutin: ScrutinLoi }) {
         <Box mt="xl">
           <Text fw={600}>Qui a voté quoi</Text>
           <Text c="dimmed" size="sm" mt={4}>
-            Chaque groupe parlementaire, du plus nombreux au plus petit, avec le sens de ses voix
-            sur ce scrutin.
+            Chaque groupe parlementaire existant au moment du vote, rangé de la gauche vers la
+            droite, avec le sens de ses voix. Un parti comptant trop peu de députés pour former un
+            groupe, qui en demande quinze, n&apos;apparaît pas ici : ses élus siègent parmi les
+            non-inscrits. C&apos;est le cas du Rassemblement national jusqu&apos;en 2022.
           </Text>
           <Stack gap="md" mt="md">
             {scrutin.parGroupe.map((g) => (

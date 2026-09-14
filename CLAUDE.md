@@ -46,6 +46,12 @@ npm run data:formations -- --db data/pg16
 la XVIe et la XVIIe à la suite avec le même `--db` les réunit, la migration
 n'étant appliquée qu'à la première.
 
+`data:ordre-groupes` place les groupes sur l'axe gauche-droite de l'hémicycle.
+Sans cette étape, le dessin range les groupes par identifiant, ce qui lui
+retire le seul apport qu'il a sur un tableau de chiffres. La source ne publie
+pas cet ordre : c'est un placement éditorial, justifié groupe par groupe, que
+`--verifier` réimprime de la gauche vers la droite.
+
 `data:formations` crée le schéma `enrichissement` et rattache les groupes
 parlementaires aux formations politiques qu'ils prolongent, sans quoi « Les
 Républicains » et « Droite Républicaine » comptent comme deux familles. Le
