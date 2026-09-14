@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as MethodologieRouteImport } from './routes/methodologie'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RechercheRouteImport } from './routes/recherche'
+import { Route as BilansIndexRouteImport } from './routes/bilans/index'
+import { Route as BilansPresidentRouteImport } from './routes/bilans/$president'
 import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
 import { Route as GroupesUidRouteImport } from './routes/groupes/$uid'
 import { Route as LoisIndexRouteImport } from './routes/lois/index'
@@ -40,6 +42,16 @@ const QuizRoute = QuizRouteImport.update({
 const RechercheRoute = RechercheRouteImport.update({
   id: '/recherche',
   path: '/recherche',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BilansIndexRoute = BilansIndexRouteImport.update({
+  id: '/bilans/',
+  path: '/bilans/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BilansPresidentRoute = BilansPresidentRouteImport.update({
+  id: '/bilans/$president',
+  path: '/bilans/$president',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeputesUidRoute = DeputesUidRouteImport.update({
@@ -88,11 +100,13 @@ export interface FileRoutesByFullPath {
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/bilans/$president': typeof BilansPresidentRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/bilans/': typeof BilansIndexRoute
   '/lois/': typeof LoisIndexRoute
   '/programmes/': typeof ProgrammesIndexRoute
   '/themes/': typeof ThemesIndexRoute
@@ -102,11 +116,13 @@ export interface FileRoutesByTo {
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/bilans/$president': typeof BilansPresidentRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/bilans': typeof BilansIndexRoute
   '/lois': typeof LoisIndexRoute
   '/programmes': typeof ProgrammesIndexRoute
   '/themes': typeof ThemesIndexRoute
@@ -117,11 +133,13 @@ export interface FileRoutesById {
   '/methodologie': typeof MethodologieRoute
   '/quiz': typeof QuizRoute
   '/recherche': typeof RechercheRoute
+  '/bilans/$president': typeof BilansPresidentRoute
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/themes/$slug': typeof ThemesSlugRoute
+  '/bilans/': typeof BilansIndexRoute
   '/lois/': typeof LoisIndexRoute
   '/programmes/': typeof ProgrammesIndexRoute
   '/themes/': typeof ThemesIndexRoute
@@ -133,11 +151,13 @@ export interface FileRouteTypes {
     | '/methodologie'
     | '/quiz'
     | '/recherche'
+    | '/bilans/$president'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/programmes/comparer'
     | '/themes/$slug'
+    | '/bilans/'
     | '/lois/'
     | '/programmes/'
     | '/themes/'
@@ -147,11 +167,13 @@ export interface FileRouteTypes {
     | '/methodologie'
     | '/quiz'
     | '/recherche'
+    | '/bilans/$president'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/programmes/comparer'
     | '/themes/$slug'
+    | '/bilans'
     | '/lois'
     | '/programmes'
     | '/themes'
@@ -161,11 +183,13 @@ export interface FileRouteTypes {
     | '/methodologie'
     | '/quiz'
     | '/recherche'
+    | '/bilans/$president'
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
     | '/programmes/comparer'
     | '/themes/$slug'
+    | '/bilans/'
     | '/lois/'
     | '/programmes/'
     | '/themes/'
@@ -176,11 +200,13 @@ export interface RootRouteChildren {
   MethodologieRoute: typeof MethodologieRoute
   QuizRoute: typeof QuizRoute
   RechercheRoute: typeof RechercheRoute
+  BilansPresidentRoute: typeof BilansPresidentRoute
   DeputesUidRoute: typeof DeputesUidRoute
   GroupesUidRoute: typeof GroupesUidRoute
   LoisUidRoute: typeof LoisUidRoute
   ProgrammesComparerRoute: typeof ProgrammesComparerRoute
   ThemesSlugRoute: typeof ThemesSlugRoute
+  BilansIndexRoute: typeof BilansIndexRoute
   LoisIndexRoute: typeof LoisIndexRoute
   ProgrammesIndexRoute: typeof ProgrammesIndexRoute
   ThemesIndexRoute: typeof ThemesIndexRoute
@@ -214,6 +240,20 @@ declare module '@tanstack/react-router' {
       path: '/recherche'
       fullPath: '/recherche'
       preLoaderRoute: typeof RechercheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bilans/': {
+      id: '/bilans/'
+      path: '/bilans'
+      fullPath: '/bilans/'
+      preLoaderRoute: typeof BilansIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bilans/$president': {
+      id: '/bilans/$president'
+      path: '/bilans/$president'
+      fullPath: '/bilans/$president'
+      preLoaderRoute: typeof BilansPresidentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/deputes/$uid': {
@@ -280,11 +320,13 @@ const rootRouteChildren: RootRouteChildren = {
   MethodologieRoute: MethodologieRoute,
   QuizRoute: QuizRoute,
   RechercheRoute: RechercheRoute,
+  BilansPresidentRoute: BilansPresidentRoute,
   DeputesUidRoute: DeputesUidRoute,
   GroupesUidRoute: GroupesUidRoute,
   LoisUidRoute: LoisUidRoute,
   ProgrammesComparerRoute: ProgrammesComparerRoute,
   ThemesSlugRoute: ThemesSlugRoute,
+  BilansIndexRoute: BilansIndexRoute,
   LoisIndexRoute: LoisIndexRoute,
   ProgrammesIndexRoute: ProgrammesIndexRoute,
   ThemesIndexRoute: ThemesIndexRoute,

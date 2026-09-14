@@ -40,6 +40,35 @@
   --couleur-vote-abstention: #dfa93f;
 }
 
+/*
+ * Statuts du bilan des engagements.
+ *
+ * Distincts des couleurs de vote, parce qu'ils disent autre chose : un
+ * engagement réalisé n'est pas un vote « pour ». Le rouge signale ici qu'une
+ * mesure annoncée n'a pas été mise en oeuvre, jamais un jugement sur elle.
+ *
+ * « En cours » et « impossible à évaluer » sont volontairement neutres : ce
+ * sont des absences de verdict, et leur donner une couleur chargée
+ * reviendrait à en rendre un.
+ */
+:root {
+  --statut-realise: #2f8a5b;
+  --statut-partiellement: #c08a2e;
+  --statut-en-cours: #4f6180;
+  --statut-non-realise: #b4453c;
+  --statut-abandonne: #6f6f68;
+  --statut-inevaluable: #90908a;
+}
+
+:root[data-mantine-color-scheme="dark"] {
+  --statut-realise: #4caf7d;
+  --statut-partiellement: #dfa93f;
+  --statut-en-cours: #8998b3;
+  --statut-non-realise: #e0695f;
+  --statut-abandonne: #a3a39c;
+  --statut-inevaluable: #97978f;
+}
+
 html {
   /* Le défilement ancré ne doit pas masquer le titre visé. */
   scroll-padding-top: var(--mantine-spacing-xl);

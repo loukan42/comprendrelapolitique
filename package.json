@@ -21,7 +21,8 @@
     "enrichissement:scores": "node scripts/enrichissement/calculer_scores.ts",
     "enrichissement:themes-echantillon": "node scripts/enrichissement/classer_echantillon.ts",
     "data:programmes": "node scripts/import/programmes.ts",
-    "data:positions-programme": "node scripts/import/positions_programme.ts"
+    "data:positions-programme": "node scripts/import/positions_programme.ts",
+    "data:bilans": "node scripts/import/bilans.ts"
   },
   "overrides": {
     "rolldown": "1.2.1"
