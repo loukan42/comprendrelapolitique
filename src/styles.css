@@ -77,11 +77,11 @@ html {
 /*
  * Corps de texte en graisse très légère, titres resserrés : les deux traits
  * du style de référence (src/theme.ts). Le blanc sur noir pur garde un
- * contraste de 21, ce qui permet la graisse 200 à 18 px sans perdre la
+ * contraste de 21, ce qui permet la graisse 300 à 18 px sans perdre la
  * lecture. Les textes en gras de l'interface fixent leur propre graisse.
  */
 body {
-  font-weight: 200;
+  font-weight: 300;
   font-feature-settings: "ss01" on;
 }
 
@@ -91,19 +91,6 @@ body {
 
 :where(h3, h4) {
   letter-spacing: -0.015em;
-}
-
-/*
- * Texte sombre sur un bouton plein en thème sombre.
- *
- * L'accent y est une teinte claire (nuance 4, choisie pour que les liens
- * restent lisibles sur fond sombre). Le texte blanc que Mantine pose par
- * défaut sur un bouton plein tombe alors à un contraste de 2,7, sous le
- * minimum AA exigé par AGENTS.md section 2. Le noir du thème sur cette même
- * teinte remonte au-dessus de 8.
- */
-:root[data-mantine-color-scheme="dark"] .mantine-Button-root[data-variant="filled"] {
-  color: var(--mantine-color-black);
 }
 
 /* Le focus reste visible au clavier, jamais supprimé. */

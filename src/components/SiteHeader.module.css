@@ -26,23 +26,39 @@
   white-space: nowrap;
 }
 
+/*
+ * Le logo est bleu marine et rouge : posé sur le noir, son bleu disparaît.
+ * Il reçoit donc une pastille claire, qui lui rend ses deux couleurs.
+ */
+.logo {
+  background-color: var(--mantine-color-white);
+  border-radius: var(--mantine-radius-sm);
+  padding: 4px 8px;
+}
+
 .marque:hover {
   color: var(--mantine-color-text);
 }
 
+/*
+ * Cinq liens en capitales espacées ne tiennent pas sur une ligne à 375 px :
+ * ils passent à la ligne plutôt que d'être coupés au bord de l'écran.
+ */
 .nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--mantine-spacing-md);
+  gap: var(--mantine-spacing-xs) var(--mantine-spacing-md);
 }
 
 @media (max-width: 28em) {
   .nav {
-    gap: var(--mantine-spacing-sm);
+    gap: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
   }
 
   .lien {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
 }
 

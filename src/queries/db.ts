@@ -95,3 +95,35 @@ export function enrichissementDisponible(): Promise<boolean> {
   }
   return enrichissementPromise;
 }
+
+const tables = new Map<string, Promise<boolean>>();
+
+/**
+ * Une table précise est-elle chargée ?
+ *
+ * Le schéma `enrichissement` se remplit par couches indépendantes :
+ * formations, ordre des groupes, programmes, bilans, chacune par son propre
+ * script. Que le schéma existe ne dit donc pas qu'une couche donnée a été
+ * chargée : une base peut porter les programmes sans les formations. Se fier
+ * au seul schéma faisait répondre 500 au quiz des votes sur une telle base.
+ * Chaque requête vérifie la table qu'elle lit, et retombe sur sa version sans
+ * enrichissement quand la table manque.
+ *
+ * Mis en cache pour la durée du processus, comme `enrichissementDisponible` :
+ * une couche chargée pendant que le serveur tourne demande un redémarrage.
+ */
+export function tableDisponible(nomQualifie: `${string}.${string}`): Promise<boolean> {
+  let disponible = tables.get(nomQualifie);
+  if (!disponible) {
+    const [schema, table] = nomQualifie.split(".");
+    disponible = requeteUne<{ existe: boolean }>(
+      `SELECT EXISTS (SELECT 1 FROM information_schema.tables
+                       WHERE table_schema = $1 AND table_name = $2) AS existe`,
+      [schema, table],
+    )
+      .then((r) => r?.existe ?? false)
+      .catch(() => false);
+    tables.set(nomQualifie, disponible);
+  }
+  return disponible;
+}

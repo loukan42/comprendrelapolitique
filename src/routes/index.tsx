@@ -8,6 +8,7 @@ import {
   Container,
   Group,
   Image,
+  Paper,
   SimpleGrid,
   Stack,
   Table,
@@ -117,10 +118,7 @@ function Accueil() {
 
   return (
     <>
-      <Box
-        style={{ borderBottom: "1px solid var(--mantine-color-default-border)" }}
-        bg="var(--mantine-color-default-hover)"
-      >
+      <Box style={{ borderBottom: "1px solid var(--mantine-color-default-border)" }}>
         <Container size="md" py={{ base: 40, sm: 64 }}>
           <Group justify="space-between" align="center" gap={40} wrap="wrap-reverse">
             <Box maw="var(--mesure-texte)">
@@ -136,7 +134,10 @@ function Accueil() {
                 officielles. Ce que l&apos;on ne sait pas est écrit comme tel.
               </Text>
             </Box>
-            <Image src={logo} alt="" h={{ base: 96, sm: 140 }} w="auto" fit="contain" />
+            {/* Pastille claire : le bleu marine du logo disparaît sur le noir. */}
+            <Paper bg="white" radius="md" p="sm">
+              <Image src={logo} alt="" h={{ base: 96, sm: 140 }} w="auto" fit="contain" />
+            </Paper>
           </Group>
         </Container>
       </Box>

@@ -14,7 +14,14 @@ export function SiteHeader() {
     <header className={classes["entete"]}>
       <Container size="md" className={classes["barre"]}>
         <Link to="/" className={classes["marque"]} aria-label="Comprendre la Politique">
-          <Image src={logo} alt="Comprendre la Politique" h={44} w="auto" fit="contain" />
+          <Image
+            src={logo}
+            alt="Comprendre la Politique"
+            h={44}
+            w="auto"
+            fit="contain"
+            className={classes["logo"]}
+          />
         </Link>
         <nav className={classes["nav"]}>
           <Link

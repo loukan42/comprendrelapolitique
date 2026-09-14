@@ -6,7 +6,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { baseDisponible, enrichissementDisponible, requete, requeteUne } from "./db";
+import { baseDisponible, tableDisponible, requete, requeteUne } from "./db";
 
 export interface ActeLoi {
   uid: string;
@@ -122,7 +122,7 @@ async function chargerRepartition(scrutinUid: string): Promise<RepartitionVote[]
  * retombe sur celui des groupes, faute de mieux, et la page reste servie.
  */
 async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
-  const avecOrdre = await enrichissementDisponible();
+  const avecOrdre = await tableDisponible("enrichissement.groupe_ordre");
   const lignes = await requete<{ organe_uid: string | null; position: SiegeVote["position"] }>(
     avecOrdre
       ? `SELECT v.organe_uid, v.position
@@ -150,7 +150,7 @@ async function chargerSieges(scrutinUid: string): Promise<SiegeVote[]> {
  * lu tel que la source l'a posé (AGENTS.md section 5, règle 1).
  */
 async function chargerVotesParGroupe(scrutinUid: string): Promise<VoteGroupeScrutin[]> {
-  const avecOrdre = await enrichissementDisponible();
+  const avecOrdre = await tableDisponible("enrichissement.groupe_ordre");
   const lignes = await requete<{
     organe_uid: string | null;
     libelle: string | null;

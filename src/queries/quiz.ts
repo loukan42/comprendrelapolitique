@@ -26,7 +26,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { baseDisponible, enrichissementDisponible, requete } from "./db";
+import { baseDisponible, tableDisponible, requete } from "./db";
 import { QUESTIONS_VULGARISEES } from "./questionsQuiz";
 import { themeDepuisTitre, themeParSlug } from "./themes";
 
@@ -133,7 +133,7 @@ async function chargerRepartitions(
   scrutinUids: string[],
 ): Promise<Map<string, RepartitionGroupe[]>> {
   if (scrutinUids.length === 0) return new Map();
-  const avecFormations = await enrichissementDisponible();
+  const avecFormations = await tableDisponible("enrichissement.formation_groupe");
   const rows = await requete<{
     scrutin_uid: string;
     organe_uid: string;

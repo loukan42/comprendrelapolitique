@@ -57,6 +57,13 @@ CREATE TABLE IF NOT EXISTS officiel.organe (
     lot_maj_id     bigint REFERENCES officiel.import_lot(id)
 );
 
+-- Rattrapage des bases creees avant l'ajout de ces colonnes : CREATE TABLE IF
+-- NOT EXISTS ne modifie pas une table existante. Sans ces deux lignes, une
+-- base chargee avant elles n'avait pas la couleur des groupes, et les pages
+-- qui la lisent repondaient 500.
+ALTER TABLE officiel.organe ADD COLUMN IF NOT EXISTS couleur text;
+ALTER TABLE officiel.organe ADD COLUMN IF NOT EXISTS position_politique text;
+
 -- L'auto-référence n'est pas déclarée en FK : l'ordre d'insertion des organes
 -- ne garantit pas que le parent existe déjà, et la source contient des
 -- références vers des organes absents du périmètre importé.

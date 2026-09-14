@@ -12,7 +12,7 @@
  */
 
 import { createServerFn } from "@tanstack/react-start";
-import { enrichissementDisponible, requete } from "./db";
+import { tableDisponible, requete } from "./db";
 
 export type StatutEngagement =
   "realise" | "partiellement" | "en_cours" | "non_realise" | "abandonne" | "inevaluable";
@@ -130,7 +130,7 @@ export const chargerBilan = createServerFn({ method: "GET" })
     return id;
   })
   .handler(async ({ data: presidentId }): Promise<BilanPresident | null> => {
-    if (!(await enrichissementDisponible())) return null;
+    if (!(await tableDisponible("enrichissement.engagement"))) return null;
 
     const [president] = await requete<{ id: string; prenom: string; nom: string }>(
       `SELECT id, prenom, nom FROM enrichissement.president WHERE id = $1`,
@@ -317,7 +317,7 @@ export const chargerBilan = createServerFn({ method: "GET" })
 
 export const listerPresidents = createServerFn({ method: "GET" }).handler(
   async (): Promise<{ id: string; prenom: string; nom: string; mandats: number }[]> => {
-    if (!(await enrichissementDisponible())) return [];
+    if (!(await tableDisponible("enrichissement.engagement"))) return [];
     return (
       await requete<{ id: string; prenom: string; nom: string; mandats: string }>(
         `SELECT p.id, p.prenom, p.nom, count(m.id)::text AS mandats

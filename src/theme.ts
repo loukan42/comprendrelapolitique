@@ -4,43 +4,53 @@ import { createTheme, type MantineColorsTuple } from "@mantine/core";
  * Thème du site. Source unique : une couleur, un espacement ou une taille qui
  * n'existe pas ici n'existe pas dans le site.
  *
- * Direction visuelle : un fond noir pur, du texte blanc, de très grands titres
- * en graisse normale à l'interlettrage resserré, un corps de texte très léger,
- * des surfaces sans fond, et un seul accent réservé à l'interaction. Elle
- * reprend le système Dala (styles.refero.design), adapté aux contraintes
- * d'AGENTS.md :
+ * Direction visuelle : un fond noir pur, du texte blanc, de grands titres en
+ * graisse normale à l'interlettrage resserré, un corps de texte léger, des
+ * surfaces sans fond. Elle reprend le système Dala (styles.refero.design).
  *
- * - l'accent violet saturé de la référence est remplacé par son ambre, de la
- *   famille ocre autorisée par la section 4 : un violet saturé sur noir tombe
- *   sous l'interdit « néon et couleurs saturées sur fond sombre » ;
- * - la constellation de particules animées, image signature de la référence,
- *   n'est pas reprise : c'est une illustration décorative, bannie par la
- *   section 2 ;
- * - rien n'est coloré pour décorer, y compris les petits libellés que la
- *   référence passe en ambre.
+ * Les boutons et les liens reprennent les deux couleurs du logo PolitiQuizz,
+ * le bleu marine et le rouge, à la demande du porteur du projet
+ * (14 septembre 2026). C'est un écart assumé avec AGENTS.md section 4, qui
+ * déconseille le bleu et le rouge comme accent : ils sont ici l'identité de la
+ * marque, déjà portée par le logo, et restent réservés à l'interaction.
+ *
+ * La constellation de particules animées de la référence n'est pas reprise :
+ * c'est une illustration décorative, bannie par AGENTS.md section 2.
  */
 
 /**
- * L'accent : un ambre safran, réservé à l'interaction (bouton principal,
- * lien, focus). Jamais à la décoration.
- *
- * En France, le bleu, le rouge, le rose et le vert saturés se lisent comme
- * des appartenances politiques avant d'être lus comme des choix graphiques.
- * L'ambre n'est la couleur d'aucune grande formation, et sur fond noir il
- * reste lisible : la nuance 6, celle des boutons pleins, porte un texte noir
- * à un contraste supérieur à 11.
+ * Le rouge du logo (#e80818, nuance 7), couleur des boutons pleins et du
+ * focus. Un texte blanc y atteint un contraste de 4,7, au-dessus du seuil AA.
  */
-const safran: MantineColorsTuple = [
-  "#fff8e6",
-  "#ffefc2",
-  "#ffe29a",
-  "#ffd46d",
-  "#ffc649",
-  "#ffbc33",
-  "#ffb829",
-  "#e3a120",
-  "#c98d17",
-  "#ad780c",
+const rouge: MantineColorsTuple = [
+  "#ffe9ea",
+  "#ffd1d4",
+  "#fda3a8",
+  "#fb7078",
+  "#f84450",
+  "#f52734",
+  "#f31522",
+  "#e80818",
+  "#cf0514",
+  "#b5000f",
+];
+
+/**
+ * Le bleu marine du logo (#002860, nuance 8). Illisible en aplat sur le noir,
+ * il sert éclairci : la nuance 3 colore les liens, avec un contraste de 6,4
+ * sur le fond.
+ */
+const bleu: MantineColorsTuple = [
+  "#e8eef8",
+  "#cdd9ee",
+  "#9db4dd",
+  "#6c8fcb",
+  "#4671bb",
+  "#2d5ca9",
+  "#1a4a91",
+  "#0e3b7a",
+  "#002860",
+  "#001d47",
 ];
 
 /**
@@ -48,9 +58,8 @@ const safran: MantineColorsTuple = [
  * nuance 7 est le fond, la 6 celui des champs, la 4 les filets, la 2 le texte
  * atténué, la 0 le texte.
  *
- * Le fond est un noir pur : il sert de matière et non de vide. Le texte
- * atténué (#9a9a9a) garde un contraste de 7,4 sur ce fond, au-dessus du seuil
- * AAA exigé pour le corps de texte.
+ * Le fond est un noir pur. Le texte atténué (#9a9a9a) garde un contraste de
+ * 7,4 sur ce fond, au-dessus du seuil AAA exigé pour le corps de texte.
  */
 const dark: MantineColorsTuple = [
   "#ffffff",
@@ -113,9 +122,9 @@ const ocre: MantineColorsTuple = [
 ];
 
 export const theme = createTheme({
-  primaryColor: "safran",
-  primaryShade: { light: 8, dark: 6 },
-  colors: { safran, dark, encre, graphite, ocre },
+  primaryColor: "rouge",
+  primaryShade: { light: 7, dark: 7 },
+  colors: { rouge, bleu, dark, encre, graphite, ocre },
 
   white: "#f7f5f0",
   black: "#0b0b0b",
@@ -130,29 +139,30 @@ export const theme = createTheme({
   fontFamilyMonospace:
     'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace',
 
-  // Échelle de la référence : 12, 14, 18, 24, 27 px. Le corps est à 18 px.
+  // Corps à 18 px, comme la référence ; les grandes tailles de texte courant
+  // restent modérées pour ne pas concurrencer les titres.
   fontSizes: {
     xs: "0.75rem",
     sm: "0.875rem",
     md: "1.125rem",
-    lg: "1.5rem",
-    xl: "1.6875rem",
+    lg: "1.3125rem",
+    xl: "1.5rem",
   },
 
-  // La hiérarchie passe par l'échelle et non par la graisse : les titres sont
-  // en graisse normale, très grands, et se resserrent (voir styles.css). Le
-  // titre de page se réduit sur petit écran pour tenir à 320 px.
+  // La hiérarchie passe par l'échelle et non par la graisse. Le plafond du
+  // titre de page reste raisonnable : le site a des titres longs (intitulés
+  // de loi, questions), qu'une taille d'affiche ferait éclater sur six lignes.
   headings: {
     fontWeight: "400",
     sizes: {
-      h1: { fontSize: "clamp(2.75rem, 1.5rem + 5vw, 5.5rem)", lineHeight: "1.02" },
-      h2: { fontSize: "clamp(1.875rem, 1.4rem + 2vw, 3rem)", lineHeight: "1.1" },
-      h3: { fontSize: "1.5rem", lineHeight: "1.25" },
+      h1: { fontSize: "clamp(2.125rem, 1.4rem + 2.4vw, 3.5rem)", lineHeight: "1.08" },
+      h2: { fontSize: "clamp(1.625rem, 1.3rem + 1.2vw, 2.25rem)", lineHeight: "1.15" },
+      h3: { fontSize: "1.375rem", lineHeight: "1.3" },
       h4: { fontSize: "1.125rem", lineHeight: "1.35" },
     },
   },
 
-  lineHeights: { xs: "1.5", sm: "1.5", md: "1.6", lg: "1.65", xl: "1.7" },
+  lineHeights: { xs: "1.5", sm: "1.5", md: "1.6", lg: "1.6", xl: "1.6" },
 
   // Espacements sur une base de 6 px, comme la référence : 6, 12, 18, 24, 36.
   spacing: {
@@ -163,13 +173,12 @@ export const theme = createTheme({
     xl: "2.25rem",
   },
 
-  // La pastille est réservée aux boutons et aux badges, pas étendue à tout ;
-  // les surfaces gardent un arrondi modéré.
+  // La pastille est réservée aux boutons et aux badges ; les surfaces gardent
+  // un arrondi modéré.
   defaultRadius: "sm",
   radius: { xs: "2px", sm: "6px", md: "16px", lg: "20px", xl: "24px" },
 
-  // Aucune ombre par défaut : la référence n'en a aucune, et AGENTS.md la
-  // réserve à ce qui flotte réellement (menu, modale, popover).
+  // Aucune ombre par défaut : elle est réservée à ce qui flotte réellement.
   shadows: {
     xs: "0 1px 2px rgba(0, 0, 0, 0.4)",
     sm: "0 2px 6px rgba(0, 0, 0, 0.45)",
@@ -179,18 +188,33 @@ export const theme = createTheme({
   },
 
   components: {
+    // Les liens prennent le bleu du logo, éclairci pour rester lisible.
     Anchor: {
-      defaultProps: { underline: "always" },
+      defaultProps: { underline: "always", c: "bleu.3" },
     },
     Container: {
       defaultProps: { size: "md" },
     },
-    // Boutons en pastille, libellé en capitales espacées : c'est ce qui les
-    // distingue du texte courant sans couleur supplémentaire.
+    // Boutons en pastille. Le libellé doit toujours tenir dans le bouton : il
+    // passe à la ligne plutôt que de déborder, et la hauteur suit, la hauteur
+    // normale du bouton restant le minimum.
     Button: {
       defaultProps: { radius: "xl", size: "md" },
       styles: {
-        label: { textTransform: "uppercase", letterSpacing: "0.025em", fontWeight: 600 },
+        root: {
+          height: "auto",
+          minHeight: "var(--button-height)",
+          paddingBlock: "0.5rem",
+        },
+        inner: { height: "auto" },
+        label: {
+          whiteSpace: "normal",
+          textAlign: "center",
+          lineHeight: 1.25,
+          fontWeight: 600,
+          letterSpacing: "0.01em",
+          overflow: "visible",
+        },
       },
     },
     Badge: {
@@ -213,15 +237,9 @@ export const theme = createTheme({
      * Couleurs des positions de vote : pour, contre, abstention, non-votant.
      *
      * Ce sont les seules couleurs signifiantes du site avec celles des
-     * groupes. Elles encodent un sens de vote, pas une appartenance : le
-     * vert et le rouge sont ici la convention d'un scrutin (le tableau de
-     * vote d'un parlement), pas une couleur de parti, et la légende écrit
-     * toujours le mot à côté de la pastille pour que la couleur ne porte
-     * jamais seule l'information.
-     *
-     * Le bleu et le rouge en duo sont écartés : en France, ce couple se lit
-     * comme droite/gauche avant de se lire comme pour/contre (AGENTS.md
-     * section 4).
+     * groupes. Elles encodent un sens de vote, pas une appartenance, et la
+     * légende écrit toujours le mot à côté de la pastille pour que la couleur
+     * ne porte jamais seule l'information.
      *
      * Teintes vérifiées sur fond clair comme sur fond sombre.
      */
@@ -236,10 +254,7 @@ export const theme = createTheme({
      * Les couleurs de groupe ne figurent pas ici : elles sont une donnée, pas
      * un choix graphique. L'Assemblée publie `couleurAssociee` dans son
      * référentiel des organes, importé dans `officiel.organe.couleur` et lu
-     * depuis la base à l'affichage (composant `PastilleGroupe`). Un groupe
-     * dont la source ne donne pas de couleur n'en reçoit pas une choisie ici,
-     * et aucune table de correspondance écrite à la main ne double celle de
-     * la source.
+     * depuis la base à l'affichage (composant `PastilleGroupe`).
      */
   },
 });

@@ -13,7 +13,7 @@ import {
   type OptionQcm,
   type QuestionQcm,
 } from "../lib/qcmProgrammes";
-import { enrichissementDisponible, requete } from "./db";
+import { tableDisponible, requete } from "./db";
 
 export type NatureProgramme =
   "presidentiel_2027" | "legislatif_2024" | "europeen_2024" | "projet_en_cours" | "aucun";
@@ -89,7 +89,7 @@ export const comparerProgrammes = createServerFn({ method: "GET" })
     });
   })
   .handler(async ({ data: formations }): Promise<ComparaisonTheme[]> => {
-    if (!(await enrichissementDisponible())) return [];
+    if (!(await tableDisponible("enrichissement.programme_position"))) return [];
 
     const lignes = await requete<{
       id: string;
@@ -151,13 +151,8 @@ export const comparerProgrammes = createServerFn({ method: "GET" })
  */
 export const chargerQcmProgrammes = createServerFn({ method: "GET" }).handler(
   async (): Promise<QuestionQcm[]> => {
-    if (!(await enrichissementDisponible())) return [];
-    const [table] = await requete<{ existe: boolean }>(
-      `SELECT EXISTS (SELECT 1 FROM information_schema.tables
-                       WHERE table_schema = 'enrichissement'
-                         AND table_name = 'programme_question') AS existe`,
-    );
-    if (!table?.existe) return [];
+    if (!(await tableDisponible("enrichissement.programme_position"))) return [];
+    if (!(await tableDisponible("enrichissement.programme_question"))) return [];
 
     const lignes = await requete<{
       question_id: string;
@@ -208,7 +203,7 @@ export const chargerQcmProgrammes = createServerFn({ method: "GET" }).handler(
 /** Formations disposant d'au moins une position citée, donc comparables. */
 export const listerFormationsComparables = createServerFn({ method: "GET" }).handler(
   async (): Promise<string[]> => {
-    if (!(await enrichissementDisponible())) return [];
+    if (!(await tableDisponible("enrichissement.programme_position"))) return [];
     const lignes = await requete<{ formation: string }>(
       `SELECT DISTINCT p.formation
          FROM enrichissement.programme_position pp
@@ -221,7 +216,7 @@ export const listerFormationsComparables = createServerFn({ method: "GET" }).han
 
 export const chargerProgrammes = createServerFn({ method: "GET" }).handler(
   async (): Promise<FormationProgrammes[]> => {
-    if (!(await enrichissementDisponible())) return [];
+    if (!(await tableDisponible("enrichissement.programme"))) return [];
 
     const lignes = await requete<{
       id: string;

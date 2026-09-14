@@ -94,8 +94,10 @@ viennent les explications de vote ; `--amendements` ajoute les amendements
 `data:charger`.
 
 `data:charger` se rejoue par législature sur la même base : charger la XVe,
-la XVIe et la XVIIe à la suite avec le même `--db` les réunit, la migration
-n'étant appliquée qu'à la première.
+la XVIe et la XVIIe à la suite avec le même `--db` les réunit. La migration
+`001_officiel.sql`, idempotente, est rejouée à chaque chargement : c'est ce qui
+met à niveau une base créée avant une évolution du schéma. Une base plus
+ancienne que le code se répare donc en rejouant les trois chargements.
 
 Chaque script d'enrichissement porte un mode de contrôle qui n'écrit rien, et
 c'est par là qu'il faut commencer quand on en modifie le contenu :

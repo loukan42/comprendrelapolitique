@@ -181,6 +181,20 @@ colonnes entrelacent leurs lignes en mode `-layout`. `scripts/import/citations.t
 cherche dans deux extractions et ramène les ligatures à un seul f des deux
 côtés : sans cela, des citations exactes étaient déclarées introuvables.
 
+**Le contrôle des volumes suppose une seule législature.** Sur une base qui
+réunit la XVe, la XVIe et la XVIIe, comme le recommande `CLAUDE.md),
+`data:controler` signale quatre échecs de volume dont les chiffres obtenus sont
+exactement la somme des trois législatures (16 957 scrutins, 2 346 018 votes).
+Ce n'est pas un défaut des données. Deux autres contrôles échouent, sur les
+amendements de la XVIIe qui renvoient à un document (199) ou à un dossier (149)
+absent du jeu Dossiers : à examiner.
+
+**Une base plus ancienne que le code répond 500 sur certaines pages.** Le
+14 septembre 2026, la base locale n'avait ni la couleur des organes ni les
+tables de débats, ajoutées au schéma après son chargement : `charger.ts` ne
+rejouait la migration que sur une base vierge. Il la rejoue désormais à chaque
+chargement.
+
 **Un 500 sur toutes les pages ne vient pas forcément du code.** Le 14 septembre
 2026, après un `git pull` qui changeait le lockfile, le serveur de dev
 répondait 500 partout, accueil compris, alors que le build passait. La cause
