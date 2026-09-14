@@ -60,7 +60,7 @@ const REFERENCES: Reference[] = [
     titre: "L'Avenir en commun, texte intégral (PDF)",
     nature: "projet_en_cours",
     datePublication: "2025-01-01",
-    url: "https://programme.lafranceinsoumise.fr/wp-content/uploads/2025/avenir_en_commun_2025.pdf",
+    url: "https://melenchon2027.fr/wp-content/uploads/2025/avenir_en_commun_2025.pdf",
   },
   {
     id: "rn-legislatives-2024",

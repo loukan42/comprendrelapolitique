@@ -43,22 +43,44 @@ interface PositionSource {
 }
 
 const POSITIONS: PositionSource[] = [
+  // Les positions du Parti communiste français ont été retirées le
+  // 14 septembre 2026 : la page qui les portait, pcf.fr/le_programme, répond
+  // 404 depuis, alors qu'elle était en ligne le matin même. Une citation dont
+  // la source a disparu n'est plus vérifiable, et le principe du comparateur
+  // est qu'on puisse aller voir. À rétablir dès qu'une URL stable est
+  // identifiée.
   {
-    id: "pcf-retraites",
-    programmeId: "pcf-programme",
+    id: "lfi-retraites",
+    programmeId: "lfi-avenir-en-commun-pdf",
     theme: "retraites",
-    extrait: "la retraite à 60 ans à taux plein",
-    resumeAffichage: "Retraite à 60 ans à taux plein",
-    pageOuSection: "180 propositions, page programme",
+    extrait: "Rétablir la retraite à 60 ans après quarante années de cotisation",
+    resumeAffichage: "Retraite à 60 ans après quarante annuités",
+    pageOuSection: "L'Avenir en commun, édition 2025",
   },
   {
-    id: "pcf-smic",
-    programmeId: "pcf-programme",
+    id: "lfi-smic",
+    programmeId: "lfi-avenir-en-commun-pdf",
     theme: "travail",
     sousTheme: "salaires",
-    extrait: "augmentation du smic à 1600€ net par mois",
-    resumeAffichage: "SMIC porté à 1 600 € net par mois",
-    pageOuSection: "180 propositions, page programme",
+    extrait: "Augmenter immédiatement le SMIC à 1600",
+    resumeAffichage: "SMIC porté immédiatement à 1 600 € net par mois",
+    pageOuSection: "L'Avenir en commun, édition 2025",
+  },
+  {
+    id: "lfi-nucleaire",
+    programmeId: "lfi-avenir-en-commun-pdf",
+    theme: "energie",
+    extrait: "Sortir du nucléaire",
+    resumeAffichage: "Sortie du nucléaire et abandon des projets d'EPR",
+    pageOuSection: "L'Avenir en commun, édition 2025",
+  },
+  {
+    id: "rn-tva-energie",
+    programmeId: "rn-legislatives-2024",
+    theme: "impots",
+    extrait: "Baisse de la TVA sur l'ensemble des produits énergétiques",
+    resumeAffichage: "Baisse de la TVA sur les produits énergétiques",
+    pageOuSection: "Programme des législatives de 2024",
   },
   {
     id: "lr-seniors",
@@ -75,30 +97,6 @@ const POSITIONS: PositionSource[] = [
     extrait: "Refonder le code du travail sur 50 principes",
     resumeAffichage: "Code du travail réduit à 50 principes, le reste à la négociation collective",
     pageOuSection: "Nos propositions",
-  },
-  {
-    id: "pcf-isf",
-    programmeId: "pcf-programme",
-    theme: "impots",
-    extrait: "rétablissement et triplement de l'isf",
-    resumeAffichage: "Rétablir l'ISF et en tripler le rendement",
-    pageOuSection: "180 propositions, page programme",
-  },
-  {
-    id: "pcf-energie",
-    programmeId: "pcf-programme",
-    theme: "energie",
-    extrait: "un mix énergétique nucléaire et renouvelable",
-    resumeAffichage: "Un mix énergétique associant nucléaire et renouvelables",
-    pageOuSection: "180 propositions, page programme",
-  },
-  {
-    id: "pcf-etudiants",
-    programmeId: "pcf-programme",
-    theme: "education",
-    extrait: "850 € par mois pour tous les étudiants",
-    resumeAffichage: "Allocation de 850 € par mois pour tous les étudiants",
-    pageOuSection: "180 propositions, page programme",
   },
   {
     id: "lr-prelevements",
@@ -149,20 +147,56 @@ function normaliser(texte: string): string {
 
 const cacheDocuments = new Map<string, string>();
 
+/**
+ * Extrait le texte d'un PDF via `pdftotext`, présent sur la machine de
+ * développement. Sans cela, les programmes publiés en PDF, dont ceux de La
+ * France insoumise et du Rassemblement National, resteraient hors de portée
+ * de la vérification, donc hors du comparateur.
+ */
+async function textePdf(url: string): Promise<string> {
+  const { execFile } = await import("node:child_process");
+  const { promisify } = await import("node:util");
+  const { writeFile, readFile, rm, mkdtemp } = await import("node:fs/promises");
+  const { join } = await import("node:path");
+  const { tmpdir } = await import("node:os");
+
+  const dossier = await mkdtemp(join(tmpdir(), "prog-"));
+  const pdf = join(dossier, "doc.pdf");
+  const txt = join(dossier, "doc.txt");
+  try {
+    const r = await fetch(url, {
+      headers: { "user-agent": "comprendrelapolitique/0.1 (verification de citation)" },
+      signal: AbortSignal.timeout(180000),
+    });
+    await writeFile(pdf, Buffer.from(await r.arrayBuffer()));
+    await promisify(execFile)("pdftotext", ["-layout", "-enc", "UTF-8", pdf, txt]);
+    return normaliser(await readFile(txt, "utf8"));
+  } finally {
+    await rm(dossier, { recursive: true, force: true });
+  }
+}
+
 async function texteDuDocument(url: string): Promise<string> {
   const enCache = cacheDocuments.get(url);
   if (enCache !== undefined) return enCache;
-  const r = await fetch(url, {
-    headers: { "user-agent": "comprendrelapolitique/0.1 (verification de citation)" },
-    signal: AbortSignal.timeout(30000),
-  });
-  const brut = await r.text();
-  const texte = normaliser(
-    brut
-      .replace(/<script[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style[\s\S]*?<\/style>/gi, " ")
-      .replace(/<[^>]+>/g, " "),
-  );
+
+  let texte: string;
+  if (url.toLowerCase().endsWith(".pdf")) {
+    texte = await textePdf(url);
+  } else {
+    const r = await fetch(url, {
+      headers: { "user-agent": "comprendrelapolitique/0.1 (verification de citation)" },
+      signal: AbortSignal.timeout(30000),
+    });
+    const brut = await r.text();
+    texte = normaliser(
+      brut
+        .replace(/<script[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[\s\S]*?<\/style>/gi, " ")
+        .replace(/<[^>]+>/g, " "),
+    );
+  }
+
   cacheDocuments.set(url, texte);
   return texte;
 }
