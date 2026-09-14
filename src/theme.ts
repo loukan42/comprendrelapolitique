@@ -3,23 +3,69 @@ import { createTheme, type MantineColorsTuple } from "@mantine/core";
 /**
  * Thème du site. Source unique : une couleur, un espacement ou une taille qui
  * n'existe pas ici n'existe pas dans le site.
+ *
+ * Direction visuelle : un fond noir pur, du texte blanc, de très grands titres
+ * en graisse normale à l'interlettrage resserré, un corps de texte très léger,
+ * des surfaces sans fond, et un seul accent réservé à l'interaction. Elle
+ * reprend le système Dala (styles.refero.design), adapté aux contraintes
+ * d'AGENTS.md :
+ *
+ * - l'accent violet saturé de la référence est remplacé par son ambre, de la
+ *   famille ocre autorisée par la section 4 : un violet saturé sur noir tombe
+ *   sous l'interdit « néon et couleurs saturées sur fond sombre » ;
+ * - la constellation de particules animées, image signature de la référence,
+ *   n'est pas reprise : c'est une illustration décorative, bannie par la
+ *   section 2 ;
+ * - rien n'est coloré pour décorer, y compris les petits libellés que la
+ *   référence passe en ambre.
  */
 
 /**
- * L'accent : un bleu d'encre très désaturé.
+ * L'accent : un ambre safran, réservé à l'interaction (bouton principal,
+ * lien, focus). Jamais à la décoration.
  *
- * Le choix est contraint par le sujet. En France, le bleu, le rouge, le rose et
- * le vert saturés se lisent comme des appartenances politiques avant d'être lus
- * comme des choix graphiques. Un accent partisan sur un site qui prétend
- * expliquer la politique est un message, pas une décoration.
- *
- * Cette teinte tire vers le gris-ardoise : elle évoque l'encre d'imprimerie
- * plutôt qu'un parti, et reste assez distincte du texte pour signaler un lien ou
- * un état actif.
- *
- * Elle est réservée à l'interaction : lien, focus, état actif, élément
- * sélectionné. Jamais à la décoration.
+ * En France, le bleu, le rouge, le rose et le vert saturés se lisent comme
+ * des appartenances politiques avant d'être lus comme des choix graphiques.
+ * L'ambre n'est la couleur d'aucune grande formation, et sur fond noir il
+ * reste lisible : la nuance 6, celle des boutons pleins, porte un texte noir
+ * à un contraste supérieur à 11.
  */
+const safran: MantineColorsTuple = [
+  "#fff8e6",
+  "#ffefc2",
+  "#ffe29a",
+  "#ffd46d",
+  "#ffc649",
+  "#ffbc33",
+  "#ffb829",
+  "#e3a120",
+  "#c98d17",
+  "#ad780c",
+];
+
+/**
+ * Les gris du thème sombre, que Mantine lit dans la palette `dark` : la
+ * nuance 7 est le fond, la 6 celui des champs, la 4 les filets, la 2 le texte
+ * atténué, la 0 le texte.
+ *
+ * Le fond est un noir pur : il sert de matière et non de vide. Le texte
+ * atténué (#9a9a9a) garde un contraste de 7,4 sur ce fond, au-dessus du seuil
+ * AAA exigé pour le corps de texte.
+ */
+const dark: MantineColorsTuple = [
+  "#ffffff",
+  "#bdbdbd",
+  "#9a9a9a",
+  "#6e6e6e",
+  "#262626",
+  "#1a1a1a",
+  "#0b0b0b",
+  "#000000",
+  "#000000",
+  "#000000",
+];
+
+/** L'encre désaturée, ancien accent, conservée pour les usages nommés. */
 const encre: MantineColorsTuple = [
   "#f2f4f7",
   "#e3e7ee",
@@ -33,10 +79,7 @@ const encre: MantineColorsTuple = [
   "#415372",
 ];
 
-/**
- * Les gris. Presque-noir sur blanc cassé : le blanc pur fatigue en lecture
- * longue, et le noir pur durcit inutilement le contraste.
- */
+/** Les gris neutres, pour les badges et alertes sans valeur de sens. */
 const graphite: MantineColorsTuple = [
   "#f6f6f5",
   "#e8e8e6",
@@ -70,51 +113,69 @@ const ocre: MantineColorsTuple = [
 ];
 
 export const theme = createTheme({
-  primaryColor: "encre",
-  primaryShade: { light: 8, dark: 4 },
-  colors: { encre, graphite, ocre },
+  primaryColor: "safran",
+  primaryShade: { light: 8, dark: 6 },
+  colors: { safran, dark, encre, graphite, ocre },
 
-  // Le fond n'est pas blanc. Un blanc proche de #fff sur une page dense, lue
-  // longtemps, éblouit : la luminance du fond est ramenée vers un papier
-  // chaud, et le texte reste un presque-noir plutôt qu'un noir pur, pour que
-  // le contraste porte la lecture sans la durcir. Le contraste du corps de
-  // texte sur ce fond reste au-dessus de AAA.
   white: "#f7f5f0",
-  black: "#1b1b1f",
+  black: "#0b0b0b",
 
-  // Une seule famille, hiérarchisée par la taille et la graisse. Aucune police
-  // distante n'est chargée pour l'instant : ce choix se fera en connaissance de
-  // son coût, pas par défaut.
+  // Une seule famille, Inter, substitut désigné du caractère de la référence.
+  // Elle est servie par le site lui-même (paquet @fontsource-variable/inter,
+  // importé dans __root.tsx), jamais depuis Google Fonts : un chargement
+  // distant transmettrait l'adresse IP de chaque lecteur à un tiers, ce que
+  // le tribunal régional de Munich a jugé contraire au RGPD le 20 janvier 2022.
   fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    '"Inter Variable", Inter, "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
   fontFamilyMonospace:
     'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace',
 
+  // Échelle de la référence : 12, 14, 18, 24, 27 px. Le corps est à 18 px.
+  fontSizes: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    md: "1.125rem",
+    lg: "1.5rem",
+    xl: "1.6875rem",
+  },
+
+  // La hiérarchie passe par l'échelle et non par la graisse : les titres sont
+  // en graisse normale, très grands, et se resserrent (voir styles.css). Le
+  // titre de page se réduit sur petit écran pour tenir à 320 px.
   headings: {
-    fontWeight: "650",
+    fontWeight: "400",
     sizes: {
-      h1: { fontSize: "2.25rem", lineHeight: "1.2" },
-      h2: { fontSize: "1.625rem", lineHeight: "1.3" },
-      h3: { fontSize: "1.25rem", lineHeight: "1.4" },
-      h4: { fontSize: "1.0625rem", lineHeight: "1.45" },
+      h1: { fontSize: "clamp(2.75rem, 1.5rem + 5vw, 5.5rem)", lineHeight: "1.02" },
+      h2: { fontSize: "clamp(1.875rem, 1.4rem + 2vw, 3rem)", lineHeight: "1.1" },
+      h3: { fontSize: "1.5rem", lineHeight: "1.25" },
+      h4: { fontSize: "1.125rem", lineHeight: "1.35" },
     },
   },
 
-  // Interligne large : le site est fait pour être lu, pas parcouru.
-  lineHeights: { xs: "1.5", sm: "1.55", md: "1.65", lg: "1.7", xl: "1.75" },
+  lineHeights: { xs: "1.5", sm: "1.5", md: "1.6", lg: "1.65", xl: "1.7" },
 
-  // Rayons discrets. L'arrondi maximal sur tout est un marqueur de page générée.
+  // Espacements sur une base de 6 px, comme la référence : 6, 12, 18, 24, 36.
+  spacing: {
+    xs: "0.375rem",
+    sm: "0.75rem",
+    md: "1.125rem",
+    lg: "1.5rem",
+    xl: "2.25rem",
+  },
+
+  // La pastille est réservée aux boutons et aux badges, pas étendue à tout ;
+  // les surfaces gardent un arrondi modéré.
   defaultRadius: "sm",
-  radius: { xs: "2px", sm: "3px", md: "5px", lg: "8px", xl: "12px" },
+  radius: { xs: "2px", sm: "6px", md: "16px", lg: "20px", xl: "24px" },
 
-  // Aucune ombre par défaut : elle est réservée à ce qui flotte réellement,
-  // menu, modale, popover, que Mantine gère de lui-même.
+  // Aucune ombre par défaut : la référence n'en a aucune, et AGENTS.md la
+  // réserve à ce qui flotte réellement (menu, modale, popover).
   shadows: {
-    xs: "0 1px 2px rgba(22, 22, 26, 0.06)",
-    sm: "0 2px 6px rgba(22, 22, 26, 0.08)",
-    md: "0 4px 12px rgba(22, 22, 26, 0.10)",
-    lg: "0 8px 24px rgba(22, 22, 26, 0.12)",
-    xl: "0 16px 40px rgba(22, 22, 26, 0.14)",
+    xs: "0 1px 2px rgba(0, 0, 0, 0.4)",
+    sm: "0 2px 6px rgba(0, 0, 0, 0.45)",
+    md: "0 4px 12px rgba(0, 0, 0, 0.5)",
+    lg: "0 8px 24px rgba(0, 0, 0, 0.55)",
+    xl: "0 16px 40px rgba(0, 0, 0, 0.6)",
   },
 
   components: {
@@ -123,6 +184,24 @@ export const theme = createTheme({
     },
     Container: {
       defaultProps: { size: "md" },
+    },
+    // Boutons en pastille, libellé en capitales espacées : c'est ce qui les
+    // distingue du texte courant sans couleur supplémentaire.
+    Button: {
+      defaultProps: { radius: "xl", size: "md" },
+      styles: {
+        label: { textTransform: "uppercase", letterSpacing: "0.025em", fontWeight: 600 },
+      },
+    },
+    Badge: {
+      defaultProps: { radius: "xl" },
+    },
+    // Les cartes n'ont pas de fond : le contenu flotte sur le noir, et seul un
+    // filet à 1 px, quand la page le demande, sépare les blocs.
+    Card: {
+      styles: {
+        root: { backgroundColor: "transparent" },
+      },
     },
   },
 

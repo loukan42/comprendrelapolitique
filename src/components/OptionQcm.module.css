@@ -1,0 +1,43 @@
+/*
+ * Une proposition du QCM des programmes. Le même cadre sert avant et après
+ * le choix, pour que la révélation de l'auteur ne déplace rien à l'écran :
+ * seul le contenu change.
+ */
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--mantine-spacing-md);
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-body);
+  color: inherit;
+}
+
+/* Les transitions ne portent que sur l'interaction, jamais sur l'apparition. */
+.choisissable {
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.choisissable:hover {
+  border-color: var(--mantine-primary-color-filled);
+  background-color: var(--mantine-color-default-hover);
+}
+
+.choisissable:focus-visible {
+  outline: 2px solid var(--mantine-primary-color-filled);
+  outline-offset: 2px;
+}
+
+/*
+ * Le choix se signale par un filet doublé plutôt que par une couleur de
+ * fond : la couleur ne porte jamais seule l'information, un libellé
+ * « votre choix » l'accompagne dans le composant.
+ */
+.choisie {
+  border-color: var(--mantine-primary-color-filled);
+  box-shadow: inset 0 0 0 1px var(--mantine-primary-color-filled);
+}

@@ -23,6 +23,8 @@ import { useEffect, type ReactNode } from "react";
 
 // Le CSS de Mantine vient en premier : il porte sa remise a zero.
 import "@mantine/core/styles.css";
+// Inter, servie par le site et non par Google Fonts : voir src/theme.ts.
+import "@fontsource-variable/inter";
 
 import appCss from "../styles.css?url";
 import { theme } from "../theme";

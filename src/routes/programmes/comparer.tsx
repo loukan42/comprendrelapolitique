@@ -14,6 +14,7 @@ import {
 import { IconArrowLeft, IconInfoCircle } from "@tabler/icons-react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
+import { libelleTheme } from "../../lib/themesProgrammes";
 import {
   comparerProgrammes,
   listerFormationsComparables,
@@ -38,30 +39,6 @@ export const Route = createFileRoute("/programmes/comparer")({
   head: () => ({ meta: [{ title: "Comparer deux programmes · Comprendre la Politique" }] }),
   component: PageComparer,
 });
-
-/**
- * Libellés d'affichage des thèmes. Un thème absent de cette table s'affiche
- * avec son identifiant brut, ce qui se voit : la liste doit suivre les thèmes
- * réellement utilisés dans `programme_position`.
- */
-const LIBELLE_THEME: Record<string, string> = {
-  retraites: "Retraites",
-  travail: "Travail",
-  impots: "Impôts",
-  energie: "Énergie",
-  education: "Éducation",
-  sante: "Santé",
-  immigration: "Immigration",
-  environnement: "Environnement",
-  securite: "Sécurité",
-  justice: "Justice",
-  institutions: "Institutions",
-  entreprises: "Entreprises",
-  defense: "Défense",
-  logement: "Logement",
-  europe: "Europe",
-  economie: "Économie",
-};
 
 /**
  * Une position citée. Le résumé n'apparaît jamais seul : la citation exacte
@@ -172,7 +149,7 @@ function PageComparer() {
                 {comparaison.map((t) => (
                   <Card key={t.theme} withBorder radius="md" padding="lg">
                     <Title order={2} fz="lg" mb="md">
-                      {LIBELLE_THEME[t.theme] ?? t.theme}
+                      {libelleTheme(t.theme)}
                     </Title>
                     <Grid>
                       {t.colonnes.map((colonne, i) => (
@@ -202,6 +179,10 @@ function PageComparer() {
           formation n&apos;a pas d&apos;avis. Les citations sont vérifiées automatiquement contre le
           document source : une phrase qui n&apos;y figure pas mot pour mot n&apos;est pas publiée.
         </Text>
+
+        <Anchor component={Link} to="/programmes/quiz" size="sm" w="fit-content">
+          Les mêmes citations en quiz, sans le nom des formations
+        </Anchor>
       </Stack>
     </Container>
   );

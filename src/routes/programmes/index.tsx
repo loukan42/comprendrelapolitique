@@ -14,7 +14,7 @@ import { IconExternalLink, IconInfoCircle } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   chargerProgrammes,
-  type NatureProgramme,
+  LIBELLE_NATURE,
   type ReferenceProgramme,
 } from "../../queries/programmes";
 
@@ -23,21 +23,6 @@ export const Route = createFileRoute("/programmes/")({
   head: () => ({ meta: [{ title: "Les programmes 2027 · Comprendre la Politique" }] }),
   component: PageProgrammes,
 });
-
-/**
- * Le libellé de nature est la principale information de cette page après le
- * lien lui-même. À ce jour, presque aucun parti n'a publié de programme pour
- * la présidentielle de 2027 : ce qui est en ligne est un programme de 2024 ou
- * un projet en cours. Présenter ces documents comme des programmes 2027
- * tromperait le lecteur sur ce qu'il va lire.
- */
-const LIBELLE_NATURE: Record<NatureProgramme, string> = {
-  presidentiel_2027: "programme présidentiel 2027",
-  legislatif_2024: "programme des législatives 2024",
-  europeen_2024: "programme des européennes 2024",
-  projet_en_cours: "projet du parti, en cours",
-  aucun: "aucun document publié",
-};
 
 const dateCourte = new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric" });
 
@@ -90,9 +75,14 @@ function PageProgrammes() {
           </Text>
         </Box>
 
-        <Anchor component={Link} to="/programmes/comparer" fw={600}>
-          Comparer deux programmes thème par thème
-        </Anchor>
+        <Stack gap={4}>
+          <Anchor component={Link} to="/programmes/comparer" fw={600}>
+            Comparer deux programmes thème par thème
+          </Anchor>
+          <Anchor component={Link} to="/programmes/quiz" fw={600}>
+            Le quiz des programmes : choisir entre des propositions sans savoir qui les porte
+          </Anchor>
+        </Stack>
 
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
           À ce jour, aucun parti n&apos;a publié de programme pour la présidentielle de 2027. Ce qui

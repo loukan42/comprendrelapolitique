@@ -14,7 +14,7 @@ de fichier.
 
 ```sh
 npm run dev            # port 8080, premier rendu ~80 s
-npm test               # 26 tests, sans dépendance ajoutée
+npm test               # 32 tests, sans dépendance ajoutée
 npm run build
 ```
 
@@ -52,8 +52,23 @@ commencer avant d'en modifier le contenu.
 - **Programmes** (`/programmes`) : documents publiés par les partis, avec leur
   nature et leur date.
 - **Comparateur** (`/programmes/comparer`) : deux formations côte à côte, sur
-  citations vérifiées.
-- **Bilans** (`/bilans/emmanuel-macron`) : engagements face aux faits.
+  citations vérifiées. Cinq formations, 40 citations.
+- **Quiz des programmes** (`/programmes/quiz`) : neuf questions, des citations
+  présentées sans leur auteur, révélé après le choix. Le décompte se fait dans
+  le navigateur et rapporte chaque choix au nombre de questions où la
+  formation figurait.
+- **Bilans** (`/bilans/emmanuel-macron`) : engagements face aux faits, sur les
+  deux mandats.
+
+### Direction visuelle
+
+Depuis le 14 septembre 2026 : fond noir pur, texte blanc et gris cendre, très
+grands titres en graisse légère à l'interlettrage resserré, boutons en
+pastille, et un seul accent ambre réservé à l'interaction. Inspirée du système
+Dala (styles.refero.design), dont l'accent violet saturé a été écarté au profit
+de l'ambre pour rester dans les teintes permises par `AGENTS.md` section 4.
+La police est Inter, servie par le site (`@fontsource-variable/inter`) et non
+par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 
 ### Couches d'enrichissement
 
@@ -63,8 +78,8 @@ commencer avant d'en modifier le contenu.
 | `groupe_ordre` | placement gauche-droite dans l'hémicycle | 43 groupes |
 | `question`, `question_scrutin` | banque du quiz des votes | 11 questions, 15 scrutins |
 | `question_position` | positions calculées par formation | 95 |
-| `programme`, `programme_position` | programmes et citations | 17 références, 9 citations |
-| `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 9 engagements |
+| `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 20 références, 40 citations, 9 questions |
+| `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 24 engagements |
 | `score_importance`, `dossier_theme` | score et classification | 10 647 dossiers |
 
 ---
@@ -73,35 +88,42 @@ commencer avant d'en modifier le contenu.
 
 ### Priorité haute
 
-1. **Corpus des bilans.** Neuf engagements sur quatre thèmes du mandat
-   2017-2022 (fiscalité, retraites, éducation, travail). Il en manque la plus
-   grande part, et tout le mandat 2022-2027. Méthode dans
-   `scripts/import/bilans.ts`, à lire avant d'ajouter quoi que ce soit.
+1. **Corpus des bilans.** 24 engagements : 16 pour le mandat 2017-2022
+   (fiscalité, travail, entreprises, solidarité, santé, éducation, culture,
+   retraites) et 8 pour le mandat 2022-2027, tirés de la déclaration de
+   candidature déposée auprès de la commission de contrôle. Chaque extrait est
+   désormais vérifié contre le PDF du programme, par le même code que les
+   citations du comparateur. Méthode dans `scripts/import/bilans.ts`, à lire
+   avant d'ajouter quoi que ce soit.
 
-   Engagement repéré et non encore traité : le rétablissement des
-   exonérations de cotisations sur les heures supplémentaires, présent dans le
-   programme de 2017. La mesure a bien été prise, mais le numéro de la loi de
-   financement de la sécurité sociale concernée n'a pas été vérifié, et il ne
-   sera pas inscrit tant qu'il ne l'est pas.
+   Engagements repérés et non encore traités : le versement automatique des
+   aides sociales et sa contrepartie d'activité, le doublement de la présence
+   des forces de l'ordre sur la voie publique, les livraisons d'équipements
+   militaires d'ici 2030, la rénovation de 700 000 logements par an. La table
+   des mesures hors programme reste vide.
 
 2. **Banque du quiz des votes.** Onze questions, il en faut 20 à 25 pour la
    V1. Le blocage est levé depuis le chargement des amendements, voir
    section 5.
 
-3. **Corpus du comparateur de programmes.** Neuf citations pour trois
-   formations : Les Républicains, La France insoumise, le Rassemblement
-   National. La vérification lit désormais aussi les PDF, via `pdftotext`.
+3. **Corpus du comparateur de programmes.** 40 citations pour cinq
+   formations : La France insoumise, le Rassemblement National, le Parti
+   socialiste, Les Républicains et Renaissance. Le Parti socialiste est cité
+   depuis les pages de chapitre de son projet : sa page d'accueil présente les
+   mesures en cartes à retourner et ne les porte pas dans son texte.
 
-   À rétablir : les cinq citations du Parti communiste français, retirées le
-   14 septembre 2026 parce que `pcf.fr/le_programme` répond 404 depuis, alors
-   que la page était en ligne le matin même. Dès qu'une URL stable est
-   identifiée, les positions sont à ressaisir, leur contenu figure dans
-   l'historique git.
+   À rétablir : les citations du Parti communiste français, retirées le
+   14 septembre 2026 parce que `pcf.fr/le_programme` répond 404. Les pages
+   encore en ligne sur pcf.fr décrivent le programme sans le reproduire, ce qui
+   ne permet pas de citer.
 
 ### Priorité moyenne
 
-4. **QCM des programmes.** Demande d'abord du volume : un quiz sur deux
-   formations et cinq thèmes n'aurait pas de sens.
+4. **QCM des programmes.** En place, sur neuf questions. Renaissance ne figure
+   que dans quatre questions et Les Républicains dans cinq : leurs documents
+   couvrent moins de sujets que ceux de La France insoumise et du
+   Rassemblement National. L'écran d'accueil du quiz l'affiche. Élargir passe
+   par de nouvelles citations, jamais par une position déduite.
 5. **Quiz des votes, nouveau modèle.** Le moteur multi-scrutins
    (`quizPosition.ts`) est écrit et testé, mais la page `/quiz` utilise encore
    l'ancien modèle, une question pour un scrutin, avec quatre réponses au lieu
@@ -151,6 +173,19 @@ choses.
 refusent les requêtes automatisées. Les traiter comme des liens morts
 écarterait du bilan les sources les plus solides, celles du droit publié.
 `bilans.ts` les classe comme bloquées.
+
+**Un PDF peut mal restituer ses propres lettres.** La déclaration de
+candidature de 2022 perd ses ligatures à l'extraction (« confance » pour
+« confiance », « efcace » pour « efficace »), et les programmes sur deux
+colonnes entrelacent leurs lignes en mode `-layout`. `scripts/import/citations.ts`
+cherche dans deux extractions et ramène les ligatures à un seul f des deux
+côtés : sans cela, des citations exactes étaient déclarées introuvables.
+
+**Un 500 sur toutes les pages ne vient pas forcément du code.** Le 14 septembre
+2026, après un `git pull` qui changeait le lockfile, le serveur de dev
+répondait 500 partout, accueil compris, alors que le build passait. La cause
+était un paquet du routeur absent du cache de pré-bundling de Vite. Symptôme,
+diagnostic et correctif : `CLAUDE.md`, section Développement local.
 
 **Les sources disparaissent en cours de route.** La page programme du Parti
 communiste français est passée en ligne le matin et en 404 l'après-midi du

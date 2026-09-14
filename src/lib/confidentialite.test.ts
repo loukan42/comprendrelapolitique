@@ -24,7 +24,12 @@ import { test } from "node:test";
 const DOSSIER = new URL(".", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
 
 /** Modules de calcul du quiz, exécutés dans le navigateur. */
-const MODULES_CLIENT = ["quizCalcul.ts", "quizPosition.ts", "extraitIntervention.ts"];
+const MODULES_CLIENT = [
+  "quizCalcul.ts",
+  "quizPosition.ts",
+  "extraitIntervention.ts",
+  "qcmProgrammes.ts",
+];
 
 /**
  * Un `import type` est effacé à la compilation : il ne fait entrer aucun code

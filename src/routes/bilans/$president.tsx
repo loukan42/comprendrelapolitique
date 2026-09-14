@@ -36,7 +36,7 @@ export const Route = createFileRoute("/bilans/$president")({
     meta: loaderData
       ? [
           {
-            title: `Bilan des engagements de ${loaderData.prenom} ${loaderData.nom} · Comprendre la Politique`,
+            title: `Bilan des engagements ${precede("de", loaderData.prenom)} ${loaderData.nom} · Comprendre la Politique`,
           },
         ]
       : [],
@@ -76,6 +76,28 @@ const LIBELLE_CONFIANCE = {
   moyenne: "confiance moyenne",
   basse: "confiance faible",
 } as const;
+
+/**
+ * Libellés des compteurs, accordés avec « engagements » : masculin, et pluriel
+ * au-delà de un (« 3 réalisés », « 1 non réalisé », « 0 abandonné »).
+ */
+const COMPTE_STATUT: Record<StatutEngagement, [string, string]> = {
+  realise: ["réalisé", "réalisés"],
+  partiellement: ["partiellement réalisé", "partiellement réalisés"],
+  en_cours: ["en cours", "en cours"],
+  non_realise: ["non réalisé", "non réalisés"],
+  abandonne: ["abandonné", "abandonnés"],
+  inevaluable: ["impossible à évaluer", "impossibles à évaluer"],
+};
+
+function libelleCompte(statut: StatutEngagement, n: number): string {
+  return COMPTE_STATUT[statut][n > 1 ? 1 : 0];
+}
+
+/** « de Jacques », mais « d'Emmanuel » : élision devant une voyelle. */
+function precede(preposition: "de", mot: string): string {
+  return /^[aeiouyàâéèêëîïôûü]/i.test(mot) ? `d'${mot}` : `${preposition} ${mot}`;
+}
 
 const dateLongue = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
@@ -324,7 +346,7 @@ function Statistiques({ mandat }: { mandat: Mandat }) {
                 {r.parStatut[s]}
               </Text>{" "}
               <Text span c="dimmed">
-                {LIBELLE_STATUT[s].toLowerCase()}
+                {libelleCompte(s, r.parStatut[s])}
               </Text>
             </Text>
           </Group>
@@ -571,8 +593,11 @@ function PageBilan() {
             l&apos;engagement annoncé a été mis en oeuvre.
           </Text>
           <Text size="sm" c="dimmed" mt="xs">
-            Quand un engagement se prête à plusieurs lectures défendables, elles sont exposées et le
-            statut retenu est « impossible à évaluer » plutôt qu&apos;un choix arbitraire.
+            Quand un engagement se prête à plusieurs lectures défendables, le plus souvent une
+            lecture stricte du chiffre annoncé et une lecture par l&apos;intention, les deux sont
+            exposées sous la fiche avec la raison du statut retenu. Un engagement chiffré
+            s&apos;évalue sur son chiffre. « Impossible à évaluer » est réservé aux engagements trop
+            vagues pour être tranchés.
           </Text>
         </Card>
 

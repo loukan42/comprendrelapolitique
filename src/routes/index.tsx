@@ -162,11 +162,16 @@ function Accueil() {
             <EntreeCard
               icone={<IconBrain size={20} />}
               titre="Je veux me tester"
-              description="Répondre à cinq vrais scrutins et voir de quel groupe vos positions se rapprochent."
+              description="Répondre à de vrais scrutins et voir de quel groupe vos positions se rapprochent, ou choisir entre des propositions de programme sans savoir qui les porte."
               action={
-                <Button component="a" href="/quiz" fullWidth variant="filled">
-                  Faire le quiz
-                </Button>
+                <Stack gap="xs">
+                  <Button component="a" href="/quiz" fullWidth variant="filled">
+                    Faire le quiz des votes
+                  </Button>
+                  <Anchor component={Link} to="/programmes/quiz" size="sm" ta="center">
+                    Le quiz des programmes
+                  </Anchor>
+                </Stack>
               }
             />
             <EntreeCard

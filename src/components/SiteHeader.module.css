@@ -3,7 +3,6 @@
   top: 0;
   z-index: 100;
   background: var(--mantine-color-body);
-  border-bottom: 1px solid var(--mantine-color-default-border);
 }
 
 .barre {
@@ -47,20 +46,22 @@
   }
 }
 
+/* Libellés de navigation en petites capitales espacées, comme dans la référence. */
 .lien {
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--mantine-color-dimmed);
   text-decoration: none;
   padding-block: 4px;
-  border-bottom: 2px solid transparent;
 }
 
 .lien:hover {
   color: var(--mantine-color-text);
 }
 
+/* Actif : le blanc plein, comme au survol. Le lien porte aussi aria-current. */
 .lienActif {
   color: var(--mantine-color-text);
-  border-bottom-color: var(--mantine-primary-color-filled);
 }

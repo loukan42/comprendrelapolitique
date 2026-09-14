@@ -660,12 +660,16 @@ comparateur et le futur QCM.
   cours, et la page l'écrit.
 - **T1b.2** ~~Comparateur de deux formations, thème par thème.~~ Fait, sur
   citations vérifiées contre le document source.
-- **T1b.3** Étendre le corpus. Dix positions sur cinq thèmes, pour deux
-  formations. Bloqué pour LFI et le RN, qui publient en PDF : la vérification
-  de citation lit du HTML, extraire le texte d'un PDF demande une
-  bibliothèque.
-- **T1b.4** QCM des programmes. Demande d'abord du volume : un quiz sur deux
-  formations et cinq thèmes n'a pas de sens.
+- **T1b.3** ~~Étendre le corpus.~~ Fait : 40 citations pour cinq formations,
+  toutes vérifiées contre leur document. Les PDF sont lus par `pdftotext`, en
+  deux extractions, par le module partagé `scripts/import/citations.ts`.
+- **T1b.4** ~~QCM des programmes.~~ Fait (`/programmes/quiz`). Une question
+  regroupe des citations qui répondent au même sujet, une par formation
+  (migration 008) ; une question réunissant moins de trois formations n'est pas
+  servie. Les options sont mélangées à chaque partie, l'auteur est révélé
+  après le choix, et le décompte rapporte chaque choix au nombre de questions
+  où la formation figurait (`src/lib/qcmProgrammes.ts`, testé). Ce décompte
+  n'est pas une proximité et la page le dit.
 
 ### Phase 2 : V2, banque étendue
 
@@ -690,7 +694,8 @@ comparateur et le futur QCM.
 
 ### Phase 5 : V4, programmes
 
-- **T5.1** Source de programmes, à identifier. N'existe pas aujourd'hui.
+- **T5.1** ~~Source de programmes.~~ Constituée : `enrichissement.programme`
+  et `programme_position`, voir la phase 1 bis.
 - **T5.2** Double lecture votes observés contre programme déclaré.
 
 ---

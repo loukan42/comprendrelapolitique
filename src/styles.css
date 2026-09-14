@@ -75,6 +75,25 @@ html {
 }
 
 /*
+ * Corps de texte en graisse très légère, titres resserrés : les deux traits
+ * du style de référence (src/theme.ts). Le blanc sur noir pur garde un
+ * contraste de 21, ce qui permet la graisse 200 à 18 px sans perdre la
+ * lecture. Les textes en gras de l'interface fixent leur propre graisse.
+ */
+body {
+  font-weight: 200;
+  font-feature-settings: "ss01" on;
+}
+
+:where(h1, h2) {
+  letter-spacing: -0.04em;
+}
+
+:where(h3, h4) {
+  letter-spacing: -0.015em;
+}
+
+/*
  * Texte sombre sur un bouton plein en thème sombre.
  *
  * L'accent y est une teinte claire (nuance 4, choisie pour que les liens

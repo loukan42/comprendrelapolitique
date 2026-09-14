@@ -88,6 +88,33 @@ const REFERENCES: Reference[] = [
     url: "https://projet-socialiste.fr/",
     note: "Refondation du projet du parti, en cours. La primaire des 10 et 11 octobre 2026 désignera le candidat ; aucun programme présidentiel n'est publié à ce jour.",
   },
+  // Les mesures du projet socialiste ne figurent pas sur la page d'accueil
+  // du site, qui les présente sous forme de cartes à retourner : elles sont
+  // dans les pages de chapitre. Les citations du comparateur en sont tirées.
+  {
+    id: "ps-vivre-libres",
+    formation: "Parti socialiste",
+    titre: "Le projet socialiste : Vivre libres",
+    nature: "projet_en_cours",
+    url: "https://projet-socialiste.fr/projet/vivre-libres/",
+    note: "Chapitre du projet du parti consacré au travail, aux salaires et aux retraites.",
+  },
+  {
+    id: "ps-refaire-societe",
+    formation: "Parti socialiste",
+    titre: "Le projet socialiste : Refaire société",
+    nature: "projet_en_cours",
+    url: "https://projet-socialiste.fr/projet/refaire-societe/",
+    note: "Chapitre consacré à la fiscalité, aux services publics et à l'immigration.",
+  },
+  {
+    id: "ps-etre-en-securites",
+    formation: "Parti socialiste",
+    titre: "Le projet socialiste : Être en sécurité(s)",
+    nature: "projet_en_cours",
+    url: "https://projet-socialiste.fr/projet/etre-en-securites/",
+    note: "Chapitre consacré à la santé, à la sécurité publique et à l'environnement.",
+  },
   {
     id: "pcf-programme",
     formation: "Parti communiste français",

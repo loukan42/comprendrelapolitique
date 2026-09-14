@@ -29,6 +29,27 @@ Ce délai n'est pas anodin : sans la déclaration `optimizeDeps.include` de
 pré-bundling pendant le rendu serveur, lequel abandonnait au bout de 60 secondes.
 Le premier chargement échouait alors avec une erreur 500.
 
+Le même défaut est revenu le 14 septembre 2026 avec le cœur du routeur
+(`@tanstack/router-core`, `seroval`) : après un changement de lockfile, le
+cache reconstruit ne les contenait pas, et toutes les pages répondaient 500,
+accueil compris. Ils sont désormais déclarés eux aussi. Le symptôme à
+reconnaître est `transport invoke timed out after 60000ms` sur
+`src/lib/error-page.ts` dans le journal : le code des pages n'est alors même pas
+chargé. Pour trouver le paquet fautif, comparer la liste `optimized` de
+`node_modules/.vite/deps/_metadata.json` à celle d'une copie qui fonctionne ;
+tout paquet absent de la liste et découvert au rendu est à ajouter à `include`.
+
+Même avec un cache complet, le premier rendu après un démarrage à froid peut
+dépasser 60 secondes. L'import expiré reste alors en mémoire dans le rendu
+serveur, et chaque requête suivante échoue en quelques millisecondes, alors que
+le serveur est prêt. Le remède ne demande pas de redémarrer :
+
+```sh
+touch src/server.ts
+```
+
+Le changement de date invalide le module, et la requête suivante le recharge.
+
 ## Données
 
 La chaîne d'ingestion et ses contrôles sont décrits dans
@@ -61,6 +82,9 @@ npm run data:positions -- --db data/pg16
 # 4. Programmes : références vers les documents, puis positions citées.
 npm run data:programmes -- --db data/pg16
 npm run data:positions-programme -- --db data/pg16
+
+# 5. Bilans : engagements présidentiels, extraits vérifiés contre le programme.
+npm run data:bilans -- --db data/pg16
 ```
 
 Jeux facultatifs, hors chaîne minimale parce qu'ils sont lourds :
@@ -83,7 +107,8 @@ c'est par là qu'il faut commencer quand on en modifie le contenu :
 | `data:questions` | `--verifier` | L'objet réel de chaque scrutin retenu, en face du sens déclaré |
 | `data:positions` | `--detail <question>` | Le décompte scrutin par scrutin ayant servi au calcul |
 | `data:programmes` | `--verifier` | Le code de réponse de chaque lien |
-| `data:positions-programme` | `--verifier` | Si chaque citation figure bien dans le document source |
+| `data:positions-programme` | `--verifier` | Si chaque citation figure bien dans le document source, puis chaque question du QCM avec ses citations |
+| `data:bilans` | `--verifier` | Si chaque extrait figure dans le programme, et le code de réponse de chaque source |
 
 Ces contrôles ne sont pas décoratifs : celui de `data:questions` a rattrapé
 quatre erreurs de rattachement, et celui de `data:positions-programme` a
