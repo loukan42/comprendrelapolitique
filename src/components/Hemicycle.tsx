@@ -73,8 +73,11 @@ function genererSieges(total: number): PointSiege[] {
     for (let j = 0; j < n; j++) {
       const angle = ((j + 0.5) / n) * Math.PI;
       points.push({
-        x: 500 - rayon * Math.cos(angle),
-        y: 500 - rayon * Math.sin(angle),
+        // Arrondi au centième : le serveur et le navigateur ne calculent pas
+        // toujours cos et sin au dernier chiffre près, et cet écart faisait
+        // échouer l’hydratation. Un centième d’unité ne se voit pas.
+        x: Math.round((500 - rayon * Math.cos(angle)) * 100) / 100,
+        y: Math.round((500 - rayon * Math.sin(angle)) * 100) / 100,
         angle,
       });
     }

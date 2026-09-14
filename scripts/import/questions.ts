@@ -88,7 +88,7 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "fin-de-vie",
     intitule:
-      "Faut-il autoriser une personne atteinte d'une maladie grave et incurable à demander une aide à mourir ?",
+      "Une personne atteinte d'une maladie grave et incurable doit-elle pouvoir demander une aide à mourir ?",
     description:
       "L'Assemblée a examiné en 2026 un texte créant un droit à l'aide à mourir, encadré par des conditions d'âge, de discernement et d'état de santé.",
     theme: "sante",
@@ -114,7 +114,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "retention-etrangers-condamnes",
     intitule:
-      "Faut-il permettre de maintenir plus longtemps en rétention un étranger condamné pour des faits graves avant son expulsion ?",
+      "Faut-il pouvoir garder plus longtemps en centre de rétention un étranger condamné pour des faits graves, en attendant son expulsion ?",
+    description:
+      "La rétention administrative permet d'enfermer un étranger le temps d'organiser son expulsion. Les textes retenus facilitent le maintien en rétention des étrangers condamnés pour des faits d'une particulière gravité.",
     theme: "immigration",
     noteEditoriale:
       "Deux textes distincts, l'un sur le maintien en rétention, l'autre sur la rétention administrative et la prévention des attentats. Voter pour va dans le sens d'un allongement.",
@@ -137,7 +139,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "nationalite-mayotte",
     intitule:
-      "Faut-il rendre plus difficile l'accès à la nationalité française pour les enfants nés à Mayotte de parents étrangers ?",
+      "À Mayotte, faut-il durcir les conditions pour qu'un enfant né de parents étrangers puisse devenir français ?",
+    description:
+      "À Mayotte, le droit du sol obéit déjà à une règle propre à ce territoire : l'un des parents doit y avoir résidé régulièrement avant la naissance. Le texte renforce cette condition.",
     theme: "immigration",
     noteEditoriale:
       "L'intitulé du texte annonce un renforcement des conditions d'accès : voter pour est la position favorable à un durcissement.",
@@ -152,8 +156,9 @@ const QUESTIONS: QuestionSource[] = [
   },
   {
     id: "justice-mineurs",
-    intitule:
-      "Faut-il juger plus sévèrement les mineurs délinquants et rendre leurs parents davantage responsables ?",
+    intitule: "Faut-il durcir la justice applicable aux mineurs délinquants ?",
+    description:
+      "Le texte porte à la fois sur la façon de juger les mineurs délinquants et sur la responsabilité de leurs parents.",
     theme: "justice",
     noteEditoriale:
       "L'intitulé annonce un renforcement de l'autorité de la justice à l'égard des mineurs et de leurs parents : voter pour va dans le sens d'une plus grande sévérité.",
@@ -169,7 +174,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "legitime-defense-police",
     intitule:
-      "Faut-il présumer que les policiers et gendarmes qui font usage de leur arme étaient en situation de légitime défense ?",
+      "Quand un policier ou un gendarme se sert de son arme, faut-il présumer qu'il était en légitime défense ?",
+    description:
+      "Avec une présomption de légitime défense, ce ne serait plus au policier ou au gendarme de montrer qu'il était en légitime défense : ce serait à l'accusation de prouver le contraire.",
     theme: "securite",
     noteEditoriale:
       "L'intitulé du texte est explicite sur la présomption créée : voter pour est la position favorable.",
@@ -185,9 +192,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "narcotrafic-moyens",
     intitule:
-      "Faut-il donner à la police et à la justice des moyens d'enquête plus larges pour lutter contre le trafic de drogue, même s'ils touchent aux libertés ?",
+      "Faut-il donner à la police et à la justice de nouveaux moyens d'enquête contre les réseaux de trafic de drogue ?",
     description:
-      "Le texte crée un parquet national anti-stupéfiants et élargit les techniques d'enquête utilisables contre la criminalité organisée.",
+      "Le texte crée un parquet national anti-criminalité organisée et élargit les techniques d'enquête utilisables contre les réseaux de trafiquants.",
     theme: "securite",
     noteEditoriale:
       "Deux textes liés, la loi sur le narcotrafic et la loi organique créant le parquet spécialisé qui l'accompagne, avec un poids réduit sur le second qui est un texte d'organisation du premier.",
@@ -210,7 +217,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "agriculture-contraintes",
     intitule:
-      "Faut-il alléger les règles environnementales et administratives qui s'imposent aux agriculteurs ?",
+      "Faut-il alléger les règles, notamment environnementales, imposées aux agriculteurs ?",
+    description:
+      "Le texte porte notamment sur l'usage de certains pesticides, le stockage de l'eau et l'agrandissement des élevages.",
     theme: "environnement",
     sousTheme: "agriculture",
     noteEditoriale:
@@ -226,7 +235,7 @@ const QUESTIONS: QuestionSource[] = [
   },
   {
     id: "fraude-sociale-fiscale",
-    intitule: "Faut-il renforcer les contrôles contre la fraude aux aides sociales et à l'impôt ?",
+    intitule: "Faut-il renforcer la lutte contre la fraude, aux aides sociales comme à l'impôt ?",
     theme: "impots",
     noteEditoriale:
       "Le texte traite les deux fraudes dans le même mouvement : la question les mentionne donc ensemble, sans en privilégier une.",
@@ -241,7 +250,9 @@ const QUESTIONS: QuestionSource[] = [
   },
   {
     id: "defense-effort",
-    intitule: "Faut-il augmenter l'effort financier de la France pour sa défense ?",
+    intitule: "Faut-il augmenter le budget des armées ?",
+    description:
+      "Le texte révise à la hausse la loi de programmation militaire 2024-2030, qui fixe les moyens des armées année par année.",
     theme: "defense",
     noteEditoriale:
       "Le texte actualise à la hausse la programmation militaire : voter pour est la position favorable à un effort accru.",
@@ -256,8 +267,7 @@ const QUESTIONS: QuestionSource[] = [
   },
   {
     id: "simplification-entreprises",
-    intitule:
-      "Faut-il alléger les normes et démarches administratives qui pèsent sur les entreprises ?",
+    intitule: "Faut-il alléger les normes et les démarches administratives des entreprises ?",
     theme: "entreprises",
     noteEditoriale:
       "Deux lectures du projet de loi de simplification de la vie économique, retenues avec un poids réduit parce qu'elles portent sur le même texte.",
@@ -280,7 +290,9 @@ const QUESTIONS: QuestionSource[] = [
   },
   {
     id: "corse-autonomie",
-    intitule: "Faut-il accorder à la Corse un statut d'autonomie au sein de la République ?",
+    intitule: "Faut-il donner à la Corse une autonomie au sein de la République ?",
+    description:
+      "Le projet de loi constitutionnelle permettrait à la Corse d'adapter certaines lois à ses spécificités, sous le contrôle du Conseil constitutionnel.",
     theme: "institutions",
     noteEditoriale:
       "Projet de loi constitutionnelle dont l'objet est explicite : voter pour est la position favorable à l'autonomie.",

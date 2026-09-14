@@ -42,13 +42,18 @@ tout paquet absent de la liste et découvert au rendu est à ajouter à `include
 Même avec un cache complet, le premier rendu après un démarrage à froid peut
 dépasser 60 secondes. L'import expiré reste alors en mémoire dans le rendu
 serveur, et chaque requête suivante échoue en quelques millisecondes, alors que
-le serveur est prêt. Le remède ne demande pas de redémarrer :
+le serveur est prêt. Le remède ne demande pas de redémarrer : modifier le contenu
+de `src/server.ts`, faire une requête, puis rétablir le fichier.
 
 ```sh
-touch src/server.ts
+echo "" >> src/server.ts
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/
+git checkout -- src/server.ts
 ```
 
-Le changement de date invalide le module, et la requête suivante le recharge.
+Le changement de contenu invalide le module, et la requête suivante le
+recharge. Sous Windows, `touch` ne suffit pas : le watcher ignore un simple
+changement de date, et l'erreur persiste (constaté le 14 septembre 2026).
 
 ## Données
 
