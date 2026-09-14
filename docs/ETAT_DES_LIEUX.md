@@ -130,11 +130,11 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
    (`quizPosition.ts`) est écrit et testé, mais la page `/quiz` utilise encore
    l'ancien modèle, une question pour un scrutin, avec quatre réponses au lieu
    de six.
-6. **Sections rédigées de la page loi.** La page `$id.tsx` venue de `main`
-   portait un parcours législatif détaillé (dépôt, CMP, 49.3, promulgation) et
-   des sections « En 30 secondes », « Pourquoi cette loi ? ». Elle a été
-   retirée lors de la fusion au profit de `$uid.tsx`, qui porte les votes.
-   Ces sections restent dans l'historique et sont à reporter.
+6. **Sections rédigées de la page loi.** Le parcours législatif est reporté
+   (`src/components/ParcoursLoi.tsx`) : frise des grandes étapes, cochées
+   seulement sur un acte qui les prouve, puis détail par lecture. Restent les
+   sections « En 30 secondes » et « Pourquoi cette loi ? », qui demandent des
+   textes rédigés et sourcés, dossier par dossier (agent `vulgarisation`).
 
 ### Priorité basse
 

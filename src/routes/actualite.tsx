@@ -19,7 +19,7 @@ const dateLongue = new Intl.DateTimeFormat("fr-FR", {
 
 /** Une date AAAA-MM-JJ, lue à midi pour qu'aucun fuseau ne la fasse changer de jour. */
 function formaterDate(jour: string): string {
-  return dateLongue.format(new Date(`${jour}T12:00:00`));
+  return dateLongue.format(new Date(`${jour}T12:00:00`)).replace(/^1 /, "1er ");
 }
 
 function Section({

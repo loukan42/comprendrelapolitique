@@ -1,0 +1,28 @@
+/*
+ * La frise des grandes étapes : un filet au-dessus de chaque étape, blanc
+ * quand l'étape est franchie, gris sinon. Une coche et un texte masqué pour
+ * les lecteurs d'écran doublent l'information : la couleur ne la porte jamais
+ * seule. Les étapes passent à la ligne sur petit écran.
+ */
+.frise {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: var(--mantine-spacing-md) var(--mantine-spacing-sm);
+}
+
+.etape {
+  border-top: 2px solid var(--mantine-color-default-border);
+  padding-top: var(--mantine-spacing-xs);
+}
+
+.franchie {
+  border-top-color: var(--mantine-color-text);
+}
+
+.coche {
+  flex-shrink: 0;
+  margin-top: 3px;
+}

@@ -16,6 +16,7 @@ import { useMemo, useState } from "react";
 import { BarreEmpilee } from "../../components/BarreEmpilee";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import { Hemicycle } from "../../components/Hemicycle";
+import { ParcoursLoi } from "../../components/ParcoursLoi";
 import { PastilleGroupe } from "../../components/PastilleGroupe";
 import { extraireEssentiel } from "../../lib/extraitIntervention";
 import {
@@ -365,6 +366,8 @@ function PageLoi() {
           )}
         </Box>
 
+        <ParcoursLoi actes={actes} />
+
         <Box>
           <Title order={2}>Ce qui a été voté</Title>
           {scrutinsEnsemble.length > 0 ? (
@@ -402,26 +405,6 @@ function PageLoi() {
                 <BlocEngagement key={e.uid} engagement={e} />
               ))}
             </Stack>
-          </Box>
-        )}
-
-        {actes.length > 0 && (
-          <Box>
-            <Title order={2}>Étapes de la procédure</Title>
-            <Table.ScrollContainer minWidth={480} mt="sm">
-              <Table horizontalSpacing="sm" verticalSpacing={6} withRowBorders striped>
-                <Table.Tbody>
-                  {actes.map((a) => (
-                    <Table.Tr key={a.uid}>
-                      <Table.Td c="dimmed" w={140}>
-                        {a.dateActe ? formaterDate(a.dateActe) : "—"}
-                      </Table.Td>
-                      <Table.Td>{a.libelleCanonique ?? a.libelleCourt ?? a.codeActe}</Table.Td>
-                    </Table.Tr>
-                  ))}
-                </Table.Tbody>
-              </Table>
-            </Table.ScrollContainer>
           </Box>
         )}
 
