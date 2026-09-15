@@ -1091,6 +1091,144 @@ const POSITIONS: PositionSource[] = [
   },
 ];
 
+/**
+ * LES AXES DU COMPARATEUR.
+ *
+ * Pour les questions dont les réponses se rangent entre deux pôles, le
+ * comparateur place chaque citation de -2 à +2 et en tire un score de
+ * proximité entre formations (`src/lib/benchmarkProgrammes.ts`).
+ *
+ * Ce placement est une lecture du site, pas une donnée des partis : il est
+ * écrit ici, en clair, citation par citation, et la page l'affiche à côté de
+ * la citation qu'il résume. Les pôles sont formulés sans jugement, et aucun
+ * ne correspond à « gauche » ou « droite » : sur le commerce, La France
+ * insoumise et le Rassemblement National se retrouvent du même côté, parce
+ * que leurs citations le disent. `--verifier` réimprime chaque axe avec les
+ * formations rangées dans l'ordre, pour qu'on puisse juger le placement.
+ *
+ * Trois questions n'ont pas d'axe (école, institutions, TVA) : leurs réponses
+ * portent sur des leviers différents, que l'on ne peut pas ordonner sans
+ * inventer une hiérarchie. Elles restent dans le comparateur, sans score.
+ */
+const AXES: Record<string, { moins: string; plus: string }> = {
+  "retraites-age": { moins: "Partir plus tôt", plus: "Travailler plus longtemps" },
+  "immigration-accueil": { moins: "Ouvrir davantage", plus: "Restreindre davantage" },
+  "travail-salaires": { moins: "Augmenter le SMIC par la loi", plus: "Baisser les cotisations" },
+  "energie-nucleaire": { moins: "Moins de nucléaire", plus: "Plus de nucléaire" },
+  "justice-peines": { moins: "Alternatives à la prison", plus: "Peines plus sévères" },
+  "impots-patrimoine": { moins: "Taxer davantage", plus: "Taxer moins" },
+  "securite-police": {
+    moins: "Encadrer l'action de la police",
+    plus: "Renforcer la présence policière",
+  },
+  "temps-travail": { moins: "Travailler moins", plus: "Travailler plus" },
+  familles: {
+    moins: "Des places d'accueil pour les enfants",
+    plus: "Des aides financières aux familles",
+  },
+  "deficit-dette": { moins: "Ne pas en faire la priorité", plus: "Réduire vite le déficit" },
+  "sante-deserts": {
+    moins: "Réguler l'installation, offre publique",
+    plus: "Inciter les soignants",
+  },
+  "industrie-concurrence": { moins: "Revoir le libre-échange", plus: "Défense commerciale ciblée" },
+  logement: { moins: "Encadrer les loyers", plus: "Assouplir les règles" },
+  drogue: { moins: "Légaliser et prévenir", plus: "Réprimer" },
+};
+
+/** Place de chaque citation sur l'axe de sa question, de -2 à +2. */
+const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2> = {
+  // Retraites : de « partir plus tôt » à « travailler plus longtemps ».
+  "lfi-retraites": -2,
+  "rn-retraites-2022": -1,
+  "ps-retraites": -1,
+  "pp-retraites": 0,
+  "ren-retraites-cotisation": 0,
+  "hor-retraites": 1,
+  "lr-retraites": 1,
+  "ne-retraites": 2,
+  // Immigration.
+  "lfi-sejour": -2,
+  "ps-sejour": -1,
+  "pp-immigration": -1,
+  "ren-immigration-points": 1,
+  "hor-quotas": 1,
+  "rn-peuplement": 2,
+  // Salaires : les deux leviers, la loi sur le SMIC ou les cotisations.
+  "lfi-smic": -2,
+  "ps-smic": -2,
+  "pcf-smic": -2,
+  "pp-smic": -2,
+  "rn-salaires-2022": 1,
+  "hor-salaire-net": 1,
+  "ren-salaire-net": 2,
+  "lr-zero-cotisation": 2,
+  // Énergie.
+  "lfi-nucleaire": -2,
+  "ps-energie": 0,
+  "pp-nucleaire": 1,
+  "hor-energie": 1,
+  "ne-nucleaire": 1,
+  "ren-nucleaire": 2,
+  "rn-nucleaire-2022": 2,
+  "lr-energie-plan": 2,
+  // Peines.
+  "ps-peines-alternatives": -2,
+  "pp-peines": -1,
+  "ne-sanction": 1,
+  "hor-courtes-peines": 1,
+  "rn-peines-planchers": 2,
+  // Patrimoine.
+  "lfi-isf": -2,
+  "pcf-isf": -2,
+  "ps-zucman": -1,
+  "pp-fiscalite": -1,
+  "rn-iff-2022": 0,
+  "hor-moratoire": 1,
+  "lr-transmission": 2,
+  // Police.
+  "lfi-recepisse": -2,
+  "ps-police": 1,
+  "rn-police-municipale": 2,
+  // Temps de travail.
+  "lfi-32h": -2,
+  "ren-heures-sup": 1,
+  "lr-35h": 2,
+  // Familles.
+  "lfi-creches": -2,
+  "pp-creches": -1,
+  "ren-livret-creches": -1,
+  "hor-part-fiscale": 1,
+  "rn-part-fiscale": 2,
+  "lr-revenu-familial": 2,
+  // Dette et déficit.
+  "lfi-dette-bce": -2,
+  "pp-dette": 0,
+  "ne-dette": 1,
+  "ren-deficit": 1,
+  "hor-regle-or": 2,
+  // Déserts médicaux.
+  "ps-deserts": -2,
+  "lfi-deserts": -1,
+  "rn-deserts-2022": 2,
+  // Commerce.
+  "rn-libre-echange": -2,
+  "lfi-protectionnisme": -2,
+  "pp-commerce": 1,
+  "ren-chine": 1,
+  "hor-chine": 1,
+  // Logement.
+  "lfi-loyers": -2,
+  "pp-loyers": -1,
+  "rn-logement": 0,
+  "lr-dpe": 2,
+  // Drogue.
+  "lfi-cannabis": -2,
+  "ps-cannabis": -1,
+  "pp-narcotrafic": 1,
+  "hor-narco": 2,
+};
+
 const MIGRATION = resolve("db/migrations/006_programmes.sql");
 const MIGRATION_QUESTIONS = resolve("db/migrations/008_programme_questions.sql");
 
@@ -1152,6 +1290,23 @@ function erreursDeStructure(resultats: Controle[]): string[] {
     }
     vues.set(cle, r.p.id);
   }
+  // Une question à axe doit placer toutes ses citations, une question sans
+  // axe n'en placer aucune : un score calculé sur un axe à moitié rempli
+  // favoriserait les formations placées.
+  for (const id of Object.keys(AXES)) {
+    if (!idsQuestions.has(id)) erreurs.push(`axe pour une question inconnue : ${id}`);
+  }
+  for (const id of Object.keys(ECHELLES)) {
+    const p = POSITIONS.find((x) => x.id === id);
+    if (!p) erreurs.push(`place sur un axe pour une citation inconnue : ${id}`);
+    else if (!p.questionId || !AXES[p.questionId]) erreurs.push(`${id} est placée hors d'un axe`);
+  }
+  for (const { p } of resultats) {
+    if (p.questionId && AXES[p.questionId] && ECHELLES[p.id] === undefined) {
+      erreurs.push(`${p.id} n'est pas placée sur l'axe de ${p.questionId}`);
+    }
+  }
+
   return erreurs;
 }
 
@@ -1217,6 +1372,19 @@ async function main() {
       for (const r of dedans) console.log(`            ${r.formation} : « ${r.p.extrait} »`);
     }
 
+    console.log("\nAxes du comparateur (lecture du site, de -2 à +2)");
+    for (const q of QUESTIONS) {
+      const axe = AXES[q.id];
+      if (!axe) continue;
+      console.log(`\n  ${q.intitule}\n  -2 ${axe.moins}  ←→  +2 ${axe.plus}`);
+      const rangees = [...(parQuestion.get(q.id) ?? [])].sort(
+        (x, y) => (ECHELLES[x.p.id] ?? 0) - (ECHELLES[y.p.id] ?? 0),
+      );
+      for (const r of rangees) {
+        console.log(`   ${String(ECHELLES[r.p.id] ?? "?").padStart(2)}  ${r.formation}`);
+      }
+    }
+
     for (const e of erreurs) console.error(`ERREUR ${e}`);
     await db.close();
     return;
@@ -1234,8 +1402,8 @@ async function main() {
     for (const [ordre, q] of QUESTIONS.entries()) {
       await db.query(
         `INSERT INTO enrichissement.programme_question
-           (id, theme, intitule, ordre, contexte, source_contexte)
-         VALUES ($1,$2,$3,$4,$5,$6)`,
+           (id, theme, intitule, ordre, contexte, source_contexte, axe_moins, axe_plus)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
         [
           q.id,
           q.theme,
@@ -1243,6 +1411,8 @@ async function main() {
           ordre + 1,
           q.contexte?.texte ?? null,
           q.contexte?.source ?? null,
+          AXES[q.id]?.moins ?? null,
+          AXES[q.id]?.plus ?? null,
         ],
       );
     }
@@ -1254,8 +1424,8 @@ async function main() {
       await db.query(
         `INSERT INTO enrichissement.programme_position
            (id, programme_id, theme, sous_theme, question_id, extrait, resume_affichage,
-            page_ou_section, url_ancre)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+            page_ou_section, url_ancre, echelle)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
         [
           r.p.id,
           r.p.programmeId,
@@ -1266,6 +1436,7 @@ async function main() {
           r.p.resumeAffichage ?? null,
           r.p.pageOuSection ?? null,
           r.url,
+          ECHELLES[r.p.id] ?? null,
         ],
       );
     }

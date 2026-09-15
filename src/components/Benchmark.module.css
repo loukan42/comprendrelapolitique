@@ -1,0 +1,217 @@
+.jauge svg,
+.anneau svg {
+  display: block;
+  width: 100%;
+  max-width: 11rem;
+  margin: 0 auto;
+}
+
+.fondAnneau {
+  fill: none;
+  stroke: var(--mantine-color-default-border);
+}
+
+.stopDebut {
+  stop-color: var(--accord-proche);
+}
+
+.stopFin {
+  stop-color: var(--accord-identique);
+}
+
+.valeurJauge {
+  fill: var(--mantine-color-text);
+  font-size: 2.1rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+.valeurAnneau {
+  fill: var(--mantine-color-text);
+  font-size: 1.9rem;
+  font-weight: 300;
+}
+
+.sousValeur {
+  fill: var(--mantine-color-dimmed);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.anneau {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mantine-spacing-md);
+}
+
+.anneau svg {
+  max-width: 9.5rem;
+  margin: 0;
+}
+
+.legende {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--mantine-spacing-xs);
+  font-size: var(--mantine-font-size-sm);
+}
+
+.legende li {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-xs);
+}
+
+.pastille {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pastille[data-accord="identique"] {
+  background: var(--accord-identique);
+}
+
+.pastille[data-accord="proche"] {
+  background: var(--accord-proche);
+}
+
+.pastille[data-accord="eloigne"] {
+  background: var(--accord-eloigne);
+}
+
+.pastille[data-accord="oppose"] {
+  background: var(--accord-oppose);
+}
+
+/* La matrice défile dans son cadre sur petit écran, jamais la page. */
+.defilement {
+  overflow-x: auto;
+  padding-bottom: var(--mantine-spacing-xs);
+}
+
+.matrice {
+  display: grid;
+  gap: 3px;
+  min-width: 34rem;
+}
+
+.enTeteColonne,
+.enTeteLigne {
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mantine-color-dimmed);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.enTeteColonne {
+  justify-content: center;
+  padding-bottom: var(--mantine-spacing-xs);
+}
+
+.enTeteLigne {
+  padding-right: var(--mantine-spacing-sm);
+}
+
+.diagonale {
+  border-radius: var(--mantine-radius-sm);
+  background: var(--mantine-color-dark-8);
+}
+
+/* L'intensité de la case suit la proximité : du fond vers le cyan. */
+.cellule {
+  aspect-ratio: 1;
+  min-height: 2.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--mantine-radius-sm);
+  background: color-mix(in srgb, var(--accord-identique) var(--intensite, 0%), var(--mantine-color-dark-7));
+  color: var(--mantine-color-white);
+  font: inherit;
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 150ms ease;
+}
+
+.cellule:hover,
+.cellule:focus-visible {
+  border-color: var(--mantine-color-white);
+}
+
+.celluleChoisie {
+  border-color: var(--mantine-color-white);
+  box-shadow: 0 0 0 2px var(--mantine-color-body), 0 0 0 3px var(--mantine-color-white);
+}
+
+.axe {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ligneAxe,
+.graduation {
+  stroke: var(--mantine-color-default-border);
+  stroke-width: 2;
+}
+
+.pointAutre {
+  fill: var(--mantine-color-dark-3);
+}
+
+.pointA {
+  fill: var(--bench-a);
+  stroke: var(--mantine-color-body);
+  stroke-width: 3;
+}
+
+.pointB {
+  fill: var(--bench-b);
+  stroke: var(--mantine-color-body);
+  stroke-width: 3;
+}
+
+.poles {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--mantine-spacing-md);
+  margin-top: 2px;
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mantine-color-dimmed);
+}
+
+.poles span:last-child {
+  text-align: right;
+}
+
+.marqueur {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.marqueur[data-cote="a"] {
+  background: var(--bench-a);
+}
+
+.marqueur[data-cote="b"] {
+  background: var(--bench-b);
+}

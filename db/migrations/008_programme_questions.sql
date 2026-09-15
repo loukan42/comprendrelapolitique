@@ -35,3 +35,12 @@ CREATE INDEX IF NOT EXISTS idx_programme_position_question
 -- l'adresse de sa source officielle.
 ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS contexte text;
 ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS source_contexte text;
+
+-- Axe du comparateur : les deux poles d'une question, formules sans
+-- jugement, et la place de chaque citation entre eux, de -2 a +2. C'est une
+-- lecture editoriale du site, ecrite dans positions_programme.ts et affichee
+-- a cote de la citation qu'elle resume.
+ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS axe_moins text;
+ALTER TABLE enrichissement.programme_question ADD COLUMN IF NOT EXISTS axe_plus text;
+ALTER TABLE enrichissement.programme_position ADD COLUMN IF NOT EXISTS echelle smallint
+    CHECK (echelle BETWEEN -2 AND 2);

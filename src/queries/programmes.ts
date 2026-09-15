@@ -13,6 +13,7 @@ import {
   type OptionQcm,
   type QuestionQcm,
 } from "../lib/qcmProgrammes";
+import type { QuestionBenchmark } from "../lib/benchmarkProgrammes";
 import { tableDisponible, requete } from "./db";
 
 export type NatureProgramme =
@@ -280,5 +281,64 @@ export const chargerProgrammes = createServerFn({ method: "GET" }).handler(
       }
       return a.formation.localeCompare(b.formation, "fr");
     });
+  },
+);
+
+/**
+ * Corpus du comparateur : chaque question avec ses citations et, quand la
+ * question a un axe, la place de chaque citation sur cet axe. Le calcul de
+ * proximité se fait dans le navigateur (`src/lib/benchmarkProgrammes.ts`),
+ * sur ces seules données publiques.
+ *
+ * Une base chargée avant l'ajout des axes n'a pas leurs colonnes : le
+ * comparateur y est vide plutôt qu'en erreur.
+ */
+export const chargerBenchmark = createServerFn({ method: "GET" }).handler(
+  async (): Promise<QuestionBenchmark[]> => {
+    if (!(await tableDisponible("enrichissement.programme_question"))) return [];
+    const lignes = await requete<{
+      id: string;
+      theme: string;
+      intitule: string;
+      axe_moins: string | null;
+      axe_plus: string | null;
+      echelle: number | null;
+      formation: string;
+      candidat: string | null;
+      extrait: string;
+      url_ancre: string | null;
+      titre: string | null;
+      nature: string;
+    }>(
+      `SELECT q.id, q.theme, q.intitule, q.axe_moins, q.axe_plus, pp.echelle, p.formation,
+              p.candidat, pp.extrait, pp.url_ancre, p.titre, p.nature::text AS nature
+         FROM enrichissement.programme_question q
+         JOIN enrichissement.programme_position pp ON pp.question_id = q.id
+         JOIN enrichissement.programme p ON p.id = pp.programme_id
+        ORDER BY q.ordre, p.formation`,
+    ).catch(() => []);
+
+    const questions = new Map<string, QuestionBenchmark>();
+    for (const l of lignes) {
+      const q = questions.get(l.id) ?? {
+        id: l.id,
+        theme: l.theme,
+        intitule: l.intitule,
+        axeMoins: l.axe_moins,
+        axePlus: l.axe_plus,
+        positions: [],
+      };
+      q.positions.push({
+        formation: l.formation,
+        candidat: l.candidat,
+        echelle: l.echelle,
+        extrait: l.extrait,
+        url: l.url_ancre,
+        titreDocument: l.titre,
+        natureDocument: l.nature,
+      });
+      questions.set(l.id, q);
+    }
+    return [...questions.values()];
   },
 );

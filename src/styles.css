@@ -126,3 +126,18 @@ body {
   --nuage-censure: #ffe08a;
   --nuage-autre: #9a9a9a;
 }
+
+/*
+ * Comparateur de programmes. Les deux formations comparées ont chacune leur
+ * couleur (blanc, cyan) ; les degrés d'accord vont du violet (même position)
+ * à l'ambre (positions opposées). Aucune n'est une couleur de parti, et la
+ * légende écrit toujours le mot à côté de la couleur.
+ */
+:root {
+  --bench-a: #ffffff;
+  --bench-b: #3fc1c9;
+  --accord-identique: #8b6cff;
+  --accord-proche: #c9b8ff;
+  --accord-eloigne: #ffe08a;
+  --accord-oppose: #ffb829;
+}
