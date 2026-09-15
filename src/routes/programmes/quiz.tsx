@@ -1,4 +1,5 @@
 import {
+  Accordion,
   Alert,
   Anchor,
   Badge,
@@ -139,7 +140,8 @@ function Proposition({
   }
   return (
     <UnstyledButton
-      className={`${classes["option"]} ${classes["choisissable"]}`}
+      className={`${classes["option"]} ${classes["choisissable"]} ${choisie ? classes["choisie"] : ""}`}
+      aria-pressed={choisie}
       onClick={onChoisir}
       aria-label={`Proposition ${lettre}`}
     >
@@ -166,7 +168,7 @@ function EcranQuestion({
   onPasser: () => void;
   onSuivante: () => void;
 }) {
-  const revelee = choix !== undefined;
+  const repondu = choix !== undefined;
   const derniere = index + 1 === total;
 
   return (
@@ -193,16 +195,10 @@ function EcranQuestion({
         </Text>
       )}
 
-      {revelee ? (
-        <Text size="sm" c="dimmed">
-          Voici qui porte chaque proposition, et dans quel document elle figure.
-        </Text>
-      ) : (
-        <Text size="sm" c="dimmed">
-          Choisissez la proposition la plus proche de votre avis. Le nom de son auteur
-          s&apos;affiche ensuite.
-        </Text>
-      )}
+      <Text size="sm" c="dimmed">
+        Choisissez la proposition la plus proche de votre avis. Les auteurs ne sont révélés
+        qu&apos;à la fin du quiz.
+      </Text>
 
       <Stack gap="sm">
         {question.options.map((o, i) => (
@@ -210,32 +206,33 @@ function EcranQuestion({
             key={o.positionId}
             option={o}
             lettre={LETTRES[i] ?? String(i + 1)}
-            revelee={revelee}
+            revelee={false}
             choisie={choix?.positionId === o.positionId}
             onChoisir={() => onChoisir(o.positionId)}
           />
         ))}
       </Stack>
 
-      {revelee ? (
-        <Stack gap="sm">
-          {choix.positionId === null && (
-            <Text size="sm">Vous n&apos;avez retenu aucune de ces propositions.</Text>
-          )}
-          <Button onClick={onSuivante} w="fit-content" rightSection={<IconArrowRight size={16} />}>
-            {derniere ? "Voir le résultat" : "Question suivante"}
-          </Button>
-        </Stack>
-      ) : (
-        <Group gap="sm">
-          <Button variant="default" onClick={() => onChoisir(null)}>
-            Aucune de ces propositions
-          </Button>
+      <Group gap="sm">
+        <Button
+          onClick={onSuivante}
+          disabled={!repondu}
+          rightSection={<IconArrowRight size={16} />}
+        >
+          {derniere ? "Voir le résultat" : "Question suivante"}
+        </Button>
+        <Button
+          variant={choix?.positionId === null ? "light" : "default"}
+          onClick={() => onChoisir(null)}
+        >
+          Aucune de ces propositions
+        </Button>
+        {!repondu && (
           <Button variant="subtle" color="graphite" onClick={onPasser}>
             Passer
           </Button>
-        </Group>
-      )}
+        )}
+      </Group>
     </Stack>
   );
 }
@@ -311,43 +308,50 @@ function EcranResultat({
       </Stack>
 
       <Stack gap="md">
-        <Title order={2}>Question par question</Title>
-        <Stack gap="sm">
+        <Title order={2}>Les propositions et leurs auteurs</Title>
+        <Text c="dimmed" size="sm">
+          Pour chaque question, toutes les propositions, avec le candidat ou la formation qui la
+          porte, le document dont elle est tirée et sa nature.
+        </Text>
+        <Accordion variant="separated" radius="md" multiple>
           {questions.map((q) => {
             const c = choix.find((x) => x.questionId === q.id);
             const retenue = c?.positionId
               ? q.options.find((o) => o.positionId === c.positionId)
               : undefined;
             return (
-              <Card key={q.id} withBorder radius="md" padding="md">
-                <Text fw={600}>{q.intitule}</Text>
-                {!c ? (
-                  <Text size="sm" c="dimmed" mt={4}>
-                    Question passée.
+              <Accordion.Item key={q.id} value={q.id}>
+                <Accordion.Control>
+                  <Text fw={600}>{q.intitule}</Text>
+                  <Text size="sm" c="dimmed" mt={2}>
+                    {!c
+                      ? "Question passée"
+                      : !retenue
+                        ? "Aucune proposition retenue"
+                        : `Votre choix : ${auteur(retenue)}`}
                   </Text>
-                ) : !retenue ? (
-                  <Text size="sm" c="dimmed" mt={4}>
-                    Aucune proposition retenue.
-                  </Text>
-                ) : (
-                  <Box mt={4}>
-                    <Text size="sm">
-                      Vous avez choisi la proposition de{" "}
-                      <Text span fw={700}>
-                        {auteur(retenue)}
-                      </Text>
-                      .
-                    </Text>
-                    <Text size="sm" c="dimmed" fs="italic" mt={2}>
-                      «&nbsp;{retenue.extrait}&nbsp;»
-                    </Text>
-                  </Box>
-                )}
-              </Card>
+                </Accordion.Control>
+                <Accordion.Panel>
+                  <Stack gap="sm">
+                    {q.options.map((o, i) => (
+                      <Proposition
+                        key={o.positionId}
+                        option={o}
+                        lettre={LETTRES[i] ?? String(i + 1)}
+                        revelee
+                        choisie={c?.positionId === o.positionId}
+                        onChoisir={() => undefined}
+                      />
+                    ))}
+                  </Stack>
+                </Accordion.Panel>
+              </Accordion.Item>
             );
           })}
-        </Stack>
+        </Accordion>
       </Stack>
+
+      <Couverture questions={questions} />
 
       <Group gap="md">
         <Button variant="default" onClick={onRecommencer}>
@@ -362,10 +366,11 @@ function EcranResultat({
 }
 
 /**
- * Présence de chaque formation dans le quiz. Affichée avant de commencer :
- * une formation absente de la moitié des questions n'a pas les mêmes
- * chances d'être choisie, et le lecteur doit le savoir avant de lire son
- * résultat, pas après.
+ * Présence de chaque formation dans le quiz, affichée avec le résultat : une
+ * formation absente de la moitié des questions n'a pas les mêmes chances
+ * d'être choisie, et le lecteur doit le savoir en lisant son décompte. Elle
+ * n'est pas montrée avant de commencer, pour que les noms n'apparaissent
+ * qu'à la fin.
  */
 function Couverture({ questions }: { questions: QuestionQcm[] }) {
   const libelles = libellesFormations(questions);
@@ -426,9 +431,13 @@ function PageQcm() {
   const choixCourant = question ? choix.find((c) => c.questionId === question.id) : undefined;
 
   function choisir(positionId: string | null) {
-    if (!question || choixCourant) return;
+    if (!question) return;
     // Le choix reste dans l'état de la page : il n'est ni envoyé ni conservé.
-    setChoix([...choix, { questionId: question.id, positionId }]);
+    // Tant que la question est affichée, il peut être changé.
+    setChoix([
+      ...choix.filter((c) => c.questionId !== question.id),
+      { questionId: question.id, positionId },
+    ]);
   }
 
   function avancer() {
@@ -459,7 +468,7 @@ function PageQcm() {
               {questions.length} questions. Pour chacune, des propositions tirées des documents
               publiés par les candidats et leurs partis, citées mot pour mot et présentées sans le
               nom de leur auteur. Vous choisissez celle qui se rapproche le plus de votre avis, ou
-              aucune ; l&apos;auteur de chaque proposition s&apos;affiche ensuite.
+              aucune ; les auteurs ne sont révélés qu&apos;à la fin du quiz.
             </Text>
           )}
         </Box>
@@ -475,11 +484,10 @@ function PageQcm() {
               Quand un candidat a publié son programme de campagne pour 2027, c&apos;est lui qui est
               cité. Sinon, la citation vient du document le plus récent de sa formation : programme
               présidentiel de 2022, programme des législatives de 2024, propositions du parti ou
-              tribune du candidat. La nature de chaque document s&apos;affiche avec la réponse.
+              tribune du candidat. La nature de chaque document s&apos;affiche avec le résultat.
               Toutes les formations ne figurent pas dans toutes les questions : le quiz s&apos;en
               tient à ce que chaque document dit, et ne comble pas les absences.
             </Alert>
-            <Couverture questions={questions} />
             <Text size="sm" c="dimmed">
               Vos choix restent dans votre navigateur. Ils ne sont ni envoyés au site, ni conservés.
             </Text>

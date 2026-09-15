@@ -141,7 +141,7 @@ d'import qui est le livrable.
 
 ## L'équipe d'agents
 
-Cinq agents spécialisés sont définis dans `.claude/agents/`. Chacun porte ce que
+Dix agents spécialisés sont définis dans `.claude/agents/`. Chacun porte ce que
 le projet a appris, pour qu'une session neuve n'ait pas à le réapprendre.
 
 | Agent | Quand l'appeler |
@@ -151,7 +151,12 @@ le projet a appris, pour qu'une session neuve n'ait pas à le réapprendre.
 | `methodologie-quantitative` | Avant d'implémenter une formule qui produit un chiffre public : score d'importance, proximité du quiz, taux d'unité. |
 | `vulgarisation` | Pour rédiger un résumé de loi, une fiche « ce qui change », un énoncé de quiz. |
 | `verification` | Avant toute mise en ligne d'un contenu qui affiche des données, et après toute modification de l'importeur. |
+| `expert-juridique` | Sur tout énoncé qui qualifie une loi, un vote, une procédure ou un droit : fidélité au texte, au sort réel du texte et aux décisions du Conseil constitutionnel. |
+| `ux-produit` | Après une refonte d'écran, et pour auditer les parcours : clarté de l'action, mobile, serious gaming. |
+| `product-manager` | Pour arbitrer ce qu'une fonctionnalité apporte, et repérer doublons, pages orphelines et promesses que les données ne tiennent pas. |
+| `editorial` | Après toute modification de texte visible : neutralité, lisibilité, cohérence du vocabulaire, règles de rédaction. |
+| `frontend` | Après une modification d'interface : accessibilité, responsive, hydratation, performance, liens morts. |
 
-`verification` ne modifie rien, il signale. Ce rôle existe parce que dans ce
+`verification` ne modifie rien, il signale ; les cinq derniers non plus : ils rendent des constats classés CRITIQUE, IMPORTANT ou AMÉLIORATION, que la session principale applique. Ce rôle existe parce que dans ce
 projet, chaque défaut réel a été trouvé par un contrôle sur un fait connu, et
 aucun par le code, qui s'exécutait proprement à chaque fois.
