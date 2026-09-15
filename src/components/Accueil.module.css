@@ -1,0 +1,41 @@
+/*
+ * Accroche de l'accueil, à la manière de la référence : le nuage des
+ * scrutins remplit tout le fond, le titre et le texte sont posés dessus. Sur
+ * grand écran le dôme est à droite et le texte à gauche ; sur mobile le dôme
+ * passe derrière le texte, plus bas et plus discret (voir NuageScrutins).
+ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  min-height: max(40rem, calc(100svh - 5rem));
+  padding-block: 3rem;
+}
+
+.nuage {
+  z-index: 0;
+}
+
+/*
+ * Le texte laisse passer le pointeur vers le nuage, sauf là où il y a
+ * quelque chose à lire ou à cliquer.
+ */
+.contenu {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+}
+
+.contenu :is(a, button, p, li) {
+  pointer-events: auto;
+}
+
+@media (min-width: 62em) {
+  .hero {
+    align-items: center;
+    min-height: max(48rem, calc(100svh - 5rem));
+    padding-block: 5rem;
+  }
+}

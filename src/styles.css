@@ -108,3 +108,21 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Nuage des scrutins de l'accueil : une couleur par teinte (sorte de vote,
+ * et sort des amendements).
+ *
+ * Aucune n'est une couleur de parti : violet, ambre, cyan, blanc, lavande,
+ * or pâle et gris ne se lisent pas comme une appartenance (AGENTS.md
+ * section 4). La légende écrit toujours le mot à côté de la couleur.
+ */
+:root {
+  --nuage-amendement-rejete: #8b6cff;
+  --nuage-amendement-adopte: #ffb829;
+  --nuage-article: #3fc1c9;
+  --nuage-ensemble: #ffffff;
+  --nuage-motion: #c9b8ff;
+  --nuage-censure: #ffe08a;
+  --nuage-autre: #9a9a9a;
+}

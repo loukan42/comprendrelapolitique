@@ -16,7 +16,10 @@ import {
 import { IconCircleCheck, IconCircleX } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { CarteLien } from "../components/CarteLien";
+import accueil from "../components/Accueil.module.css";
 import { Hemicycle } from "../components/Hemicycle";
+import { LegendeNuage, NuageScrutins } from "../components/NuageScrutins";
+import { useNuageScrutins } from "../components/useNuageScrutins";
 import { chargerDernierVote, chargerScrutinsRecents } from "../queries/lois";
 
 export const Route = createFileRoute("/")({
@@ -147,19 +150,26 @@ function EntreeCard({
 
 function Accueil() {
   const { decisions, dernierVote } = Route.useLoaderData();
+  const nuage = useNuageScrutins();
 
   return (
     <>
-      {/* L'accroche : un très grand titre, puis le texte et l'action à gauche,
-          et à droite un vrai scrutin dessiné député par député. */}
-      <Container size={LARGEUR} px={MARGES} pt={{ base: 48, sm: 96 }} pb={{ base: 48, sm: 80 }}>
-        <Title order={1} fz="clamp(2.75rem, 1rem + 6.4vw, 7rem)" lh={1.02}>
-          Les votes de l&apos;Assemblée nationale, depuis 2017.
-        </Title>
-        <Grid mt={{ base: 32, sm: 56 }} gap={{ base: 40, md: 64 }} align="flex-start">
-          <Grid.Col span={{ base: 12, md: 5 }}>
+      {/* L'accroche : un très grand titre posé sur le nuage des scrutins, où
+          chaque triangle est un vote réel de l'Assemblée depuis 2017. */}
+      <Box component="section" className={accueil["hero"]}>
+        <NuageScrutins donnees={nuage} className={accueil["nuage"]} />
+        <Container size={LARGEUR} px={MARGES} className={accueil["contenu"]}>
+          <Title
+            order={1}
+            fz="clamp(2.75rem, 1rem + 6.4vw, 7rem)"
+            lh={1.02}
+            maw={{ base: "100%", md: 680 }}
+          >
+            Les votes de l&apos;Assemblée nationale, depuis 2017.
+          </Title>
+          <Box mt={{ base: 32, sm: 56 }} maw={440}>
             <Etiquette>Données officielles, sources citées</Etiquette>
-            <Text mt="sm" maw={440}>
+            <Text mt="sm">
               {nombre.format(TOTAL.scrutins)} scrutins publics et {nombre.format(TOTAL.votes)} votes
               individuels de députés, chacun relié à sa source. Ce que l&apos;on ne sait pas est
               écrit comme tel.
@@ -172,28 +182,40 @@ function Accueil() {
                 Voir les lois
               </Anchor>
             </Group>
-          </Grid.Col>
+          </Box>
+        </Container>
+      </Box>
 
-          <Grid.Col span={{ base: 12, md: 7 }}>
-            {dernierVote && (
-              <Box component="figure" m={0}>
-                <Hemicycle sieges={dernierVote.sieges} />
-                <Text component="figcaption" size="sm" c="dimmed" mt="md" ta="center">
-                  Dernier vote sur l&apos;ensemble d&apos;un texte, le{" "}
-                  {formaterJour(dernierVote.date)} :{" "}
-                  <Anchor href={`/lois/${dernierVote.dossierUid}`} size="sm">
-                    {dernierVote.titre ?? dernierVote.dossierUid}
-                  </Anchor>
-                  . {nombre.format(dernierVote.pour)} pour, {nombre.format(dernierVote.contre)}{" "}
-                  contre, {nombre.format(dernierVote.abstention)} abstention
-                  {dernierVote.abstention > 1 ? "s" : ""}. Un point par député, scrutin n°{" "}
-                  {dernierVote.numero}.
-                </Text>
-              </Box>
-            )}
-          </Grid.Col>
-        </Grid>
+      <Container size={LARGEUR} px={MARGES} pt="md" pb={{ base: 48, sm: 80 }}>
+        <Box maw={720}>
+          <LegendeNuage donnees={nuage} />
+        </Box>
       </Container>
+
+      {dernierVote && (
+        <Container size={LARGEUR} px={MARGES} pb={{ base: 48, sm: 96 }}>
+          <Grid gap={{ base: 24, md: 64 }} align="center">
+            <Grid.Col span={{ base: 12, md: 5 }}>
+              <Etiquette>Le dernier vote sur un texte</Etiquette>
+              <Title order={2} mt="xs">
+                {dernierVote.titre ?? dernierVote.dossierUid}
+              </Title>
+              <Text mt="sm" c="dimmed">
+                Voté le {formaterJour(dernierVote.date)} : {nombre.format(dernierVote.pour)} pour,{" "}
+                {nombre.format(dernierVote.contre)} contre, {nombre.format(dernierVote.abstention)}{" "}
+                abstention{dernierVote.abstention > 1 ? "s" : ""}. Un point par député, scrutin n°{" "}
+                {dernierVote.numero}.
+              </Text>
+              <Anchor href={`/lois/${dernierVote.dossierUid}`} size="sm" mt="md" display="block">
+                Voir la loi et ce qui a été voté
+              </Anchor>
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 7 }}>
+              <Hemicycle sieges={dernierVote.sieges} />
+            </Grid.Col>
+          </Grid>
+        </Container>
+      )}
 
       <Container size={LARGEUR} px={MARGES} pb={{ base: 48, sm: 96 }}>
         <Stack gap={96}>
