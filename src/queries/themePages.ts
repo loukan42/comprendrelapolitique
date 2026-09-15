@@ -39,7 +39,7 @@ async function chargerTousDossiersFinaux(): Promise<
     sort_libelle: string | null;
   }>(
     `SELECT DISTINCT ON (sd.dossier_uid)
-            sd.dossier_uid, d.titre, s.uid AS scrutin_uid, s.date_scrutin, s.sort_code, s.sort_libelle
+            sd.dossier_uid, d.titre, s.uid AS scrutin_uid, s.date_scrutin::text AS date_scrutin, s.sort_code, s.sort_libelle
        FROM officiel.scrutin s
        JOIN officiel.scrutin_dossier sd ON sd.scrutin_uid = s.uid
        LEFT JOIN officiel.dossier d ON d.uid = sd.dossier_uid

@@ -88,9 +88,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "fin-de-vie",
     intitule:
-      "Une personne atteinte d'une maladie grave et incurable doit-elle pouvoir demander une aide à mourir ?",
+      "Une personne majeure atteinte d'une maladie grave et incurable, en phase avancée ou terminale, et qui en souffre, doit-elle pouvoir demander une aide à mourir ?",
     description:
-      "L'Assemblée a examiné en 2026 un texte créant un droit à l'aide à mourir, encadré par des conditions d'âge, de discernement et d'état de santé.",
+      "Le Parlement a adopté définitivement le 15 juillet 2026 la loi relative au droit à l'aide à mourir. Ce droit est réservé aux personnes majeures atteintes d'une affection grave et incurable qui engage le pronostic vital, en phase avancée ou terminale, qui en souffrent et peuvent exprimer une volonté libre et éclairée. Le Conseil constitutionnel l'a déclarée conforme le 14 août 2026, avec trois réserves.",
     theme: "sante",
     sousTheme: "fin de vie",
     noteEditoriale:
@@ -100,14 +100,14 @@ const QUESTIONS: QuestionSource[] = [
         uid: "VTANR5L17V7894",
         sens: 1,
         poids: 0.6,
-        justification: "Vote sur l'ensemble du texte Fin de vie, 30 juin 2026.",
+        justification: "Vote sur l'ensemble du texte Fin de vie, nouvelle lecture, 30 juin 2026.",
       },
       {
         uid: "VTANR5L17V8280",
         sens: 1,
         poids: 0.6,
         justification:
-          "Vote sur l'ensemble du texte Fin de vie, lecture suivante, 15 juillet 2026.",
+          "Vote sur l'ensemble du texte Fin de vie, lecture définitive, 15 juillet 2026.",
       },
     ],
   },
@@ -116,7 +116,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule:
       "Faut-il pouvoir garder plus longtemps en centre de rétention un étranger condamné pour des faits graves, en attendant son expulsion ?",
     description:
-      "La rétention administrative permet d'enfermer un étranger le temps d'organiser son expulsion. Les textes retenus facilitent le maintien en rétention des étrangers condamnés pour des faits d'une particulière gravité.",
+      "La rétention administrative permet de maintenir dans un lieu fermé un étranger visé par une mesure d'éloignement, le temps d'organiser son départ. Le premier texte retenu, voté le 8 juillet 2025, allongeait la rétention de certains étrangers condamnés jusqu'à 180 ou 210 jours : le Conseil constitutionnel a censuré cet allongement le 7 août 2025. Le second est devenu la loi du 27 juillet 2026, qui porte la durée maximale à 210 jours pour certaines catégories d'étrangers ; le Conseil l'a validée avec neuf réserves.",
     theme: "immigration",
     noteEditoriale:
       "Deux textes distincts, l'un sur le maintien en rétention, l'autre sur la rétention administrative et la prévention des attentats. Voter pour va dans le sens d'un allongement.",
@@ -141,7 +141,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule:
       "À Mayotte, faut-il durcir les conditions pour qu'un enfant né de parents étrangers puisse devenir français ?",
     description:
-      "À Mayotte, le droit du sol obéit déjà à une règle propre à ce territoire : l'un des parents doit y avoir résidé régulièrement avant la naissance. Le texte renforce cette condition.",
+      "À Mayotte, le droit du sol obéissait déjà à une règle propre : l'un des parents devait y résider régulièrement depuis plus de trois mois à la naissance. La loi du 12 mai 2025 exige que les deux parents résident en France de manière régulière et ininterrompue depuis au moins un an, sauf si la filiation n'est établie qu'à l'égard d'un seul parent. Le Conseil constitutionnel l'a déclarée conforme, avec une réserve.",
     theme: "immigration",
     noteEditoriale:
       "L'intitulé du texte annonce un renforcement des conditions d'accès : voter pour est la position favorable à un durcissement.",
@@ -158,7 +158,7 @@ const QUESTIONS: QuestionSource[] = [
     id: "justice-mineurs",
     intitule: "Faut-il durcir la justice applicable aux mineurs délinquants ?",
     description:
-      "Le texte porte à la fois sur la façon de juger les mineurs délinquants et sur la responsabilité de leurs parents.",
+      "Le texte porte à la fois sur la façon de juger les mineurs délinquants et sur la responsabilité de leurs parents. Le Conseil constitutionnel en a censuré les mesures principales le 19 juin 2025, dont la comparution immédiate des mineurs et le renversement du principe d'atténuation de leurs peines.",
     theme: "justice",
     noteEditoriale:
       "L'intitulé annonce un renforcement de l'autorité de la justice à l'égard des mineurs et de leurs parents : voter pour va dans le sens d'une plus grande sévérité.",
@@ -174,9 +174,9 @@ const QUESTIONS: QuestionSource[] = [
   {
     id: "legitime-defense-police",
     intitule:
-      "Quand un policier ou un gendarme se sert de son arme, faut-il présumer qu'il était en légitime défense ?",
+      "Quand un policier ou un gendarme se sert de son arme, faut-il présumer qu'il l'a fait dans un cas autorisé par la loi, sauf preuve contraire ?",
     description:
-      "Avec une présomption de légitime défense, ce ne serait plus au policier ou au gendarme de montrer qu'il était en légitime défense : ce serait à l'accusation de prouver le contraire.",
+      "Malgré son titre, le texte voté en première lecture le 7 juillet 2026 ne modifie pas la légitime défense du code pénal. Il prévoit qu'un policier ou un gendarme qui fait usage de son arme est présumé l'avoir fait dans un cas autorisé par le code de la sécurité intérieure, de façon absolument nécessaire et strictement proportionnée. Toute preuve contraire peut renverser cette présomption. Le texte a été transmis au Sénat.",
     theme: "securite",
     noteEditoriale:
       "L'intitulé du texte est explicite sur la présomption créée : voter pour est la position favorable.",
@@ -194,7 +194,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule:
       "Faut-il donner à la police et à la justice de nouveaux moyens d'enquête contre les réseaux de trafic de drogue ?",
     description:
-      "Le texte crée un parquet national anti-criminalité organisée et élargit les techniques d'enquête utilisables contre les réseaux de trafiquants.",
+      "Le texte crée un parquet national anti-criminalité organisée et élargit les techniques d'enquête utilisables contre les réseaux de trafiquants. Le Conseil constitutionnel a censuré six de ses articles, en tout ou partie, le 12 juin 2025.",
     theme: "securite",
     noteEditoriale:
       "Deux textes liés, la loi sur le narcotrafic et la loi organique créant le parquet spécialisé qui l'accompagne, avec un poids réduit sur le second qui est un texte d'organisation du premier.",
@@ -219,7 +219,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule:
       "Faut-il alléger les règles, notamment environnementales, imposées aux agriculteurs ?",
     description:
-      "Le texte porte notamment sur l'usage de certains pesticides, le stockage de l'eau et l'agrandissement des élevages.",
+      "Le texte porte notamment sur l'usage de certains pesticides, le stockage de l'eau et l'agrandissement des élevages. Le Conseil constitutionnel a censuré le 7 août 2025 la possibilité de réautoriser par dérogation des pesticides néonicotinoïdes, dont l'acétamipride.",
     theme: "environnement",
     sousTheme: "agriculture",
     noteEditoriale:
@@ -252,7 +252,7 @@ const QUESTIONS: QuestionSource[] = [
     id: "defense-effort",
     intitule: "Faut-il augmenter le budget des armées ?",
     description:
-      "Le texte révise à la hausse la loi de programmation militaire 2024-2030, qui fixe les moyens des armées année par année.",
+      "Le texte révise à la hausse la loi de programmation militaire 2024-2030, qui programme les moyens des armées année par année. Les crédits eux-mêmes sont votés chaque année en loi de finances.",
     theme: "defense",
     noteEditoriale:
       "Le texte actualise à la hausse la programmation militaire : voter pour est la position favorable à un effort accru.",
@@ -292,7 +292,7 @@ const QUESTIONS: QuestionSource[] = [
     id: "corse-autonomie",
     intitule: "Faut-il donner à la Corse une autonomie au sein de la République ?",
     description:
-      "Le projet de loi constitutionnelle permettrait à la Corse d'adapter certaines lois à ses spécificités, sous le contrôle du Conseil constitutionnel.",
+      "Adopté en première lecture par l'Assemblée le 23 juin 2026, le projet doterait la Corse d'un statut d'autonomie. Une loi organique pourrait habiliter la Collectivité de Corse à adapter des lois et règlements, et à fixer elle-même des normes dans ses compétences, sous le contrôle du Conseil d'État ou du Conseil constitutionnel selon leur nature. Pour entrer en vigueur, le texte doit être adopté dans les mêmes termes par le Sénat, puis approuvé par le Congrès ou par référendum.",
     theme: "institutions",
     noteEditoriale:
       "Projet de loi constitutionnelle dont l'objet est explicite : voter pour est la position favorable à l'autonomie.",

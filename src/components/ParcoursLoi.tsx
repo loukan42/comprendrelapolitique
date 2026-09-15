@@ -70,7 +70,7 @@ function libelleLecture(prefixe: string): string {
     SNNLEC: "Nouvelle lecture au Sénat",
     ANLDEF: "Lecture définitive à l'Assemblée nationale",
     CMP: "Commission mixte paritaire",
-    AN21: "Engagement de responsabilité (article 49 alinéa 3)",
+    AN21: "Engagement de la responsabilité du Gouvernement (article 49)",
     CC: "Conseil constitutionnel",
     PROM: "Promulgation",
   };

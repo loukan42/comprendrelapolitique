@@ -40,7 +40,7 @@ function CarteTexte({ texte }: { texte: TexteTheme }) {
             {texte.titre ?? texte.dossierUid}
           </Anchor>
           <Text c="dimmed" size="sm" mt={2}>
-            Scrutin du {dateCourte.format(new Date(texte.dateScrutin))}
+            Scrutin du {dateCourte.format(new Date(`${texte.dateScrutin}T12:00:00`))}
           </Text>
         </Box>
         {texte.sortCode === "adopté" && (

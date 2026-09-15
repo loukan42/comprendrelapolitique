@@ -80,37 +80,32 @@ const TOTAL = COUVERTURE.reduce(
   { scrutins: 0, votes: 0, finaux: 0, rattaches: 0 },
 );
 
-/** Dossiers législatifs de la base, mesurés avec le score d'importance (docs/ETAT_DES_LIEUX.md). */
-const DOSSIERS = 10647;
-
 /** Les grands sujets, chacun vers sa page thème. */
 const SUJETS = [
-  {
-    slug: "pouvoir_achat",
-    titre: "Pouvoir d'achat",
-    detail: "Impôts, salaires, inflation, aides…",
-  },
-  { slug: "sante", titre: "Santé", detail: "Hôpital, médecins, Sécurité sociale…" },
-  { slug: "securite", titre: "Sécurité", detail: "Police, justice, délinquance…" },
+  { slug: "pouvoir_achat", titre: "Pouvoir d'achat", detail: "Inflation, SMIC…" },
+  { slug: "sante", titre: "Santé", detail: "Hôpital, soins, médicaments…" },
+  { slug: "securite", titre: "Sécurité", detail: "Police, gendarmerie, délinquance…" },
   { slug: "education", titre: "Éducation", detail: "École, enseignants, universités…" },
-  { slug: "immigration", titre: "Immigration", detail: "Entrée, séjour, asile, expulsions…" },
-  { slug: "energie", titre: "Écologie & énergie", detail: "Nucléaire, climat, transports…" },
-  {
-    slug: "travail",
-    titre: "Travail & retraites",
-    detail: "Emploi, chômage, temps de travail, retraites…",
-  },
-  {
-    slug: "entreprises",
-    titre: "Entreprises & économie",
-    detail: "Fiscalité, investissement, compétitivité…",
-  },
+  { slug: "immigration", titre: "Immigration", detail: "Étrangers, asile, expulsions…" },
+  { slug: "energie", titre: "Énergie", detail: "Nucléaire, électricité, renouvelables…" },
+  { slug: "travail", titre: "Travail", detail: "Emploi, chômage, salariés…" },
+  { slug: "entreprises", titre: "Entreprises", detail: "PME, industrie, commerce…" },
 ] as const;
 
 const LARGEUR = 1200;
 const MARGES = { base: "md", sm: "xl" } as const;
 
 const nombre = new Intl.NumberFormat("fr-FR");
+const dateLongue = new Intl.DateTimeFormat("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "Europe/Paris",
+});
+
+function formaterJour(jour: string): string {
+  return dateLongue.format(new Date(`${jour}T12:00:00`)).replace(/^1 /, "1er ");
+}
 const pourcent = (part: number, total: number) =>
   new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 1 }).format(
     part / total,
@@ -233,17 +228,18 @@ function Accueil() {
                   Ne choisissez pas d&apos;abord le parti. Choisissez d&apos;abord vos idées.
                 </Title>
                 <Text mt="md" c="dimmed" maw={520}>
-                  Répondez à des questions simples, sans connaître la position des partis. Nous
-                  comparons ensuite vos réponses à de vrais votes parlementaires et aux propositions
-                  des programmes politiques.
+                  Répondez à des questions simples, sans connaître la position des partis. Le quiz
+                  des votes compare vos réponses à de vrais votes de l&apos;Assemblée ; le quiz des
+                  programmes, à des propositions citées dans les programmes.
                 </Text>
               </Grid.Col>
               <Grid.Col span={{ base: 12, md: 6 }}>
                 <Card withBorder radius="md" padding="xl">
                   <Etiquette>Exemple de question</Etiquette>
                   <Text fz="lg" fw={500} mt="sm">
-                    Une personne atteinte d&apos;une maladie grave et incurable doit-elle pouvoir
-                    demander une aide à mourir ?
+                    Une personne majeure atteinte d&apos;une maladie grave et incurable, en phase
+                    avancée ou terminale, et qui en souffre, doit-elle pouvoir demander une aide à
+                    mourir ?
                   </Text>
                   <Text size="sm" c="dimmed" mt="md">
                     Cinq réponses possibles, de «&nbsp;Tout à fait d&apos;accord&nbsp;» à «&nbsp;Pas
@@ -271,7 +267,7 @@ function Accueil() {
               <Card withBorder radius="md" padding="xl" className={accueil["choix"]}>
                 <Etiquette>Quiz des votes</Etiquette>
                 <Title order={3} fz="clamp(1.5rem, 1.2rem + 1vw, 2rem)" mt="xs" flex={1}>
-                  Quels groupes politiques votent comme vous ?
+                  Quelles formations politiques votent comme vous ?
                 </Title>
                 <Button
                   component="a"
@@ -342,8 +338,8 @@ function Accueil() {
                 action="Faire le quiz des votes"
               >
                 Répondez à des questions simples basées sur de vrais votes de l&apos;Assemblée
-                nationale. Découvrez quels groupes politiques ont réellement pris les décisions les
-                plus proches de vos idées.
+                nationale. Découvrez quelles formations politiques ont réellement pris les décisions
+                les plus proches de vos idées.
               </CarteFonction>
               <CarteFonction
                 icone={<IconClipboardList size={18} />}
@@ -373,9 +369,9 @@ function Accueil() {
                 href="/actualite"
                 action="Voir les derniers votes"
               >
-                Suivez les lois, amendements et grands votes de l&apos;Assemblée nationale.
-                Comprenez en quelques minutes ce qui a été voté et découvrez la position de chaque
-                groupe politique.
+                Suivez les derniers textes déposés, votés et promulgués à l&apos;Assemblée
+                nationale. Sur la page de chaque loi&nbsp;: ce qui a été voté et la position de
+                chaque groupe politique.
               </CarteFonction>
               <CarteFonction
                 icone={<IconCircleCheck size={18} />}
@@ -402,9 +398,8 @@ function Accueil() {
               </Grid.Col>
               <Grid.Col span={{ base: 12, md: 5 }}>
                 <Text c="dimmed">
-                  Un sujet vous intéresse ? Commencez ici. Lois, votes, chiffres et positions
-                  politiques rassemblés pour une vision claire du sujet, sans lire des centaines de
-                  pages.
+                  Un sujet vous intéresse ? Commencez ici. Pour chaque sujet, les textes votés à
+                  l&apos;Assemblée depuis 2017 et le résultat de chaque vote.
                 </Text>
               </Grid.Col>
             </Grid>
@@ -446,6 +441,14 @@ function Accueil() {
                   {nombre.format(dernierVote.abstention)}{" "}
                   {dernierVote.abstention > 1 ? "se sont abstenus" : "s'est abstenu"}
                 </Text>
+                <Text size="sm" c="dimmed" mt="xs">
+                  Vote sur l&apos;ensemble du texte le {formaterJour(dernierVote.date)}
+                  {dernierVote.sortLibelle ? ` : ${dernierVote.sortLibelle}` : ""}.{" "}
+                  {dernierVote.nonVotants > 0
+                    ? `${nombre.format(dernierVote.nonVotants)} non-votant${dernierVote.nonVotants > 1 ? "s" : ""}. `
+                    : ""}
+                  Source : scrutin public n° {dernierVote.numero} de l&apos;Assemblée nationale.
+                </Text>
                 <Button
                   component="a"
                   href={`/lois/${dernierVote.dossierUid}`}
@@ -486,10 +489,10 @@ function Accueil() {
               </Box>
               <Box>
                 <Text fz="clamp(2.5rem, 2rem + 2vw, 4rem)" fw={300} lh={1} lts="-0.04em">
-                  {nombre.format(DOSSIERS)}
+                  {nombre.format(TOTAL.finaux)}
                 </Text>
                 <Text c="dimmed" mt="xs">
-                  dossiers législatifs suivis
+                  votes sur l&apos;ensemble d&apos;une loi
                 </Text>
               </Box>
             </SimpleGrid>
@@ -562,10 +565,14 @@ function Accueil() {
                         Une limite à connaître d&apos;emblée
                       </Title>
                       <Text mt="sm" maw="var(--mesure-texte)">
-                        Un texte adopté par l&apos;article 49 alinéa 3 ne donne lieu à aucun vote.
-                        C&apos;est le cas de la réforme des retraites de 2023 : l&apos;Assemblée ne
-                        s&apos;est jamais prononcée sur son ensemble, et ce qui a été voté, ce sont
-                        deux motions de censure.
+                        Quand le Gouvernement engage sa responsabilité sur un texte (article 49
+                        alinéa 3), l&apos;Assemblée ne vote pas sur ce texte lors de la lecture
+                        concernée : il est considéré comme adopté si aucune motion de censure
+                        n&apos;est votée. C&apos;est le cas de la réforme des retraites de 2023 :
+                        l&apos;Assemblée ne s&apos;est jamais prononcée sur son ensemble. Après le
+                        recours au 49.3 le 16 mars 2023, les seuls scrutins de l&apos;Assemblée sur
+                        ce texte sont les deux motions de censure du 20 mars, rejetées (278 et 94
+                        voix pour 287 requises).
                       </Text>
                     </Box>
                   </Stack>

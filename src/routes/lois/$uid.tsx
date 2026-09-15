@@ -380,12 +380,14 @@ function PageLoi() {
           ) : adopteSansVote ? (
             <Card withBorder radius="md" padding="lg" mt="sm" maw="var(--mesure-texte)">
               <Badge variant="outline" color="graphite" w="fit-content">
-                Adopté sans vote sur l&apos;ensemble
+                Sans vote sur l&apos;ensemble à l&apos;Assemblée
               </Badge>
               <Text mt="sm">
-                Ce texte a été adopté par l&apos;article 49 alinéa 3 de la Constitution :
-                l&apos;Assemblée nationale ne s&apos;est jamais prononcée sur son ensemble. Ce qui a
-                été voté, ce sont les motions de censure déposées en réaction.
+                À l&apos;Assemblée nationale, ce texte a été considéré comme adopté en application
+                de l&apos;article 49 alinéa 3 de la Constitution, aucune motion de censure
+                n&apos;ayant été votée : les députés ne se sont pas prononcés sur son ensemble. Les
+                scrutins de l&apos;Assemblée qui suivent ce recours sont les motions de censure
+                déposées en réaction.
               </Text>
             </Card>
           ) : (

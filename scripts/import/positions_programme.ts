@@ -99,7 +99,7 @@ const QUESTIONS: QuestionSource[] = [
       "À quel âge, ou après combien d'années de travail, doit-on pouvoir partir à la retraite ?",
     contexte: {
       texte:
-        "La réforme des retraites du 14 avril 2023 relève progressivement l'âge légal de départ. La loi de financement de la sécurité sociale pour 2026 suspend ce relèvement jusqu'en janvier 2028.",
+        "La réforme des retraites du 14 avril 2023 relève progressivement l'âge légal de départ jusqu'à 64 ans. La loi de financement de la sécurité sociale pour 2026 suspend ce relèvement jusqu'en janvier 2028, pour les personnes nées de 1964 à 1968.",
       source:
         "https://solidarites.gouv.fr/loi-de-financement-de-la-securite-sociale-2026-les-mesures-phares",
     },
@@ -121,7 +121,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule: "Quelles peines pour les délinquants ?",
     contexte: {
       texte:
-        "La loi du 10 août 2007 a introduit des peines planchers : des peines minimales en cas de récidive, auxquelles le juge pouvait déroger sous conditions.",
+        "La loi du 10 août 2007 a introduit des peines planchers : des peines minimales en cas de récidive, auxquelles le juge pouvait déroger sous conditions. La loi du 15 août 2014 les a supprimées.",
       source:
         "https://www.justice.gouv.fr/documentation/etudes-et-statistiques/peines-planchers-application-impact-loi-du-10-aout-2007",
     },
@@ -132,7 +132,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule: "Faut-il taxer davantage les plus grandes fortunes ?",
     contexte: {
       texte:
-        "L'impôt sur la fortune en vigueur aujourd'hui, l'impôt sur la fortune immobilière (IFI), ne porte que sur les biens immobiliers.",
+        "L'impôt sur la fortune en vigueur aujourd'hui, l'impôt sur la fortune immobilière (IFI), ne porte que sur le patrimoine immobilier, détenu directement ou par l'intermédiaire de sociétés, et n'est dû qu'au-delà de 1,3 million d'euros de patrimoine immobilier net.",
       source: "https://www.service-public.fr/particuliers/vosdroits/F563",
     },
   },
@@ -158,7 +158,7 @@ const QUESTIONS: QuestionSource[] = [
     intitule: "Comment aider les familles qui ont des enfants ?",
     contexte: {
       texte:
-        "Pour un couple, les deux premiers enfants à charge donnent chacun droit à une demi-part fiscale, et chaque enfant à partir du troisième à une part entière. À revenu égal, plus un foyer a de parts, moins il paie d'impôt sur le revenu.",
+        "Pour un couple, les deux premiers enfants à charge donnent chacun droit à une demi-part fiscale, et chaque enfant à partir du troisième à une part entière. À revenu égal, plus un foyer a de parts, moins il paie d'impôt sur le revenu, dans une limite fixée chaque année.",
       source: "https://www.service-public.fr/particuliers/vosdroits/F2705",
     },
   },
@@ -1106,44 +1106,47 @@ const POSITIONS: PositionSource[] = [
  * que leurs citations le disent. `--verifier` réimprime chaque axe avec les
  * formations rangées dans l'ordre, pour qu'on puisse juger le placement.
  *
- * Trois questions n'ont pas d'axe (école, institutions, TVA) : leurs réponses
- * portent sur des leviers différents, que l'on ne peut pas ordonner sans
- * inventer une hiérarchie. Elles restent dans le comparateur, sans score.
+ * Six questions n'ont pas d'axe (école, institutions, TVA, salaires, familles,
+ * police) : leurs réponses portent sur des leviers différents et compatibles,
+ * que l'on ne peut pas ordonner sans inventer une hiérarchie. Elles restent
+ * dans le comparateur, hors décompte.
  */
 const AXES: Record<string, { moins: string; plus: string }> = {
-  "retraites-age": { moins: "Partir plus tôt", plus: "Travailler plus longtemps" },
+  "retraites-age": { moins: "Partir plus tôt", plus: "Partir plus tard" },
   "immigration-accueil": { moins: "Ouvrir davantage", plus: "Restreindre davantage" },
-  "travail-salaires": { moins: "Augmenter le SMIC par la loi", plus: "Baisser les cotisations" },
   "energie-nucleaire": { moins: "Moins de nucléaire", plus: "Plus de nucléaire" },
-  "justice-peines": { moins: "Alternatives à la prison", plus: "Peines plus sévères" },
+  "justice-peines": { moins: "Plus de peines hors prison", plus: "Des peines plus sévères" },
   "impots-patrimoine": { moins: "Taxer davantage", plus: "Taxer moins" },
-  "securite-police": {
-    moins: "Encadrer l'action de la police",
-    plus: "Renforcer la présence policière",
-  },
   "temps-travail": { moins: "Travailler moins", plus: "Travailler plus" },
-  familles: {
-    moins: "Des places d'accueil pour les enfants",
-    plus: "Des aides financières aux familles",
+  "deficit-dette": {
+    moins: "Autres priorités que le déficit",
+    plus: "Priorité à la réduction du déficit",
   },
-  "deficit-dette": { moins: "Ne pas en faire la priorité", plus: "Réduire vite le déficit" },
   "sante-deserts": {
-    moins: "Réguler l'installation, offre publique",
-    plus: "Inciter les soignants",
+    moins: "Réguler l'installation des médecins",
+    plus: "Inciter les médecins à s'installer",
   },
-  "industrie-concurrence": { moins: "Revoir le libre-échange", plus: "Défense commerciale ciblée" },
-  logement: { moins: "Encadrer les loyers", plus: "Assouplir les règles" },
-  drogue: { moins: "Légaliser et prévenir", plus: "Réprimer" },
+  "industrie-concurrence": {
+    moins: "Revoir le libre-échange",
+    plus: "Cibler la défense commerciale",
+  },
+  logement: { moins: "Encadrer les loyers", plus: "Assouplir les règles de location" },
+  drogue: { moins: "Légaliser le cannabis", plus: "Renforcer la répression" },
 };
 
-/** Place de chaque citation sur l'axe de sa question, de -2 à +2. */
-const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2> = {
+/**
+ * Place de chaque citation sur l'axe de sa question, de -2 à +2. `null` :
+ * la citation ne répond pas à l'axe (elle parle d'autre chose) ; elle reste
+ * affichée, mais n'entre dans aucun écart plutôt que d'y compter pour un
+ * centre qu'elle n'a pas défendu.
+ */
+const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2 | null> = {
   // Retraites : de « partir plus tôt » à « travailler plus longtemps ».
   "lfi-retraites": -2,
   "rn-retraites-2022": -1,
   "ps-retraites": -1,
   "pp-retraites": 0,
-  "ren-retraites-cotisation": 0,
+  "ren-retraites-cotisation": 1,
   "hor-retraites": 1,
   "lr-retraites": 1,
   "ne-retraites": 2,
@@ -1154,15 +1157,6 @@ const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2> = {
   "ren-immigration-points": 1,
   "hor-quotas": 1,
   "rn-peuplement": 2,
-  // Salaires : les deux leviers, la loi sur le SMIC ou les cotisations.
-  "lfi-smic": -2,
-  "ps-smic": -2,
-  "pcf-smic": -2,
-  "pp-smic": -2,
-  "rn-salaires-2022": 1,
-  "hor-salaire-net": 1,
-  "ren-salaire-net": 2,
-  "lr-zero-cotisation": 2,
   // Énergie.
   "lfi-nucleaire": -2,
   "ps-energie": 0,
@@ -1170,61 +1164,50 @@ const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2> = {
   "hor-energie": 1,
   "ne-nucleaire": 1,
   "ren-nucleaire": 2,
-  "rn-nucleaire-2022": 2,
+  "rn-nucleaire-2022": 1,
   "lr-energie-plan": 2,
   // Peines.
   "ps-peines-alternatives": -2,
   "pp-peines": -1,
-  "ne-sanction": 1,
+  "ne-sanction": 0,
   "hor-courtes-peines": 1,
   "rn-peines-planchers": 2,
   // Patrimoine.
   "lfi-isf": -2,
   "pcf-isf": -2,
-  "ps-zucman": -1,
-  "pp-fiscalite": -1,
-  "rn-iff-2022": 0,
+  "ps-zucman": -2,
+  "pp-fiscalite": null,
+  "rn-iff-2022": -1,
   "hor-moratoire": 1,
-  "lr-transmission": 2,
-  // Police.
-  "lfi-recepisse": -2,
-  "ps-police": 1,
-  "rn-police-municipale": 2,
+  "lr-transmission": 1,
   // Temps de travail.
-  "lfi-32h": -2,
+  "lfi-32h": -1,
   "ren-heures-sup": 1,
   "lr-35h": 2,
-  // Familles.
-  "lfi-creches": -2,
-  "pp-creches": -1,
-  "ren-livret-creches": -1,
-  "hor-part-fiscale": 1,
-  "rn-part-fiscale": 2,
-  "lr-revenu-familial": 2,
   // Dette et déficit.
   "lfi-dette-bce": -2,
-  "pp-dette": 0,
+  "pp-dette": 1,
   "ne-dette": 1,
   "ren-deficit": 1,
   "hor-regle-or": 2,
   // Déserts médicaux.
   "ps-deserts": -2,
-  "lfi-deserts": -1,
-  "rn-deserts-2022": 2,
+  "lfi-deserts": null,
+  "rn-deserts-2022": 1,
   // Commerce.
   "rn-libre-echange": -2,
   "lfi-protectionnisme": -2,
-  "pp-commerce": 1,
-  "ren-chine": 1,
+  "pp-commerce": 2,
+  "ren-chine": 2,
   "hor-chine": 1,
   // Logement.
   "lfi-loyers": -2,
   "pp-loyers": -1,
-  "rn-logement": 0,
+  "rn-logement": null,
   "lr-dpe": 2,
   // Drogue.
   "lfi-cannabis": -2,
-  "ps-cannabis": -1,
+  "ps-cannabis": null,
   "pp-narcotrafic": 1,
   "hor-narco": 2,
 };

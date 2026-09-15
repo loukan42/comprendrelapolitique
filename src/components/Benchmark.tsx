@@ -8,7 +8,12 @@ import {
   type PositionBenchmark,
   type QuestionBenchmark,
 } from "../lib/benchmarkProgrammes";
-import { libelleFormation, nomCourt } from "../lib/benchmarkProgrammes";
+import {
+  libelleFormation,
+  MINIMUM_COULEUR_MATRICE,
+  MINIMUM_QUESTIONS_COMMUNES,
+  nomCourt,
+} from "../lib/benchmarkProgrammes";
 import classes from "./Benchmark.module.css";
 
 /*
@@ -124,9 +129,11 @@ export function AnneauAccords({ repartition }: { repartition: Record<Accord, num
 }
 
 /**
- * Matrice de proximité entre toutes les formations. Plus la case est
- * lumineuse, plus les positions citées sont proches ; une case cliquée
- * compare la paire.
+ * Matrice des paires de formations. Chaque case dit, sur les questions où
+ * les deux se prononcent, sur combien leurs positions sont identiques ou
+ * proches. Elle n'est colorée qu'à partir de cinq questions communes : en
+ * dessous, une question pèse trop pour que la couleur soit comparable. Une
+ * case cliquée compare la paire.
  */
 export function MatriceProximite({
   matrice,
@@ -159,30 +166,32 @@ export function MatriceProximite({
             </div>
             {matrice.formations.map((g, j) => {
               if (i === j) return <div key={g.formation} className={classes["diagonale"]} />;
-              const v = matrice.proximite[i]?.[j] ?? null;
               const c = matrice.communes[i]?.[j] ?? 0;
+              const p = matrice.proches[i]?.[j] ?? 0;
+              const o = matrice.opposees[i]?.[j] ?? 0;
+              const decompte = c >= MINIMUM_QUESTIONS_COMMUNES;
+              const colore = c >= MINIMUM_COULEUR_MATRICE;
               const choisie =
                 (f.formation === a && g.formation === b) ||
                 (f.formation === b && g.formation === a);
-              const description =
-                v === null
-                  ? `${libelleFormation(f)} et ${libelleFormation(g)} : ${c} question${c > 1 ? "s" : ""} commune${c > 1 ? "s" : ""}, pas de score`
-                  : `${libelleFormation(f)} et ${libelleFormation(g)} : ${pourcent(v)} de proximité sur ${c} questions`;
+              const description = decompte
+                ? `${libelleFormation(f)} et ${libelleFormation(g)} : positions identiques ou proches sur ${p} des ${c} questions communes, opposées sur ${o}.`
+                : `${libelleFormation(f)} et ${libelleFormation(g)} : ${c} question${c > 1 ? "s" : ""} commune${c > 1 ? "s" : ""}, trop peu pour un décompte.`;
               return (
                 <button
                   key={g.formation}
                   type="button"
                   className={`${classes["cellule"]} ${choisie ? classes["celluleChoisie"] : ""}`}
                   style={
-                    v === null
-                      ? undefined
-                      : ({ "--intensite": `${Math.round(v * 80)}%` } as CSSProperties)
+                    colore
+                      ? ({ "--intensite": `${Math.round((p / c) * 80)}%` } as CSSProperties)
+                      : undefined
                   }
                   title={description}
                   aria-label={description}
                   onClick={() => onChoisir(f.formation, g.formation)}
                 >
-                  {v === null ? "·" : Math.round(v * 100)}
+                  {decompte ? `${p}/${c}` : "·"}
                 </button>
               );
             })}

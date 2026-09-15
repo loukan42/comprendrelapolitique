@@ -916,7 +916,7 @@ const ENGAGEMENTS: EngagementSource[] = [
     resultat:
       "L'âge légal a commencé d'augmenter en septembre 2023, puis son relèvement a été suspendu. La cible fixée par la loi est 64 ans, et non les 65 ans annoncés.",
     justification:
-      "Le programme annonçait un report à 65 ans. La loi votée fixe la cible à 64 ans, et son application est suspendue depuis la fin de 2025. Une partie du relèvement est entrée en vigueur, pas l'âge annoncé.",
+      "Le programme annonçait un report à 65 ans. La loi votée fixe la cible à 64 ans, et la suspension, votée fin 2025, s'applique aux retraites prenant effet à partir du 1er septembre 2026 : les assurés nés de 1964 à 1968 atteignent l'âge légal un trimestre plus tôt que prévu, et l'âge légal reste de 64 ans à partir de la génération 1969. Une partie du relèvement est entrée en vigueur, pas l'âge annoncé.",
     interpretations:
       "Le mandat n'est pas terminé. En l'état du droit, le relèvement reprendrait en janvier 2028, après son terme. Le texte de 2023 a été adopté sans vote sur l'ensemble à l'Assemblée nationale, par l'article 49 alinéa 3 de la Constitution ; cela ne change pas le statut, qui porte sur la mise en oeuvre.",
     verifieLe: "2026-09-14",

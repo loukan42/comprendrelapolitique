@@ -583,6 +583,7 @@ export interface DernierVote {
   pour: number;
   contre: number;
   abstention: number;
+  nonVotants: number;
   sieges: SiegeVote[];
 }
 
@@ -623,6 +624,7 @@ export const chargerDernierVote = createServerFn({ method: "GET" }).handler(
       pour: compter("POUR"),
       contre: compter("CONTRE"),
       abstention: compter("ABSTENTION"),
+      nonVotants: compter("NON_VOTANT"),
       sieges,
     };
   },

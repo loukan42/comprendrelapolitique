@@ -87,3 +87,24 @@ test("la matrice est symétrique et vide sur sa diagonale", () => {
     }
   }
 });
+
+test("la matrice compte les positions proches et opposées, symétriquement", () => {
+  const formations = formationsDe(questions);
+  const m = matriceProximite(questions, formations);
+  const ia = formations.findIndex((f) => f.formation === "A");
+  const ib = formations.findIndex((f) => f.formation === "B");
+  // A et B : q1 identiques, q2 proches, q3 opposées.
+  assert.equal(m.proches[ia]![ib], 2);
+  assert.equal(m.opposees[ia]![ib], 1);
+  assert.equal(m.proches[ib]![ia], 2);
+  assert.equal(comparer(questions, "A", "B").fragiles, 2);
+});
+
+test("le candidat n'est retenu que si toutes les citations le nomment", () => {
+  const avec = { ...position("X", 1), candidat: "Candidat X" };
+  const sans = position("X", 0);
+  const f = formationsDe([question("q", [avec, sans]), question("r", [avec])]);
+  assert.equal(f[0]?.candidat, null);
+  const g = formationsDe([question("q", [avec]), question("r", [avec])]);
+  assert.equal(g[0]?.candidat, "Candidat X");
+});

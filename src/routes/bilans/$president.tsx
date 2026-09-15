@@ -45,11 +45,11 @@ export const Route = createFileRoute("/bilans/$president")({
 });
 
 const LIBELLE_STATUT: Record<StatutEngagement, string> = {
-  realise: "Réalisée",
-  partiellement: "Partiellement réalisée",
+  realise: "Réalisé",
+  partiellement: "Partiellement réalisé",
   en_cours: "En cours",
-  non_realise: "Non réalisée",
-  abandonne: "Abandonnée",
+  non_realise: "Non réalisé",
+  abandonne: "Abandonné",
   inevaluable: "Impossible à évaluer",
 };
 
@@ -355,8 +355,8 @@ function Statistiques({ mandat }: { mandat: Mandat }) {
 
       <Text size="xs" c="dimmed" mt="lg">
         Ces engagements sont une sélection faite par le site parmi ceux du programme présidentiel :
-        ils ne résument pas le bilan du quinquennat. La règle de sélection et les sources sont
-        décrites dans la méthodologie.
+        ils ne résument pas le bilan du quinquennat. La règle de sélection est décrite plus bas,
+        dans «&nbsp;Comment nous évaluons les engagements&nbsp;».
       </Text>
     </Card>
   );

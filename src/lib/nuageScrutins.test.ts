@@ -42,6 +42,13 @@ test("la catégorie se lit dans l'intitulé, dans le bon ordre", () => {
   assert.equal(cas("le sous-amendement n° 3 à l'amendement n° 12"), "amendement");
   assert.equal(cas("l'article 3 de la proposition de loi"), "article");
   assert.equal(cas("la motion de rejet préalable"), "motion");
+  // L'intitulé du texte visé ne fait pas d'une motion un amendement.
+  assert.equal(
+    cas("la motion de rejet préalable du projet de loi relatif aux amendements"),
+    "motion",
+  );
+  assert.equal(cas("la déclaration du Gouvernement (article 50-1 de la Constitution)"), "autre");
+  assert.equal(cas("l'article unique de la proposition de résolution"), "autre");
   assert.equal(cas("la proposition de résolution (art. 34-1 de la Constitution)"), "autre");
 });
 

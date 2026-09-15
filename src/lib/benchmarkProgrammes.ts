@@ -1,24 +1,31 @@
 /**
  * Calcul du comparateur de programmes, exécuté dans le navigateur.
  *
- * Chaque question du comparateur porte un axe à deux pôles, formulés
- * neutrement (« Partir plus tôt », « Travailler plus longtemps »), et chaque
- * citation y est placée de -2 à +2. Ce placement est une lecture du site,
- * écrite en clair dans `scripts/import/positions_programme.ts` et affichée à
- * côté de la citation qu'il résume : le lecteur peut la contester sur pièce.
+ * Chaque question à axe porte deux pôles formulés sans jugement, et chaque
+ * citation y est placée de -2 à +2, ou laissée hors axe quand elle parle
+ * d'autre chose. Ce placement est une lecture du site, écrite en clair dans
+ * `scripts/import/positions_programme.ts` et affichée à côté de la citation
+ * qu'il résume : le lecteur peut la contester sur pièce.
  *
- * La proximité de deux formations est la moyenne, sur les questions où les
- * deux ont une position placée, de 1 − écart / 4 : deux positions identiques
- * comptent 1, deux pôles opposés comptent 0. En dessous de trois questions
- * communes, aucun score n'est donné : il ne voudrait rien dire. Ce score
- * compare des citations choisies par le site ; il ne mesure pas une
- * proximité politique en général, et la page le dit.
+ * Le comparateur publie des décomptes, pas un pourcentage : sur deux
+ * formations, combien de questions où leurs positions sont identiques ou
+ * proches (écart 0 ou 1), éloignées (2) ou opposées (3 ou 4), sur les
+ * questions où les deux ont une position placée. Un pourcentage calculé sur
+ * trois à dix questions, à partir de lectures éditoriales, laissait croire à
+ * une mesure (audit méthodologique du 15 septembre 2026).
+ *
+ * L'incertitude publiée est la sensibilité à ces lectures : un écart de 1 ou
+ * de 3 change de catégorie si un placement bouge d'un cran. Les placements ne
+ * sont pas un échantillon, un intervalle de confiance n'aurait pas de sens.
+ *
+ * `proximite` (moyenne de 1 − écart / 4) reste calculée pour les tests et
+ * les contrôles ; la page ne l'affiche plus.
  */
 
 export interface PositionBenchmark {
   formation: string;
   candidat: string | null;
-  /** Place sur l'axe de la question, de -2 à +2 ; nulle quand la question n'a pas d'axe. */
+  /** Place sur l'axe, de -2 à +2 ; nulle hors axe ou quand la question n'en a pas. */
   echelle: number | null;
   extrait: string;
   url: string | null;
@@ -44,8 +51,10 @@ export interface FormationBenchmark {
 
 /** Écart maximal entre deux positions : d'un pôle à l'autre. */
 export const ECART_MAX = 4;
-/** Nombre de questions communes en dessous duquel aucun score n'est donné. */
+/** Nombre de questions communes en dessous duquel aucune paire n'est décomptée. */
 export const MINIMUM_QUESTIONS_COMMUNES = 3;
+/** Nombre de questions communes à partir duquel une case de la matrice est colorée. */
+export const MINIMUM_COULEUR_MATRICE = 5;
 
 export const ACCORDS = ["identique", "proche", "eloigne", "oppose"] as const;
 export type Accord = (typeof ACCORDS)[number];
@@ -72,7 +81,7 @@ export interface LigneComparaison {
   question: QuestionBenchmark;
   a: PositionBenchmark | null;
   b: PositionBenchmark | null;
-  /** Écart sur l'axe ; nul quand la question n'a pas d'axe ou qu'une position manque. */
+  /** Écart sur l'axe ; nul sans axe, sans position ou hors axe pour l'un des deux. */
   ecart: number | null;
 }
 
@@ -80,9 +89,11 @@ export interface Comparaison {
   lignes: LigneComparaison[];
   /** Questions où les deux formations ont une position placée sur l'axe. */
   communes: number;
-  /** Entre 0 et 1 ; nulle sous le minimum de questions communes. */
+  /** Moyenne de 1 − écart / 4 ; nulle sous le minimum. Non affichée. */
   proximite: number | null;
   repartition: Record<Accord, number>;
+  /** Écarts de 1 ou de 3 : ils changeraient de catégorie avec un cran de lecture. */
+  fragiles: number;
   /** Écart de 0 ou 1, du plus proche au moins proche. */
   pointsCommuns: LigneComparaison[];
   /** Écart de 3 ou 4, du plus opposé au moins opposé. */
@@ -115,6 +126,7 @@ export function comparer(questions: QuestionBenchmark[], a: string, b: string): 
     communes,
     proximite,
     repartition,
+    fragiles: placees.filter((l) => l.ecart === 1 || l.ecart === 3).length,
     pointsCommuns: placees.filter((l) => l.ecart <= 1).sort((x, y) => x.ecart - y.ecart),
     differences: placees.filter((l) => l.ecart >= 3).sort((x, y) => y.ecart - x.ecart),
   };
@@ -122,52 +134,68 @@ export function comparer(questions: QuestionBenchmark[], a: string, b: string): 
 
 /**
  * Formations présentes dans le corpus, de la plus documentée à la moins
- * documentée, avec leur candidat quand un document en nomme un.
+ * documentée. Le candidat n'est retenu que si toutes les citations de la
+ * formation le nomment : sinon, des propositions du parti seraient
+ * présentées comme les siennes.
  */
 export function formationsDe(questions: QuestionBenchmark[]): FormationBenchmark[] {
-  const compte = new Map<string, { candidat: string | null; n: number }>();
+  const compte = new Map<string, { candidats: Set<string>; sansCandidat: boolean; n: number }>();
   for (const q of questions) {
     for (const p of q.positions) {
-      const connu = compte.get(p.formation);
-      if (!connu) compte.set(p.formation, { candidat: p.candidat, n: 1 });
-      else {
-        connu.n += 1;
-        if (!connu.candidat && p.candidat) connu.candidat = p.candidat;
-      }
+      const connu = compte.get(p.formation) ?? {
+        candidats: new Set<string>(),
+        sansCandidat: false,
+        n: 0,
+      };
+      connu.n += 1;
+      if (p.candidat) connu.candidats.add(p.candidat);
+      else connu.sansCandidat = true;
+      compte.set(p.formation, connu);
     }
   }
   return [...compte.entries()]
     .sort((x, y) => y[1].n - x[1].n || x[0].localeCompare(y[0], "fr"))
-    .map(([formation, v]) => ({ formation, candidat: v.candidat }));
+    .map(([formation, v]) => ({
+      formation,
+      candidat: !v.sansCandidat && v.candidats.size === 1 ? ([...v.candidats][0] ?? null) : null,
+    }));
 }
 
 export interface Matrice {
   formations: FormationBenchmark[];
-  /** proximite[i][j] entre 0 et 1 ; nulle sous le minimum de questions communes. */
+  /** Moyenne de 1 − écart / 4 ; nulle sous le minimum. Non affichée. */
   proximite: (number | null)[][];
   communes: number[][];
+  /** Questions où les positions sont identiques ou proches. */
+  proches: number[][];
+  /** Questions où les positions sont opposées. */
+  opposees: number[][];
 }
 
 export function matriceProximite(
   questions: QuestionBenchmark[],
   formations: FormationBenchmark[],
 ): Matrice {
+  const vide = () => formations.map(() => formations.map(() => 0));
   const proximite = formations.map(() => formations.map((): number | null => null));
-  const communes = formations.map(() => formations.map(() => 0));
+  const communes = vide();
+  const proches = vide();
+  const opposees = vide();
   formations.forEach((fa, i) => {
     formations.forEach((fb, j) => {
       if (j <= i) return;
       const c = comparer(questions, fa.formation, fb.formation);
-      proximite[i]![j] = c.proximite;
-      proximite[j]![i] = c.proximite;
-      communes[i]![j] = c.communes;
-      communes[j]![i] = c.communes;
+      const p = c.repartition.identique + c.repartition.proche;
+      proximite[i]![j] = proximite[j]![i] = c.proximite;
+      communes[i]![j] = communes[j]![i] = c.communes;
+      proches[i]![j] = proches[j]![i] = p;
+      opposees[i]![j] = opposees[j]![i] = c.repartition.oppose;
     });
   });
-  return { formations, proximite, communes };
+  return { formations, proximite, communes, proches, opposees };
 }
 
-/** Nom court d'une formation pour les en-têtes : le nom du candidat, ou un sigle. */
+/** Nom court d'une formation pour les en-têtes : le nom usuel du candidat, ou un sigle. */
 export function nomCourt(f: FormationBenchmark): string {
   if (f.candidat) {
     const usuels: Record<string, string> = {
@@ -188,6 +216,8 @@ export function nomCourt(f: FormationBenchmark): string {
     "La France insoumise": "LFI",
     "Rassemblement National": "RN",
     "Les Républicains": "LR",
+    "Nouvelle Énergie": "N. Énergie",
+    "Place publique": "P. publique",
   };
   return sigles[f.formation] ?? f.formation;
 }

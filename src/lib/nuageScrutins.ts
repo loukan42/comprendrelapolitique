@@ -100,7 +100,13 @@ export function categorieDeScrutin(s: {
   if (s.typeVoteCode === "MOC") return "censure";
   if (s.estVoteSurEnsemble) return "ensemble";
   const objet = s.objet.toLowerCase();
+  // Une motion de procédure d'abord : l'intitulé du texte visé peut citer un
+  // amendement ou un article.
+  if (/^(la |les )?motions?\b/.test(objet)) return "motion";
   if (objet.includes("amendement")) return "amendement";
+  // Déclarations du Gouvernement, votes de confiance et résolutions : ni un
+  // article ni un amendement, même quand l'intitulé cite un article.
+  if (/déclaration|résolution|confiance|article 49, alinéa premier/.test(objet)) return "autre";
   if (/\barticles?\b/.test(objet)) return "article";
   if (objet.includes("motion")) return "motion";
   return "autre";

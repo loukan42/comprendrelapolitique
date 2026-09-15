@@ -21,7 +21,6 @@ import { z } from "zod";
 import {
   AnneauAccords,
   AxeQuestion,
-  JaugeProximite,
   Marqueur,
   MatriceProximite,
   PastilleAccord,
@@ -218,7 +217,7 @@ function PageComparer() {
               <Grid align="flex-end" gap="md">
                 <Grid.Col span={{ base: 12, sm: 5 }}>
                   <Select
-                    label="Premier candidat"
+                    label="Premier candidat ou parti"
                     data={options}
                     value={a}
                     allowDeselect={false}
@@ -244,7 +243,7 @@ function PageComparer() {
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 5 }}>
                   <Select
-                    label="Second candidat"
+                    label="Second candidat ou parti"
                     data={options}
                     value={b}
                     allowDeselect={false}
@@ -278,10 +277,21 @@ function PageComparer() {
                   </Text>
                   <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg" mt="xl">
                     <Card withBorder radius="md" padding="lg">
-                      <JaugeProximite
-                        valeur={comparaison.proximite}
-                        communes={comparaison.communes}
-                      />
+                      <Text fz="2.5rem" fw={300} lh={1} lts="-0.04em">
+                        {comparaison.repartition.identique + comparaison.repartition.proche}
+                        <Text span fz="lg" c="dimmed">
+                          {" "}
+                          / {comparaison.communes}
+                        </Text>
+                      </Text>
+                      <Text size="sm" mt={4}>
+                        questions où leurs positions sont identiques ou proches
+                      </Text>
+                      <Text size="xs" c="dimmed" mt="sm">
+                        {comparaison.fragiles} de ces {comparaison.communes} classements tiennent à
+                        une lecture près : un cran de plus ou de moins sur l&apos;axe les ferait
+                        changer de catégorie.
+                      </Text>
                     </Card>
                     <Card withBorder radius="md" padding="lg">
                       <AnneauAccords repartition={comparaison.repartition} />
@@ -354,7 +364,7 @@ function PageComparer() {
                       <Text size="sm">{nomB}</Text>
                     </Group>
                     <Text size="sm" c="dimmed">
-                      Points gris : les autres candidats
+                      Points gris : les autres candidats ou partis
                     </Text>
                   </Group>
                   <Accordion variant="separated" radius="md" mt="lg" multiple>
@@ -372,7 +382,11 @@ function PageComparer() {
                               <Box mt={6}>
                                 {l.ecart === null ? (
                                   <Text size="xs" c="dimmed">
-                                    Un seul des deux se prononce
+                                    {!l.a && !l.b
+                                      ? "Aucun des deux ne se prononce"
+                                      : !l.a || !l.b
+                                        ? "Un seul des deux se prononce"
+                                        : "Hors axe pour l'un des deux"}
                                   </Text>
                                 ) : (
                                   <Accord ecart={l.ecart} />
@@ -422,10 +436,10 @@ function PageComparer() {
                 Qui est proche de qui
               </Title>
               <Text mt="sm" c="dimmed" maw={720}>
-                La proximité de chaque paire de candidats, en pourcentage, sur les questions où les
-                deux se prononcent. Plus la case est lumineuse, plus leurs positions citées sont
-                proches. Un point signale moins de trois questions communes. Cliquer une case
-                compare la paire.
+                Pour chaque paire, le nombre de questions où leurs positions sont identiques ou
+                proches, sur le nombre de questions où les deux se prononcent. La case n&apos;est
+                colorée qu&apos;à partir de cinq questions communes ; un point signale moins de
+                trois. Cliquez sur une case pour comparer la paire.
               </Text>
               <Box mt="lg">
                 <MatriceProximite matrice={matrice} a={a} b={b} onChoisir={choisir} />
@@ -437,9 +451,9 @@ function PageComparer() {
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />} maw={820}>
           Les citations sont vérifiées mot pour mot contre les documents publiés par les candidats
           et leurs partis. Leur place sur chaque axe est une lecture du site, écrite en clair et
-          contestable : la proximité compare des citations choisies, pas des programmes entiers, et
-          ne constitue pas une recommandation. Un candidat absent d&apos;une question n&apos;a pas
-          forcément d&apos;avis contraire : son document n&apos;en parle pas.{" "}
+          contestable : ces décomptes comparent des citations choisies, pas des programmes entiers,
+          et ne constitue pas une recommandation. Un candidat absent d&apos;une question n&apos;a
+          pas forcément d&apos;avis contraire : son document n&apos;en parle pas.{" "}
           <Anchor component={Link} to="/programmes/quiz" c="inherit">
             Les mêmes citations en quiz, sans le nom des candidats
           </Anchor>

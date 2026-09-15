@@ -53,9 +53,14 @@ test("le résultat rapporte chaque choix au nombre de questions où la formation
   const d = r.lignes.find((l) => l.formation === "D");
   // C a été choisie deux fois sur deux, A une fois sur trois : C passe
   // devant, alors qu'un décompte brut les mettrait presque à égalité.
-  assert.deepEqual(c, { formation: "C", choisie: 2, proposee: 2, part: 1 });
-  assert.deepEqual(a, { formation: "A", choisie: 1, proposee: 3, part: 1 / 3 });
-  assert.deepEqual(d, { formation: "D", choisie: 0, proposee: 1, part: 0 });
+  const proche = (x: number | undefined, y: number) => Math.abs((x ?? NaN) - y) < 1e-9;
+  assert.deepEqual([c?.choisie, c?.proposee, c?.part], [2, 2, 1]);
+  assert.deepEqual([a?.choisie, a?.proposee, a?.part], [1, 3, 1 / 3]);
+  assert.deepEqual([d?.choisie, d?.proposee, d?.part], [0, 1, 0]);
+  // Trois formations par question : 1/3 d'attendu au hasard à chaque fois.
+  assert.ok(proche(c?.attendu, 2 / 3));
+  assert.ok(proche(a?.attendu, 1));
+  assert.ok(proche(d?.attendu, 1 / 3));
   assert.equal(r.lignes[0]?.formation, "C");
   assert.equal(r.repondues, 3);
 });

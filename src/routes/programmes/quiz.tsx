@@ -23,6 +23,7 @@ import classes from "../../components/OptionQcm.module.css";
 import {
   calculerResultatQcm,
   melanger,
+  MINIMUM_PROPOSEE,
   MINIMUM_REPONDUES,
   type ChoixQcm,
   type OptionQcm,
@@ -273,20 +274,35 @@ function EcranResultat({
         <Title order={2}>Les formations dont vous avez choisi les propositions</Title>
         <Text c="dimmed" size="sm">
           Pour chaque formation : le nombre de questions où vous avez choisi sa proposition, sur le
-          nombre de questions où elle figurait parmi les choix. Les questions passées ne comptent
-          pas.
+          nombre où elle figurait, et ce qu&apos;aurait donné un choix au hasard. Les formations
+          sont rangées selon l&apos;écart à ce hasard. Les questions passées ne comptent pas.
         </Text>
         <Stack gap="sm">
-          {resultat.lignes.map((l) => (
-            <BarreHorizontale
-              key={l.formation}
-              libelle={libelles.get(l.formation) ?? l.formation}
-              valeur={l.part}
-              reference={1}
-              libelleValeur={`${l.choisie} sur ${l.proposee}`}
-            />
-          ))}
+          {resultat.lignes
+            .filter((l) => l.proposee >= MINIMUM_PROPOSEE)
+            .map((l) => (
+              <BarreHorizontale
+                key={l.formation}
+                libelle={libelles.get(l.formation) ?? l.formation}
+                valeur={l.part}
+                reference={1}
+                libelleValeur={`${l.choisie} sur ${l.proposee} · ${l.attendu.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} au hasard`}
+              />
+            ))}
         </Stack>
+        {resultat.lignes.some((l) => l.proposee < MINIMUM_PROPOSEE) && (
+          <Text size="sm" c="dimmed">
+            Trop peu présentes pour être classées (moins de {MINIMUM_PROPOSEE} questions) :{" "}
+            {resultat.lignes
+              .filter((l) => l.proposee < MINIMUM_PROPOSEE)
+              .map(
+                (l) =>
+                  `${libelles.get(l.formation) ?? l.formation}, choisie ${l.choisie} fois sur ${l.proposee}`,
+              )
+              .join(" ; ")}
+            .
+          </Text>
+        )}
         {resultat.aucune > 0 && (
           <Text size="sm">
             À {resultat.aucune} question{resultat.aucune > 1 ? "s" : ""} sur {resultat.repondues},

@@ -6,7 +6,7 @@ import logo from "../assets/politiquiz.png";
 import classes from "./SiteHeader.module.css";
 
 const QUIZ = [
-  { to: "/quiz", libelle: "Quiz des votes", detail: "Quels groupes votent comme vous ?" },
+  { to: "/quiz", libelle: "Quiz des votes", detail: "Quelles formations votent comme vous ?" },
   {
     to: "/programmes/quiz",
     libelle: "Quiz des programmes",
@@ -16,7 +16,7 @@ const QUIZ = [
 
 const APRES_QUIZ = [
   { to: "/programmes/comparer", libelle: "Comparer" },
-  { to: "/lois", libelle: "Lois & votes" },
+  { to: "/lois", libelle: "Lois" },
   { to: "/bilans", libelle: "Bilans" },
   { to: "/themes", libelle: "Thèmes" },
 ] as const;

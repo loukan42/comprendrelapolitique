@@ -59,6 +59,12 @@ export interface LigneResultatQcm {
   /** Nombre de questions répondues où la formation figurait parmi les choix. */
   proposee: number;
   part: number;
+  /**
+   * Nombre de fois où la formation aurait été choisie en répondant au
+   * hasard : somme, sur les questions répondues où elle figurait, de 1 / k,
+   * k étant le nombre de formations proposées à la question.
+   */
+  attendu: number;
 }
 
 export interface ResultatQcm {
@@ -71,6 +77,12 @@ export interface ResultatQcm {
 export const MINIMUM_REPONDUES = 3;
 
 /**
+ * Une formation proposée moins souvent n'est pas classée : « 1 sur 1 »
+ * passerait devant « 7 sur 8 ». Elle est citée à part.
+ */
+export const MINIMUM_PROPOSEE = 3;
+
+/**
  * Une question n'est servie que si elle réunit au moins ce nombre de
  * formations. Même seuil que `scripts/import/positions_programme.ts`, qui
  * l'annonce dans son mode `--verifier`.
@@ -79,7 +91,7 @@ export const MINIMUM_FORMATIONS_PAR_QUESTION = 3;
 
 export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[]): ResultatQcm {
   const parQuestion = new Map(questions.map((q) => [q.id, q]));
-  const compte = new Map<string, { choisie: number; proposee: number }>();
+  const compte = new Map<string, { choisie: number; proposee: number; attendu: number }>();
   let repondues = 0;
   let aucune = 0;
 
@@ -99,9 +111,11 @@ export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[])
 
     // Une formation ne compte qu'une fois par question, même si le corpus
     // venait à lui attribuer deux citations sur le même sujet.
-    for (const formation of new Set(question.options.map((o) => o.formation))) {
-      const ligne = compte.get(formation) ?? { choisie: 0, proposee: 0 };
+    const presentes = new Set(question.options.map((o) => o.formation));
+    for (const formation of presentes) {
+      const ligne = compte.get(formation) ?? { choisie: 0, proposee: 0, attendu: 0 };
       ligne.proposee += 1;
+      ligne.attendu += 1 / presentes.size;
       if (choisie?.formation === formation) ligne.choisie += 1;
       compte.set(formation, ligne);
     }
@@ -113,10 +127,16 @@ export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[])
       choisie: l.choisie,
       proposee: l.proposee,
       part: l.choisie / l.proposee,
+      attendu: l.attendu,
     }))
+    // Rangées par écart au hasard : une formation présente dans une question
+    // à trois options a mécaniquement plus de chances d'être choisie que dans
+    // une question à huit (audit méthodologique I6).
     .sort(
       (a, b) =>
-        b.part - a.part || b.choisie - a.choisie || a.formation.localeCompare(b.formation, "fr"),
+        b.choisie - b.attendu - (a.choisie - a.attendu) ||
+        b.choisie - a.choisie ||
+        a.formation.localeCompare(b.formation, "fr"),
     );
 
   return { lignes, repondues, aucune };
