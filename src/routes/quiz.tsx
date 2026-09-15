@@ -78,7 +78,18 @@ function lirePosition(position: number): string {
 }
 
 /** Les scrutins sur lesquels repose une question, avec leur sens. */
-function ScrutinsRetenus({ scrutins }: { scrutins: ScrutinQuestion[] }) {
+/**
+ * Les scrutins d'une question. Pendant le quiz, sans lien vers la page du
+ * texte : elle montre le vote de chaque groupe, et les groupes ne doivent
+ * apparaître qu'à la fin. Le lien revient sur l'écran de résultat.
+ */
+function ScrutinsRetenus({
+  scrutins,
+  avecLien = false,
+}: {
+  scrutins: ScrutinQuestion[];
+  avecLien?: boolean;
+}) {
   return (
     <Stack gap="sm">
       {scrutins.map((s) => (
@@ -93,7 +104,7 @@ function ScrutinsRetenus({ scrutins }: { scrutins: ScrutinQuestion[] }) {
             {s.sens === 1
               ? "Voter pour ce texte va dans le sens de la question."
               : "Voter contre ce texte va dans le sens de la question."}
-            {s.dossierUid && (
+            {avecLien && s.dossierUid && (
               <>
                 {" "}
                 <Anchor href={`/lois/${s.dossierUid}`} size="xs">
@@ -354,7 +365,7 @@ function EcranResultat({
                         </Text>
                       ))}
                     </Stack>
-                    <ScrutinsRetenus scrutins={q.scrutins} />
+                    <ScrutinsRetenus avecLien scrutins={q.scrutins} />
                   </Stack>
                 </Accordion.Panel>
               </Accordion.Item>
