@@ -34,6 +34,8 @@ générations faites depuis l'éditeur Lovable.
   (`var(--mantine-spacing-md)`, `var(--mantine-color-dimmed)`).
 - `@tabler/icons-react` pour les icônes : c'est le jeu de référence de Mantine,
   et ce sera le seul du projet.
+- `<canvas>` ou WebGL pour une visualisation que le SVG ne tient pas (des
+  milliers de points animés), sans bibliothèque de composants par-dessus.
 
 ### Interdit
 
@@ -83,15 +85,15 @@ lu. Ce qui suit est donc une liste d'interdictions et non de préférences.
 
 | Banni | À la place |
 | --- | --- |
-| Dégradés décoratifs, violet vers indigo en tête, *mesh gradients*, halos flous animés | Des aplats. Un fond, un texte. |
+| Dégradés génériques plaqués sur un fond : violet vers indigo, *mesh gradients*, halos flous | Des aplats pour les fonds. La lumière, le relief et la couleur vive sont réservés aux visualisations, où ils portent la donnée. |
 | Glassmorphism, `backdrop-filter: blur`, cartes translucides | Des bords nets, un filet à 1px. |
 | Emoji en guise d'icône, de puce ou de titre | Une icône Tabler, ou rien. |
 | La grille de trois cartes « icône dans un carré arrondi, titre, deux lignes » | Une liste, un tableau, ou du texte suivi. |
 | Ombre portée sur tout, rayon maximal sur tout | L'ombre revient à ce qui flotte réellement : menu, modale, popover. |
-| Néon et couleurs saturées sur fond sombre | Un contraste sobre et vérifié : AA au minimum, AAA sur le corps de texte. |
-| Illustrations 3D génériques, avatars fictifs, logos d'entreprises inventés | Rien, ou un document réel : graphique sourcé, photo d'archive créditée. |
+| Couleurs vives posées au hasard, texte peu lisible sur fond sombre | Une palette vive pour les visualisations, définie dans le thème. Pour le texte, un contraste vérifié : AA au minimum, AAA sur le corps de texte. |
+| Illustrations 3D génériques, avatars fictifs, logos d'entreprises inventés | Une visualisation de données réelles, en 3D ou animée s'il le faut (canvas, WebGL), ou un document réel : graphique sourcé, photo d'archive créditée. |
 | Chiffres décoratifs invérifiables (« +10 000 citoyens informés ») | Aucun chiffre sans source. |
-| Animation d'apparition au défilement sur chaque bloc | Des transitions sur les seules interactions : survol, focus, ouverture. |
+| Animation d'apparition au défilement sur chaque bloc de texte | Des transitions sur les interactions : survol, focus, ouverture. Un mouvement continu seulement dans une visualisation, jamais sur le texte, et coupé quand le lecteur a demandé à réduire les animations (`prefers-reduced-motion`). |
 | Le hero centré : grand titre, sous-titre qui répète le titre, deux boutons | Une entrée en matière qui annonce le contenu réel et mène quelque part. |
 
 ### Rédaction
@@ -128,22 +130,30 @@ l'espace fine insécable avant les signes doubles et dans les milliers.
 
 ---
 
-## 3. La direction : éditorial, pas SaaS
+## 3. La direction : éditorial sur le fond, affirmé sur la forme
 
-La référence n'est pas une page d'accueil de startup, c'est la presse explicative
-et les publications de données : Les Décodeurs, Our World in Data, les notes du
-Conseil d'analyse économique. Concrètement :
+Deux références se complètent. Pour le fond, la presse explicative et les
+publications de données : Les Décodeurs, Our World in Data, les notes du
+Conseil d'analyse économique. Pour la forme, un site sombre et spectaculaire
+dans l'esprit de dala.craftedbygc.com : fond noir, typographie immense et
+fine, sections aérées, visualisations qui occupent l'espace. Ce qui reste exclu,
+c'est le générique, pas l'ambition. Concrètement :
 
-- **La typographie porte la page.** Hiérarchie réelle : un seul `h1`, des niveaux
-  qui se distinguent par la taille *et* la graisse. Corps de texte entre 65 et 75
-  caractères par ligne, interligne généreux. Une page bien construite reste bonne
-  en noir et blanc.
-- **Palette sobre.** Presque-noir sur blanc cassé. Un accent unique, réservé à
-  l'interaction (lien, focus, état actif), et jamais à la décoration.
+- **La typographie porte la page.** Titres très grands en graisse légère, un
+  seul `h1`, des niveaux qui se distinguent par la taille *et* la graisse.
+  Corps de texte entre 65 et 75 caractères par ligne, interligne généreux.
+- **Palette.** Fond noir, texte blanc, gris pour le secondaire. Les boutons
+  d'action prennent le rouge du logo, les liens son bleu éclairci. Les
+  visualisations ont leur propre palette vive, écrite dans le thème.
+- **Les visualisations sont la vitrine.** Hémicycle, nuage de scrutins, frise :
+  c'est là que le site se permet l'effet, le mouvement, la profondeur. Chaque
+  point dessiné correspond à une donnée réelle, avec sa source et sa date sous
+  la figure, et un équivalent textuel pour les lecteurs d'écran.
 - **La densité est permise.** Un site qui explique a le droit d'être dense. Un
   tableau lisible vaut mieux qu'un carrousel.
-- **Des graphiques quand ils portent une information**, via `@mantine/charts` :
-  axes nommés, unités visibles, source et date sous la figure.
+- **Des graphiques quand ils portent une information**, via `@mantine/charts`
+  ou un dessin sur mesure : axes nommés, unités visibles, source et date sous la
+  figure.
 - **De l'asymétrie.** Une colonne de texte avec une marge de notes vaut mieux que
   tout centrer.
 
@@ -151,11 +161,14 @@ Conseil d'analyse économique. Concrètement :
 
 ## 4. Contraintes propres à un site politique
 
-- **L'accent ne doit pas être un marqueur partisan.** En France, le bleu, le rouge,
-  le rose et le vert se lisent comme des appartenances. L'accent du site reste
-  neutre : gris-ardoise, bleu-encre très désaturé, ocre. Les couleurs de partis ne
-  servent **que** dans les visualisations où elles représentent effectivement ces
-  partis, selon une convention écrite dans le thème.
+- **Aucune couleur ne doit désigner un camp.** En France, le bleu, le rouge, le
+  rose et le vert se lisent comme des appartenances. Le rouge des boutons est
+  celui du logo, couleur de marque du site, et ne sert qu'aux actions : il ne
+  colore jamais un parti, un vote ou une opinion. Les couleurs de partis ne
+  servent **que** dans les visualisations où elles représentent effectivement
+  ces partis, selon une convention écrite dans le thème. Une visualisation qui
+  ne représente pas des partis évite les couleurs qu'un lecteur leur
+  rattacherait : ni rose, ni bleu, ni vert, ni rouge pour coder autre chose.
 - **Aucune donnée inventée sur une personne, un parti, un scrutin ou un vote.** Pas
   de chiffre « à titre d'exemple » sur un sujet réel. Si la donnée manque, le
   composant affiche un état vide, jamais un substitut plausible.
