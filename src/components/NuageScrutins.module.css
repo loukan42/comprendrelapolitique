@@ -11,25 +11,3 @@
   height: 100%;
   pointer-events: none;
 }
-
-.legende {
-  list-style: none;
-  margin: var(--mantine-spacing-sm) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--mantine-spacing-xs) var(--mantine-spacing-lg);
-  font-size: var(--mantine-font-size-xs);
-}
-
-.legende li {
-  display: flex;
-  align-items: center;
-  gap: var(--mantine-spacing-xs);
-}
-
-.puce {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex-shrink: 0;
-}

@@ -8,9 +8,9 @@
 .barre {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--mantine-spacing-xs) var(--mantine-spacing-xl);
-  padding-block: var(--mantine-spacing-md);
+  gap: var(--mantine-spacing-md) var(--mantine-spacing-xl);
+  min-height: 4.5rem;
+  padding-block: var(--mantine-spacing-sm);
 }
 
 .marque {
@@ -29,15 +29,10 @@
   padding: 4px 8px;
 }
 
-/*
- * Cinq liens en capitales espacées : ils passent à la ligne sur mobile
- * plutôt que d'être coupés au bord de l'écran.
- */
 .nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--mantine-spacing-xs) var(--mantine-spacing-lg);
+  gap: var(--mantine-spacing-lg);
   margin-left: auto;
 }
 
@@ -50,6 +45,7 @@
   color: var(--mantine-color-dimmed);
   text-decoration: none;
   padding-block: 4px;
+  white-space: nowrap;
 }
 
 .lien:hover {
@@ -61,13 +57,63 @@
   color: var(--mantine-color-text);
 }
 
-@media (max-width: 48em) {
-  .nav {
-    margin-left: 0;
-    gap: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
-  }
+.burger {
+  display: none;
+  margin-left: auto;
+}
 
+@media (max-width: 62em) {
+  .nav,
   .barre .action {
     display: none;
   }
+
+  .burger {
+    display: block;
+  }
+}
+
+.titreTiroir {
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mantine-color-dimmed);
+}
+
+/* Dans le tiroir, les liens reprennent la typographie des titres : grands et fins. */
+.lienTiroir {
+  font-size: var(--mantine-h2-font-size);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--mantine-color-dimmed);
+  text-decoration: none;
+}
+
+.lienTiroir:hover,
+.lienTiroirActif {
+  color: var(--mantine-color-text);
+}
+
+/* Le déclencheur du menu Quiz a l'apparence d'un lien de navigation. */
+.declencheur {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.itemMenu {
+  display: block;
+  font-weight: 600;
+}
+
+.detailMenu {
+  display: block;
+  font-size: var(--mantine-font-size-xs);
+  color: var(--mantine-color-dimmed);
 }

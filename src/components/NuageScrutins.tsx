@@ -1,24 +1,9 @@
-import { Box, Text } from "@mantine/core";
 import { useEffect, useRef } from "react";
-import { decoder, disposer, LIBELLE_TEINTE, TEINTES } from "../lib/nuageScrutins";
+import { decoder, disposer, TEINTES } from "../lib/nuageScrutins";
 import type { DonneesNuage } from "../queries/nuage";
 import classes from "./NuageScrutins.module.css";
 
 const nombre = new Intl.NumberFormat("fr-FR");
-const formatDate = new Intl.DateTimeFormat("fr-FR", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-  timeZone: "UTC",
-});
-
-function dateLisible(jour: string): string {
-  const [a, m, j] = jour.split("-").map(Number);
-  return formatDate
-    .format(new Date(Date.UTC(a ?? 2017, (m ?? 1) - 1, j ?? 1)))
-    .replace(/^1 /, "1er ");
-}
-
 /** Couleur CSS en hexadécimal vers ses trois composantes entre 0 et 1. */
 function composantes(couleur: string): [number, number, number] {
   let h = couleur.trim().replace("#", "");
@@ -26,54 +11,6 @@ function composantes(couleur: string): [number, number, number] {
   const v = Number.parseInt(h.slice(0, 6), 16);
   if (Number.isNaN(v)) return [1, 1, 1];
   return [((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255];
-}
-
-/** Triangle de légende, dans la couleur de sa catégorie. */
-function Puce({ categorie }: { categorie: string }) {
-  return (
-    <svg viewBox="0 0 12 12" className={classes["puce"]} aria-hidden="true">
-      <path
-        d="M6 1.5 10.5 10 1.5 10Z"
-        fill="none"
-        stroke={`var(--nuage-${categorie})`}
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
-}
-
-/**
- * Légende du nuage : ce que représente un triangle, ce que disent sa couleur
- * et sa place, et le nombre de scrutins de chaque sorte. C'est aussi
- * l'équivalent textuel du dessin pour un lecteur d'écran.
- */
-export function LegendeNuage({ donnees }: { donnees: DonneesNuage | null }) {
-  return (
-    <Box>
-      <Text size="xs" c="dimmed">
-        Chaque triangle est un scrutin public de l&apos;Assemblée nationale
-        {donnees
-          ? `, ${nombre.format(donnees.total)} du ${dateLisible(donnees.origine)} au ${dateLisible(donnees.dernier)}`
-          : ""}
-        , placé dans l&apos;hémicycle : la XVe législature au premier rang, la XVIIe au dernier, et
-        le calendrier de gauche à droite. Les motions de censure flottent au-dessus.
-      </Text>
-      <ul className={classes["legende"]}>
-        {TEINTES.map((c) => (
-          <li key={c}>
-            <Puce categorie={c} />
-            <span>
-              {donnees ? `${nombre.format(donnees.comptes[c])} ` : ""}
-              {LIBELLE_TEINTE[c]}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <Text size="xs" c="dimmed" mt="xs">
-        Source : Open Data de l&apos;Assemblée nationale.
-      </Text>
-    </Box>
-  );
 }
 
 /** Distance de la caméra au centre de l'hémicycle. */
@@ -100,6 +37,9 @@ uniform float uTemps;
 uniform float uFacteurTaille;
 uniform float uTailleMax;
 uniform float uOpacite;
+uniform vec2 uSouris;
+uniform float uForce;
+uniform float uRayon;
 varying vec3 vCouleur;
 varying float vAlpha;
 varying float vAngle;
@@ -110,13 +50,20 @@ void main() {
   vec3 q = uRotation * p;
   float f = ${DISTANCE.toFixed(1)} / (${DISTANCE.toFixed(1)} - q.z);
   vec2 ecran = uCentre + vec2(q.x, -q.y) * f * uEchelle;
+  // Loupe sous le curseur : les triangles proches grossissent, blanchissent
+  // et s'écartent du pointeur, puis reprennent leur place quand il s'éloigne.
+  vec2 delta = ecran - uSouris;
+  float dist = length(delta);
+  float effet = uForce * (1.0 - smoothstep(0.0, uRayon, dist));
+  effet = effet * effet * (3.0 - 2.0 * effet);
+  ecran += delta / max(dist, 0.001) * effet * uRayon * 0.22;
   vec2 clip = ecran / uResolution * 2.0 - 1.0;
   gl_Position = vec4(clip.x, -clip.y, 0.0, 1.0);
   float prof = clamp((q.z + 1.4) / 2.8, 0.0, 1.0);
-  vTaille = min(aTaille * (2.4 + 8.0 * prof) * uFacteurTaille, uTailleMax);
+  vTaille = min(aTaille * (2.4 + 8.0 * prof) * uFacteurTaille * (1.0 + 2.4 * effet), uTailleMax);
   gl_PointSize = vTaille;
-  vAlpha = (0.06 + 0.54 * prof * prof) * uOpacite;
-  vCouleur = aCouleur;
+  vAlpha = max((0.06 + 0.54 * prof * prof) * uOpacite, 0.85 * effet);
+  vCouleur = mix(aCouleur, vec3(1.0), 0.55 * effet);
   vAngle = aPhase * 6.2831853 + uTemps * 0.15 * (aPhase - 0.5);
 }`;
 
@@ -240,6 +187,9 @@ export function NuageScrutins({
     const uTemps = u("uTemps");
     const uFacteurTaille = u("uFacteurTaille");
     const uOpacite = u("uOpacite");
+    const uSouris = u("uSouris");
+    const uForce = u("uForce");
+    const uRayon = u("uRayon");
     const plage = gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE) as Float32Array | null;
     gl.uniform1f(u("uTailleMax"), plage?.[1] ?? 64);
     gl.enable(gl.BLEND);
@@ -259,6 +209,13 @@ export function NuageScrutins({
     let parY = 0;
     let cibleX = 0;
     let cibleY = 0;
+    // Position du pointeur sur le canvas et intensité de la loupe, lissées.
+    let sourisX = -9999;
+    let sourisY = -9999;
+    let cibleSourisX = -9999;
+    let cibleSourisY = -9999;
+    let force = 0;
+    let cibleForce = 0;
     let visible = true;
     let image = 0;
     let precedent = 0;
@@ -285,6 +242,9 @@ export function NuageScrutins({
       gl.uniform1f(uTemps, temps);
       gl.uniform1f(uFacteurTaille, (echelle / 380) * dpr);
       gl.uniform1f(uOpacite, opacite);
+      gl.uniform2f(uSouris, sourisX, sourisY);
+      gl.uniform1f(uForce, force);
+      gl.uniform1f(uRayon, Math.max(90, echelle * 0.42));
       gl.drawArrays(gl.POINTS, 0, n);
     }
 
@@ -312,6 +272,14 @@ export function NuageScrutins({
       const lissage = 1 - Math.exp(-dt * 2.5);
       parX += (cibleX - parX) * lissage;
       parY += (cibleY - parY) * lissage;
+      const suivi = 1 - Math.exp(-dt * 14);
+      if (sourisX < -9000) {
+        sourisX = cibleSourisX;
+        sourisY = cibleSourisY;
+      }
+      sourisX += (cibleSourisX - sourisX) * suivi;
+      sourisY += (cibleSourisY - sourisY) * suivi;
+      force += (cibleForce - force) * (1 - Math.exp(-dt * 5));
       dessiner();
       image = requestAnimationFrame(boucle);
     }
@@ -332,6 +300,13 @@ export function NuageScrutins({
       if (e.pointerType !== "mouse") return;
       cibleX = (e.clientX / window.innerWidth) * 2 - 1;
       cibleY = (e.clientY / window.innerHeight) * 2 - 1;
+      const cadre = el!.getBoundingClientRect();
+      const x = e.clientX - cadre.left;
+      const y = e.clientY - cadre.top;
+      const dedans = x >= 0 && y >= 0 && x <= cadre.width && y <= cadre.height;
+      cibleSourisX = x;
+      cibleSourisY = y;
+      cibleForce = dedans ? 1 : 0;
     }
 
     const ro = new ResizeObserver(redimensionner);

@@ -39,3 +39,56 @@
     padding-block: 5rem;
   }
 }
+
+/* Le lien « Découvrir qui me correspond » arrive sous l'en-tête collant. */
+.ancre {
+  scroll-margin-top: 6rem;
+}
+
+.choix {
+  display: flex;
+  flex-direction: column;
+}
+
+.questions {
+  margin: var(--mantine-spacing-md) 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: var(--mantine-spacing-xs);
+  font-size: var(--mantine-font-size-lg);
+  font-weight: 400;
+}
+
+/* Carte d'un grand sujet : toute la carte est le lien. */
+.sujet {
+  position: relative;
+  display: block;
+  padding: var(--mantine-spacing-lg);
+  padding-right: 2.75rem;
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-md);
+  color: var(--mantine-color-text);
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.sujet:hover,
+.sujet:focus-visible {
+  border-color: var(--mantine-color-dark-2);
+  background-color: var(--mantine-color-dark-8);
+}
+
+.flecheSujet {
+  position: absolute;
+  top: var(--mantine-spacing-lg);
+  right: var(--mantine-spacing-lg);
+  color: var(--mantine-color-dimmed);
+  transition: transform 150ms ease;
+}
+
+.sujet:hover .flecheSujet {
+  transform: translateX(3px);
+  color: var(--mantine-color-text);
+}
