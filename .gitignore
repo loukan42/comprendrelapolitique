@@ -40,3 +40,10 @@ dist-ssr
 # Cache Python des scripts d exploration
 __pycache__/
 *.pyc
+
+# Secrets locaux : chaine de connexion PostgreSQL (Supabase ou autre) pour le
+# deploiement, voir la section "Deploiement" de CLAUDE.md. Ne jamais commiter
+# de mot de passe de base de donnees.
+.env
+.env.local
+.env.*.local

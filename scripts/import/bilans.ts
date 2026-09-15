@@ -54,7 +54,7 @@
 import { resolve } from "node:path";
 
 import { citationPresente } from "./citations.ts";
-import { appliquerMigration, ouvrirPGlite, type Db } from "./db.ts";
+import { appliquerMigration, ouvrirBase, type Db } from "./db.ts";
 
 interface MandatSource {
   id: string;
@@ -1400,7 +1400,7 @@ async function main() {
     retenus.push(e);
   }
 
-  const db: Db = await ouvrirPGlite(chemin);
+  const db: Db = await ouvrirBase(chemin);
   const [table] = await db.query<{ existe: boolean }>(
     `SELECT EXISTS (SELECT 1 FROM information_schema.tables
                      WHERE table_schema = 'enrichissement' AND table_name = 'president') AS existe`,

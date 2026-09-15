@@ -24,7 +24,7 @@
 
 import { resolve } from "node:path";
 
-import { appliquerMigration, ouvrirPGlite, type Db } from "./db.ts";
+import { appliquerMigration, ouvrirBase, type Db } from "./db.ts";
 
 interface Placement {
   uid: string;
@@ -193,7 +193,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = await ouvrirPGlite(chemin);
+  const db = await ouvrirBase(chemin);
 
   if (args.includes("--verifier")) {
     await verifier(db);

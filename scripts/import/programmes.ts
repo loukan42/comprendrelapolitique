@@ -28,7 +28,7 @@
 
 import { resolve } from "node:path";
 
-import { appliquerMigration, ouvrirPGlite, type Db } from "./db.ts";
+import { appliquerMigration, ouvrirBase, type Db } from "./db.ts";
 
 type Nature =
   | "presidentiel_2027"
@@ -433,7 +433,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db: Db = await ouvrirPGlite(chemin);
+  const db: Db = await ouvrirBase(chemin);
   const [table] = await db.query<{ existe: boolean }>(
     `SELECT EXISTS (SELECT 1 FROM information_schema.tables
                      WHERE table_schema = 'enrichissement' AND table_name = 'programme') AS existe`,

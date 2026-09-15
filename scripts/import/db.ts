@@ -54,6 +54,62 @@ export async function ouvrirPGlite(chemin?: string): Promise<Db> {
   };
 }
 
+/**
+ * Ouvre un vrai PostgreSQL distant, par exemple une base Supabase.
+ *
+ * Une seule connexion (Client, pas Pool) : les scripts d'import tournent en
+ * série, jamais concurremment, et une transaction doit rester sur la même
+ * connexion du début à la fin, ce qu'un pool ne garantit pas.
+ */
+export async function ouvrirPostgres(url: string): Promise<Db> {
+  const { Client } = await import("pg");
+  const client = new Client({
+    connectionString: url,
+    // Voir la même remarque dans src/queries/db.ts : la connexion reste
+    // chiffrée, seule la vérification stricte du certificat est désactivée.
+    ssl: { rejectUnauthorized: false },
+  });
+  await client.connect();
+
+  return {
+    async query<T>(sql: string, params: unknown[] = []): Promise<T[]> {
+      const r = await client.query(sql, params);
+      return r.rows as T[];
+    },
+    async exec(sql: string) {
+      await client.query(sql);
+    },
+    async transaction<T>(fn: () => Promise<T>): Promise<T> {
+      await client.query("BEGIN");
+      try {
+        const r = await fn();
+        await client.query("COMMIT");
+        return r;
+      } catch (e) {
+        await client.query("ROLLBACK");
+        throw e;
+      }
+    },
+    async close() {
+      await client.end();
+    },
+  };
+}
+
+/**
+ * Ouvre la base désignée par cible : un vrai PostgreSQL si elle commence par
+ * postgres:// ou postgresql:// (par exemple une base Supabase, pour peupler
+ * un déploiement), un fichier PGlite local sinon — l'usage habituel en
+ * développement (CLAUDE.md). Chaque script d'import appelle cette fonction
+ * plutôt que ouvrirPGlite directement, pour accepter les deux sans
+ * changement d'appel.
+ */
+export function ouvrirBase(cible: string): Promise<Db> {
+  return cible.startsWith("postgres://") || cible.startsWith("postgresql://")
+    ? ouvrirPostgres(cible)
+    : ouvrirPGlite(cible);
+}
+
 /** Applique un fichier de migration SQL. */
 export async function appliquerMigration(db: Db, chemin: string): Promise<void> {
   await db.exec(await readFile(chemin, "utf8"));

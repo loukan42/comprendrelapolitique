@@ -28,7 +28,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-import { appliquerMigration, fermerLot, ouvrirLot, ouvrirPGlite, type Db } from "./db.ts";
+import { appliquerMigration, fermerLot, ouvrirLot, ouvrirBase, type Db } from "./db.ts";
 import {
   importerActeurs,
   importerAmendements,
@@ -146,7 +146,7 @@ async function main() {
   }
 
   const t = chrono();
-  const db = await ouvrirPGlite(cheminDb);
+  const db = await ouvrirBase(cheminDb);
   // La migration est idempotente : elle se rejoue sur une base déjà chargée
   // sans rien dupliquer, et c'est ce qui met à niveau une base créée avant une
   // évolution du schéma. La réserver aux bases vierges laissait les anciennes

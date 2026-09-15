@@ -12,7 +12,7 @@
  *   node scripts/import/controler.ts <chemin>
  */
 
-import { ouvrirPGlite, type Db } from "./db.ts";
+import { ouvrirBase, type Db } from "./db.ts";
 
 let echecs = 0;
 
@@ -174,7 +174,7 @@ async function main() {
     console.error("usage: controler.ts <chemin_base>");
     process.exit(1);
   }
-  const db = await ouvrirPGlite(chemin);
+  const db = await ouvrirBase(chemin);
 
   // Mesures relevées sur les fichiers bruts, avant tout import. Un écart ici
   // signale que l'importeur perd ou invente des lignes.

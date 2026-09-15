@@ -51,7 +51,7 @@
 import { resolve } from "node:path";
 
 import { citationPresente } from "./citations.ts";
-import { appliquerMigration, ouvrirPGlite, type Db } from "./db.ts";
+import { appliquerMigration, ouvrirBase, type Db } from "./db.ts";
 
 interface QuestionSource {
   id: string;
@@ -1311,7 +1311,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = await ouvrirPGlite(chemin);
+  const db = await ouvrirBase(chemin);
   const [table] = await db.query<{ existe: boolean }>(
     `SELECT EXISTS (SELECT 1 FROM information_schema.tables
                      WHERE table_schema = 'enrichissement'

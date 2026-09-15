@@ -18,7 +18,7 @@
 
 import { resolve } from "node:path";
 
-import { appliquerMigration, ouvrirPGlite, type Db } from "../import/db.ts";
+import { appliquerMigration, ouvrirBase, type Db } from "../import/db.ts";
 
 const MIGRATION = resolve("db/migrations/002_enrichissement.sql");
 
@@ -125,7 +125,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = await ouvrirPGlite(cheminDb);
+  const db = await ouvrirBase(cheminDb);
   await appliquerMigration(db, MIGRATION);
 
   console.log("Chargement des dossiers à scorer...");

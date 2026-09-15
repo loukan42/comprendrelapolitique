@@ -20,7 +20,7 @@
  *   node scripts/enrichissement/classer_echantillon.ts --db data/pg16
  */
 
-import { appliquerMigration, ouvrirPGlite } from "../import/db.ts";
+import { appliquerMigration, ouvrirBase } from "../import/db.ts";
 import { resolve } from "node:path";
 
 const MIGRATION = resolve("db/migrations/002_enrichissement.sql");
@@ -267,7 +267,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = await ouvrirPGlite(cheminDb);
+  const db = await ouvrirBase(cheminDb);
   await appliquerMigration(db, MIGRATION);
 
   let ecrits = 0;

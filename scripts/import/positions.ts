@@ -22,7 +22,7 @@ import {
   type ParametresScoring,
   type VoteFormation,
 } from "../../src/lib/quizPosition.ts";
-import { ouvrirPGlite, type Db } from "./db.ts";
+import { ouvrirBase, type Db } from "./db.ts";
 
 interface LigneVote {
   question_id: string;
@@ -113,7 +113,7 @@ async function main() {
     process.exit(1);
   }
 
-  const db = await ouvrirPGlite(chemin);
+  const db = await ouvrirBase(chemin);
   const { id: parametresId, p } = await chargerParametres(db);
   const lignes = await db.query<LigneVote>(REQUETE_VOTES);
   const parQuestion = regrouper(lignes);

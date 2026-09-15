@@ -139,6 +139,81 @@ depuis le dépôt seul, comme celle de Lovable, de servir le site.
 `data/` n'est pas versionné : les données sont retéléchargeables, c'est le code
 d'import qui est le livrable.
 
+## Déploiement
+
+Le site tourne aussi bien en local (PGlite, ci-dessus) que déployé, à
+condition de lui donner une vraie base PostgreSQL : PGlite est un fichier sur
+disque, et la plupart des environnements de déploiement (dont Cloudflare
+Workers, la cible par défaut de `@lovable.dev/vite-tanstack-config`) n'ont
+pas de disque persistant entre deux requêtes.
+
+Le choix se fait par la variable d'environnement `DATABASE_URL` :
+
+- absente → PGlite local, comme en développement (`src/queries/db.ts`,
+  `scripts/import/db.ts`) ;
+- présente → PostgreSQL distant, ouvert avec `pg`. N'importe quel PostgreSQL
+  convient ; le porteur du projet a choisi Supabase, qui offre une instance
+  gratuite suffisante pour démarrer.
+
+### Mettre en place la base distante
+
+1. Créer un projet sur [supabase.com](https://supabase.com) et récupérer sa
+   chaîne de connexion (Project Settings → Database → Connection string,
+   variante « URI »). Elle a la forme
+   `postgresql://postgres:<mot-de-passe>@<hote>:5432/postgres`.
+2. Ne jamais commiter cette chaîne : elle contient un mot de passe. En local,
+   la mettre dans un fichier `.env` (ignoré par Git, voir `.gitignore`) :
+
+   ```sh
+   DATABASE_URL=postgresql://postgres:...@....supabase.co:5432/postgres
+   ```
+
+3. Rejouer la chaîne d'import complète (section « Données » ci-dessus) en
+   remplaçant `data/pg16` par `$DATABASE_URL` dans chaque commande, par
+   exemple :
+
+   ```sh
+   npm run data:charger 15 data/15 --db "$DATABASE_URL"
+   npm run data:charger 16 data/16 --db "$DATABASE_URL"
+   npm run data:charger 17 data/17 --db "$DATABASE_URL"
+   npm run data:formations -- --db "$DATABASE_URL"
+   npm run data:ordre-groupes -- --db "$DATABASE_URL"
+   npm run enrichissement:scores -- --db "$DATABASE_URL"
+   npm run data:questions -- --db "$DATABASE_URL"
+   npm run data:positions -- --db "$DATABASE_URL"
+   npm run data:programmes -- --db "$DATABASE_URL"
+   npm run data:positions-programme -- --db "$DATABASE_URL"
+   npm run data:bilans -- --db "$DATABASE_URL"
+   ```
+
+   Chaque script accepte indifféremment un chemin PGlite local ou une URL
+   PostgreSQL : `ouvrirBase()` choisit selon le préfixe `postgres://` ou
+   `postgresql://` (`scripts/import/db.ts`). Cette étape ne se rejoue qu'à
+   chaque mise à jour des données, pas à chaque déploiement.
+
+4. Déclarer `DATABASE_URL` comme variable d'environnement du déploiement
+   (dans l'interface Lovable, ou celle de l'hébergeur choisi), avec la même
+   valeur.
+
+### Publier
+
+Le projet est connecté à Lovable (voir l'encadré en tête d'`AGENTS.md`) :
+pousser sur la branche connectée met à jour l'éditeur Lovable, et un clic sur
+« Publish » dans son interface donne une adresse publique. C'est la voie la
+plus simple, sans configuration de build à écrire ici.
+
+**Point de vigilance non résolu** : si l'infrastructure de publication de
+Lovable déploie effectivement sur Cloudflare Workers (comme le laisse
+supposer la cible `cloudflare` par défaut de la configuration nitro), une
+connexion PostgreSQL classique par `pg` (protocole TCP direct) peut échouer :
+l'environnement d'exécution des Workers ne route pas nativement les sockets
+TCP arbitraires. Cloudflare résout ce cas précis avec
+[Hyperdrive](https://developers.cloudflare.com/hyperdrive/), qui demande un
+compte Cloudflare et une configuration côté Cloudflare, potentiellement hors
+de portée de l'abstraction « Publish » de Lovable. Si la connexion échoue
+après une première publication (erreur de socket plutôt qu'une simple absence
+de schéma), c'est la piste à suivre en premier.
+
 ## L'équipe d'agents
 
 Dix agents spécialisés sont définis dans `.claude/agents/`. Chacun porte ce que

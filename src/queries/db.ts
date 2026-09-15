@@ -1,37 +1,67 @@
 /**
  * Connexion en lecture à la base du site, côté serveur uniquement.
  *
- * En développement, c'est le PGlite persisté par `npm run data:charger`
- * (CLAUDE.md) : un fichier sous `data/pg16` à la racine du repo, aucun
- * serveur à démarrer. Le chemin est surchageable par `CP_DB_PATH` pour
- * pointer vers une autre base (ex. `data/pg16test`). Ce module ne connaît
- * qu'une interface de lecture : les scripts d'import (`scripts/import/db.ts`)
- * restent seuls responsables des migrations et des écritures.
+ * Deux modes, choisis par la présence de `DATABASE_URL` :
+ *
+ * - Absente (développement local) : PGlite persisté par `npm run
+ *   data:charger` (CLAUDE.md), un fichier sous `data/pg16` à la racine du
+ *   repo, surchageable par `CP_DB_PATH`. Aucun serveur à démarrer.
+ * - Présente (déploiement) : un vrai PostgreSQL distant, par exemple
+ *   Supabase, ouvert avec `pg`. C'est le mode attendu en production, où
+ *   PGlite — un fichier sur disque — ne survivrait de toute façon pas entre
+ *   deux invocations d'un environnement sans disque persistant.
+ *
+ * Les deux modes exposent la même fonction `(sql, params) => lignes`, ce qui
+ * laisse le reste de ce fichier, et tout le reste du site, inchangé entre
+ * les deux : aucune requête ci-dessous ne sait laquelle des deux bases elle
+ * interroge.
+ *
+ * Ce module ne connaît qu'une interface de lecture : les scripts d'import
+ * (`scripts/import/db.ts`) restent seuls responsables des migrations et des
+ * écritures, sur les deux mêmes bases.
  */
 
-import { PGlite } from "@electric-sql/pglite";
+type Executeur = (sql: string, params: unknown[]) => Promise<unknown[]>;
 
-let dbPromise: Promise<PGlite> | null = null;
+let executeurPromise: Promise<Executeur> | null = null;
 
-function obtenirDb(): Promise<PGlite> {
-  if (!dbPromise) {
-    const chemin = process.env["CP_DB_PATH"] ?? "data/pg16";
-    dbPromise = (async () => {
-      const pg = new PGlite(chemin);
-      await pg.waitReady;
-      return pg;
-    })();
+function obtenirExecuteur(): Promise<Executeur> {
+  if (!executeurPromise) {
+    const urlPostgres = process.env["DATABASE_URL"];
+    executeurPromise = urlPostgres
+      ? (async (): Promise<Executeur> => {
+          const { Pool } = await import("pg");
+          const pool = new Pool({
+            connectionString: urlPostgres,
+            // Un pool restreint : le site sert des pages, pas un traitement
+            // massivement concurrent, et Supabase limite les connexions
+            // simultanées selon le plan.
+            max: 5,
+            // Supabase présente un certificat que la chaîne de confiance par
+            // défaut de Node ne valide pas toujours selon l'environnement de
+            // déploiement ; la connexion reste chiffrée, seule la
+            // vérification stricte du certificat est désactivée.
+            ssl: { rejectUnauthorized: false },
+          });
+          return async (sql, params) => (await pool.query(sql, params)).rows;
+        })()
+      : (async (): Promise<Executeur> => {
+          const { PGlite } = await import("@electric-sql/pglite");
+          const chemin = process.env["CP_DB_PATH"] ?? "data/pg16";
+          const pg = new PGlite(chemin);
+          await pg.waitReady;
+          return async (sql, params) => (await pg.query(sql, params)).rows;
+        })();
   }
-  return dbPromise;
+  return executeurPromise;
 }
 
 export async function requete<T = Record<string, unknown>>(
   sql: string,
   params: unknown[] = [],
 ): Promise<T[]> {
-  const db = await obtenirDb();
-  const r = await db.query<T>(sql, params);
-  return r.rows;
+  const executer = await obtenirExecuteur();
+  return (await executer(sql, params)) as T[];
 }
 
 export async function requeteUne<T = Record<string, unknown>>(
@@ -47,17 +77,13 @@ let basePromise: Promise<boolean> | null = null;
 /**
  * La base de données est-elle chargée dans cet environnement ?
  *
- * `data/` n'est pas versionné (voir .gitignore) : les données sont
- * retéléchargeables, c'est le code d'import qui est le livrable. Un
- * déploiement fait depuis le dépôt seul, comme la prévisualisation Lovable,
- * démarre donc sans aucune base, et PGlite en crée une vide à la première
- * requête.
- *
- * Sans ce contrôle, chaque page interrogeant la base répond 500 avec
- * « relation officiel.scrutin does not exist », y compris l'accueil : le site
- * entier paraît cassé alors qu'il lui manque seulement ses données. Les
- * fonctions serveur renvoient donc un résultat vide, et les pages affichent
- * qu'elles attendent un chargement plutôt qu'une erreur.
+ * En développement local sans base chargée, ou sur un déploiement dont la
+ * base Postgres distante est vide, la requête ci-dessous répond simplement
+ * « non ». Sans ce contrôle, chaque page interrogeant la base répondrait 500
+ * avec « relation officiel.scrutin does not exist », y compris l'accueil :
+ * le site entier paraîtrait cassé alors qu'il lui manque seulement ses
+ * données. Les fonctions serveur renvoient donc un résultat vide, et les
+ * pages affichent qu'elles attendent un chargement plutôt qu'une erreur.
  *
  * Le résultat est mis en cache pour la durée du processus : une base ne se
  * charge pas pendant que le serveur tourne.
