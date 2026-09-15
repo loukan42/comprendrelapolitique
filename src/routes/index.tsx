@@ -245,17 +245,19 @@ function Accueil() {
                     Une personne atteinte d&apos;une maladie grave et incurable doit-elle pouvoir
                     demander une aide à mourir ?
                   </Text>
-                  <SimpleGrid cols={3} spacing="xs" mt="lg">
-                    <Button component="a" href="/quiz" variant="default">
-                      D&apos;accord
-                    </Button>
-                    <Button component="a" href="/quiz" variant="default">
-                      Pas d&apos;accord
-                    </Button>
-                    <Button component="a" href="/quiz" variant="default">
-                      Je ne sais pas
-                    </Button>
-                  </SimpleGrid>
+                  <Text size="sm" c="dimmed" mt="md">
+                    Cinq réponses possibles, de «&nbsp;Tout à fait d&apos;accord&nbsp;» à «&nbsp;Pas
+                    du tout d&apos;accord&nbsp;», ou «&nbsp;Je ne sais pas&nbsp;».
+                  </Text>
+                  <Button
+                    component="a"
+                    href="/quiz"
+                    mt="md"
+                    w="fit-content"
+                    rightSection={<IconArrowRight size={16} />}
+                  >
+                    Répondre dans le quiz
+                  </Button>
                   <Text size="sm" c="dimmed" mt="lg">
                     Vous répondez d&apos;abord. Nous vous montrons ensuite comment les différents
                     groupes politiques ont réellement voté, lors des scrutins de juin et juillet
@@ -434,7 +436,7 @@ function Accueil() {
           {dernierVote && (
             <Grid gap={{ base: 24, md: 64 }} align="center">
               <Grid.Col span={{ base: 12, md: 5 }}>
-                <Etiquette>Le dernier grand vote à l&apos;Assemblée</Etiquette>
+                <Etiquette>Le dernier vote sur une loi à l&apos;Assemblée</Etiquette>
                 <Title order={2} mt="xs">
                   {dernierVote.titre ?? "Le dernier texte voté"}
                 </Title>

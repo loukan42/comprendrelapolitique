@@ -1,29 +1,34 @@
 /**
- * Requêtes de la liste des dossiers législatifs (`/lois`). Code serveur
- * uniquement : voir src/lib/db.server.ts.
+ * Requêtes de la liste des lois (`/lois`). Code serveur uniquement : voir
+ * src/lib/db.server.ts.
  *
- * Tri par défaut : `enrichissement.score_importance.institutionnel`
- * décroissant. C'est le seul des quatre sous-scores calculé aujourd'hui
- * (docs/CLASSIFICATION.md) : médiatique et portée restent NULL partout, donc
- * `score_total` l'est aussi pour chaque dossier (docs/SCORING.md section 7).
- * Ne jamais trier sur `score_total`. La jointure avec
- * `enrichissement.score_importance` est volontairement une jointure interne :
- * les 29 dossiers d'engagement de responsabilité par 49.3 n'ont pas de score
- * (docs/CLASSIFICATION.md section 1) et ne doivent pas apparaître comme des
- * lois autonomes dans cette liste.
+ * Tri : du texte dont la dernière étape est la plus récente au plus ancien.
+ * Le score d'importance n'est plus un filtre : la liste reposait sur une
+ * jointure interne avec `enrichissement.score_importance`, et une base où ce
+ * calcul n'avait pas été lancé affichait « 0 dossiers ». Le score reste
+ * affiché quand il existe, en information secondaire.
+ *
+ * Les dossiers d'engagement de responsabilité par 49.3 (`officiel.dossier_49_3`)
+ * sont exclus : ce sont des dossiers de procédure, pas des lois autonomes ;
+ * la loi qu'ils concernent porte le badge « Adopté par 49.3 ».
+ *
+ * Par défaut, la liste ne montre que les textes de loi (projets et
+ * propositions de loi, lois organiques, constitutionnelles, de finances).
+ * Les résolutions, commissions d'enquête et autres procédures s'affichent sur
+ * demande.
  *
  * Le badge de résultat reprend la même priorité que `chargerBlocVote` de
  * lois.server.ts (49.3 avant vote sur l'ensemble), sans appeler cette
- * fonction : elle charge le détail complet d'un scrutin (groupes, votes
- * individuels un par un) pour une seule page loi, ce qui serait
- * disproportionné répété pour les trente lignes d'une page de liste. Le
- * gabarit « conflit » et le gabarit « aucun scrutin » n'ont pas de badge ici :
- * la liste n'affiche un résultat que quand il est connu et non ambigu.
+ * fonction, trop lourde pour trente lignes. Un dossier en conflit de
+ * rattachement n'affiche pas de résultat tranché, pour ne jamais contredire
+ * sa page.
  */
 
 import { baseDisponible, ligne, query } from "./db.server";
 
 export const TAILLE_PAGE = 30;
+
+export const LEGISLATURES_LISTE = [17, 16, 15] as const;
 
 export interface StatutDossier {
   libelle: string;
@@ -33,7 +38,9 @@ export interface StatutDossier {
 export interface DossierListe {
   uid: string;
   titre: string | null;
-  scoreInstitutionnel: number;
+  legislature: number | null;
+  scoreInstitutionnel: number | null;
+  /** Date de la dernière étape connue, en heure de Paris (AAAA-MM-JJ). */
   derniereDate: string | null;
   statut: StatutDossier | null;
 }
@@ -65,21 +72,32 @@ function deriverStatut(
   return null;
 }
 
+/** Filtres communs au compte et à la page : mêmes paramètres, mêmes positions. */
+const FILTRE = `
+       d.legislature BETWEEN 15 AND 17
+   AND NOT EXISTS (SELECT 1 FROM officiel.dossier_49_3 e WHERE e.dossier_uid = d.uid)
+   AND ($1::text IS NULL OR d.titre ILIKE $1)
+   AND ($2::smallint IS NULL OR d.legislature = $2)
+   AND ($3::boolean OR d.procedure_libelle ILIKE '%loi%')`;
+
 export async function chargerListeDossiers(options: {
   page: number;
   recherche: string | null;
+  legislature: number | null;
+  tout: boolean;
 }): Promise<ListeDossiers> {
   if (!(await baseDisponible()))
     return { dossiers: [], total: 0, page: options.page, nombrePages: 0 };
   const recherche = options.recherche?.trim() || null;
   const motif = recherche ? `%${recherche}%` : null;
+  const legislature = LEGISLATURES_LISTE.some((l) => l === options.legislature)
+    ? options.legislature
+    : null;
+  const parametres = [motif, legislature, options.tout];
 
   const compte = await ligne<{ total: string }>(
-    `SELECT count(*)::text AS total
-       FROM officiel.dossier d
-       JOIN enrichissement.score_importance si ON si.dossier_uid = d.uid
-      WHERE $1::text IS NULL OR d.titre ILIKE $1`,
-    [motif],
+    `SELECT count(*)::text AS total FROM officiel.dossier d WHERE ${FILTRE}`,
+    parametres,
   );
   const total = Number(compte?.total ?? 0);
   const nombrePages = Math.max(1, Math.ceil(total / TAILLE_PAGE));
@@ -88,23 +106,24 @@ export async function chargerListeDossiers(options: {
   const rows = await query<{
     uid: string;
     titre: string | null;
-    institutionnel: number;
+    legislature: number | null;
+    institutionnel: number | null;
     derniere_date: string | null;
     adopte_49_3: boolean;
     en_conflit: boolean;
     vote_ensemble_sort_code: string | null;
     vote_ensemble_sort_libelle: string | null;
   }>(
-    `SELECT d.uid, d.titre, si.institutionnel,
-            (SELECT max(a.date_acte)::text
-               FROM officiel.acte_legislatif a
-              WHERE a.dossier_uid = d.uid) AS derniere_date,
+    `WITH derniers AS (
+       SELECT dossier_uid, max(date_acte) AS derniere
+         FROM officiel.acte_legislatif
+        GROUP BY dossier_uid
+     )
+     SELECT d.uid, d.titre, d.legislature, si.institutionnel,
+            (de.derniere AT TIME ZONE 'Europe/Paris')::date::text AS derniere_date,
             EXISTS(
               SELECT 1 FROM officiel.dossier_adopte_sans_vote sv WHERE sv.dossier_uid = d.uid
             ) AS adopte_49_3,
-            -- Même règle que le gabarit conflit de chargerBlocVote (lois.server.ts) :
-            -- un dossier partie prenante d'un rattachement CONFLIT n'affiche pas
-            -- de résultat tranché ici, pour ne jamais contredire la page dossier.
             EXISTS(
               SELECT 1 FROM officiel.scrutin_dossier c
                WHERE c.methode = 'CONFLIT'
@@ -113,7 +132,8 @@ export async function chargerListeDossiers(options: {
             ve.sort_code AS vote_ensemble_sort_code,
             ve.sort_libelle AS vote_ensemble_sort_libelle
        FROM officiel.dossier d
-       JOIN enrichissement.score_importance si ON si.dossier_uid = d.uid
+       LEFT JOIN derniers de ON de.dossier_uid = d.uid
+       LEFT JOIN enrichissement.score_importance si ON si.dossier_uid = d.uid
        LEFT JOIN LATERAL (
          SELECT s.sort_code, s.sort_libelle
            FROM officiel.scrutin_dossier sd
@@ -124,16 +144,17 @@ export async function chargerListeDossiers(options: {
           ORDER BY s.date_scrutin DESC
           LIMIT 1
        ) ve ON true
-      WHERE $1::text IS NULL OR d.titre ILIKE $1
-      ORDER BY si.institutionnel DESC, d.uid
-      LIMIT $2 OFFSET $3`,
-    [motif, TAILLE_PAGE, (page - 1) * TAILLE_PAGE],
+      WHERE ${FILTRE}
+      ORDER BY de.derniere DESC NULLS LAST, d.uid
+      LIMIT $4 OFFSET $5`,
+    [...parametres, TAILLE_PAGE, (page - 1) * TAILLE_PAGE],
   );
 
   return {
     dossiers: rows.map((r) => ({
       uid: r.uid,
       titre: r.titre,
+      legislature: r.legislature,
       scoreInstitutionnel: r.institutionnel,
       derniereDate: r.derniere_date,
       // Même ordre de priorité que chargerBlocVote : 49.3 d'abord, puis le

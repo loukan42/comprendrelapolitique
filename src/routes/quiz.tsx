@@ -8,6 +8,7 @@ import {
   Checkbox,
   Collapse,
   Container,
+  Divider,
   Group,
   Progress,
   Stack,
@@ -216,6 +217,15 @@ function EcranQuestion({
         </Collapse>
       </Box>
 
+      {/* La pondération se choisit avant de répondre : un clic sur une
+          réponse passe à la question suivante. */}
+      <Checkbox
+        label="Ce sujet compte particulièrement pour moi"
+        description="Il pèsera double dans votre résultat."
+        checked={important}
+        onChange={(ev) => setImportant(ev.currentTarget.checked)}
+      />
+
       <Stack gap="sm">
         {ECHELLE.map((e) => (
           <UnstyledButton
@@ -230,16 +240,18 @@ function EcranQuestion({
         ))}
       </Stack>
 
-      <Group justify="space-between" gap="sm">
-        <Checkbox
-          label="Ce sujet compte particulièrement pour moi"
-          checked={important}
-          onChange={(ev) => setImportant(ev.currentTarget.checked)}
-        />
-        <Button variant="subtle" color="graphite" onClick={() => repondre("NSP")}>
-          Je ne sais pas
-        </Button>
-      </Group>
+      <Divider label="ou" labelPosition="center" />
+      <UnstyledButton
+        className={`${classes["option"]} ${classes["choisissable"]} ${
+          reponse?.reponse === "NSP" ? classes["choisie"] : ""
+        }`}
+        onClick={() => repondre("NSP")}
+      >
+        <Text>Je ne sais pas</Text>
+        <Text size="xs" c="dimmed" mt={2}>
+          La question ne comptera pas dans votre résultat.
+        </Text>
+      </UnstyledButton>
     </Stack>
   );
 }

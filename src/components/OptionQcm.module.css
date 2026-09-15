@@ -23,12 +23,12 @@
 }
 
 .choisissable:hover {
-  border-color: var(--mantine-primary-color-filled);
+  border-color: var(--mantine-color-white);
   background-color: var(--mantine-color-default-hover);
 }
 
 .choisissable:focus-visible {
-  outline: 2px solid var(--mantine-primary-color-filled);
+  outline: 2px solid var(--mantine-color-white);
   outline-offset: 2px;
 }
 
@@ -38,6 +38,6 @@
  * « votre choix » l'accompagne dans le composant.
  */
 .choisie {
-  border-color: var(--mantine-primary-color-filled);
-  box-shadow: inset 0 0 0 1px var(--mantine-primary-color-filled);
+  border-color: var(--mantine-color-white);
+  box-shadow: inset 0 0 0 1px var(--mantine-color-white);
 }

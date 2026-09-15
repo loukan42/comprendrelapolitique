@@ -65,7 +65,7 @@ export function SiteHeader() {
             </Menu.Target>
             <Menu.Dropdown>
               {QUIZ.map((q) => (
-                <Menu.Item key={q.to} component="a" href={q.to}>
+                <Menu.Item key={q.to} component={Link} to={q.to}>
                   <span className={classes["itemMenu"]}>{q.libelle}</span>
                   <span className={classes["detailMenu"]}>{q.detail}</span>
                 </Menu.Item>
@@ -94,9 +94,11 @@ export function SiteHeader() {
           </ActionIcon>
         </nav>
 
-        <Button component="a" href="/quiz" size="sm" className={classes["action"]}>
-          Faire le quiz
-        </Button>
+        {!quizActif && (
+          <Button component={Link} to="/quiz" size="sm" className={classes["action"]}>
+            Faire le quiz
+          </Button>
+        )}
 
         <Burger
           opened={ouvert}

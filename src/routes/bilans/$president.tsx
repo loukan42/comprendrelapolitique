@@ -105,7 +105,6 @@ const dateLongue = new Intl.DateTimeFormat("fr-FR", {
   year: "numeric",
 });
 const annee = new Intl.DateTimeFormat("fr-FR", { year: "numeric" });
-const pourcent = new Intl.NumberFormat("fr-FR", { style: "percent", maximumFractionDigits: 0 });
 
 function PastilleStatut({ statut }: { statut: StatutEngagement }) {
   return (
@@ -353,22 +352,11 @@ function Statistiques({ mandat }: { mandat: Mandat }) {
         ))}
       </SimpleGrid>
 
-      {r.tauxRealises !== null && (
-        <Box mt="lg">
-          <Text size="sm">
-            <Text span fw={700}>
-              {pourcent.format(r.tauxRealises)}
-            </Text>{" "}
-            des {r.evaluables} engagements évaluables sont entièrement réalisés.
-          </Text>
-          <Text size="xs" c="dimmed" mt={4}>
-            Le calcul porte sur les engagements réalisés, partiellement réalisés, non réalisés ou
-            abandonnés. Les engagements en cours et ceux qu&apos;on ne peut pas évaluer en sont
-            exclus : les compter comme non tenus serait faux, les compter comme tenus le serait
-            aussi.
-          </Text>
-        </Box>
-      )}
+      <Text size="xs" c="dimmed" mt="lg">
+        Ces engagements sont une sélection faite par le site parmi ceux du programme présidentiel :
+        ils ne résument pas le bilan du quinquennat. La règle de sélection et les sources sont
+        décrites dans la méthodologie.
+      </Text>
     </Card>
   );
 }
