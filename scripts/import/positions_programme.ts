@@ -976,6 +976,119 @@ const POSITIONS: PositionSource[] = [
     extrait:
       "Instaurer une démocratie continue et participative en facilitant l’usage du référendum grâce à l’abaissement du seuil pour le référendum d’initiative partagée (RIP) avec 1 million de signatures et la création d’un référendum d’initiative citoyenne (RIC)",
   },
+
+  // Place publique : L'Acte I, projet du parti de Raphaël Glucksmann.
+  {
+    id: "pp-retraites",
+    programmeId: "pp-acte-1",
+    theme: "retraites",
+    questionId: "retraites-age",
+    extrait:
+      "cesser la focalisation sur le seul âge légal qui produit l’injustice et fonder notre philosophie sur les inégalités de conditions et d’espérance de vie : certains doivent pouvoir partir à la retraite à 60 ans, d’autres devront travailler davantage",
+  },
+  {
+    id: "pp-immigration",
+    programmeId: "pp-acte-1",
+    theme: "immigration",
+    questionId: "immigration-accueil",
+    extrait:
+      "Créer des voies légales et sécurisées d’immigration de travail et passer des accords bilatéraux (au niveau français ou européen) avec les pays d’origine",
+  },
+  {
+    id: "pp-smic",
+    programmeId: "pp-acte-1",
+    theme: "travail",
+    sousTheme: "salaires",
+    questionId: "travail-salaires",
+    extrait:
+      "Augmenter le SMIC à 1600 euros net dans les deux ans qui suivent notre accession au pouvoir",
+  },
+  {
+    id: "pp-nucleaire",
+    programmeId: "pp-acte-1",
+    theme: "energie",
+    questionId: "energie-nucleaire",
+    extrait:
+      "Conforter le rôle du nucléaire, énergie pilotable et décarbonée, en assurant la sûreté des centrales existantes et la construction à temps de nouvelles unités",
+  },
+  {
+    id: "pp-fiscalite",
+    programmeId: "pp-acte-1",
+    theme: "impots",
+    questionId: "impots-patrimoine",
+    extrait:
+      "Lancer un grand chantier fiscal visant à rééquilibrer la répartition de la taxation entre le travail, le capital, l’héritage et les retraites",
+  },
+  {
+    id: "pp-dette",
+    programmeId: "pp-acte-1",
+    theme: "finances",
+    questionId: "deficit-dette",
+    extrait:
+      "Assainir durablement les finances publiques par une trajectoire crédible de désendettement, pour emprunter à des conditions plus favorables et investir dans l’avenir",
+  },
+  {
+    id: "pp-initiative",
+    programmeId: "pp-acte-1",
+    theme: "institutions",
+    questionId: "institutions-citoyens",
+    extrait:
+      "Instaurer un droit d’initiative citoyenne, permettant de déclencher des séquences démocratiques avec des référendums à l’échelle locale et nationale",
+  },
+  {
+    id: "pp-proportionnelle",
+    programmeId: "pp-acte-1",
+    theme: "institutions",
+    extrait:
+      "Instaurer immédiatement la proportionnelle, de préférence par circonscriptions régionales avec un fléchage départemental des candidats",
+  },
+  {
+    id: "pp-narcotrafic",
+    programmeId: "pp-acte-1",
+    theme: "securite",
+    sousTheme: "drogue",
+    questionId: "drogue",
+    extrait: "Muscler les moyens d’enquête contre le narcotrafic",
+  },
+  {
+    id: "pp-commerce",
+    programmeId: "pp-acte-1",
+    theme: "economie",
+    questionId: "industrie-concurrence",
+    extrait:
+      "Renforcer nos outils de défense commerciale pour activer des clauses de protection quand un secteur est menacé, sanctionner le dumping, surveiller de près les investissements étrangers dans les secteurs stratégiques",
+  },
+  {
+    id: "pp-ecole",
+    programmeId: "pp-acte-1",
+    theme: "education",
+    questionId: "ecole-priorite",
+    extrait:
+      "Réduire le nombre d’élèves par enseignant en primaire et l’expérimenter dans le second degré",
+  },
+  {
+    id: "pp-loyers",
+    programmeId: "pp-acte-1",
+    theme: "logement",
+    questionId: "logement",
+    extrait:
+      "Encadrer les loyers dans les zones en grande tension pour garantir l’accès au logement aux ménages modestes",
+  },
+  {
+    id: "pp-peines",
+    programmeId: "pp-acte-1",
+    theme: "justice",
+    questionId: "justice-peines",
+    extrait:
+      "Lutter contre la surpopulation carcérale en adaptant les peines aux profils des détenus",
+  },
+  {
+    id: "pp-creches",
+    programmeId: "pp-acte-1",
+    theme: "famille",
+    questionId: "familles",
+    extrait: "Mettre en place un encadrement strict des crèches privées",
+  },
 ];
 
 const MIGRATION = resolve("db/migrations/006_programmes.sql");

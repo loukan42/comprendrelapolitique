@@ -58,7 +58,7 @@ commencer avant d'en modifier le contenu.
   Gabriel Attal, Édouard Philippe et Jean-Luc Mélenchon ; pour les autres
   candidats, le document le plus récent de leur formation.
 - **Comparateur** (`/programmes/comparer`) : deux formations côte à côte, sur
-  citations vérifiées. Huit formations, 97 citations.
+  citations vérifiées. Neuf formations, 111 citations.
 - **Quiz des programmes** (`/programmes/quiz`) : 17 questions, chacune réunissant
   au moins trois formations, des citations présentées sans leur auteur,
   révélé après le choix avec le candidat et la nature du document. Un repère
@@ -88,7 +88,7 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 | `groupe_ordre` | placement gauche-droite dans l'hémicycle | 43 groupes |
 | `question`, `question_scrutin` | banque du quiz des votes | 11 questions, 15 scrutins |
 | `question_position` | positions calculées par formation | 95 |
-| `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 38 références, 97 citations, 17 questions |
+| `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 38 références, 111 citations, 17 questions |
 | `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 24 engagements |
 | `score_importance`, `dossier_theme` | score et classification | 10 647 dossiers |
 
@@ -137,8 +137,8 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
    Restent absents, faute de texte citable : Les Écologistes (le site de
    Marine Tondelier publie des billets, pas de programme), Xavier Bertrand
    (pages de programme rendues en JavaScript, sans texte lisible par le
-   vérificateur), Reconquête (plateforme participative). La « vision en 42
-   chantiers » de Place publique n'a pas encore été exploitée. À reprendre à
+   vérificateur), Reconquête (plateforme participative). Raphaël Glucksmann
+   est cité dans L'Acte I de Place publique. À reprendre à
    la désignation du candidat socialiste, après la primaire des 10 et
    11 octobre 2026. Élargir passe par de nouvelles citations, jamais par une
    position déduite.

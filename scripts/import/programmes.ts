@@ -334,11 +334,13 @@ const REFERENCES: Reference[] = [
     note: "Site du parti inaccessible à la vérification automatique ; aucune référence retenue tant qu'une URL n'a pas été contrôlée.",
   },
   {
-    id: "place-publique-aucun",
+    id: "pp-acte-1",
     formation: "Place publique",
     candidat: "Raphaël Glucksmann",
-    nature: "aucun",
-    note: "Participe à la primaire organisée avec le Parti socialiste. Aucun programme présidentiel publié à ce jour.",
+    titre: "L'Acte I, notre vision pour la France",
+    nature: "programme_parti",
+    url: "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+    note: "Premier texte du projet du parti, en 42 chantiers. Raphaël Glucksmann est candidat à la primaire de la gauche d'octobre 2026.",
   },
   {
     id: "ps-primaire-guedj",
