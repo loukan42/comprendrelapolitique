@@ -37,7 +37,7 @@ import {
 
 export const Route = createFileRoute("/programmes/quiz")({
   loader: () => chargerQcmProgrammes(),
-  head: () => ({ meta: [{ title: "Le quiz des programmes · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Le quiz des programmes · Politiquizz" }] }),
   component: PageQcm,
 });
 
@@ -143,7 +143,6 @@ function Proposition({
       className={`${classes["option"]} ${classes["choisissable"]} ${choisie ? classes["choisie"] : ""}`}
       aria-pressed={choisie}
       onClick={onChoisir}
-      aria-label={`Proposition ${lettre}`}
     >
       {contenu}
     </UnstyledButton>
@@ -354,7 +353,13 @@ function EcranResultat({
       <Couverture questions={questions} />
 
       <Group gap="md">
-        <Button variant="default" onClick={onRecommencer}>
+        <Button component="a" href="/quiz">
+          Faire le quiz des votes
+        </Button>
+        <Button component="a" href="/programmes/comparer" variant="default">
+          Comparer les candidats
+        </Button>
+        <Button variant="subtle" color="gray" onClick={onRecommencer}>
           Refaire le quiz
         </Button>
         <Anchor component={Link} to="/programmes" size="sm">

@@ -1,4 +1,5 @@
 import {
+  Box,
   Anchor,
   Button,
   ColorSchemeScript,
@@ -106,13 +107,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Comprendre la Politique" },
+      { title: "Politiquizz" },
       {
         name: "description",
         content:
           "Ce que font réellement les responsables politiques français, à partir des données publiques officielles.",
       },
-      { property: "og:title", content: "Comprendre la Politique" },
+      { property: "og:title", content: "Politiquizz" },
       {
         property: "og:description",
         content:
@@ -161,7 +162,9 @@ function RootComponent() {
         <SiteHeader />
         {/* Requis : les routes enfants s'affichent ici. Retirer l'Outlet les
             rend toutes inertes. */}
-        <Outlet />
+        <Box component="main" id="contenu" tabIndex={-1}>
+          <Outlet />
+        </Box>
         <SiteFooter />
       </QueryClientProvider>
     </MantineProvider>

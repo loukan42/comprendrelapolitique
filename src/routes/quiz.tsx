@@ -34,7 +34,7 @@ import { chargerBanqueQuiz, type QuestionBanque, type ScrutinQuestion } from "..
 
 export const Route = createFileRoute("/quiz")({
   loader: () => chargerBanqueQuiz(),
-  head: () => ({ meta: [{ title: "Le quiz des votes · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Le quiz des votes · Politiquizz" }] }),
   component: PageQuiz,
 });
 
@@ -386,9 +386,17 @@ function EcranResultat({
         </Accordion>
       </Stack>
 
-      <Button variant="default" onClick={onRecommencer} w="fit-content">
-        Refaire le quiz
-      </Button>
+      <Group gap="md">
+        <Button component="a" href="/programmes/quiz">
+          Faire le quiz des programmes
+        </Button>
+        <Button component="a" href="/programmes/comparer" variant="default">
+          Comparer les candidats
+        </Button>
+        <Button variant="subtle" color="gray" onClick={onRecommencer}>
+          Refaire le quiz
+        </Button>
+      </Group>
     </Stack>
   );
 }

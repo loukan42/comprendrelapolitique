@@ -8,7 +8,7 @@ import { createTheme, type MantineColorsTuple } from "@mantine/core";
  * graisse normale à l'interlettrage resserré, un corps de texte léger, des
  * surfaces sans fond. Elle reprend le système Dala (styles.refero.design).
  *
- * Les boutons et les liens reprennent les deux couleurs du logo PolitiQuizz,
+ * Les boutons et les liens reprennent les deux couleurs du logo Politiquizz,
  * le bleu marine et le rouge, à la demande du porteur du projet
  * (14 septembre 2026). C'est un écart assumé avec AGENTS.md section 4, qui
  * déconseille le bleu et le rouge comme accent : ils sont ici l'identité de la
@@ -126,7 +126,7 @@ export const theme = createTheme({
   primaryShade: { light: 7, dark: 7 },
   colors: { rouge, bleu, dark, encre, graphite, ocre },
 
-  white: "#f7f5f0",
+  white: "#ffffff",
   black: "#0b0b0b",
 
   // Une seule famille, Inter, substitut désigné du caractère de la référence.

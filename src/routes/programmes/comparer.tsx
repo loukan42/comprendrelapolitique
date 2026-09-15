@@ -47,7 +47,7 @@ const recherche = z.object({
 export const Route = createFileRoute("/programmes/comparer")({
   validateSearch: recherche,
   loader: () => chargerBenchmark(),
-  head: () => ({ meta: [{ title: "Comparer les programmes · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Comparer les programmes · Politiquizz" }] }),
   component: PageComparer,
 });
 
@@ -163,10 +163,10 @@ function PageComparer() {
 
   const formations = useMemo(() => formationsDe(questions), [questions]);
   const existe = (f: string | undefined) => !!f && formations.some((x) => x.formation === f);
-  const a = existe(search.a) ? search.a! : (formations[0]?.formation ?? null);
-  const b = existe(search.b)
-    ? search.b!
-    : (formations.find((f) => f.formation !== a)?.formation ?? null);
+  // Aucun duel n'est imposé à l'arrivée : proposer d'emblée deux candidats
+  // se lirait comme un choix éditorial. La matrice sert de point d'entrée.
+  const a = existe(search.a) ? search.a! : null;
+  const b = existe(search.b) ? search.b! : null;
   const fa = formations.find((f) => f.formation === a);
   const fb = formations.find((f) => f.formation === b);
 
@@ -200,9 +200,9 @@ function PageComparer() {
             Comparer les programmes
           </Title>
           <Text mt="sm" c="dimmed" maw={720}>
-            Deux candidats face à face, sur dix-sept questions, à partir de citations de leurs
-            documents. Le score et les graphiques reposent sur une lecture du site : chaque citation
-            est placée sur un axe entre deux pôles. La citation reste affichée à côté, pour
+            Deux candidats face à face, sur {questions.length} questions, à partir de citations de
+            leurs documents. Le score et les graphiques reposent sur une lecture du site : chaque
+            citation est placée sur un axe entre deux pôles. La citation reste affichée à côté, pour
             qu&apos;on puisse vérifier.
           </Text>
         </Box>
@@ -223,7 +223,10 @@ function PageComparer() {
                     value={a}
                     allowDeselect={false}
                     leftSection={<Marqueur cote="a" />}
-                    onChange={(v) => v && b && choisir(v, b)}
+                    placeholder="Choisir un candidat"
+                    onChange={(v) =>
+                      v && navigate({ search: { a: v, ...(b ? { b } : {}) }, resetScroll: false })
+                    }
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 2 }}>
@@ -246,14 +249,21 @@ function PageComparer() {
                     value={b}
                     allowDeselect={false}
                     leftSection={<Marqueur cote="b" />}
-                    onChange={(v) => v && a && choisir(a, v)}
+                    placeholder="Choisir un candidat"
+                    onChange={(v) =>
+                      v && navigate({ search: { ...(a ? { a } : {}), b: v }, resetScroll: false })
+                    }
                   />
                 </Grid.Col>
               </Grid>
             </Card>
 
             {!comparaison ? (
-              <Text c="dimmed">Choisir deux candidats différents.</Text>
+              <Text c="dimmed">
+                {a && a === b
+                  ? "Choisissez deux candidats différents."
+                  : "Choisissez deux candidats ci-dessus, ou cliquez une case de la matrice plus bas."}
+              </Text>
             ) : (
               <>
                 <Box>

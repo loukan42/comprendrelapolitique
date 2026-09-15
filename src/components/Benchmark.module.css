@@ -134,7 +134,7 @@
 .cellule {
   aspect-ratio: 1;
   min-height: 2.75rem;
-  border: 1px solid transparent;
+  border: 1px solid var(--mantine-color-dark-4);
   border-radius: var(--mantine-radius-sm);
   background: color-mix(in srgb, var(--accord-identique) var(--intensite, 0%), var(--mantine-color-dark-7));
   color: var(--mantine-color-white);
@@ -164,7 +164,7 @@
 
 .ligneAxe,
 .graduation {
-  stroke: var(--mantine-color-default-border);
+  stroke: var(--mantine-color-dark-3);
   stroke-width: 2;
 }
 

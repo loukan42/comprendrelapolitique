@@ -24,7 +24,7 @@ export const Route = createFileRoute("/groupes/$uid")({
     meta: loaderData
       ? [
           {
-            title: `${loaderData.organe.libelle ?? loaderData.organe.uid} · Comprendre la Politique`,
+            title: `${loaderData.organe.libelle ?? loaderData.organe.uid} · Politiquizz`,
           },
         ]
       : [],
@@ -33,6 +33,7 @@ export const Route = createFileRoute("/groupes/$uid")({
 });
 
 const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
   day: "numeric",
   month: "short",
   year: "numeric",
@@ -45,10 +46,10 @@ function PageGroupe() {
   return (
     <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
-        <Anchor href="/recherche" size="sm" c="dimmed" underline="hover" w="fit-content">
+        <Anchor href="/lois" size="sm" c="dimmed" underline="hover" w="fit-content">
           <Group gap={4} wrap="nowrap">
             <IconArrowLeft size={14} />
-            Retour à la recherche
+            Toutes les lois
           </Group>
         </Anchor>
 

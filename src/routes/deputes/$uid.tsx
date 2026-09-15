@@ -26,7 +26,7 @@ export const Route = createFileRoute("/deputes/$uid")({
     meta: loaderData
       ? [
           {
-            title: `${loaderData.acteur.civilite ?? ""} ${loaderData.acteur.prenom ?? ""} ${loaderData.acteur.nom} · Comprendre la Politique`,
+            title: `${loaderData.acteur.civilite ?? ""} ${loaderData.acteur.prenom ?? ""} ${loaderData.acteur.nom} · Politiquizz`,
           },
         ]
       : [],
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/deputes/$uid")({
 });
 
 const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
   day: "numeric",
   month: "short",
   year: "numeric",
@@ -56,10 +57,10 @@ function PageDepute() {
   return (
     <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
-        <Anchor href="/recherche" size="sm" c="dimmed" underline="hover" w="fit-content">
+        <Anchor href="/lois" size="sm" c="dimmed" underline="hover" w="fit-content">
           <Group gap={4} wrap="nowrap">
             <IconArrowLeft size={14} />
-            Retour à la recherche
+            Toutes les lois
           </Group>
         </Anchor>
 
@@ -118,7 +119,8 @@ function PageDepute() {
             <Text mt="sm" c="dimmed" maw="var(--mesure-texte)">
               Part des votes de ce parlementaire qui suivaient la position majoritaire de chaque
               groupe, sur les scrutins où celle-ci était connue (au moins 20 scrutins comparés).
-              Même méthode que le quiz, appliquée à ses votes réels plutôt qu&apos;à des réponses.
+              Part des scrutins où ce député a voté comme la majorité de chaque groupe. Ce
+              n&apos;est pas le calcul du quiz, qui compare des réponses à des positions pondérées.
             </Text>
             <Stack gap="sm" mt="lg" maw="var(--mesure-texte)">
               {proximiteGroupes.map((p) => (

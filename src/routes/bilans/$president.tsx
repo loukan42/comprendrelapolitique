@@ -36,7 +36,7 @@ export const Route = createFileRoute("/bilans/$president")({
     meta: loaderData
       ? [
           {
-            title: `Bilan des engagements ${precede("de", loaderData.prenom)} ${loaderData.nom} · Comprendre la Politique`,
+            title: `Bilan des engagements ${precede("de", loaderData.prenom)} ${loaderData.nom} · Politiquizz`,
           },
         ]
       : [],
@@ -100,11 +100,12 @@ function precede(preposition: "de", mot: string): string {
 }
 
 const dateLongue = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
   day: "numeric",
   month: "long",
   year: "numeric",
 });
-const annee = new Intl.DateTimeFormat("fr-FR", { year: "numeric" });
+const annee = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", year: "numeric" });
 
 function PastilleStatut({ statut }: { statut: StatutEngagement }) {
   return (

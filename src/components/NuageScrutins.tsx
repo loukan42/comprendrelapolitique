@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { decoder, disposer, TEINTES } from "../lib/nuageScrutins";
+import { decoder, disposer, LIBELLE_TEINTE, TEINTES } from "../lib/nuageScrutins";
 import type { DonneesNuage } from "../queries/nuage";
 import classes from "./NuageScrutins.module.css";
 
@@ -343,7 +343,7 @@ export function NuageScrutins({
         role="img"
         aria-label={
           donnees
-            ? `Hémicycle de ${nombre.format(donnees.total)} scrutins publics de l'Assemblée nationale depuis 2017, colorés selon l'objet du vote. La légende en donne le détail.`
+            ? `Hémicycle de ${nombre.format(donnees.total)} scrutins publics de l'Assemblée nationale depuis 2017, colorés selon l'objet du vote : ${TEINTES.map((t) => `${nombre.format(donnees.comptes[t])} ${LIBELLE_TEINTE[t]}`).join(", ")}.`
             : "Hémicycle des scrutins publics de l'Assemblée nationale, en cours de chargement."
         }
       />

@@ -10,6 +10,7 @@ import { chercherDossiers, type DossierListe } from "../queries/lois";
 const rechercheSchema = z.object({ q: z.string().optional() });
 
 export const Route = createFileRoute("/recherche")({
+  head: () => ({ meta: [{ title: "Chercher une loi · Politiquizz" }] }),
   validateSearch: rechercheSchema,
   component: PageRecherche,
 });
@@ -57,12 +58,12 @@ function PageRecherche() {
         <TextInput
           size="md"
           maw="var(--mesure-texte)"
+          label="Chercher une loi par son titre"
           placeholder="Ex. retraites, immigration, formation des sages-femmes…"
           value={saisie}
           onChange={(e) => setSaisie(e.currentTarget.value)}
           leftSection={<IconSearch size={18} />}
           rightSection={enCours ? <Loader size="xs" /> : null}
-          autoFocus
         />
 
         {terme.trim().length >= 2 && !enCours && resultats.length === 0 && (

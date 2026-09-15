@@ -117,6 +117,7 @@ export async function chargerListeDossiers(options: {
     `WITH derniers AS (
        SELECT dossier_uid, max(date_acte) AS derniere
          FROM officiel.acte_legislatif
+        WHERE date_acte <= now()
         GROUP BY dossier_uid
      )
      SELECT d.uid, d.titre, d.legislature, si.institutionnel,

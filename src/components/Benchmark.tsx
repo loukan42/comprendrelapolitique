@@ -36,12 +36,6 @@ export function JaugeProximite({ valeur, communes }: { valeur: number | null; co
             : `Proximité de ${pourcent(valeur)} sur ${communes} questions communes.`
         }
       >
-        <defs>
-          <linearGradient id="degrade-jauge" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" className={classes["stopDebut"]} />
-            <stop offset="100%" className={classes["stopFin"]} />
-          </linearGradient>
-        </defs>
         <circle cx="90" cy="90" r={rayon} className={classes["fondAnneau"]} strokeWidth="14" />
         {valeur !== null && (
           <circle
@@ -49,7 +43,7 @@ export function JaugeProximite({ valeur, communes }: { valeur: number | null; co
             cy="90"
             r={rayon}
             fill="none"
-            stroke="url(#degrade-jauge)"
+            stroke="var(--accord-identique)"
             strokeWidth="14"
             strokeLinecap="round"
             strokeDasharray={`${tour * valeur} ${tour}`}
@@ -57,7 +51,7 @@ export function JaugeProximite({ valeur, communes }: { valeur: number | null; co
           />
         )}
         <text x="90" y="96" textAnchor="middle" className={classes["valeurJauge"]}>
-          {valeur === null ? "—" : pourcent(valeur)}
+          {valeur === null ? "·" : pourcent(valeur)}
         </text>
         <text x="90" y="120" textAnchor="middle" className={classes["sousValeur"]}>
           PROXIMITÉ
@@ -182,7 +176,7 @@ export function MatriceProximite({
                   style={
                     v === null
                       ? undefined
-                      : ({ "--intensite": `${Math.round(v * 85)}%` } as CSSProperties)
+                      : ({ "--intensite": `${Math.round(v * 80)}%` } as CSSProperties)
                   }
                   title={description}
                   aria-label={description}
@@ -228,7 +222,7 @@ export function AxeQuestion({
         viewBox={`0 0 ${LARGEUR} 72`}
         className={classes["axe"]}
         role="img"
-        aria-label={`Axe de ${question.axeMoins ?? ""} à ${question.axePlus ?? ""}.`}
+        aria-label={descriptionAxe(question, a, b)}
       >
         <line x1={MARGE} x2={LARGEUR - MARGE} y1={Y} y2={Y} className={classes["ligneAxe"]} />
         {[-2, -1, 0, 1, 2].map((e) => (
@@ -274,6 +268,28 @@ export function AxeQuestion({
       </div>
     </Box>
   );
+}
+
+/** Place sur l'axe, en mots, pour les lecteurs d'écran. */
+function placeEnMots(q: QuestionBenchmark, e: number): string {
+  if (e <= -2) return `« ${q.axeMoins ?? ""} »`;
+  if (e === -1) return `plutôt « ${q.axeMoins ?? ""} »`;
+  if (e === 0) return "au milieu";
+  if (e === 1) return `plutôt « ${q.axePlus ?? ""} »`;
+  return `« ${q.axePlus ?? ""} »`;
+}
+
+function descriptionAxe(
+  q: QuestionBenchmark,
+  a: PositionBenchmark | null,
+  b: PositionBenchmark | null,
+): string {
+  const parts = [`Axe de « ${q.axeMoins ?? ""} » à « ${q.axePlus ?? ""} ».`];
+  for (const p of [a, b]) {
+    if (p?.echelle != null)
+      parts.push(`${p.candidat ?? p.formation} : ${placeEnMots(q, p.echelle)}.`);
+  }
+  return parts.join(" ");
 }
 
 /** Pastille de couleur d'une formation comparée : A ou B. */

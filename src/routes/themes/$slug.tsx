@@ -11,12 +11,13 @@ export const Route = createFileRoute("/themes/$slug")({
     return page;
   },
   head: ({ loaderData }) => ({
-    meta: loaderData ? [{ title: `${loaderData.libelle} · Comprendre la Politique` }] : [],
+    meta: loaderData ? [{ title: `${loaderData.libelle} · Politiquizz` }] : [],
   }),
   component: PageTheme,
 });
 
 const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
   day: "numeric",
   month: "long",
   year: "numeric",

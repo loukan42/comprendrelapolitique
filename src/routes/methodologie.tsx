@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/methodologie")({
   head: () => ({
-    meta: [{ title: "Méthodologie · Comprendre la Politique" }],
+    meta: [{ title: "Méthodologie · Politiquizz" }],
   }),
   component: PageMethodologie,
 });

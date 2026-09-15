@@ -71,7 +71,7 @@
 
 html {
   /* Le défilement ancré ne doit pas masquer le titre visé. */
-  scroll-padding-top: var(--mantine-spacing-xl);
+  scroll-padding-top: 6rem;
 }
 
 /*
@@ -138,6 +138,6 @@ body {
   --bench-b: #3fc1c9;
   --accord-identique: #8b6cff;
   --accord-proche: #c9b8ff;
-  --accord-eloigne: #ffe08a;
+  --accord-eloigne: #9a9a9a;
   --accord-oppose: #ffb829;
 }

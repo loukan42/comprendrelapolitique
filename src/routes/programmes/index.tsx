@@ -20,11 +20,15 @@ import {
 
 export const Route = createFileRoute("/programmes/")({
   loader: () => chargerProgrammes(),
-  head: () => ({ meta: [{ title: "Les programmes 2027 · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Les programmes 2027 · Politiquizz" }] }),
   component: PageProgrammes,
 });
 
-const dateCourte = new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric" });
+const dateCourte = new Intl.DateTimeFormat("fr-FR", {
+  timeZone: "Europe/Paris",
+  month: "long",
+  year: "numeric",
+});
 
 function LigneDocument({ doc }: { doc: ReferenceProgramme }) {
   return (

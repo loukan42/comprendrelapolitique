@@ -36,6 +36,9 @@ export function SiteHeader() {
 
   return (
     <header className={classes["entete"]}>
+      <a href="#contenu" className={classes["evitement"]}>
+        Aller au contenu
+      </a>
       <Container size={1200} px={{ base: "md", sm: "xl" }} className={classes["barre"]}>
         <Link
           to="/"
@@ -106,10 +109,13 @@ export function SiteHeader() {
           size="sm"
           className={classes["burger"]}
           aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={ouvert}
+          aria-controls="tiroir-nav"
         />
       </Container>
 
       <Drawer
+        id="tiroir-nav"
         opened={ouvert}
         onClose={close}
         position="right"

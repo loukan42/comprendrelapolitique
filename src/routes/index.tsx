@@ -192,7 +192,7 @@ function Accueil() {
         <Container size={LARGEUR} px={MARGES} className={accueil["contenu"]}>
           <Title
             order={1}
-            fz="clamp(2.75rem, 1rem + 6.4vw, 7rem)"
+            fz="clamp(2.25rem, 1rem + 6.4vw, 7rem)"
             lh={1.02}
             maw={{ base: "100%", md: 720 }}
           >

@@ -117,3 +117,20 @@
   font-size: var(--mantine-font-size-xs);
   color: var(--mantine-color-dimmed);
 }
+
+/* Lien d'évitement : invisible jusqu'au focus clavier, puis en tête de page. */
+.evitement {
+  position: absolute;
+  left: var(--mantine-spacing-md);
+  top: -3rem;
+  z-index: 200;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-sm);
+  background: var(--mantine-color-white);
+  color: var(--mantine-color-black);
+  font-weight: 600;
+}
+
+.evitement:focus {
+  top: var(--mantine-spacing-xs);
+}

@@ -169,7 +169,19 @@ export function matriceProximite(
 
 /** Nom court d'une formation pour les en-têtes : le nom du candidat, ou un sigle. */
 export function nomCourt(f: FormationBenchmark): string {
-  if (f.candidat) return f.candidat.split(" ").slice(-1)[0] ?? f.candidat;
+  if (f.candidat) {
+    const usuels: Record<string, string> = {
+      "Marine Le Pen": "Le Pen",
+      "Jean-Luc Mélenchon": "Mélenchon",
+      "Édouard Philippe": "Philippe",
+      "Gabriel Attal": "Attal",
+      "Bruno Retailleau": "Retailleau",
+      "Raphaël Glucksmann": "Glucksmann",
+      "David Lisnard": "Lisnard",
+      "Fabien Roussel": "Roussel",
+    };
+    return usuels[f.candidat] ?? f.candidat.split(" ").slice(-1)[0] ?? f.candidat;
+  }
   const sigles: Record<string, string> = {
     "Parti socialiste": "PS",
     "Parti communiste français": "PCF",

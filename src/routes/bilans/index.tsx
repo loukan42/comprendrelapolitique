@@ -5,7 +5,7 @@ import { listerPresidents } from "../../queries/bilans";
 
 export const Route = createFileRoute("/bilans/")({
   loader: () => listerPresidents(),
-  head: () => ({ meta: [{ title: "Bilan des engagements · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Bilan des engagements · Politiquizz" }] }),
   component: PageBilans,
 });
 

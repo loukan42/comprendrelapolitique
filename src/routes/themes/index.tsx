@@ -6,7 +6,7 @@ import { listerHubThemes } from "../../queries/themePages";
 export const Route = createFileRoute("/themes/")({
   loader: () => listerHubThemes(),
   head: () => ({
-    meta: [{ title: "Thèmes · Comprendre la Politique" }],
+    meta: [{ title: "Thèmes · Politiquizz" }],
   }),
   component: PageThemes,
 });

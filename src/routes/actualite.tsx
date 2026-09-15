@@ -7,7 +7,7 @@ import classes from "../components/Actualite.module.css";
 
 export const Route = createFileRoute("/actualite")({
   loader: () => chargerActualite(),
-  head: () => ({ meta: [{ title: "En ce moment à l'Assemblée · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "En ce moment à l'Assemblée · Politiquizz" }] }),
   component: PageActualite,
 });
 
@@ -124,17 +124,6 @@ function PageActualite() {
             <Element key={p.dossierUid} evenement={p} />
           ))}
         </Section>
-
-        <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-          <Text fw={600} size="sm">
-            Ce qui fait parler
-          </Text>
-          <Text size="sm" mt={4}>
-            La couverture médiatique des textes n&apos;est pas encore mesurée : le site n&apos;a pas
-            de source indépendante pour cela. Ce bloc reste vide plutôt que de classer les textes à
-            l&apos;impression.
-          </Text>
-        </Alert>
 
         <Text size="sm" c="dimmed">
           Source : données ouvertes de l&apos;Assemblée nationale, jeux Dossiers législatifs et

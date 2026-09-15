@@ -66,7 +66,7 @@ export const Route = createFileRoute("/lois/")({
         tout: deps.tout,
       },
     }),
-  head: () => ({ meta: [{ title: "Les lois · Comprendre la Politique" }] }),
+  head: () => ({ meta: [{ title: "Les lois · Politiquizz" }] }),
   component: PageListeLois,
 });
 
