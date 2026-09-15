@@ -28,6 +28,7 @@ import "@mantine/core/styles.css";
 import "@fontsource-variable/inter";
 
 import appCss from "../styles.css?url";
+import favicon from "../assets/favicon.png";
 import { theme } from "../theme";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/SiteHeader";
@@ -125,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: favicon, type: "image/png" },
     ],
   }),
   shellComponent: RootShell,

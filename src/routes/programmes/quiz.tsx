@@ -271,22 +271,29 @@ function EcranResultat({
   return (
     <Stack gap={40} maw={640} mx="auto" w="100%">
       <Stack gap="md">
-        <Title order={2}>Les formations dont vous avez choisi les propositions</Title>
+        <Title order={2}>Vos choix par formation</Title>
         <Text c="dimmed" size="sm">
-          Pour chaque formation : le nombre de questions où vous avez choisi sa proposition, sur le
-          nombre où elle figurait, et ce qu&apos;aurait donné un choix au hasard. Les formations
-          sont rangées selon l&apos;écart à ce hasard. Les questions passées ne comptent pas.
+          Le pourcentage indique la part des propositions de chaque formation que vous avez
+          choisies, parmi les questions auxquelles vous avez répondu et où elle était présente. Les
+          formations sont affichées du pourcentage le plus élevé au plus faible. Les questions
+          passées ne comptent pas.
         </Text>
         <Stack gap="sm">
           {resultat.lignes
             .filter((l) => l.proposee >= MINIMUM_PROPOSEE)
+            .sort(
+              (a, b) =>
+                b.part - a.part ||
+                b.choisie - a.choisie ||
+                a.formation.localeCompare(b.formation, "fr"),
+            )
             .map((l) => (
               <BarreHorizontale
                 key={l.formation}
                 libelle={libelles.get(l.formation) ?? l.formation}
                 valeur={l.part}
                 reference={1}
-                libelleValeur={`${l.choisie} sur ${l.proposee} · ${l.attendu.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} au hasard`}
+                libelleValeur={`${Math.round(l.part * 100)} % · ${l.choisie} choix sur ${l.proposee}`}
               />
             ))}
         </Stack>

@@ -203,16 +203,20 @@ export const theme = createTheme({
       defaultProps: { radius: "xl", size: "md" },
       styles: {
         root: {
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
           height: "auto",
           minHeight: "var(--button-height)",
           paddingBlock: "0.5rem",
         },
-        inner: { height: "auto" },
+        inner: { height: "auto", width: "100%", justifyContent: "center" },
         // Libellé en 14 px, capitales espacées, comme la pastille de la
         // référence : à la taille du corps (18 px), il passait sur deux lignes.
         label: {
           whiteSpace: "normal",
           textAlign: "center",
+          justifyContent: "center",
           lineHeight: 1.25,
           fontSize: "var(--mantine-font-size-sm)",
           fontWeight: 600,

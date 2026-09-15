@@ -3,7 +3,7 @@
 Document de reprise. Il dit où en est le projet, ce qui reste à faire, et ce
 qu'il faut savoir pour continuer sans refaire le chemin.
 
-**Dernière mise à jour : 14 septembre 2026.**
+**Dernière mise à jour : 15 septembre 2026.**
 
 À tenir à jour à chaque session. Un fichier d'état qui ment est pire que pas
 de fichier.
@@ -14,7 +14,7 @@ de fichier.
 
 ```sh
 npm run dev            # port 8080, premier rendu ~80 s
-npm test               # 32 tests, sans dépendance ajoutée
+npm test               # 43 tests, sans dépendance ajoutée
 npm run build
 ```
 
@@ -69,6 +69,59 @@ commencer avant d'en modifier le contenu.
   deux mandats.
 - **En ce moment** (`/actualite`) : derniers dépôts, votes sur l'ensemble et
   promulgations, lus dans les actes de procédure et les scrutins.
+
+### Déploiement
+
+Le site est en ligne depuis le 15 septembre 2026, sur Vercel plutôt que sur
+Lovable : Lovable ne propose plus Supabase gratuitement, et l'essai sur
+Lovable + Neon s'est montré trop lent à l'usage. Le choix technique du
+mécanisme (`DATABASE_URL`, décrit dans `CLAUDE.md` section Déploiement) n'a
+pas changé, seul l'hébergeur retenu diffère de celui documenté là-bas :
+
+- **Projet Vercel** : équipe `loucore-9279`, projet `comprendrelapolitique`,
+  importé directement depuis `github.com/loukan42/comprendrelapolitique`
+  (branche `main`, déploiement automatique à chaque push). Préréglage
+  détecté automatiquement : TanStack Start. Runtime Node par défaut, ce qui
+  évite le risque de socket TCP bloqué évoqué dans `CLAUDE.md` pour
+  Cloudflare Workers : `pg` s'y connecte normalement, vérifié en ligne sur
+  `/programmes/comparer`.
+- **Base : Neon** (neon.tech), pas Supabase. Projet `bold-sea-57325278`, base
+  `neondb`, région `eu-central-1`. Palier gratuit à 512 Mo, sans pause forcée
+  (mise en veille à froid plutôt qu'arrêt). Deux chaînes de connexion
+  existent : la variante `-pooler` (PgBouncer) pour le site, posée dans
+  `DATABASE_URL` sur Vercel (environnements Production et Preview) ; la
+  variante directe pour les scripts d'import, qui ouvrent des transactions
+  (`BEGIN`/`COMMIT`) que le mode transaction de PgBouncer ne supporte pas
+  bien. Les deux sont dans `.env` local, non commité.
+- **Volumétrie tenue sous 512 Mo par un choix délibéré** : les votes
+  individuels des XVe et XVIe législatures ont été supprimés
+  (`DELETE FROM officiel.vote WHERE scrutin_uid IN (SELECT uid FROM
+  officiel.scrutin WHERE legislature IN (15, 16))`, puis `VACUUM FULL`).
+  Dossiers, scrutins et actes de ces deux législatures restent intacts et
+  consultables ; seuls le détail par député et le rendu d'hémicycle
+  disparaissent pour elles. La XVIIe garde son détail complet. Base actuelle
+  autour de 312 Mo. Les amendements de la XVIIe (204 Mo, 123 262 fichiers)
+  ne sont volontairement pas rechargés sur Neon : `charger.ts` les charge
+  automatiquement dès que `data/17/amendements` existe sur disque, d'où le
+  renommage local en `data/17/amendements_de_cote` pour l'empêcher.
+  **Point de vigilance** : la XVIIe législature continue de produire des
+  scrutins ; si le volume redevient tendu, rejouer le même `DELETE` /
+  `VACUUM FULL` sur les législatures les plus anciennes est la parade, il
+  n'y a pas de purge automatique.
+- **Bug résolu par le changement d'hébergeur** : le rapport « MantineProvider
+  was not found » sur `/programmes/comparer`, reproduit sur Lovable ET en
+  local, ne se manifeste plus sur le déploiement Vercel (page vérifiée sans
+  erreur console). Le code source de `src/routes/__root.tsx` était correct
+  pendant toute l'investigation ; tout indique un module SSR resté en cache
+  côté serveur de dev local, pas une faute de code. Non recherché plus loin
+  faute d'avoir pu le reproduire proprement.
+- **Non résolu, distinct du point ci-dessus** : le serveur de dev local reste
+  bloqué (`transport invoke timed out after 60000ms` sur
+  `/src/lib/error-capture.ts` puis sur `virtual:tanstack-start-server-entry`),
+  y compris après un redémarrage complet. Le remède habituel de `CLAUDE.md`
+  (modifier `src/server.ts`) n'a pas suffi cette fois. Le déploiement Vercel
+  fonctionnant, ce n'est pas bloquant pour la suite, mais `npm run dev`
+  reste à réparer.
 
 ### Direction visuelle
 
@@ -157,12 +210,37 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 ### Priorité basse
 
 7. Débats et amendements des XVe et XVIe législatures.
-8. ~~Page actualité.~~ Faite (`/actualite`) : derniers textes déposés, derniers
+8. **Serveur de dev local bloqué.** Depuis le 15 septembre 2026,
+   `npm run dev` répond par des `transport invoke timed out after 60000ms`
+   sur `/src/lib/error-capture.ts` puis sur
+   `virtual:tanstack-start-server-entry`, y compris après redémarrage complet
+   du processus. Le remède documenté (modifier `src/server.ts`) ne l'a pas
+   résolu. Non bloquant pour la production, qui tourne sur Vercel, mais gêne
+   tout développement local. Voir section 2, Déploiement.
+9. ~~Page actualité.~~ Faite (`/actualite`) : derniers textes déposés, derniers
    votes sur l'ensemble, dernières lois promulguées. Le bloc « ce qui fait
    parler » reste vide faute de source médiatique (GDELT, prévu par la
    spécification, non branché).
 
 ---
+
+### Reprise du 15 septembre 2026 (Codex)
+
+- Le favicon fourni dans `src/assets/favicon.png` est importé par le gabarit
+  commun `src/routes/__root.tsx`, avec le type `image/png`. Le build produit
+  une URL avec empreinte du fichier pour renouveler le cache du navigateur.
+- Vérifications : 43 tests réussis, build réussi, lint du gabarit réussi.
+- Le blocage du serveur local reste à diagnostiquer. Plusieurs serveurs Vite
+  étaient déjà actifs sur 8080, 8081 et 8090. Un démarrage supplémentaire
+  utilisait 8082 et restait en préparation des dépendances. Les essais sur
+  8180 avec un cache séparé n'ont pas permis de valider une correction.
+- Résultat du quiz des programmes simplifié : pourcentage et nombre de choix
+  sur les questions où la formation était présente. Affichage trié par ce
+  pourcentage, puis par nombre de choix en cas d'égalité. La référence au
+  hasard est retirée de la page ; le calcul interne reste disponible.
+- Aucun changement de configuration Vite ni de corpus dans cette reprise.
+- `gh auth status` signale des identifiants invalides sur cette machine.
+  Aucun commit ni push effectué.
 
 ## 4. Décisions en attente
 
