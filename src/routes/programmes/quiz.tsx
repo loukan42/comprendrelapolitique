@@ -20,7 +20,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import classes from "../../components/OptionQcm.module.css";
-import { PortraitCandidat } from "../../components/PortraitCandidat";
+import { LogoFormation, PortraitCandidat } from "../../components/PortraitCandidat";
 import { alternativesQuestion, selectionnerQuestions } from "../../lib/selectionQcm";
 import {
   calculerResultatQcm,
@@ -71,6 +71,24 @@ function libellesFormations(questions: QuestionQcm[]): Map<string, string> {
     }
   }
   return libelles;
+}
+
+function candidatsFormations(questions: QuestionQcm[]): Map<string, string | null> {
+  const candidats = new Map<string, { noms: Set<string>; manquant: boolean }>();
+  for (const q of questions) {
+    for (const option of q.options) {
+      const connu = candidats.get(option.formation) ?? { noms: new Set<string>(), manquant: false };
+      if (option.candidat) connu.noms.add(option.candidat);
+      else connu.manquant = true;
+      candidats.set(option.formation, connu);
+    }
+  }
+  return new Map(
+    [...candidats].map(([formation, valeur]) => [
+      formation,
+      !valeur.manquant && valeur.noms.size === 1 ? [...valeur.noms][0]! : null,
+    ]),
+  );
 }
 
 /**
@@ -291,6 +309,7 @@ function EcranResultat({
 }) {
   const resultat = useMemo(() => calculerResultatQcm(questions, choix), [questions, choix]);
   const libelles = useMemo(() => libellesFormations(questions), [questions]);
+  const candidats = useMemo(() => candidatsFormations(questions), [questions]);
 
   if (resultat.repondues < MINIMUM_REPONDUES) {
     return (
@@ -335,6 +354,14 @@ function EcranResultat({
               <BarreHorizontale
                 key={l.formation}
                 libelle={libelles.get(l.formation) ?? l.formation}
+                visuel={
+                  <Group gap={4} wrap="nowrap">
+                    <LogoFormation formation={l.formation} taille="sm" />
+                    {candidats.get(l.formation) && (
+                      <PortraitCandidat nom={candidats.get(l.formation)} taille="sm" />
+                    )}
+                  </Group>
+                }
                 valeur={l.part}
                 reference={1}
                 libelleValeur={`${Math.round(l.part * 100)} % · ${l.choisie} choix sur ${l.proposee}`}

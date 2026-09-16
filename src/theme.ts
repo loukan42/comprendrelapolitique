@@ -19,38 +19,37 @@ import { createTheme, type MantineColorsTuple } from "@mantine/core";
  */
 
 /**
- * Le rouge du logo (#e80818, nuance 7), couleur des boutons pleins et du
- * focus. Un texte blanc y atteint un contraste de 4,7, au-dessus du seuil AA.
+ * Le corail de marque, couleur des boutons pleins et du focus. Un texte blanc
+ * y garde un contraste suffisant pour les actions.
  */
 const rouge: MantineColorsTuple = [
-  "#ffe9ea",
-  "#ffd1d4",
-  "#fda3a8",
-  "#fb7078",
-  "#f84450",
-  "#f52734",
-  "#f31522",
-  "#e80818",
-  "#cf0514",
-  "#b5000f",
+  "#fff1ef",
+  "#fbdedb",
+  "#f4bcb6",
+  "#eb9890",
+  "#df786f",
+  "#d3675f",
+  "#c95750",
+  "#bc4b45",
+  "#a6403b",
+  "#8c3531",
 ];
 
 /**
- * Le bleu marine du logo (#002860, nuance 8). Illisible en aplat sur le noir,
- * il sert éclairci : la nuance 3 colore les liens, avec un contraste de 6,4
- * sur le fond.
+ * Le bleu-gris de marque, éclairci pour les liens afin de rester lisible sur
+ * la surface sombre.
  */
 const bleu: MantineColorsTuple = [
-  "#e8eef8",
-  "#cdd9ee",
-  "#9db4dd",
-  "#6c8fcb",
-  "#4671bb",
-  "#2d5ca9",
-  "#1a4a91",
-  "#0e3b7a",
-  "#002860",
-  "#001d47",
+  "#edf2f7",
+  "#d9e2ed",
+  "#b5c5d7",
+  "#8ea4bb",
+  "#718aa5",
+  "#607b98",
+  "#526d8a",
+  "#46617d",
+  "#3a536f",
+  "#2f435a",
 ];
 
 /**
@@ -58,34 +57,34 @@ const bleu: MantineColorsTuple = [
  * nuance 7 est le fond, la 6 celui des champs, la 4 les filets, la 2 le texte
  * atténué, la 0 le texte.
  *
- * Le fond est un noir pur. Le texte atténué (#9a9a9a) garde un contraste de
- * 7,4 sur ce fond, au-dessus du seuil AAA exigé pour le corps de texte.
+ * Le fond est un bleu-noir doux. Le texte atténué reste contrasté pour le
+ * corps de texte.
  */
 const dark: MantineColorsTuple = [
-  "#ffffff",
-  "#bdbdbd",
-  "#9a9a9a",
-  "#6e6e6e",
-  "#262626",
-  "#1a1a1a",
-  "#0b0b0b",
-  "#000000",
-  "#000000",
-  "#000000",
+  "#f8fafc",
+  "#cbd2dc",
+  "#9ea8b6",
+  "#6f7a89",
+  "#3b4552",
+  "#28313d",
+  "#1c232d",
+  "#151b23",
+  "#10151c",
+  "#0c1117",
 ];
 
 /** L'encre désaturée, ancien accent, conservée pour les usages nommés. */
 const encre: MantineColorsTuple = [
-  "#f2f4f7",
-  "#e3e7ee",
-  "#c5ccda",
-  "#a4b0c5",
-  "#8998b3",
-  "#7789a8",
-  "#6c80a2",
-  "#5b6d8e",
-  "#4f6180",
-  "#415372",
+  "#f1f4f7",
+  "#e0e6ec",
+  "#c3ced9",
+  "#a4b3c2",
+  "#8c9dad",
+  "#778a9c",
+  "#687d91",
+  "#5b7084",
+  "#506579",
+  "#45596c",
 ];
 
 /** Les gris neutres, pour les badges et alertes sans valeur de sens. */
@@ -127,7 +126,7 @@ export const theme = createTheme({
   colors: { rouge, bleu, dark, encre, graphite, ocre },
 
   white: "#ffffff",
-  black: "#0b0b0b",
+  black: "#10151c",
 
   // Une seule famille, Inter, substitut désigné du caractère de la référence.
   // Elle est servie par le site lui-même (paquet @fontsource-variable/inter,

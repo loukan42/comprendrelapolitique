@@ -1,4 +1,5 @@
 import { Anchor, Box, Group, Text } from "@mantine/core";
+import type { ReactNode } from "react";
 
 /**
  * Barre horizontale simple : une valeur, une référence (le maximum de la
@@ -16,6 +17,7 @@ export function BarreHorizontale({
   reference,
   libelleValeur,
   couleur,
+  visuel,
 }: {
   libelle: string;
   href?: string;
@@ -25,20 +27,25 @@ export function BarreHorizontale({
   /** Couleur du groupe représenté, quand la barre en représente un
    *  (`couleurAssociee` du référentiel). Sans elle, l'accent du thème. */
   couleur?: string | null;
+  /** Identité visuelle facultative, affichée devant le libellé. */
+  visuel?: ReactNode;
 }) {
   const pct = reference > 0 ? Math.max(0, Math.min(100, (valeur / reference) * 100)) : 0;
   return (
     <Box>
       <Group justify="space-between" gap="sm" mb={4} wrap="nowrap">
-        {href ? (
-          <Anchor href={href} size="sm" fw={600} underline="hover">
-            {libelle}
-          </Anchor>
-        ) : (
-          <Text size="sm" fw={600}>
-            {libelle}
-          </Text>
-        )}
+        <Group gap="sm" wrap="nowrap" miw={0}>
+          {visuel}
+          {href ? (
+            <Anchor href={href} size="sm" fw={600} underline="hover" truncate>
+              {libelle}
+            </Anchor>
+          ) : (
+            <Text size="sm" fw={600} truncate>
+              {libelle}
+            </Text>
+          )}
+        </Group>
         <Text size="sm" fw={700}>
           {libelleValeur}
         </Text>

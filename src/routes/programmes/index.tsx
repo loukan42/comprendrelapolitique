@@ -12,7 +12,7 @@ import {
 } from "@mantine/core";
 import { IconExternalLink, IconInfoCircle } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PortraitCandidat } from "../../components/PortraitCandidat";
+import { LogoFormation, PortraitCandidat } from "../../components/PortraitCandidat";
 import {
   chargerProgrammes,
   LIBELLE_NATURE,
@@ -109,6 +109,7 @@ function PageProgrammes() {
             {formations.map((f) => (
               <Card key={f.formation} withBorder radius="md" padding="lg">
                 <Group gap="md" align="center">
+                  <LogoFormation formation={f.formation} taille="md" />
                   <Title order={2} fz="lg">
                     {f.formation}
                   </Title>

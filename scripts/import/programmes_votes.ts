@@ -3,8 +3,8 @@
  *
  * Le script ne déduit pas une position politique à partir d'un vote. Chaque
  * fiche est écrite ici avec ses deux sources, son périmètre et ses limites.
- * Les compteurs affichés par le site sont ensuite recalculés depuis les votes
- * individuels et les mandats de parti datés.
+ * Les compteurs affichés par le site viennent du décompte officiel par groupe
+ * parlementaire (`officiel.scrutin_groupe`).
  *
  * Usage :
  *   node scripts/import/programmes_votes.ts --db <chemin-ou-URL>
@@ -38,8 +38,8 @@ interface RapprochementSource {
  * Le scrutin 1243 porte sur l'ensemble du projet de loi nucléaire du 21 mars
  * 2023. Les trois partis disposent d'une position de programme qui parle
  * explicitement du nucléaire. Le rattachement est celui de la XVIe législature
- * et les compteurs sont produits à partir des votes nominatifs, pas recopiés
- * depuis la page éditoriale du scrutin.
+ * et les compteurs sont produits à partir de la ventilation officielle par
+ * groupe, pas recopiés depuis la page éditoriale du scrutin.
  */
 const RAPPROCHEMENTS: RapprochementSource[] = [
   {
@@ -56,7 +56,7 @@ const RAPPROCHEMENTS: RapprochementSource[] = [
     sourceTexte: "https://www.assemblee-nationale.fr/dyn/16/scrutins/1243",
     sourcePerimetre: "https://www.assemblee-nationale.fr/dyn/16/organes/PO800490",
     perimetre:
-      "Députés ayant un mandat de parti La France insoumise actif le 21 mars 2023, dans la XVIe législature.",
+      "Groupe parlementaire La France insoumise à l'Assemblée nationale lors du scrutin du 21 mars 2023, dans la XVIe législature.",
     verifieLe: "2026-09-16",
   },
   {
@@ -73,7 +73,7 @@ const RAPPROCHEMENTS: RapprochementSource[] = [
     sourceTexte: "https://www.assemblee-nationale.fr/dyn/16/scrutins/1243",
     sourcePerimetre: "https://www.assemblee-nationale.fr/dyn/16/organes/PO800520",
     perimetre:
-      "Députés ayant un mandat de parti Rassemblement National actif le 21 mars 2023, dans la XVIe législature.",
+      "Groupe parlementaire du Rassemblement National à l'Assemblée nationale lors du scrutin du 21 mars 2023, dans la XVIe législature.",
     verifieLe: "2026-09-16",
   },
   {
@@ -90,7 +90,7 @@ const RAPPROCHEMENTS: RapprochementSource[] = [
     sourceTexte: "https://www.assemblee-nationale.fr/dyn/16/scrutins/1243",
     sourcePerimetre: "https://www.assemblee-nationale.fr/dyn/16/organes/PO800508",
     perimetre:
-      "Députés ayant un mandat de parti Les Républicains actif le 21 mars 2023, dans la XVIe législature.",
+      "Groupe parlementaire Les Républicains à l'Assemblée nationale lors du scrutin du 21 mars 2023, dans la XVIe législature.",
     verifieLe: "2026-09-16",
   },
 ];
@@ -145,31 +145,22 @@ async function verifierRapprochement(db: Db, r: RapprochementSource): Promise<st
   }
 
   const [parti] = await db.query<{ uid: string; libelle: string }>(
-    `SELECT uid, libelle FROM officiel.organe WHERE uid = $1 AND code_type = 'PARPOL'`,
+    `SELECT uid, libelle FROM officiel.organe WHERE uid = $1 AND code_type = 'GP'`,
     [r.partiUid],
   );
-  if (!parti) erreurs.push(`${r.id}: parti absent ou non PARPOL (${r.partiUid})`);
+  if (!parti) erreurs.push(`${r.id}: groupe parlementaire absent ou non GP (${r.partiUid})`);
   else if (!parti.libelle.toLowerCase().includes(r.partiNom.toLowerCase().replace("la ", ""))) {
     erreurs.push(`${r.id}: libellé inattendu pour ${r.partiUid} (${parti.libelle})`);
   }
 
   const [votes] = await db.query<{ n: string }>(
-    `SELECT count(*)::text AS n
-       FROM officiel.vote v
-       JOIN officiel.scrutin s ON s.uid = v.scrutin_uid
-      WHERE v.scrutin_uid = $1
-        AND EXISTS (
-          SELECT 1 FROM officiel.mandat m
-           WHERE m.acteur_uid = v.acteur_uid
-             AND m.organe_uid = $2
-             AND m.type_organe = 'PARPOL'
-             AND m.date_debut <= s.date_scrutin
-             AND (m.date_fin IS NULL OR m.date_fin >= s.date_scrutin)
-        )`,
+    `SELECT (voix_pour + voix_contre + voix_abstention + voix_non_votant)::text AS n
+       FROM officiel.scrutin_groupe
+      WHERE scrutin_uid = $1 AND organe_uid = $2`,
     [r.scrutinUid, r.partiUid],
   );
   if (!votes || Number(votes.n) === 0)
-    erreurs.push(`${r.id}: aucun vote rattaché au parti à cette date`);
+    erreurs.push(`${r.id}: aucun décompte rattaché au groupe parlementaire`);
   return erreurs;
 }
 
@@ -188,7 +179,21 @@ async function main() {
   }
 
   const db = await ouvrirBase(chemin);
-  await appliquerMigration(db, MIGRATION);
+  const verificationSeule = args.includes("--verifier");
+  if (!verificationSeule) {
+    await appliquerMigration(db, MIGRATION);
+  } else {
+    const [table] = await db.query<{ existe: boolean }>(
+      `SELECT EXISTS (SELECT 1 FROM information_schema.tables
+                       WHERE table_schema = 'enrichissement'
+                         AND table_name = 'programme_vote') AS existe`,
+    );
+    if (!table?.existe) {
+      console.error("ERREUR table enrichissement.programme_vote absente");
+      await db.close();
+      process.exit(1);
+    }
+  }
   const erreurs: string[] = [];
   for (const r of RAPPROCHEMENTS) erreurs.push(...(await verifierRapprochement(db, r)));
   if (erreurs.length) {

@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS enrichissement.programme_vote (
 );
 
 COMMENT ON TABLE enrichissement.programme_vote IS
-'Chaque rapprochement requiert une lecture du texte et une vérification du périmètre partisan. Aucun vote individuel ne se déduit du vote du groupe.';
+'Chaque rapprochement requiert une lecture du texte et une vérification du périmètre de groupe parlementaire. Les compteurs affichés viennent de scrutin_groupe, jamais d’une position déduite.';

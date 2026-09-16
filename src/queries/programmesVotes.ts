@@ -51,25 +51,16 @@ export const chargerProgrammesVotes = createServerFn({ method: "GET" }).handler(
            s.est_vote_sur_ensemble AS ensemble,
            EXISTS (SELECT 1 FROM officiel.scrutin_dossier sd
                    WHERE sd.scrutin_uid = s.uid AND sd.methode = 'CONFLIT') AS conflit,
-           votes.pour, votes.contre, votes.abstention, votes."nonVotant"
+           votes.voix_pour AS pour, votes.voix_contre AS contre,
+           votes.voix_abstention AS abstention,
+           votes.voix_non_votant AS "nonVotant"
       FROM enrichissement.programme_vote pv
       JOIN enrichissement.programme_position pp ON pp.id = pv.position_id
       JOIN enrichissement.programme p ON p.id = pp.programme_id
       JOIN officiel.scrutin s ON s.uid = pv.scrutin_uid
-      JOIN officiel.organe parti ON parti.uid = pv.parti_uid AND parti.code_type = 'PARPOL'
-      CROSS JOIN LATERAL (
-        SELECT count(*) FILTER (WHERE v.position = 'POUR')::int AS pour,
-               count(*) FILTER (WHERE v.position = 'CONTRE')::int AS contre,
-               count(*) FILTER (WHERE v.position = 'ABSTENTION')::int AS abstention,
-               count(*) FILTER (WHERE v.position = 'NON_VOTANT')::int AS "nonVotant"
-          FROM officiel.vote v
-         WHERE v.scrutin_uid = s.uid AND EXISTS (
-           SELECT 1 FROM officiel.mandat m
-            WHERE m.acteur_uid = v.acteur_uid AND m.organe_uid = pv.parti_uid
-              AND m.type_organe = 'PARPOL' AND m.date_debut <= s.date_scrutin
-              AND (m.date_fin IS NULL OR m.date_fin >= s.date_scrutin)
-         )
-      ) votes
+      JOIN officiel.organe parti ON parti.uid = pv.parti_uid AND parti.code_type = 'GP'
+      JOIN officiel.scrutin_groupe votes
+        ON votes.scrutin_uid = s.uid AND votes.organe_uid = pv.parti_uid
      WHERE pv.publie AND COALESCE(pp.url_ancre, p.url) ~ '^https://'
      ORDER BY p.formation, s.date_scrutin DESC, pv.id
   `);

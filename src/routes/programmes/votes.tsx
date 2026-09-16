@@ -19,7 +19,7 @@ import { useState } from "react";
 import { LIBELLES_CONSTAT } from "../../lib/programmesVotes";
 import { libelleTheme } from "../../lib/themesProgrammes";
 import { LIBELLE_NATURE } from "../../queries/programmes";
-import { PortraitCandidat } from "../../components/PortraitCandidat";
+import { LogoFormation, PortraitCandidat } from "../../components/PortraitCandidat";
 import {
   chargerProgrammesVotes,
   type ComparaisonProgrammeVote,
@@ -41,6 +41,7 @@ function Fiche({ fiche: f }: { fiche: ComparaisonProgrammeVote }) {
     <Stack component="article" gap="lg" className={classes["fiche"]}>
       <Group justify="space-between">
         <Group gap="sm" wrap="nowrap">
+          <LogoFormation formation={f.formation} taille="lg" />
           <PortraitCandidat nom={f.candidat} taille="lg" />
           <Box>
             <Title order={2}>{f.formation}</Title>
@@ -227,9 +228,9 @@ function PageProgrammesVotes() {
             <Accordion.Panel>
               <Stack gap="md" maw="var(--mesure-texte)">
                 <Text>
-                  Le programme et le vote sont attribués au même parti. Le décompte rassemble les
-                  votes individuels des députés qui avaient un mandat de ce parti à la date du
-                  scrutin. La source et les limites de ce périmètre sont précisées sur chaque fiche.
+                  Le programme et le vote sont attribués à la même formation. Le décompte reprend la
+                  ventilation officielle du groupe parlementaire de cette formation pour le scrutin.
+                  La source et les limites de ce périmètre sont précisées sur chaque fiche.
                 </Text>
                 <Text>
                   Un vote contre un texte complet peut porter sur une autre disposition. La

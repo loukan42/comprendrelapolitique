@@ -118,13 +118,13 @@ body {
  * section 4). La légende écrit toujours le mot à côté de la couleur.
  */
 :root {
-  --nuage-amendement-rejete: #8b6cff;
-  --nuage-amendement-adopte: #ffb829;
-  --nuage-article: #3fc1c9;
-  --nuage-ensemble: #ffffff;
-  --nuage-motion: #c9b8ff;
-  --nuage-censure: #ffe08a;
-  --nuage-autre: #9a9a9a;
+  --nuage-amendement-rejete: #8d82b8;
+  --nuage-amendement-adopte: #c5a56b;
+  --nuage-article: #72aeb1;
+  --nuage-ensemble: #d8dde4;
+  --nuage-motion: #b7afd0;
+  --nuage-censure: #d8bf82;
+  --nuage-autre: #8d96a1;
 }
 
 /*
@@ -134,10 +134,10 @@ body {
  * légende écrit toujours le mot à côté de la couleur.
  */
 :root {
-  --bench-a: #ffffff;
-  --bench-b: #3fc1c9;
-  --accord-identique: #8b6cff;
-  --accord-proche: #c9b8ff;
-  --accord-eloigne: #9a9a9a;
-  --accord-oppose: #ffb829;
+  --bench-a: #d8dde4;
+  --bench-b: #72aeb1;
+  --accord-identique: #8d82b8;
+  --accord-proche: #b7afd0;
+  --accord-eloigne: #8d96a1;
+  --accord-oppose: #c5a56b;
 }

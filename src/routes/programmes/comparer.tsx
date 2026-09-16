@@ -25,6 +25,7 @@ import {
   MatriceProximite,
   PastilleAccord,
 } from "../../components/Benchmark";
+import { IdentiteFormation } from "../../components/PortraitCandidat";
 import {
   accordDe,
   comparer,
@@ -267,6 +268,26 @@ function PageComparer() {
               <>
                 <Box>
                   <Etiquette>Le résultat</Etiquette>
+                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md" mt="md">
+                    {fa && (
+                      <Card withBorder radius="md" padding="md">
+                        <IdentiteFormation
+                          formation={fa.formation}
+                          candidat={fa.candidat}
+                          taille="lg"
+                        />
+                      </Card>
+                    )}
+                    {fb && (
+                      <Card withBorder radius="md" padding="md">
+                        <IdentiteFormation
+                          formation={fb.formation}
+                          candidat={fb.candidat}
+                          taille="lg"
+                        />
+                      </Card>
+                    )}
+                  </SimpleGrid>
                   <Title order={2} mt="xs">
                     {nomA} et {nomB}
                   </Title>

@@ -81,6 +81,207 @@ const ARBITRAGES: Record<string, { intitule: string; alternatives: Alternative[]
       },
     ],
   },
+  "immigration-accueil": {
+    intitule: "Quelle politique d'accueil et d'immigration ?",
+    alternatives: [
+      {
+        id: "droits-sejour",
+        libelle: "Faciliter l'accueil et sécuriser les droits de séjour",
+        positions: ["lfi-sejour", "ps-sejour", "pp-immigration"],
+      },
+      {
+        id: "selection-quotas",
+        libelle: "Sélectionner davantage les entrées et fixer des quotas",
+        positions: ["ren-immigration-points", "hor-quotas"],
+      },
+      {
+        id: "restriction-peuplement",
+        libelle: "Réduire fortement l'immigration et privilégier la priorité nationale",
+        positions: ["rn-peuplement"],
+      },
+    ],
+  },
+  "travail-salaires": {
+    intitule: "Comment augmenter les revenus du travail ?",
+    alternatives: [
+      {
+        id: "smic-direct",
+        libelle: "Relever directement le salaire minimum",
+        positions: ["lfi-smic", "ps-smic", "pcf-smic", "pp-smic"],
+      },
+      {
+        id: "net-cotisations",
+        libelle: "Augmenter le revenu net par les cotisations ou les exonérations",
+        positions: ["rn-salaires-2022", "ren-salaire-net", "hor-salaire-net", "lr-zero-cotisation"],
+      },
+    ],
+  },
+  "justice-peines": {
+    intitule: "Quelle réponse aux délits et aux peines ?",
+    alternatives: [
+      {
+        id: "alternatives",
+        libelle: "Développer les peines alternatives et la prévention",
+        positions: ["ps-peines-alternatives", "pp-peines", "ne-sanction"],
+      },
+      {
+        id: "fermete",
+        libelle: "Renforcer les peines et limiter les aménagements",
+        positions: ["hor-courtes-peines", "rn-peines-planchers"],
+      },
+    ],
+  },
+  "ecole-priorite": {
+    intitule: "Quelle priorité pour l'école ?",
+    alternatives: [
+      {
+        id: "moyens",
+        libelle: "Réduire les effectifs et donner davantage de moyens aux classes",
+        positions: ["lfi-classes", "pp-ecole", "ren-classes"],
+      },
+      {
+        id: "fondamentaux-autorite",
+        libelle: "Renforcer les fondamentaux, l'autorité et l'autonomie des établissements",
+        positions: ["rn-fondamentaux", "hor-chefs-etablissement"],
+      },
+    ],
+  },
+  "securite-police": {
+    intitule: "Quelle organisation pour la sécurité ?",
+    alternatives: [
+      {
+        id: "controle-proximite",
+        libelle: "Renforcer la police de proximité et le contrôle des pratiques",
+        positions: ["lfi-recepisse", "ps-police"],
+      },
+      {
+        id: "renfort-police",
+        libelle: "Augmenter les effectifs et les pouvoirs de la police municipale",
+        positions: ["rn-police-municipale"],
+      },
+    ],
+  },
+  "temps-travail": {
+    intitule: "Faut-il réduire ou assouplir le temps de travail ?",
+    alternatives: [
+      {
+        id: "reduire",
+        libelle: "Réduire la durée légale du travail",
+        positions: ["lfi-32h"],
+      },
+      {
+        id: "assouplir",
+        libelle: "Permettre davantage d'heures supplémentaires et de souplesse",
+        positions: ["lr-35h", "ren-heures-sup"],
+      },
+    ],
+  },
+  familles: {
+    intitule: "Comment soutenir les familles ?",
+    alternatives: [
+      {
+        id: "services",
+        libelle: "Développer les services publics, notamment les crèches",
+        positions: ["lfi-creches", "pp-creches", "ren-livret-creches"],
+      },
+      {
+        id: "fiscalite",
+        libelle: "Renforcer les aides fiscales et le quotient familial",
+        positions: ["rn-part-fiscale", "hor-part-fiscale", "lr-revenu-familial"],
+      },
+    ],
+  },
+  "deficit-dette": {
+    intitule: "Quelle priorité pour les finances publiques ?",
+    alternatives: [
+      {
+        id: "investir",
+        libelle: "Financer les priorités annoncées avant de réduire rapidement la dette",
+        positions: ["lfi-dette-bce", "pp-dette"],
+      },
+      {
+        id: "reduire",
+        libelle: "Réduire le déficit et encadrer strictement la dépense",
+        positions: ["ne-dette", "ren-deficit", "hor-regle-or"],
+      },
+    ],
+  },
+  "sante-deserts": {
+    intitule: "Comment lutter contre les déserts médicaux ?",
+    alternatives: [
+      {
+        id: "service-public",
+        libelle: "Créer des structures publiques et réguler l'installation",
+        positions: ["lfi-deserts", "ps-deserts"],
+      },
+      {
+        id: "incitations",
+        libelle: "Attirer les médecins par des incitations et des aides",
+        positions: ["rn-deserts-2022"],
+      },
+    ],
+  },
+  logement: {
+    intitule: "Faut-il encadrer les loyers ?",
+    alternatives: [
+      {
+        id: "encadrer",
+        libelle: "Encadrer les loyers pour protéger les locataires",
+        positions: ["lfi-loyers", "pp-loyers"],
+      },
+      {
+        id: "offre",
+        libelle: "Agir d'abord sur l'offre et la rénovation des logements",
+        positions: ["rn-logement", "lr-dpe"],
+      },
+    ],
+  },
+  "institutions-citoyens": {
+    intitule: "Comment donner davantage de pouvoir aux citoyens ?",
+    alternatives: [
+      {
+        id: "refondation",
+        libelle: "Refonder les institutions par une constituante",
+        positions: ["lfi-constituante"],
+      },
+      {
+        id: "referendums",
+        libelle:
+          "Étendre les référendums et l'initiative citoyenne dans les institutions actuelles",
+        positions: ["ps-referendum", "pp-initiative", "rn-ric"],
+      },
+    ],
+  },
+  "impots-tva": {
+    intitule: "Quels produits faut-il taxer moins ?",
+    alternatives: [
+      {
+        id: "premiere-necessite",
+        libelle: "Baisser la TVA sur les produits de première nécessité",
+        positions: ["lfi-tva", "ps-tva"],
+      },
+      {
+        id: "energie-vehicules",
+        libelle: "Cibler l'énergie ou certains véhicules",
+        positions: ["rn-tva-2022", "ren-tva"],
+      },
+    ],
+  },
+  drogue: {
+    intitule: "Quelle politique face au cannabis et au narcotrafic ?",
+    alternatives: [
+      {
+        id: "reguler",
+        libelle: "Légaliser et encadrer le cannabis",
+        positions: ["lfi-cannabis", "ps-cannabis"],
+      },
+      {
+        id: "reprimer",
+        libelle: "Renforcer la répression du trafic et des réseaux",
+        positions: ["pp-narcotrafic", "hor-narco"],
+      },
+    ],
+  },
 };
 
 export interface AlternativeQcm {
@@ -104,14 +305,9 @@ export function selectionnerQuestions(questions: QuestionQcm[]): QuestionQcm[] {
     const arbitrage = ARBITRAGES[q.id];
     if (!arbitrage) return [];
     const alternatives = alternativesQuestion(q);
-    const ids = new Set(alternatives.map((a) => a.id));
-    // Chaque question doit conserver les deux orientations opposées après chargement.
-    const opposition =
-      q.id === "retraites-age"
-        ? ids.has("recul-refuse") && ids.has("recul")
-        : q.id === "energie-nucleaire"
-          ? ids.has("sortie") && (ids.has("developper") || ids.has("financement"))
-          : ids.has("moratoire") && (ids.has("isf") || ids.has("zucman"));
+    // Chaque question doit conserver au moins deux orientations distinctes
+    // après chargement. Les groupes sans citation sont retirés ci-dessus.
+    const opposition = alternatives.length >= 2;
     const options = alternatives.flatMap((a) => a.options);
     if (!opposition || new Set(options.map((o) => o.formation)).size < 3) return [];
     return [{ ...q, intitule: arbitrage.intitule, options }];
