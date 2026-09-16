@@ -119,7 +119,7 @@ const PRESIDENTS: PresidentSource[] = [
         dateFin: "2012-05-14",
         programmeTitre: "Mon projet : Ensemble tout devient possible",
         programmeUrl:
-          "https://cr.middlebury.edu/public/french/lexique/politique/programmes_pres/sarkozy/sarkozy%20programme.pdf",
+          "https://www.latribune.fr/archives/2007/ID17D401AB925D71A2C12572AC004970F7/texte-integral-du-projet-de-nicolas-sarkozy-candidat-a-lelection-presidentielle---1ere-partie.html",
         programmeDate: "2007-03-29",
       },
     ],
@@ -194,6 +194,182 @@ const PRESIDENTS: PresidentSource[] = [
  * engagement chiffré s'évalue sur son chiffre.
  */
 const ENGAGEMENTS: EngagementSource[] = [
+  // --- Mandat 2007-2012 -----------------------------------------------------
+  {
+    id: "2007-travail-service-minimum",
+    mandatId: "sarkozy-2007-2012",
+    theme: "Travail",
+    titre: "Créer un service minimum dans les transports",
+    extraitProgramme: "Dès l'été, une loi créera un service minimum garanti en cas de grève.",
+    reformulation: "Garantir un service minimum dans les transports en cas de grève.",
+    statut: "realise",
+    confiance: "haute",
+    actionMenee:
+      "La loi du 21 août 2007 a organisé la continuité du service public dans les transports terrestres réguliers de voyageurs.",
+    resultat:
+      "La loi prévoit notamment la déclaration individuelle d'intention de participer à une grève et l'organisation de la continuité du service.",
+    justification:
+      "Le texte législatif annoncé a été adopté pendant la première année du mandat. La fiche évalue la mise en place du dispositif légal, sans conclure à la continuité effective de chaque service.",
+    verifieLe: "2026-09-16",
+    actions: [
+      {
+        date: "2007-08-21",
+        description:
+          "Promulgation de la loi relative au dialogue social et à la continuité du service public dans les transports terrestres réguliers de voyageurs.",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000428994",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Loi n° 2007-1224 du 21 août 2007 sur le dialogue social et la continuité du service public dans les transports terrestres réguliers de voyageurs",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000428994",
+        date: "2007-08-21",
+      },
+    ],
+  },
+  {
+    id: "2007-emploi-service-public",
+    mandatId: "sarkozy-2007-2012",
+    theme: "Emploi",
+    titre: "Réunir les opérateurs du service public de l'emploi",
+    extraitProgramme:
+      "L'ANPE, l'Unedic, les Maisons de l'emploi seront réunies en un seul service public de l'emploi",
+    reformulation:
+      "Créer une institution publique unifiée pour l'accompagnement des demandeurs d'emploi.",
+    statut: "partiellement",
+    confiance: "haute",
+    actionMenee:
+      "La loi du 13 février 2008 a créé une institution nationale publique chargée de l'accueil, de l'orientation et de l'accompagnement des demandeurs d'emploi.",
+    resultat:
+      "Pôle emploi a été créé par la fusion de l'ANPE et du réseau des Assédic. Le périmètre annoncé mentionnait aussi l'Unedic et les Maisons de l'emploi, qui ne sont pas devenus une seule institution.",
+    justification:
+      "Le regroupement de l'ANPE et des Assédic a été réalisé, mais le programme décrivait un périmètre plus large. Le statut partiel conserve cette différence.",
+    verifieLe: "2026-09-16",
+    actions: [
+      {
+        date: "2008-02-13",
+        description:
+          "La loi relative à la réforme de l'organisation du service public de l'emploi crée une institution nationale publique chargée du placement et de l'accompagnement.",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000018117826",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Loi n° 2008-126 du 13 février 2008 relative à la réforme de l'organisation du service public de l'emploi",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000018117826",
+        date: "2008-02-13",
+      },
+    ],
+  },
+  // --- Mandat 2012-2017 -----------------------------------------------------
+  {
+    id: "2012-famille-allocation-rentree",
+    mandatId: "hollande-2012-2017",
+    theme: "Famille",
+    titre: "Augmenter de 25 % l'allocation de rentrée scolaire",
+    extraitProgramme:
+      "J’augmenterai de 25% l’allocation de rentrée scolaire dès la prochaine rentrée.",
+    reformulation: "Revaloriser de 25 % l'allocation de rentrée scolaire dès 2012.",
+    statut: "realise",
+    confiance: "haute",
+    actionMenee:
+      "Le décret du 27 juin 2012 a revalorisé les taux de calcul de l'allocation de rentrée scolaire pour la rentrée 2012.",
+    resultat:
+      "Le décret prévoit une allocation supérieure de 25 % à son montant de l'année scolaire 2011-2012.",
+    justification:
+      "La revalorisation a été prise par décret et appliquée au titre de la rentrée scolaire 2012, conformément au calendrier annoncé.",
+    verifieLe: "2026-09-16",
+    actions: [
+      {
+        date: "2012-06-27",
+        description:
+          "Décret relatif à la revalorisation des taux servant au calcul de l'allocation de rentrée scolaire.",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026083790",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Décret n° 2012-830 du 27 juin 2012 relatif à la revalorisation des taux servant au calcul de l'allocation de rentrée scolaire",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026083790",
+        date: "2012-06-27",
+      },
+    ],
+  },
+  {
+    id: "2012-societe-mariage-adoption",
+    mandatId: "hollande-2012-2017",
+    theme: "Société",
+    titre: "Ouvrir le mariage et l'adoption aux couples de même sexe",
+    extraitProgramme: "J’ouvrirai le droit au mariage et à l’adoption aux couples homosexuels.",
+    reformulation: "Permettre aux couples de même sexe de se marier et d'adopter.",
+    statut: "realise",
+    confiance: "haute",
+    actionMenee:
+      "La loi du 17 mai 2013 a ouvert le mariage aux couples de personnes de même sexe et a modifié les règles de filiation adoptive.",
+    resultat:
+      "Le droit au mariage est ouvert aux couples de personnes de même sexe et la loi permet l'adoption dans ce cadre.",
+    justification:
+      "La loi promulguée en 2013 reprend les deux volets de l'engagement, le mariage et l'adoption.",
+    verifieLe: "2026-09-16",
+    actions: [
+      {
+        date: "2013-05-17",
+        description:
+          "Promulgation de la loi ouvrant le mariage aux couples de personnes de même sexe.",
+        url: "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000027414540/",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Loi n° 2013-404 du 17 mai 2013 ouvrant le mariage aux couples de personnes de même sexe",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000027414540/",
+        date: "2013-05-17",
+      },
+    ],
+  },
+  {
+    id: "2012-retraites-depart-60",
+    mandatId: "hollande-2012-2017",
+    theme: "Retraites",
+    titre: "Rétablir un départ à 60 ans sous conditions de durée cotisée",
+    extraitProgramme:
+      "Je ferai en sorte que tous ceux qui ont 60 ans et qui auront cotisé la totalité de leurs annuités retrouvent le droit de partir à la retraite à taux plein à cet âge-là",
+    reformulation:
+      "Permettre un départ à taux plein à 60 ans pour les assurés ayant cotisé la durée requise.",
+    statut: "partiellement",
+    confiance: "haute",
+    actionMenee:
+      "Le décret du 2 juillet 2012 a abaissé à 60 ans l'âge d'ouverture du droit à pension pour les assurés ayant commencé à travailler avant 20 ans et justifiant la durée d'assurance requise.",
+    resultat:
+      "Le dispositif a rouvert le départ à 60 ans pour les carrières longues, avec des conditions d'âge de début d'activité et de durée cotisée.",
+    justification:
+      "Le droit a été rétabli pour les carrières longues, mais le dispositif ne concerne pas toute personne de 60 ans ayant atteint la durée annoncée sans les autres conditions réglementaires.",
+    verifieLe: "2026-09-16",
+    actions: [
+      {
+        date: "2012-07-02",
+        description: "Décret relatif à l'âge d'ouverture du droit à pension de vieillesse.",
+        url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000026106359",
+      },
+    ],
+    sources: [
+      {
+        titre:
+          "Décret n° 2012-847 du 2 juillet 2012 relatif à l'âge d'ouverture du droit à pension de vieillesse",
+        organisme: "Légifrance",
+        url: "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000026106359",
+        date: "2012-07-02",
+      },
+    ],
+  },
   // --- Mandat 2017-2022 -----------------------------------------------------
   {
     id: "2017-fiscalite-taxe-habitation",
