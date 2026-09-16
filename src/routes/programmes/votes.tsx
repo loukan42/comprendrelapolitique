@@ -133,18 +133,18 @@ function PageProgrammesVotes() {
             Présidentielle 2027 · Les partis sur pièces
           </Text>
           <Title order={1} mt="sm">
-            Programmes et votes
+            Les promesses des partis face à leurs votes
           </Title>
           <Text mt="lg">
-            Les programmes annoncent la suite. Les scrutins conservent les épisodes précédents.
-            Proposition par proposition, confronter les engagements des partis aux votes de leurs
-            députés.
+            Cette page met côte à côte une proposition écrite dans le programme d&apos;un parti et
+            un vote passé de ses députés sur le même sujet. Chaque fiche indique le scrutin, le
+            nombre de votes rattachés au parti et ce que l&apos;on peut réellement comparer.
           </Text>
         </Box>
         <Alert color="graphite" variant="outline">
-          Un écart se documente : même mesure, texte précis et périmètre partisan vérifié. Les
-          convergences et les cas à nuancer restent visibles. Aucun classement de « sincérité »
-          n&apos;est calculé.
+          Une fiche peut signaler une même orientation, un écart documenté ou un cas à nuancer. Elle
+          ne donne pas une note de « sincérité » : un vote porte sur un texte précis et ne résume
+          jamais à lui seul tout le programme d&apos;un parti.
         </Alert>
         <SimpleGrid cols={{ base: 1, sm: 3 }}>
           <Select
@@ -190,7 +190,7 @@ function PageProgrammesVotes() {
             <Text>
               {fiches.length
                 ? "Modifiez les filtres pour consulter les autres fiches."
-                : "Aucun rapprochement vérifié n'est publié dans cet environnement. Cela ne permet de conclure ni à une cohérence, ni à une contradiction. Les propositions des partis restent consultables dans le comparateur."}
+                : "Aucune fiche vérifiée n'est encore publiée. Les propositions restent consultables dans le comparateur, mais il serait abusif d'en déduire une cohérence ou une contradiction sans scrutin rattaché et vérifié."}
             </Text>
             {fiches.length > 0 && (
               <Button
@@ -216,10 +216,9 @@ function PageProgrammesVotes() {
             <Accordion.Panel>
               <Stack gap="md" maw="var(--mesure-texte)">
                 <Text>
-                  La fiche porte sur le parti. Le décompte utilise les votes individuels enregistrés
-                  et le rattachement partisan daté des députés, sans assimiler tout un groupe
-                  parlementaire à un parti. La source et les limites de ce périmètre sont précisées
-                  sur chaque fiche.
+                  Le programme et le vote sont attribués au même parti. Le décompte rassemble les
+                  votes individuels des députés qui avaient un mandat de ce parti à la date du
+                  scrutin. La source et les limites de ce périmètre sont précisées sur chaque fiche.
                 </Text>
                 <Text>
                   Un vote contre un texte complet peut porter sur une autre disposition. La

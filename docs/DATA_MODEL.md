@@ -740,6 +740,11 @@ un rattachement scrutin-dossier en conflit ou un scrutin sans voix disponibles.
 L'adoption par 49.3 et le vote à main levée sont signalés comme des absences de
 vote nominatif, jamais convertis en contradiction.
 
+Le corpus éditorial de départ est contrôlé puis chargé par
+`npm run data:programmes-votes -- --db <chemin-ou-URL>`. Le script vérifie les
+clés de programme, de scrutin et de parti avant d'écrire. Il peut être lancé
+avec `--verifier` pour contrôler les références sans publier les fiches.
+
 ---
 
 ## 8. Idempotence de l'import

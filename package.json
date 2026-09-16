@@ -22,6 +22,7 @@
     "enrichissement:themes-echantillon": "node scripts/enrichissement/classer_echantillon.ts",
     "data:programmes": "node scripts/import/programmes.ts",
     "data:positions-programme": "node scripts/import/positions_programme.ts",
+    "data:programmes-votes": "node scripts/import/programmes_votes.ts",
     "data:bilans": "node scripts/import/bilans.ts"
   },
   "overrides": {
