@@ -6,6 +6,7 @@ import { requete, tableDisponible } from "./db";
 export interface ComparaisonProgrammeVote {
   id: string;
   formation: string;
+  candidat: string | null;
   theme: string;
   extrait: string;
   nature: NatureProgramme;
@@ -39,7 +40,7 @@ export const chargerProgrammesVotes = createServerFn({ method: "GET" }).handler(
     const lignes = await requete<
       Omit<ComparaisonProgrammeVote, "constat"> & { constate: "ecart" | "convergence" | "nuance" }
     >(`
-    SELECT pv.id, p.formation, pp.theme, pp.extrait, p.nature, p.titre AS document,
+    SELECT pv.id, p.formation, p.candidat, pp.theme, pp.extrait, p.nature, p.titre AS document,
            COALESCE(pp.url_ancre, p.url) AS "sourceProgramme",
            p.date_publication::text AS "dateProgramme",
            s.date_scrutin::text AS "dateVote", s.titre AS "titreVote",

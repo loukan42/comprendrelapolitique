@@ -20,6 +20,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import classes from "../../components/OptionQcm.module.css";
+import { PortraitCandidat } from "../../components/PortraitCandidat";
 import { alternativesQuestion, selectionnerQuestions } from "../../lib/selectionQcm";
 import {
   calculerResultatQcm,
@@ -99,20 +100,23 @@ function Proposition({
 }) {
   const contenu = (
     <>
-      <Group gap="xs" wrap="nowrap" align="baseline">
-        <Text fw={700} c="dimmed" size="sm">
-          {lettre}
-        </Text>
-        {revelee && (
-          <Text fw={700} size="sm">
-            {auteur(option)}
+      <Group gap="sm" wrap="nowrap" align="center">
+        {revelee && option.candidat && <PortraitCandidat nom={option.candidat} taille="sm" />}
+        <Group gap="xs" wrap="nowrap" align="baseline">
+          <Text fw={700} c="dimmed" size="sm">
+            {lettre}
           </Text>
-        )}
-        {revelee && choisie && (
-          <Badge variant="outline" size="sm">
-            votre choix
-          </Badge>
-        )}
+          {revelee && (
+            <Text fw={700} size="sm">
+              {auteur(option)}
+            </Text>
+          )}
+          {revelee && choisie && (
+            <Badge variant="outline" size="sm">
+              votre choix
+            </Badge>
+          )}
+        </Group>
       </Group>
       <Text mt={6} fs="italic">
         «&nbsp;{option.extrait}&nbsp;»

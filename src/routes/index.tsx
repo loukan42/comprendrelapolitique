@@ -14,14 +14,7 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core";
-import {
-  IconArrowRight,
-  IconBuildingBank,
-  IconCircleCheck,
-  IconClipboardList,
-  IconListCheck,
-  IconScale,
-} from "@tabler/icons-react";
+import { IconArrowRight, IconBuildingBank, IconCircleCheck, IconScale } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import accueil from "../components/Accueil.module.css";
@@ -329,29 +322,6 @@ function Accueil() {
               Explorez la politique autrement
             </Title>
             <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg" mt="xl">
-              <CarteFonction
-                icone={<IconListCheck size={18} />}
-                etiquette="Quiz"
-                titre="Qui vote comme vous ?"
-                label="Basé sur des votes réels"
-                href="/quiz"
-                action="Faire le quiz des votes"
-              >
-                Répondez à des questions simples basées sur de vrais votes de l&apos;Assemblée
-                nationale. Découvrez quelles formations politiques ont réellement pris les décisions
-                les plus proches de vos idées.
-              </CarteFonction>
-              <CarteFonction
-                icone={<IconClipboardList size={18} />}
-                etiquette="Quiz"
-                titre="Quel programme vous ressemble ?"
-                label="Programmes comparés sans étiquette"
-                href="/programmes/quiz"
-                action="Faire le quiz des programmes"
-              >
-                Répondez sans connaître le nom du candidat. Nous comparons ensuite vos choix aux
-                propositions présentes dans les programmes politiques.
-              </CarteFonction>
               <CarteFonction
                 icone={<IconScale size={18} />}
                 etiquette="Comparer"

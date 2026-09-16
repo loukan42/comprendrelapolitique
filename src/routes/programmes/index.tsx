@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { IconExternalLink, IconInfoCircle } from "@tabler/icons-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { PortraitCandidat } from "../../components/PortraitCandidat";
 import {
   chargerProgrammes,
   LIBELLE_NATURE,
@@ -107,9 +108,20 @@ function PageProgrammes() {
           <Stack gap="md">
             {formations.map((f) => (
               <Card key={f.formation} withBorder radius="md" padding="lg">
-                <Title order={2} fz="lg">
-                  {f.formation}
-                </Title>
+                <Group gap="md" align="center">
+                  <Title order={2} fz="lg">
+                    {f.formation}
+                  </Title>
+                  {[
+                    ...new Set(
+                      f.documents
+                        .map((d) => d.candidat)
+                        .filter((candidat): candidat is string => Boolean(candidat)),
+                    ),
+                  ].map((candidat) => (
+                    <PortraitCandidat key={candidat} nom={candidat} taille="md" afficherNom />
+                  ))}
+                </Group>
 
                 {f.documents.length > 0 && (
                   <Stack gap="md" mt="md">

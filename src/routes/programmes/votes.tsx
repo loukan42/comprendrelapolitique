@@ -19,6 +19,7 @@ import { useState } from "react";
 import { LIBELLES_CONSTAT } from "../../lib/programmesVotes";
 import { libelleTheme } from "../../lib/themesProgrammes";
 import { LIBELLE_NATURE } from "../../queries/programmes";
+import { PortraitCandidat } from "../../components/PortraitCandidat";
 import {
   chargerProgrammesVotes,
   type ComparaisonProgrammeVote,
@@ -39,7 +40,17 @@ function Fiche({ fiche: f }: { fiche: ComparaisonProgrammeVote }) {
   return (
     <Stack component="article" gap="lg" className={classes["fiche"]}>
       <Group justify="space-between">
-        <Title order={2}>{f.formation}</Title>
+        <Group gap="sm" wrap="nowrap">
+          <PortraitCandidat nom={f.candidat} taille="lg" />
+          <Box>
+            <Title order={2}>{f.formation}</Title>
+            {f.candidat && (
+              <Text size="sm" c="dimmed">
+                Document associé à {f.candidat}
+              </Text>
+            )}
+          </Box>
+        </Group>
         <Badge color="graphite" variant="outline">
           {LIBELLES_CONSTAT[f.constat]}
         </Badge>
