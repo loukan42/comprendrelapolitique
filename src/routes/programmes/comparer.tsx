@@ -96,7 +96,7 @@ function Citation({ position, cote }: { position: PositionBenchmark | null; cote
       <Group gap="xs" wrap="nowrap">
         <Marqueur cote={cote} />
         <Text size="xs" fw={700} tt="uppercase" lts="0.04em">
-          {position.candidat ?? position.formation}
+          {position.formation}
         </Text>
       </Group>
       <Text size="sm" mt={6} fs="italic">
@@ -162,7 +162,7 @@ function PageComparer() {
 
   const formations = useMemo(() => formationsDe(questions), [questions]);
   const existe = (f: string | undefined) => !!f && formations.some((x) => x.formation === f);
-  // Aucun duel n'est imposé à l'arrivée : proposer d'emblée deux candidats
+  // Aucun duel n'est imposé à l'arrivée : proposer d'emblée deux partis
   // se lirait comme un choix éditorial. La matrice sert de point d'entrée.
   const a = existe(search.a) ? search.a! : null;
   const b = existe(search.b) ? search.b! : null;
@@ -182,8 +182,8 @@ function PageComparer() {
 
   const surAxe = comparaison?.lignes.filter((l) => l.question.axeMoins !== null) ?? [];
   const sansAxe = comparaison?.lignes.filter((l) => l.question.axeMoins === null) ?? [];
-  const nomA = fa?.candidat ?? fa?.formation ?? "";
-  const nomB = fb?.candidat ?? fb?.formation ?? "";
+  const nomA = fa?.formation ?? "";
+  const nomB = fb?.formation ?? "";
 
   return (
     <Container size={LARGEUR} px={MARGES} py={{ base: 32, sm: 56 }}>
@@ -199,7 +199,7 @@ function PageComparer() {
             Comparer les programmes
           </Title>
           <Text mt="sm" c="dimmed" maw={720}>
-            Deux candidats face à face, sur {questions.length} questions, à partir de citations de
+            Deux partis face à face, sur {questions.length} questions, à partir de citations de
             leurs documents. Le score et les graphiques reposent sur une lecture du site : chaque
             citation est placée sur un axe entre deux pôles. La citation reste affichée à côté, pour
             qu&apos;on puisse vérifier.
@@ -217,12 +217,12 @@ function PageComparer() {
               <Grid align="flex-end" gap="md">
                 <Grid.Col span={{ base: 12, sm: 5 }}>
                   <Select
-                    label="Premier candidat ou parti"
+                    label="Premier parti"
                     data={options}
                     value={a}
                     allowDeselect={false}
                     leftSection={<Marqueur cote="a" />}
-                    placeholder="Choisir un candidat"
+                    placeholder="Choisir un parti"
                     onChange={(v) =>
                       v && navigate({ search: { a: v, ...(b ? { b } : {}) }, resetScroll: false })
                     }
@@ -234,7 +234,7 @@ function PageComparer() {
                       variant="default"
                       size="lg"
                       radius="xl"
-                      aria-label="Inverser les deux candidats"
+                      aria-label="Inverser les deux partis"
                       onClick={() => a && b && choisir(b, a)}
                     >
                       <IconArrowsLeftRight size={18} />
@@ -243,12 +243,12 @@ function PageComparer() {
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 5 }}>
                   <Select
-                    label="Second candidat ou parti"
+                    label="Second parti"
                     data={options}
                     value={b}
                     allowDeselect={false}
                     leftSection={<Marqueur cote="b" />}
-                    placeholder="Choisir un candidat"
+                    placeholder="Choisir un parti"
                     onChange={(v) =>
                       v && navigate({ search: { ...(a ? { a } : {}), b: v }, resetScroll: false })
                     }
@@ -260,8 +260,8 @@ function PageComparer() {
             {!comparaison ? (
               <Text c="dimmed">
                 {a && a === b
-                  ? "Choisissez deux candidats différents."
-                  : "Choisissez deux candidats ci-dessus, ou cliquez une case de la matrice plus bas."}
+                  ? "Choisissez deux partis différents."
+                  : "Choisissez deux partis ci-dessus, ou cliquez une case de la matrice plus bas."}
               </Text>
             ) : (
               <>
@@ -272,7 +272,7 @@ function PageComparer() {
                   </Title>
                   <Text mt="sm" c="dimmed" maw={720}>
                     {comparaison.communes === 0
-                      ? "Aucune question placée sur un axe ne réunit ces deux candidats : leurs documents ne traitent pas les mêmes sujets."
+                      ? "Aucune question placée sur un axe ne réunit ces deux partis : leurs documents ne traitent pas les mêmes sujets."
                       : `Ils se prononcent tous deux sur ${comparaison.communes} des questions placées sur un axe. Ils y défendent la même position ou une position proche sur ${comparaison.repartition.identique + comparaison.repartition.proche}, et des positions opposées sur ${comparaison.repartition.oppose}.`}
                   </Text>
                   <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg" mt="xl">
@@ -364,7 +364,7 @@ function PageComparer() {
                       <Text size="sm">{nomB}</Text>
                     </Group>
                     <Text size="sm" c="dimmed">
-                      Points gris : les autres candidats ou partis
+                      Points gris : les autres partis
                     </Text>
                   </Group>
                   <Accordion variant="separated" radius="md" mt="lg" multiple>
@@ -449,13 +449,13 @@ function PageComparer() {
         )}
 
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />} maw={820}>
-          Les citations sont vérifiées mot pour mot contre les documents publiés par les candidats
-          et leurs partis. Leur place sur chaque axe est une lecture du site, écrite en clair et
+          Les citations sont vérifiées mot pour mot contre les documents publiés par les partis et
+          leurs partis. Leur place sur chaque axe est une lecture du site, écrite en clair et
           contestable : ces décomptes comparent des citations choisies, pas des programmes entiers,
-          et ne constitue pas une recommandation. Un candidat absent d&apos;une question n&apos;a
-          pas forcément d&apos;avis contraire : son document n&apos;en parle pas.{" "}
+          et ne constitue pas une recommandation. Un parti absent d&apos;une question n&apos;a pas
+          forcément d&apos;avis contraire : son document n&apos;en parle pas.{" "}
           <Anchor component={Link} to="/programmes/quiz" c="inherit">
-            Les mêmes citations en quiz, sans le nom des candidats
+            Les mêmes citations en quiz, sans le nom des partis
           </Anchor>
           .
         </Alert>

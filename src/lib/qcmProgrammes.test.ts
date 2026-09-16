@@ -44,9 +44,9 @@ const QUESTIONS: QuestionQcm[] = [
 
 test("le résultat rapporte chaque choix au nombre de questions où la formation figurait", () => {
   const r = calculerResultatQcm(QUESTIONS, [
-    { questionId: "q1", positionId: "c1" },
-    { questionId: "q2", positionId: "c2" },
-    { questionId: "q3", positionId: "a3" },
+    { questionId: "q1", positionIds: ["c1"] },
+    { questionId: "q2", positionIds: ["c2"] },
+    { questionId: "q3", positionIds: ["a3"] },
   ]);
   const c = r.lignes.find((l) => l.formation === "C");
   const a = r.lignes.find((l) => l.formation === "A");
@@ -66,7 +66,7 @@ test("le résultat rapporte chaque choix au nombre de questions où la formation
 });
 
 test("une question passée ne compte pour personne", () => {
-  const r = calculerResultatQcm(QUESTIONS, [{ questionId: "q1", positionId: "a1" }]);
+  const r = calculerResultatQcm(QUESTIONS, [{ questionId: "q1", positionIds: ["a1"] }]);
   assert.equal(r.repondues, 1);
   assert.equal(
     r.lignes.find((l) => l.formation === "D"),
@@ -75,8 +75,33 @@ test("une question passée ne compte pour personne", () => {
   assert.equal(r.lignes.find((l) => l.formation === "A")?.proposee, 1);
 });
 
+test("plusieurs choix accordent une voix par formation et par question", () => {
+  const questions = [
+    { ...QUESTIONS[0]!, options: [...QUESTIONS[0]!.options, option("a1bis", "A")] },
+  ];
+  const r = calculerResultatQcm(questions, [
+    { questionId: "q1", positionIds: ["a1", "a1bis", "b1", "b1"] },
+  ]);
+  assert.equal(r.repondues, 1);
+  assert.equal(r.lignes.find((l) => l.formation === "A")?.choisie, 1);
+  assert.equal(r.lignes.find((l) => l.formation === "B")?.choisie, 1);
+  assert.equal(r.lignes.find((l) => l.formation === "C")?.choisie, 0);
+});
+
+test("revenir sur une question remplace la réponse et ne double pas son poids", () => {
+  const r = calculerResultatQcm(QUESTIONS, [
+    { questionId: "q1", positionIds: ["a1"] },
+    { questionId: "q1", positionIds: ["b1"] },
+    { questionId: "q2", positionIds: [] },
+    { questionId: "q3", positionIds: ["a3", "inconnue"] },
+  ]);
+  assert.equal(r.repondues, 1);
+  assert.equal(r.lignes.find((l) => l.formation === "A")?.choisie, 0);
+  assert.equal(r.lignes.find((l) => l.formation === "B")?.choisie, 1);
+});
+
 test("« aucune de ces propositions » compte la question sans choisir de formation", () => {
-  const r = calculerResultatQcm(QUESTIONS, [{ questionId: "q1", positionId: null }]);
+  const r = calculerResultatQcm(QUESTIONS, [{ questionId: "q1", positionIds: null }]);
   assert.equal(r.repondues, 1);
   assert.equal(r.aucune, 1);
   for (const l of r.lignes) {
@@ -87,8 +112,8 @@ test("« aucune de ces propositions » compte la question sans choisir de format
 
 test("un choix qui ne correspond à aucune option est ignoré, pas compté comme un rejet", () => {
   const r = calculerResultatQcm(QUESTIONS, [
-    { questionId: "q1", positionId: "inexistante" },
-    { questionId: "q9", positionId: "a1" },
+    { questionId: "q1", positionIds: ["inexistante"] },
+    { questionId: "q9", positionIds: ["a1"] },
   ]);
   assert.equal(r.repondues, 0);
   assert.equal(r.aucune, 0);

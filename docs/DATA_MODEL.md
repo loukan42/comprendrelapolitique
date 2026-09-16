@@ -703,6 +703,43 @@ restant à faire (voir CLASSIFICATION.md section 4).
 Restent à modéliser, une fois leurs sources inspectées : `quiz` et
 `question` (§10-11), `mention_media` (§17).
 
+### 7 bis. Programmes et votes des partis
+
+Le rapprochement demandé par la page « Programmes et votes » vit dans
+`enrichissement.programme_vote`. Il ne modifie jamais les votes de
+`officiel`. Une ligne est une lecture éditoriale relue, qui relie une citation
+de `programme_position` à un scrutin officiel et à un parti identifié par son
+organe `PARPOL`.
+
+```sql
+CREATE TABLE enrichissement.programme_vote (
+    id text PRIMARY KEY,
+    position_id text NOT NULL REFERENCES enrichissement.programme_position(id),
+    scrutin_uid text NOT NULL REFERENCES officiel.scrutin(uid),
+    parti_uid text NOT NULL REFERENCES officiel.organe(uid),
+    constat text NOT NULL,          -- ecart | convergence | nuance
+    explication text NOT NULL,
+    limites text NOT NULL,
+    source_texte text NOT NULL,
+    source_perimetre text NOT NULL,
+    perimetre text NOT NULL,
+    verifie_le date NOT NULL,
+    valide_par text NOT NULL,
+    publie boolean NOT NULL DEFAULT false
+);
+```
+
+Le décompte affiché est recalculé à partir de `officiel.vote`. Il ne reprend
+pas `position_majoritaire`, ne confond pas abstention et non-votant, et
+reconstitue le parti à partir des mandats `PARPOL` valides à la date du
+scrutin. Un groupe parlementaire multipartite n'est donc pas présenté comme
+le vote d'un parti sans ce périmètre explicite.
+
+Une ligne n'est pas publiable pour un amendement isolé, une motion de censure,
+un rattachement scrutin-dossier en conflit ou un scrutin sans voix disponibles.
+L'adoption par 49.3 et le vote à main levée sont signalés comme des absences de
+vote nominatif, jamais convertis en contradiction.
+
 ---
 
 ## 8. Idempotence de l'import

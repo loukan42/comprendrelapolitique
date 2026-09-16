@@ -1214,6 +1214,7 @@ const ECHELLES: Record<string, -2 | -1 | 0 | 1 | 2 | null> = {
 
 const MIGRATION = resolve("db/migrations/006_programmes.sql");
 const MIGRATION_QUESTIONS = resolve("db/migrations/008_programme_questions.sql");
+const MIGRATION_PROGRAMMES_VOTES = resolve("db/migrations/010_programmes_votes.sql");
 
 interface Controle {
   p: PositionSource;
@@ -1324,6 +1325,7 @@ async function main() {
   // Idempotente : rejouée à chaque passage, elle ajoute la table des
   // questions aux bases créées avant elle.
   await appliquerMigration(db, MIGRATION_QUESTIONS);
+  await appliquerMigration(db, MIGRATION_PROGRAMMES_VOTES);
 
   const resultats = await controler(db);
   const erreurs = erreursDeStructure(resultats);

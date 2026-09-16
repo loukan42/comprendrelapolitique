@@ -20,6 +20,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { BarreHorizontale } from "../../components/BarreHorizontale";
 import classes from "../../components/OptionQcm.module.css";
+import { alternativesQuestion, selectionnerQuestions } from "../../lib/selectionQcm";
 import {
   calculerResultatQcm,
   melanger,
@@ -48,13 +49,13 @@ function libelleNature(nature: string): string {
   return LIBELLE_NATURE[nature as NatureProgramme] ?? nature;
 }
 
-/** Qui porte une proposition : le candidat, quand le document en nomme un. */
+/** Le quiz compare les partis, même lorsque le document cite une personnalité. */
 function auteur(option: OptionQcm): string {
-  return option.candidat ? `${option.candidat} (${option.formation})` : option.formation;
+  return option.formation;
 }
 
 /**
- * Libellé de chaque formation pour le décompte, avec son candidat. Le
+ * Libellé de chaque formation pour le décompte. Le
  * décompte reste fait par formation : une formation citée dans deux
  * documents ne doit pas compter deux fois.
  */
@@ -63,7 +64,7 @@ function libellesFormations(questions: QuestionQcm[]): Map<string, string> {
   for (const q of questions) {
     for (const o of q.options) {
       const connu = libelles.get(o.formation);
-      if (connu === undefined || (o.candidat && connu === o.formation)) {
+      if (connu === undefined) {
         libelles.set(o.formation, auteur(o));
       }
     }
@@ -158,18 +159,21 @@ function EcranQuestion({
   onChoisir,
   onPasser,
   onSuivante,
+  onRetour,
 }: {
   question: QuestionQcm;
   index: number;
   total: number;
   /** Absent tant que l'utilisateur n'a pas choisi. */
   choix: ChoixQcm | undefined;
-  onChoisir: (positionId: string | null) => void;
+  onChoisir: (positionIds: string[] | null) => void;
   onPasser: () => void;
   onSuivante: () => void;
+  onRetour: () => void;
 }) {
   const repondu = choix !== undefined;
   const derniere = index + 1 === total;
+  const [alternatives] = useState(() => melanger(alternativesQuestion(question)));
 
   return (
     <Stack gap="lg" maw={640} mx="auto" w="100%">
@@ -196,21 +200,50 @@ function EcranQuestion({
       )}
 
       <Text size="sm" c="dimmed">
-        Choisissez la proposition la plus proche de votre avis. Les auteurs ne sont révélés
-        qu&apos;à la fin du quiz.
+        Choisissez une ou plusieurs orientations. Les propositions proches sont regroupées, avec
+        leurs nuances dans les citations. Cocher une orientation retient toutes les propositions de
+        ce groupe. Les auteurs sont révélés à la fin.
       </Text>
 
       <Stack gap="sm">
-        {question.options.map((o, i) => (
-          <Proposition
-            key={o.positionId}
-            option={o}
-            lettre={LETTRES[i] ?? String(i + 1)}
-            revelee={false}
-            choisie={choix?.positionId === o.positionId}
-            onChoisir={() => onChoisir(o.positionId)}
-          />
-        ))}
+        {alternatives.map((a) => {
+          const ids = a.options.map((o) => o.positionId);
+          const selectionnee = ids.every((id) => choix?.positionIds?.includes(id));
+          return (
+            <Box key={a.id}>
+              <UnstyledButton
+                className={`${classes["option"]} ${classes["choisissable"]} ${selectionnee ? classes["choisie"] : ""}`}
+                aria-pressed={selectionnee}
+                onClick={() =>
+                  onChoisir(
+                    selectionnee
+                      ? (choix?.positionIds ?? []).filter((id) => !ids.includes(id))
+                      : [...(choix?.positionIds ?? []), ...ids],
+                  )
+                }
+              >
+                <Text fw={600}>{a.libelle}</Text>
+                <Text size="sm" c="dimmed">
+                  {selectionnee ? "Sélectionnée" : "Sélectionner cette orientation"}
+                </Text>
+              </UnstyledButton>
+              <Accordion variant="default">
+                <Accordion.Item value={a.id}>
+                  <Accordion.Control>Lire les formulations exactes</Accordion.Control>
+                  <Accordion.Panel>
+                    <Stack gap="sm">
+                      {a.options.map((o) => (
+                        <Text key={o.positionId} size="sm">
+                          « {o.extrait} »
+                        </Text>
+                      ))}
+                    </Stack>
+                  </Accordion.Panel>
+                </Accordion.Item>
+              </Accordion>
+            </Box>
+          );
+        })}
       </Stack>
 
       <Group gap="sm">
@@ -222,7 +255,8 @@ function EcranQuestion({
           {derniere ? "Voir le résultat" : "Question suivante"}
         </Button>
         <Button
-          variant={choix?.positionId === null ? "light" : "default"}
+          variant={choix?.positionIds === null ? "light" : "default"}
+          aria-pressed={choix?.positionIds === null}
           onClick={() => onChoisir(null)}
         >
           Aucune de ces propositions
@@ -230,6 +264,11 @@ function EcranQuestion({
         {!repondu && (
           <Button variant="subtle" color="graphite" onClick={onPasser}>
             Passer
+          </Button>
+        )}
+        {index > 0 && (
+          <Button variant="default" onClick={onRetour}>
+            Question précédente
           </Button>
         )}
       </Group>
@@ -257,8 +296,8 @@ function EcranResultat({
             Pas assez de réponses pour un résultat
           </Title>
           <Text c="dimmed">
-            Répondez à au moins {MINIMUM_REPONDUES} questions, en choisissant une proposition ou
-            aucune, pour obtenir un décompte.
+            Répondez à au moins {MINIMUM_REPONDUES} questions, en choisissant une ou plusieurs
+            orientations, ou aucune, pour obtenir un décompte.
           </Text>
           <Button variant="default" onClick={onRecommencer} w="fit-content">
             Recommencer
@@ -276,7 +315,8 @@ function EcranResultat({
           Le pourcentage indique la part des propositions de chaque formation que vous avez
           choisies, parmi les questions auxquelles vous avez répondu et où elle était présente. Les
           formations sont affichées du pourcentage le plus élevé au plus faible. Les questions
-          passées ne comptent pas.
+          passées ne comptent pas. Plusieurs formations peuvent recevoir un accord sur la même
+          question, chacune une seule fois. Les pourcentages ne s&apos;additionnent pas.
         </Text>
         <Stack gap="sm">
           {resultat.lignes
@@ -332,15 +372,13 @@ function EcranResultat({
       <Stack gap="md">
         <Title order={2}>Les propositions et leurs auteurs</Title>
         <Text c="dimmed" size="sm">
-          Pour chaque question, toutes les propositions, avec le candidat ou la formation qui la
-          porte, le document dont elle est tirée et sa nature.
+          Pour chaque question, toutes les propositions, avec le parti qui la porte, le document
+          dont elle est tirée et sa nature.
         </Text>
         <Accordion variant="separated" radius="md" multiple>
           {questions.map((q) => {
             const c = choix.find((x) => x.questionId === q.id);
-            const retenue = c?.positionId
-              ? q.options.find((o) => o.positionId === c.positionId)
-              : undefined;
+            const retenues = q.options.filter((o) => c?.positionIds?.includes(o.positionId));
             return (
               <Accordion.Item key={q.id} value={q.id}>
                 <Accordion.Control>
@@ -348,9 +386,9 @@ function EcranResultat({
                   <Text size="sm" c="dimmed" mt={2}>
                     {!c
                       ? "Question passée"
-                      : !retenue
+                      : retenues.length === 0
                         ? "Aucune proposition retenue"
-                        : `Votre choix : ${auteur(retenue)}`}
+                        : `Vos choix : ${[...new Set(retenues.map(auteur))].join(", ")}`}
                   </Text>
                 </Accordion.Control>
                 <Accordion.Panel>
@@ -361,7 +399,7 @@ function EcranResultat({
                         option={o}
                         lettre={LETTRES[i] ?? String(i + 1)}
                         revelee
-                        choisie={c?.positionId === o.positionId}
+                        choisie={c?.positionIds?.includes(o.positionId) ?? false}
                         onChoisir={() => undefined}
                       />
                     ))}
@@ -380,7 +418,7 @@ function EcranResultat({
           Faire le quiz des votes
         </Button>
         <Button component="a" href="/programmes/comparer" variant="default">
-          Comparer les candidats
+          Comparer les partis
         </Button>
         <Button variant="subtle" color="gray" onClick={onRecommencer}>
           Refaire le quiz
@@ -439,7 +477,8 @@ function Couverture({ questions }: { questions: QuestionQcm[] }) {
 }
 
 function PageQcm() {
-  const questions = Route.useLoaderData();
+  const corpus = Route.useLoaderData();
+  const questions = useMemo(() => selectionnerQuestions(corpus), [corpus]);
   // Les options sont mélangées au lancement de la partie, dans le
   // navigateur : mélanger au rendu serveur produirait un ordre différent de
   // celui du client, et chaque partie doit avoir le sien.
@@ -458,13 +497,13 @@ function PageQcm() {
   const question = partie?.[index];
   const choixCourant = question ? choix.find((c) => c.questionId === question.id) : undefined;
 
-  function choisir(positionId: string | null) {
+  function choisir(positionIds: string[] | null) {
     if (!question) return;
     // Le choix reste dans l'état de la page : il n'est ni envoyé ni conservé.
     // Tant que la question est affichée, il peut être changé.
     setChoix([
       ...choix.filter((c) => c.questionId !== question.id),
-      { questionId: question.id, positionId },
+      ...(positionIds?.length === 0 ? [] : [{ questionId: question.id, positionIds }]),
     ]);
   }
 
@@ -494,28 +533,34 @@ function PageQcm() {
           {!partie && (
             <Text mt="sm" c="dimmed">
               {questions.length} questions. Pour chacune, des propositions tirées des documents
-              publiés par les candidats et leurs partis, citées mot pour mot et présentées sans le
-              nom de leur auteur. Vous choisissez celle qui se rapproche le plus de votre avis, ou
-              aucune ; les auteurs ne sont révélés qu&apos;à la fin du quiz.
+              publiés par les partis, citées mot pour mot et présentées sans le nom de leur auteur.
+              Vous pouvez retenir plusieurs orientations, ou aucune. Les auteurs ne sont révélés
+              qu&apos;à la fin du quiz.
             </Text>
           )}
         </Box>
 
         {questions.length === 0 ? (
           <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-            Le quiz n&apos;est pas chargé dans cet environnement. Lancer{" "}
-            <code>npm run data:programmes</code> puis <code>npm run data:positions-programme</code>.
+            Aucune question ne réunit actuellement les propositions sourcées nécessaires pour
+            présenter des orientations opposées. Les documents restent consultables dans les
+            programmes.
           </Alert>
         ) : !partie ? (
           <Stack gap="lg" maw="var(--mesure-texte)">
             <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-              Quand un candidat a publié son programme de campagne pour 2027, c&apos;est lui qui est
-              cité. Sinon, la citation vient du document le plus récent de sa formation : programme
-              présidentiel de 2022, programme des législatives de 2024, propositions du parti ou
-              tribune du candidat. La nature de chaque document s&apos;affiche avec le résultat.
-              Toutes les formations ne figurent pas dans toutes les questions : le quiz s&apos;en
-              tient à ce que chaque document dit, et ne comble pas les absences.
+              Quand un parti a publié un programme pour 2027, il est cité. Sinon, la citation vient
+              du document le plus récent de ce parti : programme présidentiel de 2022, programme des
+              législatives de 2024, propositions ou tribune du parti. La nature de chaque document
+              s&apos;affiche avec le résultat. Toutes les formations ne figurent pas dans toutes les
+              questions : le quiz s&apos;en tient à ce que chaque document dit, et ne comble pas les
+              absences.
             </Alert>
+            <Text size="sm" c="dimmed">
+              Le quiz retient les arbitrages documentés sur la retraite, le nucléaire et la
+              fiscalité du patrimoine. Les questions qui juxtaposent des mesures compatibles sont
+              écartées. Ce périmètre limité ne représente pas l&apos;ensemble d&apos;un programme.
+            </Text>
             <Text size="sm" c="dimmed">
               Vos choix restent dans votre navigateur. Ils ne sont ni envoyés au site, ni conservés.
             </Text>
@@ -528,6 +573,7 @@ function PageQcm() {
         ) : (
           question && (
             <EcranQuestion
+              key={question.id}
               question={question}
               index={index}
               total={partie.length}
@@ -535,6 +581,7 @@ function PageQcm() {
               onChoisir={choisir}
               onPasser={avancer}
               onSuivante={avancer}
+              onRetour={() => setIndex((i) => Math.max(0, i - 1))}
             />
           )
         )}

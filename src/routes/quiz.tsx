@@ -169,6 +169,7 @@ function EcranQuestion({
 }) {
   const [important, setImportant] = useState(reponse?.important ?? false);
   const [details, setDetails] = useState(false);
+  const [selection, setSelection] = useState<ReponseEchelle | null>(reponse?.reponse ?? null);
 
   const repondre = (valeur: ReponseEchelle) =>
     onRepondre({ questionId: question.id, reponse: valeur, important });
@@ -217,8 +218,6 @@ function EcranQuestion({
         </Collapse>
       </Box>
 
-      {/* La pondération se choisit avant de répondre : un clic sur une
-          réponse passe à la question suivante. */}
       <Checkbox
         label="Ce sujet compte particulièrement pour moi"
         description="Il pèsera double dans votre résultat."
@@ -231,9 +230,10 @@ function EcranQuestion({
           <UnstyledButton
             key={e.valeur}
             className={`${classes["option"]} ${classes["choisissable"]} ${
-              reponse?.reponse === e.valeur ? classes["choisie"] : ""
+              selection === e.valeur ? classes["choisie"] : ""
             }`}
-            onClick={() => repondre(e.valeur)}
+            aria-pressed={selection === e.valeur}
+            onClick={() => setSelection(e.valeur)}
           >
             <Text>{e.libelle}</Text>
           </UnstyledButton>
@@ -243,15 +243,22 @@ function EcranQuestion({
       <Divider label="ou" labelPosition="center" />
       <UnstyledButton
         className={`${classes["option"]} ${classes["choisissable"]} ${
-          reponse?.reponse === "NSP" ? classes["choisie"] : ""
+          selection === "NSP" ? classes["choisie"] : ""
         }`}
-        onClick={() => repondre("NSP")}
+        aria-pressed={selection === "NSP"}
+        onClick={() => setSelection("NSP")}
       >
         <Text>Je ne sais pas</Text>
         <Text size="xs" c="dimmed" mt={2}>
           La question ne comptera pas dans votre résultat.
         </Text>
       </UnstyledButton>
+      <Button
+        disabled={selection === null}
+        onClick={() => selection !== null && repondre(selection)}
+      >
+        {index + 1 === total ? "Voir le résultat" : "Valider et continuer"}
+      </Button>
     </Stack>
   );
 }

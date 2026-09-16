@@ -73,13 +73,16 @@ function PageProgrammes() {
         <Box maw="var(--mesure-texte)">
           <Title order={1}>Les programmes 2027</Title>
           <Text mt="sm" c="dimmed">
-            Les documents publiés par les candidats et leurs partis, avec le lien vers la source. Le
-            site n&apos;héberge aucun de ces textes et n&apos;en résume pas le contenu : chaque lien
-            mène au document tel que son auteur l&apos;a publié.
+            Les documents publiés par les partis, avec le lien vers la source. Le site
+            n&apos;héberge aucun de ces textes et n&apos;en résume pas le contenu : chaque lien mène
+            au document tel que son auteur l&apos;a publié.
           </Text>
         </Box>
 
         <Stack gap={4}>
+          <Anchor component={Link} to="/programmes/votes" fw={600}>
+            Programmes et votes : les partis sur pièces
+          </Anchor>
           <Anchor component={Link} to="/programmes/comparer" fw={600}>
             Comparer deux programmes thème par thème
           </Anchor>
@@ -89,11 +92,11 @@ function PageProgrammes() {
         </Stack>
 
         <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>
-          Plusieurs candidats ont publié leur programme de campagne pour 2027. Pour les autres, le
-          document listé est le plus récent de leur formation : programme présidentiel de 2022,
-          programme des législatives de 2024, propositions du parti ou tribune du candidat. La
-          nature de chaque document est indiquée à côté de son titre, et l&apos;absence de document
-          est affichée plutôt que passée sous silence.
+          Plusieurs partis ont publié un programme pour 2027. Pour les autres, le document listé est
+          le plus récent de leur formation : programme présidentiel de 2022, programme des
+          législatives de 2024, propositions du parti ou tribune du parti. La nature de chaque
+          document est indiquée à côté de son titre, et l&apos;absence de document est affichée
+          plutôt que passée sous silence.
         </Alert>
 
         {formations.length === 0 ? (
@@ -121,7 +124,7 @@ function PageProgrammes() {
                     {f.enAttente.map((d) => (
                       <Box key={d.id} mb="sm">
                         <Text size="sm" fw={600}>
-                          {d.candidat ?? f.formation}
+                          {f.formation}
                           <Text span c="dimmed" fw={400}>
                             {" "}
                             · aucun programme publié à ce jour

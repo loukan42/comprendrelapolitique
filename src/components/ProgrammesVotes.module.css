@@ -1,0 +1,10 @@
+.page {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.fiche {
+  border-top: 1px solid var(--mantine-color-default-border);
+  padding-block: var(--mantine-spacing-xl);
+  min-width: 0;
+}

@@ -43,13 +43,13 @@ export interface QuestionQcm {
 }
 
 /**
- * Un choix de l'utilisateur. `positionId` à null signifie « aucune de ces
+ * Un choix de l'utilisateur. `positionIds` à null signifie « aucune de ces
  * propositions » : la question compte comme répondue, aucune formation n'est
  * choisie. Une question passée n'a pas de choix du tout.
  */
 export interface ChoixQcm {
   questionId: string;
-  positionId: string | null;
+  positionIds: string[] | null;
 }
 
 export interface LigneResultatQcm {
@@ -60,9 +60,9 @@ export interface LigneResultatQcm {
   proposee: number;
   part: number;
   /**
-   * Nombre de fois où la formation aurait été choisie en répondant au
-   * hasard : somme, sur les questions répondues où elle figurait, de 1 / k,
-   * k étant le nombre de formations proposées à la question.
+   * Repère historique : part des formations sélectionnées par question.
+   * Ce champ ne sert pas au classement et n'est pas une probabilité de hasard
+   * pour les orientations regroupées.
    */
   attendu: number;
 }
@@ -94,20 +94,27 @@ export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[])
   const compte = new Map<string, { choisie: number; proposee: number; attendu: number }>();
   let repondues = 0;
   let aucune = 0;
+  const derniersChoix = new Map(choix.map((c) => [c.questionId, c]));
 
-  for (const c of choix) {
+  for (const c of derniersChoix.values()) {
     const question = parQuestion.get(c.questionId);
     if (!question) continue;
 
     // Un choix qui ne correspond à aucune option de la question est ignoré
     // plutôt que compté comme « aucune » : ce serait attribuer à
     // l'utilisateur un rejet qu'il n'a pas exprimé.
-    const choisie =
-      c.positionId === null ? null : question.options.find((o) => o.positionId === c.positionId);
-    if (c.positionId !== null && !choisie) continue;
+    const ids = c.positionIds;
+    if (
+      ids !== null &&
+      (ids.length === 0 || ids.some((id) => !question.options.some((o) => o.positionId === id)))
+    )
+      continue;
+    const choisies = new Set(
+      question.options.filter((o) => ids?.includes(o.positionId)).map((o) => o.formation),
+    );
 
     repondues += 1;
-    if (!choisie) aucune += 1;
+    if (ids === null) aucune += 1;
 
     // Une formation ne compte qu'une fois par question, même si le corpus
     // venait à lui attribuer deux citations sur le même sujet.
@@ -115,8 +122,8 @@ export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[])
     for (const formation of presentes) {
       const ligne = compte.get(formation) ?? { choisie: 0, proposee: 0, attendu: 0 };
       ligne.proposee += 1;
-      ligne.attendu += 1 / presentes.size;
-      if (choisie?.formation === formation) ligne.choisie += 1;
+      ligne.attendu += choisies.size / presentes.size;
+      if (choisies.has(formation)) ligne.choisie += 1;
       compte.set(formation, ligne);
     }
   }
@@ -129,14 +136,10 @@ export function calculerResultatQcm(questions: QuestionQcm[], choix: ChoixQcm[])
       part: l.choisie / l.proposee,
       attendu: l.attendu,
     }))
-    // Rangées par écart au hasard : une formation présente dans une question
-    // à trois options a mécaniquement plus de chances d'être choisie que dans
-    // une question à huit (audit méthodologique I6).
+    // Le classement est descriptif : part de questions avec un accord.
     .sort(
       (a, b) =>
-        b.choisie - b.attendu - (a.choisie - a.attendu) ||
-        b.choisie - a.choisie ||
-        a.formation.localeCompare(b.formation, "fr"),
+        b.part - a.part || b.choisie - a.choisie || a.formation.localeCompare(b.formation, "fr"),
     );
 
   return { lignes, repondues, aucune };

@@ -10,12 +10,13 @@ const QUIZ = [
   {
     to: "/programmes/quiz",
     libelle: "Quiz des programmes",
-    detail: "Quels candidats vous ressemblent ?",
+    detail: "Quels partis vous ressemblent ?",
   },
 ] as const;
 
 const APRES_QUIZ = [
   { to: "/programmes/comparer", libelle: "Comparer" },
+  { to: "/programmes/votes", libelle: "Programmes et votes" },
   { to: "/lois", libelle: "Lois" },
   { to: "/bilans", libelle: "Bilans" },
   { to: "/themes", libelle: "Thèmes" },
