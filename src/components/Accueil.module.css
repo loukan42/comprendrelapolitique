@@ -9,8 +9,11 @@
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  min-height: max(40rem, calc(100svh - 5rem));
-  padding-block: 3rem;
+  min-height: max(
+    32rem,
+    calc(100svh - (var(--mantine-spacing-xl) + var(--mantine-spacing-lg)))
+  );
+  padding-block: var(--mantine-spacing-lg);
 }
 
 .nuage {
@@ -37,6 +40,17 @@
     align-items: center;
     min-height: max(48rem, calc(100svh - 5rem));
     padding-block: 5rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .hero {
+    min-height: 32rem;
+    padding-block: var(--mantine-spacing-xl);
+  }
+
+  .questions {
+    font-size: var(--mantine-font-size-md);
   }
 }
 

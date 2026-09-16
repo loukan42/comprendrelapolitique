@@ -17,6 +17,7 @@ import type { QuestionBenchmark } from "../lib/benchmarkProgrammes";
 import { tableDisponible, requete } from "./db";
 
 export type NatureProgramme =
+  | "presidentiel_2017"
   | "presidentiel_2027"
   | "presidentiel_2022"
   | "legislatif_2024"
@@ -34,6 +35,7 @@ export type NatureProgramme =
  * programmes 2027 tromperait le lecteur sur ce qu'il va lire.
  */
 export const LIBELLE_NATURE: Record<NatureProgramme, string> = {
+  presidentiel_2017: "programme de campagne 2017",
   presidentiel_2027: "programme de campagne 2027",
   presidentiel_2022: "programme présidentiel 2022",
   legislatif_2024: "programme des législatives 2024",

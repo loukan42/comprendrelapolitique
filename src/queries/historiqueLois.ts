@@ -135,13 +135,15 @@ export const chargerHistoriqueLois = createServerFn({ method: "GET" }).handler(
            SELECT m.organe_uid
              FROM officiel.mandat m
             WHERE m.acteur_uid = d.acteur_initiateur
-              AND m.type_organe = 'GP'
+              AND m.type_organe IN ('GP', 'GROUPESENAT')
               AND m.date_debut <= d.date_depot
               AND (m.date_fin IS NULL OR m.date_fin >= d.date_depot)
             ORDER BY m.date_debut DESC
             LIMIT 1
          ) mandat ON true
-         LEFT JOIN officiel.organe groupe ON groupe.uid = mandat.organe_uid AND groupe.code_type = 'GP'
+         LEFT JOIN officiel.organe groupe
+           ON groupe.uid = mandat.organe_uid
+          AND groupe.code_type IN ('GP', 'GROUPESENAT')
          ${jointureFormation}
         ORDER BY d.date_depot DESC, d.uid`,
       [debutTexte, finTexte],

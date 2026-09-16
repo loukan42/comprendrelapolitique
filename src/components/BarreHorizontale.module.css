@@ -1,0 +1,24 @@
+.ligne {
+  min-width: 0;
+}
+
+.libelle {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.valeur {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 36em) {
+  .ligne {
+    align-items: flex-start;
+    gap: var(--mantine-spacing-xs);
+  }
+
+  .valeur {
+    font-size: var(--mantine-font-size-xs);
+  }
+}

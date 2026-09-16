@@ -275,7 +275,7 @@ function EcranQuestion({
         })}
       </Stack>
 
-      <Group gap="sm">
+      <Group gap="sm" wrap="wrap" className={classes["actions"]}>
         <Button
           onClick={onSuivante}
           disabled={!repondu}
@@ -451,7 +451,7 @@ function EcranResultat({
 
       <Couverture questions={questions} />
 
-      <Group gap="md">
+      <Group gap="md" wrap="wrap">
         <Button component="a" href="/quiz">
           Faire le quiz des votes
         </Button>

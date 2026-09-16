@@ -1,5 +1,6 @@
 import { Anchor, Box, Group, Text } from "@mantine/core";
 import type { ReactNode } from "react";
+import classes from "./BarreHorizontale.module.css";
 
 /**
  * Barre horizontale simple : une valeur, une référence (le maximum de la
@@ -33,8 +34,8 @@ export function BarreHorizontale({
   const pct = reference > 0 ? Math.max(0, Math.min(100, (valeur / reference) * 100)) : 0;
   return (
     <Box>
-      <Group justify="space-between" gap="sm" mb={4} wrap="nowrap">
-        <Group gap="sm" wrap="nowrap" miw={0}>
+      <Group justify="space-between" gap="sm" mb={4} wrap="nowrap" className={classes["ligne"]}>
+        <Group gap="sm" wrap="nowrap" miw={0} className={classes["libelle"]}>
           {visuel}
           {href ? (
             <Anchor href={href} size="sm" fw={600} underline="hover" truncate>
@@ -46,7 +47,7 @@ export function BarreHorizontale({
             </Text>
           )}
         </Group>
-        <Text size="sm" fw={700}>
+        <Text size="sm" fw={700} className={classes["valeur"]}>
           {libelleValeur}
         </Text>
       </Group>

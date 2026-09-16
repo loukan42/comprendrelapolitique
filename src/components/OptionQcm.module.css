@@ -41,3 +41,13 @@
   border-color: var(--mantine-color-white);
   box-shadow: inset 0 0 0 1px var(--mantine-color-white);
 }
+
+.actions {
+  align-items: stretch;
+}
+
+@media (max-width: 36em) {
+  .actions > button {
+    flex: 1 1 100%;
+  }
+}

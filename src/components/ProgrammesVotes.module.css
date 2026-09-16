@@ -8,3 +8,33 @@
   padding-block: var(--mantine-spacing-xl);
   min-width: 0;
 }
+
+.enteteFiche {
+  align-items: flex-start;
+}
+
+.identiteFiche {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.statutFiche {
+  flex: 0 1 auto;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 36em) {
+  .enteteFiche {
+    gap: var(--mantine-spacing-sm);
+  }
+
+  .identiteFiche {
+    width: 100%;
+  }
+
+  .statutFiche {
+    width: 100%;
+  }
+}

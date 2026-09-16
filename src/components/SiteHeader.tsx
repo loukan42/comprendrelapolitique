@@ -51,7 +51,14 @@ export function SiteHeader() {
           aria-label="Politiquizz, accueil"
           onClick={close}
         >
-          <Image src={logo} alt="" h={40} w="auto" fit="contain" className={classes["logo"]} />
+          <Image
+            src={logo}
+            alt=""
+            h={{ base: 36, sm: 40 }}
+            w="auto"
+            fit="contain"
+            className={classes["logo"]}
+          />
         </Link>
 
         <nav className={classes["nav"]} aria-label="Navigation principale">
@@ -125,7 +132,7 @@ export function SiteHeader() {
         onClose={close}
         position="right"
         size="100%"
-        padding="xl"
+        padding="md"
         title="Menu"
         classNames={{ title: classes["titreTiroir"] }}
       >

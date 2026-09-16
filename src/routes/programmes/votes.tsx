@@ -39,8 +39,8 @@ function Fiche({ fiche: f }: { fiche: ComparaisonProgrammeVote }) {
   const sourceVote = `https://www.assemblee-nationale.fr/dyn/${f.legislature}/scrutins/${f.numero}`;
   return (
     <Stack component="article" gap="lg" className={classes["fiche"]}>
-      <Group justify="space-between">
-        <Group gap="sm" wrap="nowrap">
+      <Group justify="space-between" wrap="wrap" className={classes["enteteFiche"]}>
+        <Group gap="sm" wrap="nowrap" className={classes["identiteFiche"]}>
           <LogoFormation formation={f.formation} taille="lg" />
           <PortraitCandidat nom={f.candidat} taille="lg" />
           <Box>
@@ -52,7 +52,7 @@ function Fiche({ fiche: f }: { fiche: ComparaisonProgrammeVote }) {
             )}
           </Box>
         </Group>
-        <Badge color="graphite" variant="outline">
+        <Badge color="graphite" variant="outline" className={classes["statutFiche"]}>
           {LIBELLES_CONSTAT[f.constat]}
         </Badge>
       </Group>

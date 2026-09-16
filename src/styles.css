@@ -72,6 +72,7 @@
 html {
   /* Le défilement ancré ne doit pas masquer le titre visé. */
   scroll-padding-top: 6rem;
+  overflow-x: hidden;
 }
 
 /*
@@ -83,6 +84,22 @@ html {
 body {
   font-weight: 300;
   font-feature-settings: "ss01" on;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+/* Les graphiques et les tableaux peuvent défiler dans leur propre cadre, sans
+   agrandir la page entière sur un écran étroit. */
+img,
+svg,
+canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 36em) {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
 }
 
 :where(h1, h2) {

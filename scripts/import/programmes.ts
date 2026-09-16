@@ -31,6 +31,7 @@ import { resolve } from "node:path";
 import { appliquerMigration, ouvrirBase, type Db } from "./db.ts";
 
 type Nature =
+  | "presidentiel_2017"
   | "presidentiel_2027"
   | "presidentiel_2022"
   | "legislatif_2024"
@@ -253,6 +254,170 @@ const REFERENCES: Reference[] = [
     url: "https://mlafrance.fr/programme",
     note: "Programme de la présidentielle de 2022, toujours en ligne sur le site de la candidate. Cité faute de programme pour 2027 publié sur ce site.",
   },
+  // Archives 2017. Renaissance Numérique publie ici des synthèses des mesures
+  // numériques présentes dans les programmes, pas les programmes complets.
+  // La limite est conservée dans la note affichée au lecteur.
+  {
+    id: "renaissance-numerique-2017-fillon",
+    formation: "Les Républicains",
+    candidat: "François Fillon",
+    titre: "Programme numérique de la campagne 2017",
+    nature: "presidentiel_2017",
+    datePublication: "2017-02-21",
+    url: "https://www.renaissancenumerique.org/wp-content/uploads/2022/08/renaissancenumerique_fiche_id_numerique_-franccca7ois_fillon.pdf",
+    note: "Synthèse thématique de Renaissance Numérique : elle couvre les mesures numériques recensées, pas l'intégralité du programme présidentiel.",
+  },
+  {
+    id: "renaissance-numerique-2017-hamon",
+    formation: "Parti socialiste",
+    candidat: "Benoît Hamon",
+    titre: "Programme numérique de la campagne 2017",
+    nature: "presidentiel_2017",
+    datePublication: "2017-02-21",
+    url: "https://www.renaissancenumerique.org/wp-content/uploads/2022/08/renaissancenumerique_fiche_id_numerique_-benoit_hamon.pdf",
+    note: "Synthèse thématique de Renaissance Numérique : elle couvre les mesures numériques recensées, pas l'intégralité du programme présidentiel.",
+  },
+  {
+    id: "renaissance-numerique-2017-macron",
+    formation: "En Marche !",
+    candidat: "Emmanuel Macron",
+    titre: "Programme numérique de la campagne 2017",
+    nature: "presidentiel_2017",
+    datePublication: "2017-02-21",
+    url: "https://www.renaissancenumerique.org/wp-content/uploads/2022/08/renaissancenumerique_fiche_id_numerique_macron.pdf",
+    note: "Synthèse thématique de Renaissance Numérique : elle couvre les mesures numériques recensées, pas l'intégralité du programme présidentiel.",
+  },
+  {
+    id: "renaissance-numerique-2017-le-pen",
+    formation: "Front national",
+    candidat: "Marine Le Pen",
+    titre: "Programme numérique de la campagne 2017",
+    nature: "presidentiel_2017",
+    datePublication: "2017-02-21",
+    url: "https://www.renaissancenumerique.org/wp-content/uploads/2022/08/renaissancenumerique_fiche_id_numerique_mlp.pdf",
+    note: "Synthèse thématique de Renaissance Numérique : elle couvre les mesures numériques recensées, pas l'intégralité du programme présidentiel.",
+  },
+  {
+    id: "renaissance-numerique-2017-melenchon",
+    formation: "La France insoumise",
+    candidat: "Jean-Luc Mélenchon",
+    titre: "Programme numérique de la campagne 2017",
+    nature: "presidentiel_2017",
+    datePublication: "2017-02-21",
+    url: "https://www.renaissancenumerique.org/wp-content/uploads/2022/08/renaissancenumerique_fiche_id_numerique-_jlm.pdf",
+    note: "Synthèse thématique de Renaissance Numérique : elle couvre les mesures numériques recensées, pas l'intégralité du programme présidentiel.",
+  },
+  // Déclarations officielles du premier tour de 2022. La CNCCEP publie la
+  // profession de foi de chaque candidat ; ces PDF sont les documents de
+  // référence historiques, distincts des programmes 2027.
+  {
+    id: "cnccep-2022-arthaud",
+    formation: "Lutte ouvrière",
+    candidat: "Nathalie Arthaud",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-01-Nathalie-Arthaud-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-dupont-aignan",
+    formation: "Debout la France",
+    candidat: "Nicolas Dupont-Aignan",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-02-Nicolas-Dupont-Aignan-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-hidalgo",
+    formation: "Parti socialiste",
+    candidat: "Anne Hidalgo",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-03-Anne-Hidalgo-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-jadot",
+    formation: "Europe Écologie Les Verts",
+    candidat: "Yannick Jadot",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-04-Yannick-Jadot-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-lassalle",
+    formation: "Résistons !",
+    candidat: "Jean Lassalle",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-05-Jean-Lassalle-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-le-pen",
+    formation: "Rassemblement National",
+    candidat: "Marine Le Pen",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-06-Marine-Le-Pen-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-macron",
+    formation: "La République en marche",
+    candidat: "Emmanuel Macron",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-07-Emmanuel-Macron-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-melenchon",
+    formation: "La France insoumise",
+    candidat: "Jean-Luc Mélenchon",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-08-Jean-Luc-Melenchon-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-pecresse",
+    formation: "Les Républicains",
+    candidat: "Valérie Pécresse",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-09-Valerie-Pecresse-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-poutou",
+    formation: "Nouveau Parti anticapitaliste",
+    candidat: "Philippe Poutou",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-10-Philippe-Poutou-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-roussel",
+    formation: "Parti communiste français",
+    candidat: "Fabien Roussel",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-11-Fabien-Roussel-Declaration-accessible.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
+  {
+    id: "cnccep-2022-zemmour",
+    formation: "Reconquête",
+    candidat: "Éric Zemmour",
+    titre: "Déclaration officielle, présidentielle 2022",
+    nature: "presidentiel_2022",
+    url: "https://www.cnccep.fr/pdfs/Candidat-12-Eric-Zemmour-Declaration.pdf",
+    note: "Profession de foi officielle du premier tour, publiée par la Commission nationale de contrôle de la campagne électorale.",
+  },
   {
     id: "lr-priorite-travail",
     formation: "Les Républicains",
@@ -388,6 +553,7 @@ const REFERENCES: Reference[] = [
 
 const MIGRATION = resolve("db/migrations/006_programmes.sql");
 const MIGRATION_NATURES = resolve("db/migrations/009_natures_programme.sql");
+const MIGRATION_2017 = resolve("db/migrations/011_nature_programme_2017.sql");
 
 /** Contrôle d'accessibilité. Une URL qui ne répond pas n'est pas publiée. */
 async function tester(url: string): Promise<number | string> {
@@ -444,6 +610,7 @@ async function main() {
   }
   // Idempotente : ajoute les natures de document aux bases créées avant elle.
   await appliquerMigration(db, MIGRATION_NATURES);
+  await appliquerMigration(db, MIGRATION_2017);
 
   await db.query(`DELETE FROM enrichissement.programme`);
   let ecrites = 0;
