@@ -38,12 +38,15 @@ const dateLongue = new Intl.DateTimeFormat("fr-FR", {
   year: "numeric",
 });
 const couleursCamembert = [
-  "var(--mantine-color-encre-3)",
-  "var(--mantine-color-ocre-4)",
-  "var(--mantine-color-graphite-4)",
-  "var(--mantine-color-bleu-4)",
-  "var(--mantine-color-encre-6)",
-  "var(--mantine-color-ocre-6)",
+  "var(--mantine-color-donnees-4)",
+  "var(--mantine-color-donnees-5)",
+  "var(--mantine-color-donnees-6)",
+  "var(--mantine-color-donnees-7)",
+  "var(--mantine-color-donnees-8)",
+  "var(--mantine-color-donnees-9)",
+  "var(--mantine-color-donnees-3)",
+  "var(--mantine-color-donnees-2)",
+  "var(--mantine-color-donnees-1)",
 ];
 const TAILLE_PAGE = 25;
 
@@ -64,8 +67,8 @@ function cheminArc(debut: number, fin: number): string {
   const rayon = 86;
   const angle = (degre: number) => ((degre - 90) * Math.PI) / 180;
   const point = (degre: number) => [
-    centre + rayon * Math.cos(angle(degre)),
-    centre + rayon * Math.sin(angle(degre)),
+    Number((centre + rayon * Math.cos(angle(degre))).toFixed(3)),
+    Number((centre + rayon * Math.sin(angle(degre))).toFixed(3)),
   ];
   const [x1, y1] = point(debut);
   const [x2, y2] = point(fin);
@@ -75,13 +78,19 @@ function cheminArc(debut: number, fin: number): string {
 
 function Camembert({ formations }: { formations: FormationLois[] }) {
   const adoptees = formations.filter((formation) => formation.adoptees > 0);
-  const total = adoptees.reduce((somme, formation) => somme + formation.adoptees, 0);
+  const principales = adoptees.slice(0, 8);
+  const reste = adoptees.slice(8).reduce((somme, formation) => somme + formation.adoptees, 0);
+  const partsDonnees =
+    reste > 0
+      ? [...principales, { formation: "Autres formations", proposees: 0, adoptees: reste }]
+      : principales;
+  const total = partsDonnees.reduce((somme, formation) => somme + formation.adoptees, 0);
   if (total === 0) {
     return <Text c="dimmed">Aucune loi adoptée n&apos;est disponible dans le corpus chargé.</Text>;
   }
 
   let angle = 0;
-  const parts = adoptees.map((formation, index) => {
+  const parts = partsDonnees.map((formation, index) => {
     const suivant = angle + (formation.adoptees / total) * 360;
     const part = {
       formation,
@@ -103,7 +112,8 @@ function Camembert({ formations }: { formations: FormationLois[] }) {
       >
         <title id="camembert-titre">Lois adoptées par formation</title>
         <desc id="camembert-description">
-          Répartition des {nombre.format(total)} lois adoptées entre les formations des déposants.
+          Répartition des {nombre.format(total)} lois adoptées entre les principales formations des
+          déposants et les autres formations regroupées.
         </desc>
         {parts.map((part) => (
           <path
@@ -274,8 +284,11 @@ function PageHistoriqueLois() {
             <Text size="sm" c="dimmed" mb="xl">
               Les parts représentent les formations auxquelles la source rattache le groupe du
               député initiateur au moment du dépôt, lorsque la correspondance est disponible. Les
-              textes sans rattachement restent dans leur groupe parlementaire ou sous « Déposant non
-              rattaché ».
+              projets de loi déposés au nom d&apos;un ministre ou du Premier ministre sont regroupés
+              sous « Gouvernement », car ces initiateurs n&apos;ont pas de groupe parlementaire. Les
+              huit principales formations sont affichées séparément. Les autres sont regroupées,
+              tandis que les propositions parlementaires sans rattachement restent sous « Déposant
+              non rattaché ».
             </Text>
             <Camembert formations={donnees.formations} />
             <Text size="xs" c="dimmed" mt="xl">

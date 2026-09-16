@@ -81,6 +81,7 @@ export const chargerHistoriqueLois = createServerFn({ method: "GET" }).handler(
       date_depot: string;
       legislature: number | null;
       procedure: string | null;
+      procedure_code: string | null;
       formation: string | null;
       groupe: string | null;
       initiateur: string | null;
@@ -91,15 +92,18 @@ export const chargerHistoriqueLois = createServerFn({ method: "GET" }).handler(
     }>(
       `WITH dossiers AS (
          SELECT d.uid, d.titre, d.titre_chemin, d.legislature, d.procedure_libelle AS procedure,
+                d.procedure_code,
                 d.acteur_initiateur, MIN(a.date_acte)::date AS date_depot
            FROM officiel.dossier d
            JOIN officiel.acte_legislatif a ON a.dossier_uid = d.uid
           WHERE a.date_acte >= $1::date
             AND a.date_acte < ($2::date + interval '1 day')
             AND d.procedure_libelle ILIKE '%loi%'
-         GROUP BY d.uid, d.titre, d.titre_chemin, d.legislature, d.procedure_libelle, d.acteur_initiateur
+         GROUP BY d.uid, d.titre, d.titre_chemin, d.legislature, d.procedure_libelle,
+                  d.procedure_code, d.acteur_initiateur
        )
        SELECT d.uid, d.titre, d.titre_chemin, d.date_depot::text, d.legislature, d.procedure,
+              d.procedure_code,
               ${selectFormation}, groupe.libelle AS groupe,
               NULLIF(trim(concat_ws(' ', acteur.prenom, acteur.nom)), '') AS initiateur,
               d.acteur_initiateur,
@@ -145,23 +149,36 @@ export const chargerHistoriqueLois = createServerFn({ method: "GET" }).handler(
 
     const couvertureDebut =
       rows.length > 0 ? (rows.map((r) => r.date_depot).sort()[0] ?? null) : null;
-    const lois = rows.map((r) => ({
-      uid: r.uid,
-      titre: r.titre,
-      url:
-        r.legislature && r.titre_chemin
-          ? `https://www.assemblee-nationale.fr/dyn/${r.legislature}/dossiers/${r.titre_chemin}`
-          : null,
-      dateDepot: r.date_depot,
-      legislature: r.legislature,
-      procedure: r.procedure,
-      formation: r.formation ?? r.groupe ?? "Déposant non rattaché",
-      groupe: r.groupe,
-      initiateur: r.initiateur,
-      adoptee: r.adoptee,
-      adopteePar493: r.adoptee_493,
-      conflit: r.conflit,
-    }));
+    const lois = rows.map((r) => {
+      // L'Assemblée identifie les projets de loi par leur procédure, mais ne
+      // rattache pas leur ministre ou Premier ministre initiateur à un groupe
+      // parlementaire. Ce n'est donc pas un parti sans nom : c'est le
+      // Gouvernement qui porte le dépôt. Les procédures mixtes ne sont
+      // classées ainsi que lorsque le titre officiel commence par « Projet ».
+      const estProjetGouvernemental =
+        r.procedure?.startsWith("Projet de loi") === true ||
+        (r.procedure?.startsWith("Projet ou proposition de loi") === true &&
+          r.titre?.toLocaleLowerCase("fr-FR").startsWith("projet de loi") === true);
+      return {
+        uid: r.uid,
+        titre: r.titre,
+        url:
+          r.legislature && r.titre_chemin
+            ? `https://www.assemblee-nationale.fr/dyn/${r.legislature}/dossiers/${r.titre_chemin}`
+            : null,
+        dateDepot: r.date_depot,
+        legislature: r.legislature,
+        procedure: r.procedure,
+        formation: estProjetGouvernemental
+          ? "Gouvernement"
+          : (r.formation ?? r.groupe ?? "Déposant non rattaché"),
+        groupe: r.groupe,
+        initiateur: r.initiateur,
+        adoptee: r.adoptee,
+        adopteePar493: r.adoptee_493,
+        conflit: r.conflit,
+      };
+    });
 
     const formations = new Map<string, FormationLois>();
     const annees = new Map<number, AnneeLois>();

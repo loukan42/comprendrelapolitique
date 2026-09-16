@@ -1,0 +1,21 @@
+.enTeteCarte {
+  align-items: flex-start;
+}
+
+.titreCarte {
+  min-width: 0;
+  flex: 1;
+}
+
+.statut {
+  flex-shrink: 0;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 36em) {
+  .statut {
+    width: 100%;
+  }
+}

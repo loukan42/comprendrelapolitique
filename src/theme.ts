@@ -120,10 +120,38 @@ const ocre: MantineColorsTuple = [
   "#7c5111",
 ];
 
+/** Vert réservé aux résultats institutionnels favorables, jamais à un parti. */
+const succes: MantineColorsTuple = [
+  "#e8f7ee",
+  "#c8edd7",
+  "#9cdbb6",
+  "#70c995",
+  "#4caf7d",
+  "#3d9d6b",
+  "#32865a",
+  "#287049",
+  "#205b3b",
+  "#19492f",
+];
+
+/** Teintes de visualisation : elles distinguent des catégories de données. */
+const donnees: MantineColorsTuple = [
+  "#fff1df",
+  "#ffe0b3",
+  "#ffc778",
+  "#f5aa4d",
+  "#d98025",
+  "#e47762",
+  "#c75a7b",
+  "#8e72cf",
+  "#4b9fba",
+  "#4c9b78",
+];
+
 export const theme = createTheme({
   primaryColor: "rouge",
   primaryShade: { light: 7, dark: 7 },
-  colors: { rouge, bleu, dark, encre, graphite, ocre },
+  colors: { rouge, bleu, dark, encre, graphite, ocre, succes, donnees },
 
   white: "#ffffff",
   black: "#10151c",

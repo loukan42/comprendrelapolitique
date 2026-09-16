@@ -3,6 +3,7 @@ import { IconArrowLeft, IconCircleCheck, IconCircleX } from "@tabler/icons-react
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { BarreEmpilee, LegendeEmpilee } from "../../components/BarreEmpilee";
 import { chargerPageTheme, type TexteTheme } from "../../queries/themePages";
+import styles from "./ThemePage.module.css";
 
 export const Route = createFileRoute("/themes/$slug")({
   loader: async ({ params }) => {
@@ -34,8 +35,8 @@ function CarteTexte({ texte }: { texte: TexteTheme }) {
   const total = texte.voixPour + texte.voixContre + texte.voixAbstention;
   return (
     <Card withBorder radius="md" padding="lg">
-      <Group justify="space-between" wrap="nowrap" align="flex-start" gap="sm">
-        <Box>
+      <Group justify="space-between" wrap="wrap" gap="sm" className={styles["enTeteCarte"]}>
+        <Box className={styles["titreCarte"]}>
           <Anchor href={`/lois/${texte.dossierUid}`} fw={600} underline="hover">
             {texte.titre ?? texte.dossierUid}
           </Anchor>
@@ -44,12 +45,22 @@ function CarteTexte({ texte }: { texte: TexteTheme }) {
           </Text>
         </Box>
         {texte.sortCode === "adopté" && (
-          <Badge leftSection={<IconCircleCheck size={12} />} variant="outline" color="graphite">
+          <Badge
+            className={styles["statut"]}
+            leftSection={<IconCircleCheck size={12} />}
+            variant="light"
+            color="succes"
+          >
             adopté
           </Badge>
         )}
         {texte.sortCode === "rejeté" && (
-          <Badge leftSection={<IconCircleX size={12} />} variant="outline" color="graphite">
+          <Badge
+            className={styles["statut"]}
+            leftSection={<IconCircleX size={12} />}
+            variant="light"
+            color="rouge"
+          >
             rejeté
           </Badge>
         )}

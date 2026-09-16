@@ -14,7 +14,13 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core";
-import { IconArrowRight, IconBuildingBank, IconCircleCheck, IconScale } from "@tabler/icons-react";
+import {
+  IconArrowRight,
+  IconBuildingBank,
+  IconChartDonut,
+  IconCircleCheck,
+  IconScale,
+} from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import accueil from "../components/Accueil.module.css";
@@ -333,6 +339,16 @@ function Accueil() {
                 Suivez les derniers textes déposés, votés et promulgués à l&apos;Assemblée
                 nationale. Sur la page de chaque loi&nbsp;: ce qui a été voté et la position de
                 chaque groupe politique.
+              </CarteFonction>
+              <CarteFonction
+                icone={<IconChartDonut size={18} />}
+                etiquette="Lois et formations"
+                titre="Qui a proposé les lois adoptées ?"
+                href="/lois/historique"
+                action="Voir l’historique des lois"
+              >
+                Une vue sur vingt ans des dossiers de loi, avec la formation du déposant, les
+                adoptions identifiées et leur répartition dans un graphique.
               </CarteFonction>
               <CarteFonction
                 icone={<IconCircleCheck size={18} />}
