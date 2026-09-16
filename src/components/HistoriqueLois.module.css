@@ -1,0 +1,68 @@
+.chart {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: var(--mantine-spacing-xl);
+  align-items: center;
+}
+
+.pie {
+  width: 100%;
+  max-width: 240px;
+  justify-self: center;
+}
+
+.legende {
+  display: grid;
+  gap: var(--mantine-spacing-sm);
+  list-style: none;
+}
+
+.ligneLegende {
+  display: grid;
+  grid-template-columns: var(--mantine-spacing-sm) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--mantine-spacing-sm);
+}
+
+.pastille {
+  width: var(--mantine-spacing-sm);
+  height: var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-xs);
+}
+
+.barres {
+  display: grid;
+  gap: var(--mantine-spacing-sm);
+}
+
+.barreLigne {
+  display: grid;
+  grid-template-columns: var(--mantine-spacing-xl) minmax(0, 1fr) calc(
+      var(--mantine-spacing-xl) + var(--mantine-spacing-sm)
+    );
+  gap: var(--mantine-spacing-sm);
+  align-items: center;
+}
+
+.barreFond {
+  height: var(--mantine-spacing-sm);
+  overflow: hidden;
+  background: var(--mantine-color-dark-5);
+  border-radius: var(--mantine-radius-xs);
+}
+
+.barreValeur {
+  height: 100%;
+  background: var(--mantine-color-ocre-5);
+  border-radius: inherit;
+}
+
+@media (max-width: 48em) {
+  .chart {
+    grid-template-columns: 1fr;
+  }
+
+  .pie {
+    max-width: 200px;
+  }
+}

@@ -93,9 +93,88 @@ const RAPPROCHEMENTS: RapprochementSource[] = [
       "Groupe parlementaire Les Républicains à l'Assemblée nationale lors du scrutin du 21 mars 2023, dans la XVIe législature.",
     verifieLe: "2026-09-16",
   },
+  ...["1533", "3546", "3662"].flatMap((numero) => {
+    const scrutinUid = `VTANR5L16V${numero}`;
+    const date =
+      numero === "1533" ? "16 mai 2023" : numero === "3546" ? "19 mars 2024" : "9 avril 2024";
+    const donnees = [
+      {
+        code: "lfi",
+        positionId: "lfi-nucleaire",
+        partiUid: "PO800490",
+        partiNom: "La France insoumise",
+        vote: "contre",
+        constat: "convergence" as Constat,
+      },
+      {
+        code: "rn",
+        positionId: "rn-nucleaire",
+        partiUid: "PO800520",
+        partiNom: "Rassemblement National",
+        vote: numero === "3546" ? "contre" : "pour",
+        constat: numero === "3546" ? ("ecart" as Constat) : ("convergence" as Constat),
+      },
+      {
+        code: "lr",
+        positionId: "lr-energie-plan",
+        partiUid: "PO800508",
+        partiNom: "Les Républicains",
+        vote: "pour",
+        constat: "convergence" as Constat,
+      },
+    ];
+    return donnees.map((d) => ({
+      id: `${d.code}-nucleaire-scrutin-${numero}`,
+      positionId: d.positionId,
+      scrutinUid,
+      partiUid: d.partiUid,
+      partiNom: d.partiNom,
+      constat: d.constat,
+      explication: `Le document cité défend ${d.code === "lfi" ? "la sortie du nucléaire et l'abandon des nouveaux EPR" : "la relance et la construction de nouveaux réacteurs"}. Lors du scrutin sur l'ensemble du texte nucléaire du ${date}, le groupe parlementaire a majoritairement voté ${d.vote}. Ce vote constitue une ${d.constat === "ecart" ? "direction différente" : "direction comparable"} sur ce point précis.`,
+      limites:
+        "Le vote porte sur un texte et une date précis. Il ne permet pas de conclure que toutes les modalités du plan annoncé par le parti seraient adoptées de la même façon.",
+      sourceTexte: `https://www.assemblee-nationale.fr/dyn/16/scrutins/${numero}`,
+      sourcePerimetre: `https://www.assemblee-nationale.fr/dyn/16/organes/${d.partiUid}`,
+      perimetre: `Groupe parlementaire ${d.partiNom} à l'Assemblée nationale lors du scrutin du ${date}, dans la XVIe législature.`,
+      verifieLe: "2026-09-16",
+    }));
+  }),
+  ...[
+    {
+      code: "lfi",
+      positionId: "lfi-sejour",
+      partiUid: "PO800490",
+      partiNom: "La France insoumise",
+      constat: "convergence" as Constat,
+      vote: "contre",
+    },
+    {
+      code: "rn",
+      positionId: "rn-peuplement",
+      partiUid: "PO800520",
+      partiNom: "Rassemblement National",
+      constat: "convergence" as Constat,
+      vote: "pour",
+    },
+  ].map((d) => ({
+    id: `${d.code}-immigration-scrutin-3213`,
+    positionId: d.positionId,
+    scrutinUid: "VTANR5L16V3213",
+    partiUid: d.partiUid,
+    partiNom: d.partiNom,
+    constat: d.constat,
+    explication: `La proposition citée porte sur la politique d'immigration du parti. Lors du vote de l'ensemble de la loi « contrôler l'immigration, améliorer l'intégration » le 19 décembre 2023, le groupe parlementaire a majoritairement voté ${d.vote}. Le rapprochement décrit le sens du vote sur ce texte, sans résumer toute la politique d'immigration du parti.`,
+    limites:
+      "La loi comporte de nombreuses dispositions. Un vote sur l'ensemble ne permet pas d'attribuer au groupe une position sur chaque article ni sur chaque modalité de son programme.",
+    sourceTexte: "https://www.assemblee-nationale.fr/dyn/16/scrutins/3213",
+    sourcePerimetre: `https://www.assemblee-nationale.fr/dyn/16/organes/${d.partiUid}`,
+    perimetre: `Groupe parlementaire ${d.partiNom} à l'Assemblée nationale lors du scrutin du 19 décembre 2023, dans la XVIe législature.`,
+    verifieLe: "2026-09-16",
+  })),
 ];
 
 const MIGRATION = resolve("db/migrations/010_programmes_votes.sql");
+const IDS_A_SUPPRIMER = ["pp-immigration-scrutin-3213"];
 
 function erreursDeStructure(): string[] {
   const erreurs: string[] = [];
@@ -209,6 +288,11 @@ async function main() {
   }
 
   await db.transaction(async () => {
+    if (IDS_A_SUPPRIMER.length > 0) {
+      await db.query(`DELETE FROM enrichissement.programme_vote WHERE id = ANY($1::text[])`, [
+        IDS_A_SUPPRIMER,
+      ]);
+    }
     for (const r of RAPPROCHEMENTS) {
       await db.query(
         `INSERT INTO enrichissement.programme_vote

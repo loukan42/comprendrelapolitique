@@ -34,7 +34,7 @@ import { chargerBanqueQuiz, type QuestionBanque, type ScrutinQuestion } from "..
 
 export const Route = createFileRoute("/quiz")({
   loader: () => chargerBanqueQuiz(),
-  head: () => ({ meta: [{ title: "Le quiz des votes · Politiquizz" }] }),
+  head: () => ({ meta: [{ title: "Quizz Assemblée nationale · Politiquizz" }] }),
   component: PageQuiz,
 });
 
@@ -437,7 +437,7 @@ function PageQuiz() {
     <Container size="md" py={{ base: 32, sm: 56 }}>
       <Stack gap="xl">
         <Box maw="var(--mesure-texte)">
-          <Title order={1}>Le quiz des votes</Title>
+          <Title order={1}>Quizz Assemblée nationale</Title>
         </Box>
 
         {!parametres || questions.length === 0 ? (

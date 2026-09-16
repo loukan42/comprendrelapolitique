@@ -6,11 +6,15 @@ import logo from "../assets/politiquiz.png";
 import classes from "./SiteHeader.module.css";
 
 const QUIZ = [
-  { to: "/quiz", libelle: "Quiz des votes", detail: "Quelles formations votent comme vous ?" },
+  {
+    to: "/quiz",
+    libelle: "Quizz Assemblée nationale",
+    detail: "Quels groupes votent comme vous ?",
+  },
   {
     to: "/programmes/quiz",
-    libelle: "Quiz des programmes",
-    detail: "Quels partis vous ressemblent ?",
+    libelle: "Quizz Programme présidentiel 2027",
+    detail: "Quels programmes correspondent à vos choix ?",
   },
 ] as const;
 

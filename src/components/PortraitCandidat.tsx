@@ -1,4 +1,5 @@
 import { Anchor, Avatar, Group, Stack, Text } from "@mantine/core";
+import classes from "./IdentiteFormation.module.css";
 
 interface Portrait {
   image: string;
@@ -120,14 +121,17 @@ export function LogoFormation({
   taille?: "sm" | "md" | "lg";
 }) {
   const l = LOGOS[formation];
+  const classeTaille =
+    taille === "sm" ? classes["logoSm"] : taille === "lg" ? classes["logoLg"] : classes["logoMd"];
   const image = (
     <Avatar
       src={l?.image ?? null}
       alt={`Logo de ${formation}`}
-      size={taille}
+      className={`${classes["logo"]} ${classeTaille}`}
       radius="sm"
       color="graphite"
       variant="light"
+      classNames={{ image: classes["image"] }}
     >
       {SIGLES[formation] ?? initiales(formation)}
     </Avatar>

@@ -107,6 +107,9 @@ function PageListeLois() {
             plus ancien. Chaque texte mène à sa page : son parcours, ce qui a été voté et le
             résultat.
           </Text>
+          <Anchor href="/lois/historique" display="inline-block" mt="md">
+            Voir l&apos;historique sur vingt ans et les formations qui ont déposé les textes
+          </Anchor>
         </Box>
 
         <Stack gap="sm">

@@ -20,6 +20,7 @@ import { Route as DeputesUidRouteImport } from './routes/deputes/$uid'
 import { Route as GroupesUidRouteImport } from './routes/groupes/$uid'
 import { Route as LoisIndexRouteImport } from './routes/lois/index'
 import { Route as LoisUidRouteImport } from './routes/lois/$uid'
+import { Route as LoisHistoriqueRouteImport } from './routes/lois/historique'
 import { Route as ProgrammesIndexRouteImport } from './routes/programmes/index'
 import { Route as ProgrammesComparerRouteImport } from './routes/programmes/comparer'
 import { Route as ProgrammesQuizRouteImport } from './routes/programmes/quiz'
@@ -82,6 +83,11 @@ const LoisUidRoute = LoisUidRouteImport.update({
   path: '/lois/$uid',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoisHistoriqueRoute = LoisHistoriqueRouteImport.update({
+  id: '/lois/historique',
+  path: '/lois/historique',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammesIndexRoute = ProgrammesIndexRouteImport.update({
   id: '/programmes/',
   path: '/programmes/',
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/lois/historique': typeof LoisHistoriqueRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/programmes/quiz': typeof ProgrammesQuizRoute
   '/programmes/votes': typeof ProgrammesVotesRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/lois/historique': typeof LoisHistoriqueRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/programmes/quiz': typeof ProgrammesQuizRoute
   '/programmes/votes': typeof ProgrammesVotesRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/deputes/$uid': typeof DeputesUidRoute
   '/groupes/$uid': typeof GroupesUidRoute
   '/lois/$uid': typeof LoisUidRoute
+  '/lois/historique': typeof LoisHistoriqueRoute
   '/programmes/comparer': typeof ProgrammesComparerRoute
   '/programmes/quiz': typeof ProgrammesQuizRoute
   '/programmes/votes': typeof ProgrammesVotesRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/lois/historique'
     | '/programmes/comparer'
     | '/programmes/quiz'
     | '/programmes/votes'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/lois/historique'
     | '/programmes/comparer'
     | '/programmes/quiz'
     | '/programmes/votes'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/deputes/$uid'
     | '/groupes/$uid'
     | '/lois/$uid'
+    | '/lois/historique'
     | '/programmes/comparer'
     | '/programmes/quiz'
     | '/programmes/votes'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   DeputesUidRoute: typeof DeputesUidRoute
   GroupesUidRoute: typeof GroupesUidRoute
   LoisUidRoute: typeof LoisUidRoute
+  LoisHistoriqueRoute: typeof LoisHistoriqueRoute
   ProgrammesComparerRoute: typeof ProgrammesComparerRoute
   ProgrammesQuizRoute: typeof ProgrammesQuizRoute
   ProgrammesVotesRoute: typeof ProgrammesVotesRoute
@@ -330,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoisUidRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lois/historique': {
+      id: '/lois/historique'
+      path: '/lois/historique'
+      fullPath: '/lois/historique'
+      preLoaderRoute: typeof LoisHistoriqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programmes/': {
       id: '/programmes/'
       path: '/programmes'
@@ -385,6 +405,7 @@ const rootRouteChildren: RootRouteChildren = {
   DeputesUidRoute: DeputesUidRoute,
   GroupesUidRoute: GroupesUidRoute,
   LoisUidRoute: LoisUidRoute,
+  LoisHistoriqueRoute: LoisHistoriqueRoute,
   ProgrammesComparerRoute: ProgrammesComparerRoute,
   ProgrammesQuizRoute: ProgrammesQuizRoute,
   ProgrammesVotesRoute: ProgrammesVotesRoute,

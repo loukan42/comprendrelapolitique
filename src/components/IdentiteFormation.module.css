@@ -1,0 +1,29 @@
+.logo {
+  flex: 0 0 auto;
+  border: 1px solid var(--mantine-color-default-border);
+  background: var(--mantine-color-body);
+  color: var(--mantine-color-text);
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.logoSm {
+  width: calc(var(--mantine-spacing-xl) + var(--mantine-spacing-xs));
+  height: var(--mantine-spacing-lg);
+}
+
+.logoMd {
+  width: calc(var(--mantine-spacing-xl) + var(--mantine-spacing-lg));
+  height: var(--mantine-spacing-xl);
+}
+
+.logoLg {
+  width: calc(var(--mantine-spacing-xl) * 2 + var(--mantine-spacing-sm));
+  height: calc(var(--mantine-spacing-xl) + var(--mantine-spacing-sm));
+}
+
+.image {
+  object-fit: contain;
+  padding: var(--mantine-spacing-xs);
+}

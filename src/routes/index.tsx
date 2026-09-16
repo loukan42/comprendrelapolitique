@@ -228,7 +228,7 @@ function Accueil() {
               </Grid.Col>
               <Grid.Col span={{ base: 12, md: 6 }}>
                 <Card withBorder radius="md" padding="xl">
-                  <Etiquette>Exemple de question</Etiquette>
+                  <Etiquette>Exemple · Quizz Assemblée nationale</Etiquette>
                   <Text fz="lg" fw={500} mt="sm">
                     Une personne majeure atteinte d&apos;une maladie grave et incurable, en phase
                     avancée ou terminale, et qui en souffre, doit-elle pouvoir demander une aide à
@@ -238,19 +238,10 @@ function Accueil() {
                     Cinq réponses possibles, de «&nbsp;Tout à fait d&apos;accord&nbsp;» à «&nbsp;Pas
                     du tout d&apos;accord&nbsp;», ou «&nbsp;Je ne sais pas&nbsp;».
                   </Text>
-                  <Button
-                    component="a"
-                    href="/quiz"
-                    mt="md"
-                    w="fit-content"
-                    rightSection={<IconArrowRight size={16} />}
-                  >
-                    Répondre dans le quiz
-                  </Button>
                   <Text size="sm" c="dimmed" mt="lg">
-                    Vous répondez d&apos;abord. Nous vous montrons ensuite comment les différents
-                    groupes politiques ont réellement voté, lors des scrutins de juin et juillet
-                    2026 sur la fin de vie.
+                    Aperçu d&apos;une question du quizz. Vous répondez d&apos;abord, puis nous vous
+                    montrons comment les différents groupes politiques ont réellement voté, lors des
+                    scrutins de juin et juillet 2026 sur la fin de vie.
                   </Text>
                 </Card>
               </Grid.Col>
@@ -258,7 +249,7 @@ function Accueil() {
 
             <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg" mt={48}>
               <Card withBorder radius="md" padding="xl" className={accueil["choix"]}>
-                <Etiquette>Quiz des votes</Etiquette>
+                <Etiquette>Quizz Assemblée nationale</Etiquette>
                 <Title order={3} fz="clamp(1.5rem, 1.2rem + 1vw, 2rem)" mt="xs" flex={1}>
                   Quelles formations politiques votent comme vous ?
                 </Title>
@@ -269,11 +260,11 @@ function Accueil() {
                   w="fit-content"
                   rightSection={<IconArrowRight size={16} />}
                 >
-                  Faire le quiz des votes
+                  Faire le quizz Assemblée nationale
                 </Button>
               </Card>
               <Card withBorder radius="md" padding="xl" className={accueil["choix"]}>
-                <Etiquette>Quiz des programmes</Etiquette>
+                <Etiquette>Quizz Programme présidentiel 2027</Etiquette>
                 <Title order={3} fz="clamp(1.5rem, 1.2rem + 1vw, 2rem)" mt="xs" flex={1}>
                   Quels candidats proposent les idées les plus proches des vôtres ?
                 </Title>
@@ -284,7 +275,7 @@ function Accueil() {
                   w="fit-content"
                   rightSection={<IconArrowRight size={16} />}
                 >
-                  Faire le quiz des programmes
+                  Faire le quizz Programme présidentiel 2027
                 </Button>
               </Card>
             </SimpleGrid>

@@ -40,7 +40,7 @@ import {
 
 export const Route = createFileRoute("/programmes/quiz")({
   loader: () => chargerQcmProgrammes(),
-  head: () => ({ meta: [{ title: "Le quiz des programmes · Politiquizz" }] }),
+  head: () => ({ meta: [{ title: "Quizz Programme présidentiel 2027 · Politiquizz" }] }),
   component: PageQcm,
 });
 
@@ -245,9 +245,16 @@ function EcranQuestion({
                 }
               >
                 <Text fw={600}>{a.libelle}</Text>
-                <Text size="sm" c="dimmed">
-                  {selectionnee ? "Sélectionnée" : "Sélectionner cette orientation"}
-                </Text>
+                <Group gap="xs" mt={4}>
+                  <Text size="sm" c="dimmed">
+                    {selectionnee ? "Sélectionnée" : "Sélectionner cette orientation"}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    · {new Set(a.options.map((o) => o.formation)).size} formation
+                    {new Set(a.options.map((o) => o.formation)).size > 1 ? "s" : ""} regroupée
+                    {new Set(a.options.map((o) => o.formation)).size > 1 ? "s" : ""}
+                  </Text>
+                </Group>
               </UnstyledButton>
               <Accordion variant="default">
                 <Accordion.Item value={a.id}>
@@ -560,7 +567,7 @@ function PageQcm() {
         </Anchor>
 
         <Box maw="var(--mesure-texte)">
-          <Title order={1}>Le quiz des programmes</Title>
+          <Title order={1}>Quizz Programme présidentiel 2027</Title>
           {!partie && (
             <Text mt="sm" c="dimmed">
               {questions.length} questions. Pour chacune, des propositions tirées des documents
