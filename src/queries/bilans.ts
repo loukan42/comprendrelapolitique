@@ -316,16 +316,32 @@ export const chargerBilan = createServerFn({ method: "GET" })
   });
 
 export const listerPresidents = createServerFn({ method: "GET" }).handler(
-  async (): Promise<{ id: string; prenom: string; nom: string; mandats: number }[]> => {
+  async (): Promise<
+    { id: string; prenom: string; nom: string; mandats: number; engagements: number }[]
+  > => {
     if (!(await tableDisponible("enrichissement.engagement"))) return [];
     return (
-      await requete<{ id: string; prenom: string; nom: string; mandats: string }>(
-        `SELECT p.id, p.prenom, p.nom, count(m.id)::text AS mandats
+      await requete<{
+        id: string;
+        prenom: string;
+        nom: string;
+        mandats: string;
+        engagements: string;
+      }>(
+        `SELECT p.id, p.prenom, p.nom, count(DISTINCT m.id)::text AS mandats,
+                count(DISTINCT e.id)::text AS engagements
            FROM enrichissement.president p
            LEFT JOIN enrichissement.mandat_presidentiel m ON m.president_id = p.id
+           LEFT JOIN enrichissement.engagement e ON e.mandat_id = m.id
           GROUP BY p.id, p.prenom, p.nom
           ORDER BY p.nom`,
       )
-    ).map((p) => ({ id: p.id, prenom: p.prenom, nom: p.nom, mandats: Number(p.mandats) }));
+    ).map((p) => ({
+      id: p.id,
+      prenom: p.prenom,
+      nom: p.nom,
+      mandats: Number(p.mandats),
+      engagements: Number(p.engagements),
+    }));
   },
 );

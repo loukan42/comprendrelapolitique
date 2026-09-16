@@ -22,6 +22,9 @@ function PageBilans() {
             site ne dit pas si une politique est bonne ou mauvaise : il vérifie si ce qui avait été
             annoncé a été fait.
           </Text>
+          <Text size="sm" c="dimmed" mt="xs">
+            Un programme peut être archivé avant que ses engagements soient documentés et évalués.
+          </Text>
         </Box>
 
         {presidents.length === 0 ? (
@@ -36,8 +39,12 @@ function PageBilans() {
                   {p.prenom} {p.nom}
                 </Anchor>
                 <Text size="sm" c="dimmed" mt={4}>
-                  {p.mandats} mandat{p.mandats > 1 ? "s" : ""} documenté
-                  {p.mandats > 1 ? "s" : ""}
+                  {p.mandats} mandat{p.mandats > 1 ? "s" : ""} avec programme archivé ·{" "}
+                  {p.engagements > 0
+                    ? `${p.engagements} engagement${p.engagements > 1 ? "s" : ""} évalué${
+                        p.engagements > 1 ? "s" : ""
+                      }`
+                    : "engagements à documenter"}
                 </Text>
               </Card>
             ))}

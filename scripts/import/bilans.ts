@@ -108,6 +108,40 @@ interface EngagementSource {
 
 const PRESIDENTS: PresidentSource[] = [
   {
+    id: "nicolas-sarkozy",
+    prenom: "Nicolas",
+    nom: "Sarkozy",
+    mandats: [
+      {
+        id: "sarkozy-2007-2012",
+        libelle: "2007-2012",
+        dateDebut: "2007-05-16",
+        dateFin: "2012-05-14",
+        programmeTitre: "Mon projet : Ensemble tout devient possible",
+        programmeUrl:
+          "https://cr.middlebury.edu/public/french/lexique/politique/programmes_pres/sarkozy/sarkozy%20programme.pdf",
+        programmeDate: "2007-03-29",
+      },
+    ],
+  },
+  {
+    id: "francois-hollande",
+    prenom: "François",
+    nom: "Hollande",
+    mandats: [
+      {
+        id: "hollande-2012-2017",
+        libelle: "2012-2017",
+        dateDebut: "2012-05-15",
+        dateFin: "2017-05-13",
+        programmeTitre: "Mes 60 engagements pour la France",
+        programmeUrl:
+          "https://lesjours.fr/ressources/document/propositions-hollande/Soixante-engagements-Franc%CC%A7ois-Hollande-V2.pdf",
+        programmeDate: "2012-01-26",
+      },
+    ],
+  },
+  {
     id: "emmanuel-macron",
     prenom: "Emmanuel",
     nom: "Macron",
