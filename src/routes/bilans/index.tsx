@@ -41,7 +41,7 @@ function PageBilans() {
                 <Text size="sm" c="dimmed" mt={4}>
                   {p.mandats} mandat{p.mandats > 1 ? "s" : ""} avec programme archivé ·{" "}
                   {p.engagements > 0
-                    ? `${p.engagements} engagement${p.engagements > 1 ? "s" : ""} évalué${
+                    ? `${p.engagements} fiche${p.engagements > 1 ? "s" : ""} détaillée${
                         p.engagements > 1 ? "s" : ""
                       }`
                     : "engagements à documenter"}

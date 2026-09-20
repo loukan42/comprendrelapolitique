@@ -1,0 +1,881 @@
+[
+  {
+    "id": "2012-7-separation-activites-bancaires",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Séparer les activités bancaires utiles à l'économie des opérations spéculatives",
+    "extraitProgramme": "Je séparerai les activités des banques qui sont utiles à l’investissement et à l’emploi",
+    "reformulation": "Les banques devront isoler leurs opérations spéculatives du reste de leur activité, celle qui finance l'économie.",
+    "pageProgramme": "n° 7",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de séparation et de régulation des activités bancaires est promulguée le 26 juillet 2013. Son article 2 oblige les établissements qui dépassent des seuils à loger leurs opérations pour compte propre dans une filiale dédiée.",
+    "resultat": "Selon le rapport d'information de l'Assemblée nationale de juin 2015, deux banques seulement (BNP Paribas et Société Générale) ont filialisé des activités, soit environ 1 % de leurs activités de marché mesurées en produit net bancaire.",
+    "justification": "Le principe d'une séparation a été voté et appliqué. Son périmètre est resté étroit : la part des activités concernées est d'environ 1 % chez les deux banques qui ont filialisé. Le statut retenu est donc partiel.",
+    "interpretations": "Première lecture : la promesse est tenue, puisque la loi impose une séparation par filiale. Seconde lecture : la promesse visait la séparation des activités utiles à l'économie de leurs opérations spéculatives, et la loi ne sépare qu'une fraction limitée de ces dernières. La seconde lecture est retenue, parce que le rapport parlementaire chiffre la part réellement filialisée.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-26",
+        "description": "Promulgation de la loi de séparation et de régulation des activités bancaires",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539",
+        "date": "2013-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rapport d'information sur la mise en application de la loi n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires (n° 2895)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i2895.asp",
+        "date": "2015-06-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-banques-paradis-fiscaux",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Interdire aux banques françaises d'exercer dans les paradis fiscaux",
+    "extraitProgramme": "J’interdirai aux banques françaises d’exercer dans les paradis fiscaux",
+    "reformulation": "Les banques françaises n'auront plus le droit d'avoir des activités dans les paradis fiscaux.",
+    "pageProgramme": "n° 7",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 7 de la loi du 26 juillet 2013 impose aux établissements bancaires de publier, pays par pays, leurs implantations, leur produit net bancaire, leur résultat et leurs effectifs. Il ne prévoit aucune interdiction d'exercer.",
+    "resultat": "Le rapport d'information de l'Assemblée nationale de juin 2015 indique que les cinq principaux groupes bancaires réalisaient 3,9 % de leur produit net bancaire (5,55 milliards d'euros) dans des juridictions non coopératives en 2014.",
+    "justification": "La loi a créé une obligation de transparence et non l'interdiction annoncée, et les banques restaient présentes dans ces territoires en 2014, chiffres à l'appui. Aucun texte d'interdiction n'a été trouvé dans les sources consultées.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-26",
+        "description": "Promulgation de la loi de séparation et de régulation des activités bancaires (obligation de publication pays par pays, article 7)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539",
+        "date": "2013-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rapport d'information sur la mise en application de la loi n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires (n° 2895)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i2895.asp",
+        "date": "2015-06-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-produits-toxiques",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Mettre fin aux produits financiers toxiques",
+    "extraitProgramme": "Il sera mis fin aux produits financiers toxiques qui enrichissent les spéculateurs",
+    "reformulation": "Les produits financiers jugés dangereux pour l'économie seront supprimés.",
+    "pageProgramme": "n° 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne définit pas ce qu'est un produit financier toxique, ni ne fixe de critère de réussite. La loi du 26 juillet 2013 encadre certains emprunts structurés des collectivités locales, ce qui n'épuise pas la promesse. Aucune source consultée ne permet de dire si les produits visés ont disparu ou non.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Contrôle de l'application de la loi de séparation et de régulation des activités bancaires",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/application-des-lois/pjl12-365.html",
+        "date": "2020-03-31",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-stock-options",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Supprimer les stock-options, sauf pour les entreprises naissantes",
+    "extraitProgramme": "Je supprimerai les stock-options, sauf pour les entreprises naissantes",
+    "reformulation": "Les stock-options disparaissent, à l'exception de celles des jeunes entreprises.",
+    "pageProgramme": "n° 7",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de finances rectificative du 16 août 2012 a porté à 30 % la contribution patronale sur les stock-options et les attributions d'actions gratuites, pour les attributions décidées à partir du 11 juillet 2012. Le régime lui-même n'a pas été supprimé.",
+    "resultat": "Le Code de commerce contenait toujours, en novembre 2016, les articles L225-177 et suivants qui organisent les options de souscription ou d'achat d'actions.",
+    "justification": "Le gouvernement a choisi de taxer les stock-options plus fortement et non de les supprimer. Les articles du Code de commerce qui les autorisent étaient encore en vigueur avant la fin du mandat.",
+    "interpretations": "Le relèvement de la contribution patronale de 14 % à 30 % peut se lire comme un encadrement partiel. La promesse portait sur la suppression : ce relèvement n'y correspond pas, et c'est la lecture retenue.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Loi de finances rectificative pour 2012 : contribution patronale sur les stock-options et actions gratuites fixée à 30 %",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000026294649/2012-08-18"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article L137-13 du Code de la sécurité sociale (version du 18 août 2012)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000026294649/2012-08-18",
+        "date": "2012-08-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Code de commerce, sous-section 2 : De la souscription et de l'achat d'actions par les salariés (version du 20 novembre 2016)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000005634379/LEGISCTA000006178767/2016-11-20/",
+        "date": "2016-11-20",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-bonus-banques",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Encadrer les bonus des banquiers",
+    "extraitProgramme": "et j’encadrerai les bonus",
+    "reformulation": "La part variable de la rémunération des banquiers sera limitée par des règles.",
+    "pageProgramme": "n° 7",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 23 de la loi du 26 juillet 2013 plafonne la rémunération variable des dirigeants et des preneurs de risques des banques en fonction de leur rémunération fixe, sous réserve d'un vote des actionnaires.",
+    "resultat": "Le rapport d'information de l'Assemblée nationale de juin 2015 décrit un plafond qui autorise une part variable égale à la part fixe, doublable par vote des actionnaires. Ses rapporteurs doutent de l'efficacité du dispositif, car les banques ont pu relever les rémunérations fixes.",
+    "justification": "Le plafonnement de la part variable a été voté et décrit comme applicable dans le rapport parlementaire de 2015. La promesse portait sur l'existence d'un encadrement, non sur son effet. Le bilan de l'application publié par le Sénat en 2020 signale toutefois qu'un texte d'application sur ce point restait en attente, ce qui explique une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-26",
+        "description": "Promulgation de la loi de séparation et de régulation des activités bancaires (article 23 sur la rémunération variable)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539",
+        "date": "2013-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rapport d'information sur la mise en application de la loi n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires (n° 2895)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i2895.asp",
+        "date": "2015-06-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Contrôle de l'application de la loi de séparation et de régulation des activités bancaires",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/application-des-lois/pjl12-365.html",
+        "date": "2020-03-31",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-surtaxe-benefices-banques",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Augmenter de 15 % l'imposition des bénéfices des banques",
+    "extraitProgramme": "Je taxerai les bénéfices des banques en augmentant leur imposition de 15 %",
+    "reformulation": "Les banques paieront 15 % d'impôt en plus sur leurs bénéfices.",
+    "pageProgramme": "n° 7",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de finances rectificative du 16 août 2012 (article 9) crée pour 2012 une taxe additionnelle égale au montant de la taxe de risque systémique, puis porte le taux de cette taxe de 0,25 % à 0,5 % à partir du 1er janvier 2013.",
+    "resultat": "Le rapport du Sénat sur ce projet de loi chiffre le doublement du produit de la taxe à environ 550 millions d'euros en 2012, et à 1,6 milliard d'euros par an à partir de 2013.",
+    "justification": "Les banques ont été davantage mises à contribution par un prélèvement qui leur est propre. Ce prélèvement est assis sur les exigences de fonds propres et non sur les bénéfices, et aucune majoration de 15 % de l'impôt sur les sociétés des banques n'a été retrouvée dans les sources consultées.",
+    "interpretations": "Première lecture : la promesse est tenue par le doublement de la taxe de risque systémique, qui est un impôt bancaire. Seconde lecture : la promesse visait un impôt sur les bénéfices, ce que cette taxe n'est pas. La seconde lecture est retenue, d'où le statut partiel.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Loi de finances rectificative pour 2012 : taxe additionnelle en 2012 et taux de la taxe de risque systémique porté à 0,5 % au 1er janvier 2013",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-958 du 16 août 2012 de finances rectificative pour 2012",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927",
+        "date": "2012-08-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "BOI-TFP-RSB : Taxe de risque systémique des banques",
+        "organisme": "Bulletin officiel des finances publiques",
+        "url": "https://bofip.impots.gouv.fr/bofip/6632-PGP.html/identifiant=BOI-TFP-RSB-20121211",
+        "date": "2012-12-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances rectificative pour 2012 : rapport (taxe de risque systémique)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l11-689-1/l11-689-128.html",
+        "date": "2012-07-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-taxe-transactions-financieres",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Proposer une taxe sur toutes les transactions financières",
+    "extraitProgramme": "proposerai la création d’une taxe sur toutes les transactions financières",
+    "reformulation": "La France proposera à ses partenaires une taxe portant sur l'ensemble des transactions financières.",
+    "pageProgramme": "n° 7",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La taxe française sur les transactions financières, créée en mars 2012 au taux de 0,1 %, a été portée à 0,2 % par la loi de finances rectificative du 16 août 2012, pour les acquisitions depuis le 1er août 2012. Le 9 octobre 2012, onze États membres dont la France ont demandé à la Commission une coopération renforcée pour une taxe européenne.",
+    "resultat": "La taxe française ne vise que les achats d'actions de sociétés françaises capitalisant plus d'un milliard d'euros. Selon la réponse du gouvernement du 11 janvier 2018, les négociations européennes à dix États progressaient lentement depuis 2013.",
+    "justification": "Une taxe nationale est en vigueur et la France a porté la demande de taxe européenne, mais la taxe visée par la promesse, sur toutes les transactions, n'a pas vu le jour à la fin du mandat. Le périmètre de la taxe existante est très restreint.",
+    "interpretations": "La taxe française préexistait à l'élection : la loi de mars 2012 la crée à 0,1 %. L'acte propre à ce mandat est son doublement et la demande de coopération renforcée, seuls retenus ici.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Loi de finances rectificative pour 2012 : taux de la taxe sur les transactions financières porté à 0,2 %",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927"
+      },
+      {
+        "date": "2012-10-09",
+        "description": "Demande de coopération renforcée sur une taxe européenne par onze États membres, dont la France",
+        "url": "https://www.senat.fr/rap/r12-259/r12-259_mono.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "La taxe sur les transactions financières : facile à concevoir, difficile à mettre en oeuvre",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r12-259/r12-259_mono.html",
+        "date": "2012-12-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 00610 : Taxe sur les transactions financières (réponse du 11 janvier 2018)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2017/qSEQ170700610.html",
+        "date": "2018-01-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2012-958 du 16 août 2012 de finances rectificative pour 2012",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927",
+        "date": "2012-08-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-7-agence-europeenne-notation",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Proposer une agence publique européenne de notation",
+    "extraitProgramme": "ainsi que d’une agence publique européenne de notation",
+    "reformulation": "La France proposera la création d'une agence de notation financière publique à l'échelle de l'Europe.",
+    "pageProgramme": "n° 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Aucune agence publique européenne n'a été créée. Le règlement européen sur les agences de notation de 2013 a renforcé leur encadrement sans en créer de nouvelle.",
+    "resultat": "Dans son rapport du 23 octobre 2015, la Commission européenne écrit qu'une évaluation européenne de la solvabilité des dettes souveraines lui semble « ni proportionnée ni appropriée à ce stade ».",
+    "justification": "La promesse porte sur une proposition de la France au niveau européen. Aucune source consultée ne documente si cette proposition a été formulée. Un fait est établi : aucune agence publique européenne de notation n’existait à la fin du mandat, le règlement européen de 2013 ayant seulement renforcé l’encadrement des agences existantes. Ce fait ne dit pas si la proposition a été portée, et le statut n’est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-10-23",
+        "description": "Rapport de la Commission européenne sur les agences de notation : pas de suite donnée à une évaluation européenne de la dette souveraine",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52015DC0515"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Report from the Commission to the Council and the European Parliament, COM(2015) 515 final",
+        "organisme": "Commission européenne (EUR-Lex)",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52015DC0515",
+        "date": "2015-10-23",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-8-livret-a-inflation",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Garantir une rémunération du livret A supérieure à l'inflation",
+    "extraitProgramme": "Je garantirai l’épargne populaire par une rémunération du livret A supérieure à l’inflation",
+    "reformulation": "Le taux du livret A restera au-dessus de la hausse des prix et tiendra compte de la croissance.",
+    "pageProgramme": "n° 8",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Un avis publié au Journal officiel fixe le taux à 2,25 % au 1er août 2012, et l'Insee donne une inflation annuelle moyenne de 2,0 % en 2012, 0,9 % en 2013, 0,5 % en 2014, 0,0 % en 2015 et 0,2 % en 2016. Les arrêtés de taux de 2013 à 2016 n'ont pas pu être ouverts et les historiques de taux trouvés ailleurs se contredisent. Le second volet, tenir compte de la croissance, n'a pas de critère mesurable : aucun statut n'a donc été retenu.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-8-plafonnement-frais-bancaires",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Plafonner par la loi le coût des services facturés par les banques",
+    "extraitProgramme": "une loi plafonnera le coût des services facturés par les banques",
+    "reformulation": "Les frais bancaires seront limités par un plafond fixé dans la loi.",
+    "pageProgramme": "n° 8",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 52 de la loi du 26 juillet 2013 prévoit un plafonnement des commissions d'intervention. Le décret du 17 octobre 2013 fixe ce plafond à 8 euros par opération et 80 euros par mois, et à 4 euros et 20 euros pour les clients en situation de fragilité, à compter du 1er janvier 2014.",
+    "resultat": "Le plafond s'applique aux frais d'incidents de paiement. Les autres services bancaires facturés ne sont pas plafonnés par ce texte.",
+    "justification": "Un plafonnement légal existe, mais il ne couvre qu'une catégorie de frais, alors que la promesse visait le coût des services facturés en général.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-10-17",
+        "description": "Décret relatif au plafonnement des commissions d'intervention (8 euros par opération, 80 euros par mois)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028090270"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2013-931 du 17 octobre 2013 relatif au plafonnement des commissions d'intervention",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028090270",
+        "date": "2013-10-17",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2013-672 du 26 juillet 2013 de séparation et de régulation des activités bancaires",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027754539",
+        "date": "2013-07-26",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-8-encadrement-credit-consommation",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Banques et finance",
+    "titre": "Encadrer le crédit à la consommation pour lutter contre le surendettement",
+    "extraitProgramme": "le crédit à la consommation sera encadré",
+    "reformulation": "Le crédit à la consommation sera soumis à de nouvelles règles pour limiter le surendettement.",
+    "pageProgramme": "n° 8",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 17 mars 2014 relative à la consommation encadre le crédit renouvelable : remboursement minimal du capital à chaque échéance, offre alternative amortissable au-delà de 1 000 euros, suspension des contrats inactifs, réforme des taux d'usure. Le décret du 17 octobre 2014 organise la suspension des comptes inactifs.",
+    "resultat": "Le rapport d'information de l'Assemblée nationale enregistré en octobre 2016 relève environ 1,8 million de comptes suspendus entre juillet et novembre 2015, et un stock de comptes de crédit renouvelable passé de 43,2 millions en 2007 à 29,6 millions en 2015.",
+    "justification": "Des règles nouvelles sur le crédit à la consommation ont été votées et appliquées avant la fin du mandat. La promesse portait sur l'encadrement, sans chiffre cible. Un volet de la loi, le registre national des crédits aux particuliers, a été censuré par le Conseil constitutionnel le 13 mars 2014, ce qui limite la portée du dispositif sans retirer l'encadrement obtenu.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-03-17",
+        "description": "Promulgation de la loi relative à la consommation (loi Hamon)",
+        "url": "https://www.vie-publique.fr/loi/20679-loi-hamon-consommation-action-de-groupe-class-action"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport d'information sur la mise en application de la loi n° 2014-344 du 17 mars 2014 relative à la consommation (n° 4139)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i4139.asp",
+        "date": "2016-10-19",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi relative à la consommation : rééquilibrer les pouvoirs entre consommateurs et professionnels",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201307/loi-relative-a-la-consommation-reequilibrer-les-pouvoirs-entre-consommateurs-et-professionnels.html",
+        "date": "2014-03-17",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-9-deficit-3-pourcent-2013",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Finances publiques",
+    "titre": "Ramener le déficit public à 3 % du PIB en 2013",
+    "extraitProgramme": "Le déficit public sera réduit à 3% du produit intérieur brut en 2013",
+    "reformulation": "Le déficit des administrations publiques doit atteindre 3 % du produit intérieur brut dès 2013.",
+    "pageProgramme": "n° 9",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Le gouvernement a voté des hausses de prélèvements et des économies dans les lois de finances de 2012 et 2013. L'objectif d'un déficit de 3 % en 2013 n'a pas été atteint.",
+    "resultat": "Selon l'Insee (publication du 31 mars 2014), le solde public notifié pour 2013 s'établit à -87,6 milliards d'euros, soit -4,3 % du PIB, après -4,9 % en 2012.",
+    "justification": "La promesse est chiffrée et datée : elle s'évalue sur le chiffre constaté, et l'Insee publie un déficit de 4,3 % du PIB pour 2013, soit 1,3 point de plus que la cible. Le chiffre a été révisé ensuite par l'Insee, sans que la cible de 3 % soit atteinte.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "En 2013, le déficit public s’élève à 4,3 % du PIB, la dette notifiée à 93,5 % du PIB",
+        "organisme": "Insee",
+        "url": "https://www.insee.fr/fr/statistiques/1563204",
+        "date": "2014-03-31",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-9-equilibre-budgetaire-fin-mandat",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Finances publiques",
+    "titre": "Rétablir l'équilibre budgétaire en fin de mandat",
+    "extraitProgramme": "Je rétablirai l’équilibre budgétaire en fin de mandat",
+    "reformulation": "Les comptes publics doivent être équilibrés à la fin du quinquennat.",
+    "pageProgramme": "n° 9",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le déficit public a été réduit au fil du mandat, sans revenir à l'équilibre.",
+    "resultat": "Selon l'Insee (publication du 24 mars 2017), le déficit public de 2016 s'établit à -75,9 milliards d'euros, soit -3,4 % du PIB, après -3,6 % en 2015.",
+    "justification": "À la fin du mandat (13 mai 2017), le dernier exercice publié par l'Insee, celui de 2016, présente un déficit de 3,4 % du PIB, loin d'un équilibre. Le chiffre de 2017 n'était pas publié à cette date, d'où une confiance moyenne : aucune source consultée n'annonce un retour à l'équilibre pour 2017.",
+    "interpretations": "L'équilibre peut se lire comme un solde public nul ou comme un solde structurel proche de zéro. Le programme ne précise pas. La lecture retenue est le solde public effectif, seul chiffre publié par l'Insee.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "En 2016, le déficit public s'élève à 3,4 % du PIB, le taux de prélèvements obligatoires diminue de 0,1 point à 44,3 % du PIB",
+        "organisme": "Insee",
+        "url": "https://www.insee.fr/fr/statistiques/2669747",
+        "date": "2017-03-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-9-niches-fiscales-29-milliards",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Finances publiques",
+    "titre": "Revenir sur des niches fiscales pour dégager 29 milliards d'euros de recettes",
+    "extraitProgramme": "je reviendrai sur les cadeaux fiscaux et les multiples « niches fiscales » accordés depuis dix ans aux ménages les plus aisés et aux plus grosses entreprises",
+    "reformulation": "Des avantages fiscaux accordés depuis dix ans aux ménages aisés et aux grandes entreprises seront remis en cause, pour 29 milliards d'euros de recettes supplémentaires.",
+    "pageProgramme": "n° 9",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse porte sur un total de 29 milliards d'euros attribué à la remise en cause de dispositifs précis, que le programme ne liste pas. Les sources consultées donnent le coût total des dépenses fiscales et des hausses d'impôt d'ensemble, mais aucune n'isole le rendement des seuls avantages visés par la promesse : rattacher une hausse de recettes globale à ce chiffre relèverait d'une interprétation. Aucune source primaire n'a permis de trancher.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-10-fin-rgpp",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fonction publique",
+    "titre": "Mettre fin à la révision générale des politiques publiques (RGPP)",
+    "extraitProgramme": "Un coup d’arrêt sera porté à la procédure de révision générale des politiques publiques",
+    "reformulation": "La RGPP, démarche de réduction des dépenses de l'État engagée depuis 2007, est arrêtée.",
+    "pageProgramme": "n° 10",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le Premier ministre Jean-Marc Ayrault a annoncé la fin de la RGPP en juin 2012, puis déclaré le 10 juillet 2012 avoir « décidé de mettre un terme à la méthode dite de la RGPP ». Une démarche de modernisation de l'action publique (MAP) l'a remplacée, pilotée par un comité interministériel.",
+    "resultat": "Le rapport d'information de l'Assemblée nationale déposé le 22 novembre 2012 décrit la MAP comme marquant « une réelle rupture » avec la RGPP, tout en reprenant certains de ses acquis.",
+    "justification": "La promesse est un arrêt de procédure : il a été décidé et annoncé publiquement dès l'été 2012. La MAP qui lui succède conserve des objectifs d'économies, ce qui n'est pas contraire à l'engagement écrit, qui portait sur l'arrêt de la RGPP.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-22",
+        "description": "Dépôt du rapport d'information de l'Assemblée nationale sur la mise en oeuvre des conclusions du rapport d'évaluation de la RGPP, qui rapporte la décision d'arrêt",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i0435.asp"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport d'information n° 435 sur la mise en oeuvre des conclusions du rapport d'information sur l'évaluation de la révision générale des politiques publiques (RGPP)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i0435.asp",
+        "date": "2012-11-22",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-10-fin-non-remplacement-un-sur-deux",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fonction publique",
+    "titre": "Abandonner le non-remplacement d'un fonctionnaire sur deux",
+    "extraitProgramme": "l’application mécanique du non-remplacement d’un fonctionnaire sur deux",
+    "reformulation": "La règle qui supprimait un poste de fonctionnaire de l'État sur deux départs à la retraite est arrêtée.",
+    "pageProgramme": "n° 10",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de finances rectificative du 16 août 2012 et le projet de loi de finances pour 2013 ont acté la fin de la règle du non-remplacement d'un fonctionnaire de l'État sur deux partant à la retraite.",
+    "resultat": "Pour 2013, le rapport de l'Assemblée nationale du 22 novembre 2012 relève une quasi-stabilisation des effectifs de l'État, avec une baisse de 1 287 emplois.",
+    "justification": "La règle automatique a été abandonnée dès 2012 selon le rapport parlementaire, et la trajectoire des emplois de 2013 en tient compte. Cette source date de novembre 2012 : elle établit l'abandon de la règle, non les effectifs des années suivantes, que la promesse ne fixait pas.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Loi de finances rectificative pour 2012, qui met fin à la règle du non-remplacement d'un fonctionnaire de l'État sur deux",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i0435.asp"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport d'information n° 435 sur la mise en oeuvre des conclusions du rapport d'information sur l'évaluation de la révision générale des politiques publiques (RGPP)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/rap-info/i0435.asp",
+        "date": "2012-11-22",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-10-concertation-syndicats-fonction-publique",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fonction publique",
+    "titre": "Ouvrir dès 2012 un cycle de concertation avec les syndicats de la fonction publique",
+    "extraitProgramme": "Dès 2012, j’ouvrirai un cycle de concertation avec les organisations syndicales de la fonction publique sur tous les sujets",
+    "reformulation": "Un cycle de concertation avec les syndicats de la fonction publique s'ouvre en 2012 sur les salaires, la précarité, les nominations et les carrières.",
+    "pageProgramme": "n° 10",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Une conférence sociale s'est tenue les 9 et 10 juillet 2012. La ministre chargée de la fonction publique, Marylise Lebranchu, a présenté aux organisations syndicales l'agenda social 2012-2013 le 4 septembre 2012, structuré autour du dialogue social, de l'exemplarité des employeurs publics, des parcours professionnels, des carrières et des rémunérations. Un premier rendez-vous de concertation a eu lieu le 20 septembre 2012.",
+    "resultat": "Un calendrier de travail et des réunions régulières avec les organisations syndicales ont été programmés à partir de septembre 2012.",
+    "justification": "Le cycle a été ouvert en 2012, comme promis, avec un calendrier et des thèmes couvrant les rémunérations et les carrières. La source consultée ne mentionne pas explicitement la lutte contre la précarité ni les modes de nomination des emplois supérieurs, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-09-04",
+        "description": "Présentation de l'agenda social 2012-2013 de la fonction publique aux organisations syndicales",
+        "url": "https://kiosque.bercy.gouv.fr/alyas/view/news/fonction-publique/14/html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Trajectoires, la lettre d'information du site fonction-publique.fr, n° 14, septembre 2012",
+        "organisme": "Ministère de la fonction publique",
+        "url": "https://kiosque.bercy.gouv.fr/alyas/view/news/fonction-publique/14/html",
+        "date": "2012-09-20",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-11-pacte-croissance-gouvernance",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Proposer aux partenaires européens un pacte de responsabilité, de gouvernance et de croissance",
+    "extraitProgramme": "Je proposerai à nos partenaires un pacte de responsabilité, de gouvernance et de croissance pour sortir de la crise",
+    "reformulation": "La France propose à ses partenaires un pacte européen qui associe discipline budgétaire, gouvernance et soutien à la croissance.",
+    "pageProgramme": "n° 11",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Les 28 et 29 juin 2012, le Conseil européen a adopté un « pacte pour la croissance et l'emploi ». Il mobilise 120 milliards d'euros de mesures à effet rapide, dont une augmentation de 10 milliards d'euros du capital de la Banque européenne d'investissement et une phase pilote d'obligations de projet jusqu'à 4,5 milliards d'euros.",
+    "resultat": "Le pacte est adopté en annexe des conclusions du Conseil européen. Le dossier de ratification du traité budgétaire à l'Assemblée nationale le présente comme formant avec le traité un ensemble et le complétant.",
+    "justification": "Un pacte de croissance associé au traité budgétaire a été obtenu quelques semaines après l'entrée en fonction. Le programme ne chiffrait pas son contenu.",
+    "interpretations": "Première lecture : la promesse est tenue, car un pacte de croissance a été adopté. Seconde lecture : la « spirale d'austérité » visée n'est pas levée, le traité budgétaire restant en vigueur. La première lecture est retenue, parce que la promesse porte sur la proposition d'un pacte et non sur l'abandon de la discipline budgétaire.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-06-29",
+        "description": "Adoption du pacte pour la croissance et l'emploi par le Conseil européen",
+        "url": "https://data.consilium.europa.eu/doc/document/ST-76-2012-INIT/en/pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "European Council, 28/29 June 2012, Conclusions (EUCO 76/12), annexe « Compact for Growth and Jobs »",
+        "organisme": "Conseil européen",
+        "url": "https://data.consilium.europa.eu/doc/document/ST-76-2012-INIT/en/pdf",
+        "date": "2012-06-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Union européenne : traité sur la stabilité, la coordination et la gouvernance au sein de l'UEM",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/dossiers/ratification_traite_stabilite_coordination_gouvernance.asp",
+        "date": "2012-10-09",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-11-renegociation-traite-budgetaire",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Renégocier le traité européen issu de l'accord du 9 décembre 2011",
+    "extraitProgramme": "Je renégocierai le traité européen issu de l’accord du 9 décembre 2011",
+    "reformulation": "Le traité sur la stabilité, la coordination et la gouvernance doit être rouvert pour privilégier la croissance et l'emploi.",
+    "pageProgramme": "n° 11",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le traité signé à Bruxelles le 2 mars 2012 a été soumis au Conseil constitutionnel, qui a jugé le 9 août 2012 que sa ratification ne demandait pas de révision constitutionnelle. La loi n° 2012-1171 du 22 octobre 2012 a autorisé sa ratification, après adoption par l'Assemblée nationale le 9 octobre 2012.",
+    "resultat": "Le traité ratifié est celui signé le 2 mars 2012. Le Conseil constitutionnel l'examine dans cette version, et le pacte pour la croissance et l'emploi de juin 2012 est présenté comme le complétant, non comme une modification du traité.",
+    "justification": "Le texte du traité n'a pas été rouvert : la ratification porte sur la version signée avant l'élection, et la seule réponse obtenue est un pacte de croissance distinct. Aucune source consultée ne mentionne une renégociation du texte.",
+    "interpretations": "Première lecture : le pacte de croissance de juin 2012 est le résultat de la renégociation annoncée. Seconde lecture : la promesse visait une renégociation du traité lui-même. La seconde lecture est retenue, car le texte est resté celui de mars 2012.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-09",
+        "description": "Décision n° 2012-653 DC du Conseil constitutionnel sur le traité signé le 2 mars 2012",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2012-653-dc-du-9-aout-2012-communique-de-presse"
+      },
+      {
+        "date": "2012-10-22",
+        "description": "Loi autorisant la ratification du traité sur la stabilité, la coordination et la gouvernance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026526229"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-1171 du 22 octobre 2012 autorisant la ratification du traité sur la stabilité, la coordination et la gouvernance au sein de l'Union économique et monétaire",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026526229",
+        "date": "2012-10-22",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2012-653 DC du 9 août 2012, communiqué de presse",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2012-653-dc-du-9-aout-2012-communique-de-presse",
+        "date": "2012-08-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Union européenne : traité sur la stabilité, la coordination et la gouvernance au sein de l'UEM",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/dossiers/ratification_traite_stabilite_coordination_gouvernance.asp",
+        "date": "2012-10-09",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-11-reorientation-bce",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Réorienter le rôle de la Banque centrale européenne vers la croissance et l'emploi",
+    "extraitProgramme": "et en réorientant le rôle de la Banque centrale européenne dans cette direction",
+    "reformulation": "Le rôle de la Banque centrale européenne doit être infléchi vers la croissance et l'emploi.",
+    "pageProgramme": "n° 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative et dépend d'une institution indépendante : elle ne fixe ni mesure, ni critère, ni échéance. Les décisions de politique monétaire de la Banque centrale européenne pendant le mandat ne peuvent pas être rattachées à cet engagement sans interprétation. Aucune source primaire n'a permis de trancher.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-11-euro-obligations",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Proposer la création d'euro-obligations",
+    "extraitProgramme": "Je proposerai de créer des euro-obligations",
+    "reformulation": "Les États de la zone euro émettraient une dette commune sous forme d'euro-obligations.",
+    "pageProgramme": "n° 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le Parlement européen a adopté le 16 janvier 2013 une résolution sur la faisabilité d'obligations de stabilité, qui invite la Commission à étudier une émission conjointe de dette. Aucune décision du Conseil n'en a découlé dans les sources consultées.",
+    "resultat": "Le document de réflexion de la Commission européenne sur l'approfondissement de l'Union économique et monétaire, publié à la fin de mai 2017, constate que la zone euro n'offre pas d'actif sans risque commun et présente cet actif comme une option à étudier après 2019.",
+    "justification": "La promesse porte sur une proposition de la France à ses partenaires européens. Aucune source consultée ne documente si cette proposition a été formulée. Un fait est établi : aucune dette commune de la zone euro n’existait à la fin du mandat, la Commission décrivant encore l’actif sûr commun comme une option à explorer en 2017. Ce fait ne dit pas si la proposition a été portée, et le statut n’est donc pas tranché.",
+    "interpretations": "Première lecture : la promesse est remplie dès lors que la France a soutenu l'idée. Aucune source consultée ne documente une proposition formelle du président. Seconde lecture : la promesse vise la création d'un instrument de dette commune. La seconde lecture est retenue, parce que rien de tel n'existait à la fin du mandat.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Document de réflexion sur l'approfondissement de l'Union économique et monétaire (COM(2017) 291)",
+        "organisme": "Commission européenne",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX%3A52017DC0291",
+        "date": "2017-05-31",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Possibilité d'introduire des obligations de stabilité (résolution 2012/2028(INI))",
+        "organisme": "Parlement européen",
+        "url": "https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1243564",
+        "date": "2013-01-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-11-association-parlements",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Associer pleinement les parlements nationaux et le Parlement européen aux décisions européennes",
+    "extraitProgramme": "Je défendrai une association pleine et entière des parlements nationaux et européen à ces décisions",
+    "reformulation": "Les parlements nationaux et le Parlement européen doivent participer pleinement aux décisions de réorientation européenne.",
+    "pageProgramme": "n° 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative : « défendre une association pleine et entière » ne fixe ni dispositif, ni échéance. Aucune source primaire consultée ne permet de dire quelle mesure la réaliserait. Aucun statut n'est retenu.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-11-nouveau-traite-franco-allemand",
+    "numero": 11,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Proposer à l'Allemagne l'élaboration d'un nouveau traité franco-allemand",
+    "extraitProgramme": "je proposerai à notre partenaire l’élaboration d’un nouveau traité franco-allemand",
+    "reformulation": "Pour le cinquantième anniversaire du traité de l'Élysée, la France propose à l'Allemagne un nouveau traité bilatéral.",
+    "pageProgramme": "n° 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le 22 janvier 2013, pour le 50e anniversaire du traité de l'Élysée, une déclaration commune a été adoptée en séance conjointe du Bundestag et de l'Assemblée nationale, sans nouveau traité.",
+    "resultat": "Le nouveau traité franco-allemand de coopération et d'intégration a été signé à Aix-la-Chapelle le 22 janvier 2019, sous le mandat suivant.",
+    "justification": "La promesse porte sur une proposition faite à l’Allemagne. Aucune source consultée ne documente si cette proposition a été formulée. Un fait est établi : aucun nouveau traité bilatéral n’a été signé pendant le mandat, la déclaration commune du 22 janvier 2013 marquant seulement les 50 ans du traité de l’Élysée. Ce fait ne dit pas si la proposition a été portée, et le statut n’est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-01-22",
+        "description": "Célébration du cinquantième anniversaire du traité de l'Élysée et déclaration commune, sans nouveau traité",
+        "url": "https://www.assemblee-nationale.fr/14/evenements/50ans.asp"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "50e anniversaire du traité de l'Élysée",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/evenements/50ans.asp",
+        "date": "2013-01-22",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Traité franco-allemand d'Aix-la-Chapelle",
+        "organisme": "Élysée",
+        "url": "https://www.elysee.fr/emmanuel-macron/traite-franco-allemand-aix-la-chapelle",
+        "date": "2019-01-22",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-12-budget-europeen-2014-2020",
+    "numero": 12,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Défendre un budget européen 2014-2020 au service des grands projets d'avenir",
+    "extraitProgramme": "Je défendrai un budget européen (2014-2020) au service des grands projets d’avenir",
+    "reformulation": "La France défend, dans la négociation du budget de l'Union pour 2014-2020, un budget orienté vers des projets d'avenir.",
+    "pageProgramme": "n° 12",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative : elle ne fixe ni montant, ni répartition, ni définition des « grands projets d'avenir ». Le budget 2014-2020 est un compromis entre les États membres, et aucune source consultée ne compare son contenu à un critère tiré du programme. Aucun statut n'est retenu.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-12-nouveaux-outils-financiers",
+    "numero": 12,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Soutenir la création de nouveaux outils financiers pour des programmes industriels innovants",
+    "extraitProgramme": "Je soutiendrai la création de nouveaux outils financiers pour lancer des programmes industriels innovants",
+    "reformulation": "La France soutient la création, au niveau européen, d'instruments financiers pour financer des programmes industriels innovants.",
+    "pageProgramme": "n° 12",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le Conseil européen des 28 et 29 juin 2012 a lancé une phase pilote d'obligations de projet (jusqu'à 4,5 milliards d'euros) pour des infrastructures de transport, d'énergie et de haut débit, et une hausse de 10 milliards d'euros du capital de la Banque européenne d'investissement. Le règlement (UE) 2015/1017 du 25 juin 2015 a créé le Fonds européen pour les investissements stratégiques, garanti par l'Union à hauteur de 16 milliards d'euros.",
+    "resultat": "Le règlement de 2015 cible l'énergie, dont les énergies renouvelables, les transports, la recherche et l'innovation. Il ne distingue pas le fret ferroviaire comme catégorie propre.",
+    "justification": "Des instruments financiers européens nouveaux ont été créés pendant le mandat, dans les domaines cités par le programme. Le programme ne définit pas les outils attendus, d'où une confiance moyenne, et aucune source consultée ne détaille le rôle de la France dans leur adoption.",
+    "interpretations": "Première lecture : la promesse est remplie dès qu'un outil européen nouveau existe. Seconde lecture : elle exigeait un soutien démontré de la France et des outils ciblant les technologies vertes et le fret ferroviaire. La première lecture est retenue, faute d'un critère plus précis dans le programme.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-06-29",
+        "description": "Lancement de la phase pilote des obligations de projet et hausse du capital de la BEI décidées par le Conseil européen",
+        "url": "https://data.consilium.europa.eu/doc/document/ST-76-2012-INIT/en/pdf"
+      },
+      {
+        "date": "2015-06-25",
+        "description": "Règlement (UE) 2015/1017 créant le Fonds européen pour les investissements stratégiques",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32015R1017"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "European Council, 28/29 June 2012, Conclusions (EUCO 76/12), annexe « Compact for Growth and Jobs »",
+        "organisme": "Conseil européen",
+        "url": "https://data.consilium.europa.eu/doc/document/ST-76-2012-INIT/en/pdf",
+        "date": "2012-06-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Règlement (UE) 2015/1017 du Parlement européen et du Conseil du 25 juin 2015 sur le Fonds européen pour les investissements stratégiques",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32015R1017",
+        "date": "2015-06-25",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-12-europe-de-l-energie",
+    "numero": 12,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Militer auprès des partenaires européens pour une Europe de l'énergie",
+    "extraitProgramme": "je militerai auprès de nos partenaires pour une Europe de l’énergie",
+    "reformulation": "La France plaide auprès de ses partenaires pour une politique européenne commune de l'énergie.",
+    "pageProgramme": "n° 12",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "« Militer pour une Europe de l'énergie » est un engagement de démarche sans mesure ni échéance. Aucune source primaire consultée ne documente les démarches menées, et rattacher un texte européen ultérieur à cet engagement relèverait d'une interprétation. Aucun statut n'est retenu.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  }
+]

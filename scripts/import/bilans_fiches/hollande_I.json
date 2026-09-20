@@ -1,0 +1,292 @@
+[
+  {
+    "id": "2012-49-ineligibilite-corruption",
+    "numero": 49,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie",
+    "titre": "Porter à dix ans la durée d'inéligibilité des élus condamnés pour corruption",
+    "extraitProgramme": "Je porterai la durée d’inéligibilité des élus condamnés pour faits de corruption à dix ans.",
+    "reformulation": "Un élu condamné pour corruption pourrait être déclaré inéligible pendant dix ans.",
+    "pageProgramme": "n° 49",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 11 octobre 2013 relative à la transparence de la vie publique a inséré dans le code pénal un article 131-26-1, qui permet de prononcer la peine complémentaire d'inéligibilité pendant dix ans au plus contre une personne exerçant une fonction de membre du Gouvernement ou un mandat électif public au moment des faits. Elle a modifié l'article 432-17 du code pénal pour y renvoyer.",
+    "resultat": "La durée maximale de la peine d'inéligibilité pour un élu ou un membre du Gouvernement condamné pour une atteinte à la probité relevant de l'article 432-17 est passée de cinq à dix ans.",
+    "justification": "La promesse est un texte de loi : la durée d'inéligibilité portée à dix ans pour les élus a été inscrite dans le code pénal en octobre 2013. Le texte lu sur Légifrance fixe un plafond de dix ans, que le juge module, et non une durée automatique.",
+    "interpretations": "Lecture 1 : « porter la durée à dix ans » signifie relever le plafond de la peine. Lecture 2 : cela signifie imposer dix ans à chaque condamnation pour corruption. Le texte de 2013 ouvre la possibilité de dix ans, il ne l'impose pas. La lecture 1 est retenue, parce que la durée d'une peine complémentaire est toujours fixée par le juge dans la limite d'un plafond.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-10-11",
+        "description": "Promulgation de la loi relative à la transparence de la vie publique, publiée au Journal officiel du 12 octobre 2013.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-689.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-907 du 11 octobre 2013 relative à la transparence de la vie publique",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028056315",
+        "date": "2013-10-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Transparence de la vie publique : le dossier législatif",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-689.html",
+        "date": "2013-10-11",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-50-vote-etrangers-locales",
+    "numero": 50,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie",
+    "titre": "Accorder le droit de vote aux élections locales aux étrangers en situation régulière depuis cinq ans",
+    "extraitProgramme": "J’accorderai le droit de vote aux élections locales aux étrangers résidant légalement en France depuis cinq ans.",
+    "reformulation": "Les étrangers non européens résidant légalement en France depuis cinq ans pourraient voter aux élections locales.",
+    "pageProgramme": "n° 50",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Aucun texte n'a été examiné par le Parlement pendant le quinquennat. La proposition de loi constitutionnelle adoptée par l'Assemblée nationale en 2000 et par le Sénat en 2011 n'a fait l'objet d'aucun vote conforme, et le dossier du Sénat la déclare caduque. Le 13 novembre 2012, le président a écarté le référendum et conditionné la réforme à une majorité des trois cinquièmes du Parlement, qui n'a jamais été réunie.",
+    "resultat": "À la fin du mandat, seuls les citoyens de l'Union européenne votent aux élections municipales en France, en application du traité de Maastricht. Le droit de vote des étrangers non européens n'a pas été ouvert.",
+    "justification": "Cette mesure exigeait une révision de la Constitution (Congrès aux trois cinquièmes ou référendum). Les dossiers législatifs de l'Assemblée nationale et du Sénat ne montrent aucun vote entre 2012 et 2017, et la révision constitutionnelle a été abandonnée en mars 2016 sans que cette mesure y figure. L'abandon du seul point n'a pas été annoncé de façon explicite par un texte officiel lu ici, d'où le statut non réalisé plutôt qu'abandonné.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-13",
+        "description": "Conférence de presse du président : pas de référendum, la réforme est renvoyée à la recherche d'une majorité des trois cinquièmes au Parlement.",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/droit-vote-des-etrangers-77/"
+      },
+      {
+        "date": "2016-03-30",
+        "description": "Le président renonce à la révision constitutionnelle engagée après les attentats de novembre 2015, faute d'accord entre l'Assemblée nationale et le Sénat.",
+        "url": "https://www.franceinfo.fr/faits-divers/terrorisme/attaques-du-13-novembre-a-paris/etat-d-urgence-en-france/francois-hollande-renonce-a-la-revision-constitutionnelle-qui-prevoyait-notamment-la-decheance-de-nationalite-pour-les-terroristes_1381981.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Droit de vote et éligibilité des étrangers aux élections : dossier législatif",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/15/dossiers/992063",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Droit de vote des étrangers : dossier législatif de la proposition de loi constitutionnelle n° 288 (2010-2011), déclarée caduque",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/ppl10-288.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les étrangers ont-ils le droit de vote ?",
+        "organisme": "Musée de l'histoire de l'immigration",
+        "url": "https://www.histoire-immigration.fr/politique-et-immigration/les-etrangers-ont-ils-le-droit-de-vote",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Droit de vote des étrangers : promesse non tenue de François Hollande",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/droit-vote-des-etrangers-77/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-50-regularisations-criteres",
+    "numero": 50,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Immigration",
+    "titre": "Opérer les régularisations au cas par cas sur des critères objectifs",
+    "extraitProgramme": "Les régularisations seront opérées au cas par cas sur la base de critères objectifs.",
+    "reformulation": "Les demandes de régularisation d'étrangers en situation irrégulière seraient examinées une à une, selon des critères fixés à l'avance.",
+    "pageProgramme": "n° 50",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le ministre de l'Intérieur a signé le 28 novembre 2012 une circulaire (NOR INTK1229185C) sur les conditions d'examen des demandes d'admission au séjour des étrangers en situation irrégulière. Elle rappelle et précise les critères d'appréciation (vie privée et familiale, salarié, travailleur temporaire) que les préfets appliquent à chaque dossier.",
+    "resultat": "Une réponse ministérielle publiée en 2019 indique que la circulaire donne aux services des orientations générales fondées sur des critères objectifs, avec un examen individuel des demandes, et fait état de 30 000 à 35 000 admissions au séjour par an depuis 2013.",
+    "justification": "La promesse porte sur une méthode : des critères écrits et un examen au cas par cas. La circulaire de novembre 2012 les instaure et deux réponses ministérielles, l'une du Sénat en 2014, l'autre de l'Assemblée nationale en 2019, la décrivent ainsi. Le texte de la circulaire elle-même, en fichier image, n'a pas pu être lu directement : le contenu est recoupé par ces deux réponses.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-28",
+        "description": "Circulaire relative aux conditions d'examen des demandes d'admission au séjour déposées par des ressortissants étrangers en situation irrégulière.",
+        "url": "https://www.interieur.gouv.fr/content/download/36888/278912/file/INTK1229185C.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question n° 6332 sur l'application de la circulaire Valls, réponse du ministre de l'Intérieur",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q15/15-6332QE.htm",
+        "date": "2019-02-19",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Portée des critères d'admission au séjour énoncés par la circulaire du 28 novembre 2012 (question écrite, réponse du 8 mai 2014)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2012/qSEQ121203869.html",
+        "date": "2014-05-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Circulaire INTK1229185C du 28 novembre 2012",
+        "organisme": "Ministère de l'Intérieur",
+        "url": "https://www.interieur.gouv.fr/content/download/36888/278912/file/INTK1229185C.pdf",
+        "date": "2012-11-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-50-lutte-immigration-illegale",
+    "numero": 50,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Immigration",
+    "titre": "Conduire une lutte implacable contre l'immigration illégale et les filières du travail clandestin",
+    "extraitProgramme": "Je conduirai une lutte implacable contre l’immigration illégale et les filières du travail clandestin.",
+    "reformulation": "Le gouvernement s'engage à combattre l'immigration irrégulière et les réseaux qui organisent le travail clandestin.",
+    "pageProgramme": "n° 50",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse ne fixe ni mesure, ni chiffre, ni échéance : « implacable » est un qualificatif. Aucune source primaire consultée ne définit un seuil à partir duquel la lutte serait ou non conduite. Le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-50-securiser-immigration-legale",
+    "numero": 50,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Immigration",
+    "titre": "Sécuriser l'immigration légale",
+    "extraitProgramme": "Je sécuriserai l’immigration légale.",
+    "reformulation": "Les étrangers en situation régulière verraient leur droit au séjour rendu plus stable.",
+    "pageProgramme": "n° 50",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "L'engagement tient en une phrase sans mesure, chiffre ni échéance, et le verbe « sécuriser » admet plusieurs contenus. Aucune source primaire consultée ne permet de dire quelle mesure le programme désignait, et rapprocher cette phrase d'une loi du quinquennat sur le séjour reviendrait à deviner. Le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-51-nomination-audiovisuel-public",
+    "numero": 51,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Médias",
+    "titre": "Confier à une autorité indépendante la désignation des responsables de l'audiovisuel public",
+    "extraitProgramme": "La désignation des responsables des chaînes publiques de télévision et de radio dépendra d’une autorité indépendante et non plus du chef de l’État ou du gouvernement.",
+    "reformulation": "Les présidents de France Télévisions et de Radio France ne seraient plus choisis par le président de la République ou le gouvernement, mais par une autorité indépendante.",
+    "pageProgramme": "n° 51",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi organique n° 2013-1026 et la loi n° 2013-1028, toutes deux du 15 novembre 2013 relatives à l'indépendance de l'audiovisuel public, ont rendu au Conseil supérieur de l'audiovisuel le pouvoir de nommer les présidents de France Télévisions, de Radio France et de la société chargée de l'audiovisuel extérieur. La loi organique de 2009 qui confiait cette nomination au président de la République a été abrogée.",
+    "resultat": "Depuis novembre 2013, la nomination de ces présidents relève du CSA. Le collège du CSA a en outre été ramené de neuf à sept membres, dont le seul président reste désigné par le président de la République.",
+    "justification": "La mesure annoncée est un changement de mode de désignation par la loi : il a été voté et promulgué en 2013. Le texte de la loi organique lu sur Légifrance confirme l'abrogation de la loi de 2009, et le dossier de l'Assemblée nationale décrit le transfert de la nomination au CSA.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-11-15",
+        "description": "Promulgation de la loi organique et de la loi relatives à l'indépendance de l'audiovisuel public, publiées au Journal officiel du 16 novembre 2013.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028199463/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI organique n° 2013-1026 du 15 novembre 2013 relative à l'indépendance de l'audiovisuel public",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028199463/",
+        "date": "2013-11-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2013-1028 du 15 novembre 2013 relative à l'indépendance de l'audiovisuel public",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028199587",
+        "date": "2013-11-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Culture : indépendance de l'audiovisuel public, dossier législatif",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/dossiers/independance_audiovisuel_public_pjlo.asp",
+        "date": "2013-11-15",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-51-independance-afp",
+    "numero": 51,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Médias",
+    "titre": "Préserver l'indépendance de l'AFP",
+    "extraitProgramme": "Je préserverai l’indépendance de l’AFP",
+    "reformulation": "Le statut d'indépendance de l'Agence France-Presse serait maintenu.",
+    "pageProgramme": "n° 51",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est de préserver un état existant, sans mesure ni indicateur. J'ai cherché une source primaire évaluant l'indépendance de l'agence en 2017 : aucune n'a été trouvée parmi celles consultées, et la loi de 2016 sur les médias, ouverte sur Légifrance, ne contient aucune disposition sur l'AFP. Le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-51-protection-sources",
+    "numero": 51,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Médias",
+    "titre": "Renforcer la loi sur la protection des sources des journalistes",
+    "extraitProgramme": "je renforcerai la loi sur la protection des sources.",
+    "reformulation": "La loi qui protège le secret des sources des journalistes serait renforcée.",
+    "pageProgramme": "n° 51",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 14 novembre 2016 visant à renforcer la liberté, l'indépendance et le pluralisme des médias a inséré dans la loi de 1881 un droit pour tout journaliste de refuser de divulguer ses sources. Sa disposition principale sur le secret des sources (article 4), qui interdisait toute atteinte directe ou indirecte au secret des sources hors certaines infractions et créait une immunité pénale, a été déclarée contraire à la Constitution par le Conseil constitutionnel le 10 novembre 2016.",
+    "resultat": "À la fin du mandat, le régime de protection des sources reste celui de la loi du 4 janvier 2010, qui n'autorise l'atteinte au secret des sources que pour un impératif prépondérant d'intérêt public et si elle est strictement nécessaire et proportionnée, selon le Sénat. S'y ajoute le droit de refuser de divulguer ses sources, inscrit en 2016.",
+    "justification": "Une loi renforçant la protection des sources a été votée, mais sa mesure centrale a été censurée avant promulgation ; ne subsiste qu'un droit de refus reconnu à chaque journaliste. Le renforcement effectif est donc partiel. Le statut repose sur la décision du Conseil constitutionnel et sur la présentation de la loi par le Sénat, le texte publié étant consulté sur Légifrance.",
+    "interpretations": "Lecture 1 : le renforcement est réalisé, car un droit de refuser de divulguer ses sources est entré dans la loi de 1881. Lecture 2 : il ne l'est pas, car la disposition qui renforçait la protection contre les perquisitions et saisies a été censurée. La lecture 2 pèse davantage sur le fond ; le statut « partiellement » les reflète toutes deux.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2016-11-10",
+        "description": "Décision n° 2016-738 DC : l'article 4 (secret des sources), l'article 27 et une référence à l'article 4 dans l'article 30 sont déclarés contraires à la Constitution.",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2016/2016738DC.htm"
+      },
+      {
+        "date": "2016-11-14",
+        "description": "Promulgation de la loi visant à renforcer la liberté, l'indépendance et le pluralisme des médias, publiée au Journal officiel du 15 novembre 2016.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033385368"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décision n° 2016-738 DC du 10 novembre 2016",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2016/2016738DC.htm",
+        "date": "2016-11-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2016-1524 du 14 novembre 2016 visant à renforcer la liberté, l'indépendance et le pluralisme des médias",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033385368",
+        "date": "2016-11-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Garantir l'indépendance des médias et de leurs acteurs",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201603/garantir-lindependance-des-medias-et-de-leurs-acteurs.html",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

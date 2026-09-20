@@ -1,0 +1,691 @@
+[
+  {
+    "id": "2012-55-concertation-prealable",
+    "numero": 55,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie sociale",
+    "titre": "Faire précéder d'une concertation tout texte de loi concernant les partenaires sociaux",
+    "extraitProgramme": "Tout texte de loi concernant les partenaires sociaux devra être précédé d’une concertation avec eux.",
+    "reformulation": "Aucune loi touchant aux partenaires sociaux ne serait examinée sans concertation préalable avec eux.",
+    "pageProgramme": "n° 55",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le gouvernement a ouvert la grande conférence sociale des 9 et 10 juillet 2012, puis a transmis aux partenaires sociaux un document d'orientation le 7 septembre 2012 pour une négociation interprofessionnelle. Un projet de loi constitutionnelle qui aurait étendu l'obligation de concertation aux propositions de loi a été déposé le 14 mars 2013.",
+    "resultat": "Le code du travail imposait déjà au gouvernement une concertation préalable avant toute réforme en matière de relations du travail, d'emploi et de formation professionnelle, d'après l'exposé des motifs du projet de loi constitutionnelle. Aucune source consultée ne permet de mesurer si chaque texte du quinquennat a été précédé de cette concertation.",
+    "justification": "La promesse est un engagement de méthode qui porte sur tous les textes du quinquennat. Les sources consultées établissent une méthode annoncée et un cas de négociation préalable (sécurisation de l'emploi), pas le respect systématique de la règle. Aucun document primaire ne permet de dresser ce bilan, d'où l'absence de statut.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-10-16",
+        "description": "Réponse ministérielle publiée au Journal officiel : la conférence sociale de juillet 2012 a ouvert un processus fondé sur la concertation avec les partenaires sociaux avant toute initiative gouvernementale.",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE703.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 703 (Medef), réponse du ministre du travail",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE703.pdf",
+        "date": "2012-10-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi constitutionnelle relatif à la démocratie sociale (n° 813), exposé des motifs",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/projets/pl0813.asp",
+        "date": "2013-03-14",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-55-constitution-democratie-sociale",
+    "numero": 55,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie sociale",
+    "titre": "Modifier la Constitution pour y inscrire la démocratie sociale",
+    "extraitProgramme": "Je ferai modifier la Constitution pour qu’elle reconnaisse et garantisse cette nouvelle",
+    "reformulation": "La Constitution serait révisée pour reconnaître et garantir la concertation avec les partenaires sociaux.",
+    "pageProgramme": "n° 55",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un projet de loi constitutionnelle relatif à la démocratie sociale (n° 813) a été présenté en conseil des ministres le 13 mars 2013 et enregistré à l'Assemblée nationale le 14 mars 2013. Il prévoyait un article 51-3 imposant une négociation préalable avec les organisations syndicales et patronales avant toute réforme du travail, de l'emploi ou de la formation professionnelle.",
+    "resultat": "Le texte n'a pas été adopté par les deux assemblées ni soumis au Congrès. La Constitution consolidée, consultée en 2026, s'arrête à l'article 51-2 dans ce titre et ne contient aucune disposition sur la démocratie sociale.",
+    "justification": "La révision annoncée a bien été engagée, mais elle n'a jamais abouti : aucune loi constitutionnelle sur ce sujet n'a été promulguée. La vérification de l'état du droit porte sur le texte en vigueur en 2026, lu sur le site du Conseil constitutionnel, et non sur une version datée de mai 2017 ; une presse militante (Lui Président) date l'abandon de la révision au 4 juillet 2013, ce que je n'ai pas pu recouper par une source institutionnelle, d'où la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-03-14",
+        "description": "Enregistrement à l'Assemblée nationale du projet de loi constitutionnelle relatif à la démocratie sociale (n° 813).",
+        "url": "https://www.assemblee-nationale.fr/14/projets/pl0813.asp"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi constitutionnelle relatif à la démocratie sociale (n° 813)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/projets/pl0813.asp",
+        "date": "2013-03-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Constitutionnalisation du dialogue social",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/constitutionnalisation-du-dialogue-social-444/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-55-conference-economique-sociale",
+    "numero": 55,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie sociale",
+    "titre": "Réunir une grande conférence économique et sociale dès l'été 2012",
+    "extraitProgramme": "Dès l’été 2012, je réunirai une grande conférence économique et sociale qui sera saisie des priorités du quinquennat.",
+    "reformulation": "Une conférence rassemblant l'État et les partenaires sociaux se tiendrait dès l'été 2012 pour fixer les priorités du quinquennat.",
+    "pageProgramme": "n° 55",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La grande conférence sociale s'est tenue les 9 et 10 juillet 2012 et a abouti à une « feuille de route sociale » fixant une méthode et un calendrier. Sept tables rondes ont été organisées, dont une sur l'emploi des jeunes.",
+    "resultat": "Un document d'orientation a été transmis aux partenaires sociaux le 7 septembre 2012 pour une négociation sur la sécurisation de l'emploi, avec une échéance fin 2012.",
+    "justification": "La conférence a eu lieu à la date annoncée et a produit une feuille de route qui a déterminé les chantiers suivants. L'intitulé officiel est « grande conférence sociale » et non « économique et sociale » : la différence de nom ne change pas la nature de la réunion.",
+    "interpretations": "Deux lectures sont possibles : la promesse vise la seule tenue de la réunion, ou elle exige que la conférence traite d'enjeux économiques. Le compte rendu ministériel évoque la sécurisation de l'emploi et la compétitivité ; la première lecture est retenue.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-07-10",
+        "description": "Clôture de la grande conférence sociale et établissement de la feuille de route sociale.",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE1299.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 703 (Medef), réponse du ministre du travail",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE703.pdf",
+        "date": "2012-10-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 1299 (organisation), réponse du ministre du travail",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE1299.pdf",
+        "date": "2013-01-15",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-55-administrateurs-salaries",
+    "numero": 55,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie sociale",
+    "titre": "Faire siéger des représentants des salariés aux conseils d'administration des grandes entreprises",
+    "extraitProgramme": "Je permettrai la présence des représentants des salariés dans les conseils d’administration",
+    "reformulation": "Les grandes entreprises devraient accueillir des représentants des salariés dans leur conseil d'administration.",
+    "pageProgramme": "n° 55",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2013-504 du 14 juin 2013 relative à la sécurisation de l'emploi (article 9) impose un ou deux administrateurs salariés selon la taille du conseil, dans les sociétés d'au moins 5 000 salariés en France ou 10 000 dans le monde. La loi n° 2015-994 du 17 août 2015 (article 11) étend l'obligation, par paliers, aux sociétés d'au moins 1 000 salariés en France ou 5 000 dans le monde.",
+    "resultat": "Un conseil de 12 membres ou moins compte au moins un administrateur salarié, un conseil de plus de 12 membres au moins deux. Les échéances d'entrée en fonction sont fixées à fin 2016 pour le premier seuil et fin 2017 pour le second.",
+    "justification": "La promesse est un texte de loi, et la loi est promulguée en 2013 puis élargie en 2015. La lecture directe de la loi de 2013 et de la loi de 2015 sur Légifrance a été possible pour les articles cités ; les seuils sont ceux de ces articles.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-06-14",
+        "description": "Promulgation de la loi relative à la sécurisation de l'emploi, dont l'article 9 crée l'obligation d'administrateurs salariés.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027546648"
+      },
+      {
+        "date": "2015-08-17",
+        "description": "Promulgation de la loi relative au dialogue social et à l'emploi, dont l'article 11 abaisse les seuils.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031046061"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-504 du 14 juin 2013 relative à la sécurisation de l'emploi",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027546648",
+        "date": "2013-06-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2015-994 du 17 août 2015 relative au dialogue social et à l'emploi",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031046061",
+        "date": "2015-08-17",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-55-comites-remuneration",
+    "numero": 55,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Démocratie sociale",
+    "titre": "Permettre la présence de représentants des salariés dans les comités de rémunération des grandes entreprises",
+    "extraitProgramme": "dans les comités de rémunération des grandes entreprises",
+    "reformulation": "Les représentants des salariés pourraient siéger dans les comités qui fixent la rémunération des dirigeants des grandes entreprises.",
+    "pageProgramme": "n° 55",
+    "statut": "partiellement",
+    "confiance": "basse",
+    "actionMenee": "Aucune disposition légale ou réglementaire consultée n'impose ou n'organise la présence d'un administrateur salarié dans le comité des rémunérations. Le code de gouvernement d'entreprise Afep-Medef de juin 2013 (§ 18.1), code professionnel non législatif, conseille qu'un administrateur salarié en soit membre.",
+    "resultat": "Selon le guide d'application du Haut Comité de gouvernement d'entreprise de janvier 2014, ce conseil ne vise que le comité des rémunérations. Il relève de la recommandation avec règle « appliquer ou expliquer », pas de la loi.",
+    "justification": "Les administrateurs salariés créés par la loi de 2013 peuvent siéger au conseil, et un code professionnel conseille leur présence au comité des rémunérations : la promesse de permettre cette présence est donc en partie tenue, par voie de recommandation privée. L'absence de règle légale n'a pas pu être exclue avec certitude, faute d'avoir lu les textes législatifs pertinents dans leur intégralité, d'où la confiance basse.",
+    "interpretations": "« Permettre » peut s'entendre comme une autorisation, que la loi de 2013 offre déjà en faisant des administrateurs salariés des administrateurs de plein exercice, ou comme une obligation légale, absente ici. La lecture par un cadre de recommandation, sans obligation, est retenue.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Guide d'application du code Afep-Medef de gouvernement d'entreprise des sociétés cotées de juin 2013 (janvier 2014)",
+        "organisme": "Haut Comité de gouvernement d'entreprise, publié par l'Autorité des marchés financiers",
+        "url": "https://www.amf-france.org/sites/institutionnel/files/doctrine/attachment/DOC-2013-20/Guide%20d'application%20du%20code%20AFEP%20MEDEF%20de%20gouvernement%20d'entreprise%20des%20societes%20cotees%20de%20Juin%202013.pdf",
+        "date": "2014-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-56-charte-langues-regionales",
+    "numero": 56,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Ratifier la Charte européenne des langues régionales ou minoritaires",
+    "extraitProgramme": "Je ferai ratifier la Charte européenne des langues régionales ou minoritaires.",
+    "reformulation": "La France ratifierait la Charte européenne des langues régionales ou minoritaires signée en 1999.",
+    "pageProgramme": "n° 56",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Le gouvernement a estimé en 2013 qu'aucune formulation constitutionnelle ne permettait la ratification sans contradiction avec les articles 1 et 2 de la Constitution. Un projet de loi constitutionnelle autorisant la ratification a néanmoins été déposé au Sénat le 31 juillet 2015 et rejeté en première lecture le 27 octobre 2015, par 179 voix contre 155 sur une question préalable.",
+    "resultat": "La Constitution n'a pas été révisée : la Charte, signée le 7 mai 1999, n'a pas été ratifiée, le Conseil constitutionnel ayant jugé le 15 juin 1999 qu'elle contenait des clauses contraires à la Constitution.",
+    "justification": "La ratification exigeait une révision constitutionnelle, et le seul texte présenté a été rejeté par le Sénat en octobre 2015. Aucune reprise de la procédure n'a eu lieu avant la fin du mandat, d'après le dossier législatif du Sénat, qui s'arrête au rejet.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-07-31",
+        "description": "Dépôt au Sénat du projet de loi constitutionnelle autorisant la ratification de la Charte (texte n° 662).",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl14-662.html"
+      },
+      {
+        "date": "2015-10-27",
+        "description": "Rejet en première lecture au Sénat par l'adoption d'une question préalable (179 voix contre 155).",
+        "url": "https://www.senat.fr/salle-de-presse/201510/quel-avenir-pour-le-projet-de-loi-constitutionnelle-autorisant-la-ratification-de-la-charte-europeenne-des-langues-regionales-ou-minoritaires.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Charte européenne des langues régionales ou minoritaires, dossier législatif",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl14-662.html",
+        "date": "2015-10-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Quel avenir pour le projet de loi constitutionnelle autorisant la ratification de la Charte européenne des langues régionales ou minoritaires ?",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201510/quel-avenir-pour-le-projet-de-loi-constitutionnelle-autorisant-la-ratification-de-la-charte-europeenne-des-langues-regionales-ou-minoritaires.html",
+        "date": "2015-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 27865 (charte européenne des langues régionales ou minoritaires), réponse de la ministre de la culture",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE27865.pdf",
+        "date": "2013-10-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi constitutionnelle autorisant la ratification de la Charte européenne des langues régionales ou minoritaires, rapport",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l15-052/l15-052_mono.html",
+        "date": "2015-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-57-organisation-mondiale-environnement",
+    "numero": 57,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Soutenir la création d'une Organisation mondiale de l'environnement",
+    "extraitProgramme": "Je soutiendrai la mise en place d’une Organisation mondiale de l’environnement",
+    "reformulation": "La France plaiderait pour une organisation internationale dédiée à l'environnement.",
+    "pageProgramme": "n° 57",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est un soutien diplomatique et dépend d'un accord international dont la France n'est pas maître. Aucune source primaire n'a pu être consultée pour cette fiche : la capacité de recherche du lot était épuisée avant d'y parvenir, et aucun document (déclaration à l'ONU, position française) n'a été lu. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-57-aide-developpement",
+    "numero": 57,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Accroître l'aide aux pays en développement",
+    "extraitProgramme": "J’agirai pour une aide accrue aux pays en développement",
+    "reformulation": "La France augmenterait son aide publique au développement.",
+    "pageProgramme": "n° 57",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "Cette promesse se juge sur un chiffre (aide publique au développement, en volume et en part du revenu national brut, selon les données de l'OCDE et du ministère des affaires étrangères). Aucune série chiffrée n'a pu être consultée dans une source primaire au cours de cette recherche, et la promesse ne fixe ni montant ni objectif daté. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-57-reforme-onu-conseil-securite",
+    "numero": 57,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Plaider pour une réforme de l'ONU et l'élargissement du Conseil de sécurité",
+    "extraitProgramme": "Je plaiderai pour une réforme de l’ONU",
+    "reformulation": "La France défendrait une réforme de l'ONU, dont un Conseil de sécurité élargi où elle conserverait son siège et son droit de veto.",
+    "pageProgramme": "n° 57",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est de plaider, ce qui relève de la parole diplomatique et non d'un texte ou d'un chiffre, et son aboutissement dépend de tiers (les États membres de l'ONU). Aucune source primaire n'a pu être consultée pour établir les prises de position françaises entre 2012 et 2017. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-57-liens-pays-emergents",
+    "numero": 57,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Resserrer les liens avec les grands pays émergents",
+    "extraitProgramme": "Je resserrerai nos liens avec les grands pays émergents (Chine, Inde, Brésil…).",
+    "reformulation": "La France renforcerait sa relation avec la Chine, l'Inde, le Brésil et d'autres grands pays émergents.",
+    "pageProgramme": "n° 57",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est qualitative : elle ne fixe ni accord à signer ni indicateur à atteindre. Aucune source primaire n'a été consultée sur les relations bilatérales entre 2012 et 2017. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-58-rive-sud-mediterranee",
+    "numero": 58,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Développer la relation avec la rive sud de la Méditerranée",
+    "extraitProgramme": "Je développerai la relation de la France avec les pays de la rive sud de la Méditerranée sur la base d’un projet économique, démocratique et culturel.",
+    "reformulation": "La France construirait avec les pays de la rive sud de la Méditerranée un projet commun économique, démocratique et culturel.",
+    "pageProgramme": "n° 58",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est qualitative et ne désigne aucune mesure, aucun accord et aucun indicateur. Aucune source primaire n'a été consultée pour cette fiche. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-58-rupture-francafrique",
+    "numero": 58,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Rompre avec la « Françafrique » et fonder la relation sur l'égalité, la confiance et la solidarité",
+    "extraitProgramme": "Je romprai avec la « Françafrique », en proposant une relation fondée sur l’égalité, la confiance et la solidarité.",
+    "reformulation": "La relation avec les pays africains serait remise sur de nouvelles bases, en rupture avec les pratiques dites de la « Françafrique ».",
+    "pageProgramme": "n° 58",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "L'engagement est qualitatif : le terme « Françafrique » et la notion de rupture ne se mesurent pas par un texte ou un chiffre, et toute appréciation porterait sur l'opportunité de la politique menée. Aucune source primaire n'a été consultée. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-58-relance-francophonie",
+    "numero": 58,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Relancer la francophonie",
+    "extraitProgramme": "Je relancerai la francophonie.",
+    "reformulation": "La France redonnerait de l'élan à la Francophonie.",
+    "pageProgramme": "n° 58",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est trop qualitative pour qu'un texte ou un chiffre permette de la juger : aucun critère de « relance » n'est défini. Aucune source primaire n'a été consultée pour cette fiche. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-58-francais-etranger-enseignement",
+    "numero": 58,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Accompagner les Français établis hors de France, notamment pour l'enseignement, selon leurs revenus",
+    "extraitProgramme": "Je prendrai les mesures nécessaires pour accompagner nos compatriotes établis hors de France, notamment en matière d’enseignement, en fonction de leurs revenus.",
+    "reformulation": "Des mesures, dont une aide à l'enseignement modulée selon les revenus, seraient prises pour les Français de l'étranger.",
+    "pageProgramme": "n° 58",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse pourrait se juger sur les textes relatifs aux bourses scolaires des Français de l'étranger, mais aucune source primaire n'a pu être consultée pour les identifier et les dater. Sans texte lu, aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-59-retrait-afghanistan",
+    "numero": 59,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Retirer les troupes françaises d'Afghanistan avant la fin de 2012",
+    "extraitProgramme": "J’engagerai un retrait immédiat de nos troupes d’Afghanistan : il n’y aura plus de troupes françaises dans ce pays à la fin de l’année 2012.",
+    "reformulation": "Toutes les troupes françaises auraient quitté l'Afghanistan à la fin de 2012.",
+    "pageProgramme": "n° 59",
+    "statut": "partiellement",
+    "confiance": "haute",
+    "actionMenee": "Les forces françaises directement impliquées dans les combats ont quitté l'Afghanistan avant la fin de 2012 : le contingent est passé de 3 600 militaires au 1er janvier 2012 à 1 400 au 31 décembre 2012. Environ 700 militaires sont restés jusqu'au 1er août 2013 pour le retrait des matériels, et environ 700 autres ont poursuivi des missions de formation et de soutien de la force internationale.",
+    "resultat": "La dernière mission française, environ 150 militaires basés à l'aéroport de Kaboul, s'est achevée le 31 décembre 2014, deux ans après l'échéance annoncée.",
+    "justification": "Le retrait des troupes de combat a été tenu dans le délai, mais l'engagement affirmait qu'il n'y aurait plus de troupes françaises fin 2012, ce que le ministère de la défense a lui-même limité aux forces « directement impliquées dans les combats ». Des soldats français sont restés jusqu'à la fin de 2014, d'où un statut partiel. Les chiffres de 2012 et 2013 viennent d'une réponse ministérielle publiée au Journal officiel, la date de fin de 2014 d'un article de presse.",
+    "interpretations": "Deux lectures sont possibles : le retrait des seules troupes de combat, ou le retrait de toutes les troupes comme le dit la phrase du programme. La lecture littérale est retenue, ce qui justifie « partiellement » plutôt que « réalisé ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-25",
+        "description": "Réponse ministérielle publiée au Journal officiel : la totalité des forces françaises directement impliquées dans les combats aura quitté l'Afghanistan avant la fin de 2012.",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE6022.pdf"
+      },
+      {
+        "date": "2014-12-31",
+        "description": "Fin de la mission des derniers militaires français en Afghanistan, à l'aéroport de Kaboul.",
+        "url": "https://www.franceinfo.fr/monde/afghanistan/apres-treize-annees-de-mission-les-forces-francaises-quittent-l-afghanistan_785091.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 6022 (Afghanistan), réponse du ministre de la défense",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE6022.pdf",
+        "date": "2012-12-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Après treize années de mission, les forces françaises quittent l'Afghanistan",
+        "organisme": "franceinfo",
+        "url": "https://www.franceinfo.fr/monde/afghanistan/apres-treize-annees-de-mission-les-forces-francaises-quittent-l-afghanistan_785091.html",
+        "date": "2014-12-31",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-59-initiatives-paix-israel-palestine",
+    "numero": 59,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Prendre des initiatives pour favoriser de nouvelles négociations entre Israël et la Palestine",
+    "extraitProgramme": "Je prendrai des initiatives pour favoriser, par de nouvelles négociations, la paix et la sécurité entre Israël et la Palestine.",
+    "reformulation": "La France lancerait des initiatives diplomatiques pour relancer les négociations de paix entre Israël et la Palestine.",
+    "pageProgramme": "n° 59",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La France a relancé en 2015 la mobilisation internationale sur le conflit, avec une réunion à Paris le 3 juin 2016 puis une conférence le 15 janvier 2017 à laquelle 75 États et organisations internationales ont réaffirmé leur attachement à la solution à deux États, selon la réponse ministérielle publiée en mai 2017.",
+    "resultat": "Ni Israël ni les représentants palestiniens n'ont participé à la conférence du 15 janvier 2017, et aucune négociation directe n'a repris à la suite de cette initiative.",
+    "justification": "La promesse est de prendre des initiatives, non d'obtenir un accord : la conférence de Paris et la réunion de juin 2016 en sont. Le résultat en négociations n'est pas ce que la promesse exige, mais il faut noter qu'aucune reprise de négociation n'a été constatée dans les sources lues. Les chiffres de participation varient (« 70 » dans la presse, « 75 » dans la réponse ministérielle).",
+    "interpretations": "Une lecture stricte exigerait que les initiatives aboutissent à de nouvelles négociations ; une lecture littérale se limite à leur lancement. La lecture littérale est retenue, ce qui explique la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2016-06-03",
+        "description": "Réunion ministérielle à Paris de l'initiative française pour la paix au Proche-Orient.",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE100214.pdf"
+      },
+      {
+        "date": "2017-01-15",
+        "description": "Conférence de Paris pour la paix au Proche-Orient : réaffirmation de la solution à deux États.",
+        "url": "https://www.franceinfo.fr/monde/proche-orient/israel-palestine/israel-palestine-la-conference-de-paris-reaffirme-la-solution-a-deux-etats_2019690.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 100214 (Israël et territoires palestiniens), réponse du ministre des affaires étrangères",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE100214.pdf",
+        "date": "2017-05-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Israël-Palestine : la conférence de Paris réaffirme la solution à deux États",
+        "organisme": "franceinfo",
+        "url": "https://www.franceinfo.fr/monde/proche-orient/israel-palestine/israel-palestine-la-conference-de-paris-reaffirme-la-solution-a-deux-etats_2019690.html",
+        "date": "2017-01-15",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-59-reconnaissance-etat-palestinien",
+    "numero": 59,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Affaires étrangères",
+    "titre": "Soutenir la reconnaissance internationale de l'État palestinien",
+    "extraitProgramme": "Je soutiendrai la reconnaissance internationale de l’État palestinien.",
+    "reformulation": "La France appuierait la reconnaissance internationale de l'État de Palestine.",
+    "pageProgramme": "n° 59",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La France a voté le 29 novembre 2012 en faveur de l'admission de la Palestine comme État non membre observateur aux Nations unies. La résolution a été adoptée par 138 voix contre 9, avec 41 abstentions.",
+    "resultat": "La France n'a pas reconnu elle-même l'État palestinien avant la fin du mandat : le ministère des affaires étrangères a indiqué en mai 2017 qu'une reconnaissance unilatérale n'aurait pas l'effet d'entraînement souhaité. Les deux assemblées avaient voté en décembre 2014 des résolutions l'y invitant, sans valeur contraignante.",
+    "justification": "La promesse est de soutenir une reconnaissance internationale, ce que le vote de novembre 2012 à l'ONU réalise, comme l'affirme la réponse ministérielle elle-même. Une reconnaissance bilatérale par la France n'est pas promise dans le texte, d'où le statut réalisé, avec une confiance moyenne en raison de la lecture possible plus exigeante.",
+    "interpretations": "Deux lectures sont défendables : appui à une reconnaissance décidée collectivement (vote à l'ONU), ou reconnaissance par la France elle-même. Le texte dit « reconnaissance internationale » : la première lecture est retenue.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-29",
+        "description": "Vote de la France en faveur du statut d'État non membre observateur pour la Palestine à l'Assemblée générale des Nations unies.",
+        "url": "https://news.un.org/fr/story/2012/11/257702"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 100214 (Israël et territoires palestiniens), réponse du ministre des affaires étrangères",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE100214.pdf",
+        "date": "2017-05-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "L'Assemblée générale de l'ONU accorde à la Palestine le statut d'État non membre observateur",
+        "organisme": "ONU Info",
+        "url": "https://news.un.org/fr/story/2012/11/257702",
+        "date": "2012-11-29",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-60-cap-forces-armees",
+    "numero": 60,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Fixer un cap aux forces armées",
+    "extraitProgramme": "Je fixerai un cap à nos forces armées",
+    "reformulation": "Le président définirait une orientation stratégique pour les armées.",
+    "pageProgramme": "n° 60",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un nouveau Livre blanc sur la défense et la sécurité nationale a été remis au président le 29 avril 2013, sur les priorités de protection, de dissuasion et d'intervention. La loi n° 2013-1168 du 18 décembre 2013 en a tiré la programmation militaire 2014-2019.",
+    "resultat": "La programmation prévoit 190 milliards d'euros de crédits jusqu'en 2019 (31,4 milliards par an au départ) selon le ministère de la défense.",
+    "justification": "La promesse est de définir un cap, ce que le Livre blanc et la loi de programmation ont fait dans les deux premières années. Le contenu de ce cap (réduction d'effectifs, format des armées) n'est pas jugé ici. La confiance est moyenne parce que la formule « fixer un cap » est peu précise.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-04-29",
+        "description": "Déclaration du président de la République sur le Livre blanc sur la défense et la sécurité nationale.",
+        "url": "https://www.elysee.fr/francois-hollande/2013/04/29/declaration-de-m-francois-hollande-president-de-la-republique-sur-le-livre-blanc-sur-la-defense-et-la-securite-nationale-a-paris-le-29-avril-2013"
+      },
+      {
+        "date": "2013-12-18",
+        "description": "Promulgation de la loi relative à la programmation militaire pour les années 2014 à 2019.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-822.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Déclaration de M. François Hollande, Président de la République, sur le Livre blanc sur la défense et la sécurité nationale",
+        "organisme": "Élysée",
+        "url": "https://www.elysee.fr/francois-hollande/2013/04/29/declaration-de-m-francois-hollande-president-de-la-republique-sur-le-livre-blanc-sur-la-defense-et-la-securite-nationale-a-paris-le-29-avril-2013",
+        "date": "2013-04-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Programmation militaire 2014-2019",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-822.html",
+        "date": "2013-12-18",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-60-dissuasion-deux-composantes",
+    "numero": 60,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Conserver les deux composantes de la dissuasion nucléaire",
+    "extraitProgramme": "en conservant les deux composantes de notre dissuasion nucléaire",
+    "reformulation": "La France garderait ses composantes océanique et aéroportée de dissuasion nucléaire.",
+    "pageProgramme": "n° 60",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2013-1168 du 18 décembre 2013 de programmation militaire 2014-2019 prévoit la permanence à la mer des sous-marins nucléaires lanceurs d'engins et une composante aéroportée. Le rapport du Sénat sur ce texte indique 23,3 milliards d'euros pour la dissuasion d'ici 2020, dont la livraison du missile M51.2 et le lancement des travaux du sous-marin de troisième génération.",
+    "resultat": "Le ministère des armées décrit une dissuasion reposant sur deux composantes complémentaires, océanique (sous-marins) et aéroportée (Rafale et ravitailleurs stratégiques).",
+    "justification": "Les deux composantes sont maintenues et programmées, dans le texte de loi et dans la présentation officielle de la dissuasion. La lecture du texte intégral de la loi n'a été possible que par extrait de l'article publié au Journal officiel, complété par le rapport du Sénat.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-12-18",
+        "description": "Promulgation de la loi de programmation militaire 2014-2019, qui maintient les deux composantes de la dissuasion.",
+        "url": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000028339065"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-1168 du 18 décembre 2013 relative à la programmation militaire pour les années 2014 à 2019 et portant diverses dispositions concernant la défense et la sécurité nationale",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000028339065",
+        "date": "2013-12-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rapport sur le projet de loi relatif à la programmation militaire pour les années 2014 à 2019",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l13-050/l13-05023.html",
+        "date": "2013",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-60-moyens-armees",
+    "numero": 60,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Doter les armées des moyens de leur mission et d'une organisation performante",
+    "extraitProgramme": "Je veillerai à ce que les armées disposent des moyens de leur mission et d’une organisation performante.",
+    "reformulation": "Les armées recevraient les moyens nécessaires à leurs missions, dans une organisation efficace.",
+    "pageProgramme": "n° 60",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi de programmation militaire 2014-2019 fixe 190 milliards d'euros de crédits, et son actualisation de 2015 ajoute 3,8 milliards d'euros de 2016 à 2019 et atténue de 18 750 postes les réductions d'effectifs prévues.",
+    "resultat": "Le budget de la défense a été stabilisé à 31,4 milliards d'euros jusqu'en 2016 dans la trajectoire initiale.",
+    "justification": "La promesse porte sur une adéquation entre moyens et missions, notion qualitative sans critère fixé, et aucune mesure chiffrée n'est promise. Les sources documentent des crédits et des effectifs sans permettre de conclure sur cette adéquation. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-06-24",
+        "description": "Rapport de la commission du Sénat sur l'actualisation de la programmation militaire 2015-2019.",
+        "url": "https://www.senat.fr/rap/l14-547/l14-5471.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi actualisant la programmation militaire pour les années 2015 à 2019 et portant diverses dispositions concernant la défense",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l14-547/l14-5471.html",
+        "date": "2015-06-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-60-industrie-defense",
+    "numero": 60,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Relancer une politique industrielle de défense ambitieuse",
+    "extraitProgramme": "Je relancerai une politique industrielle de défense ambitieuse.",
+    "reformulation": "L'État mènerait une politique volontariste pour l'industrie de défense.",
+    "pageProgramme": "n° 60",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est qualitative : « ambitieuse » n'est associé à aucun indicateur ni texte précis. Aucune source primaire n'a été consultée sur ce point (exportations, plans industriels, commandes). Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-60-otan-vocation-initiale",
+    "numero": 60,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Défense",
+    "titre": "Recentrer l'Otan sur la préparation de la sécurité collective",
+    "extraitProgramme": "Je m’attacherai à ce que l’Otan retrouve sa vocation initiale : la préparation de la sécurité collective.",
+    "reformulation": "La France chercherait à ramener l'Otan à sa mission d'origine de sécurité collective.",
+    "pageProgramme": "n° 60",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "",
+    "resultat": "",
+    "justification": "La promesse est de s'attacher à un objectif dont l'aboutissement dépend de vingt-huit États, sans mesure ni indicateur précis. Aucune source primaire n'a été consultée sur la position française entre 2012 et 2017. Aucun statut n'est avancé.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  }
+]

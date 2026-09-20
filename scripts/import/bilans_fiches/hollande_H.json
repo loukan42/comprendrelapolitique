@@ -1,0 +1,722 @@
+[
+  {
+    "id": "2012-43-isolation-million-logements",
+    "numero": 43,
+    "couvreTout": true,
+    "theme": "Logement",
+    "titre": "Lancer un plan d'isolation thermique pour 1 million de logements par an",
+    "extraitProgramme": "Je lancerai un vaste plan qui permettra à 1 million de logements par an de bénéficier d’une isolation thermique de qualité.",
+    "reformulation": "Un plan national devait permettre d'isoler thermiquement un million de logements chaque année.",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le président a annoncé le 21 mars 2013 le plan de rénovation énergétique de l'habitat (PREH), avec un guichet unique d'information dès septembre 2013, des aides renforcées pour les ménages modestes, un taux de TVA à 5,5 % sur les travaux en 2014 et l'obligation de recourir à des artisans RGE pour les aides à partir de juillet 2014.",
+    "resultat": "Le plan a fixé l'objectif à 500 000 logements rénovés par an en 2017, soit la moitié du million annoncé dans le programme. Un article de presse de 2016 (Batirama) chiffre à environ 443 000 les rénovations réalisées, sans que ce total repose sur une source publique consultée.",
+    "justification": "Un plan a bien été lancé, ce qui correspond au verbe de la promesse, mais son objectif officiel est de 500 000 logements par an et non d'un million, et les chiffres disponibles restent inférieurs à cet objectif. Le statut retient donc une réalisation partielle. La confiance est moyenne parce que le bilan chiffré vient de la presse.",
+    "actions": [
+      {
+        "date": "2013-03-21",
+        "description": "Annonce par le président de la République de 20 mesures pour la construction et la rénovation énergétique, dont l'objectif de 500 000 rénovations par an (réponse ministérielle publiée le 21 janvier 2014).",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42161.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 42161 (G. Larrivé), réponse de la ministre de l'égalité des territoires et du logement",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42161.pdf",
+        "date": "2014-01-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rénovation énergétique : quel bilan du quinquennat ?",
+        "organisme": "Batirama",
+        "url": "https://www.batirama.com/article/14608-renovation-energetique-quel-bilan-du-quinquennat.html",
+        "institutionnelle": false
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "pageProgramme": "n° 43"
+  },
+  {
+    "id": "2012-44-plan-education-artistique",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Lancer un plan national d'éducation artistique",
+    "extraitProgramme": "Je lancerai un plan national d’éducation artistique.",
+    "reformulation": "Un plan national devait organiser l'éducation artistique des élèves.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 8 juillet 2013 sur la refondation de l'école a inscrit dans le code de l'éducation (article L121-6) un parcours d'éducation artistique et culturelle pour tous les élèves tout au long de leur scolarité, dont les modalités sont fixées par les ministres de l'éducation et de la culture.",
+    "resultat": "Le parcours d'éducation artistique et culturelle est inscrit dans la loi depuis le 10 juillet 2013.",
+    "justification": "Le programme parle d'un « plan national » sans le définir. Le parcours généralisé à tous les élèves par la loi de 2013 en tient lieu de manière défendable, ce qui justifie le statut réalisé. La confiance est moyenne parce que le terme « plan » n'a pas de définition précise.",
+    "interpretations": "Lecture retenue : le parcours d'éducation artistique et culturelle légalement institué est le plan national annoncé. Lecture plus stricte : un document de programmation nommé « plan national », que les sources consultées ne montrent pas. La première est retenue, car la mesure de fond est la même.",
+    "actions": [
+      {
+        "date": "2013-07-08",
+        "description": "Loi d'orientation et de programmation pour la refondation de l'école de la République, article 10 : parcours d'éducation artistique et culturelle.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027677984/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Loi n° 2013-595 du 8 juillet 2013 d'orientation et de programmation pour la refondation de l'école de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027677984/",
+        "date": "2013-07-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Article L121-6 du code de l'éducation",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000027682625",
+        "date": "2013-07-10",
+        "institutionnelle": true
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-44-contrats-etat-collectivites",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Conclure entre l'État et les collectivités des contrats pour un maillage culturel coordonné",
+    "extraitProgramme": "J’établirai entre l’État et les collectivités locales des contrats visant à doter le territoire d’un maillage culturel mieux coordonné",
+    "reformulation": "L'État devait signer avec les collectivités locales des contrats pour coordonner l'offre culturelle sur le territoire.",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "sources": [],
+    "justification": "Les lois de 2015 (NOTRe) et de 2016 (création, architecture, patrimoine) posent une responsabilité culturelle partagée entre l'État et les collectivités, mais les sources consultées n'y font pas apparaître de dispositif général de contrats État-collectivités. Aucune source primaire lue ne recense de tels contrats à l'échelle nationale, et rien ne permet de conclure ni à leur existence ni à leur absence.",
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-44-loi-spectacle-vivant",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Faire voter une loi d'orientation sur le spectacle vivant",
+    "extraitProgramme": "Je ferai voter une loi d’orientation sur le spectacle vivant",
+    "reformulation": "Une loi d'orientation consacrée au spectacle vivant devait être adoptée.",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Aucune loi d'orientation propre au spectacle vivant n'a été identifiée. La loi du 7 juillet 2016 relative à la liberté de la création, à l'architecture et au patrimoine comporte des dispositions sur le spectacle vivant : labels du ministère de la culture et conventionnement dans la durée des structures (article 5), statut des amateurs (article 32), collecte des données de billetterie (article 48).",
+    "resultat": "Le spectacle vivant a un cadre législatif, inclus dans une loi plus large qui traite aussi du patrimoine et de l'architecture.",
+    "justification": "La mesure de fond, une loi qui organise le soutien au spectacle vivant, a été partiellement votée dans un texte général. Aucune loi d'orientation dédiée n'a été trouvée, d'où le statut partiel et non réalisé.",
+    "interpretations": "Lecture retenue : la loi de 2016 remplit en partie l'engagement parce qu'elle fixe des règles pour le spectacle vivant. Lecture stricte : la promesse visait une loi spécifique d'orientation, qui n'a pas été votée. Un statut partiel est retenu pour rendre compte des deux.",
+    "actions": [
+      {
+        "date": "2016-07-07",
+        "description": "Promulgation de la loi relative à la liberté de la création, à l'architecture et au patrimoine.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000032854341"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Loi n° 2016-925 du 7 juillet 2016 relative à la liberté de la création, à l'architecture et au patrimoine",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000032854341",
+        "date": "2016-07-08",
+        "institutionnelle": true
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-44-centre-national-musique",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Reprendre le chantier du Centre national de la musique",
+    "extraitProgramme": "je reprendrai le chantier du Centre national de la musique",
+    "reformulation": "Le projet de Centre national de la musique, préparé sous le mandat précédent, devait être relancé.",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Le rapport du Sénat sur la proposition de loi de 2019 relève que le projet a été abandonné en 2012 après la nomination de la ministre de la culture Aurélie Filippetti, faute de financement, puis relancé en 2017 par la ministre Françoise Nyssen.",
+    "resultat": "Le Centre national de la musique a été créé par la loi du 30 octobre 2019, soit après le mandat.",
+    "justification": "Le rapport sénatorial situe l'abandon du projet en 2012 et sa reprise en 2017, donc après le mandat. La loi de création date de 2019. Aucune mise en oeuvre n'a eu lieu entre 2012 et 2017.",
+    "actions": [
+      {
+        "date": "2019-10-30",
+        "description": "Loi relative à la création du Centre national de la musique.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039295468/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Proposition de loi relative à la création du Centre national de la musique, rapport (historique du projet)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l18-611/l18-6113.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi n° 2019-1100 du 30 octobre 2019 relative à la création du Centre national de la musique",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000039295468/",
+        "date": "2019-10-30",
+        "institutionnelle": true
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-44-tva-livre-billetterie",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Revenir à un taux de TVA de 5,5 % pour le livre et la billetterie",
+    "extraitProgramme": "Je reviendrai à un taux de TVA à 5,5% pour le livre et la billetterie",
+    "reformulation": "Le livre et la billetterie devaient retrouver un taux de TVA de 5,5 %.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le livre est passé au taux réduit de 5,5 % au 1er janvier 2013 (annonce du Bofip du 20 décembre 2012), après le vote de la loi de finances rectificative de l'été 2012. Les spectacles (théâtres, cirques, concerts, spectacles de variétés) relèvent aussi du taux de 5,5 % depuis le 1er janvier 2013 (annonce du Bofip du 22 mars 2013).",
+    "resultat": "Livre et billetterie du spectacle vivant sont taxés à 5,5 % à compter de 2013.",
+    "justification": "Les deux objets nommés dans la promesse, le livre et la billetterie de spectacle, sont au taux de 5,5 % dans les textes fiscaux. Le taux des entrées de cinéma, autre billetterie, a connu des changements en 2013 et 2014 non vérifiés dans les sources consultées. La confiance est moyenne à cause de ce point.",
+    "interpretations": "Lecture retenue : la billetterie désigne celle des spectacles vivants, dans un bloc consacré au spectacle vivant et au livre. Si on l'entendait aussi des salles de cinéma, le résultat serait à vérifier séparément.",
+    "actions": [
+      {
+        "date": "2012-12-20",
+        "description": "Publication de l'annonce du Bofip : au 1er janvier 2013, taux de 5,5 % pour les livres.",
+        "url": "https://bofip.impots.gouv.fr/bofip/8345-PGP.html/identifiant=ACTU-2012-00059"
+      },
+      {
+        "date": "2013-03-22",
+        "description": "Annonce du Bofip sur les taux applicables aux spectacles : taux réduit de 5,5 % à compter du 1er janvier 2013.",
+        "url": "https://bofip.impots.gouv.fr/bofip/8639-PGP.html/identifiant=ACTU-2013-00073"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "TVA - Taux - Livres - Application du taux de 5,5 % à compter du 1er janvier 2013",
+        "organisme": "Bofip-Impôts (DGFiP)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8345-PGP.html/identifiant=ACTU-2012-00059",
+        "date": "2012-12-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "TVA - Taux réduits - Taux applicables aux spectacles",
+        "organisme": "Bofip-Impôts (DGFiP)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8639-PGP.html/identifiant=ACTU-2013-00073",
+        "date": "2013-03-22",
+        "institutionnelle": true
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-44-librairies-independantes",
+    "numero": 44,
+    "theme": "Culture",
+    "titre": "Lutter pour la survie des librairies indépendantes",
+    "extraitProgramme": "je lutterai pour la survie des librairies indépendantes.",
+    "reformulation": "Le gouvernement devait agir pour préserver les librairies indépendantes.",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 8 juillet 2014 encadre les conditions de la vente à distance des livres : la livraison gratuite ne peut plus s'ajouter au rabais de 5 % autorisé sur le prix des livres, ce que le Sénat présente comme une réponse à une concurrence jugée déloyale par les libraires.",
+    "justification": "La promesse est qualitative : « lutter pour la survie » ne fixe ni mesure ni résultat mesurable. Une loi visant à protéger les libraires a été votée, mais aucune des sources lues ne permet de dire si la survie des librairies a été assurée ou si l'engagement de moyens suffit à le tenir. Aucun statut n'est donc retenu.",
+    "actions": [
+      {
+        "date": "2014-07-08",
+        "description": "Loi encadrant les conditions de la vente à distance des livres.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029210814"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Loi n° 2014-779 du 8 juillet 2014 encadrant les conditions de la vente à distance des livres",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029210814",
+        "date": "2014-07-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La proposition de loi tendant à encadrer la vente à distance des livres adoptée définitivement par le Sénat",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201310/la-proposition-de-loi-tendant-a-encadrer-la-vente-a-distance-des-livres-adoptee-definitivement-par-le-senat.html",
+        "institutionnelle": true
+      }
+    ],
+    "mandatId": "hollande-2012-2017",
+    "verifieLe": "2026-09-19",
+    "couvreTout": false,
+    "pageProgramme": "n° 44"
+  },
+  {
+    "id": "2012-45-remplacer-hadopi",
+    "numero": 45,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Culture",
+    "titre": "Remplacer la loi Hadopi par une grande loi, acte 2 de l'exception culturelle",
+    "extraitProgramme": "Je remplacerai la loi Hadopi par une grande loi",
+    "reformulation": "La loi Hadopi devait être remplacée par un texte d'ensemble sur la culture à l'ère numérique.",
+    "pageProgramme": "n° 45",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Le rapport de la mission Lescure sur l'acte 2 de l'exception culturelle a été remis le 13 mai 2013. Le décret n° 2013-596 du 8 juillet 2013 a supprimé la peine de suspension de l'accès à internet, sans toucher au reste de la réponse graduée. Le projet de loi relatif à la liberté de la création, à l'architecture et au patrimoine, adopté en première lecture par l'Assemblée nationale le 6 octobre 2015, ne comporte, selon la réponse ministérielle publiée le 9 février 2016, aucune disposition relative à la Hadopi.",
+    "resultat": "La Hadopi et son dispositif de réponse graduée ont continué d'exister jusqu'à la fin du mandat. La Hadopi n'a été dissoute que le 1er janvier 2022, par la loi du 25 octobre 2021, qui l'a fusionnée avec le CSA au sein de l'Arcom.",
+    "justification": "Le gouvernement avait annoncé en 2013 un texte de loi pour supprimer la Hadopi et transférer ses missions au CSA, mais la ministre de la culture a ensuite indiqué que le dispositif était préservé. Aucune loi de remplacement n'a été votée avant le 14 mai 2017 et la loi Hadopi est restée en vigueur.",
+    "interpretations": "Lecture retenue : la promesse portait sur le remplacement de la loi et de l'autorité par un texte d'ensemble, ce qui n'a pas eu lieu. Lecture plus souple : la suppression de la peine de coupure d'accès par décret en 2013 serait une réalisation partielle. Elle est écartée parce qu'elle modifie un article réglementaire et laisse intacte la loi Hadopi.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-08",
+        "description": "Décret n° 2013-596 supprimant la peine complémentaire de suspension de l'accès à un service de communication au public en ligne (mentionné dans la réponse ministérielle du 15 octobre 2013).",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE32780.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 32780 (I. Le Callennec) sur la Hadopi, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE32780.pdf",
+        "date": "2013-10-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 66662 (L. de La Raudière) sur les missions de l'Hadopi, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE66662.pdf",
+        "date": "2016-02-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Transferts des activités de traitement de l'Hadopi à l'Arcom",
+        "organisme": "Arcom",
+        "url": "https://www.arcom.fr/transferts-des-activites-de-traitement-de-lhadopi-larcom",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-45-contrefacon-commerciale",
+    "numero": 45,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Culture",
+    "titre": "Accroître en amont la lutte contre la contrefaçon commerciale",
+    "extraitProgramme": "La lutte contre la contrefaçon commerciale sera accrue en amont",
+    "reformulation": "La lutte contre les sites qui tirent profit des contenus contrefaits devait être renforcée.",
+    "pageProgramme": "n° 45",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 11 mars 2014 renforçant la lutte contre la contrefaçon a été promulguée. En mars 2015, la ministre de la culture indiquait que les propositions du rapport Imbert-Quaretta, destinées à impliquer les intermédiaires techniques et financiers dans la lutte contre la contrefaçon commerciale en ligne, faisaient l'objet d'un travail interministériel.",
+    "justification": "La promesse est qualitative (« sera accrue ») et ne fixe ni mesure précise ni seuil. La loi de 2014 renforce l'action en contrefaçon en général, et les sources consultées ne montrent pas qu'elle cible la contrefaçon commerciale en ligne. Le dispositif visant les intermédiaires est décrit comme en préparation en 2015, sans texte publié consulté qui l'établisse à la fin du mandat.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-03-11",
+        "description": "Promulgation de la loi renforçant la lutte contre la contrefaçon.",
+        "url": "https://www.senat.fr/dossier-legislatif/ppl12-866.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 65836 (L. de La Raudière) sur le budget de la Hadopi, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE65836.pdf",
+        "date": "2015-03-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi renforçant la lutte contre la contrefaçon (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/ppl12-866.html",
+        "date": "2014-03-11",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-45-remuneration-auteurs-financement",
+    "numero": 45,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Culture",
+    "titre": "Rémunérer les auteurs selon les accès à leurs oeuvres par un financement des usagers et des acteurs du numérique",
+    "extraitProgramme": "Les auteurs seront rémunérés en fonction du nombre d’accès à leurs œuvres",
+    "reformulation": "Les auteurs devaient être rémunérés selon le nombre d'accès à leurs oeuvres, grâce à un financement par les usagers et par les acteurs de l'économie numérique.",
+    "pageProgramme": "n° 45",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le rapport Lescure de mai 2013 proposait une contribution sur les terminaux connectés. Le gouvernement a renoncé à créer cette taxe : la réponse ministérielle publiée le 9 décembre 2014 indique qu'il n'a pas semblé opportun de mettre en place une nouvelle taxe à ce stade, et que le gouvernement a pris en compte la recommandation du Conseil national du numérique de poursuivre les discussions avec les partenaires européens et internationaux.",
+    "resultat": "Aucun mécanisme de financement de la création reposant sur les usagers et sur les acteurs du numérique et proportionné aux accès n'a été identifié dans les sources consultées. Le soutien prend la forme de fonds et de plans sectoriels existants.",
+    "justification": "La contribution proposée à cette fin a été écartée par le gouvernement lui-même, selon une réponse ministérielle officielle. Aucune autre mesure établissant une rémunération liée au nombre d'accès n'apparaît dans les sources consultées. La confiance est moyenne parce que l'absence d'autre dispositif n'a pas été établie par un recensement exhaustif du droit en vigueur en mai 2017.",
+    "verifieLe": "2026-09-19",
+    "sources": [
+      {
+        "titre": "Question écrite n° 57840 (I. Le Callennec) sur la politique culturelle, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE57840.pdf",
+        "date": "2014-12-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 37203 (C. Lett) sur la taxe pour les écrans connectés, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE37203.pdf",
+        "date": "2013-12-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-46-laicite-constitution",
+    "numero": 46,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Inscrire les principes de la loi de 1905 sur la laïcité dans la Constitution",
+    "extraitProgramme": "Je proposerai d’inscrire les principes fondamentaux de la loi de 1905 sur la laïcité dans la Constitution",
+    "reformulation": "Un deuxième alinéa devait être ajouté à l'article 1er de la Constitution pour y inscrire les principes de la loi de 1905, sous réserve du régime d'Alsace-Moselle.",
+    "pageProgramme": "n° 46",
+    "statut": "abandonne",
+    "confiance": "haute",
+    "actionMenee": "Aucun projet de loi constitutionnelle inscrivant ces principes n'a été identifié dans les sources consultées. Dans une réponse ministérielle publiée le 13 mai 2014 à une question écrite portant précisément sur l'engagement n° 46, le gouvernement a indiqué que la décision du Conseil constitutionnel n° 2012-297 QPC du 21 février 2013 avait atteint l'objectif de l'engagement et qu'il n'était donc pas nécessaire de modifier la Constitution à cette fin.",
+    "resultat": "Le texte de l'article 1er de la Constitution n'a pas été modifié sur ce point pendant le mandat. La décision du 21 février 2013 juge que le principe de laïcité figure parmi les droits et libertés que la Constitution garantit, et a déclaré conforme à la Constitution l'article VII de la loi du 18 germinal an X, en vigueur en Alsace-Moselle.",
+    "justification": "L'abandon de la révision constitutionnelle est explicite dans la réponse ministérielle du 13 mai 2014, qui estime la modification inutile. Le statut retenu est donc « abandonné » et non « réalisé », puisque la promesse portait sur une inscription dans le texte de la Constitution.",
+    "interpretations": "Lecture retenue : la promesse visait une révision constitutionnelle, qui n'a pas eu lieu. Lecture du gouvernement : l'objectif de fond serait atteint par la jurisprudence du Conseil constitutionnel. Cette lecture décrit la position officielle mais ne remplace pas l'inscription annoncée dans le texte.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-05-13",
+        "description": "Réponse ministérielle publiée au Journal officiel : la modification de la Constitution est jugée inutile après la décision du Conseil constitutionnel du 21 février 2013.",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42164.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 42164 (G. Larrivé) sur le bilan de l'engagement n° 46, réponse du ministre de l'intérieur",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42164.pdf",
+        "date": "2014-05-13",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-47-statut-penal-chef-etat",
+    "numero": 47,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Réformer le statut pénal du chef de l'État",
+    "extraitProgramme": "Je réformerai le statut pénal du chef de l’État.",
+    "reformulation": "Le régime de responsabilité pénale du président de la République devait être réformé.",
+    "pageProgramme": "n° 47",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un projet de loi constitutionnelle relatif à la responsabilité juridictionnelle du Président de la République et des membres du Gouvernement a été déposé à l'Assemblée nationale le 14 mars 2013. Il prévoyait la levée de l'immunité civile du président sous autorisation d'une commission des requêtes et la suppression de la Cour de justice de la République. Le dossier de l'Assemblée montre un renvoi à la commission des lois, un rapporteur nommé le 26 mars 2013 et une table ronde le 11 avril 2013. Une réponse ministérielle publiée le 11 août 2015 précise que les conditions de saisine du Parlement pour ce projet de loi constitutionnelle font l'objet de réflexions en cours, et cite la loi organique n° 2014-1392 du 24 novembre 2014 portant application de l'article 68 de la Constitution, qui rend applicable la procédure de destitution issue de la révision de 2007.",
+    "resultat": "Le projet n'a pas été adopté. Aucune étape de séance n'apparaît dans le dossier législatif consulté, et aucune révision de la Constitution sur ce point n'a été promulguée avant mai 2017.",
+    "justification": "Une révision constitutionnelle exige un vote conforme des deux assemblées puis une majorité des trois cinquièmes en Congrès, et le projet déposé n'a pas dépassé le stade de la commission à l'Assemblée. La loi organique de 2014 applique la révision de 2007 et ne réforme pas le statut prévu par les articles 67 et 68. La confiance est moyenne parce que la consultation du dossier législatif n'a pas permis de lire le texte détaillé du projet, ni un texte officiel annonçant son abandon.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-03-14",
+        "description": "Dépôt à l'Assemblée nationale du projet de loi constitutionnelle relatif à la responsabilité juridictionnelle du Président de la République et des membres du Gouvernement.",
+        "url": "https://www.assemblee-nationale.fr/14/dossiers/responsabilite_juridictionnelle_President_Gouvernement.asp"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Pouvoirs publics : responsabilité juridictionnelle du Président de la République et des membres du Gouvernement (dossier législatif)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/dossiers/responsabilite_juridictionnelle_President_Gouvernement.asp",
+        "date": "2013-03-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42165 (G. Larrivé) sur le bilan de l'engagement n° 47, réponse de la garde des sceaux",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42165.pdf",
+        "date": "2015-08-11",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-47-remuneration-baisse-30",
+    "numero": 47,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Réduire de 30 % la rémunération du président de la République et des ministres",
+    "extraitProgramme": "Je réduirai de 30% la rémunération du président",
+    "reformulation": "Les traitements du président de la République et des ministres devaient baisser de 30 %.",
+    "pageProgramme": "n° 47",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le décret n° 2012-766 du 17 mai 2012 a réduit le traitement des membres du Gouvernement. À la suite de la décision du Conseil constitutionnel n° 2012-654 DC du 9 août 2012, le décret n° 2012-983 du 23 août 2012 a fixé le traitement du Président de la République et des membres du Gouvernement, avec une date d'effet au 15 mai 2012.",
+    "resultat": "Selon un avis du Sénat sur le projet de loi de finances pour 2013, le traitement brut mensuel s'établit à 14 910 euros pour le Président et le Premier ministre, 9 940 euros pour un ministre et 9 443 euros pour un secrétaire d'État. La baisse a été appliquée dès la nomination du gouvernement.",
+    "justification": "Les deux décrets traduisent en textes la baisse de 30 % annoncée, pour le Président comme pour les ministres. Le second décret régularise la situation du Président après la censure du Conseil constitutionnel de la disposition législative antérieure.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-05-17",
+        "description": "Décret relatif au traitement des membres du Gouvernement.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025895163"
+      },
+      {
+        "date": "2012-08-23",
+        "description": "Décret relatif au traitement du Président de la République et des membres du Gouvernement, applicable au 15 mai 2012.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026310466"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2012-983 du 23 août 2012 relatif au traitement du Président de la République et des membres du Gouvernement",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026310466",
+        "date": "2012-08-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2012-766 du 17 mai 2012 relatif au traitement des membres du Gouvernement",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025895163",
+        "date": "2012-05-17",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2013 : Coordination du travail gouvernemental et publications officielles",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a12-154-5/a12-154-56.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-47-anciens-presidents-conseil-constitutionnel",
+    "numero": 47,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Mettre fin à la présence des anciens présidents de la République au Conseil constitutionnel",
+    "extraitProgramme": "Les anciens présidents de la République ne siégeront plus",
+    "reformulation": "Les anciens présidents de la République ne devaient plus être membres du Conseil constitutionnel.",
+    "pageProgramme": "n° 47",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Un projet de loi constitutionnelle relatif aux incompatibilités applicables à l'exercice de fonctions gouvernementales et à la composition du Conseil constitutionnel a été déposé à l'Assemblée nationale le 14 mars 2013 et renvoyé à la commission des lois. Le dossier législatif ne comporte pas d'étape ultérieure.",
+    "resultat": "L'article 56 de la Constitution, qui fait des anciens présidents de la République des membres de droit et à vie du Conseil constitutionnel, n'a pas été modifié. Valéry Giscard d'Estaing a siégé de 2004 à 2020. Jacques Chirac a cessé de siéger en mars 2011 et Nicolas Sarkozy en janvier 2013, chacun par décision personnelle.",
+    "justification": "Le statut de membre de droit reste en vigueur à la fin du mandat, le projet de révision n'ayant pas été adopté. Les renoncements individuels à siéger ne modifient pas ce statut et ne correspondent pas à la mesure annoncée, qui est une règle de droit.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-03-14",
+        "description": "Dépôt à l'Assemblée nationale du projet de loi constitutionnelle relatif aux incompatibilités gouvernementales et à la composition du Conseil constitutionnel.",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/dossiers/incompatibilites_composition_Conseil_constitutionnel"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Pouvoirs publics : incompatibilités applicables à l'exercice de fonctions gouvernementales et composition du Conseil constitutionnel (dossier législatif)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/dossiers/incompatibilites_composition_Conseil_constitutionnel",
+        "date": "2013-03-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Statut des membres",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/les-membres/statut-des-membres",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-48-pouvoirs-parlement-nominations",
+    "numero": 48,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Augmenter les pouvoirs d'initiative et de contrôle du Parlement, notamment sur les nominations aux plus hauts postes",
+    "extraitProgramme": "J’augmenterai les pouvoirs d’initiative et de contrôle du Parlement",
+    "reformulation": "Le Parlement devait disposer de pouvoirs accrus d'initiative et de contrôle, en particulier sur les nominations aux plus hauts postes de l'État.",
+    "pageProgramme": "n° 48",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "L'Assemblée nationale a adopté le 28 novembre 2014 une résolution modifiant son Règlement, dont le Conseil constitutionnel a censuré plusieurs dispositions par sa décision n° 2014-705 DC du 11 décembre 2014. La réponse ministérielle publiée le 1er avril 2014 cite la loi du 15 novembre 2013 relative à l'indépendance de l'audiovisuel public, qui confie au CSA la nomination des présidents de l'audiovisuel public.",
+    "justification": "La promesse est qualitative : aucun pouvoir précis, seuil ou texte n'est nommé. La loi du 15 novembre 2013 retire au président de la République la nomination des dirigeants de l'audiovisuel public, mais selon une réponse ministérielle le Parlement n'est plus associé à leur désignation, ce qui ne constitue pas un pouvoir parlementaire accru. Aucune source consultée ne permet de mesurer un accroissement global des pouvoirs du Parlement ni de la liste des nominations soumises à son avis.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-11-28",
+        "description": "Résolution tendant à modifier le Règlement de l'Assemblée nationale, examinée par le Conseil constitutionnel.",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2014/2014705DC.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décision n° 2014-705 DC du 11 décembre 2014, Résolution tendant à modifier le Règlement de l'Assemblée nationale",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2014/2014705DC.htm",
+        "date": "2014-12-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42166 (G. Larrivé) sur le bilan de l'engagement n° 48, réponse du ministre chargé des relations avec le Parlement",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42166.pdf",
+        "date": "2014-04-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42169 (G. Larrivé) sur le bilan de l'engagement n° 51, réponse de la ministre de la culture et de la communication",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42169.pdf",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-48-non-cumul-mandats",
+    "numero": 48,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Faire voter une loi sur le non-cumul des mandats",
+    "extraitProgramme": "Je ferai voter une loi sur le non-cumul des mandats.",
+    "reformulation": "Une loi devait interdire de cumuler un mandat parlementaire avec des fonctions exécutives locales.",
+    "pageProgramme": "n° 48",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi organique n° 2014-125 du 14 février 2014 interdit le cumul d'un mandat de député ou de sénateur avec des fonctions exécutives locales, et la loi n° 2014-126 du même jour interdit le cumul de ces fonctions avec un mandat de représentant au Parlement européen. Le projet avait été présenté par le gouvernement le 3 avril 2013 et le Conseil constitutionnel a jugé la loi organique partiellement conforme le 13 février 2014.",
+    "resultat": "La loi organique s'applique à tout parlementaire à compter du premier renouvellement de l'assemblée à laquelle il appartient suivant le 31 mars 2017, soit les élections législatives de juin 2017 pour les députés. La censure du Conseil constitutionnel a porté sur un paragraphe de l'article 8 pour un motif de procédure, l'article 46 de la Constitution.",
+    "justification": "La promesse porte sur le vote d'une loi, et la loi organique a été votée, contrôlée par le Conseil constitutionnel et promulguée en 2014. Son application différée à 2017 ne retire pas le caractère réalisé de la mesure annoncée.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-02-14",
+        "description": "Promulgation de la loi organique interdisant le cumul de fonctions exécutives locales avec le mandat de député ou de sénateur.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-734.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Cumul des fonctions (dossier législatif du projet de loi organique)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-734.html",
+        "date": "2014-02-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2014-689 DC du 13 février 2014, Loi organique interdisant le cumul de fonctions exécutives locales avec le mandat de député ou de sénateur",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2014/2014689DC.htm",
+        "date": "2014-02-13",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-48-parite-sanctions-partis",
+    "numero": 48,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Alourdir les sanctions financières contre les partis qui ne respectent pas la parité",
+    "extraitProgramme": "Je renforcerai la parité entre les femmes et les hommes en alourdissant les sanctions financières contre les partis",
+    "reformulation": "Les partis qui présentent des candidats inégalement répartis entre femmes et hommes devaient perdre une part plus importante de leur aide publique.",
+    "pageProgramme": "n° 48",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2014-873 du 4 août 2014 pour l'égalité réelle entre les femmes et les hommes a modifié l'article 9-1 de la loi du 11 mars 1988 : lorsque l'écart entre le nombre de candidats de chaque sexe d'un parti dépasse 2 % du total, la première fraction de l'aide publique est réduite d'un pourcentage égal à 150 % de cet écart.",
+    "resultat": "Le taux de réduction est porté à 150 % de l'écart, contre 75 % auparavant selon la synthèse de la loi publiée par vie-publique.fr. La règle s'applique à partir du premier renouvellement général de l'Assemblée nationale suivant la publication de la loi, soit les élections législatives de 2017.",
+    "justification": "Le texte en vigueur de l'article 9-1, lu sur Légifrance, prévoit le taux de 150 %, et la modification est attribuée à la loi du 4 août 2014. La sanction a bien été alourdie par la loi, avant la fin du mandat.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-08-04",
+        "description": "Promulgation de la loi pour l'égalité réelle entre les femmes et les hommes, qui renforce la modulation de l'aide publique aux partis.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029330832"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Loi n° 2014-873 du 4 août 2014 pour l'égalité réelle entre les femmes et les hommes",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029330832",
+        "date": "2014-08-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Titre III : dispositions relatives aux partis et groupements politiques et à leur financement (articles 7 à 16), loi n° 88-227 du 11 mars 1988",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006085777",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 4 août 2014 pour l'égalité réelle entre les femmes et les hommes",
+        "organisme": "vie-publique.fr",
+        "url": "https://www.vie-publique.fr/loi/20686-egalite-entre-les-femmes-et-les-hommes-conge-parental-pension-alimenta",
+        "date": "2014-08-04",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-48-proportionnelle-assemblee",
+    "numero": 48,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Institutions",
+    "titre": "Introduire une part de proportionnelle à l'Assemblée nationale",
+    "extraitProgramme": "J’introduirai une part de proportionnelle à l’Assemblée nationale.",
+    "reformulation": "Une partie des députés devait être élue à la représentation proportionnelle.",
+    "pageProgramme": "n° 48",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "La commission présidée par Lionel Jospin a remis son rapport le 9 novembre 2012 et recommandait, selon l'exposé des motifs d'une proposition de loi déposée en juillet 2015, une dose de proportionnelle concernant 10 % des députés. Le 1er avril 2014, une réponse ministérielle indiquait que le gouvernement n'avait pas renoncé à introduire une part de proportionnelle. Le 10 décembre 2014, le Premier ministre Manuel Valls a rappelé l'engagement du président sur une dose de proportionnelle, tout en jugeant que la proportionnelle intégrale rendrait l'Assemblée ingouvernable et que la question n'était pas à l'ordre du jour.",
+    "resultat": "Aucun texte instaurant une part de proportionnelle n'a été adopté. Les 577 députés des élections législatives de juin 2017 ont été élus au scrutin uninominal majoritaire à deux tours, selon le ministère de l'intérieur.",
+    "justification": "Le mode de scrutin des députés est resté le scrutin majoritaire à la fin du mandat, et aucun texte instaurant une dose de proportionnelle n'a été adopté. Aucune source consultée ne fait état d'un projet de loi déposé sur ce point.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-12-10",
+        "description": "Réponse du Premier ministre à une question au gouvernement sur la proportionnelle aux élections législatives.",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QG2391.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question au gouvernement n° 2391 (B. Accoyer), Proportionnelle aux élections législatives, réponse du Premier ministre",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QG2391.pdf",
+        "date": "2014-12-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Proposition de loi visant à améliorer la représentation des Français en instaurant l'élection des députés au scrutin de liste à la représentation proportionnelle (exposé des motifs)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/14/pdf/propositions/pion2959.pdf",
+        "date": "2015-07-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Élections législatives : 577 députés pour représenter tous les Français",
+        "organisme": "Ministère de l'intérieur",
+        "url": "https://www.interieur.gouv.fr/Archives/Archives-elections/Elections-legislatives-2017/Elections-legislatives-577-deputes-pour-representer-tous-les-Francais",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42166 (G. Larrivé) sur le bilan de l'engagement n° 48, réponse du ministre chargé des relations avec le Parlement",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42166.pdf",
+        "date": "2014-04-01",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,593 @@
+[
+  {
+    "id": "2012-32-volet-handicap-loi",
+    "numero": 32,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Handicap",
+    "titre": "Garantir un volet handicap dans chaque loi",
+    "extraitProgramme": "Je garantirai l’existence d’un volet handicap dans chaque loi.",
+    "reformulation": "Chaque loi comporterait des dispositions concernant les personnes handicapées.",
+    "pageProgramme": "n° 32",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Une circulaire du Premier ministre du 4 septembre 2012, publiée au Journal officiel le 5 septembre, demande que des dispositions spécifiques aux personnes handicapées figurent en principe dans chaque projet de loi. Une fiche de diagnostic handicap doit être jointe à tout projet transmis à Matignon, et l'étude d'impact doit expliquer l'absence de telles dispositions. Un rappel a été adressé aux ministres par le Premier ministre Manuel Valls le 4 juillet 2014.",
+    "resultat": "Le dispositif est une règle de méthode interne au gouvernement : il ne s'applique qu'aux projets de loi, pas aux propositions de loi ni aux textes réglementaires, et admet des exceptions motivées. Aucune loi n'impose un volet handicap dans chaque texte.",
+    "justification": "L'engagement a reçu une mise en oeuvre réelle mais réduite : une circulaire qui pose un principe et une obligation de justification, sans garantie que chaque loi comporte effectivement un volet handicap. Aucune source officielle consultée ne dresse le décompte des lois qui en comportent, d'où une confiance moyenne. La lecture directe de la circulaire sur Légifrance a été possible.",
+    "interpretations": "Deux lectures sont défendables. Selon la première, « garantir l'existence » d'un volet handicap se satisfait d'une obligation de réflexion systématique inscrite dans la procédure d'élaboration des projets de loi : la circulaire y répond. Selon la seconde, la garantie suppose un volet effectif dans chaque loi, ce que la circulaire n'assure pas puisque l'absence de dispositions peut être justifiée. La seconde lecture est retenue, d'où le statut partiel.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-09-04",
+        "description": "Circulaire du Premier ministre relative à la prise en compte du handicap dans les projets de loi (publiée au Journal officiel du 5 septembre 2012).",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026344613"
+      },
+      {
+        "date": "2014-07-04",
+        "description": "Circulaire du Premier ministre Manuel Valls rappelant aux ministres l'obligation de joindre une fiche de diagnostic handicap à chaque projet de loi.",
+        "url": "https://informations.handicap.fr/a-lois-valls-gouvernement-7032.php"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Circulaire du 4 septembre 2012 relative à la prise en compte du handicap dans les projets de loi",
+        "organisme": "Légifrance (Journal officiel)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026344613",
+        "date": "2012-09-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le handicap dans les lois : piqûre de rappel de Manuel Valls",
+        "organisme": "Handicap.fr",
+        "url": "https://informations.handicap.fr/a-lois-valls-gouvernement-7032.php",
+        "date": "2014-07-04",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-32-sanctions-quota-6-pourcent",
+    "numero": 32,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Handicap",
+    "titre": "Renforcer les sanctions contre le non-respect du quota de 6 % de travailleurs handicapés",
+    "extraitProgramme": "Et je renforcerai les sanctions en cas de non-respect des 6% de travailleurs handicapés",
+    "reformulation": "Les employeurs qui n'emploient pas 6 % de travailleurs handicapés paieraient davantage.",
+    "pageProgramme": "n° 32",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Aucun texte adopté entre 2012 et 2017 n'a relevé la contribution due par les employeurs qui ne respectent pas l'obligation d'emploi. Le code du travail au 7 mars 2014 et au 1er septembre 2016 fixe le même plafond : 600 fois le Smic horaire par bénéficiaire manquant, porté à 1 500 fois en l'absence de toute action pendant plus de trois ans. La version de 2016 prévoit en outre que l'employeur peut s'acquitter en partie de l'obligation par des contrats avec des travailleurs indépendants handicapés.",
+    "resultat": "Les plafonds de la contribution sont identiques avant et après la loi du 5 mars 2014, et l'état du droit à la fin de 2016 offre une modalité d'exécution supplémentaire plutôt qu'une sanction accrue.",
+    "justification": "Le statut repose sur la comparaison de deux versions du code du travail publiées sur Légifrance, qui montre un plafond inchangé, et non sur une recherche exhaustive de toutes les modifications du chapitre. Faute d'un texte plus sévère trouvé, le statut est non réalisé, avec une confiance moyenne. La lecture directe de Légifrance a été possible pour les deux versions.",
+    "verifieLe": "2026-09-19",
+    "sources": [
+      {
+        "titre": "Code du travail, chapitre II : Obligation d'emploi des travailleurs handicapés, mutilés de guerre et assimilés (version au 7 mars 2014)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006178139/2014-03-07/",
+        "date": "2014-03-07",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Code du travail, chapitre II : Obligation d'emploi des travailleurs handicapés, mutilés de guerre et assimilés (version au 1er septembre 2016)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006178139/2016-09-01/",
+        "date": "2016-09-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Emploi des personnes handicapées : Hollande n'a pas rempli son contrat",
+        "organisme": "Faire Face",
+        "url": "https://www.faire-face.fr/2016/11/08/hollande-emploi-personnes-handicapees-bilan-quinquennat/",
+        "date": "2016-11-08",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-33-contrat-generation",
+    "numero": 33,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Créer un contrat de génération associant embauche d'un jeune en CDI et maintien d'un senior",
+    "extraitProgramme": "Je proposerai un contrat de génération pour permettre l’embauche par les entreprises, en contrat à durée indéterminée, de jeunes",
+    "reformulation": "Un contrat aiderait les entreprises à embaucher un jeune en CDI accompagné d'un salarié expérimenté maintenu dans l'emploi jusqu'à sa retraite.",
+    "pageProgramme": "n° 33",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 1er mars 2013 portant création du contrat de génération, publiée au Journal officiel le 3 mars 2013, a institué une aide pour l'embauche d'un jeune de moins de 26 ans en CDI, liée au maintien dans l'emploi d'un senior de 57 ans ou plus. Les entreprises de 300 salariés et plus doivent négocier sur ce sujet sous peine de pénalité.",
+    "resultat": "Selon une étude de la Dares de décembre 2016, 59 000 demandes d'aide ont été déposées de 2013 à 2015 par 35 000 entreprises, dont 49 000 validées (83 %) et suivies de la signature d'un contrat de génération.",
+    "justification": "La promesse était de proposer ce contrat : il a été créé par une loi promulguée dix mois après l'élection et l'aide a été effectivement versée. Le nombre de contrats n'était pas un objectif chiffré du programme. Le dispositif a été supprimé après la fin du mandat, ce qui ne change pas le statut à l'échéance du 13 mai 2017.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-03-01",
+        "description": "Promulgation de la loi portant création du contrat de génération, après décision du Conseil constitutionnel du 28 février 2013.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-289.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-185 du 1er mars 2013 portant création du contrat de génération",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000027123803/",
+        "date": "2013-03-03",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Contrat de génération (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-289.html",
+        "date": "2013-03-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Études de la Dares décembre 2016 : Les embauches en contrat de génération de 2013 à 2015",
+        "organisme": "Institut du travail, Université de Strasbourg (relais d'une étude de la Dares)",
+        "url": "https://www.dialogue-social.fr/articles-par-themes/article/etudes-de-la-dares-decembre-2016-les-embauches-en-contrat-de-generation-de-2013-a-2015",
+        "date": "2016-12-01",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-34-emplois-avenir",
+    "numero": 34,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Créer 150 000 emplois d'avenir pour l'insertion des jeunes",
+    "extraitProgramme": "Je créerai 150 000 emplois d’avenir pour faciliter l’insertion des jeunes dans l’emploi",
+    "reformulation": "150 000 contrats aidés destinés aux jeunes peu qualifiés seraient créés, surtout dans les quartiers populaires.",
+    "pageProgramme": "n° 34",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 26 octobre 2012 portant création des emplois d'avenir, publiée au Journal officiel le 27 octobre, fixe des objectifs de 100 000 contrats en 2013 et 150 000 en 2014. Les premiers contrats ont été signés à partir du 1er novembre 2012.",
+    "resultat": "Selon la réponse du gouvernement à la question écrite n° 93790, publiée le 31 janvier 2017, 296 469 emplois d'avenir ont été conclus entre novembre 2012 et juin 2016, dont 228 246 dans le secteur non marchand et 68 223 dans le secteur marchand.",
+    "justification": "La promesse est chiffrée et le chiffre est dépassé : le nombre de contrats signés est près du double de l'objectif de 150 000 avant la fin du mandat. La part des contrats situés dans les quartiers populaires n'a pas été vérifiée, l'engagement la formulant comme une priorité et non comme un quota.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-10-26",
+        "description": "Promulgation de la loi portant création des emplois d'avenir, après décision du Conseil constitutionnel du 24 octobre 2012.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl11-760.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-1189 du 26 octobre 2012 portant création des emplois d'avenir",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026536632/",
+        "date": "2012-10-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Emplois d'avenir (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl11-760.html",
+        "date": "2012-10-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question n° 93790 : emplois d'avenir, réponse du ministère du travail",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q14/14-93790QE.htm",
+        "date": "2017-01-31",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-34-heures-supplementaires",
+    "numero": 34,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Supprimer la défiscalisation et les exonérations sur les heures supplémentaires, sauf pour les très petites entreprises",
+    "extraitProgramme": "Je reviendrai sur la défiscalisation et les exonérations de cotisation sociale sur les heures supplémentaires, sauf pour les très petites entreprises.",
+    "reformulation": "Les heures supplémentaires cesseraient d'être exonérées d'impôt et de cotisations, sauf dans les très petites entreprises.",
+    "pageProgramme": "n° 34",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi de finances rectificative du 16 août 2012 (article 3) supprime l'exonération d'impôt sur le revenu des heures supplémentaires pour celles effectuées à compter du 1er août 2012 et l'exonération de cotisations salariales à compter du 1er septembre 2012. Une déduction forfaitaire de cotisations patronales de 1,50 euro par heure est maintenue pour les entreprises de moins de 20 salariés.",
+    "resultat": "Le rapport du Sénat sur le projet estime l'économie à 3 milliards d'euros par an à partir de 2013, pour un dispositif qui coûtait environ 4,9 milliards d'euros par an.",
+    "justification": "La mesure annoncée est un texte fiscal et social : elle a été votée et appliquée dès l'été 2012, avec l'exception prévue pour les petites entreprises. L'exception retenue est le seuil de 20 salariés, une lecture cohérente de « très petites entreprises ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Promulgation de la loi de finances rectificative pour 2012, dont l'article 3 supprime les exonérations sur les heures supplémentaires.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-958 du 16 août 2012 de finances rectificative pour 2012",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927",
+        "date": "2012-08-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances rectificative pour 2012 : rapport, article sur les heures supplémentaires",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l11-689-1/l11-689-123.html",
+        "date": "2012-07-23",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-35-securisation-parcours",
+    "numero": 35,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Mettre en place la sécurisation des parcours professionnels avec les partenaires sociaux",
+    "extraitProgramme": "Je mettrai en place, en concertation avec les partenaires sociaux, la sécurisation des parcours professionnels",
+    "reformulation": "Un cadre négocié avec les syndicats et le patronat devait aider chaque salarié à rester dans son entreprise ou son emploi et à accéder à la formation.",
+    "pageProgramme": "n° 35",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un accord national interprofessionnel conclu par les partenaires sociaux le 11 janvier 2013 a été transposé par la loi du 14 juin 2013 relative à la sécurisation de l'emploi. Cette loi crée notamment le compte personnel de formation et des accords de maintien de l'emploi, et prévoit une mobilité externe sécurisée dans les entreprises d'au moins 300 salariés. La loi du 5 mars 2014 sur la formation professionnelle met en oeuvre le compte personnel de formation, qui remplace le droit individuel à la formation.",
+    "resultat": "Un salarié dispose d'un compte de formation qui le suit d'un emploi à l'autre, y compris pendant une période de chômage, et les entreprises ont accès à de nouveaux accords de maintien de l'emploi.",
+    "justification": "La promesse est de mettre en place un cadre, en concertation avec les partenaires sociaux : la démarche a été suivie (accord national interprofessionnel puis loi) et les dispositifs annoncés existent au 13 mai 2017. Aucun objectif chiffré n'était fixé, et l'effet sur le maintien dans l'emploi n'est pas jugé ici. La lecture directe du texte de la loi de 2013 sur Légifrance n'a donné qu'un résumé, recoupé avec le dossier législatif du Sénat, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-06-14",
+        "description": "Promulgation de la loi relative à la sécurisation de l'emploi, après la décision du Conseil constitutionnel du 13 juin 2013.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-489.html"
+      },
+      {
+        "date": "2014-03-05",
+        "description": "Loi relative à la formation professionnelle, à l'emploi et à la démocratie sociale, qui transcrit l'accord du 11 janvier 2013 et met en place le compte personnel de formation.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028683576"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-504 du 14 juin 2013 relative à la sécurisation de l'emploi",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000027546648",
+        "date": "2013-06-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Sécurisation de l'emploi (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-489.html",
+        "date": "2013-06-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2014-288 du 5 mars 2014 relative à la formation professionnelle, à l'emploi et à la démocratie sociale",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028683576",
+        "date": "2014-03-05",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-35-formation-publics-fragiles",
+    "numero": 35,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Concentrer le financement de la formation sur les publics les plus fragiles",
+    "extraitProgramme": "Le financement de la formation sera concentré sur les publics les plus fragiles",
+    "reformulation": "Les fonds de la formation professionnelle iraient d'abord aux personnes les moins formées et aux chômeurs.",
+    "pageProgramme": "n° 35",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La loi du 5 mars 2014 a réformé le financement de la formation professionnelle et créé le compte personnel de formation, ouvert aux demandeurs d'emploi. Cependant, aucune source primaire consultée ne mesure la part des fonds allant aux publics les plus fragiles avant et après la réforme, seule mesure qui permettrait de trancher une promesse de « concentration ». Les pages qui auraient pu la fournir (Dares, ministère du Travail) n'ont pas pu être lues, et le rapport de la Cour des comptes de 2018 sur la formation des demandeurs d'emploi juge la politique dispersée sans chiffrer ce point. Rien ne permet de conclure sans deviner.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-35-moyens-pole-emploi",
+    "numero": 35,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Renforcer les moyens de Pôle emploi",
+    "extraitProgramme": "les moins formés et les chômeurs. Je renforcerai les moyens",
+    "reformulation": "Pôle emploi disposerait de moyens accrus, en particulier de conseillers supplémentaires.",
+    "pageProgramme": "n° 35",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le gouvernement a annoncé en 2012 le recrutement de 2 000 agents en CDI à Pôle emploi à partir d'octobre 2012, financés par l'État, et relevé la subvention publique à 1 467 millions d'euros pour 2013, soit 107 millions de plus que prévu. Le rapport du Sénat sur le projet de loi de finances pour 2013 fait état de 2 000 emplois en CDI et de la pérennisation de 1 000 emplois temporaires de 2012.",
+    "resultat": "Selon la Cour des comptes (juillet 2020), la masse salariale de Pôle emploi a progressé de près de 10 % depuis 2012, après deux vagues de recrutement en 2013 et 2014.",
+    "justification": "La promesse porte sur les moyens, pas sur un résultat : les crédits et les effectifs de Pôle emploi ont augmenté pendant le mandat, par les recrutements de 2012, 2013 et 2014. Le nombre exact de postes supplémentaires selon la source varie (2 000 annoncés, davantage avec les redéploiements) sans remettre en cause le sens de l'engagement.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-01-17",
+        "description": "Réponse du ministère du Travail à une question du sénateur Roland Courteau : plan « Pôle emploi 2015 », 2 000 CDI supplémentaires à partir d'octobre 2012 et subvention 2013 de 1 467 millions d'euros.",
+        "url": "https://www.senat.fr/questions/base/2012/qSEQ120701169.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite sur la charge de travail à Pôle emploi et réponse du ministère du Travail",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2012/qSEQ120701169.html",
+        "date": "2013-01-17",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2013 : Travail et emploi (Gestion des moyens des politiques du travail et de l'emploi)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l12-148-331-2/l12-148-331-2_mono.html",
+        "date": "2012-11-22",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La gestion de Pôle emploi, dix ans après sa création",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/publications/la-gestion-de-pole-emploi-dix-ans-apres-sa-creation",
+        "date": "2020-07-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-35-licenciements-boursiers-cout",
+    "numero": 35,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Renchérir le coût des licenciements collectifs des entreprises qui versent des dividendes ou rachètent leurs actions",
+    "extraitProgramme": "nous renchérirons le coût des licenciements collectifs pour les entreprises qui versent des dividendes ou rachètent leurs actions",
+    "reformulation": "Une entreprise qui licencie collectivement tout en versant des dividendes ou en rachetant ses actions paierait davantage.",
+    "pageProgramme": "n° 35",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Aucune majoration liée aux dividendes ou aux rachats d'actions n'a été instituée. La loi du 14 juin 2013 a soumis les plans de sauvegarde de l'emploi à une validation ou une homologation par l'administration : le ministre Michel Sapin a résumé le principe le 16 mai 2013 par « sans accord, sans homologation, il n'y aura pas de licenciement ». La loi du 29 mars 2014 visant à reconquérir l'économie réelle impose la recherche d'un repreneur en cas de fermeture de site, mais le Conseil constitutionnel a censuré le 27 mars 2014 la sanction prévue (jusqu'à vingt fois le Smic mensuel par emploi supprimé).",
+    "resultat": "À la fin du mandat, le droit ne comporte ni surcoût pour les licenciements des entreprises qui distribuent des dividendes, ni mécanisme propre aux rachats d'actions. La réponse du ministère du Travail du 11 juin 2015 à une question sénatoriale ne cite que le contrôle administratif du plan et l'obligation de rechercher un repreneur.",
+    "justification": "La mesure promise était un coût majoré, ciblé sur les entreprises qui versent des dividendes. Le gouvernement a choisi un autre outil, le contrôle administratif du plan de licenciement, qui n'a pas le même contenu, et la seule sanction financière votée a été censurée et ne visait pas les dividendes. Le statut repose sur la comparaison de la promesse avec les textes et la réponse officielle citée, sans recherche exhaustive de toutes les modifications du code du travail, d'où une confiance moyenne. La lecture intégrale du texte de la loi de 2013 sur Légifrance n'a pas été possible.",
+    "interpretations": "Deux lectures sont défendables. Selon la première, le contrôle administratif du plan, qui permet de refuser l'homologation d'un licenciement injustifié, remplit l'intention de dissuader les licenciements dits boursiers. Selon la seconde, la promesse était un renchérissement financier précis, absent des textes. La seconde lecture est retenue parce que l'engagement nomme un coût et un critère (dividendes, rachats d'actions), qu'aucun texte ne reprend.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-03-27",
+        "description": "Décision du Conseil constitutionnel sur la loi visant à reconquérir l'économie réelle : censure de la sanction de l'absence de recherche de repreneur et du refus d'une offre sérieuse.",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2014-692-dc-du-27-mars-2014-communique-de-presse"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Lutte contre les licenciements boursiers (question écrite n° 08906 et réponse du ministère du Travail)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2013/qSEQ131008906.html",
+        "date": "2015-06-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2014-692 DC du 27 mars 2014 : communiqué de presse",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2014-692-dc-du-27-mars-2014-communique-de-presse",
+        "date": "2014-03-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Économie réelle (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/ppl13-007.html",
+        "date": "2014-03-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Interdiction des licenciements boursiers et des suppressions d'emplois abusives, intervention de Michel Sapin",
+        "organisme": "NosDéputés.fr (compte rendu de la séance de l'Assemblée nationale)",
+        "url": "https://2012-2017.nosdeputes.fr/14/intervention/176625",
+        "date": "2013-05-16",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-35-licenciements-boursiers-tgi",
+    "numero": 35,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Emploi",
+    "titre": "Permettre aux salariés de saisir le tribunal de grande instance contre un licenciement collectif contraire à l'intérêt de l'entreprise",
+    "extraitProgramme": "nous donnerons la possibilité aux salariés de saisir le tribunal de grande instance dans les cas manifestement contraires à l’intérêt de l’entreprise",
+    "reformulation": "Les salariés pourraient demander à un tribunal de grande instance d'examiner un licenciement collectif manifestement contraire à l'intérêt de l'entreprise.",
+    "pageProgramme": "n° 35",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 14 juin 2013 a confié à l'administration la validation ou l'homologation du plan de sauvegarde de l'emploi, et à la juridiction administrative le contentieux de cette décision. Le juge judiciaire reste compétent pour se prononcer sur le motif économique des licenciements. Aucune saisine spécifique du tribunal de grande instance par les salariés pour les licenciements manifestement contraires à l'intérêt de l'entreprise n'apparaît dans les sources consultées.",
+    "resultat": "Après 2013, les salariés, comités d'entreprise et syndicats peuvent contester la décision d'homologation ou de validation devant le juge administratif, selon le Conseil d'État (décisions du 22 juillet 2015).",
+    "justification": "Le recours promis, devant le tribunal de grande instance et fondé sur l’intérêt de l’entreprise, ne figure ni dans la présentation de la loi de 2013 ni dans la réponse ministérielle du 11 juin 2015. Cette absence dans les sources consultées ne prouve pas que le recours n’a pas été créé : le texte intégral n’a pas été lu, et le statut n’est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-06-14",
+        "description": "Promulgation de la loi relative à la sécurisation de l'emploi, qui organise le contrôle administratif des plans de sauvegarde de l'emploi.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-489.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Plans de sauvegarde de l'emploi (PSE)",
+        "organisme": "Conseil d'État",
+        "url": "https://conseil-etat.fr/actualites/plans-de-sauvegarde-de-l-emploi-pse",
+        "date": "2015-07-22",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Lutte contre les licenciements boursiers (question écrite n° 08906 et réponse du ministère du Travail)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2013/qSEQ131008906.html",
+        "date": "2015-06-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Sécurisation de l'emploi (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-489.html",
+        "date": "2013-06-14",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-36-60000-postes",
+    "numero": 36,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Éducation",
+    "titre": "Créer 60 000 postes supplémentaires dans l'éducation en cinq ans",
+    "extraitProgramme": "Je créerai en cinq ans 60 000 postes supplémentaires dans l’éducation",
+    "reformulation": "60 000 postes de plus seraient créés dans l'éducation pendant le quinquennat, dans tous les métiers.",
+    "pageProgramme": "n° 36",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 8 juillet 2013 d'orientation et de programmation pour la refondation de l'école inscrit dans son annexe la création de 60 000 emplois sur la durée de la législature : 54 000 au ministère de l'Éducation nationale, 5 000 dans l'enseignement supérieur et 1 000 dans l'enseignement agricole. Les lois de finances successives ont ouvert ces postes. Selon la note du Sénat sur le projet de loi de finances pour 2017, le budget de 2017 prévoit 11 802 créations dans l'enseignement scolaire, ce qui, si le plan était intégralement réalisé, atteindrait l'objectif de 55 000 postes créés sur le quinquennat pour la loi de refondation.",
+    "resultat": "Selon les rapporteurs spéciaux du Sénat, 27 553 postes ont été pourvus entre 2012 et 2015 pour 31 627 postes créés, soit un écart de 4 075 postes. Le ministère de l'Éducation nationale, cité par la presse, comptait 47 158 postes créés depuis 2012 auxquels s'ajoutaient 12 842 postes inscrits au budget 2017, soit 60 000. Selon la Cour des comptes (octobre 2017), la programmation pluriannuelle a été globalement respectée.",
+    "justification": "Les 60 000 postes ont été programmés puis inscrits aux budgets, dont les derniers, ceux de 2017, ne prennent effet qu'à la rentrée suivant la fin du mandat. Sur les créations déjà réalisées, une partie des postes ouverts n'a pas été pourvue faute de candidats aux concours, ce qui fait que l'effectif réel a moins progressé que le nombre de postes annoncé. La promesse portant sur des postes créés, le constat des postes pourvus est retenu, d'où un statut partiel.",
+    "interpretations": "Deux lectures sont défendables. Selon la première, « créer un poste » désigne son ouverture dans la loi de finances : l'objectif de 60 000 est atteint selon le ministère et la programmation a été globalement respectée selon la Cour des comptes. Selon la seconde, seul un poste effectivement pourvu compte, ce qui donne un écart d'au moins 4 075 postes pour 2012-2015 et une partie des créations de 2017 qui interviennent après le mandat. La seconde lecture est retenue parce que la promesse parle de postes dans les écoles, et le chiffre annoncé par le ministère repose en partie sur des budgets non encore exécutés le 13 mai 2017.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-08",
+        "description": "Promulgation de la loi d'orientation et de programmation pour la refondation de l'école de la République, dont l'annexe programme 60 000 emplois sur la législature.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-441.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-595 du 8 juillet 2013 d'orientation et de programmation pour la refondation de l'école de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000027677984",
+        "date": "2013-07-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42154 sur les engagements de François Hollande en matière d'éducation et réponse du ministère de l'Éducation nationale",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q14/14-42154QE.htm",
+        "date": "2014-01-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2017 : notes de présentation, Enseignement scolaire",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/commission/fin/pjlf2017/np/np13/np134.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Gérer les enseignants autrement : une réforme qui reste à faire",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/documents/39998",
+        "date": "2017-10-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Education : les 60.000 postes, promis par Hollande, inscrits dans le budget 2017",
+        "organisme": "Europe 1",
+        "url": "https://www.europe1.fr/economie/education-les-60000-postes-promis-par-hollande-inscrits-dans-le-budget-2017-2853310",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-36-prerecrutement-enseignants",
+    "numero": 36,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Éducation",
+    "titre": "Mettre en place un prérecrutement des enseignants avant la fin de leurs études",
+    "extraitProgramme": "Je mettrai en place un prérecrutement des enseignants avant la fin de leurs études",
+    "reformulation": "Des étudiants seraient recrutés et rémunérés pour devenir enseignants avant d'avoir fini leurs études.",
+    "pageProgramme": "n° 36",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le décret du 15 janvier 2013 crée l'emploi d'avenir professeur, réservé à des étudiants boursiers en licence ou en première année de master, qui exercent en établissement scolaire et s'engagent à passer un concours de l'enseignement. Le dispositif, ouvert de 2013 à 2015, a été remplacé en 2015 par celui des étudiants apprentis professeurs, selon le Sénat.",
+    "resultat": "Selon le ministère de l'Éducation nationale, relayé par la presse spécialisée en septembre 2015, 7 900 contrats ont été signés pour 12 000 attendus. Le programme ne fixait aucun nombre de contrats.",
+    "justification": "La promesse est de mettre en place un dispositif de prérecrutement avant la fin des études : il existe par décret dès janvier 2013 et a fonctionné plusieurs années avant d'être remplacé par une formule voisine. Le nombre de contrats inférieur aux prévisions du ministère n'affecte pas ce statut, l'engagement ne fixant pas de chiffre.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-01-15",
+        "description": "Décret relatif à l'emploi d'avenir professeur, publié au Journal officiel du 17 janvier 2013.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026944982"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2013-50 du 15 janvier 2013 relatif à l'emploi d'avenir professeur",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026944982",
+        "date": "2013-01-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Métier d'enseignant : un cadre rénové pour renouer avec l'attractivité",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r17-690/r17-690_mono.html",
+        "date": "2018-07-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Emplois d'avenir professeurs : fin discrète en 2015",
+        "organisme": "Emploipublic",
+        "url": "https://infos.emploipublic.fr/article/emplois-d-avenir-professeurs-fin-discrete-en-2015-eea-5918",
+        "date": "2015-09-17",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-36-formation-initiale",
+    "numero": 36,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Éducation",
+    "titre": "Rétablir une formation initiale des enseignants",
+    "extraitProgramme": "Pour tous, je rétablirai une formation initiale digne de ce nom",
+    "reformulation": "Tous les enseignants recevraient une vraie formation initiale professionnelle avant de prendre leurs classes.",
+    "pageProgramme": "n° 36",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 70 de la loi du 8 juillet 2013 crée les écoles supérieures du professorat et de l'éducation (ESPE), qui remplacent les instituts universitaires de formation des maîtres, avec une accréditation à compter du 1er septembre 2013. Selon la réponse du ministère de l'Éducation nationale du 14 janvier 2014, elles proposent un master « Métiers de l'enseignement, de l'éducation et de la formation » avec des stages progressifs en établissement, et les étudiants reçus au concours deviennent fonctionnaires stagiaires rémunérés.",
+    "resultat": "Des ESPE fonctionnent dans les universités à la rentrée 2013. Aucune mesure indépendante de la qualité de la formation dispensée n'a été consultée.",
+    "justification": "L'engagement est qualitatif (une formation « digne de ce nom »). Ce qui se vérifie est la mesure institutionnelle qui le traduit : la création par la loi d'un cadre de formation initiale professionnalisante, en place dès 2013. La qualité de cette formation n'est pas jugée, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-08",
+        "description": "Promulgation de la loi de refondation de l'école, dont l'article 70 crée les ESPE.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-441.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2013-595 du 8 juillet 2013 d'orientation et de programmation pour la refondation de l'école de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000027677984",
+        "date": "2013-07-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42154 sur les engagements de François Hollande en matière d'éducation et réponse du ministère de l'Éducation nationale",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q14/14-42154QE.htm",
+        "date": "2014-01-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Refondation de l'école de la République (dossier législatif)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl12-441.html",
+        "date": "2013-07-08",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

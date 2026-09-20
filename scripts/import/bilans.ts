@@ -51,6 +51,7 @@
  * confirmées.
  */
 
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 import { citationPresente } from "./citations.ts";
@@ -1465,6 +1466,21 @@ const ENGAGEMENTS: EngagementSource[] = [
     ],
   },
 ];
+
+/**
+ * Fiches produites par lots, un fichier JSON par programme et par série, dans
+ * `scripts/import/bilans_fiches/`. Elles suivent le format de `EngagementSource`
+ * et passent par les mêmes contrôles au chargement : extrait retrouvé dans le
+ * programme, aucune source morte. `bilans_controle.ts` les vérifie avant
+ * ajout.
+ */
+const DOSSIER_FICHES = resolve("scripts/import/bilans_fiches");
+if (existsSync(DOSSIER_FICHES)) {
+  for (const fichier of readdirSync(DOSSIER_FICHES).filter((f) => f.endsWith(".json")).sort()) {
+    const lot = JSON.parse(readFileSync(resolve(DOSSIER_FICHES, fichier), "utf8")) as EngagementSource[];
+    ENGAGEMENTS.push(...lot);
+  }
+}
 
 const MIGRATION = resolve("db/migrations/007_bilans.sql");
 

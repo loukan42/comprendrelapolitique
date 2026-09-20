@@ -1,0 +1,836 @@
+[
+  {
+    "id": "2012-25-egalite-pro-sanctions",
+    "numero": 25,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Travail",
+    "titre": "Sanctionner par la loi les entreprises qui ne respectent pas l’égalité professionnelle, notamment en supprimant leurs exonérations de cotisations",
+    "extraitProgramme": "Une loi sanctionnera les entreprises qui ne respectent pas cette règle",
+    "reformulation": "Faire voter une loi qui sanctionne les entreprises ne respectant pas l’égalité de carrière et de rémunération entre femmes et hommes, notamment en leur retirant les exonérations de cotisations sociales.",
+    "pageProgramme": "n° 25",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret du 18 décembre 2012 a précisé les obligations des entreprises en matière d’égalité professionnelle. La loi du 4 août 2014 pour l’égalité réelle entre les femmes et les hommes exclut des marchés publics les entreprises qui n’ont pas rempli l’obligation de négocier sur l’égalité (contrats conclus à partir du 1er décembre 2014).",
+    "resultat": "Une sanction existe : exclusion des marchés publics et pénalité financière plafonnée à 1 % de la masse salariale pour les entreprises de 50 salariés et plus sans accord ni plan d’action. La suppression des exonérations de cotisations sociales n’a pas été mise en oeuvre : le cabinet de la ministre des Droits des femmes l’a confirmé le 7 décembre 2016.",
+    "justification": "Une loi sanctionnant les entreprises a bien été votée, ce qui correspond à la première partie de la promesse. Le levier cité en exemple, la suppression des exonérations de cotisations sociales, n’a pas été retenu. La lecture directe des articles de la loi a été possible sur Légifrance ; le renoncement aux exonérations ne repose que sur une source non institutionnelle (Lui Président), d’où une confiance moyenne.",
+    "interpretations": "Deux lectures : la promesse se limite à « une loi sanctionnera » (réalisée), ou elle inclut nommément la suppression des exonérations (non tenue). La seconde est retenue, car le programme cite cette mesure comme illustration de la sanction annoncée : le statut est donc partiel.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-18",
+        "description": "Décret relatif à la mise en oeuvre des obligations des entreprises pour l’égalité professionnelle entre les femmes et les hommes",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026792583/"
+      },
+      {
+        "date": "2014-08-04",
+        "description": "Promulgation de la loi pour l’égalité réelle entre les femmes et les hommes (exclusion des marchés publics, article 16)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000029330832"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-873 du 4 août 2014 pour l'égalité réelle entre les femmes et les hommes",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000029330832",
+        "date": "2014-08-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2012-1408 du 18 décembre 2012 relatif à la mise en oeuvre des obligations des entreprises pour l'égalité professionnelle entre les femmes et les hommes",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026792583/",
+        "date": "2012-12-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Pénalisation fiscale des entreprises ne respectant pas l’égalité hommes-femmes",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/penalisation-fiscale-des-entreprises-ne-respectant-pas-legalite-hommes/",
+        "date": "2016-12-07",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-26-ecart-remuneration-1-20",
+    "numero": 26,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Travail",
+    "titre": "Limiter à 1 pour 20 l’écart de rémunération des dirigeants d’entreprises publiques",
+    "extraitProgramme": "J’imposerai aux dirigeants des entreprises pu-\nbliques un écart maximal de rémunérations de\n1 à 20.",
+    "reformulation": "Plafonner la rémunération des dirigeants d’entreprises publiques pour que l’écart avec les salaires les plus bas n’excède pas 1 à 20.",
+    "pageProgramme": "n° 26",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret du 26 juillet 2012 relatif au contrôle de l’État sur les rémunérations des dirigeants d’entreprises publiques plafonne leur rémunération annuelle (fixe et variable) à 450 000 euros bruts. Il est entré en vigueur le 28 juillet 2012 ; le ministre de l’Économie a indiqué devant l’Assemblée que la règle s’appliquait à partir d’octobre 2012 et à plusieurs filiales.",
+    "resultat": "Le plafond de 450 000 euros bruts s’applique aux dirigeants mandataires sociaux des entreprises publiques. Le texte du décret ne mentionne pas de ratio de 1 à 20.",
+    "justification": "La promesse est un texte réglementaire, et il a été publié. Le mécanisme retenu est un plafond en valeur absolue et non un rapport avec le salaire le plus bas de chaque entreprise ; le député qui interrogeait le ministre le présentait comme la tenue de l’engagement, sans que le décret ne le dise.",
+    "interpretations": "Deux lectures : un écart maximal de 1 à 20 suppose un ratio calculé entreprise par entreprise (le décret ne le prévoit pas), ou il se traduit par un plafond absolu équivalent (lecture du gouvernement et de sa majorité). La seconde est retenue, faute de ratio publié dans le décret, avec une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-07-26",
+        "description": "Décret relatif au contrôle de l’État sur les rémunérations des dirigeants d’entreprises publiques (plafond de 450 000 euros bruts)",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026227470"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2012-915 du 26 juillet 2012 relatif au contrôle de l'Etat sur les rémunérations des dirigeants d'entreprises publiques",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026227470",
+        "date": "2012-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question au Gouvernement n° 609 : rémunération des dirigeants d'entreprises publiques",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QG609.pdf",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-27-renouvellement-urbain",
+    "numero": 27,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Quartiers",
+    "titre": "Lancer une nouvelle génération d’opérations de renouvellement urbain",
+    "extraitProgramme": "Je lancerai une nouvelle génération d’opéra-\ntions de renouvellement urbain",
+    "reformulation": "Lancer un nouveau programme national de renouvellement urbain dans les quartiers.",
+    "pageProgramme": "n° 27",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 21 février 2014 de programmation pour la ville et la cohésion urbaine crée le nouveau programme national de renouvellement urbain (NPNRU) et en fixe le cadre dans son article 3.",
+    "resultat": "Le NPNRU est doté de 5 milliards d’euros de financement de l’État et cible les quartiers prioritaires présentant les dysfonctionnements urbains les plus importants, dont environ 230 quartiers ANRU selon la Banque des territoires.",
+    "justification": "La promesse est le lancement d’un programme, et il a été créé par la loi. Le texte de la loi a été lu sur Légifrance et recoupé avec la présentation de la Banque des territoires.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-02-21",
+        "description": "Promulgation de la loi de programmation pour la ville et la cohésion urbaine, qui crée le NPNRU",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028636804"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-173 du 21 février 2014 de programmation pour la ville et la cohésion urbaine",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028636804",
+        "date": "2014-02-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Politique de la ville : tout sur la loi Lamy",
+        "organisme": "Banque des territoires",
+        "url": "https://www.banquedesterritoires.fr/tout-sur-la-loi-lamy",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-27-cohesion-sociale-quartiers",
+    "numero": 27,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Quartiers",
+    "titre": "Compléter le renouvellement urbain par des actions de cohésion sociale avec les collectivités et les associations",
+    "extraitProgramme": "je les complé-\nterai par des actions de cohésion sociale en lien\navec les collectivités et les associations",
+    "reformulation": "Associer aux opérations de rénovation des actions de cohésion sociale menées avec les communes et les associations.",
+    "pageProgramme": "n° 27",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 21 février 2014 instaure des contrats de ville conclus entre l’État et les communes ou intercommunalités (article 6). Les contrats de ville 2015-2020 comportent un pilier « cohésion sociale » (petite enfance, éducation, santé, culture) et associent collectivités, associations et habitants.",
+    "resultat": "Les contrats de ville ont remplacé les contrats urbains de cohésion sociale et couvrent les quartiers prioritaires ; ils s’articulent avec le volet de renouvellement urbain.",
+    "justification": "Le dispositif contractuel de cohésion sociale demandé existe dans la loi et dans les contrats signés en 2015. L’ampleur des actions financées n’a pas été mesurée ici, la promesse étant jugée sur l’existence du dispositif. La page de la préfecture du Nord est une présentation de service de l’État, non un bilan chiffré.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-02-21",
+        "description": "Loi de programmation pour la ville et la cohésion urbaine : création des contrats de ville",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028636804"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-173 du 21 février 2014 de programmation pour la ville et la cohésion urbaine",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000028636804",
+        "date": "2014-02-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les contrats de ville 2015-2020",
+        "organisme": "Services de l'État dans le Nord",
+        "url": "https://www.nord.gouv.fr/Actions-de-l-Etat/Egalite-des-chances-et-politique-de-la-ville/Politique-de-la-ville-et-lutte-contre-la-pauvrete/Les-contrats-de-ville-2015-2020",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-27-services-publics-banlieues",
+    "numero": 27,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Quartiers",
+    "titre": "Maintenir les services publics dans les banlieues",
+    "extraitProgramme": "je maintiendrai les services publics dans nos ban-\nlieues",
+    "reformulation": "Ne pas retirer les services publics des quartiers de banlieue.",
+    "pageProgramme": "n° 27",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative et sans indicateur : aucune source primaire consultée ne dénombre les services publics présents dans les banlieues en 2012 et en 2017. Les recherches sur la politique de la ville n’ont fourni que des dispositifs (contrats de ville, éducation prioritaire) traités dans les autres fiches de ce bloc, dont on ne peut déduire le maintien de l’ensemble des services publics.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-27-moyens-scolaires-prioritaire",
+    "numero": 27,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Éducation",
+    "titre": "Augmenter les moyens scolaires dans les zones qui en ont le plus besoin",
+    "extraitProgramme": "J’augmenterai les moyens, notamment\nscolaires, dans les zones qui en ont le plus be-\nsoin",
+    "reformulation": "Renforcer les moyens de l’école, en particulier dans les quartiers et territoires les plus en difficulté.",
+    "pageProgramme": "n° 27",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La refondation de l’éducation prioritaire, préfigurée à la rentrée 2014 dans une centaine de REP+ et déployée à la rentrée 2015, a remplacé les réseaux existants par 350 REP+ et 731 REP selon un indice social national. Elle a doublé l’indemnité des personnels en REP+ par rapport à l’ancienne prime.",
+    "resultat": "1 093 réseaux d’éducation prioritaire sont labellisés selon la Cour des comptes, qui juge toutefois que la dynamique initiale s’est essoufflée. Entre 300 et 400 millions d’euros de moyens supplémentaires par an étaient annoncés pour ces établissements (Banque des territoires).",
+    "justification": "Des moyens supplémentaires ciblés sur les zones les plus difficiles ont été affectés (indemnités, temps de travail en équipe, dispositif « plus de maîtres que de classes »). Le total exact des moyens effectivement ajoutés n’est pas donné par les sources lues ; le montant annoncé est cité comme tel.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-09-01",
+        "description": "Rentrée 2015 : déploiement de la nouvelle carte de l’éducation prioritaire (REP et REP+)",
+        "url": "https://www.ccomptes.fr/fr/publications/leducation-prioritaire-une-politique-publique-repenser"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "L’éducation prioritaire, une politique publique à repenser",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/publications/leducation-prioritaire-une-politique-publique-repenser",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Refondation de l'éducation prioritaire : même zonage, plus de moyens",
+        "organisme": "Banque des territoires",
+        "url": "https://www.banquedesterritoires.fr/refondation-de-leducation-prioritaire-meme-zonage-plus-de-moyens",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-27-police-contact-habitants",
+    "numero": 27,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Sécurité",
+    "titre": "Rétablir une présence régulière de la police au contact des habitants des quartiers",
+    "extraitProgramme": "je rétablirai une présence régulière des services de police au contact des habitants",
+    "reformulation": "Remettre des policiers présents de façon régulière auprès des habitants des quartiers.",
+    "pageProgramme": "n° 27",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Par une circulaire du 30 juillet 2012, le ministre de l’Intérieur a créé 15 zones de sécurité prioritaires (ZSP), auxquelles se sont ajoutées 49 zones en novembre 2012 puis 16 le 11 décembre 2013, soit 80 au total. Le rapport du Sénat sur le projet de loi de finances pour 2013 décrit ces zones comme fondées sur un accroissement de la présence policière (patrouilles spécifiques, renforts de forces mobiles).",
+    "resultat": "80 ZSP existent fin 2013. Une réponse ministérielle relève une baisse de la délinquance enregistrée dans la majorité des juridictions concernées, sans mesurer la présence policière au contact des habitants.",
+    "justification": "Un dispositif ciblé sur 80 territoires a renforcé la présence des forces de l’ordre, mais aucune source lue ne montre le rétablissement d’une présence régulière sur l’ensemble des quartiers ni le retour d’une police de proximité en tant que telle. Le statut est donc partiel.",
+    "interpretations": "Deux lectures : la promesse vise une police de proximité généralisée (non rétablie) ou une présence régulière là où le besoin est le plus fort (ZSP). La seconde lecture est retenue comme réalisation partielle, faute d’indicateur sur la présence au contact des habitants.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-07-30",
+        "description": "Circulaire du ministre de l’Intérieur créant les zones de sécurité prioritaires",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE84558.pdf"
+      },
+      {
+        "date": "2013-12-11",
+        "description": "Annonce de 16 nouvelles ZSP, portant leur total à 80",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE84558.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 84558 : zones de sécurité prioritaires (réponse du ministre de l'Intérieur)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE84558.pdf",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2013 : Sécurité (gendarmerie nationale et police nationale)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l12-148-327-1/l12-148-327-16.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-28-trains-quotidien-idf",
+    "numero": 28,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Transports",
+    "titre": "Améliorer la qualité de service des trains du quotidien en Île-de-France",
+    "extraitProgramme": "Ma priorité sera d’ap-\nporter, tant en Ile-de-France que dans les autres",
+    "reformulation": "Faire de la qualité de service des trains du quotidien, en Île-de-France, une priorité de la politique des transports.",
+    "pageProgramme": "n° 28",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Le 6 mars 2013, le Premier ministre a présenté le « nouveau Grand Paris », qui réunit le plan de mobilisation de la région pour les transports du quotidien et le réseau du Grand Paris Express. Le 21 mars 2013, l'État et la région ont annoncé dix mesures pour améliorer la fiabilité des transports du quotidien. Les premiers travaux du Grand Paris Express (ligne 15 sud) ont débuté le 4 juin 2016.",
+    "resultat": "Une réponse ministérielle de juin 2013 annonce 7 milliards d'euros mobilisés pour les transports du quotidien sur 2013-2017, soit le triple de la période précédente, dont 1 milliard pour les schémas directeurs des RER. Les sources lues ne donnent pas d'indicateur de ponctualité des RER et Transilien pour 2012 et 2017 : l'amélioration de la qualité de service n'est pas mesurée ici.",
+    "justification": "Les plans de financement ont été arrêtés et les chantiers engagés, ce qui répond à la promesse d'apporter une réponse. Les travaux du Grand Paris Express et des schémas directeurs des RER se poursuivaient bien au-delà de mai 2017 : le statut est donc « en cours », et non « réalisé ». Le montant de 7 milliards est celui annoncé par le gouvernement, non un décaissement constaté.",
+    "interpretations": "Deux lectures : la promesse est un engagement de moyens (un plan pour les trains du quotidien), ou un engagement de résultat (une meilleure qualité de service constatée). La première est retenue, parce que le texte parle d'apporter « une réponse » à la qualité de service et non d'atteindre un niveau donné de ponctualité.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-03-06",
+        "description": "Discours du Premier ministre sur le nouveau Grand Paris : plan de mobilisation pour les transports du quotidien et réseau du Grand Paris Express",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE6778.pdf"
+      },
+      {
+        "date": "2013-03-21",
+        "description": "Annonce de dix mesures pour améliorer la fiabilité des transports du quotidien en Île-de-France",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE6778.pdf"
+      },
+      {
+        "date": "2016-06-04",
+        "description": "Début officiel du chantier du Grand Paris Express avec les premiers travaux de la ligne 15 sud",
+        "url": "https://www.senat.fr/rap/r20-044/r20-0444.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 6778 : politique des transports (réponse publiée au JO le 11 juin 2013)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE6778.pdf",
+        "date": "2013-06-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question au Gouvernement n° 616 : politique des transports (Grand Paris)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QG616.pdf",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Grand Paris Express : des coûts à maîtriser, un financement à consolider",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r20-044/r20-0444.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-28-trains-quotidien-regions",
+    "numero": 28,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Transports",
+    "titre": "Améliorer la qualité de service des trains du quotidien dans les régions",
+    "extraitProgramme": "Ma priorité sera d’apporter, tant en Ile-de-France que dans les autres régions, une réponse à la qualité de service des trains du quotidien",
+    "reformulation": "Faire de la qualité de service des trains du quotidien, hors Île-de-France, une priorité de la politique des transports.",
+    "pageProgramme": "n° 28",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La commission Mobilité 21 a remis son rapport le 27 juin 2013 et recommande de conforter d'abord la qualité des réseaux existants, en donnant la priorité aux opérations qui améliorent la régularité et la fiabilité. Fin 2016, l'État s'est engagé à renouveler le matériel des trains d'équilibre du territoire (Intercités) : 3,5 milliards d'euros d'ici 2025, avec reprise de 18 lignes par six régions entre 2017 et 2020.",
+    "resultat": "L'Autorité de la qualité de service dans les transports publie pour la première fois en mars 2017 les retards des TER : en 2016, les retards de plus de 5 minutes 59 secondes vont de 5,1 % dans le Grand Est à 15,1 % en Provence-Alpes-Côte d'Azur. Les sources lues ne comparent pas ces chiffres à ceux de 2012.",
+    "justification": "La promesse est qualitative (« une réponse à la qualité de service ») : elle ne fixe ni indicateur, ni objectif chiffré. Des orientations (commission Mobilité 21, 2013) et un programme de renouvellement des trains Intercités (2016, exécution de 2017 à 2025) ont été arrêtés, mais aucune source consultée ne compare la qualité de service des TER entre 2012 et 2017. Le statut n’est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-06-27",
+        "description": "Remise du rapport Mobilité 21 « Pour un schéma national de mobilité durable »",
+        "url": "https://www.ecologie.gouv.fr/sites/default/files/publications/CM21_-_27_Juin_2013_vers2_9h38_sans_traits_de_coupe-2.pdf"
+      },
+      {
+        "date": "2017-01-16",
+        "description": "Engagement de l'État de 3,5 milliards d'euros pour renouveler les trains Intercités d'ici 2025",
+        "url": "https://www.banquedesterritoires.fr/les-trains-intercites-sur-la-voie-du-renouveau"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Mobilité 21 : « Pour un schéma national de mobilité durable »",
+        "organisme": "Ministère de l'Écologie",
+        "url": "https://www.ecologie.gouv.fr/sites/default/files/publications/CM21_-_27_Juin_2013_vers2_9h38_sans_traits_de_coupe-2.pdf",
+        "date": "2013-06-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "L'AQST analyse pour la première fois les causes des retards des TER (communiqué de presse)",
+        "organisme": "Autorité de la qualité de service dans les transports",
+        "url": "https://www.qualitetransports.gouv.fr/IMG/pdf/21.03.17_communique_aqst-causes_ter.pdf",
+        "date": "2017-03-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les trains Intercités sur la voie du renouveau",
+        "organisme": "Banque des territoires",
+        "url": "https://www.banquedesterritoires.fr/les-trains-intercites-sur-la-voie-du-renouveau",
+        "date": "2017-01-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-28-desserte-territoires-enclaves",
+    "numero": 28,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Transports",
+    "titre": "Améliorer la desserte des territoires enclavés",
+    "extraitProgramme": "trains du quotidien ainsi qu’à la desserte des\nterritoires enclavés",
+    "reformulation": "Apporter une réponse à la desserte des territoires enclavés.",
+    "pageProgramme": "n° 28",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse ne définit ni les territoires concernés, ni le mode de transport, ni l'amélioration attendue. Le rapport Mobilité 21 (2013) cite le désenclavement parmi ses critères de hiérarchisation des projets, mais aucune source primaire lue ne recense les territoires effectivement mieux desservis entre 2012 et 2017. Sans indicateur ni liste de projets livrés, le statut ne peut pas être établi.",
+    "verifieLe": "2026-09-19",
+    "sources": []
+  },
+  {
+    "id": "2012-29-modele-developpement-outre-mer",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Encourager un nouveau modèle de développement de l'outre-mer",
+    "extraitProgramme": "J’encouragerai un nouveau modèle de déve-\nloppement de l’outre-mer",
+    "reformulation": "Encourager, dans les territoires d'outre-mer, un modèle de développement propre, différent de celui appliqué jusque-là.",
+    "pageProgramme": "n° 29",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 28 février 2017 de programmation relative à l'égalité réelle outre-mer reconnaît le droit des populations ultramarines à l'égalité réelle et prévoit que l'État et les collectivités concernées peuvent adopter un modèle propre de développement durable. Elle institue des plans de convergence de 10 à 20 ans, mis en oeuvre par des contrats de convergence de six ans au plus.",
+    "resultat": "Le cadre juridique des plans de convergence est en vigueur à la fin du mandat. Les plans et contrats eux-mêmes restaient à conclure entre l'État et chaque collectivité après mai 2017.",
+    "justification": "La promesse est d'encourager un modèle : la loi le prévoit explicitement et organise les outils pour le mettre en oeuvre. Les plans de convergence n'étaient pas encore conclus à la fin du mandat, ce qui tempère le statut, retenu en raison du verbe « encourager ». La lecture directe du texte a été possible sur Légifrance.",
+    "interpretations": "Deux lectures : la promesse est tenue par l'adoption d'un cadre légal (lecture retenue), ou elle ne l'est qu'avec des plans de convergence signés et financés, ce qui n'était pas le cas en mai 2017.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2017-02-28",
+        "description": "Promulgation de la loi de programmation relative à l'égalité réelle outre-mer (plans de convergence)",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000034103762"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2017-256 du 28 février 2017 de programmation relative à l'égalité réelle outre-mer et portant autres dispositions en matière sociale et économique",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000034103762",
+        "date": "2017-02-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Égalité réelle outre-mer, dossier législatif",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl16-019.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-29-programme-investissements-outre-mer",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Lancer un programme d'investissements pour l'outre-mer",
+    "extraitProgramme": "comportant un pro-\ngramme d’investissements",
+    "reformulation": "Mettre en place un programme d'investissements publics dans les territoires d'outre-mer.",
+    "pageProgramme": "n° 29",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le fonds exceptionnel d'investissement (FEI), créé en 2009, a été porté à 50 millions d'euros en 2013 et 2014 puis 40 millions en 2015 et 2016 (autorisations d'engagement), contre 10 millions en loi de finances pour 2011. La loi du 28 février 2017 pour l'égalité réelle outre-mer a ensuite prévu des plans de convergence sur dix à vingt ans.",
+    "resultat": "Le rapport du Sénat du 5 octobre 2016 relève que l'engagement de campagne de 500 millions d'euros pour l'investissement outre-mer ne s'est pas concrétisé, et cite 191 millions d'euros de FEI dépensés de 2009 à 2014. Le programme d'investissements est donc réel mais d'un montant inférieur à ce qui avait été évoqué pendant la campagne.",
+    "justification": "Un dispositif d'investissement a été renforcé et un cadre de programmation adopté, mais les rapporteurs du Sénat regrettent que l'engagement annoncé ne se soit pas traduit dans les faits. Le texte du programme ne chiffre pas le programme d'investissements : le statut est jugé sur le montant que la campagne avait annoncé, cité par le Sénat, d'où la mention « partiellement » et une confiance moyenne. Le rapport a été lu en ligne sur le site du Sénat.",
+    "interpretations": "Deux lectures : le programme du PDF ne fixe aucun montant, donc tout programme d'investissements suffirait (réalisé), ou l'engagement est celui de 500 millions d'euros que le Sénat rattache à la campagne (non atteint). La seconde est retenue, faute de critère plus précis dans le texte.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2017-02-28",
+        "description": "Loi de programmation relative à l'égalité réelle outre-mer : plans de convergence de dix à vingt ans",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000034103762"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le fonds exceptionnel d'investissement : un instrument au service du rattrapage des outre-mer",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r16-006/r16-006_mono.html",
+        "date": "2016-10-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2017-256 du 28 février 2017 de programmation relative à l'égalité réelle outre-mer et portant autres dispositions en matière sociale et économique",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000034103762",
+        "date": "2017-02-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-29-emploi-jeunes-outre-mer",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Mener une action prioritaire pour l'emploi et la formation des jeunes en outre-mer",
+    "extraitProgramme": "une action priori-\ntaire pour l’emploi et la formation des jeunes",
+    "reformulation": "Faire de l'emploi et de la formation des jeunes ultramarins une priorité de l'action publique.",
+    "pageProgramme": "n° 29",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Les départements d'outre-mer ont été classés en totalité zone prioritaire pour les emplois d'avenir, et un plan Jeunesse outre-mer a été déployé à partir de septembre 2015. Le service militaire adapté a doublé ses effectifs, de 3 000 à 6 000 volontaires par an, objectif atteint en 2017 après avoir été prévu pour 2014.",
+    "resultat": "En 2014, 8 290 emplois d'avenir ont été réalisés outre-mer sur 8 604 programmés. Le service militaire adapté a accueilli 6 010 jeunes de 18 à 25 ans en 2017, avec un taux d'insertion de 74 à 77 % sur les sept années précédant le rapport du Sénat de février 2019.",
+    "justification": "Des dispositifs ciblés sur la jeunesse ultramarine ont été renforcés avec des effectifs mesurés, ce qui correspond à une action prioritaire. La promesse ne fixe pas de chiffre : elle est jugée sur l'existence et l'ampleur des mesures, non sur l'évolution du chômage des jeunes. Les données proviennent d'une réponse ministérielle de février 2016 et d'un rapport du Sénat de 2019.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-09-01",
+        "description": "Déploiement du plan Jeunesse outre-mer (emplois d'avenir renforcés, service militaire adapté)",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 72099 : élection présidentielle, engagement n° 29 (réponse publiée au JO le 23 février 2016)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf",
+        "date": "2016-02-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le service militaire adapté : un dispositif indispensable au développement des outre-mer",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r18-329/r18-329_mono.html",
+        "date": "2019-02-20",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-29-vie-chere-monopoles",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Lutter contre les monopoles et les marges abusives pour réduire la vie chère en outre-mer",
+    "extraitProgramme": "lutterai sans concession contre les monopoles\net les marges abusives pour réduire la vie chère",
+    "reformulation": "Agir contre les monopoles et les marges excessives afin de faire baisser les prix dans les territoires d'outre-mer.",
+    "pageProgramme": "n° 29",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 20 novembre 2012 relative à la régulation économique outre-mer renforce les pouvoirs de l'Autorité de la concurrence, interdit les accords d'exclusivité d'importation, plafonne les tarifs bancaires de base à la moyenne de l'Hexagone et crée des observatoires des prix. Des décrets en Conseil d'État du 27 décembre 2013 et des arrêtés du 5 février 2014 encadrent les marges des activités pétrolières et gazières en situation de monopole.",
+    "resultat": "Selon la réponse ministérielle de février 2016, les accords de modération de prix (bouclier qualité-prix) ont permis une baisse de 12 % sur trois exercices sur une liste de produits de grande consommation, et la rémunération des sociétés en monopole a été fixée à 9 % des capitaux propres. Ces chiffres sont ceux du gouvernement et n'ont pas été recoupés par une source indépendante.",
+    "justification": "La promesse est d'agir par des textes contre les monopoles et les marges : la loi et les décrets existent et ont été lus. L'effet sur le niveau général des prix n'est pas évalué ici, l'engagement étant jugé sur les mesures et non sur l'écart de prix avec l'Hexagone.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-20",
+        "description": "Promulgation de la loi relative à la régulation économique outre-mer et portant diverses dispositions relatives aux outre-mer",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026657458"
+      },
+      {
+        "date": "2013-12-27",
+        "description": "Décrets en Conseil d'État encadrant les prix des produits pétroliers et gaziers outre-mer",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-1270 du 20 novembre 2012 relative à la régulation économique outre-mer et portant diverses dispositions relatives aux outre-mer",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026657458",
+        "date": "2012-11-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 72099 : élection présidentielle, engagement n° 29 (réponse publiée au JO le 23 février 2016)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf",
+        "date": "2016-02-23",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-29-ministere-outre-mer",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Créer un ministère de l'Outre-mer rattaché au Premier ministre",
+    "extraitProgramme": "Je créerai un ministère de l’Outre-mer rattaché\nau Premier ministre",
+    "reformulation": "Doter l'outre-mer d'un ministère de plein exercice, placé auprès du Premier ministre.",
+    "pageProgramme": "n° 29",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret du 16 mai 2012 relatif à la composition du gouvernement nomme Victorin Lurel « ministre des outre-mer ». Le décret du 24 mai 2012 fixe ses attributions, sur le rapport du Premier ministre, avec autorité sur la délégation générale à l'outre-mer.",
+    "resultat": "Un ministère des Outre-mer figure au gouvernement dès mai 2012 ; en mars 2017, Ericka Bareigts est encore ministre des Outre-mer.",
+    "justification": "Le titre de ministre des outre-mer, et non de ministre délégué, apparaît dès le premier décret de composition, avec un décret d'attributions pris sur le rapport du Premier ministre. La lecture directe des deux décrets a été possible sur Légifrance. Le décret prévoit toutefois une autorité partagée avec le ministre de l'Intérieur sur le secrétariat général du ministère de l'Intérieur, ce qui nuance le rattachement.",
+    "interpretations": "Deux lectures : « rattaché au Premier ministre » désigne un ministère placé sous l'autorité directe de Matignon (non vérifié dans les décrets lus), ou un ministère de plein exercice dont le décret d'attributions est pris sur le rapport du Premier ministre (lecture retenue, car c'est ce que les textes établissent).",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-05-16",
+        "description": "Décret relatif à la composition du gouvernement : Victorin Lurel, ministre des outre-mer",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025893289"
+      },
+      {
+        "date": "2012-05-24",
+        "description": "Décret relatif aux attributions du ministre des outre-mer",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000025915984"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret du 16 mai 2012 relatif à la composition du Gouvernement",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025893289",
+        "date": "2012-05-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2012-781 du 24 mai 2012 relatif aux attributions du ministre des outre-mer",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000025915984",
+        "date": "2012-05-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La Cité des Outre-mer lancée par François Hollande ce vendredi",
+        "organisme": "Outremers360",
+        "url": "https://outremers360.com/societe/culture-la-cite-des-outre-mer-lancee-par-francois-hollande-ce-vendredi/",
+        "date": "2017-03-16",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-29-cite-outre-mer",
+    "numero": 29,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Outre-mer",
+    "titre": "Créer une cité de l'outre-mer en Île-de-France",
+    "extraitProgramme": "et une cité de l’outre-mer\nen Ile-de-France",
+    "reformulation": "Ouvrir à Paris et en Île-de-France un lieu consacré aux cultures et à l'histoire de l'outre-mer.",
+    "pageProgramme": "n° 29",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Un rapport de préfiguration du préfet Dominique Lacroix est remis au ministère des Outre-mer le 25 mars 2013. Le projet est présenté officiellement le 25 octobre 2013, et une convention entre le ministère, la Région Île-de-France et la Ville de Paris est signée le 26 octobre 2015. La cérémonie de lancement s'est tenue le 17 mars 2017 à La Villette, à Paris.",
+    "resultat": "En mars 2017, le lieu n'est pas construit : l'article de presse annonce le début des travaux quelques mois après la cérémonie, pour un budget estimé à 10 millions d'euros. Le président souhaitait en novembre 2014 une ouverture d'ici la fin du quinquennat, objectif non tenu.",
+    "justification": "Le projet a été officiellement lancé, financé par convention et localisé, mais la cité n'existait pas à la fin du mandat. Le statut « en cours » correspond à un projet engagé et inachevé. La convention et les dates de 2013 à 2015 proviennent d'une réponse ministérielle ; le lancement de 2017 repose sur un article de presse, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-10-26",
+        "description": "Convention entre le ministère des Outre-mer, la Région Île-de-France et la Ville de Paris sur le projet",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf"
+      },
+      {
+        "date": "2017-03-17",
+        "description": "Cérémonie de lancement de la Cité des outre-mer à La Villette",
+        "url": "https://outremers360.com/societe/culture-la-cite-des-outre-mer-lancee-par-francois-hollande-ce-vendredi/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 72099 : élection présidentielle, engagement n° 29 (réponse publiée au JO le 23 février 2016)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE72099.pdf",
+        "date": "2016-02-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La Cité des Outre-mer lancée par François Hollande ce vendredi",
+        "organisme": "Outremers360",
+        "url": "https://outremers360.com/societe/culture-la-cite-des-outre-mer-lancee-par-francois-hollande-ce-vendredi/",
+        "date": "2017-03-16",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-30-delit-de-facies-controles",
+    "numero": 30,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Sécurité",
+    "titre": "Lutter contre le « délit de faciès » dans les contrôles d'identité par une procédure respectueuse des citoyens",
+    "extraitProgramme": "Je lutterai contre le « délit de faciès » dans les\ncontrôles d’identité par une procédure respec-\ntueuse des citoyens",
+    "reformulation": "Mettre en place une procédure de contrôle d'identité qui écarte les contrôles discriminatoires et respecte les personnes contrôlées.",
+    "pageProgramme": "n° 30",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le ministre de l'Intérieur a écarté la délivrance d'un récépissé de contrôle d'identité, jugé trop lourd, ce que confirment des réponses ministérielles de juin 2013 et de mars 2015. Un code de déontologie commun à la police et à la gendarmerie est entré en vigueur le 1er janvier 2014 : il encadre pour la première fois le déroulement des contrôles d'identité et des palpations, et impose le port d'un numéro d'identification individuel. Des plateformes de signalement des manquements ont été ouvertes en septembre 2013 et l'usage des caméras-piétons a été développé.",
+    "resultat": "Selon la réponse de juin 2013, il n'existait alors aucun système statistique, central ou local, comptabilisant les contrôles d'identité. Les réponses lues ne mesurent pas l'évolution des contrôles jugés discriminatoires.",
+    "justification": "Une procédure encadrant les contrôles et renforçant la transparence a été adoptée par voie réglementaire, ce qui correspond en partie à l'engagement. La mesure la plus discutée dans le débat public, le récépissé, a été explicitement écartée par le gouvernement. Les deux réponses ministérielles ont été lues en ligne ; l'effet sur les contrôles discriminatoires n'est pas établi par ces sources.",
+    "interpretations": "Deux lectures : « une procédure respectueuse des citoyens » désigne le récépissé de contrôle (abandonné), ou tout cadre de procédure garantissant le respect des personnes (code de déontologie, numéro d'identification). Le programme ne nomme pas le récépissé : la seconde lecture est retenue, ce qui conduit à un statut partiel et non à un abandon.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-06-18",
+        "description": "Réponse du ministre de l'Intérieur : le récépissé est écarté, un nouveau code de déontologie est annoncé",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE22228.pdf"
+      },
+      {
+        "date": "2014-01-01",
+        "description": "Entrée en vigueur du code de déontologie de la police nationale et de la gendarmerie nationale et du numéro d'identification individuel",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE70440.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Question écrite n° 22228 : contrôles d'identité (réponse publiée au JO le 18 juin 2013)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE22228.pdf",
+        "date": "2013-06-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 70440 : contrôles d'identité (réponse publiée au JO le 10 mars 2015)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE70440.pdf",
+        "date": "2015-03-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-30-discrimination-embauche",
+    "numero": 30,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Travail",
+    "titre": "Lutter contre toute discrimination à l'embauche",
+    "extraitProgramme": "contre toute discrimina-\ntion à l’embauche",
+    "reformulation": "Combattre les discriminations dont sont victimes les candidats à un emploi.",
+    "pageProgramme": "n° 30",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 21 février 2014 de programmation pour la ville ajoute le lieu de résidence aux critères de discrimination prohibés par le Code du travail (article L1132-1) et par le Code pénal (article 225-1), dans son article 15. La loi du 18 novembre 2016 de modernisation de la justice du XXIe siècle ouvre, dans son chapitre III, une action de groupe en matière de discrimination, avec un article 87 consacré aux relations relevant du Code du travail.",
+    "resultat": "Deux instruments juridiques nouveaux existent à la fin du mandat : un critère de discrimination supplémentaire et une action collective en matière de discrimination au travail. Aucune source lue ne mesure l'évolution des discriminations à l'embauche entre 2012 et 2017.",
+    "justification": "Des mesures législatives ciblées ont été adoptées, mais la promesse vise « toute discrimination » et le programme ne précise aucun dispositif. Le statut est donc partiel : des outils juridiques ont été ajoutés sans que l'on puisse dire qu'ils couvrent l'ensemble. Un rapport du Sénat de novembre 2014 relevait par ailleurs l'écart entre les textes et leur application, en citant un décret sur le CV anonyme attendu depuis 2006.",
+    "interpretations": "Deux lectures : la promesse est tenue dès qu'une politique de lutte est engagée (réalisé), ou elle exige des mesures couvrant l'ensemble des discriminations à l'embauche (non atteint). La lecture intermédiaire est retenue : des mesures réelles mais partielles.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-02-21",
+        "description": "Loi de programmation pour la ville et la cohésion urbaine : le lieu de résidence devient un critère de discrimination (article 15)",
+        "url": "https://www.legifrance.gouv.fr/loda/article_lc/JORFARTI000028636847"
+      },
+      {
+        "date": "2016-11-18",
+        "description": "Loi de modernisation de la justice du XXIe siècle : action de groupe en matière de discrimination (articles 86 à 88)",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000033418805"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article 15 de la LOI n° 2014-173 du 21 février 2014 de programmation pour la ville et la cohésion urbaine",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/article_lc/JORFARTI000028636847",
+        "date": "2014-02-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2016-1547 du 18 novembre 2016 de modernisation de la justice du XXIe siècle",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000033418805",
+        "date": "2016-11-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La lutte contre les discriminations : de l'incantation à l'action (rapport d'information n° 94, 2014-2015)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r14-094/r14-0947.html",
+        "date": "2014-11-12",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-30-discrimination-logement",
+    "numero": 30,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Logement",
+    "titre": "Lutter contre toute discrimination au logement",
+    "extraitProgramme": "et contre toute discrimination à l’embauche et au logement",
+    "reformulation": "Combattre les discriminations dont sont victimes les personnes qui cherchent un logement.",
+    "pageProgramme": "n° 30",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 21 février 2014 de programmation pour la ville ajoute le lieu de résidence aux critères de discrimination de l'article 225-1 du Code pénal. Le décret du 5 novembre 2015 fixe la liste limitative des pièces justificatives qu'un bailleur peut demander au candidat à la location et à sa caution.",
+    "resultat": "Ces textes sont en vigueur à la fin du mandat (le décret depuis le 8 novembre 2015). Aucune source lue ne mesure l'évolution des discriminations à l'accès au logement entre 2012 et 2017.",
+    "justification": "La promesse est qualitative (« contre toute discrimination ») : elle ne fixe ni mesure, ni chiffre, ni échéance. Deux textes touchent à l’accès au logement, la loi du 21 février 2014 et le décret du 5 novembre 2015, mais aucun ne se présente comme un dispositif contre les discriminations au logement, et aucune source consultée ne mesure leur évolution entre 2012 et 2017. Le statut n’est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-02-21",
+        "description": "Loi de programmation pour la ville et la cohésion urbaine : le lieu de résidence devient un critère de discrimination (article 15)",
+        "url": "https://www.legifrance.gouv.fr/loda/article_lc/JORFARTI000028636847"
+      },
+      {
+        "date": "2015-11-05",
+        "description": "Décret fixant la liste des pièces justificatives pouvant être demandées au candidat à la location et à sa caution",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031444493"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article 15 de la LOI n° 2014-173 du 21 février 2014 de programmation pour la ville et la cohésion urbaine",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/article_lc/JORFARTI000028636847",
+        "date": "2014-02-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2015-1437 du 5 novembre 2015 fixant la liste des pièces justificatives pouvant être demandées au candidat à la location et à sa caution",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031444493",
+        "date": "2015-11-05",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-30-racisme-antisemitisme-plan",
+    "numero": 30,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Société",
+    "titre": "Combattre le racisme et l'antisémitisme",
+    "extraitProgramme": "Je combat-\ntrai en permanence le racisme et l’antisémitisme",
+    "reformulation": "Mener une action continue contre le racisme et l'antisémitisme.",
+    "pageProgramme": "n° 30",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le Premier ministre a présenté le 17 avril 2015 à Créteil le plan interministériel de lutte contre le racisme et l'antisémitisme 2015-2017, adopté le 3 mars 2015 : quatre priorités, quarante actions, 100 millions d'euros de crédits sur trois ans. La délégation interministérielle (DILCRA) est rattachée au Premier ministre et déclinée en 96 comités opérationnels départementaux.",
+    "resultat": "Selon l'évaluation de l'inspection générale de l'administration et de l'inspection générale de l'éducation nationale (décembre 2017), 23 des 40 actions ont été mises en oeuvre et 17 non engagées ou non réalisées, ce qui traduit un bilan contrasté. La mission relève aussi une mobilisation inégale des ministères.",
+    "justification": "La promesse est une action continue, sans mesure précise. Un plan chiffré a été adopté en 2015, soit en troisième année de mandat, et à peine plus de la moitié de ses actions ont été mises en oeuvre selon l'évaluation officielle. Les mesures antérieures à 2015 n'ont pas été recensées ici. Le statut est donc « partiellement ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-04-17",
+        "description": "Présentation à Créteil du plan interministériel de lutte contre le racisme et l'antisémitisme 2015-2017",
+        "url": "https://www.interieur.gouv.fr/content/download/107668/855491/file/17078R%20-%20PILCRA.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Évaluation du plan interministériel de lutte contre le racisme et l'antisémitisme [2015-2017]",
+        "organisme": "Inspection générale de l'administration",
+        "url": "https://www.interieur.gouv.fr/content/download/107668/855491/file/17078R%20-%20PILCRA.pdf",
+        "date": "2017-12-01",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

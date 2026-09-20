@@ -1,0 +1,909 @@
+[
+  {
+    "id": "2012-1-bpi-creation",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Créer une Banque publique d’investissement",
+    "extraitProgramme": "Je créerai une Banque publique d’investisse-",
+    "reformulation": "Créer une banque publique dédiée à l’investissement dans les entreprises.",
+    "pageProgramme": "n° 1",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 31 décembre 2012 relative à la création de la Banque publique d'investissement a créé le groupe public qui reprend les activités d'Oséo, en modifiant l'ordonnance du 29 juin 2005. Bpifrance est née du regroupement d'Oséo, de CDC Entreprises et du Fonds stratégique d'investissement.",
+    "resultat": "Le rapport de la Cour des comptes de novembre 2016 décrit une banque publique en fonctionnement, dont le réseau compte 43 implantations (30 directions régionales et 13 délégations territoriales).",
+    "justification": "L'engagement porte sur la création d'une institution : la loi l'a créée dès la fin de 2012 et elle était opérationnelle bien avant la fin du mandat. Le texte de la loi n'a pas pu être lu intégralement sur Légifrance (la page consolidée n'affiche pas le détail des articles) ; le contenu est recoupé par le texte adopté publié par le Sénat.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-31",
+        "description": "Promulgation de la loi n° 2012-1559 relative à la création de la Banque publique d'investissement",
+        "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000026871127&categorieLien=cid"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2012-1559 du 31 décembre 2012 relative à la création de la Banque publique d'investissement",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000026871127&categorieLien=cid",
+        "date": "2012-12-31",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Banque publique d'investissement, texte adopté",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/leg/tas12-064.html",
+        "date": "2012-12-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Bpifrance : une mise en place réussie, un développement à stabiliser, des perspectives financières à consolider",
+        "organisme": "Cour des comptes",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/164000703.pdf",
+        "date": "2016-11-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-1-bpi-fonds-regionaux",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Développer les PME à travers les fonds régionaux de la banque publique",
+    "extraitProgramme": "À travers ses fonds régionaux, je favorise-",
+    "reformulation": "La banque publique agit dans chaque région, avec des fonds régionaux, pour financer les PME.",
+    "pageProgramme": "n° 1",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 31 décembre 2012 a créé des comités régionaux d'orientation, chargés de donner un avis sur l'exercice des missions de Bpifrance au niveau régional. Les partenariats entre les Régions et Bpifrance ont été relancés par de nouvelles conventions-cadre après la création de la banque.",
+    "resultat": "Selon la Cour des comptes (novembre 2016), l'activité des fonds régionaux de garantie a progressé de 35 % entre 2012 et 2015 (de 181 M€ à 245 M€ de risques couverts) et les aides versées par les fonds régionaux d'innovation sont passées de 35,4 M€ à 62,3 M€.",
+    "justification": "Des fonds régionaux (garantie, innovation, prêts de développement territoriaux) sont gérés par Bpifrance avec des dotations des Régions, et leur activité est chiffrée sur 2012-2015. La formule « développement des PME » étant qualitative, le statut retient l'existence et le fonctionnement du dispositif.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-31",
+        "description": "La loi relative à la création de la Banque publique d'investissement institue des comités régionaux d'orientation",
+        "url": "https://www.senat.fr/leg/tas12-064.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Bpifrance : une mise en place réussie, un développement à stabiliser, des perspectives financières à consolider",
+        "organisme": "Cour des comptes",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/164000703.pdf",
+        "date": "2016-11-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Banque publique d'investissement, texte adopté",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/leg/tas12-064.html",
+        "date": "2012-12-20",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-1-regions-participations",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Permettre aux Régions de prendre des participations dans des entreprises",
+    "extraitProgramme": "de prendre des participations dans les entre-",
+    "reformulation": "Les Régions doivent pouvoir entrer au capital d'entreprises stratégiques pour le développement local.",
+    "pageProgramme": "n° 1",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 7 août 2015 portant nouvelle organisation territoriale de la République a ajouté au code général des collectivités territoriales (article L4211-1, 8° bis) la possibilité pour une Région de participer au capital de sociétés commerciales pour la mise en oeuvre du schéma régional de développement économique, d'innovation et d'internationalisation.",
+    "resultat": "Depuis le 1er janvier 2016, la Région peut prendre des participations dans le capital de sociétés commerciales en dehors des cas déjà prévus par le 8° de l'article. La Cour des comptes (2016) relève que la loi de 2015 a renforcé le rôle des Régions en matière d'interventions économiques.",
+    "justification": "La promesse est un pouvoir donné aux Régions : il figure dans le code depuis la loi de 2015. Le texte de la loi NOTRe n'a pas été lu en entier ; c'est l'article du code, tel que publié sur Légifrance, qui est cité. Le plafond et les conditions (décret d'application) ne sont pas détaillés ici.",
+    "interpretations": "Le programme lie cette mesure à la banque publique d'investissement (participations via les fonds régionaux). La lecture retenue est plus large : toute prise de participation directe d'une Région est comptée, car l'engagement dit seulement « permettre aux Régions de prendre des participations ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-08-07",
+        "description": "Loi portant nouvelle organisation territoriale de la République : les Régions peuvent participer au capital de sociétés commerciales (CGCT, art. L4211-1, 8° bis)",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031104287/2016-01-01"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article L4211-1 du Code général des collectivités territoriales (version au 1er janvier 2016)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031104287/2016-01-01",
+        "date": "2016-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Bpifrance : une mise en place réussie, un développement à stabiliser, des perspectives financières à consolider",
+        "organisme": "Cour des comptes",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/164000703.pdf",
+        "date": "2016-11-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-1-bpi-ess",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Orienter une partie des financements de la banque publique vers l'économie sociale et solidaire",
+    "extraitProgramme": "Une partie des financements sera orientée vers l’économie sociale et solidaire.",
+    "reformulation": "Une part des financements de la banque publique doit aller à l'économie sociale et solidaire.",
+    "pageProgramme": "n° 1",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 31 décembre 2012 inscrit le développement de l'économie sociale et solidaire parmi les missions de la banque (article 1er A) et réserve des sièges à ses représentants au comité national d'orientation. Bpifrance a annoncé en janvier 2014 un engagement de 500 millions d'euros en faveur de l'ESS (prêt participatif social et solidaire, fonds de fonds, garantie associative, fonds coopératif, fonds d'innovation sociale).",
+    "resultat": "Un dispositif chiffré de 500 M€ a été annoncé pour 2014. L'article de référence pour le suivi (RTES, février 2014) ne permet pas de connaître les montants effectivement engagés jusqu'en 2017.",
+    "justification": "L'engagement ne fixe pas de proportion : la loi qui a créé la banque cite l'ESS dans ses missions et une enveloppe dédiée a été lancée. Le montant réellement versé n'a pas été vérifié dans une source institutionnelle, d'où la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-31",
+        "description": "La loi relative à la création de la Banque publique d'investissement mentionne l'économie sociale et solidaire dans les missions de la banque",
+        "url": "https://www.senat.fr/leg/tas12-064.html"
+      },
+      {
+        "date": "2014-01-30",
+        "description": "Annonce par Bpifrance d'un engagement de 500 millions d'euros pour l'ESS",
+        "url": "https://www.rtes.fr/bpi-et-pia-les-outils-financiers-en-faveur-de-l-ess"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Banque publique d'investissement, texte adopté",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/leg/tas12-064.html",
+        "date": "2012-12-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "BPI et PIA, les outils financiers en faveur de l'ESS",
+        "organisme": "RTES",
+        "url": "https://www.rtes.fr/bpi-et-pia-les-outils-financiers-en-faveur-de-l-ess",
+        "date": "2014-02-15",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-2-ldd-plafond",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Doubler le plafond du livret de développement durable",
+    "extraitProgramme": "je doublerai le plafond du livret développement durable",
+    "reformulation": "Porter le plafond du livret de développement durable de 6 000 à 12 000 euros.",
+    "pageProgramme": "n° 2",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le décret n° 2012-1057 du 18 septembre 2012, publié au Journal officiel du 19 septembre 2012, a doublé le plafond du livret de développement durable en modifiant l'article D221-103 du code monétaire et financier. Il est entré en vigueur le 1er octobre 2012.",
+    "resultat": "Le plafond est passé de 6 000 à 12 000 euros au 1er octobre 2012. Le ministre délégué au budget l'a rappelé devant l'Assemblée nationale le 30 janvier 2013.",
+    "justification": "Le chiffre annoncé (doublement, 12 000 euros) correspond exactement au texte publié. La valeur de 12 000 euros est donnée par la presse spécialisée et par le titre du décret (doublement) ; le détail chiffré de l'article n'a pas été lu directement sur Légifrance.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-09-19",
+        "description": "Publication du décret n° 2012-1057 du 18 septembre 2012 portant doublement du plafond du livret de développement durable",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026382489/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2012-1057 du 18 septembre 2012 portant doublement du plafond du livret de développement durable",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026382489/",
+        "date": "2012-09-19",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question orale n° 124 : livrets d'épargne (réponse de Jérôme Cahuzac)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QOSD124",
+        "date": "2013-01-30",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-2-livret-epargne-industrie",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Créer un livret d'épargne industrie dédié aux PME",
+    "extraitProgramme": "en créant un livret d’épargne industrie",
+    "reformulation": "Créer un livret d'épargne dont le produit finance exclusivement les PME et les entreprises innovantes.",
+    "pageProgramme": "n° 2",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le paquet compétitivité présenté le 6 novembre 2012 annonçait le remplacement du livret de développement durable par un « livret d'épargne industrie ». Le rapport Duquesne de septembre 2012 avait recommandé de renoncer à ce changement de nom. Le plafond du livret de développement durable a en revanche été doublé (décret du 18 septembre 2012).",
+    "resultat": "Aucun livret d'épargne industrie n'apparaît dans le code monétaire et financier : la section correspondante est intitulée « Le livret de développement durable et solidaire ». Ce livret finance aussi la transition énergétique, et pas seulement les PME.",
+    "justification": "Un remplacement du livret de développement durable par un « livret d’épargne industrie » a été annoncé en novembre 2012, puis le rapport Duquesne a recommandé d’y renoncer, et le plafond du livret existant a été doublé. Aucune source officielle ne documente l’abandon de la mesure, et la seule preuve de son absence est une version de 2019 du code monétaire et financier et de la presse. Le statut n’est donc pas tranché.",
+    "interpretations": "Deux lectures existent. Lecture stricte : un produit nouveau et dédié aux PME, non créé. Lecture large : le livret de développement durable, au plafond doublé, a été orienté en partie vers le financement des PME. La lecture stricte est retenue, car l'engagement parle d'un produit « entièrement dédié ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-06",
+        "description": "Annonce du remplacement du livret de développement durable par un livret d'épargne industrie dans le pacte de compétitivité",
+        "url": "https://www.moneyvox.fr/livret/actualites/33914/paquet-competitivite-le-ldd-remplace-par-un-livret-epargne-industrie"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article L221-27 du Code monétaire et financier (livret de développement durable et solidaire)",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038589613",
+        "date": "2019-05-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Un livret d'épargne industrie dédié aux PME (promesse partiellement tenue)",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/livret-depargne-industrie-dedie-aux-pme-237/",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Paquet compétitivité : le LDD remplacé par un Livret d'épargne Industrie",
+        "organisme": "MoneyVox",
+        "url": "https://www.moneyvox.fr/livret/actualites/33914/paquet-competitivite-le-ldd-remplace-par-un-livret-epargne-industrie",
+        "date": "2012-11-06",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-2-interlocuteur-unique",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Donner aux PME et TPE un interlocuteur unique dans chaque région",
+    "extraitProgramme": "un interlocuteur unique.",
+    "reformulation": "Chaque PME, TPE, artisan ou commerçant dispose dans sa région d'un seul interlocuteur pour ses financements.",
+    "pageProgramme": "n° 2",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Bpifrance a été conçue pour offrir aux entreprises la gamme complète d'interventions (prêts, garanties, aides à l'innovation, fonds propres, appui à l'export) auprès d'un seul interlocuteur, par un réseau de directions régionales.",
+    "resultat": "Le réseau compte 43 implantations (30 directions régionales et 13 délégations territoriales) en novembre 2016, et plus de 90 % des demandes de financement sont décidées par le réseau sans remonter au siège.",
+    "justification": "La Cour des comptes conclut que le fait de disposer d'un interlocuteur unique constitue un progrès par rapport à la situation antérieure. Le périmètre du programme (TPE, artisans, commerçants, « dans chaque région ») est plus large que celui d'un guichet de financement, d'où la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Bpifrance : une mise en place réussie, un développement à stabiliser, des perspectives financières à consolider",
+        "organisme": "Cour des comptes",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/164000703.pdf",
+        "date": "2016-11-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-2-cir-pme",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Rendre le crédit d'impôt recherche plus simple et plus accessible pour les PME",
+    "extraitProgramme": "Le crédit d’impôt recherche leur sera rendu plus",
+    "reformulation": "Simplifier le crédit d'impôt recherche et faciliter son accès pour les PME.",
+    "pageProgramme": "n° 2",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "L'article 71 de la loi de finances pour 2013 (loi n° 2012-1509 du 29 décembre 2012) a étendu le crédit d'impôt recherche à certaines dépenses d'innovation des PME (conception de prototypes, plafond de 400 000 euros, taux de 20 %) et supprimé les taux majorés des deux premières années.",
+    "resultat": "Le périmètre du crédit d'impôt a été élargi pour les PME à compter du 1er janvier 2013. Aucune source consultée ne mesure si la procédure est devenue plus simple.",
+    "justification": "La promesse est qualitative (« plus simple », « plus accessible »). L'extension aux dépenses d'innovation élargit l'accès mais ne prouve pas une simplification. Aucune source consultée ne permet de mesurer l'un ou l'autre, donc le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Loi de finances pour 2013 : extension du crédit d'impôt recherche à certaines dépenses d'innovation des PME (article 71)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8741-PGP.html/identifiant=ACTU-2013-00230"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "BIC : crédit d'impôt recherche, extension à certaines dépenses d'innovation en faveur des PME, suppression des taux majorés",
+        "organisme": "Bofip-Impôts",
+        "url": "https://bofip.impots.gouv.fr/bofip/8741-PGP.html/identifiant=ACTU-2013-00230",
+        "date": "2013-01-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-2-commande-publique-pme",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Ouvrir la commande publique aux PME",
+    "extraitProgramme": "Je veillerai à ce que la",
+    "reformulation": "Veiller à ce que les marchés publics restent accessibles aux PME.",
+    "pageProgramme": "n° 2",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "L'ordonnance n° 2015-899 du 23 juillet 2015 relative aux marchés publics a retenu l'allotissement comme règle de principe (article 32), présenté dans le rapport du Sénat sur sa ratification comme un moyen de faciliter l'accès des PME à la commande publique.",
+    "resultat": "Aucune source consultée ne fournit la part des PME dans les marchés publics à la fin du mandat.",
+    "justification": "L'engagement est un objectif de vigilance sans texte ni chiffre précis. L'ordonnance de 2015 contient des règles favorables aux PME, mais son effet sur l'accès effectif n'a pas été mesuré dans une source consultée. Le contenu de l'ordonnance n'a pu être lu directement (page Légifrance abrogée) ; le contenu est recoupé par le rapport du Sénat.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Projet de loi ratifiant l'ordonnance n° 2015-899 du 23 juillet 2015 relative aux marchés publics, rapport",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l15-477/l15-4776.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-3-aides-vers-entreprises-investissant",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Orienter financements, aides et allègements fiscaux vers les entreprises qui investissent en France",
+    "extraitProgramme": "Je favoriserai la production et l’emploi en",
+    "reformulation": "Réserver en priorité les aides et allègements aux entreprises qui investissent, se localisent en France et exportent.",
+    "pageProgramme": "n° 3",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Dans sa réponse du 4 mars 2014 à une question écrite qui l'interrogeait sur cet engagement, le ministère de l'Économie n'a cité aucun critère d'investissement ou de localisation attaché aux aides, et a mis en avant le crédit d'impôt pour la compétitivité et l'emploi (CICE), ouvert à toutes les entreprises.",
+    "resultat": "Aucune source consultée ne décrit un dispositif conditionnant les aides et allègements à l'investissement sur le territoire.",
+    "justification": "L'engagement est une orientation générale sans dispositif précis ni chiffre. La réponse ministérielle ne prouve pas qu'aucune aide n'a été orientée selon ce critère : elle ne permet donc pas de conclure à une non-réalisation. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Question écrite n° 42122 : bilan de l'engagement n° 3 de François Hollande (réponse publiée au JO du 4 mars 2014)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42122",
+        "date": "2014-03-04",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-3-fiscalite-locale-investissements",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Moduler la fiscalité locale des entreprises selon leurs investissements",
+    "extraitProgramme": "je modulerai la fiscalité locale des entreprises en fonction des",
+    "reformulation": "Faire varier la fiscalité locale des entreprises selon les investissements qu'elles réalisent.",
+    "pageProgramme": "n° 3",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Un amendement de députés de la majorité visant à moduler les aides aux entreprises selon leurs investissements a été rejeté le 26 juin 2014 lors de l'examen du budget rectificatif, d'après un site de suivi des promesses qui cite Le Monde. Le compte rendu officiel de la séance n'a pas été retrouvé.",
+    "resultat": "Aucune source institutionnelle consultée ne décrit une fiscalité locale des entreprises modulée selon l'investissement à la fin du mandat.",
+    "justification": "Aucun texte officiel de 2017 sur la fiscalité locale des entreprises n'a été lu. Le rejet d'un amendement en 2014, rapporté par un site de suivi, ne prouve pas l'état du droit à la fin du mandat. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Modulation de la fiscalité des entreprises en fonction des investissements (promesse non tenue)",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/modulation-fiscalite-des-entreprises-en-fonction-des-investissements-16/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-3-contrat-relocalisation",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Engager avec les grandes entreprises un mouvement de relocalisation par un contrat spécifique",
+    "extraitProgramme": "un mouvement de relocalisation de leurs usines",
+    "reformulation": "Conclure avec les grandes entreprises françaises un contrat pour relocaliser leurs usines en France.",
+    "pageProgramme": "n° 3",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Dans sa réponse du 4 mars 2014 à une question écrite sur cet engagement, le ministère de l'Économie ne mentionne pas de contrat de relocalisation. Un site de suivi des promesses évoque une intégration de la relocalisation aux conditions du pacte de responsabilité proposé en janvier 2014, sans citer de texte officiel.",
+    "resultat": "Aucune source institutionnelle consultée ne décrit un contrat de relocalisation conclu avec des grandes entreprises, ni un nombre d'usines relocalisées.",
+    "justification": "Aucun texte officiel ni bilan chiffré ne permet de dire si un contrat de ce type a été conclu. L'absence de mention dans une réponse ministérielle ne prouve pas la non-réalisation. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Question écrite n° 42122 : bilan de l'engagement n° 3 de François Hollande (réponse publiée au JO du 4 mars 2014)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42122",
+        "date": "2014-03-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Contrat de relocalisation des entreprises (promesse partiellement tenue)",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/contrat-relocalisation-des-entreprises-17/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-3-remboursement-aides-delocalisation",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Faire rembourser les aides publiques aux entreprises qui se délocalisent",
+    "extraitProgramme": "un remboursement des aides publiques reçues",
+    "reformulation": "Les entreprises qui délocalisent doivent restituer les aides publiques qu'elles ont reçues.",
+    "pageProgramme": "n° 3",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi visant à reconquérir l'économie réelle (dite loi Florange), promulguée le 29 mars 2014, prévoyait qu'une entreprise refusant sans motif légitime une offre de reprise sérieuse pouvait devoir rembourser tout ou partie des aides reçues pendant les deux années précédentes. Par sa décision n° 2014-692 DC du 27 mars 2014, le Conseil constitutionnel a censuré l'obligation d'accepter une offre de reprise sérieuse et les sanctions associées.",
+    "resultat": "Le dispositif de restitution lié au refus d'une offre de reprise n'est pas entré en vigueur. Aucune règle générale de remboursement des aides en cas de délocalisation n'a été trouvée dans les sources consultées.",
+    "justification": "La mesure votée était limitée au refus d'une offre de reprise, donc plus étroite que la promesse (toute délocalisation), et sa sanction a été censurée avant promulgation. Aucun autre texte de remboursement n'a été trouvé, mais une recherche exhaustive du droit de 2017 n'a pas été possible, d'où la confiance moyenne.",
+    "interpretations": "Le texte de la loi promulguée n'a pas été lu en entier. Une lecture large (tout dispositif conditionnant des aides au maintien d'activité) pourrait retenir d'autres textes ; la lecture retenue est celle du programme : un remboursement des aides pour les entreprises qui délocalisent.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-03-27",
+        "description": "Décision n° 2014-692 DC du Conseil constitutionnel : censure de l'obligation d'accepter une offre de reprise sérieuse et de la pénalité associée",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2014/2014692DC.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décision n° 2014-692 DC du 27 mars 2014, Loi visant à reconquérir l'économie réelle",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2014/2014692DC.htm",
+        "date": "2014-03-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2014-692 DC du 27 mars 2014, communiqué de presse",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2014-692-dc-du-27-mars-2014-communique-de-presse",
+        "date": "2014-03-27",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-3-benefices-reinvestis-distribues",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Distinguer les bénéfices réinvestis des bénéfices distribués aux actionnaires",
+    "extraitProgramme": "Une distinction sera faite entre les bénéfices",
+    "reformulation": "Traiter différemment, sur le plan fiscal, les bénéfices réinvestis et ceux qui sont distribués.",
+    "pageProgramme": "n° 3",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 6 de la loi de finances rectificative du 16 août 2012 (loi n° 2012-958) a créé une contribution additionnelle à l'impôt sur les sociétés de 3 % sur les montants distribués (article 235 ter ZCA du code général des impôts), applicable aux distributions mises en paiement depuis le 17 août 2012. Le Gouvernement la présentait en mars 2014 comme destinée à inciter les entreprises à réinvestir leurs bénéfices plutôt qu'à les distribuer.",
+    "resultat": "Une différence de traitement existait donc entre bénéfices distribués (taxés de 3 % en plus) et bénéfices conservés. Aucun taux d'impôt sur les sociétés différencié selon l'usage du bénéfice n'a été instauré.",
+    "justification": "La distinction annoncée existe sous la forme d'une surtaxe sur les distributions, et non d'un barème d'impôt sur les sociétés modulé selon le réinvestissement. Cette contribution a été jugée contraire à la Constitution en octobre 2017 (décision n° 2017-660 QPC), après la fin du mandat.",
+    "interpretations": "Deux lectures : une distinction par le taux de l'impôt sur les sociétés (non réalisée) ou par toute imposition différenciée (réalisée par la contribution de 3 %). La seconde est retenue avec le statut « partiellement », car le programme place cette phrase à côté de la modulation des taux.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Loi de finances rectificative pour 2012 : contribution additionnelle de 3 % à l'impôt sur les sociétés sur les montants distribués (art. 6)",
+        "url": "https://bofip.impots.gouv.fr/bofip/7893-PGP.html/identifiant=ACTU-2013-00088"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IS : contribution additionnelle à l'IS au titre des montants distribués (CGI, art. 235 ter ZCA)",
+        "organisme": "Bofip-Impôts",
+        "url": "https://bofip.impots.gouv.fr/bofip/7893-PGP.html/identifiant=ACTU-2013-00088",
+        "date": "2013-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 42122 : bilan de l'engagement n° 3 de François Hollande (réponse publiée au JO du 4 mars 2014)",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/14/questions/QANR5L14QE42122",
+        "date": "2014-03-04",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-3-trois-taux-is",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Instaurer trois taux d'impôt sur les sociétés : 35 %, 30 % et 15 %",
+    "extraitProgramme": "Je mettrai en place trois taux d’imposition dif-",
+    "reformulation": "Appliquer un taux d'impôt sur les sociétés de 35 % aux grandes entreprises, 30 % aux PME et 15 % aux très petites.",
+    "pageProgramme": "n° 3",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "Le taux normal de l'impôt sur les sociétés est resté à 33 1/3 % au 1er mars 2017, avec le taux réduit de 15 % (qui préexistait) sur les 38 120 premiers euros de bénéfice des petites entreprises. La loi de finances pour 2017 a créé, à partir de 2017, un taux de 28 % pour les PME dans la limite de 75 000 euros de résultat fiscal, en amorçant une baisse progressive du taux normal.",
+    "resultat": "À la fin du mandat, il n'existait ni taux de 35 % pour les grandes entreprises, ni taux de 30 % pour les PME. Le barème comportait 33 1/3 %, 28 % (PME, sur une tranche limitée) et 15 % (petites entreprises, sur une tranche limitée).",
+    "justification": "L'état du droit publié par l'administration fiscale au 1er mars 2017 ne contient pas les trois taux annoncés. Le taux de 28 % de 2017 ne correspond ni au chiffre ni au périmètre de la promesse (35 %, 30 %, 15 % par taille d'entreprise).",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2016-12-29",
+        "description": "Loi de finances pour 2017 (article 11) : taux de 28 % pour les PME jusqu'à 75 000 euros de résultat fiscal",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000033734169/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IS : liquidation et taux, taux normal (BOI-IS-LIQ-10 au 1er mars 2017)",
+        "organisme": "Bofip-Impôts",
+        "url": "https://bofip.impots.gouv.fr/bofip/2066-PGP.html/identifiant=BOI-IS-LIQ-10-20170301",
+        "date": "2017-03-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi de finances pour 2017 : quel taux d'IS est applicable ?",
+        "organisme": "LégiFiscal",
+        "url": "https://www.legifiscal.fr/actualites-fiscales/1371-loi-de-finances-pour-2017-quel-taux-d-est-applicable.html",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-4-tres-haut-debit",
+    "numero": 4,
+    "couvreTout": true,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Numérique",
+    "titre": "Couvrir intégralement la France en très haut débit d'ici dix ans",
+    "extraitProgramme": "couverture intégrale de la France en très haut",
+    "reformulation": "Donner accès au très haut débit à tout le territoire dans un délai de dix ans, avec les collectivités et l'industrie.",
+    "pageProgramme": "n° 4",
+    "statut": "en_cours",
+    "confiance": "haute",
+    "actionMenee": "Le Plan France Très Haut Débit a été annoncé le 20 février 2013 : 20 milliards d'euros mobilisés sur dix ans, dont environ 3 milliards de subventions de l'État aux projets des collectivités. L'objectif est la couverture intégrale en très haut débit fin 2022, avec un jalon intermédiaire de 50 % en 2017.",
+    "resultat": "Fin 2016, le jalon intermédiaire de 50 % était atteint avec un an d'avance, avec 66,2 % de couverture en zone urbaine contre 31,2 % en zone rurale (rapport du Sénat, septembre 2017). Le rapport note aussi que la couverture des 50 % restants sera plus longue et plus coûteuse.",
+    "justification": "Le plan est lancé et financé, mais l'objectif de couverture intégrale porte sur 2022 (« d'ici à dix ans » depuis 2012), au-delà de la fin du mandat. Le projet est donc engagé et non achevé au 13 mai 2017.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-02-20",
+        "description": "Annonce du Plan France Très Haut Débit par le président de la République",
+        "url": "https://www.arcep.fr/mes-demarches-et-services/collectivites/fiches-pratiques/le-plan-france-tres-haut-debit-pfthd.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le très haut débit pour tous en 2022 : un cap à tenir",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r16-712/r16-712_mono.html",
+        "date": "2017-09-07",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le plan France Très Haut Débit (PFTHD)",
+        "organisme": "Arcep",
+        "url": "https://www.arcep.fr/mes-demarches-et-services/collectivites/fiches-pratiques/le-plan-france-tres-haut-debit-pfthd.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-5-statut-public-entreprises",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Économie et entreprises",
+    "titre": "Préserver le statut public d'EDF, de la SNCF et de La Poste",
+    "extraitProgramme": "Je préserverai le statut public des entreprises",
+    "reformulation": "Maintenir sous statut public les entreprises détenues majoritairement par l'État.",
+    "pageProgramme": "n° 5",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 4 août 2014 portant réforme ferroviaire a créé au 1er décembre 2014 un groupe public ferroviaire, composé d'un établissement public à caractère industriel et commercial « SNCF » et de deux filiales, SNCF Mobilités et SNCF Réseau. Le code de l'énergie, dans sa version de 2016, prévoit qu'Électricité de France est une société dont le capital est détenu à plus de 70 % par l'État. La loi du 9 février 2010 (antérieure au mandat) prévoit que le capital de La Poste est détenu en totalité par l'État ou des personnes publiques, hors part des salariés.",
+    "resultat": "Les textes consultés maintiennent EDF, la SNCF et La Poste dans le secteur public. Aucune loi d'ouverture du capital de ces trois entreprises n'a été relevée dans les sources consultées.",
+    "justification": "La promesse est de ne pas changer le statut public. Les dispositions consultées sont conformes à cet engagement, mais la situation exacte au 13 mai 2017 (détention effective du capital d'EDF, version de La Poste en vigueur) n'a pas été relevée dans un document daté de 2017, d'où la confiance moyenne.",
+    "interpretations": "Le programme vise aussi « les entreprises détenues majoritairement par l'État » de façon générale. Le statut retenu ici est celui des trois entreprises nommées, car l'extrait les cite explicitement ; les cessions minoritaires de participations de l'État dans d'autres sociétés ne sont pas examinées.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-08-04",
+        "description": "Loi portant réforme ferroviaire : création du groupe public ferroviaire (EPIC SNCF, SNCF Mobilités, SNCF Réseau)",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029330511"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-872 du 4 août 2014 portant réforme ferroviaire",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029330511",
+        "date": "2014-08-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Code de l'énergie, section 4 : dispositions particulières aux entreprises Électricité de France et GDF-Suez (version au 1er janvier 2016)",
+        "organisme": "Légifrance",
+        "url": "https://legifrance.gouv.fr/affichCode.do?cidTexte=LEGITEXT000023983208&dateTexte=20160101&idSectionTA=LEGISCTA000023985416",
+        "date": "2016-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2010-123 du 9 février 2010 relative à l'entreprise publique La Poste et aux activités postales",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000021801431",
+        "date": "2010-02-09",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-5-directive-services-publics",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Demander une directive européenne sur la protection des services publics",
+    "extraitProgramme": "Je demanderai à ce que soit adop-",
+    "reformulation": "Réclamer l'adoption, dans l'Union européenne, d'une directive protégeant les services publics.",
+    "pageProgramme": "n° 5",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Aucune source consultée ne rapporte une demande formelle de la France en ce sens entre 2012 et 2017, ni la présentation d'un projet de directive par la Commission.",
+    "resultat": "Aucune directive-cadre sur les services publics n'apparaît dans les sources consultées, qui portent surtout sur les débats de 2002 à 2007.",
+    "justification": "La recherche n'a fourni aucun document officiel sur une démarche française de 2012 à 2017 ni sur un refus de la Commission. Une absence de résultat ne prouve pas la non-réalisation, et le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-6-budget-europeen-pac",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Agriculture",
+    "titre": "Défendre un budget européen ambitieux pour l'agriculture et l'élevage",
+    "extraitProgramme": "Je défendrai un budget européen ambitieux",
+    "reformulation": "Obtenir, dans la révision de la politique agricole commune, un budget européen à la hauteur pour l'agriculture, en particulier l'élevage.",
+    "pageProgramme": "n° 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'accord européen sur le budget 2014-2020, conclu au sommet des 7 et 8 février 2013, a maintenu l'enveloppe de la politique agricole commune à un niveau très proche de la période précédente, selon le ministère de l'Agriculture. Celui-ci chiffre l'enveloppe des agriculteurs français à 56 milliards d'euros constants sur les deux piliers pour 2014-2020.",
+    "resultat": "L'enveloppe agricole a été préservée et non augmentée, selon la présentation du ministère de l'Agriculture.",
+    "justification": "L'engagement d'un budget « ambitieux » est qualitatif. Le maintien de l'enveloppe est établi par la source du ministère, qui présente elle-même le résultat comme une préservation. La lecture retenue est que le budget n'a pas progressé, d'où « partiellement ». Le communiqué émane du ministère qui a mené la négociation.",
+    "interpretations": "Lecture 1 : « ambitieux » signifie un budget au moins maintenu face aux baisses envisagées, ce qui serait réalisé. Lecture 2 : « ambitieux » signifie un budget en hausse, ce qui ne l'est pas. La lecture 2 est retenue car le programme parle d'un budget pour « l'avenir » de l'agriculture, non d'un simple maintien.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-02-08",
+        "description": "Accord des chefs d'État et de gouvernement sur le cadre financier pluriannuel 2014-2020 : enveloppe de la PAC maintenue",
+        "url": "https://agriculture.gouv.fr/accord-sur-les-perspectives-financieres-de-lue-un-budget-de-la-pac-preserve-pour-les-agriculteurs"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Accord sur les perspectives financières de l'UE : un budget de la PAC préservé pour les agriculteurs français",
+        "organisme": "Ministère de l'Agriculture",
+        "url": "https://agriculture.gouv.fr/accord-sur-les-perspectives-financieres-de-lue-un-budget-de-la-pac-preserve-pour-les-agriculteurs",
+        "date": "2013-02-08",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-nouveaux-modeles-production",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Agriculture",
+    "titre": "Encourager la promotion de nouveaux modèles de production agricole",
+    "extraitProgramme": "la promotion de nouveaux modèles de",
+    "reformulation": "Soutenir le développement de modèles de production agricole nouveaux.",
+    "pageProgramme": "n° 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi d'avenir pour l'agriculture, l'alimentation et la forêt du 13 octobre 2014 (loi n° 2014-1170) a créé les groupements d'intérêt économique et environnemental (article 3), qui bénéficient de majorations dans l'attribution des aides publiques pour des projets de double performance économique et environnementale.",
+    "resultat": "Le cadre juridique des groupements d'agriculteurs engagés dans l'agroécologie existe depuis octobre 2014. Aucun chiffre du nombre de groupements reconnus n'a été relevé dans les sources consultées.",
+    "justification": "L'engagement est un encouragement sans cible chiffrée : un dispositif législatif dédié aux nouvelles pratiques (agroécologie) avec un soutien financier majoré y répond. La description des majorations de l'aide vient de la présentation du projet de loi par le Sénat (mars 2014) ; le texte promulgué n'a été lu que dans sa structure (article 3 consacré aux groupements).",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-10-13",
+        "description": "Promulgation de la loi n° 2014-1170 d'avenir pour l'agriculture, l'alimentation et la forêt (article 3 : groupements d'intérêt économique et environnemental)",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029573022"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-1170 du 13 octobre 2014 d'avenir pour l'agriculture, l'alimentation et la forêt",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029573022",
+        "date": "2014-10-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le projet de loi d'avenir pour l'agriculture, l'alimentation et la forêt",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201403/le-projet-de-loi-davenir-pour-lagriculture-lalimentation-et-la-foret.html",
+        "date": "2014-03-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-agriculture-biologique",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Agriculture",
+    "titre": "Encourager la promotion de l'agriculture biologique",
+    "extraitProgramme": "production et de l’agriculture biologique",
+    "reformulation": "Soutenir le développement de l'agriculture biologique.",
+    "pageProgramme": "n° 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le programme Ambition Bio 2017, présenté en 2013 (mai selon le ministère de l'Agriculture, décembre selon le rapport du Sénat), fixe l'objectif de doubler les surfaces en bio à fin 2017. Il prévoit en moyenne 160 millions d'euros par an d'aides à la conversion et au maintien, contre 90 millions par an en 2012 et 2013.",
+    "resultat": "Au 30 juin 2016, la France comptait 31 880 producteurs bio et 1,5 million d'hectares, soit 5,8 % de la surface agricole utile. Le bilan de mars 2017 du ministère relève parmi les échecs l'objectif de 20 % de bio dans la restauration collective publique.",
+    "justification": "L'engagement est d'encourager, et un programme national doté de moyens supérieurs à ceux de 2012 a été mis en oeuvre. L'objectif de doublement des surfaces, propre au programme, n'a pas été vérifié ici faute de chiffre de départ dans les sources consultées : il n'entre pas dans le statut.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Premier bilan du programme Ambition Bio 2017",
+        "organisme": "Ministère de l'Agriculture",
+        "url": "https://agriculture.gouv.fr/premier-bilan-du-programme-ambition-bio-2017",
+        "date": "2017-03-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2017 : agriculture, alimentation, forêt et affaires rurales",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a16-141-1/a16-141-15.html",
+        "date": "2016-11-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-producteurs-rapports-de-force",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Agriculture",
+    "titre": "Donner aux producteurs les moyens de s'organiser face à la grande distribution",
+    "extraitProgramme": "Je donnerai aux producteurs les moyens de s’orga-",
+    "reformulation": "Permettre aux producteurs de s'organiser pour rééquilibrer les rapports de force dans les filières face à la grande distribution.",
+    "pageProgramme": "n° 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi d'avenir pour l'agriculture, l'alimentation et la forêt du 13 octobre 2014 comporte, dans son titre I, des dispositions sur les organisations de producteurs et les contrats commerciaux. Le projet de loi prévoyait que le médiateur des relations commerciales puisse intervenir dans les litiges sur les contrats de vente de produits agricoles, pour rééquilibrer le pouvoir de marché des agriculteurs vis-à-vis de l'aval.",
+    "resultat": "Le cadre légal de l'organisation des producteurs et de la médiation existe depuis octobre 2014. Aucune source consultée ne mesure l'effet sur le rapport de force avec la distribution.",
+    "justification": "La promesse est de donner les moyens de s'organiser, c'est-à-dire un cadre légal, et non de garantir le résultat. La loi de 2014 apporte ce cadre. Le contenu détaillé des articles du texte promulgué n'a pas été lu (page Légifrance lue au niveau des titres) ; le détail vient de la présentation du projet de loi par le Sénat, d'où la confiance moyenne.",
+    "interpretations": "Lecture 1 : donner les moyens légaux, ce qui est réalisé. Lecture 2 : obtenir un rééquilibrage effectif, non mesuré ici. La lecture 1 est retenue, car le verbe de l'engagement est « donner les moyens ».",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2014-10-13",
+        "description": "Promulgation de la loi n° 2014-1170 d'avenir pour l'agriculture, l'alimentation et la forêt (titre I : organisations de producteurs, contrats, médiation)",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029573022"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-1170 du 13 octobre 2014 d'avenir pour l'agriculture, l'alimentation et la forêt",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029573022",
+        "date": "2014-10-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le projet de loi d'avenir pour l'agriculture, l'alimentation et la forêt",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201403/le-projet-de-loi-davenir-pour-lagriculture-lalimentation-et-la-foret.html",
+        "date": "2014-03-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-services-publics-ruraux",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Territoires",
+    "titre": "Garantir la présence des services publics locaux dans le monde rural",
+    "extraitProgramme": "Je garantirai la présence des services publics locaux",
+    "reformulation": "Maintenir les services publics de proximité dans les territoires ruraux.",
+    "pageProgramme": "n° 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le Premier ministre a annoncé le 19 novembre 2013 la généralisation des maisons de services au public, avec un objectif de 1 000 à fin 2016. La loi du 7 août 2015 portant nouvelle organisation territoriale de la République (article 100) a consacré ce dispositif et prévu des schémas départementaux d'amélioration de l'accessibilité des services au public, à arrêter avant le 31 décembre 2017.",
+    "resultat": "Au 31 décembre 2016, 1 068 maisons de services au public étaient recensées, dont 500 dans un bureau de poste. L'objectif de 1 000 est dépassé.",
+    "justification": "Des mesures concrètes et chiffrées ont été prises, mais elles ne garantissent pas la présence de chaque service public local : aucune source consultée ne recense les fermetures ou ouvertures de services (écoles, hôpitaux, trésoreries) en zone rurale. Le statut « partiellement » retient l'action menée sans pouvoir établir la garantie annoncée.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2018 : cohésion des territoires",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a17-113-8/a17-113-87.html",
+        "date": "2017-11-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-economie-maritime",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Mer et pêche",
+    "titre": "Assurer la protection de l'économie maritime",
+    "extraitProgramme": "J’assurerai la protection",
+    "reformulation": "Protéger l'économie maritime du pays.",
+    "pageProgramme": "n° 6",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Aucune mesure précise n'est identifiable dans la formulation du programme, et aucune source consultée ne la relie à un dispositif.",
+    "resultat": "Aucun résultat vérifiable n'a été établi.",
+    "justification": "La formulation est trop générale (aucune mesure, aucun chiffre, aucune échéance) pour qu'un texte ou une donnée permette de constater une réalisation. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2012-6-modernisation-peche",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Mer et pêche",
+    "titre": "Redonner à la pêche les moyens de sa modernisation",
+    "extraitProgramme": "les moyens de sa modernisation",
+    "reformulation": "Financer la modernisation de la pêche.",
+    "pageProgramme": "n° 6",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La France dispose pour 2014-2020 d'une enveloppe de 588 millions d'euros au titre du Fonds européen pour les affaires maritimes et la pêche (FEAMP), géré par la direction des pêches maritimes et de l'aquaculture du ministère de l'Agriculture.",
+    "resultat": "Le programme vise une économie de la pêche et de l'aquaculture plus compétitive, fondée sur la connaissance et l'innovation. Aucune source consultée ne chiffre les projets financés à la fin du mandat.",
+    "justification": "Le fonds est lancé officiellement et sa période de programmation court jusqu'en 2020, donc au-delà du mandat. Il est européen et non propre au mandat. La date d'adoption du programme opérationnel et l'état d'avancement à la fin du mandat n'ont pas été relevés dans la source consultée, d'où la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Le programme national FEAMP 2014-2020",
+        "organisme": "L'Europe s'engage en France",
+        "url": "https://www.europe-en-france.gouv.fr/fr/programme-national-feamp-2014-2020",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-6-leader-energies-marines",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Énergie",
+    "titre": "Faire de la France le leader européen des énergies marines renouvelables",
+    "extraitProgramme": "Je ferai de notre pays le leader européen des énergies marines renouvelables",
+    "reformulation": "Placer la France au premier rang européen pour les énergies marines renouvelables.",
+    "pageProgramme": "n° 6",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Les appels d'offres pour l'éolien en mer posé de 2011 et 2013 ont désigné des lauréats pour une puissance totale de 3 GW, avec des tarifs d'achat de 217 et 212 €/MWh en 2022. Un premier appel d'offres, lancé en 2005, n'avait débouché sur aucune construction.",
+    "resultat": "Selon la Cour des comptes (mars 2018), les risques administratifs et contentieux ont retardé de plusieurs années la mise en service des installations issues des appels d'offres de 2011 et 2013, dont les charges sont décrites au futur (« lorsque ces projets entreront en fonctionnement »). Aucun parc éolien en mer n'était donc en service à la fin du mandat d'après cette source.",
+    "justification": "Le statut de « leader européen » se mesure à un résultat : aucune capacité en mer n'était mise en service à la fin du mandat selon la Cour des comptes, ce qui exclut le premier rang européen. Le classement des autres pays n'a pas été relevé dans une source institutionnelle ; la lecture de la Cour des comptes est déduite du texte du rapport, d'où la confiance moyenne.",
+    "verifieLe": "2026-09-19",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Le soutien aux énergies renouvelables",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/sites/default/files/2018-04/20180418-rapport-soutien-energies-renouvelables.pdf",
+        "date": "2018-03-01",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

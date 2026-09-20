@@ -11,6 +11,7 @@ import {
   Select,
   SimpleGrid,
   Stack,
+  Table,
   Text,
   TextInput,
   Title,
@@ -25,6 +26,7 @@ import {
   type Mandat,
   type StatutEngagement,
 } from "../../queries/bilans";
+import { PROGRAMME_HOLLANDE, SOURCE_HOLLANDE, VOLETS_HOLLANDE } from "../../data/programmeHollande";
 
 export const Route = createFileRoute("/bilans/$president")({
   loader: async ({ params }) => {
@@ -313,6 +315,85 @@ function CarteEngagement({ engagement }: { engagement: Engagement }) {
   );
 }
 
+function ProgrammeComplet({ mandat }: { mandat: Mandat }) {
+  if (mandat.id !== SOURCE_HOLLANDE.mandatId) return null;
+
+  const fichesParBloc = new Map<number, Engagement[]>();
+  for (const e of mandat.engagements) {
+    const numero = VOLETS_HOLLANDE[e.id]?.numero ?? Number(/^2012-(\d+)-/.exec(e.id)?.[1]);
+    if (!Number.isFinite(numero)) continue;
+    fichesParBloc.set(numero, [...(fichesParBloc.get(numero) ?? []), e]);
+  }
+
+  return (
+    <Card withBorder radius="md" padding="lg">
+      <Stack gap="md">
+        <Box>
+          <Title order={2} fz="lg">
+            Les 60 engagements du programme
+          </Title>
+          <Text size="sm" c="dimmed" mt="xs">
+            Le document est recensé en entier. Chaque engagement numéroté regroupe plusieurs
+            promesses, et chaque promesse a sa fiche plus bas, avec l&apos;extrait du programme et
+            les sources. Un engagement sans fiche n&apos;est pas réputé tenu ou non tenu.
+          </Text>
+          <Text size="sm" mt="sm">
+            Source :{" "}
+            <Anchor href={SOURCE_HOLLANDE.url} target="_blank" rel="noreferrer">
+              {SOURCE_HOLLANDE.titre}
+            </Anchor>
+            , {SOURCE_HOLLANDE.auteur}, archive {SOURCE_HOLLANDE.archive}, consultée le{" "}
+            {new Intl.DateTimeFormat("fr-FR").format(new Date(SOURCE_HOLLANDE.consulteLe))}.
+          </Text>
+        </Box>
+
+        <Table.ScrollContainer minWidth={680}>
+          <Table withRowBorders verticalSpacing="sm" horizontalSpacing="sm">
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>N°</Table.Th>
+                <Table.Th>Engagement</Table.Th>
+                <Table.Th>État du travail</Table.Th>
+                <Table.Th>Source</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
+              {PROGRAMME_HOLLANDE.map((e) => {
+                const fiches = fichesParBloc.get(e.numero) ?? [];
+                return (
+                  <Table.Tr key={e.numero}>
+                    <Table.Td>{e.numero}</Table.Td>
+                    <Table.Td>
+                      <Text fw={600} size="sm">
+                        {e.titre}
+                      </Text>
+                      <Text size="sm" c="dimmed" mt={2}>
+                        {e.resume}
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Badge variant="outline" color="graphite" size="sm" tt="none">
+                        {fiches.length === 0
+                          ? "Sans fiche"
+                          : `${fiches.length} fiche${fiches.length > 1 ? "s" : ""}`}
+                      </Badge>
+                    </Table.Td>
+                    <Table.Td>
+                      <Anchor href={SOURCE_HOLLANDE.url} target="_blank" rel="noreferrer" size="sm">
+                        PDF p. {e.pages}
+                      </Anchor>
+                    </Table.Td>
+                  </Table.Tr>
+                );
+              })}
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
+      </Stack>
+    </Card>
+  );
+}
+
 function Statistiques({ mandat }: { mandat: Mandat }) {
   const r = repartir(mandat.engagements);
   return (
@@ -321,7 +402,7 @@ function Statistiques({ mandat }: { mandat: Mandat }) {
         {r.total}
       </Text>
       <Text c="dimmed" size="sm">
-        engagement{r.total > 1 ? "s" : ""} analysé{r.total > 1 ? "s" : ""}
+        fiche{r.total > 1 ? "s" : ""} détaillée{r.total > 1 ? "s" : ""}
       </Text>
 
       <Box mt="lg">
@@ -354,9 +435,9 @@ function Statistiques({ mandat }: { mandat: Mandat }) {
       </SimpleGrid>
 
       <Text size="xs" c="dimmed" mt="lg">
-        Ces engagements sont une sélection faite par le site parmi ceux du programme présidentiel :
-        ils ne résument pas le bilan du quinquennat. La règle de sélection est décrite plus bas,
-        dans «&nbsp;Comment nous évaluons les engagements&nbsp;».
+        Ces fiches sont une sélection documentée parmi les engagements du programme présidentiel.
+        Elles ne résument pas le bilan du quinquennat. Les engagements recensés sans fiche sont
+        signalés séparément quand le programme complet est disponible.
       </Text>
     </Card>
   );
@@ -451,6 +532,8 @@ function PageBilan() {
           . Une déclaration faite en cours de mandat n&apos;est pas un engagement de campagne et ne
           figure pas ici.
         </Text>
+
+        <ProgrammeComplet mandat={mandat} />
 
         {mandat.engagements.length === 0 ? (
           <Alert variant="light" color="graphite" icon={<IconInfoCircle size={18} />}>

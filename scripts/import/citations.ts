@@ -46,6 +46,10 @@ function plierLigatures(texteNormalise: string): string {
   return texteNormalise.replace(/ff[il]?|f[il]/g, "f");
 }
 
+function sansLigaturesNiEspaces(texteNormalise: string): string {
+  return texteNormalise.replace(/ff[il]?|f[il]/g, "").replace(/ /g, "");
+}
+
 /**
  * Entités nommées rencontrées dans les pages des partis, en plus de celles
  * que `decoderEntitesHtml` connaît déjà. Sans elles, « l&rsquo;assurance »
@@ -154,7 +158,13 @@ export async function citationPresente(url: string, extrait: string): Promise<bo
     // ne sert que si la comparaison exacte échoue : quand le document est bien
     // encodé, deux formulations qui ne différeraient que par ces lettres ne
     // passent pas pour identiques.
-    return plierLigatures(document).includes(plierLigatures(cherche));
+    if (plierLigatures(document).includes(plierLigatures(cherche))) return true;
+    // Second repli, pour les PDF dont l'extraction supprime la ligature au
+    // lieu de la traduire (« rati er » pour « ratifier », « e cace » pour
+    // « efficace ») et scinde ainsi le mot. Les deux côtés perdent leurs
+    // ligatures et leurs espaces : les lettres restantes doivent se suivre
+    // exactement, ce qui n'accepte aucune citation absente du document.
+    return sansLigaturesNiEspaces(document).includes(sansLigaturesNiEspaces(cherche));
   } catch {
     return false;
   }

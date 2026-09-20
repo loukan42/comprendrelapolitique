@@ -1,0 +1,732 @@
+[
+  {
+    "id": "2012-13-reciprocite-echanges",
+    "numero": 13,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Fixer des règles strictes de réciprocité sociale et environnementale dans les échanges",
+    "extraitProgramme": "règles strictes de réciprocité en matière sociale et environnementale",
+    "reformulation": "L'Union européenne devait exiger de ses partenaires commerciaux des règles réciproques sur les normes sociales et environnementales.",
+    "pageProgramme": "n° 13",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La Commission européenne a proposé le 26 mars 2012 un instrument de réciprocité pour l'accès des entreprises de pays tiers aux marchés publics de l'Union. Le Sénat a examiné cette proposition dans une proposition de résolution de novembre 2012.",
+    "resultat": "Aucune règle européenne de réciprocité sociale et environnementale dans les échanges n'apparaît dans les sources consultées. L'instrument proposé en 2012 porte sur la réciprocité d'accès aux marchés publics, pas sur les normes sociales ou environnementales.",
+    "justification": "La promesse dépend de l'Union européenne et son contenu (quelles règles, pour quels échanges) n'est pas défini dans le programme. Les sources consultées documentent un instrument voisin sur l'accès aux marchés publics, mais aucune n'établit ce qui aurait satisfait cette promesse précise ni ce qui a été obtenu. Le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-21",
+        "description": "Rapport du Sénat sur la proposition de résolution relative à la réciprocité dans l'ouverture des marchés publics (proposition de la Commission du 26 mars 2012).",
+        "url": "https://www.senat.fr/rap/l12-140/l12-140_mono.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Proposition de résolution sur la réciprocité dans l'ouverture des marchés publics (E 7237)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l12-140/l12-140_mono.html",
+        "date": "2012-11-21",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-13-concurrence-deloyale",
+    "numero": 13,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Faire obstacle à la concurrence déloyale par une nouvelle politique commerciale européenne",
+    "extraitProgramme": "Je proposerai également une nouvelle politique commerciale pour faire obstacle à toute forme de concurrence déloyale",
+    "reformulation": "La France devait proposer à l'Union européenne une politique commerciale plus protectrice contre les pratiques déloyales de pays tiers.",
+    "pageProgramme": "n° 13",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La Commission a proposé en avril 2013 la modernisation des instruments de défense commerciale (antidumping et antisubventions). Selon la direction générale du Trésor, la France a été source de propositions pour un renforcement de ces instruments.",
+    "resultat": "Les désaccords, notamment sur la règle du droit moindre, ont duré au-delà du mandat : un accord entre les institutions européennes n'a été finalisé qu'en décembre 2017, avec un règlement attendu avant l'été 2018.",
+    "justification": "La promesse consiste à proposer et à défendre une politique à l'échelle européenne. La réforme des instruments de défense commerciale était lancée et portée par la France, mais elle n'était pas adoptée le 13 mai 2017. Le statut « en cours » retient ce qui avait été engagé, sans préjuger de la portée de la réforme finale.",
+    "interpretations": "Le programme parle d'une « nouvelle politique commerciale » sans la définir. Une lecture large y inclurait tous les accords et outils commerciaux de l'Union ; la lecture retenue se limite aux instruments de défense commerciale, seule initiative documentée dans les sources consultées.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-04-01",
+        "description": "Proposition de la Commission européenne de modernisation des instruments de défense commerciale (avril 2013).",
+        "url": "https://www.tresor.economie.gouv.fr/Articles/2018/01/01/les-instruments-de-defense-commerciale-de-l-union-europeenne"
+      },
+      {
+        "date": "2017-12-01",
+        "description": "Accord entre les institutions européennes sur la réforme (décembre 2017).",
+        "url": "https://www.tresor.economie.gouv.fr/Articles/2018/01/01/les-instruments-de-defense-commerciale-de-l-union-europeenne"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Les instruments de défense commerciale de l'Union européenne",
+        "organisme": "Direction générale du Trésor",
+        "url": "https://www.tresor.economie.gouv.fr/Articles/2018/01/01/les-instruments-de-defense-commerciale-de-l-union-europeenne",
+        "date": "2018-01-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-13-contribution-climat-frontieres",
+    "numero": 13,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Instaurer une contribution climat-énergie aux frontières de l'Europe",
+    "extraitProgramme": "Une contribution climat-énergie aux frontières de l’Europe viendra compléter cette stratégie.",
+    "reformulation": "Les produits importés dans l'Union européenne devaient supporter une contribution liée à leur contenu en carbone.",
+    "pageProgramme": "n° 13",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Selon le site de suivi Lui Président, la France a proposé en juillet 2013 un mécanisme obligeant les importateurs de produits manufacturés à restituer des quotas carbone, et a continué à le défendre auprès de ses partenaires en 2014. Aucun mécanisme européen n'a été adopté pendant le mandat.",
+    "resultat": "Le mécanisme d'ajustement carbone aux frontières de l'Union européenne a été établi par le règlement (UE) 2023/956 du 10 mai 2023, avec une période transitoire ouverte le 1er octobre 2023. Il n'existait donc pas à la fin du mandat en 2017.",
+    "justification": "Le mécanisme prévu par la promesse n'a été créé que six ans après la fin du mandat. L'initiative française de 2013 n'a pas abouti à un texte européen avant le 13 mai 2017. Les démarches de la France ne sont documentées ici que par un site de suivi, d'où une confiance moyenne sur le récit et haute sur l'absence de mécanisme.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2013-07-01",
+        "description": "Proposition française d'un mécanisme d'inclusion carbone pour les importateurs de produits manufacturés (juillet 2013), d'après un site de suivi.",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/contribution-climat-energie-aux-frontieres-leurope-taxe-carbone-181/"
+      },
+      {
+        "date": "2023-05-10",
+        "description": "Règlement (UE) 2023/956 établissant le mécanisme d'ajustement carbone aux frontières.",
+        "url": "https://eur-lex.europa.eu/FR/legal-content/summary/carbon-border-adjustment-mechanism.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Mécanisme d'ajustement carbone aux frontières",
+        "organisme": "EUR-Lex (Union européenne)",
+        "url": "https://eur-lex.europa.eu/FR/legal-content/summary/carbon-border-adjustment-mechanism.html",
+        "date": "2023-05-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Contribution climat-énergie aux frontières de l'Europe (taxe carbone)",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/contribution-climat-energie-aux-frontieres-leurope-taxe-carbone-181/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-13-parite-euro-g20",
+    "numero": 13,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Europe",
+    "titre": "Agir au G20 pour une parité plus équilibrée de l'euro face au dollar et au yuan",
+    "extraitProgramme": "pour une parité plus équilibrée de l’euro vis-à-vis du dollar américain et du yuan chinois",
+    "reformulation": "La France devait défendre au G20 un rééquilibrage des taux de change entre l'euro, le dollar et le yuan, dans le cadre d'un nouvel ordre monétaire international.",
+    "pageProgramme": "n° 13",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Selon le site de suivi Lui Président, François Hollande a dénoncé le 5 novembre 2012 la concurrence déloyale de la monnaie chinoise et demandé sa réévaluation, puis a lancé le 26 avril 2013 en Chine un dialogue économique et financier de haut niveau incluant l'internationalisation du yuan. Le renminbi est entré dans le panier des droits de tirage spéciaux du FMI le 1er octobre 2016.",
+    "resultat": "Aucun « nouvel ordre monétaire international » n'a été adopté. L'entrée du yuan dans le panier du FMI est une décision du conseil d'administration du FMI, sans lien établi par les sources consultées avec une initiative française.",
+    "justification": "L'objectif (une parité « plus équilibrée ») n'est pas chiffré et dépend de marchés de change et de décisions de tiers. Aucune source primaire n'attribue à une initiative de la France au G20 un résultat vérifiable. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-11-05",
+        "description": "Déclaration de François Hollande sur la concurrence déloyale de la monnaie chinoise, d'après un site de suivi.",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/proposer-nouvel-ordre-monetaire-international-182"
+      },
+      {
+        "date": "2016-10-01",
+        "description": "Entrée du renminbi dans le panier des droits de tirage spéciaux du FMI.",
+        "url": "https://www.imf.org/fr/News/Articles/2016/09/30/AM16-PR16440-IMF-Launches-New-SDR-Basket-Including-Chinese-Renminbi"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le FMI présente le nouveau panier du DTS incluant le renminbi et détermine les nouveaux montants de monnaie",
+        "organisme": "Fonds monétaire international",
+        "url": "https://www.imf.org/fr/News/Articles/2016/09/30/AM16-PR16440-IMF-Launches-New-SDR-Basket-Including-Chinese-Renminbi",
+        "date": "2016-09-30",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Proposer un nouvel ordre monétaire international",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/proposer-nouvel-ordre-monetaire-international-182",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-14-fusion-ir-csg",
+    "numero": 14,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Fusionner à terme l'impôt sur le revenu et la CSG dans un prélèvement simplifié",
+    "extraitProgramme": "la fusion à terme de l’impôt sur le revenu et de la CSG dans le cadre d’un prélèvement simplifié sur le revenu (PSR)",
+    "reformulation": "L'impôt sur le revenu et la contribution sociale généralisée devaient être réunis en un seul prélèvement.",
+    "pageProgramme": "n° 14",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le Conseil des prélèvements obligatoires a remis le 4 février 2015, à la demande de la commission des finances du Sénat, un rapport jugeant la fusion possible mais complexe et recommandant une complémentarité cohérente des deux régimes. Le Parlement a ensuite institué le prélèvement à la source de l'impôt sur le revenu par l'article 60 de la loi de finances pour 2017 (décision du Conseil constitutionnel du 29 décembre 2016).",
+    "resultat": "À la fin du mandat, l'impôt sur le revenu et la CSG restaient deux prélèvements distincts. Le prélèvement à la source institué en 2016 modifie le mode de recouvrement de l'impôt sur le revenu, sans le fusionner avec la CSG.",
+    "justification": "Aucun texte adopté pendant le mandat ne fusionne les deux prélèvements ni ne crée de prélèvement simplifié sur le revenu. Un site de suivi rapporte que le porte-parole du gouvernement a écarté toute fusion le 3 août 2016. La promesse disait « à terme » : le statut retient l'absence de réalisation à la fin du mandat.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2015-02-04",
+        "description": "Rapport du Conseil des prélèvements obligatoires « Impôt sur le revenu, CSG : quelles réformes ? ».",
+        "url": "https://www.ccomptes.fr/fr/publications/impot-sur-le-revenu-csg-quelles-reformes"
+      },
+      {
+        "date": "2016-12-29",
+        "description": "Décision du Conseil constitutionnel sur la loi de finances pour 2017, dont l'article 60 institue le prélèvement à la source de l'impôt sur le revenu.",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2016/2016744DC.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Impôt sur le revenu, CSG : quelles réformes ?",
+        "organisme": "Cour des comptes (Conseil des prélèvements obligatoires)",
+        "url": "https://www.ccomptes.fr/fr/publications/impot-sur-le-revenu-csg-quelles-reformes",
+        "date": "2015-02-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2016-744 DC du 29 décembre 2016, loi de finances pour 2017",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2016/2016744DC.htm",
+        "date": "2016-12-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Fusionner l'impôt sur le revenu et la CSG",
+        "organisme": "Lui Président",
+        "url": "https://www.luipresident.fr/francois-hollande/engagement/fusionner-limpot-sur-revenu-et-csg-183/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-14-part-securite-sociale",
+    "numero": 14,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Affecter une part du prélèvement simplifié aux organismes de sécurité sociale",
+    "extraitProgramme": "Une part de cet impôt sera affectée aux organismes de sécurité sociale.",
+    "reformulation": "Une fraction du futur prélèvement unique sur le revenu devait revenir aux organismes de sécurité sociale.",
+    "pageProgramme": "n° 14",
+    "statut": "non_realise",
+    "confiance": "basse",
+    "actionMenee": "Le prélèvement simplifié sur le revenu n'a pas été créé (voir la fiche sur la fusion de l'impôt sur le revenu et de la CSG). Le seul changement adopté est le prélèvement à la source de l'impôt sur le revenu, par l'article 60 de la loi de finances pour 2017.",
+    "resultat": "Aucune source consultée n'indique qu'une part de l'impôt sur le revenu ait été affectée à la sécurité sociale pendant le mandat.",
+    "justification": "La promesse porte sur « cet impôt », c'est-à-dire le prélèvement simplifié qui n'a pas existé : la mesure n'avait pas d'objet à la fin du mandat. La preuve est indirecte (absence du prélèvement), et aucune source ne décrit l'affectation de l'impôt sur le revenu en 2017, d'où une confiance basse.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2016-12-29",
+        "description": "Décision du Conseil constitutionnel sur la loi de finances pour 2017 (article 60, prélèvement à la source).",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2016/2016744DC.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Impôt sur le revenu, CSG : quelles réformes ?",
+        "organisme": "Cour des comptes (Conseil des prélèvements obligatoires)",
+        "url": "https://www.ccomptes.fr/fr/publications/impot-sur-le-revenu-csg-quelles-reformes",
+        "date": "2015-02-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décision n° 2016-744 DC du 29 décembre 2016, loi de finances pour 2017",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/en/decision/2016/2016744DC.htm",
+        "date": "2016-12-29",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2012-14-capital-comme-travail",
+    "numero": 14,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Imposer les revenus du capital comme ceux du travail",
+    "extraitProgramme": "Les revenus du capital seront imposés comme ceux du travail.",
+    "reformulation": "Les revenus du capital devaient être soumis au barème progressif de l'impôt sur le revenu, comme les salaires.",
+    "pageProgramme": "n° 14",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de finances pour 2013 (29 décembre 2012) a soumis au barème de l'impôt sur le revenu les plus-values de cession de valeurs mobilières et les revenus de placements à taux fixe, dans la limite de ce que le Conseil constitutionnel a validé dans sa décision du 29 décembre 2012.",
+    "resultat": "Les revenus du capital sont passés au barème progressif dès l'imposition des revenus de 2012, mais avec des dispositifs distincts de ceux du travail : les intérêts de moins de 2 000 euros par an pouvaient rester au prélèvement forfaitaire de 24 %, et le Conseil constitutionnel a censuré en partie les dispositions sur les dividendes, les obligations anonymes et les stock-options.",
+    "justification": "Le principe du barème progressif a été appliqué à une part importante des revenus du capital, mais pas à tous, et des régimes particuliers ont subsisté. L'alignement complet sur les revenus du travail n'est pas établi par les sources consultées, d'où « partiellement ».",
+    "interpretations": "« Imposés comme ceux du travail » peut se lire comme l'application du même barème (lecture retenue) ou comme un traitement fiscal strictement identique, cotisations comprises. Dans la seconde lecture, la mesure serait jugée plus incomplète.",
+    "verifieLe": "2026-09-19",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Décision du Conseil constitutionnel sur la loi de finances pour 2013 : plus-values soumises au barème, censure partielle sur les dividendes, obligations anonymes et stock-options.",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2012-662-dc-du-29-decembre-2012-communique-de-presse"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décision n° 2012-662 DC du 29 décembre 2012, communiqué de presse",
+        "organisme": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2012-662-dc-du-29-decembre-2012-communique-de-presse",
+        "date": "2012-12-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les nouvelles règles fiscales pour 2013",
+        "organisme": "La finance pour tous",
+        "url": "https://www.lafinancepourtous.com/2013/01/04/les-nouvelles-regles-fiscales-pour-2013/",
+        "date": "2013-01-04",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2012-15-tranche-45",
+    "numero": 15,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Créer une tranche d'impôt sur le revenu à 45 % au-dessus de 150 000 euros par part",
+    "extraitProgramme": "en créant une tranche supplémentaire de 45% pour les revenus supérieurs à 150 000 euros par part",
+    "reformulation": "Une tranche supplémentaire de l'impôt sur le revenu, au taux de 45 %, devait s'appliquer à la fraction de revenu supérieure à 150 000 euros par part de quotient familial.",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'article 3 de la loi de finances pour 2013 (loi n° 2012-1509 du 29 décembre 2012) a créé au barème progressif de l'impôt sur le revenu une tranche à 45 % pour la fraction de revenus supérieure à 150 000 euros par part de quotient familial.",
+    "resultat": "La tranche s'applique dès l'imposition des revenus de 2012, selon la doctrine fiscale publiée le 27 mars 2013.",
+    "justification": "Le taux et le seuil correspondent à ceux de l'engagement, et la mesure est inscrite dans la loi pour une application dès les revenus de 2012. La lecture directe du texte sur Légifrance n'a pas été possible ; le contenu est établi par la doctrine de l'administration fiscale (BOFiP) et recoupé par une deuxième source.",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Promulgation de la loi de finances pour 2013, dont l'article 3 crée la tranche à 45 %.",
+        "url": "https://bofip.impots.gouv.fr/bofip/8539-PGP.html/identifiant%3DACTU-2013-00080"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IR - Création d'une tranche d'imposition supplémentaire au taux de 45 % au barème progressif de l'impôt sur le revenu",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8539-PGP.html/identifiant%3DACTU-2013-00080",
+        "date": "2013-03-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi n° 2012-1509 du 29 décembre 2012 de finances pour 2013",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026856853",
+        "date": "2012-12-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les nouvelles règles fiscales pour 2013",
+        "organisme": "La finance pour tous",
+        "url": "https://www.lafinancepourtous.com/2013/01/04/les-nouvelles-regles-fiscales-pour-2013/",
+        "date": "2013-01-04",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 15"
+  },
+  {
+    "id": "2012-15-plafond-niches-10000",
+    "numero": 15,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Plafonner à 10 000 euros par an l'avantage tiré des niches fiscales",
+    "extraitProgramme": "nul ne pourra plus tirer avantage des « niches fiscales »",
+    "reformulation": "L'avantage d'impôt que chaque foyer pouvait tirer des niches fiscales devait être limité à 10 000 euros par an.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 73 de la loi de finances pour 2013 (loi n° 2012-1509 du 29 décembre 2012) a ramené de 18 000 à 10 000 euros la part forfaitaire du plafonnement global des avantages fiscaux et supprimé la part proportionnelle de 4 % du revenu imposable.",
+    "resultat": "Le plafond de 10 000 euros s'applique à l'imposition des revenus de 2013, pour les dépenses engagées à compter du 1er janvier 2013. Il peut atteindre 18 000 euros au total avec certains investissements outre-mer et souscriptions au capital de Sofica, et le dispositif Malraux en est exclu.",
+    "justification": "Le plafond général annoncé est en vigueur à 10 000 euros. Les exceptions (outre-mer, Sofica, Malraux) maintiennent des avantages au-delà de ce montant pour certains contribuables, ce que la formulation « nul ne pourra plus » ne prévoyait pas.",
+    "interpretations": "Lecture stricte : aucun avantage au-delà de 10 000 euros pour personne, auquel cas la mesure serait partielle. Lecture retenue : un plafond global de 10 000 euros, avec des régimes dérogatoires limités et plafonnés à 18 000 euros, correspond à l'engagement.",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Article 73 de la loi de finances pour 2013 : abaissement du plafonnement global de 18 000 à 10 000 euros (doctrine BOFiP du 4 juillet 2013).",
+        "url": "https://bofip.impots.gouv.fr/bofip/8764-PGP.html/identifiant=ACTU-2013-00172"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IR - Abaissement du plafonnement global de certains avantages fiscaux à l'impôt sur le revenu (article 73 de la loi n° 2012-1509 du 29 décembre 2012 de finances pour 2013)",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8764-PGP.html/identifiant=ACTU-2013-00172",
+        "date": "2013-07-04",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi n° 2012-1509 du 29 décembre 2012 de finances pour 2013",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026856853",
+        "date": "2012-12-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les nouvelles règles fiscales pour 2013",
+        "organisme": "La finance pour tous",
+        "url": "https://www.lafinancepourtous.com/2013/01/04/les-nouvelles-regles-fiscales-pour-2013/",
+        "date": "2013-01-04",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 15"
+  },
+  {
+    "id": "2012-16-ressources-politique-familiale",
+    "numero": 16,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Famille",
+    "titre": "Maintenir toutes les ressources affectées à la politique familiale",
+    "extraitProgramme": "Je maintiendrai toutes les ressources affectées à la politique familiale.",
+    "reformulation": "Les moyens financiers consacrés à la politique familiale ne devaient pas être réduits.",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le projet de loi de financement de la sécurité sociale pour 2015 a prévu des économies sur la branche famille : modulation des allocations familiales selon le revenu à partir du 1er juillet 2015 (390 millions d'euros), réforme du congé parental (70 millions) et harmonisation des dates de versement (60 millions), soit 520 millions d'euros selon l'avis du Sénat. Le même avis relève un transfert de 4,75 milliards d'euros de financement des aides au logement de la branche famille vers l'État.",
+    "resultat": "Des mesures d'économie sur les prestations familiales ont été prévues, mais aucune source consultée ne compare le total des ressources affectées à la politique familiale à la fin du mandat avec celui de 2012.",
+    "justification": "« Toutes les ressources » peut désigner les recettes de la branche famille, les dépenses de prestations ou le budget global, et les sources consultées ne permettent de chiffrer aucune de ces grandeurs sur l'ensemble du mandat. Le statut n'est donc pas tranché.",
+    "interpretations": "Lecture par les recettes : les cotisations et impositions affectées à la branche famille. Lecture par les prestations : le niveau des aides versées aux familles. Les économies et la modulation de 2015 pèsent sur la seconde lecture ; aucune source consultée n'établit la première.",
+    "actions": [
+      {
+        "date": "2014-11-05",
+        "description": "Avis du Sénat sur le projet de loi de financement de la sécurité sociale pour 2015 : économies sur la branche famille.",
+        "url": "https://www.senat.fr/rap/a14-084/a14-08427.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de financement de la sécurité sociale pour 2015, avis n° 84",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a14-084/a14-08427.html",
+        "date": "2014-11-05",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 16"
+  },
+  {
+    "id": "2012-16-quotient-familial-plafond",
+    "numero": 16,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Abaisser le plafond du quotient familial pour les ménages les plus aisés",
+    "extraitProgramme": "Je rendrai le quotient familial plus juste en baissant le plafond pour les ménages les plus aisés",
+    "reformulation": "Le plafond de l'avantage fiscal procuré par le quotient familial devait être abaissé, ce qui ne concernerait que les foyers les plus aisés.",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'article 4 de la loi de finances pour 2013 (loi n° 2012-1509 du 29 décembre 2012) a ramené de 2 336 à 2 000 euros l'avantage maximal par demi-part au titre des charges de famille. L'article 3 de la loi de finances pour 2014 (loi n° 2013-1278 du 29 décembre 2013) l'a ensuite ramené de 2 000 à 1 500 euros, à compter de l'imposition des revenus de 2013.",
+    "resultat": "Le plafond du quotient familial était de 1 500 euros par demi-part à la fin du mandat, contre 2 336 euros avant 2012.",
+    "justification": "La baisse du plafond a été votée dès 2012 puis renforcée en 2013. La promesse comportait aussi une estimation (moins de 5 % des foyers fiscaux concernés) que les sources consultées ne permettent pas de vérifier ; le statut porte sur la baisse du plafond.",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Article 4 de la loi de finances pour 2013 : plafond du quotient familial abaissé de 2 336 à 2 000 euros par demi-part.",
+        "url": "https://bofip.impots.gouv.fr/bofip/8584-PGP.html/identifiant=ACTU-2013-00149"
+      },
+      {
+        "date": "2013-12-29",
+        "description": "Article 3 de la loi de finances pour 2014 : plafond abaissé de 2 000 à 1 500 euros par demi-part.",
+        "url": "https://bofip.impots.gouv.fr/bofip/9323-PGP.html/identifiant=ACTU-2014-00095"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IR - Abaissement du plafond du quotient familial (article 4 de la loi n°2012-1509 de finances pour 2013) et autres précisions doctrinales",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8584-PGP.html/identifiant=ACTU-2013-00149",
+        "date": "2013-06-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "IR - Abaissement du plafond du quotient familial (article 3 de la loi n° 2013-1278 de finances pour 2014)",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/9323-PGP.html/identifiant=ACTU-2014-00095",
+        "date": "2014-03-26",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 16"
+  },
+  {
+    "id": "2012-17-isf-taux",
+    "numero": 17,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Revenir sur les allégements de l'impôt sur la fortune de 2011 en relevant les taux des plus gros patrimoines",
+    "extraitProgramme": "Je reviendrai sur les allégements de l’impôt sur la fortune institués en 2011 par la droite",
+    "reformulation": "Le barème de l'impôt de solidarité sur la fortune allégé en 2011 devait être remplacé par un barème plus élevé pour les plus gros patrimoines.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 13 de la loi de finances pour 2013 (loi n° 2012-1509 du 29 décembre 2012) a rétabli un barème de l'impôt de solidarité sur la fortune à taux progressifs, applicable à l'ISF dû à compter de 2013, avec un seuil d'imposition à 1,3 million d'euros et un plafonnement à 75 % des revenus.",
+    "resultat": "Le barème 2013 va de 0,5 % à 1,5 %, en remplacement des deux taux de 0,25 % et 0,50 % institués en 2011, selon La finance pour tous.",
+    "justification": "Le barème à deux taux de 2011 a été remplacé par un barème progressif dont le taux maximal est supérieur. Le taux de 1,5 % reste inférieur au taux maximal de 1,8 % antérieur à 2011 : il s'agit d'un retour partiel sur l'allégement. Le contenu du barème repose sur la doctrine fiscale (BOFiP) et une source de presse spécialisée.",
+    "interpretations": "« Revenir sur les allégements » peut se lire comme un retour au barème d'avant 2011 ou comme un relèvement des taux des plus gros patrimoines. Le programme précise « en relevant les taux d'imposition des plus gros patrimoines » ; c'est la seconde lecture, retenue ici.",
+    "actions": [
+      {
+        "date": "2012-12-29",
+        "description": "Article 13 de la loi de finances pour 2013 : réforme de l'impôt de solidarité sur la fortune, barème applicable dès 2013.",
+        "url": "https://bofip.impots.gouv.fr/bofip/8820-PGP.html/identifiant=ACTU-2013-00151"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "PAT - Réforme de l'impôt de solidarité sur la fortune (article 13 de la loi n° 2012-1509 du 29 décembre 2012 de finances pour 2013)",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/8820-PGP.html/identifiant=ACTU-2013-00151",
+        "date": "2013-06-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les nouvelles règles fiscales pour 2013",
+        "organisme": "La finance pour tous",
+        "url": "https://www.lafinancepourtous.com/2013/01/04/les-nouvelles-regles-fiscales-pour-2013/",
+        "date": "2013-01-04",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 17"
+  },
+  {
+    "id": "2012-17-abattement-successions",
+    "numero": 17,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Ramener l'abattement sur les successions à 100 000 euros par enfant",
+    "extraitProgramme": "L’abattement sur les successions sera ramené à 100 000 euros par enfant",
+    "reformulation": "L'abattement dont bénéficie chaque enfant lors d'une succession en ligne directe devait passer à 100 000 euros, sans remettre en cause l'exonération du conjoint survivant.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de finances rectificative pour 2012 (loi n° 2012-958 du 16 août 2012) a ramené l'abattement en ligne directe de 159 325 à 100 000 euros par enfant et par ascendant, pour les successions ouvertes à compter du 17 août 2012.",
+    "resultat": "L'abattement est de 100 000 euros par enfant à compter de la date de publication de la loi, selon la doctrine fiscale du 21 janvier 2013. Le rapport du Sénat sur le projet de loi indiquait que l'exonération du conjoint survivant n'était pas remise en cause.",
+    "justification": "Le montant de l'abattement correspond à l'engagement et s'applique depuis août 2012. Le maintien de l'exonération du conjoint survivant n'est établi ici que par le rapport du Sénat sur le projet, pas par une lecture du texte promulgué, d'où une confiance moyenne.",
+    "actions": [
+      {
+        "date": "2012-08-16",
+        "description": "Promulgation de la loi de finances rectificative pour 2012 : abattement en ligne directe ramené à 100 000 euros.",
+        "url": "https://bofip.impots.gouv.fr/bofip/3369-PGP.html/identifiant=BOI-ENR-DMTG-10-50-20-20130121"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "ENR - Mutations à titre gratuit - Successions - Tarifs et liquidation des droits - Abattements sur la part nette revenant à chaque ayant droit",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/3369-PGP.html/identifiant=BOI-ENR-DMTG-10-50-20-20130121",
+        "date": "2013-01-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances rectificative pour 2012 : rapport",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l11-689-1/l11-689-125.html",
+        "date": "2012-07-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2012-958 du 16 août 2012 de finances rectificative pour 2012",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000026288927",
+        "date": "2012-08-16",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 17"
+  },
+  {
+    "id": "2012-17-lutte-fraude-fiscale",
+    "numero": 17,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Fiscalité",
+    "titre": "Renforcer les moyens de lutter contre la fraude fiscale",
+    "extraitProgramme": "Je renforcerai les moyens de lutter contre la fraude fiscale.",
+    "reformulation": "L'État devait se doter de moyens juridiques et opérationnels accrus contre la fraude fiscale.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2013-1117 du 6 décembre 2013 relative à la lutte contre la fraude fiscale et la grande délinquance économique et financière a aggravé les peines pour fraude fiscale, doublé de trois à six ans le délai de prescription pénale et étendu les pouvoirs de la police fiscale. Elle a aussi créé un procureur de la République financier à compétence nationale.",
+    "resultat": "Ces dispositions sont entrées en vigueur début 2014. Aucune source consultée ne chiffre les moyens humains ou budgétaires supplémentaires affectés au contrôle fiscal.",
+    "justification": "La promesse est formulée en termes généraux. Une loi qui renforce les sanctions et crée une juridiction spécialisée répond à l'engagement dans son sens juridique ; la question des effectifs de contrôle, qui pourrait aussi relever de « moyens », n'a pas été documentée.",
+    "interpretations": "« Moyens » peut viser l'arsenal juridique (lecture retenue) ou les effectifs et budgets des services de contrôle, non établis par les sources consultées.",
+    "actions": [
+      {
+        "date": "2013-12-06",
+        "description": "Loi relative à la lutte contre la fraude fiscale et la grande délinquance économique et financière : sanctions renforcées, prescription portée à six ans.",
+        "url": "https://bofip.impots.gouv.fr/bofip/9976-PGP.html/identifiant=ACTU-2015-00135"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "CF - Mesures renforçant le dispositif pénal de répression de la fraude fiscale (loi n° 2013-1117 du 6 décembre 2013)",
+        "organisme": "BOFiP-Impôts (Direction générale des finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/9976-PGP.html/identifiant=ACTU-2015-00135",
+        "date": "2015-06-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2013-1117 du 6 décembre 2013 relative à la lutte contre la fraude fiscale et la grande délinquance économique et financière",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028278976",
+        "date": "2013-12-06",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 17"
+  },
+  {
+    "id": "2012-18-negociation-globale-retraites",
+    "numero": 18,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Retraites",
+    "titre": "Ouvrir dès l'été 2012 une négociation globale sur les retraites avec les partenaires sociaux",
+    "extraitProgramme": "Une négociation globale s’engagera dès l’été 2012 avec les partenaires sociaux",
+    "reformulation": "Une négociation avec les partenaires sociaux sur l'ensemble du système de retraite devait s'ouvrir dès l'été 2012.",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La feuille de route de la grande conférence sociale de juillet 2012 a prévu une Commission pour l'avenir des retraites, chargée de préparer les décisions à partir du diagnostic du Conseil d'orientation des retraites. Cette commission a remis son rapport le 14 juin 2013, et une phase de concertation avec les partenaires sociaux a suivi, avant la loi n° 2014-40 du 20 janvier 2014.",
+    "resultat": "La réforme a été précédée d'une concertation, mais celle-ci a suivi le rapport de juin 2013 et non l'été 2012. La loi de 2014 a allongé la durée de cotisation et laissé l'âge légal de départ inchangé.",
+    "justification": "Le processus a bien été lancé à l'été 2012, par la feuille de route de la conférence sociale, mais la concertation avec les partenaires sociaux sur le fond ne s'est tenue qu'à partir de 2013. L'engagement de calendrier n'est donc respecté qu'en partie.",
+    "interpretations": "Lecture stricte : une négociation globale ouverte en 2012, ce qui n'a pas eu lieu. Lecture large : un processus engagé à l'été 2012 par la conférence sociale, qui a abouti à une concertation puis à une loi. La lecture large fonde le statut « partiellement ».",
+    "actions": [
+      {
+        "date": "2013-06-14",
+        "description": "Remise au Premier ministre du rapport de la Commission pour l'avenir des retraites, prévue par la feuille de route de la conférence sociale de juillet 2012.",
+        "url": "https://www.cor-retraites.fr/reunions-du-cor/audition-mme-yannick-moreau-presidente-commission-pour-lavenir-retraites"
+      },
+      {
+        "date": "2014-01-20",
+        "description": "Promulgation de la loi garantissant l'avenir et la justice du système de retraites.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028493476"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Audition de Mme Yannick Moreau, présidente de la Commission pour l'avenir des retraites",
+        "organisme": "Conseil d'orientation des retraites",
+        "url": "https://www.cor-retraites.fr/reunions-du-cor/audition-mme-yannick-moreau-presidente-commission-pour-lavenir-retraites",
+        "date": "2013-06-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2014-40 du 20 janvier 2014 garantissant l'avenir et la justice du système de retraites",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028493476",
+        "date": "2014-01-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Examen du projet de loi garantissant l'avenir et la justice du système de retraites",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201310/examen-du-projet-de-loi-garantissant-lavenir-et-la-justice-du-systeme-de-retraites.html",
+        "date": "2013-10-09",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 18"
+  },
+  {
+    "id": "2012-18-penibilite",
+    "numero": 18,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Retraites",
+    "titre": "Prendre en compte la pénibilité dans le système de retraite",
+    "extraitProgramme": "la prise en compte de la pénibilité",
+    "reformulation": "Le système de retraite devait tenir compte de la pénibilité du travail.",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2014-40 du 20 janvier 2014 garantissant l'avenir et la justice du système de retraites a institué un compte personnel de prévention de la pénibilité, qui permet d'acquérir des droits à la formation, au temps partiel ou à un départ anticipé.",
+    "resultat": "Le projet de loi présenté au Sénat en octobre 2013 comportait ce compte. Selon une source de recoupement, il est entré en vigueur pour une partie des facteurs d'exposition au 1er janvier 2015.",
+    "justification": "La loi promulguée a institué le compte personnel de prévention de la pénibilité. La promesse cite la pénibilité parmi les sujets de la négociation sans préciser la mesure attendue ; la création d'un dispositif dédié est retenue comme sa mise en oeuvre.",
+    "interpretations": "Le programme ne dit pas si la pénibilité devait ouvrir un droit à départ anticipé à taux plein. Le compte y donne accès sous conditions de points ; la lecture retenue est que l'engagement portait sur la reconnaissance de la pénibilité, non sur un âge de départ particulier.",
+    "actions": [
+      {
+        "date": "2014-01-20",
+        "description": "Promulgation de la loi instituant le compte personnel de prévention de la pénibilité.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028493476"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2014-40 du 20 janvier 2014 garantissant l'avenir et la justice du système de retraites",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028493476",
+        "date": "2014-01-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Examen du projet de loi garantissant l'avenir et la justice du système de retraites",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201310/examen-du-projet-de-loi-garantissant-lavenir-et-la-justice-du-systeme-de-retraites.html",
+        "date": "2013-10-09",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 18"
+  },
+  {
+    "id": "2012-18-reforme-dependance",
+    "numero": 18,
+    "couvreTout": false,
+    "mandatId": "hollande-2012-2017",
+    "theme": "Retraites",
+    "titre": "Engager une réforme de la dépendance pour mieux accompagner la perte d'autonomie",
+    "extraitProgramme": "J’engagerai aussi une réforme de la dépendance",
+    "reformulation": "Une réforme devait améliorer l'accompagnement des personnes âgées en perte d'autonomie.",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2015-1776 du 28 décembre 2015 relative à l'adaptation de la société au vieillissement a été publiée au Journal officiel le 29 décembre 2015 et est entrée en vigueur le 1er janvier 2016.",
+    "resultat": "Elle relève les plafonds de l'allocation personnalisée d'autonomie à domicile, exonère de participation les bénéficiaires dont les ressources sont inférieures à 800 euros, crée un droit au répit pour les aidants et s'appuie sur la contribution additionnelle de solidarité pour l'autonomie, soit environ 700 millions d'euros par an.",
+    "justification": "La promesse est d'engager une réforme de la dépendance, et une loi dédiée a été promulguée puis appliquée avant la fin du mandat. Le programme n'annonçait ni le montant ni le mode de financement.",
+    "interpretations": "Certains attendaient une réforme de financement d'un « cinquième risque » de la sécurité sociale ; la promesse ne l'énonce pas, et la lecture retenue est celle du texte.",
+    "actions": [
+      {
+        "date": "2015-12-28",
+        "description": "Promulgation de la loi relative à l'adaptation de la société au vieillissement (entrée en vigueur le 1er janvier 2016).",
+        "url": "https://www.pour-les-personnes-agees.gouv.fr/actualites/la-loi-relative-a-l-adaptation-de-la-societe-au-vieillissement"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "La loi relative à l'adaptation de la société au vieillissement",
+        "organisme": "Portail national pour les personnes âgées (CNSA)",
+        "url": "https://www.pour-les-personnes-agees.gouv.fr/actualites/la-loi-relative-a-l-adaptation-de-la-societe-au-vieillissement",
+        "date": "2015-12-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2015-1776 du 28 décembre 2015 relative à l'adaptation de la société au vieillissement",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031700731",
+        "date": "2015-12-28",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20",
+    "pageProgramme": "n° 18"
+  }
+]
