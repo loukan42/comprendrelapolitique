@@ -1,0 +1,1199 @@
+[
+  {
+    "id": "2017-4-emploi-famille-elus",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Démocratie",
+    "titre": "Interdire aux élus d'embaucher des membres de leur famille",
+    "extraitProgramme": "Nos futurs élus auront l’interdiction absolue d’embaucher des membres de leur famille dans leur équipe.",
+    "reformulation": "Les élus ne pourront plus employer de proches dans leur équipe de collaborateurs.",
+    "pageProgramme": "chapitre 4",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi ordinaire n° 2017-1339 et la loi organique n° 2017-1338 pour la confiance dans la vie politique, promulguées le 15 septembre 2017, interdisent l'emploi de membres de la famille par les membres du gouvernement, les parlementaires et les exécutifs locaux.",
+    "resultat": "Pour un exécutif local, l'emploi d'un proche comme collaborateur est puni de trois ans d'emprisonnement et de 45 000 euros d'amende, avec nullité du contrat.",
+    "justification": "L'engagement visait les élus du mouvement. La loi va plus loin en imposant l'interdiction à tous les parlementaires, ministres et exécutifs locaux, avec des sanctions. Le texte de la loi ordinaire a été lu sur Légifrance (articles 11, 13 et 15), recoupé par le Sénat et une agence technique départementale.",
+    "interpretations": "La promesse est formulée pour « nos futurs élus », donc pour le mouvement. Elle est retenue comme réalisée parce que la règle est devenue légale et générale ; une lecture stricte, limitée aux seuls élus du mouvement, aboutit au même statut puisque la loi les couvre.",
+    "actions": [
+      {
+        "date": "2017-09-15",
+        "description": "Promulgation de la loi organique n° 2017-1338 et de la loi n° 2017-1339 pour la confiance dans la vie politique",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000035567974"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2017-1339 du 15 septembre 2017 pour la confiance dans la vie politique",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000035567974",
+        "date": "2017-09-15",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rétablir la confiance dans la vie politique",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201706/retablir-la-confiance-dans-la-vie-politique.html",
+        "date": "2017-07-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Lois pour la confiance dans la vie politique : les mesures concernant les élus locaux",
+        "organisme": "Haute-Garonne Ingénierie, agence technique départementale",
+        "url": "https://atd31.fr/fr/base-doc/vie-politique/financement-de-la-vie-politique/lois-pour-la-confiance-dans-la-vie-politique-les-mesures-concernant-les-elus-locaux-loi-organique-n-2017-1338-et-loi-n-2017-1339-du-15-septembre-2017.html",
+        "date": "2017-09-15",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-4-egalite-salariale-publication",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Égalité femmes-hommes",
+    "titre": "Publier les noms des entreprises qui ne respectent pas l'égalité salariale",
+    "extraitProgramme": "Nous publierons les noms des entreprises qui ne respectent pas l’égalité salariale entre les femmes et les hommes.",
+    "reformulation": "Les entreprises en défaut sur l'égalité de rémunération entre femmes et hommes seront rendues publiques.",
+    "pageProgramme": "chapitre 4",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2018-771 du 5 septembre 2018 pour la liberté de choisir son avenir professionnel a créé l'index de l'égalité professionnelle, noté sur 100, que les entreprises d'au moins 50 salariés doivent publier, avec une obligation de corriger les écarts sous peine de pénalité financière. Selon le ministère chargé de l'égalité, les scores des entreprises de plus de 250 salariés sont publiés sur le site du ministère du Travail à partir de la campagne de mars 2021.",
+    "resultat": "Un score inférieur à 75 sur 100 déclenche l'obligation de correction. Parmi les entreprises de plus de 1 000 salariés, 19 % étaient sous ce seuil en 2019 et 4 % en 2020.",
+    "justification": "Une publication nominative des scores existe, mais elle porte sur l'ensemble des entreprises concernées et non sur une liste des seules entreprises en infraction, et l'extension aux plus de 250 salariés n'a débuté qu'en 2021. La publication par le ministère est établie par un communiqué officiel de novembre 2020 ; la page du ministère n'a pas été relue pour la campagne de 2021.",
+    "interpretations": "Deux lectures : une liste des entreprises « qui ne respectent pas » l'égalité salariale (non réalisée en tant que telle), ou la publication nominative des résultats de toutes les entreprises (réalisée pour les plus de 250 salariés). Le statut partiel reflète cet écart.",
+    "actions": [
+      {
+        "date": "2018-09-05",
+        "description": "Promulgation de la loi pour la liberté de choisir son avenir professionnel, qui crée l'index de l'égalité professionnelle",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660"
+      },
+      {
+        "date": "2020-11-04",
+        "description": "Annonce de la publication des scores des entreprises de plus de 250 salariés sur le site du ministère du Travail à partir de mars 2021",
+        "url": "https://www.egalite-femmes-hommes.gouv.fr/cp-egalite-professionnelle-entre-les-hommes-et-les-femmes"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-771 du 5 septembre 2018 pour la liberté de choisir son avenir professionnel",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660",
+        "date": "2018-09-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Index de l'égalité professionnelle entre les femmes et les hommes : les scores des entreprises de plus de 250 salariés publiés sur le site du ministère du Travail",
+        "organisme": "Ministère chargé de l'égalité entre les femmes et les hommes",
+        "url": "https://www.egalite-femmes-hommes.gouv.fr/cp-egalite-professionnelle-entre-les-hommes-et-les-femmes",
+        "date": "2020-11-04",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-4-egalite-salariale-controles",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Égalité femmes-hommes",
+    "titre": "Tester au hasard et massivement les entreprises sur l'égalité salariale",
+    "extraitProgramme": "Nous testerons au hasard, et massivement, les entreprises pour vérifier qu’elles respectent bien la loi en la matière.",
+    "reformulation": "Des contrôles aléatoires et nombreux vérifieront que les entreprises appliquent l'égalité salariale.",
+    "pageProgramme": "chapitre 4",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne fixe ni volume de contrôles ni échéance. La page du ministère du Travail sur les priorités de l'inspection du travail en 2019 n'a pas pu être lue (blocage d'accès automatisé) et aucun bilan chiffré de contrôles aléatoires de l'égalité salariale n'a été trouvé dans une source primaire. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-4-fraude-fiscale-sanctions",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Fiscalité",
+    "titre": "Alourdir les sanctions contre la fraude fiscale",
+    "extraitProgramme": "Nous alourdirons les sanctions contre la fraude fiscale.",
+    "reformulation": "Les sanctions encourues pour fraude fiscale seront durcies.",
+    "pageProgramme": "chapitre 4",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2018-898 du 23 octobre 2018 relative à la lutte contre la fraude crée notamment la publication de l'amende appliquée aux personnes morales pour fraude grave (article 18, à partir de 50 000 euros de droits fraudés, pendant un an au plus) et une sanction de 50 % des revenus tirés de la prestation pour les tiers qui facilitent intentionnellement la fraude, avec un minimum de 10 000 euros.",
+    "resultat": "Le dispositif de publication des sanctions et la sanction des complices sont en vigueur depuis la loi d'octobre 2018.",
+    "justification": "La promesse est qualitative mais la loi introduit des sanctions nouvelles ou aggravées. L'article 18 a été lu sur Légifrance. Les autres volets de la loi (aménagement du « verrou de Bercy ») n'ont pas été vérifiés directement et ne fondent pas ce statut.",
+    "actions": [
+      {
+        "date": "2018-10-23",
+        "description": "Promulgation de la loi relative à la lutte contre la fraude",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037518803"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-898 du 23 octobre 2018 relative à la lutte contre la fraude",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037518803",
+        "date": "2018-10-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 23 octobre 2018 relative à la lutte contre la fraude",
+        "organisme": "vie-publique.fr",
+        "url": "https://www.vie-publique.fr/loi/20796-loi-du-23-octobre-2018-lutte-contre-la-fraude",
+        "date": "2018-10-23",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-4-fraude-sociale-amplifiee",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Protection sociale",
+    "titre": "Amplifier la lutte contre la fraude aux prestations sociales",
+    "extraitProgramme": "La lutte contre la fraude aux prestations sociales sera amplifiée.",
+    "reformulation": "Les moyens de détection et de sanction de la fraude aux prestations sociales augmenteront.",
+    "pageProgramme": "chapitre 4",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est un principe sans mesure ni indicateur. La loi du 23 octobre 2018 contient des dispositions sur la fraude sociale (article 19 sur les tiers facilitateurs), mais rien dans le programme ne permet d'apprécier si la lutte a été « amplifiée » : aucun montant de fraude détectée ni bilan comparatif n'a été retenu comme source primaire. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-4-fraude-sociale-suspension",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Protection sociale",
+    "titre": "Suspendre la prestation en cas de fraude grave",
+    "extraitProgramme": "Une fraude grave entraînera désormais, en plus du remboursement, la suspension de la prestation.",
+    "reformulation": "Une fraude grave aux prestations sociales entraînerait la suspension de la prestation, en plus de son remboursement.",
+    "pageProgramme": "chapitre 4",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Aucune source primaire lue ne décrit, pour la période 2017-2022, une suspension de prestation automatique après fraude grave. Le seul texte trouvé qui traite de suspension conservatoire est un projet de loi de 2025-2026, hors mandat et qui ne décrit pas l'état du droit de 2022. Faute de preuve positive de l'état du droit à la fin du mandat, le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-4-taxe-geants-internet",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Fiscalité",
+    "titre": "Imposer les grands groupes de l'Internet sur leur chiffre d'affaires réalisé en France",
+    "extraitProgramme": "Nous imposerons les grands groupes de l’Internet sur leur chiffre d’affaires réalisé sur notre sol.",
+    "reformulation": "Les grandes entreprises du numérique paieront un impôt calculé sur leur chiffre d'affaires en France.",
+    "pageProgramme": "chapitre 4",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2019-759 du 24 juillet 2019 crée une taxe sur les services numériques au taux de 3 %, applicable depuis 2019 aux sommes encaissées pour certains services numériques rattachables à la France.",
+    "resultat": "Sont assujetties les entreprises dépassant 750 millions d'euros de chiffre d'affaires mondial et 25 millions d'euros en France sur les services taxables (publicité ciblée, mise en relation entre utilisateurs). Les ventes en ligne classiques et les contenus numériques sont exclus.",
+    "justification": "Une taxe assise sur le chiffre d'affaires réalisé en France par les grands groupes du numérique est en vigueur. Son périmètre est limité à deux catégories de services, ce qui ne retire pas la nature de l'impôt promis.",
+    "interpretations": "« Leur chiffre d'affaires réalisé sur notre sol » peut s'entendre comme tout le chiffre d'affaires en France (non réalisé : la taxe ne couvre que deux catégories de services) ou comme le chiffre d'affaires tiré de l'activité numérique visée par la promesse. La seconde lecture est retenue, car le programme parle des grands groupes de l'Internet.",
+    "actions": [
+      {
+        "date": "2019-07-24",
+        "description": "Promulgation de la loi portant création d'une taxe sur les services numériques et modification de la trajectoire de baisse de l'impôt sur les sociétés",
+        "url": "https://www.assemblee-nationale.fr/dyn/15/dossiers/creation_taxe_services_numeriques"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Taxe sur les services numériques et impôt sur les sociétés (taxe GAFA), dossier législatif",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/15/dossiers/creation_taxe_services_numeriques",
+        "date": "2019-07-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2019-759 du 24 juillet 2019 portant création d'une taxe sur les services numériques et modification de la trajectoire de baisse de l'impôt sur les sociétés, dossier législatif",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/dossierlegislatif/JORFDOLE000038203221/",
+        "date": "2019-07-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La taxe sur les services numériques",
+        "organisme": "LégiFiscal",
+        "url": "https://www.legifiscal.fr/impots-entreprises/taxes-diverses/taxes-chiffre-affaires/taxe-services-numeriques.html",
+        "date": "2019-07-24",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-4-optimisation-fiscale-europe",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Fiscalité",
+    "titre": "Faire de la lutte contre l'optimisation fiscale une priorité de l'action européenne",
+    "extraitProgramme": "Pour cela, la lutte contre l’optimisation fiscale sera une priorité de notre action européenne.",
+    "reformulation": "La France portera la lutte contre l'optimisation fiscale des grands groupes comme priorité au niveau de l'Union européenne.",
+    "pageProgramme": "chapitre 4",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est une orientation de politique étrangère sans mesure ni échéance. Aucune source primaire lue ne documente une proposition ou un résultat précis de la France sur ce sujet dans l'Union entre 2017 et 2022. Une taxe nationale sur les services numériques existe (fiche voisine), mais elle n'est pas rattachée ici à une action européenne.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-4-logement-social-points",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Logement",
+    "titre": "Attribuer les logements sociaux selon un système de points à critères objectifs",
+    "extraitProgramme": "Au lieu de procédures parfois opaques, nous mettrons en place un système de points, fondé sur des critères objectifs (taille de la famille, niveau des ressources, lieu de recherche).",
+    "reformulation": "Les demandes de logement social seront classées par un barème de points connu, avec information sur les chances et les délais.",
+    "pageProgramme": "chapitre 4",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La loi ELAN (article 111) a instauré la cotation des demandes de logement social. Le décret n° 2019-1378 du 17 décembre 2019 en fixe le cadre. Un décret du 30 juillet 2021 a reporté au 31 décembre 2021 l'échéance de mise en oeuvre pour les intercommunalités concernées.",
+    "resultat": "Le demandeur doit avoir accès aux critères de cotation, à son score, au délai moyen d'attente pour un logement comparable et aux effets d'un refus. Un report de l'échéance au 31 décembre 2023 était envisagé dans le projet de loi 3DS.",
+    "justification": "Le cadre légal et réglementaire existe depuis 2018-2019 et un calendrier obligatoire est fixé, mais la généralisation effective de la cotation n'était pas achevée à la fin du mandat, l'échéance ayant été repoussée. Le statut n'a pas été porté à « réalisé » faute de preuve d'un déploiement complet au 13 mai 2022.",
+    "actions": [
+      {
+        "date": "2019-12-17",
+        "description": "Décret n° 2019-1378 sur la cotation de la demande de logement social",
+        "url": "https://www.anil.org/aj-cotation-demande-logement-hlm/"
+      },
+      {
+        "date": "2021-07-30",
+        "description": "Décret n° 2021-1016 reportant au 31 décembre 2021 l'échéance de mise en oeuvre de la cotation",
+        "url": "https://www.anil.org/aj-cotation-demande-logement-hlm/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Cotation de la demande de logement social",
+        "organisme": "ANIL",
+        "url": "https://www.anil.org/aj-cotation-demande-logement-hlm/",
+        "date": "2021-07-30",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Cotation des demandes de logement social : le décret est paru",
+        "organisme": "Banque des Territoires",
+        "url": "https://www.banquedesterritoires.fr/cotation-des-demandes-de-logement-social-le-decret-est-paru",
+        "date": "2019-12-18",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-4-travail-detache-duree",
+    "numero": 4,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Travail",
+    "titre": "Limiter à un an la durée du détachement d'un travailleur et redéfinir les règles européennes",
+    "extraitProgramme": "Nous devrons limiter à un an la durée autorisée de séjour d’un travailleur détaché dans notre pays",
+    "reformulation": "La durée maximale du détachement d'un travailleur étranger en France serait de douze mois, et les règles européennes du détachement seraient revues.",
+    "pageProgramme": "chapitre 4",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La directive (UE) 2018/957 du 28 juin 2018 modifie la directive 96/71/CE : au-delà de 12 mois de détachement, prolongeables à 18 mois sur notification motivée du prestataire, l'ensemble des conditions de travail de l'État d'accueil s'applique au travailleur détaché, à quelques exceptions près.",
+    "resultat": "La directive est entrée en vigueur en juillet 2018, avec une transposition attendue au plus tard le 30 juillet 2020. Elle ne plafonne pas la durée du séjour : elle fait basculer le travailleur sous le droit du travail local après 12 mois.",
+    "justification": "La révision des règles européennes du détachement a été obtenue. En revanche la mesure n'est pas une limite de la durée de séjour à un an, et la durée peut passer à 18 mois. Le texte a été lu sur EUR-Lex.",
+    "interpretations": "« Limiter à un an la durée autorisée » peut se lire comme un plafond du détachement (non réalisé) ou comme la fin de la dérogation au droit local après un an (réalisé, avec possibilité de six mois de plus). La seconde lecture retient la substance de l'objectif contre la concurrence sociale déloyale, d'où le statut partiel.",
+    "actions": [
+      {
+        "date": "2018-06-28",
+        "description": "Adoption de la directive (UE) 2018/957 modifiant la directive 96/71/CE sur le détachement de travailleurs",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=CELEX%3A32018L0957"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Directive (UE) 2018/957 du Parlement européen et du Conseil du 28 juin 2018 modifiant la directive 96/71/CE concernant le détachement de travailleurs effectué dans le cadre d'une prestation de services",
+        "organisme": "EUR-Lex, Union européenne",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=CELEX%3A32018L0957",
+        "date": "2018-06-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Directive (UE) 2018/957 du Parlement européen et du Conseil du 28 juin 2018",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037170338/",
+        "date": "2018-07-09",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-policiers-gendarmes-10000",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Sécurité",
+    "titre": "Recruter 10 000 policiers et gendarmes supplémentaires",
+    "extraitProgramme": "Nous recruterons 10 000 policiers et gendarmes supplémentaires.",
+    "reformulation": "Les effectifs de la police et de la gendarmerie augmenteront de 10 000 postes.",
+    "pageProgramme": "chapitre 5",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un engagement de créer 10 000 emplois de sécurité intérieure sur 2018-2022 (7 500 police, 2 500 gendarmerie) a été inscrit aux lois de finances successives.",
+    "resultat": "Selon le rapport de la commission des finances du Sénat sur le projet de loi de finances pour 2023, 8 446 emplois de policiers et 2 083 emplois de gendarmes auront été créés entre 2017 et 2022, soit environ 10 500. Le projet de loi de finances pour 2022 comptait 9 583 postes créés de 2017 à 2021 et 946 recrutements prévus en 2022.",
+    "justification": "La promesse est un chiffre : le nombre de postes créés dépasse 10 000 sur la période comptée par le Sénat. Le décompte inclut l'année 2017 et porte sur des postes créés et non sur des effectifs réellement présents sur le terrain : mesurés en équivalents temps plein travaillés, les gains sont nettement inférieurs selon des vérifications journalistiques.",
+    "interpretations": "Deux lectures : des postes budgétaires créés (plus de 10 000, retenu car le programme dit « recruter ») ou des agents supplémentaires réellement présents (moins, en équivalents temps plein travaillés). Le statut suit la première lecture.",
+    "actions": [
+      {
+        "date": "2022-10-01",
+        "description": "Rapport de la commission des finances du Sénat sur le projet de loi de finances pour 2023, mission Sécurités : 8 446 emplois de policiers et 2 083 de gendarmes créés entre 2017 et 2022",
+        "url": "https://www.senat.fr/rap/l22-115-329-1/l22-115-329-1_mono.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2023 : Sécurités (Gendarmerie nationale - Police nationale - Sécurité et éducation routières)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l22-115-329-1/l22-115-329-1_mono.html",
+        "date": "2022-10-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Y a-t-il 10 000 policiers et gendarmes de plus sur le terrain depuis cinq ans, comme le dit Emmanuel Macron ?",
+        "organisme": "CheckNews, Libération",
+        "url": "https://defacto-observatoire.fr/Medias/CheckNews/Fact-checks/Y-a-t-il-10-000-policiers-et-gendarmes-de-plus-sur-le-terrain-depuis-cinq-ans-comme-le-dit-Emmanuel-Macron/",
+        "date": "2022-01-11",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Vrai ou fake : Emmanuel Macron a-t-il vraiment créé 10 000 postes de policiers et gendarmes ?",
+        "organisme": "franceinfo",
+        "url": "https://www.franceinfo.fr/economie/emploi/metiers/armee-et-securite/vrai-ou-fake-emmanuel-macron-a-t-il-vraiment-cree-10-000-postes-de-policiers-et-gendarmes_4915651.html",
+        "date": "2022-01-11",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-police-securite-quotidien",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Sécurité",
+    "titre": "Créer une police de sécurité quotidienne",
+    "extraitProgramme": "Nous créerons une police de sécurité quotidienne.",
+    "reformulation": "Une police de proximité sera mise en place, connaissant les lieux et les habitants qu'elle protège.",
+    "pageProgramme": "chapitre 5",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La police de sécurité du quotidien a été lancée le 8 février 2018, avec des quartiers de reconquête républicaine (QRR) dotés d'effectifs supplémentaires.",
+    "resultat": "Quinze QRR ont été créés en 2018 et trente autres en 2019, selon les publications du ministère de l'Intérieur relayées par la presse. Chaque QRR reçoit entre 15 et 30 policiers supplémentaires.",
+    "justification": "Le dispositif annoncé par la promesse existe depuis 2018 sous ce nom. Les pages du ministère de l'Intérieur n'ont pas pu être lues directement (accès refusé) : les dates et chiffres reposent sur les titres et résumés de ces pages relevés par la recherche et sur un article de presse. L'efficacité n'est pas évaluée.",
+    "actions": [
+      {
+        "date": "2018-02-08",
+        "description": "Lancement de la police de sécurité du quotidien",
+        "url": "https://www.interieur.gouv.fr/actualites/grands-dossiers/police-de-securite-du-quotidien/lancement-des-quartiers-de-reconquete"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Lancement des Quartiers de Reconquête Républicaine",
+        "organisme": "Ministère de l'Intérieur",
+        "url": "https://www.interieur.gouv.fr/actualites/grands-dossiers/police-de-securite-du-quotidien/lancement-des-quartiers-de-reconquete",
+        "date": "2018-09-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "« Police de sécurité du quotidien », « quartiers de reconquête républicaine » : de quoi parle-t-on ?",
+        "organisme": "Europe 1",
+        "url": "https://www.europe1.fr/societe/police-de-securite-du-quotidien-quartiers-de-reconquete-republicaine-de-quoi-parle-t-on-3758591",
+        "date": "2018-02-08",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-interdiction-quartier",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Sécurité",
+    "titre": "Permettre aux forces de l'ordre d'interdire à un délinquant de fréquenter un quartier",
+    "extraitProgramme": "sous le contrôle du juge, ils pourront interdire à une personne délinquante de fréquenter le quartier où elle a commis ses délits.",
+    "reformulation": "Policiers et gendarmes pourraient, avec l'accord d'un juge, écarter un délinquant du quartier où il agit.",
+    "pageProgramme": "chapitre 5",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La mesure aurait exigé une loi de procédure pénale. Aucun texte primaire lu ne la crée, mais aucune source officielle lue n'établit non plus l'état du droit à la fin du mandat ni l'abandon de la mesure. Des sites de suivi d'engagements la classent comme non tenue, ce qui ne constitue pas une preuve primaire : le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-5-incivilites-amendes",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Sécurité",
+    "titre": "Punir les incivilités d'amendes immédiates et dissuasives",
+    "extraitProgramme": "Ces incivilités seront punies d’amendes immédiates et dissuasives.",
+    "reformulation": "Le harcèlement des femmes, les insultes, les dégradations et les crachats donneront lieu à une amende sur le champ.",
+    "pageProgramme": "chapitre 5",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2018-703 du 3 août 2018 renforçant la lutte contre les violences sexuelles et sexistes crée l'outrage sexiste, contravention pouvant être sanctionnée par amende forfaitaire, de 90 à 750 euros selon les circonstances. Les premières verbalisations ont eu lieu dès septembre 2018.",
+    "resultat": "Le harcèlement de rue est puni d'une amende forfaitaire, constatable notamment par des agents de police municipale et de transports. Aucune des sources lues ne crée un dispositif équivalent pour les insultes, les dégradations du mobilier urbain ou les crachats.",
+    "justification": "Le volet du harcèlement des femmes est réalisé. Les autres incivilités citées (insultes, dégradations, crachats) n'ont pas été rattachées à une amende immédiate nouvelle dans les sources lues, d'où le statut partiel.",
+    "actions": [
+      {
+        "date": "2018-08-03",
+        "description": "Promulgation de la loi renforçant la lutte contre les violences sexuelles et sexistes, qui crée l'outrage sexiste",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037284450"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-703 du 3 août 2018 renforçant la lutte contre les violences sexuelles et sexistes",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037284450",
+        "date": "2018-08-03",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Lutte contre les violences sexuelles et sexistes",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201806/lutte-contre-les-violences-sexuelles-et-sexistes.html",
+        "date": "2018-08-03",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Outrage sexiste : la nouvelle infraction se met en place",
+        "organisme": "Banque des Territoires",
+        "url": "https://www.banquedesterritoires.fr/outrage-sexiste-la-nouvelle-infraction-se-met-en-place",
+        "date": "2018-10-02",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-peines-executees",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Justice",
+    "titre": "Exécuter toute peine prononcée",
+    "extraitProgramme": "Toute peine prononcée sera exécutée.",
+    "reformulation": "Aucune condamnation ne resterait sans exécution.",
+    "pageProgramme": "chapitre 5",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est un principe absolu sans indicateur. Aucun taux d'exécution des peines publié par le ministère de la Justice ou la Cour des comptes n'a été lu, et aucun texte n'est rattaché à cette phrase précise. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-5-prison-15000-places",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Justice",
+    "titre": "Construire 15 000 nouvelles places de prison",
+    "extraitProgramme": "Nous construirons 15 000 nouvelles places de prison.",
+    "reformulation": "La capacité carcérale augmentera de 15 000 places par des constructions nouvelles.",
+    "pageProgramme": "chapitre 5",
+    "statut": "en_cours",
+    "confiance": "haute",
+    "actionMenee": "Le programme immobilier pénitentiaire de 15 000 places a été lancé en 2018, avec une première tranche de 7 000 places prévue de 2018 à 2022 et le solde d'ici 2027.",
+    "resultat": "Selon le compte rendu par la chaîne parlementaire LCP de l'audition du garde des Sceaux, 2 441 places seulement étaient ouvertes fin 2022, contre 7 000 prévues pour la première tranche. Selon la Cour des comptes (audit de décembre 2025), 5 411 places nettes étaient livrées sept ans après le lancement, soit environ 35 % de l'objectif.",
+    "justification": "Le programme est officiel et engagé, mais la mesure n'est pas achevée à la fin du mandat : environ le tiers de la première tranche était livré, et l'objectif de 15 000 places est repoussé à 2027 au plus tôt. Le rapport d'information du Sénat de 2023 documente le calendrier de 7 000 places en 2022 et 15 000 en 2027.",
+    "actions": [
+      {
+        "date": "2018-03-06",
+        "description": "Lancement du plan de construction de 15 000 places de prison, dont 7 000 d'ici 2022",
+        "url": "https://www.senat.fr/rap/r23-037/r23-0373.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Plans de construction de quinze mille places de détention supplémentaires et de vingt centres éducatifs fermés",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r23-037/r23-0373.html",
+        "date": "2023-10-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le plan 15000 places de prison : une ambition forte, une concrétisation laborieuse",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse",
+        "date": "2025-12-17",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Prisons : Éric Dupond-Moretti réaffirme la création de 15.000 places à l'horizon 2027",
+        "organisme": "LCP Assemblée nationale",
+        "url": "https://lcp.fr/actualites/prisons-eric-dupond-moretti-reaffirme-la-creation-de-15000-places-a-l-horizon-2027",
+        "date": "2023-01-01",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-cyberdefense-priorite",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Défense",
+    "titre": "Confirmer la cyberdéfense et la cybersécurité comme priorités de sécurité nationale",
+    "extraitProgramme": "Nous confirmerons la cyberdéfense et la cybersécurité comme priorités de notre sécurité nationale.",
+    "reformulation": "La cyberdéfense et la cybersécurité seraient traitées comme des priorités de la sécurité nationale.",
+    "pageProgramme": "chapitre 5",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Une revue stratégique de cyberdéfense a été présentée par le SGDSN en février 2018. La loi n° 2018-607 du 13 juillet 2018 de programmation militaire 2019-2025 a doté la cyberdéfense de 1,6 milliard d'euros et de 1 000 cybercombattants supplémentaires, et élargi les pouvoirs de détection de l'ANSSI.",
+    "resultat": "L'objectif est d'atteindre 4 000 cybercombattants en 2025. Le rapport d'information du Sénat de 2019 relève cependant la difficulté de recruter des personnels très qualifiés.",
+    "justification": "La promesse est qualitative, mais elle est traduite dans une loi de programmation par des crédits et des postes dédiés, et par une doctrine publiée. Le statut porte sur la mise en priorité, pas sur l'atteinte des effectifs en 2025.",
+    "interpretations": "Le texte parle de « confirmer » une priorité : lecture retenue comme l'inscription de moyens dédiés dans la loi. Une lecture exigeant un résultat de sécurité mesuré ne peut pas être tranchée par les sources lues.",
+    "actions": [
+      {
+        "date": "2018-02-12",
+        "description": "Publication de la revue stratégique de cyberdéfense par le SGDSN",
+        "url": "https://www.sgdsn.gouv.fr/publications/revue-strategique-de-cyberdefense"
+      },
+      {
+        "date": "2018-07-13",
+        "description": "Promulgation de la loi de programmation militaire 2019-2025",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037192797"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Revue stratégique de cyberdéfense",
+        "organisme": "SGDSN",
+        "url": "https://www.sgdsn.gouv.fr/publications/revue-strategique-de-cyberdefense",
+        "date": "2018-02-12",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le devoir de souveraineté numérique",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r19-007-1/r19-007-17.html",
+        "date": "2019-10-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2018-607 du 13 juillet 2018 relative à la programmation militaire pour les années 2019 à 2025",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037192797",
+        "date": "2018-07-13",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-armees-2-pib",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Défense",
+    "titre": "Porter l'effort de défense à 2 % du PIB",
+    "extraitProgramme": "Nous mobiliserons 2% du PIB qui serviront à renouveler les avions ravitailleurs",
+    "reformulation": "Les dépenses de défense atteindraient 2 % du PIB, pour renouveler notamment les avions ravitailleurs, les blindés de l'armée de terre et la flotte de surface.",
+    "pageProgramme": "chapitre 5",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2018-607 du 13 juillet 2018 de programmation militaire 2019-2025 fixe l'objectif de 2 % du PIB en 2025 et programme 295 milliards d'euros sur 2019-2025, dont 197,8 milliards d'euros de crédits de la mission Défense pour 2019-2023 (35,9 milliards en 2019, 41 milliards en 2022).",
+    "resultat": "La loi finance les avions ravitailleurs MRTT, les blindés Scorpion et de nouvelles frégates. La trajectoire légale n'atteint 2 % du PIB qu'en 2025, soit après la fin du mandat.",
+    "justification": "Une loi de programmation est votée et exécutée depuis 2019, mais l'objectif chiffré de 2 % n'était pas atteint au 13 mai 2022 selon la trajectoire même de la loi. Le programme ne fixait pas d'échéance : le statut est donc « en cours » et non « non réalisé ». La part exacte du PIB en 2022 n'a pas été relevée dans une source primaire.",
+    "actions": [
+      {
+        "date": "2018-07-13",
+        "description": "Promulgation de la loi de programmation militaire 2019-2025, avec objectif de 2 % du PIB en 2025",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037192797"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-607 du 13 juillet 2018 relative à la programmation militaire pour les années 2019 à 2025",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037192797",
+        "date": "2018-07-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Programmation militaire pour les années 2019 à 2025",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201804/programmation-militaire-pour-les-annees-2019-a-2025.html",
+        "date": "2018-07-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le dossier de la Loi de programmation militaire 2019-2025",
+        "organisme": "Ministère des Armées",
+        "url": "https://www.defense.gouv.fr/loi-programmation-militaire-2019-2025/dossier-loi-programmation-militaire-2019-2025",
+        "date": "2018-07-13",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-etat-major-permanent",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Sécurité",
+    "titre": "Créer un état-major permanent de la sécurité intérieure, du renseignement et de la lutte contre le terrorisme",
+    "extraitProgramme": "Nous créerons un état-major permanent des opérations de sécurité intérieure, de renseignement et de lutte contre le terrorisme.",
+    "reformulation": "Une structure permanente placée auprès du Président coordonnerait sécurité intérieure, renseignement et lutte antiterroriste.",
+    "pageProgramme": "chapitre 5",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Un décret publié le 15 juin 2017 a créé, auprès du Président de la République, la coordination nationale du renseignement et de la lutte contre le terrorisme (CNRLT), dont fait partie le centre national de contre-terrorisme (CNCT).",
+    "resultat": "Selon l'Élysée, le coordonnateur dirige le CNCT, structure interministérielle réunissant services de renseignement, police judiciaire et services du ministère de la Justice.",
+    "justification": "Une structure permanente rattachée au Président et interministérielle a été créée dès juin 2017. Elle porte un autre nom que celui du programme. La participation des états-majors des ministères de l'Intérieur et de la Défense, et celle des transports, de la santé et de l'industrie, n'a pas été vérifiée dans une source primaire.",
+    "interpretations": "Deux lectures : un « état-major » au sens strict, associant les états-majors ministériels (non vérifié), ou une structure de coordination permanente auprès du Président (réalisée). La seconde est retenue, le programme visant la coordination rattachée au Président.",
+    "actions": [
+      {
+        "date": "2017-06-14",
+        "description": "Décret créant la CNRLT et le centre national de contre-terrorisme",
+        "url": "https://www.elysee.fr/en/national-intelligence-and-counter-terrorism-coordination"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "National Intelligence and Counter-Terrorism Coordination",
+        "organisme": "Élysée",
+        "url": "https://www.elysee.fr/en/national-intelligence-and-counter-terrorism-coordination",
+        "date": "2017-06-14",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-5-garde-frontieres-europeens",
+    "numero": 5,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Créer une force de 5 000 garde-frontières européens",
+    "extraitProgramme": "Nous agirons avec nos partenaires européens pour créer une force de 5000 garde-frontières européens.",
+    "reformulation": "L'Union européenne disposerait d'un corps de 5 000 garde-frontières chargé de protéger ses frontières extérieures.",
+    "pageProgramme": "chapitre 5",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Le règlement (UE) 2019/1896 relatif au corps européen de garde-frontières et de garde-côtes, adopté le 13 novembre 2019 et applicable depuis le 4 décembre 2019, crée un contingent permanent de 10 000 personnels opérationnels, à constituer progressivement d'ici 2027.",
+    "resultat": "Le corps permanent prévu dépasse le chiffre du programme, mais sa montée en puissance court jusqu'en 2027. L'effectif atteint à la fin du mandat n'a pas été relevé dans une source primaire.",
+    "justification": "Le texte européen créant la force existe et s'applique, ce qui répond à l'engagement d'agir avec les partenaires, mais la force n'était pas complète au 13 mai 2022. Sans effectif constaté à cette date, le statut est « en cours ».",
+    "actions": [
+      {
+        "date": "2019-11-13",
+        "description": "Adoption du règlement (UE) 2019/1896 sur le corps européen de garde-frontières et de garde-côtes",
+        "url": "https://eur-lex.europa.eu/FR/legal-content/summary/european-border-and-coast-guard.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Corps européen de garde-frontières et de garde-côtes",
+        "organisme": "EUR-Lex, Union européenne",
+        "url": "https://eur-lex.europa.eu/FR/legal-content/summary/european-border-and-coast-guard.html",
+        "date": "2019-11-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Frontex : 10 000 garde-frontières en 2027",
+        "organisme": "vie-publique.fr",
+        "url": "https://www.vie-publique.fr/en-bref/21996-frontex-10-000-garde-frontieres-en-2027",
+        "date": "2019-11-13",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-primaire-lire-ecrire-compter",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Faire de l'école primaire la priorité pour que tous les élèves sachent lire, écrire et compter en 6e",
+    "extraitProgramme": "Nous donnerons la priorité à l’école primaire pour que tous les élèves sachent lire, écrire et compter en arrivant en 6e.",
+    "reformulation": "L'école primaire serait prioritaire, avec pour résultat que tous les élèves maîtrisent les savoirs fondamentaux à l'entrée au collège.",
+    "pageProgramme": "chapitre 6",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "L'objectif « tous les élèves » est un résultat absolu sans indicateur ni échéance. Aucune source primaire lue (évaluations nationales de 6e, enquêtes internationales) n'a été retenue pour mesurer la maîtrise de la lecture, de l'écriture et du calcul à l'entrée en 6e en 2022. Les mesures du chapitre sur le dédoublement des classes sont traitées dans une fiche à part.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-6-autonomie-equipes-educatives",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Donner plus d'autonomie aux équipes éducatives",
+    "extraitProgramme": "Nous donnerons plus d’autonomie aux équipes éducatives.",
+    "reformulation": "Les équipes des écoles et établissements disposeraient de plus de marges de décision, en étant suivies et évaluées.",
+    "pageProgramme": "chapitre 6",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative, sans mesure identifiable ni échéance. Aucune source primaire lue ne décrit une réforme précise de l'autonomie des équipes éducatives entre 2017 et 2022 et n'est rattachée ici à cette phrase. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-6-prime-rep-plus",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Verser une prime annuelle de 3 000 euros nets aux enseignants des classes dédoublées en zone prioritaire",
+    "extraitProgramme": "Ces enseignants recevront une prime annuelle de 3000 euros nets.",
+    "reformulation": "Les enseignants des classes dédoublées de CP et CE1 en zone prioritaire toucheraient une prime annuelle de 3 000 euros nets.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'indemnité des personnels de l'éducation prioritaire renforcée (REP+) a été revalorisée par étapes : une première hausse à la rentrée 2018, une nouvelle revalorisation annoncée pour 2019-2020 (58,6 millions d'euros au budget 2020, selon le rapport du Sénat), puis une partie fixe de 5 114 euros bruts par an et une part modulable pouvant aller jusqu'à 702 euros bruts, fixées par arrêté du 28 juin 2021 à compter de septembre 2021.",
+    "resultat": "Cumulées depuis 2015, les hausses portent l'indemnité REP+ à 5 348 à 5 816 euros bruts par an avec la part modulable, ce qui représente une hausse de l'ordre de 3 000 euros nets par rapport à 2015 selon un syndicat d'enseignants. Une partie de la hausse dépend de la part modulable, versée selon des critères locaux.",
+    "justification": "Une prime est bien versée et revalorisée en plusieurs étapes jusqu'en 2021, mais le montant de 3 000 euros nets n'est atteint qu'en cumulant les hausses, en incluant la part modulable non garantie à tous, et le versement a été étalé sur plusieurs années. Les textes de 2018 et 2021 n'ont pas pu être lus directement : les montants proviennent d'un rapport du Sénat, de recherches sur l'arrêté de 2021 et d'une fiche syndicale, ce qui limite la confiance.",
+    "interpretations": "« Prime annuelle de 3 000 euros nets » peut désigner un montant versé en une fois (non réalisé) ou une hausse cumulée de l'indemnité REP+ de l'ordre de 3 000 euros nets (proche de la réalité en 2021, avec la part modulable). Le statut partiel tient compte des deux lectures.",
+    "actions": [
+      {
+        "date": "2015-08-28",
+        "description": "Décret instituant un régime indemnitaire spécifique pour les personnels des écoles et établissements REP et REP+",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031113279"
+      },
+      {
+        "date": "2021-06-28",
+        "description": "Arrêté fixant la partie fixe (5 114 euros) et la part modulable (702 euros au plus) de l'indemnité REP+ à compter de septembre 2021, d'après la fiche du syndicat SIES",
+        "url": "https://www.sies.fr/fiches_pratiques/indemnite_REP+.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2020 : Enseignement scolaire",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a19-145-3/a19-145-3_mono.html",
+        "date": "2019-11-21",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2015-1087 du 28 août 2015 portant régime indemnitaire spécifique en faveur des personnels exerçant dans les écoles ou établissements relevant des programmes REP+ et REP",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000031113279",
+        "date": "2015-08-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Indemnité REP+",
+        "organisme": "SIES, syndicat indépendant de l'éducation nationale",
+        "url": "https://www.sies.fr/fiches_pratiques/indemnite_REP+.htm",
+        "date": "2021-09-01",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-anciennete-enseignants-zones-prioritaires",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Affecter en zone prioritaire des enseignants ayant au moins trois ans d'ancienneté",
+    "extraitProgramme": "d’ici 2022, ceux affectés en zones prioritaires auront au moins 3 ans d’ancienneté.",
+    "reformulation": "Les enseignants des classes dédoublées en zone prioritaire auraient au moins trois ans d'expérience en 2022.",
+    "pageProgramme": "chapitre 6",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le résultat serait mesurable par l'ancienneté moyenne ou minimale des enseignants en éducation prioritaire, mais aucune statistique du ministère de l'Éducation nationale ni aucun rapport lu n'en fournit la valeur pour 2022. Le rapport du Sénat sur le budget 2020 note que les revalorisations bénéficient surtout aux personnels en fin de carrière, sans donner de chiffre sur l'ancienneté minimale. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-6-bilangues-europeen-grec-latin",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Rétablir les parcours bilangues, européens et l'enseignement du grec et du latin au collège",
+    "extraitProgramme": "Nous rendrons possible le rétablissement de parcours bi-langues au collège, de parcours européens et d’un véritable enseignement",
+    "reformulation": "Les collèges pourraient de nouveau proposer des classes bilangues, des parcours européens et des cours de latin et de grec.",
+    "pageProgramme": "chapitre 6",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'arrêté du 16 juin 2017 modifiant l'arrêté du 19 mai 2015 sur l'organisation des enseignements au collège, publié au Journal officiel du 18 juin 2017, est applicable dès la rentrée 2017.",
+    "resultat": "Le texte permet une seconde langue vivante dès la classe de 6e, un enseignement de langues et cultures européennes jusqu'à deux heures par semaine au cycle 4, et un enseignement optionnel des langues et cultures de l'Antiquité jusqu'à une heure en 6e et trois heures en 5e et 4e.",
+    "justification": "La promesse est un texte réglementaire : il est publié et en vigueur depuis la rentrée 2017. Le texte a été lu sur Légifrance.",
+    "actions": [
+      {
+        "date": "2017-06-16",
+        "description": "Arrêté modifiant l'arrêté du 19 mai 2015 relatif à l'organisation des enseignements dans les classes de collège",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000034952173"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Arrêté du 16 juin 2017 modifiant l'arrêté du 19 mai 2015 relatif à l'organisation des enseignements dans les classes de collège",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000034952173",
+        "date": "2017-06-18",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-accompagnement-apres-classe",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Proposer à tous un accompagnement après la classe",
+    "extraitProgramme": "Nous proposerons à tous un accompagnement après la classe.",
+    "reformulation": "Tous les élèves pourraient bénéficier d'un temps d'accompagnement scolaire après les cours.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le dispositif « Devoirs faits » est proposé, depuis novembre 2017, aux collégiens volontaires, ainsi qu'aux élèves de lycée professionnel et de 3e prépa-métiers, gratuitement pour les familles.",
+    "resultat": "Le dispositif s'adresse aux collèges et aux lycées professionnels, sur la base du volontariat. L'école primaire n'est pas visée par les sources lues.",
+    "justification": "Un accompagnement après la classe existe pour une partie des élèves, mais la promesse disait « à tous ». Les sources lues (un site académique) ne mentionnent ni l'école primaire ni un accompagnement général.",
+    "actions": [
+      {
+        "date": "2017-11-06",
+        "description": "Mise en place de « Devoirs faits » dans les collèges après les vacances de la Toussaint 2017",
+        "url": "https://pedagogie.ac-toulouse.fr/le-dispositif-devoirs-faits-au-college"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le dispositif « Devoirs faits » au collège",
+        "organisme": "Académie de Toulouse",
+        "url": "https://pedagogie.ac-toulouse.fr/le-dispositif-devoirs-faits-au-college",
+        "date": "2017-11-06",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-etudes-dirigees-college",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Rétablir au collège les études dirigées après la classe",
+    "extraitProgramme": "Au collège, nous rétablirons les études dirigées après la classe grâce à des bénévoles (étudiants et retraités).",
+    "reformulation": "Les collèges proposeraient de nouveau des études dirigées après les cours, encadrées notamment par des bénévoles.",
+    "pageProgramme": "chapitre 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le dispositif « Devoirs faits » est mis en place dans tous les collèges après les vacances de la Toussaint 2017 : un temps encadré, gratuit, pour faire ses devoirs sur place, pour les élèves volontaires.",
+    "resultat": "Les séances peuvent être animées par des enseignants, des assistants d'éducation, des volontaires du service civique et des associations partenaires.",
+    "justification": "La mesure centrale, un temps d'étude dirigée après la classe dans chaque collège, est en place depuis 2017. Les sources lues citent des associations et des volontaires du service civique comme encadrants, sans mentionner spécifiquement des retraités.",
+    "interpretations": "Deux lectures : l'étude dirigée elle-même (réalisée) ou le recours à des bénévoles étudiants et retraités (les sources lues citent enseignants, assistants d'éducation, service civique et associations). La première lecture est retenue.",
+    "actions": [
+      {
+        "date": "2017-11-06",
+        "description": "Lancement de « Devoirs faits » dans les collèges",
+        "url": "https://pedagogie.ac-toulouse.fr/le-dispositif-devoirs-faits-au-college"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le dispositif « Devoirs faits » au collège",
+        "organisme": "Académie de Toulouse",
+        "url": "https://pedagogie.ac-toulouse.fr/le-dispositif-devoirs-faits-au-college",
+        "date": "2017-11-06",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-bac-quatre-epreuves",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Réduire l'examen final du baccalauréat à quatre matières et valider les autres en contrôle continu",
+    "extraitProgramme": "Il y aura désormais 4 matières obligatoires à l’examen final. Les autres seront validées par un contrôle continu.",
+    "reformulation": "Le baccalauréat comporterait quatre épreuves finales obligatoires, les autres disciplines étant évaluées en cours d'année.",
+    "pageProgramme": "chapitre 6",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'arrêté du 16 juillet 2018 relatif aux épreuves du baccalauréat général à compter de la session 2021 fixe quatre épreuves terminales : philosophie, deux enseignements de spécialité et un oral de vingt minutes. Un coefficient de 40 est affecté à l'évaluation annuelle des résultats des élèves au cycle terminal pour les enseignements communs.",
+    "resultat": "La première session de la réforme a eu lieu en 2021. Le français, les mathématiques de tronc commun et les autres disciplines sont évalués par des épreuves anticipées ou en contrôle continu.",
+    "justification": "Le nombre de quatre épreuves finales terminales et le contrôle continu pour les autres disciplines correspondent à l'engagement. Les épreuves anticipées de français en classe de première s'ajoutent, ce qui ne contredit pas la promesse.",
+    "interpretations": "« Matières obligatoires à l'examen final » peut se lire comme quatre épreuves de terminale (retenu) ou quatre disciplines au total, sans les épreuves anticipées de français. La première lecture correspond au texte.",
+    "actions": [
+      {
+        "date": "2018-07-16",
+        "description": "Arrêté relatif aux épreuves du baccalauréat général à compter de la session de 2021",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037202834/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Arrêté du 16 juillet 2018 relatif aux épreuves du baccalauréat général à compter de la session de 2021",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037202834/",
+        "date": "2018-07-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2018-614 du 16 juillet 2018 modifiant les dispositions du code de l'éducation relatives aux enseignements conduisant au baccalauréat général",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037202561",
+        "date": "2018-07-16",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-universites-autonomie",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Enseignement supérieur",
+    "titre": "Permettre aux universités de recruter leurs enseignants et de définir leurs formations",
+    "extraitProgramme": "Elles pourront recruter leurs enseignants et définir leurs formations.",
+    "reformulation": "Les universités auraient la maîtrise de leurs recrutements d'enseignants et de leur offre de formation.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'ordonnance n° 2018-1131 du 12 décembre 2018 permet la création d'établissements publics expérimentaux, avec des dérogations au régime commun des établissements d'enseignement supérieur.",
+    "resultat": "Sept institutions avaient obtenu le statut de grand établissement dans ce cadre selon un rapport du Sénat de 2025. Ce rapport relève l'absence de véritables pouvoirs discrétionnaires des universités en matière de recrutement et d'offre de formation.",
+    "justification": "Un cadre de dérogation existe depuis 2018, mais il ne généralise pas aux universités la maîtrise de leurs recrutements et de leurs formations. L'état du droit à la fin du mandat n'est établi que par un rapport sénatorial publié en 2025, qui décrit la situation alors observée.",
+    "actions": [
+      {
+        "date": "2018-12-12",
+        "description": "Ordonnance relative à l'expérimentation de nouvelles formes de rapprochement, de regroupement ou de fusion des établissements d'enseignement supérieur et de recherche",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037800979"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Relations stratégiques entre l'État et les universités",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r25-058/r25-05825.html",
+        "date": "2025-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Ordonnance n° 2018-1131 du 12 décembre 2018 relative à l'expérimentation de nouvelles formes de rapprochement, de regroupement ou de fusion des établissements d'enseignement supérieur et de recherche",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037800979",
+        "date": "2018-12-12",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-places-filieres-pro-80000",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Enseignement supérieur",
+    "titre": "Ouvrir 80 000 places dans les filières professionnalisantes",
+    "extraitProgramme": "Nous ouvrirons 80 000 places dans les filières professionnalisantes.",
+    "reformulation": "L'enseignement supérieur offrirait 80 000 places de plus dans les formations professionnalisantes courtes.",
+    "pageProgramme": "chapitre 6",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le Plan étudiants lancé fin 2017 prévoit des places supplémentaires dans les filières en tension, mais aucune source primaire lue ne chiffre les places créées dans les filières professionnalisantes courtes entre 2017 et 2022. Un total de 84 000 places relevé dans une déclaration du Président en janvier 2022 n'est pas une source de bilan et n'a pas été vérifié. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2017-6-publication-resultats-insertion",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Enseignement supérieur",
+    "titre": "Faire publier par chaque lycée professionnel et université ses résultats d'insertion",
+    "extraitProgramme": "Nous demanderons à chaque lycée professionnel et université de publier ses résultats (débouchés, salaires, etc.) sur les 3 dernières années.",
+    "reformulation": "Chaque lycée professionnel et chaque université rendrait publics les débouchés et salaires de ses diplômés sur trois ans.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le système InserJeunes, présenté le 9 février 2021 en application de la loi n° 2018-771 du 5 septembre 2018, publie des indicateurs par établissement pour les lycées professionnels : taux d'emploi 6 mois après la sortie, poursuite d'études, taux de rupture de contrat. Le dispositif InserSup publie des indicateurs d'insertion par établissement d'enseignement supérieur (emploi salarié, salaire net médian).",
+    "resultat": "Pour les lycées professionnels, des indicateurs par établissement sont publiés depuis 2021. Pour l'enseignement supérieur, la date de première publication d'InserSup n'a pas pu être établie dans les sources lues.",
+    "justification": "La publication existe pour les lycées professionnels, sur des données administratives et non par déclaration de chaque établissement. Pour les universités, l'existence d'un dispositif d'ensemble est établie, mais sa mise en ligne avant le 13 mai 2022 ne l'est pas, d'où le statut partiel. L'exigence de trois années glissantes n'est pas vérifiée.",
+    "actions": [
+      {
+        "date": "2021-02-09",
+        "description": "Présentation du système InserJeunes en conférence de presse",
+        "url": "https://www.jeunes.gouv.fr/insertion-des-jeunes-apres-la-voie-professionnelle-547"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Insertion des jeunes après la voie professionnelle",
+        "organisme": "jeunes.gouv.fr",
+        "url": "https://www.jeunes.gouv.fr/insertion-des-jeunes-apres-la-voie-professionnelle-547",
+        "date": "2021-02-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "InserJeunes, voie professionnelle scolaire par établissement",
+        "organisme": "data.gouv.fr",
+        "url": "https://www.data.gouv.fr/datasets/inserjeunes-voie-professionnelle-scolaire-par-etablissement-relevant-du-ministere-de-leducation-nationale",
+        "date": "2021-02-09",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Insertion professionnelle des diplômés des établissements d'enseignement supérieur, dispositif InserSup",
+        "organisme": "data.gouv.fr",
+        "url": "https://www.data.gouv.fr/datasets/insertion-professionnelle-des-diplomes-des-etablissements-denseignement-superieur-dispositif-insersup",
+        "date": "2026-07-29",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-logements-jeunes-80000",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Logement",
+    "titre": "Construire 80 000 logements pour les jeunes",
+    "extraitProgramme": "Nous construirons 80 000 logements pour les jeunes.",
+    "reformulation": "80 000 logements seraient construits pour les jeunes, étudiants et jeunes actifs.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Un plan de 60 000 logements étudiants pour 2018-2022 a été engagé, piloté par une mission interministérielle créée en février 2018.",
+    "resultat": "Selon le rapport du Sénat sur le budget 2022, 4 973 places ont été livrées en 2018, 7 679 en 2019 et 9 207 en 2020, soit 21 859 places, et seules 35 926 places devaient être mises en service entre 2018 et 2022, un peu plus de la moitié de l'objectif de 60 000.",
+    "justification": "L'objectif chiffré (80 000 logements) n'est pas atteint : le plan effectivement suivi porte sur 60 000 logements étudiants et son résultat prévu est d'environ 36 000. Aucune source lue ne décrit de plan pour des logements de jeunes actifs qui compléteraient le chiffre. Le plan de logements étudiants est en outre distinct du chiffre du programme.",
+    "interpretations": "Le programme parle de « logements pour les jeunes » sans préciser. Le plan de 60 000 logements étudiants est retenu comme la traduction de l'engagement ; la différence avec 80 000 n'est documentée par aucune source lue.",
+    "actions": [
+      {
+        "date": "2020-12-01",
+        "description": "Réponse du gouvernement sur l'état du plan de 60 000 logements étudiants : 4 973 logements livrés en 2018, 7 679 en 2019",
+        "url": "https://questions.assemblee-nationale.fr/q15/15-32050QE.htm"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2022 : Recherche et enseignement supérieur",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l21-163-324/l21-163-3246.html",
+        "date": "2021-11-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question n°32050 : 60 000 logements étudiants d'ici 2022",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q15/15-32050QE.htm",
+        "date": "2020-12-01",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-bibliotheques-ouverture",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Culture",
+    "titre": "Ouvrir les bibliothèques en soirée et le week-end",
+    "extraitProgramme": "Nous ouvrirons les bibliothèques en soirée et le week-end.",
+    "reformulation": "Les bibliothèques élargiraient leurs horaires d'ouverture aux soirées et aux fins de semaine.",
+    "pageProgramme": "chapitre 6",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le rapport de la mission Orsenna a été remis le 20 février 2018 et le budget 2018 a prévu 8 millions d'euros supplémentaires de dotation pour aider les collectivités à étendre les horaires de leurs bibliothèques.",
+    "resultat": "Selon un bilan de deux députées repris par la presse spécialisée, 440 projets d'extension d'horaires avaient été soutenus en 2020, avec en moyenne 8 h 30 d'ouverture hebdomadaire de plus, pour environ 700 communes et 11 millions d'habitants. Les crédits ont été portés à 15 millions d'euros pour 2021-2022.",
+    "justification": "Un dispositif d'aide national existe et des extensions d'horaires sont financées, mais l'ouverture reste volontaire et concerne environ 700 communes sur un réseau d'environ 16 500 points d'accès. L'ouverture en soirée et le week-end n'est donc pas générale à la fin du mandat.",
+    "actions": [
+      {
+        "date": "2018-02-20",
+        "description": "Remise du rapport Orsenna « Voyage au pays des bibliothèques »",
+        "url": "https://www.culture.gouv.fr/actualites/Voyage-au-pays-des-bibliotheques-le-rapport-de-la-mission-Orsenna"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "« Voyage au pays des bibliothèques », le rapport de la mission Orsenna",
+        "organisme": "Ministère de la Culture",
+        "url": "https://www.culture.gouv.fr/actualites/Voyage-au-pays-des-bibliotheques-le-rapport-de-la-mission-Orsenna",
+        "date": "2018-02-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Trois ans après le rapport Orsenna, quels effets pour les bibliothèques ?",
+        "organisme": "ActuaLitté",
+        "url": "https://actualitte.com/article/99606/bibliotheque/trois-ans-apres-le-rapport-orsenna-quels-effets-pour-les-bibliotheques",
+        "date": "2021-02-20",
+        "institutionnelle": false
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  },
+  {
+    "id": "2017-6-culture-budget-maintenu",
+    "numero": 6,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Culture",
+    "titre": "Ne pas retirer un euro au budget du ministère de la Culture",
+    "extraitProgramme": "Nous ne retirerons pas un euro au budget du ministère de la Culture.",
+    "reformulation": "Le budget du ministère de la Culture ne diminuerait pas.",
+    "pageProgramme": "chapitre 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le budget du ministère de la Culture a progressé sur le quinquennat : selon le ministère, il atteint 4,083 milliards d'euros dans la loi de finances initiale pour 2022 (hors audiovisuel public), contre 3,805 milliards en 2021.",
+    "resultat": "Le ministère évalue à 507 millions d'euros, soit environ 15 %, la hausse des crédits depuis le début du quinquennat. La Cour des comptes constate, pour la mission Culture, une hausse des crédits après les années 2016 et 2017 marquées par des gels élevés.",
+    "justification": "Les crédits de la mission sont supérieurs en 2022 à leur niveau de 2017. Le décompte du ministère porte sur les lois de finances initiales, en euros courants et hors audiovisuel public ; une baisse annuelle isolée n'a pas été recherchée année par année.",
+    "interpretations": "« Ne pas retirer un euro » peut se lire comme l'absence de baisse en chaque année (non vérifiée ici année par année) ou comme un budget de fin de mandat supérieur à celui de début de mandat (établi par le ministère). La seconde lecture est retenue.",
+    "actions": [
+      {
+        "date": "2021-09-22",
+        "description": "Présentation du projet de loi de finances 2022 pour la culture : 4,083 milliards d'euros, +7,5 %",
+        "url": "https://www.culture.gouv.fr/actualites/Le-projet-de-loi-de-finances-2022-pour-la-culture"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le projet de loi de finances 2022 pour la culture",
+        "organisme": "Ministère de la Culture",
+        "url": "https://www.culture.gouv.fr/actualites/Le-projet-de-loi-de-finances-2022-pour-la-culture",
+        "date": "2021-09-22",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Analyse de l'exécution budgétaire 2022, mission Culture",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/sites/default/files/2023-10/NEB-2022-Culture.pdf",
+        "date": "2023-04-01",
+        "institutionnelle": true
+      }
+    ],
+    "verifieLe": "2026-09-20"
+  }
+]

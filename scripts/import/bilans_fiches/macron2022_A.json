@@ -1,0 +1,1182 @@
+[
+  {
+    "id": "2022-ecologie-taxe-carbone-frontieres",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Écologie",
+    "titre": "Mettre en place une taxe carbone aux frontières de l'Europe",
+    "extraitProgramme": "Parce que nous mettrons en place une taxe carbone écologique aux frontières de l’Europe",
+    "reformulation": "Faire payer aux importateurs le coût carbone de certains produits entrant dans l'Union européenne.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le règlement (UE) 2023/956 du 10 mai 2023 a créé le mécanisme d'ajustement carbone aux frontières (MACF). Sa phase de déclaration a commencé le 1er octobre 2023, et sa phase définitive le 1er janvier 2026.",
+    "resultat": "Depuis le 1er janvier 2026, les importateurs d'acier, d'aluminium, de ciment, d'engrais azotés, d'hydrogène et d'électricité (au-delà de 50 tonnes par an) doivent être déclarants agréés. L'achat des certificats carbone est prévu à partir de février 2027, pour les émissions importées en 2026.",
+    "justification": "Le dispositif est en application depuis le 1er janvier 2026 et couvre six catégories de produits, ce qui correspond à la mesure annoncée. Il est décidé au niveau européen et non par la seule France. Le mandat n'étant pas terminé, le premier paiement effectif de certificats reste à venir.",
+    "interpretations": "Le programme parle d'une « taxe » ; le texte européen crée un mécanisme de certificats et non une taxe au sens fiscal. La lecture retenue est celle d'un prix du carbone appliqué aux importations, qui est l'objet de la promesse.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-10-01",
+        "description": "Début de la phase transitoire de déclaration du MACF.",
+        "url": "https://www.douane.gouv.fr/fiche/comprendre-le-mecanisme-dajustement-carbone-aux-frontieres"
+      },
+      {
+        "date": "2026-01-01",
+        "description": "Entrée dans la phase définitive du MACF.",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/mecanisme-dajustement-carbone-aux-frontieres-macf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Mécanisme d'Ajustement Carbone aux Frontières (MACF)",
+        "organisme": "Ministère de la Transition écologique",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/mecanisme-dajustement-carbone-aux-frontieres-macf",
+        "date": "2026-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Comprendre le mécanisme d'ajustement carbone aux frontières",
+        "organisme": "Douane française",
+        "url": "https://www.douane.gouv.fr/fiche/comprendre-le-mecanisme-dajustement-carbone-aux-frontieres",
+        "date": "2026-01-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-travail-contrepartie-activite",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Travail",
+    "titre": "Conditionner le RSA à une activité d'insertion",
+    "extraitProgramme": "en contrepartie de la justification d’une activité d’insertion pour les percevoir",
+    "reformulation": "Demander aux bénéficiaires d'aides sociales une activité d'insertion en échange de l'aide.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi pour le plein emploi, promulguée le 18 décembre 2023 (loi n° 2023-1196), inscrit automatiquement les bénéficiaires du RSA à France Travail et les soumet à un contrat d'engagement comportant une cible de 15 heures d'activité hebdomadaires. Elle crée des sanctions dites de « suspension-remobilisation ».",
+    "resultat": "L'accompagnement renforcé s'applique à tous les bénéficiaires du RSA depuis le 1er janvier 2025, après une expérimentation dans des départements pilotes.",
+    "justification": "L'activité d'insertion contre le versement du RSA est en vigueur sur tout le territoire. La promesse parle des « aides sociales » en général, or seul le RSA est concerné : la mesure vise l'aide à laquelle le programme pensait en priorité. Les 15 heures sont une cible adaptable ou exemptable selon la situation de la personne.",
+    "interpretations": "Lecture large : toutes les aides sociales seraient conditionnées, ce qui n'est pas le cas (allocations familiales, APL, prime d'activité restent sans contrepartie d'activité). Lecture retenue : la contrepartie d'activité pour le RSA, minimum social visé par le débat public de 2022.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-12-18",
+        "description": "Promulgation de la loi pour le plein emploi.",
+        "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-pour-le-plein-emploi.html"
+      },
+      {
+        "date": "2025-01-01",
+        "description": "Entrée en vigueur généralisée : inscription automatique à France Travail, contrat d'engagement, cible de 15 heures.",
+        "url": "https://www.francetravail.org/accueil/communiques/2024/les-evolutions-de-la-loi-pour-le-plein-emploi-qui-entrent-en-vigueur-en-janvier-2025.html?type=article"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi pour le plein emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-pour-le-plein-emploi.html",
+        "date": "2023-12-18",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les évolutions de la loi pour le plein emploi qui entrent en vigueur en janvier 2025",
+        "organisme": "France Travail",
+        "url": "https://www.francetravail.org/accueil/communiques/2024/les-evolutions-de-la-loi-pour-le-plein-emploi-qui-entrent-en-vigueur-en-janvier-2025.html?type=article",
+        "date": "2024-12-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-travail-versement-automatique",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Solidarités",
+    "titre": "Verser automatiquement et simplement les aides sociales",
+    "extraitProgramme": "le versement automatique et simplifé des aides sociales sera mis en place",
+    "reformulation": "Faire arriver les aides sociales sans que l'allocataire ait à les demander et à déclarer lui-même ses revenus.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La réforme « solidarité à la source » a introduit le montant net social sur les bulletins de paie le 1er février 2024, puis le pré-remplissage des déclarations trimestrielles de ressources : le 1er mars 2025 pour les allocataires des CAF, le 1er juillet 2025 pour la prime d'activité à la MSA, le 1er septembre 2025 pour le RSA à la MSA.",
+    "resultat": "Le RSA et la prime d'activité (plus de 6 millions de personnes) bénéficient d'une déclaration pré-remplie qu'il faut vérifier et valider. Le versement lui-même n'est pas devenu automatique, et l'APL n'est pas encore concernée dans les sources consultées.",
+    "justification": "Une partie significative du dispositif est en place (déclaration pré-remplie), mais le versement sans démarche ni validation de l'allocataire n'est pas atteint. Le mandat n'étant pas terminé, la réforme peut encore s'étendre. La page ministérielle consultée date de septembre 2025 et ne décrit pas l'état de 2026.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2025-03-01",
+        "description": "Pré-remplissage des déclarations trimestrielles de ressources pour les allocataires des CAF.",
+        "url": "https://solidarites.gouv.fr/solidarite-la-source-une-reforme-cle-pour-lacces-aux-droits"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Solidarité à la source : une réforme clé pour l'accès aux droits",
+        "organisme": "Ministère du Travail et des Solidarités",
+        "url": "https://solidarites.gouv.fr/solidarite-la-source-une-reforme-cle-pour-lacces-aux-droits",
+        "date": "2025-09-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-travail-plein-emploi",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Travail",
+    "titre": "Atteindre le plein emploi",
+    "extraitProgramme": "Pour ramener le plus grand nombre sur le chemin du travail et atteindre le plein emploi",
+    "reformulation": "Faire baisser le chômage jusqu'à un niveau que le gouvernement qualifie de plein emploi.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La loi pour le plein emploi (18 décembre 2023) fixe l'objectif d'un taux de chômage de 5 % d'ici 2027 et crée France Travail à partir du 1er janvier 2024.",
+    "resultat": "Selon l'Insee, le taux de chômage au sens du BIT est de 8,3 % de la population active au deuxième trimestre 2026, en hausse de 0,7 point sur un an, contre 7,1 % lors du dépôt du projet de loi en 2023.",
+    "justification": "La promesse est un résultat chiffré, et le chiffre constaté est éloigné de l'objectif de 5 %. Le mandat court jusqu'en mai 2027 et la réforme est déployée, d'où le statut « en cours » plutôt que « non réalisé », qui exigerait une preuve d'abandon. Le seuil de 5 % vient du texte de loi, le programme ne chiffrant pas le plein emploi.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-12-18",
+        "description": "Promulgation de la loi pour le plein emploi et création de France Travail.",
+        "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-pour-le-plein-emploi.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 %",
+        "organisme": "Insee",
+        "url": "https://www.insee.fr/fr/statistiques/9032359",
+        "date": "2026-08-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi pour le plein emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-pour-le-plein-emploi.html",
+        "date": "2023-12-18",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-travail-compte-epargne-temps-universel",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Travail",
+    "titre": "Créer un compte épargne-temps universel pour les RTT et congés",
+    "extraitProgramme": "Il sera possible de placer ses RTT et jours de congés sur un compte",
+    "reformulation": "Permettre à tout salarié de mettre de côté ou de monétiser RTT et congés sur un compte portable.",
+    "pageProgramme": "message d'ouverture et pacte pour la production",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Le gouvernement a demandé aux partenaires sociaux de négocier un compte épargne-temps universel (CETU). Un accord national interprofessionnel a été signé le 23 avril 2024 par l'U2P, la CFDT et la CFTC, sans le Medef, la CPME, la CGT ni la CFE-CGC. Un rapport de l'IGAS a examiné le projet en 2024.",
+    "resultat": "Aucune loi de transposition n'a été adoptée d'après un article de juin 2026 : le dispositif n'existe pas en droit.",
+    "justification": "Un processus officiel a été lancé (négociation, accord minoritaire, rapport de l'IGAS), mais le compte n'est pas créé. Le projet ne semble ni adopté ni abandonné officiellement, d'où « en cours » et une confiance moyenne : l'absence de loi est établie par une source de presse spécialisée, pas par un texte officiel. Le mandat n'est pas terminé.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-04-23",
+        "description": "Accord national interprofessionnel sur le compte épargne-temps universel, signé par l'U2P, la CFDT et la CFTC.",
+        "url": "https://www.franceinfo.fr/economie/emploi/compte-epargne-temps-universel-ce-que-contient-l-accord-conclu-entre-les-partenaires-sociaux-sur-le-cetu_6501566.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de création d'un compte épargne-temps universel",
+        "organisme": "IGAS",
+        "url": "https://igas.gouv.fr/sites/igas/files/2024-04/rapport_projet_creation_cetu.pdf",
+        "date": "2024-04-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Compte épargne temps universel : ce que contient l'accord conclu entre les partenaires sociaux",
+        "organisme": "franceinfo",
+        "url": "https://www.franceinfo.fr/economie/emploi/compte-epargne-temps-universel-ce-que-contient-l-accord-conclu-entre-les-partenaires-sociaux-sur-le-cetu_6501566.html",
+        "date": "2024-04-23",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Compte épargne temps universel (CETU) : où en est-on en 2026 ?",
+        "organisme": "blog-rh.com",
+        "url": "https://www.blog-rh.com/2026/06/compte-epargne-temps-universel-guide-rh-2026/",
+        "date": "2026-06-11",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-retraites-cumul-emploi-retraite",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Retraites",
+    "titre": "Mieux rémunérer le cumul emploi-retraite",
+    "extraitProgramme": "le cumul emploi-retraite pour ceux qui le souhaitent sera bien mieux rémunéré",
+    "reformulation": "Faire de la reprise d'activité par un retraité une source de droits à pension supplémentaires.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 26 de la loi n° 2023-270 du 14 avril 2023 de financement rectificative de la sécurité sociale pour 2023 ouvre, à compter du 1er septembre 2023, un droit à une seconde pension pour les retraités en cumul emploi-retraite intégral. Le décret n° 2023-753 du 10 août 2023 en précise l'application.",
+    "resultat": "Les cotisations vieillesse versées à partir du 1er janvier 2023 génèrent de nouveaux droits, avec une seconde pension plafonnée à 5 % du plafond annuel de la sécurité sociale, soit 2 199,60 euros en 2023.",
+    "justification": "La mesure existe et change la rémunération du cumul, qui ne créait auparavant aucun droit. Le programme ne dit pas comment « mieux rémunérer », et la confiance reste moyenne parce que la lecture retenue (nouveaux droits) n'est pas la seule possible.",
+    "interpretations": "« Mieux rémunéré » peut se lire comme un gain de pension (retenu) ou comme un cumul sans plafond de revenus, ce que le texte de 2023 ne modifie pas.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-04-14",
+        "description": "Promulgation de la loi de financement rectificative de la sécurité sociale pour 2023, dont l'article 26 sur le cumul emploi-retraite.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047956389"
+      },
+      {
+        "date": "2023-08-10",
+        "description": "Décret n° 2023-753 portant application de l'article 26 relatif au cumul emploi retraite et à la retraite progressive.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047956389"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2023-753 du 10 août 2023 portant application de l'article 26 de la loi n° 2023-270 du 14 avril 2023 de financement rectificative de la sécurité sociale pour 2023 relatif au cumul emploi retraite et à la retraite progressive",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047956389",
+        "date": "2023-08-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Cumul emploi retraite : vous pourrez bénéficier de nouveaux droits à la retraite dès le 1er septembre 2023",
+        "organisme": "Previssima",
+        "url": "https://www.previssima.fr/actualite/cumul-emploi-retraite-vous-pourrez-beneficier-de-nouveaux-droits-a-la-retraite-des-le-1er-septembre-2023.html",
+        "date": "2023-08-11",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-retraites-carrieres-longues-incapacites",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Retraites",
+    "titre": "Prendre en compte les incapacités, carrières longues et pénibles",
+    "extraitProgramme": "à la juste prise en compte des incapacités, des carrières longues ou pénibles",
+    "reformulation": "Maintenir ou renforcer les départs anticipés et la prévention de l'usure professionnelle dans la réforme des retraites.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2023-270 du 14 avril 2023 maintient et adapte les départs anticipés pour carrière longue, handicap, incapacité permanente et invalidité, et crée une catégorie de départ anticipé pour inaptitude. Elle élargit le compte professionnel de prévention (C2P) et crée deux fonds de prévention de l'usure professionnelle, dont le FIPU (1 milliard d'euros sur cinq ans).",
+    "resultat": "Depuis le 1er septembre 2023, le C2P n'est plus plafonné et ses seuils d'exposition (travail de nuit, travail en équipes) sont abaissés. Les personnes en incapacité permanente conservent un départ à 60 ans.",
+    "justification": "Des mesures précises pour les trois situations citées ont été adoptées. Le mot « juste » n'est pas mesurable, si bien que le statut porte sur l'existence des dispositifs et non sur leur suffisance. Le report de l'âge légal, autre volet du même paragraphe, fait l'objet d'une fiche distincte.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-04-14",
+        "description": "Promulgation de la loi de financement rectificative de la sécurité sociale pour 2023 portant la réforme des retraites.",
+        "url": "https://open.lefebvre-dalloz.fr/actualites/droit-social/reforme-retraites-promulguee_f127af084-6414-4377-8853-a99703be9921"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "La réforme des retraites est promulguée",
+        "organisme": "Lefebvre Dalloz",
+        "url": "https://open.lefebvre-dalloz.fr/actualites/droit-social/reforme-retraites-promulguee_f127af084-6414-4377-8853-a99703be9921",
+        "date": "2023-04-15",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Réforme des retraites et prévention de l'usure professionnelle",
+        "organisme": "Cramif (Assurance maladie)",
+        "url": "https://www.cramif.fr/actualites/reforme-des-retraites-et-prevention-de-lusure-professionnelle",
+        "date": "2024-09-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-famille-maintien-domicile",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Grand âge",
+    "titre": "Créer un service du maintien à domicile",
+    "extraitProgramme": "grâce à un service du maintien à domicile",
+    "reformulation": "Aider les personnes âgées à rester chez elles grâce à un service organisé.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2024-317 du 8 avril 2024 portant mesures pour bâtir la société du bien vieillir et de l'autonomie crée un service public départemental de l'autonomie, guichet unique pour les personnes âgées, les personnes handicapées et leurs aidants, chargé de soutenir le maintien à domicile. Elle réforme aussi les services autonomie à domicile.",
+    "resultat": "Les dispositions entrent en vigueur le 1er janvier 2025, avec des mesures transitoires jusqu'en 2027 selon la page de Légifrance consultée.",
+    "justification": "Le texte crée un service portant précisément l'objet de la promesse. Sa mise en oeuvre est progressive jusqu'en 2027, et les sources consultées ne mesurent pas son effet sur les personnes concernées : le statut porte sur l'existence du service. Le mandat n'est pas terminé.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-04-08",
+        "description": "Promulgation de la loi n° 2024-317 portant mesures pour bâtir la société du bien vieillir et de l'autonomie.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049385823"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2024-317 du 8 avril 2024 portant mesures pour bâtir la société du bien vieillir et de l'autonomie",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049385823",
+        "date": "2024-04-08",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 8 avril 2024 Bien vieillir, grand âge et autonomie, Ehpad",
+        "organisme": "vie-publique.fr",
+        "url": "https://www.vie-publique.fr/loi/291928-loi-du-8-avril-2024-bien-vieillir-grand-age-et-autonomie-ehpad",
+        "date": "2024-04-08",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-famille-adaptation-logements",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Grand âge",
+    "titre": "Soutenir les travaux d'adaptation des logements",
+    "extraitProgramme": "le soutien aux travaux d’adaptation des logements",
+    "reformulation": "Financer l'adaptation des logements à la perte d'autonomie.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'aide MaPrimeAdapt', distribuée par l'Anah, est ouverte depuis le 1er janvier 2024 aux propriétaires occupants et locataires du parc privé à partir de 70 ans, aux personnes de 60 à 69 ans en perte d'autonomie et aux personnes handicapées. Elle finance 70 % des travaux pour les ménages très modestes et 50 % pour les modestes.",
+    "resultat": "L'Anah dénombre 23 561 logements adaptés entre le 1er janvier et fin septembre 2024. L'objectif affiché est de 680 000 logements en dix ans, dont 250 000 sur le quinquennat 2023-2027.",
+    "justification": "L'aide existe, est financée et bénéficie à des dizaines de milliers de foyers. La promesse demande un soutien, pas un nombre de logements : le rythme de 250 000 logements par quinquennat reste à mesurer à la fin du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-01-01",
+        "description": "Ouverture de MaPrimeAdapt' sur tout le territoire.",
+        "url": "https://www.anah.gouv.fr/actualites/maprimeadapt-la-nouvelle-aide-pour-l-adaptation-des-logements-la-perte-d-autonomie"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "MaPrimeAdapt' : une belle dynamique en faveur de l'adaptation des logements",
+        "organisme": "Anah",
+        "url": "https://www.anah.gouv.fr/actualites/maprimeadapt-une-belle-dynamique-en-faveur-de-l-adaptation-des-logements",
+        "date": "2024-09-30",
+        "institutionnelle": true
+      },
+      {
+        "titre": "MaPrimeAdapt', la nouvelle aide pour l'adaptation des logements à la perte d'autonomie",
+        "organisme": "Anah",
+        "url": "https://www.anah.gouv.fr/actualites/maprimeadapt-la-nouvelle-aide-pour-l-adaptation-des-logements-la-perte-d-autonomie",
+        "date": "2024-01-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-famille-controles-ehpad",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Grand âge",
+    "titre": "Accroître les contrôles dans les maisons de retraite",
+    "extraitProgramme": "Les contrôles seront accrus sur les maisons de retraite pour les rendre plus humaines.",
+    "reformulation": "Inspecter davantage les Ehpad.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Après les révélations de 2022 sur le groupe Orpea, le ministère de la Santé a demandé aux agences régionales de santé d'inspecter les 7 500 Ehpad avant fin 2024. Environ 120 postes ont été créés pour cette mission.",
+    "resultat": "Les inspections-contrôles sont passées de 2 598 en 2022 à 4 951 en 2023. La Cour des comptes (avril 2025) constate que ce contrôle a été largement fait sur pièces plutôt que sur place, et recommande une approche plus ciblée.",
+    "justification": "Le nombre de contrôles a fortement augmenté, ce qui est la mesure promise. La qualité de ces contrôles est discutée par la Cour des comptes, mais la promesse porte sur leur accroissement et non sur leur forme.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2025-04-14",
+        "description": "Rapport de la Cour des comptes sur les missions d'inspection-contrôle des agences régionales de santé.",
+        "url": "https://www.ccomptes.fr/fr/publications/les-missions-dinspection-controle-des-ars-une-action-reaffirmer-une-approche-renover"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Les missions d'inspection-contrôle des ARS : une action à réaffirmer, une approche à rénover",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/publications/les-missions-dinspection-controle-des-ars-une-action-reaffirmer-une-approche-renover",
+        "date": "2025-04-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 5558 : manque de personnel dans les Ehpad (réponse du ministère)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q16/16-5558QE.htm",
+        "date": "2023-10-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-famille-ehpad-50000-soignants",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Grand âge",
+    "titre": "Recruter 50 000 soignants de plus en maison de retraite",
+    "extraitProgramme": "Améliorer la vie en maison de retraite par le recrutement de 50 000 infirmiers et aides-soignants en plus.",
+    "reformulation": "Créer 50 000 postes de soignants supplémentaires dans les Ehpad.",
+    "pageProgramme": "pacte entre les générations",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Les lois de financement de la sécurité sociale ont programmé le recrutement de 50 000 professionnels en Ehpad, avec 100 millions d'euros pour 1 500 recrutements en 2023 puis 340 millions en 2024. L'horizon annoncé à l'origine (2027) a été repoussé à 2030.",
+    "resultat": "La trajectoire vise un taux d'encadrement de 4,5 équivalents temps plein pour 10 résidents, soit 19 % de plus qu'en 2019. Le rapport sénatorial de septembre 2024 relève de fortes difficultés de recrutement dans le secteur. Aucune source consultée ne donne le nombre de postes effectivement pourvus.",
+    "justification": "Le financement est engagé et la cible reportée après la fin du mandat, mais le chiffre de 50 000 n'est pas atteint et son état d'avancement n'est pas documenté par une source primaire. La promesse étant un résultat chiffré, elle reste « en cours ».",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-09-25",
+        "description": "Rapport sénatorial n° 778 sur la situation des Ehpad, qui rappelle la trajectoire de 50 000 recrutements à l'horizon 2030.",
+        "url": "https://www.senat.fr/rap/r23-778/r23-77813.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Situation des Ehpad",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r23-778/r23-77813.html",
+        "date": "2024-09-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question écrite n° 5558 : manque de personnel dans les Ehpad (réponse du ministère)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q16/16-5558QE.htm",
+        "date": "2023-10-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-sante-bilans-prevention",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Santé",
+    "titre": "Mettre en place des bilans de santé gratuits aux âges clés",
+    "extraitProgramme": "la mise en place de bilan de santé gratuits aux âges clés",
+    "reformulation": "Proposer à chacun un bilan de santé gratuit à certains âges de la vie.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le dispositif « Mon bilan prévention » a été expérimenté en Hauts-de-France en 2023 puis généralisé en septembre 2024. Il est pris en charge à 100 % par l'Assurance maladie, sans avance de frais.",
+    "resultat": "Il est proposé à quatre moments de la vie : entre 18 et 25 ans, 45 et 50 ans, 60 et 65 ans, 70 et 75 ans. L'assuré reçoit une invitation, sans rendez-vous préalable obligatoire.",
+    "justification": "Un bilan gratuit aux âges clés existe et couvre l'ensemble du territoire. Le taux de recours n'a pas été examiné.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-09-01",
+        "description": "Généralisation de « Mon bilan prévention ».",
+        "url": "https://www.ameli.fr/assure/sante/mon-bilan-prevention"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Mon bilan prévention",
+        "organisme": "Assurance maladie (ameli.fr)",
+        "url": "https://www.ameli.fr/assure/sante/mon-bilan-prevention",
+        "date": "2024-09-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Mon bilan prévention",
+        "organisme": "Service-public.gouv.fr",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A17677?lang=en",
+        "date": "2024-09-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-defense-investissement",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Continuer d'investir dans la défense",
+    "extraitProgramme": "Nous continuerons d'investir dans notre défense",
+    "reformulation": "Poursuivre la hausse des moyens militaires.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2023-703 du 1er août 2023 relative à la programmation militaire pour 2024 à 2030 prévoit 413,3 milliards d'euros pour les armées. Elle a été adoptée par l'Assemblée nationale (408 voix pour, 87 contre) et le Sénat (314 voix pour, 17 contre). Une actualisation présentée en avril 2026 ajoute environ 36 milliards d'euros d'ici 2030.",
+    "resultat": "Le budget de la défense atteint 57,1 milliards d'euros en 2026, en hausse de 13 %, selon franceinfo relayant la ministre des Armées.",
+    "justification": "La programmation adoptée et son actualisation augmentent les crédits de défense, ce qui correspond à la promesse de continuer à investir. Le texte ne fixe aucun montant, seul le sens de la trajectoire est vérifiable. L'exécution réelle des crédits sur l'ensemble de la période reste à établir à la fin du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-08-01",
+        "description": "Promulgation de la loi de programmation militaire 2024-2030.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000047914986/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "La loi de programmation militaire 2024-2030 : les grandes orientations",
+        "organisme": "Ministère des Armées",
+        "url": "https://www.defense.gouv.fr/ministere/politique-defense/loi-programmation-militaire-2024-2030/loi-programmation-militaire-2024-2030-grandes",
+        "date": "2023-08-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2023-703 du 1er août 2023 relative à la programmation militaire pour les années 2024 à 2030 et portant diverses dispositions intéressant la défense",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000047914986/",
+        "date": "2023-08-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "L'actualisation de la loi de programmation militaire est repoussée à début 2026",
+        "organisme": "franceinfo",
+        "url": "https://www.franceinfo.fr/economie/emploi/metiers/armee-et-securite/l-actualisation-de-la-loi-de-programmation-militaire-est-repoussee-a-debut-2026_7653095.html",
+        "date": "2025-11-01",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-defense-cyber",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Investir dans la cyberdéfense",
+    "extraitProgramme": "investissements dans la cyberdéfense",
+    "reformulation": "Augmenter les moyens de la défense dans le domaine cyber.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de programmation militaire 2024-2030 consacre 4 milliards d'euros à la cyber, contre 1,6 milliard dans la programmation 2019-2025, pour des effectifs, des technologies et l'appui à l'ANSSI.",
+    "resultat": "Un rapport du Sénat de mai 2023 relève que l'objectif de 5 000 cybercombattants en 2025 laissait environ 1 100 postes à pourvoir, et souligne des difficultés de recrutement.",
+    "justification": "L'enveloppe de la loi de programmation augmente nettement, ce qui est la mesure annoncée. Le montant réellement dépensé n'a pas été vérifié, d'où une confiance moyenne. Le mandat n'est pas terminé.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Pour une coordination de la cyberdéfense plus offensive dans la loi de programmation militaire 2024-2030",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r22-638/r22-638_mono.html",
+        "date": "2023-05-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-defense-sous-marins",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Livrer 5 nouveaux sous-marins nucléaires d'attaque d'ici 2030",
+    "extraitProgramme": "5 nouveaux sous-marins nucléaires d’attaque",
+    "reformulation": "Livrer cinq sous-marins nucléaires d'attaque à la marine avant 2030.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "en_cours",
+    "confiance": "basse",
+    "actionMenee": "Le programme de sous-marins nucléaires d'attaque de classe Barracuda se poursuit. Le rapport du Sénat sur le projet de loi de finances pour 2026 prévoit la livraison d'un de ces sous-marins en 2026.",
+    "resultat": "Le nombre de sous-marins livrés depuis mai 2022 n'a pas pu être établi à partir des sources primaires consultées.",
+    "justification": "L'échéance de 2030 dépasse la fin du mandat et un programme de livraison est en cours. La source consultée ne donne pas le compte cumulé des livraisons : le statut « en cours » est donc retenu avec une confiance basse. La promesse est un résultat chiffré et devra être jugée sur les livraisons constatées.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2026 : Défense : Équipement des forces",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a25-141-8/a25-141-8_mono.html",
+        "date": "2025-11-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-defense-rafale",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Livrer plus de 60 Rafale supplémentaires d'ici 2030",
+    "extraitProgramme": "Livraison d’ici 2030 à nos armées de plus de 60 chasseurs Rafale supplémentaires",
+    "reformulation": "Ajouter plus de soixante avions Rafale aux armées avant 2030.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne précise pas la base de comparaison des « supplémentaires ». Les sources trouvées donnent des cibles de flotte (de l'ordre de 225 Rafale à terme, dont 137 pour l'armée de l'Air et de l'Espace et 41 pour l'aéronavale en 2030 selon la presse) mais aucune source primaire lue ne chiffre les Rafale livrés depuis mai 2022 ni ne les rattache à cette promesse. Un article de Mer et Marine sur l'actualisation de la programmation d'avril 2026 indique que la flotte de Rafale reste au niveau existant. Ce mandat n'est pas terminé et l'échéance de 2030 est postérieure à sa fin.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-defense-blindes",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Livrer 1 250 nouveaux véhicules blindés polyvalents d'ici 2030",
+    "extraitProgramme": "1 250 nouveaux véhicules blindés polyvalents",
+    "reformulation": "Livrer 1 250 véhicules blindés à l'armée de Terre avant 2030.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "en_cours",
+    "confiance": "basse",
+    "actionMenee": "Les livraisons du programme Scorpion se poursuivent : le rapport du Sénat sur le projet de loi de finances pour 2026 prévoit 122 Griffon, 30 Jaguar et 70 Serval en 2026.",
+    "resultat": "Le total livré depuis mai 2022 et la correspondance avec le chiffre de 1 250 n'ont pas été établis à partir des sources consultées.",
+    "justification": "Des livraisons de véhicules blindés sont en cours et l'échéance de 2030 dépasse la fin du mandat. Le chiffre de 1 250 véhicules « polyvalents » n'est pas rattaché de façon certaine à un programme précis, d'où la confiance basse.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2026 : Défense : Équipement des forces",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a25-141-8/a25-141-8_mono.html",
+        "date": "2025-11-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-defense-pacte-armees-nation",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Défense",
+    "titre": "Sceller le pacte Armées-Nation",
+    "extraitProgramme": "de sceller le pacte Armées-Nation",
+    "reformulation": "Renforcer le lien entre les armées et la population.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne définit pas ce pacte : aucun texte, calendrier ou mesure chiffrée n'y est associé. Les recherches n'ont pas identifié de dispositif portant ce nom, et rattacher la promesse à une mesure voisine de la programmation militaire serait une interprétation. Le mandat n'est pas terminé.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-securite-doublement-presence",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Sécurité",
+    "titre": "Achever le doublement de la présence policière sur la voie publique",
+    "extraitProgramme": "Achever le doublement de la présence des forces de l’ordre sur la voie publique",
+    "reformulation": "Doubler le temps de présence des policiers et gendarmes sur le terrain.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2023-22 du 24 janvier 2023 d'orientation et de programmation du ministère de l'Intérieur fixe l'objectif de doubler la présence sur le terrain d'ici 2030 et prévoit environ 8 500 postes de policiers et gendarmes entre 2023 et 2027.",
+    "resultat": "Selon le rapport du Sénat sur le projet de loi de finances pour 2026, les créations de postes ont suivi les prévisions en 2023 et 2024 (environ 2 900 puis 2 200 postes), avant un gel des effectifs en 2025 et une reprise en 2026 (1 000 postes pour la police, 400 pour la gendarmerie). Aucune source lue ne mesure le temps de présence effectif sur la voie publique.",
+    "justification": "Le doublement est une cible pour 2030, au-delà du mandat, et rien n'établit à ce jour qu'il soit atteint ou abandonné. Les créations de postes ont pris du retard en 2025. Le statut porte sur l'engagement de moyens, faute d'indicateur de présence.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2023-01-24",
+        "description": "Loi d'orientation et de programmation du ministère de l'Intérieur (2023-2027).",
+        "url": "https://www.banquedesterritoires.fr/la-lopmi-2023-2027-publiee"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2026 : Sécurités (Gendarmerie nationale - Police nationale - Sécurité et éducation routières)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l25-139-328-1/l25-139-328-1_mono.html",
+        "date": "2025-11-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La Lopmi 2023-2027 publiée",
+        "organisme": "Banque des Territoires",
+        "url": "https://www.banquedesterritoires.fr/la-lopmi-2023-2027-publiee",
+        "date": "2023-01-25",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-securite-force-frontieres",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Immigration",
+    "titre": "Créer une nouvelle force des frontières",
+    "extraitProgramme": "Une nouvelle « force des frontières » aux frontières nationales",
+    "reformulation": "Regrouper des forces de sécurité pour contrôler les frontières nationales.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "realise",
+    "confiance": "basse",
+    "actionMenee": "Une « Force frontière d'intervention rapide » a été lancée en 2023 : un état-major national coordonne policiers, gendarmes, douaniers et militaires de l'opération Sentinelle. Elle a d'abord été expérimentée à Menton, à la frontière italienne.",
+    "resultat": "Le dispositif a été activé lors du G7 d'Évian en juin 2024, puis pour un renfort à la frontière franco-espagnole à la fin de juillet 2026.",
+    "justification": "Une structure portant ce nom existe et a été employée. Les sources lues sont de la presse (Europe 1), sans texte officiel, d'où la confiance basse. Le programme ne définit pas la « force des frontières », et le rattachement de la promesse à ce dispositif est une interprétation.",
+    "interpretations": "Le programme peut désigner une unité permanente dédiée, ce que le dispositif de 2023 n'est pas : c'est un état-major qui mobilise des renforts existants. La lecture retenue est celle d'un dispositif de coordination de forces aux frontières.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Crise migratoire à Ceuta : qu'est-ce que la Force Frontière d'intervention rapide déployée par la France ?",
+        "organisme": "Europe 1",
+        "url": "https://www.europe1.fr/police-justice/crise-migratoire-a-ceuta-quest-ce-que-la-force-frontiere-dintervention-rapide-deployee-par-la-france-994425",
+        "date": "2026-07-31",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-europe-schengen",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Europe",
+    "titre": "Poursuivre la réforme de Schengen",
+    "extraitProgramme": "la poursuite de la réforme de Schengen",
+    "reformulation": "Faire évoluer les règles de l'espace Schengen.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le règlement (UE) 2024/1717 du 13 juin 2024 modifie le code frontières Schengen : contrôles aux frontières intérieures, limitation des points de passage en cas d'instrumentalisation des migrations, surveillance aux frontières extérieures, procédure de transfert des ressortissants de pays tiers.",
+    "resultat": "Le règlement est entré en vigueur en 2024. Le pacte sur la migration et l'asile a été adopté la même année.",
+    "justification": "Une réforme du code frontières Schengen a été adoptée au niveau européen, ce qui correspond à la promesse. Sa portée précise n'est pas définie par le programme. Le rôle propre de la France dans son adoption n'a pas été documenté ici.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2024-06-13",
+        "description": "Adoption du règlement (UE) 2024/1717 modifiant le code frontières Schengen.",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1717"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Règlement (UE) 2024/1717 du Parlement européen et du Conseil du 13 juin 2024 modifiant le règlement (UE) 2016/399 (code frontières Schengen)",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1717",
+        "date": "2024-06-13",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Le code frontières Schengen est mis à jour",
+        "organisme": "Lexis Veille",
+        "url": "https://www.lexisveille.fr/le-code-frontieres-schengen-est-mis-jour",
+        "date": "2024-06-21",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-egalite-testing-entreprises",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Égalité",
+    "titre": "Rendre public un testing des grandes entreprises",
+    "extraitProgramme": "Un « testing » rendu public des grandes entreprises",
+    "reformulation": "Tester la discrimination à l'embauche dans les grandes entreprises et publier les résultats.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Les recherches n'ont pas trouvé de campagne de testing des grandes entreprises lancée depuis mai 2022 avec publication des résultats par entreprise. Elles ont surtout renvoyé à des études antérieures de la Dares (testings de 2018-2019, menés à la suite d'une annonce de 2018) et à une proposition de loi discutée en décembre 2023 sur le testing. Faute d'une source primaire établissant qu'un testing a été lancé ou écarté, aucun statut ne peut être posé. Mandat en cours, mise en oeuvre non documentée.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-egalite-caution-publique",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Logement",
+    "titre": "Élargir la caution publique pour l'accès au logement",
+    "extraitProgramme": "une caution publique élargie pour faciliter l’accès au logement",
+    "reformulation": "Étendre à davantage de locataires la garantie publique du loyer.",
+    "pageProgramme": "pacte pour la République",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La garantie Visale d'Action Logement, gratuite pour les locataires et les bailleurs, a été étendue aux salariés en CDI en période d'essai quel que soit leur âge (2023) et aux travailleurs saisonniers (2024).",
+    "resultat": "Visale couvre les locataires de 30 ans et moins sans condition d'emploi, ainsi que certains salariés du privé de plus de 30 ans, sur les trois premières années du bail.",
+    "justification": "La promesse d’une « caution publique élargie » ne nomme aucun dispositif. Des extensions du périmètre de la garantie Visale d’Action Logement sont documentées (2023 et 2024), mais le programme ne désigne pas Visale et aucune source lue ne relie les deux. Le statut n’est donc pas tranché.",
+    "interpretations": "« Caution publique » peut désigner Visale (retenu, seule garantie publique universelle de loyer) ou une nouvelle garantie de l'État. Aucune nouvelle garantie n'a été trouvée.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Garantie Visale",
+        "organisme": "Action Logement",
+        "url": "https://www.actionlogement.fr/la-garantie-visale",
+        "date": "2024-06-04",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-travail-charges-independants",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Travail",
+    "titre": "Baisser les charges des indépendants",
+    "extraitProgramme": "baisse des charges pour les indépendants",
+    "reformulation": "Diminuer les cotisations sociales des travailleurs indépendants.",
+    "pageProgramme": "pacte pour la production",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2022-1158 du 16 août 2022 portant mesures d'urgence pour la protection du pouvoir d'achat allège les cotisations sociales des travailleurs indépendants (article 2). Le décret n° 2022-1529 du 7 décembre 2022 en fixe le calcul.",
+    "resultat": "La baisse de la cotisation maladie atteint jusqu'à 620 euros par an en 2023 pour un revenu proche du Smic, selon Previssima.",
+    "justification": "Une baisse de cotisations pour les indépendants est en vigueur depuis 2022. Le programme ne chiffre pas la baisse. Les montants viennent d'une source de presse spécialisée, le texte de la loi ne détaillant pas les taux dans la page lue du Sénat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2022-08-16",
+        "description": "Promulgation de la loi portant mesures d'urgence pour la protection du pouvoir d'achat.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046186723"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2022-1158 du 16 août 2022 portant mesures d'urgence pour la protection du pouvoir d'achat",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046186723",
+        "date": "2022-08-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Mesures d'urgence pour la protection du pouvoir d'achat",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/202207/mesures-durgence-pour-la-protection-du-pouvoir-dachat.html",
+        "date": "2022-07-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Travailleurs indépendants : un décret vient fixer les modalités de calcul de la baisse des cotisations sociales maladie",
+        "organisme": "Previssima",
+        "url": "https://www.previssima.fr/actualite/travailleurs-independants-un-decret-vient-fixer-les-modalites-de-calcul-de-la-baisse-des-cotisations-sociales-maladie.html",
+        "date": "2022-12-08",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-logement-700000-renovations",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Logement",
+    "titre": "Rénover 700 000 logements chaque année",
+    "extraitProgramme": "La rénovation de 700 000 logements chaque année",
+    "reformulation": "Atteindre 700 000 rénovations de logements par an.",
+    "pageProgramme": "pacte pour la production",
+    "statut": "partiellement",
+    "confiance": "basse",
+    "actionMenee": "MaPrimeRénov', gérée par l'Anah, finance des rénovations énergétiques par gestes ou d'ampleur. Un objectif de 100 000 rénovations d'ampleur était fixé pour 2025.",
+    "resultat": "Selon le bilan 2025 de l'Anah relayé par la presse, 307 731 logements ont été rénovés avec MaPrimeRénov' en 2025 (340 801 en 2024), dont 120 306 rénovations d'ampleur.",
+    "justification": "Le nombre de logements aidés par MaPrimeRénov' représente moins de la moitié de 700 000 par an. D'autres dispositifs (certificats d'économies d'énergie, aides locales) rénovent aussi des logements sans être comptés ici, et le programme ne définit pas ce qu'est une « rénovation ». Le chiffre de l'Anah est repris d'une source de presse, le document de l'Anah n'ayant pas pu être lu en texte intégral. Mandat en cours.",
+    "interpretations": "Si « rénovation » inclut tout logement rénové par un dispositif public, le total est supérieur au chiffre de MaPrimeRénov' mais n'a pas été trouvé. Si l'on compte les seules rénovations d'ampleur, il est très inférieur à 700 000. Le chiffre de MaPrimeRénov' est retenu comme repère principal.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Bilan 2025 MaPrimeRénov' (Janvier - décembre 2025)",
+        "organisme": "Anah",
+        "url": "https://www.anah.gouv.fr/sites/default/files/2026-03/202603_MPR-BilanTrimestriel-25T4.pdf",
+        "date": "2026-03-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "MaPrimeRénov' dresse son bilan 2025",
+        "organisme": "Effy",
+        "url": "https://www.effy.fr/pro/actualite/maprimerenov-dresse-son-bilan-2025",
+        "date": "2026-03-01",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2022-ecologie-voitures-electriques",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Écologie",
+    "titre": "Offrir des voitures électriques abordables issues d'une filière française",
+    "extraitProgramme": "une offre abordable de voitures électriques pour tous grâce à une filière 100% française",
+    "reformulation": "Rendre la voiture électrique accessible à tous les ménages, avec une production française.",
+    "pageProgramme": "pacte pour la production",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'État a maintenu le bonus écologique, réservé aux véhicules électriques dont le score environnemental atteint 60 points, et a lancé le leasing social pour les ménages modestes.",
+    "resultat": "En 2024, les ménages ont acquis 205 000 voitures électriques neuves, avec 1,25 milliard d'euros d'aides, dont 67 % versés à des ménages modestes qui représentent 44 % des bénéficiaires. Le coût moyen d'un véhicule était de 36 150 euros avant aides.",
+    "justification": "Des aides ciblent l'accès des ménages modestes à la voiture électrique, et le score environnemental favorise les véhicules produits en Europe. En revanche, aucune source lue ne mesure l'existence d'une offre « abordable pour tous » ni d'une filière « 100 % française ». Le statut retenu est donc partiel. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "En 2024, 67 % des aides de l'État à l'acquisition d'une voiture électrique ont bénéficié à des ménages modestes",
+        "organisme": "Service des données et études statistiques (SDES)",
+        "url": "https://www.statistiques.developpement-durable.gouv.fr/en-2024-67-des-aides-de-letat-lacquisition-dune-voiture-electrique-ont-beneficie-des-menages",
+        "date": "2025-10-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-education-salaires-enseignants",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Éducation",
+    "titre": "Mieux rémunérer les professeurs",
+    "extraitProgramme": "nos professeurs plus libres, plus respectés et mieux rémunérés",
+    "reformulation": "Augmenter la rémunération des enseignants.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "À la rentrée 2023, tous les enseignants ont reçu une revalorisation sans contrepartie de 125 à 250 euros nets par mois par rapport à septembre 2022, avec des promotions accélérées (5 000 promotions supplémentaires en 2023) et un salaire d'entrée supérieur à 2 100 euros nets pour les titulaires débutants.",
+    "resultat": "Selon la réponse ministérielle, les salaires ont progressé de 11 % entre avril 2022 et janvier 2024.",
+    "justification": "La rémunération a été relevée pour l'ensemble des professeurs, ce qui correspond à « mieux rémunérés ». Le programme ne fixe ni montant ni échéance. Des organisations syndicales estiment la hausse inférieure aux annonces (SUD éducation, sans que le chiffre ait été recoupé ici). Les mots « plus libres, plus respectés » ne sont pas mesurables.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Question n° 10607 : pour une amélioration des conditions de travail des enseignants (réponse du ministère)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q16/16-10607QE.htm",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-education-pacte-missions",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Éducation",
+    "titre": "Confier de nouvelles missions rémunérées aux enseignants",
+    "extraitProgramme": "Des enseignants revalorisés, avec de nouvelles missions et plus de liberté.",
+    "reformulation": "Proposer aux enseignants des missions supplémentaires contre rémunération.",
+    "pageProgramme": "pacte entre les générations",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le Pacte enseignant, en place depuis la rentrée 2023, permet aux enseignants volontaires d'assumer des missions complémentaires (remplacement de courte durée, soutien scolaire, etc.) rémunérées de 1 250 à 7 500 euros brut par an selon le type de mission.",
+    "resultat": "Ces missions sont volontaires. Le nombre d'enseignants signataires n'a pas été établi à partir des sources lues.",
+    "justification": "Des missions nouvelles avec rémunération existent, ce qui correspond au programme. La partie « plus de liberté » n'est pas mesurable et n'entre pas dans le statut.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Question n° 10607 : pour une amélioration des conditions de travail des enseignants (réponse du ministère)",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q16/16-10607QE.htm",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-education-fondamentaux",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Éducation",
+    "titre": "Donner la priorité aux fondamentaux, mathématiques et français",
+    "extraitProgramme": "Priorité aux fondamentaux, mathématiques et français.",
+    "reformulation": "Renforcer l'enseignement des mathématiques et du français.",
+    "pageProgramme": "pacte entre les générations",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est qualitative : aucun volume horaire, effectif, échéance ou indicateur de résultat n'est donné. Plusieurs dispositifs de l'Éducation nationale touchent aux mathématiques et au français, mais les rattacher à cette phrase reviendrait à choisir une mesure voisine par interprétation. Aucune source n'a donc été retenue. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-sante-deserts-medicaux",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Santé",
+    "titre": "Lutter contre les déserts médicaux",
+    "extraitProgramme": "Priorité à la lutte contre les déserts médicaux",
+    "reformulation": "Faire reculer les zones où l'accès à un médecin est difficile.",
+    "pageProgramme": "pacte entre les générations",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Le Pacte de lutte contre les déserts médicaux, présenté le 25 avril 2025 par le Premier ministre, instaure une mission de solidarité territoriale : jusqu'à deux jours par mois de consultations dans des zones prioritaires. Le ministère de la Santé a identifié 151 zones à partir de septembre 2025, avec une phase pilote suivie d'une généralisation prévue en 2026.",
+    "resultat": "À l'été 2025, un sénateur relevait que des territoires comme le Val-d'Oise, où la densité médicale baisse, étaient exclus des 151 zones. Aucun indicateur de recul des déserts médicaux n'a été trouvé dans les sources lues.",
+    "justification": "Un dispositif officiel est lancé et progressivement déployé, mais son effet sur le nombre de zones sous-dotées n'est pas mesuré. La promesse étant un résultat (« recul »), le statut reste « en cours ». Le recrutement de soignants cité dans le programme n'est pas chiffré.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2025-04-25",
+        "description": "Présentation du Pacte de lutte contre les déserts médicaux.",
+        "url": "https://www.senat.fr/questions/base/2025/qSEQ250805986.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Pacte de lutte contre les déserts médicaux (question écrite de M. Pierre Barros)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2025/qSEQ250805986.html",
+        "date": "2025-08-21",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-jeunesse-1j1s-prolongation",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Jeunesse",
+    "titre": "Prolonger le programme « 1 jeune 1 solution »",
+    "extraitProgramme": "« 1 jeune 1 solution », qui, bénéficiant à des millions de personnes, a permis une baisse historique du chômage des moins de 25 ans, aujourd’hui au plus bas depuis quatre décennies. Nous le prolongerons.",
+    "reformulation": "Poursuivre le plan « 1 jeune 1 solution » pour l'insertion des moins de 25 ans.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le contrat d'engagement jeune (CEJ), en vigueur depuis le 1er mars 2022, est financé à hauteur de 786 millions d'euros en 2025, avec des objectifs de 200 000 jeunes suivis par les missions locales et 85 000 par France Travail.",
+    "resultat": "Environ 792 000 jeunes ont signé un CEJ entre mars 2022 et septembre 2024, selon l'avis de l'Assemblée nationale sur le budget 2025.",
+    "justification": "Un volet du plan, le CEJ, est pérennisé et financé. Les autres volets du plan (aides à l'embauche, à l'apprentissage) n'ont pas été examinés, et le budget 2026 du CEJ n'a pas été trouvé : le statut est donc partiel plutôt que complet.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": [
+      {
+        "titre": "Avis sur le projet de loi de finances pour 2025 : travail, emploi et administration des ministères sociaux",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/opendata/AVISANR5L17B0524-tIII.html",
+        "date": "2024-10-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2022-administration-guichet-numero-unique",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Administration",
+    "titre": "Créer un guichet unique et un numéro unique pour les démarches administratives",
+    "extraitProgramme": "un guichet unique et un numéro unique pour toutes les démarches administratives",
+    "reformulation": "Regrouper les démarches administratives sous un seul guichet et un seul numéro de téléphone.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Les recherches ont trouvé le réseau France Services (plus de 2 700 structures, créé en 2020, donc avant la promesse) et un guichet unique réservé aux formalités des entreprises (INPI, 2023), mais aucun numéro national unique pour l'ensemble des démarches. Faute de source établissant que la mesure a été lancée, écartée ou rattachée à un dispositif précis, aucun statut n'est posé. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-jeunesse-superieur-places",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Enseignement supérieur",
+    "titre": "Ouvrir toutes les places nécessaires dans les filières du supérieur menant à l'emploi",
+    "extraitProgramme": "Nous ouvrirons toutes les places nécessaires dans les filières du supérieur qui conduisent au travail",
+    "reformulation": "Créer autant de places que nécessaire dans les formations supérieures qui débouchent sur un emploi.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne désigne ni les filières, ni un nombre de places, ni une échéance, et « toutes les places nécessaires » n'a pas de valeur mesurable. Les recherches n'ont rattaché aucun dispositif à cette phrase sans interprétation. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-emploi-secteurs-avenir",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Économie",
+    "titre": "Investir dans les secteurs porteurs d'emplois",
+    "extraitProgramme": "Nous investirons dans les secteurs qui seront dans le futur les principaux viviers d’emplois",
+    "reformulation": "Financer les filières d'avenir : énergies renouvelables, nucléaire, batteries, véhicules électriques, numérique, industries créatives, spatial.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne chiffre aucun montant ni aucune échéance. Le plan « France 2030 » date d'octobre 2021 et n'a pas été relu ici, et lui rattacher cette phrase serait une interprétation. Mandat en cours, aucune source primaire lue pour ce point.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-ecologie-sortie-fossiles",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Écologie",
+    "titre": "Être le premier grand pays à sortir du pétrole, du gaz et du charbon",
+    "extraitProgramme": "Nous continuerons d’investir pour être le premier grand pays à sortir du pétrole, du gaz, du charbon.",
+    "reformulation": "Faire de la France le premier grand pays sortant des énergies fossiles.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est comparative (« le premier grand pays ») et sans échéance : elle suppose de comparer les trajectoires de plusieurs pays, ce qu'aucune source lue ne fait. Aucune date de sortie des énergies fossiles n'est donnée par le programme. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-egalite-grande-cause-femmes-hommes",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Égalité",
+    "titre": "Faire de l'égalité femmes-hommes la grande cause du quinquennat",
+    "extraitProgramme": "Égalité entre les femmes et les hommes : c’était la grande cause du quinquennat qui s’achève, ce sera la grande cause du quinquennat qui vient.",
+    "reformulation": "Maintenir l'égalité entre les femmes et les hommes comme priorité affichée du mandat.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "L'engagement est une orientation sans mesure, chiffre ni échéance : on ne peut pas dire à quel moment la « grande cause » est réalisée. Des lois ou plans ont pu être pris sur ce sujet depuis 2022, mais les rattacher à cette phrase reviendrait à choisir une mesure par interprétation. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-democratie-associer-decisions",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Démocratie",
+    "titre": "Associer les citoyens à chaque grande décision",
+    "extraitProgramme": "vous serez associés à chaque grande décision",
+    "reformulation": "Faire participer les citoyens aux décisions importantes.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne précise ni la forme de l'association (consultation, convention citoyenne, référendum), ni ce qu'est une « grande décision ». Sans critère, on ne peut pas juger si chaque décision a été concernée. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-europe-puissance",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Europe",
+    "titre": "Bâtir une Europe-puissance capable de se défendre",
+    "extraitProgramme": "Nous poursuivrons notre action pour bâtir une Europe-puissance",
+    "reformulation": "Renforcer l'autonomie européenne, en particulier en matière de défense.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "L'objectif est général : ni traité, ni budget, ni capacité n'est chiffré. Il dépend de l'ensemble des États membres de l'Union européenne. Aucune mesure précise n'a été rattachée à cette phrase. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-handicap-societe-inclusive",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Handicap",
+    "titre": "Bâtir une société inclusive pour les personnes en situation de handicap",
+    "extraitProgramme": "société inclusive dans laquelle les personnes en situation de handicap peuvent être accompagnées et construire leur parcours",
+    "reformulation": "Continuer à améliorer l'accompagnement des personnes handicapées.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La phrase décrit une orientation (« poursuivre notre action ») sans mesure, chiffre ni échéance. Plusieurs textes sur le handicap existent depuis 2022, mais aucun n'est nommé par le programme. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-sante-hopital-public",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Santé",
+    "titre": "Poursuivre l'investissement dans l'hôpital public",
+    "extraitProgramme": "la poursuite de l’investissement dans notre hôpital public",
+    "reformulation": "Continuer à financer l'hôpital public.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "Le programme ne chiffre ni montant, ni échéance, ni objectif. Le seul critère possible (« investir davantage ») exigerait de comparer des budgets hospitaliers sur plusieurs années, ce qu'aucune source lue ne fait. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  },
+  {
+    "id": "2022-education-lycee-professionnel",
+    "mandatId": "macron-2022-2027",
+    "couvreTout": false,
+    "theme": "Éducation",
+    "titre": "Faire du lycée professionnel une voie d'excellence",
+    "extraitProgramme": "notre lycée professionnel devenu une voie d’excellence",
+    "reformulation": "Revaloriser la voie professionnelle au lycée.",
+    "pageProgramme": "message d'ouverture",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "« Voie d'excellence » n'a pas de critère mesurable dans le programme, qui ne cite ni réforme, ni chiffre. Une réforme de la voie professionnelle a été engagée dans le mandat, mais elle n'a pas été relue ici et la rattacher à la promesse serait une interprétation. Mandat en cours.",
+    "verifieLe": "2026-09-20",
+    "actions": [],
+    "sources": []
+  }
+]

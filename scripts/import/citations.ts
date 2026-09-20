@@ -50,6 +50,11 @@ function sansLigaturesNiEspaces(texteNormalise: string): string {
   return texteNormalise.replace(/ff[il]?|f[il]/g, "").replace(/ /g, "");
 }
 
+/** Variante pour l'extraction qui garde le f et perd le i (« flière » pour « filière »). */
+function sansFNiEspaces(texteNormalise: string): string {
+  return texteNormalise.replace(/ /g, "").replace(/f+[il]*/g, "");
+}
+
 /**
  * Entités nommées rencontrées dans les pages des partis, en plus de celles
  * que `decoderEntitesHtml` connaît déjà. Sans elles, « l&rsquo;assurance »
@@ -164,7 +169,10 @@ export async function citationPresente(url: string, extrait: string): Promise<bo
     // « efficace ») et scinde ainsi le mot. Les deux côtés perdent leurs
     // ligatures et leurs espaces : les lettres restantes doivent se suivre
     // exactement, ce qui n'accepte aucune citation absente du document.
-    return sansLigaturesNiEspaces(document).includes(sansLigaturesNiEspaces(cherche));
+    return (
+      sansLigaturesNiEspaces(document).includes(sansLigaturesNiEspaces(cherche)) ||
+      sansFNiEspaces(document).includes(sansFNiEspaces(cherche))
+    );
   } catch {
     return false;
   }

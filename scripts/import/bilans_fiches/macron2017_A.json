@@ -1,0 +1,1003 @@
+[
+  {
+    "id": "2017-1-cotisations-salaries-500-euros",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Pouvoir d'achat",
+    "titre": "Réduire les cotisations des salariés, des indépendants et des fonctionnaires",
+    "extraitProgramme": "Sans que cela ne revienne plus cher aux employeurs, nous réduirons les cotisations payées par les salariés, par les indépendants et par les fonctionnaires : près de 500 euros supplémentaires nets par an pour un salaire de 2200 euros nets par mois !",
+    "reformulation": "Baisser les cotisations sociales payées par les salariés, les indépendants et les fonctionnaires, pour un gain d'environ 500 euros nets par an à 2 200 euros nets par mois, sans surcoût pour les employeurs.",
+    "pageProgramme": "chapitre 1, p. 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de financement de la sécurité sociale pour 2018 (loi n° 2017-1836 du 30 décembre 2017) supprime la cotisation salariale d'assurance maladie (0,75 %) et la cotisation salariale d'assurance chômage (2,4 %, en deux temps, en janvier puis en octobre 2018), en contrepartie d'une hausse de 1,7 point de la CSG. Pour les indépendants, la hausse de la CSG est compensée par une baisse de 2,15 points des cotisations familiales.",
+    "resultat": "La bascule cotisations salariales vers CSG est en vigueur depuis 2018 pour les salariés et les indépendants. Le gain net exact pour un salaire de 2 200 euros nets par mois n'a pas été recalculé ici.",
+    "justification": "Le texte voté correspond à la mesure annoncée : baisse des cotisations des salariés et des indépendants sans coût supplémentaire pour les employeurs. Lors de l’examen du projet, le rapporteur du Sénat notait que la compensation pour les fonctionnaires n’était pas encore connue, et ce volet n’a pas été vérifié séparément. Le chiffre de 500 euros n’est pas contrôlé, d’où une confiance moyenne.",
+    "interpretations": "Le gain net dépend de la part de revenu soumise à la CSG et de la date (les cotisations chômage ne sont supprimées qu'en octobre 2018) : une lecture stricte du chiffre de 500 euros par an ne peut être vérifiée sans simulation. Le statut retenu juge la mesure législative, non le montant exact.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-12-30",
+        "description": "Promulgation de la loi de financement de la sécurité sociale pour 2018 (publication au Journal officiel du 31 décembre 2017).",
+        "url": "https://www.legisocial.fr/actualites-sociales/2508-publication-loi-financement-securite-sociale-2018-jo-31-decembre-2017.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de financement de la sécurité sociale pour 2018 : examen des articles",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l17-077-2/l17-077-218.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Publication de la loi de financement de la sécurité sociale pour 2018 au JO du 31 décembre 2017",
+        "organisme": "LégiSocial",
+        "url": "https://www.legisocial.fr/actualites-sociales/2508-publication-loi-financement-securite-sociale-2018-jo-31-decembre-2017.html",
+        "date": "2017-12-31",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2017-1-prime-activite-smic-100-euros",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Pouvoir d'achat",
+    "titre": "Augmenter de 100 euros nets par mois le revenu des smicards bénéficiaires de la prime d'activité",
+    "extraitProgramme": "Tous les smicards qui bénéficient de la prime d’activité toucheront par exemple l’équivalent d’un 13e mois de salaire, soit 100€ nets de plus chaque mois.",
+    "reformulation": "Les salariés au SMIC qui perçoivent la prime d'activité gagnent 100 euros nets de plus par mois.",
+    "pageProgramme": "chapitre 1, p. 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret n° 2018-1197 du 21 décembre 2018 relève la bonification individuelle de la prime d'activité de 90 euros, applicable aux revenus perçus depuis octobre 2018 et versée à partir de février 2019. Cette hausse s'ajoute à la revalorisation du SMIC du 1er janvier 2019.",
+    "resultat": "Selon le texte publié, la combinaison des deux mesures porte l’augmentation à 100 euros pour un salarié rémunéré au SMIC.",
+    "justification": "Le chiffre de 100 euros nets par mois est atteint pour un smicard bénéficiaire, mais en 2019, soit à mi-mandat, et pour partie par la revalorisation annuelle du SMIC et non par la seule prime. La mesure correspond au résultat annoncé, d'où le statut réalisé, avec une confiance moyenne sur le mode de calcul.",
+    "interpretations": "Deux lectures : la prime seule augmente de 90 euros (lecture stricte, en dessous des 100 euros), ou l'ensemble prime et SMIC atteint 100 euros (lecture du gouvernement). La seconde est retenue, car le programme parle du revenu net gagné par les smicards et non de la prime seule.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-12-21",
+        "description": "Décret n° 2018-1197 relatif à la revalorisation exceptionnelle de la prime d'activité.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037846000"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2018-1197 du 21 décembre 2018 relatif à la revalorisation exceptionnelle de la prime d'activité",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037846000",
+        "date": "2018-12-21",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-suspension-allocations-recherche-emploi",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Emploi",
+    "titre": "Suspendre les allocations en cas de recherche d'emploi insuffisante ou de refus d'offres raisonnables",
+    "extraitProgramme": "l’insuffisance des efforts de recherche d’emploi ou le refus d’offres raisonnables entraîneront la suspension des allocations.",
+    "reformulation": "Un demandeur d'emploi qui ne fait pas assez d'efforts de recherche ou refuse des offres raisonnables perd le versement de ses allocations.",
+    "pageProgramme": "chapitre 1, p. 6",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 5 septembre 2018 pour la liberté de choisir son avenir professionnel, puis le décret n° 2018-1335 du 28 décembre 2018, applicable depuis le 1er janvier 2019, prévoient la radiation et la suppression du revenu de remplacement pour recherche d'emploi insuffisante ou refus de deux offres raisonnables d'emploi. Pôle emploi prononce désormais seul la sanction.",
+    "resultat": "Le décret est applicable depuis le 1er janvier 2019. Selon la réponse ministérielle de février 2019, Pôle emploi prononce seul les sanctions et un journal numérique de la recherche d’emploi devait être testé à partir du 1er juin 2019.",
+    "justification": "Le dispositif annoncé existe et est en vigueur depuis le 1er janvier 2019. La même réponse ministérielle précise que ces motifs de sanction n'étaient pas totalement nouveaux : la réforme a modifié le quantum des sanctions et transféré la décision à Pôle emploi.",
+    "interpretations": "Les motifs de sanction existaient avant 2018 sous une autre forme. La lecture retenue juge que la mesure « en contrepartie » de l'ouverture de l'assurance chômage aux démissionnaires a été mise en oeuvre dans le cadre de la loi de 2018 et de son décret d'application.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-09-05",
+        "description": "Promulgation de la loi n° 2018-771 pour la liberté de choisir son avenir professionnel.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660"
+      },
+      {
+        "date": "2018-12-28",
+        "description": "Décret n° 2018-1335 relatif aux droits et aux obligations des demandeurs d'emploi et au transfert du suivi de la recherche d'emploi.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037883906"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Nouvelles sanctions contre les chômeurs (question écrite et réponse du ministère du Travail)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2019/qSEQ190108642.html",
+        "date": "2019-02-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2018-1335 du 28 décembre 2018 relatif aux droits et aux obligations des demandeurs d'emploi et au transfert du suivi de la recherche d'emploi",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037883906",
+        "date": "2018-12-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2018-771 du 5 septembre 2018 pour la liberté de choisir son avenir professionnel",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660",
+        "date": "2018-09-05",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-formation-2-millions-pic",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Formation",
+    "titre": "Former 1 million de jeunes et 1 million de demandeurs d'emploi peu qualifiés",
+    "extraitProgramme": "Nous formerons 1 million de jeunes et 1 million de demandeurs d’emploi peu ou pas qualifiés et aujourd’hui sans perspective.",
+    "reformulation": "Former 2 millions de personnes éloignées de l'emploi : 1 million de jeunes et 1 million de demandeurs d'emploi peu ou pas qualifiés.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le Plan d'investissement dans les compétences (PIC), doté de 15 milliards d'euros sur 2018-2022 dans le cadre du Grand plan d'investissement, vise 1 million de jeunes éloignés du marché du travail et 1 million de demandeurs d'emploi peu qualifiés. En avril 2021, le Haut-commissariat aux compétences annonçait un peu plus d'un million d'entrées en formation supplémentaires financées et un objectif de 2 millions attendu en 2022.",
+    "resultat": "Les entrées en formation de demandeurs d'emploi sont passées d'environ 800 000 en 2017 à environ 1,6 million en 2022 (Cour des comptes, janvier 2025). La Cour relève que 568 000 des 800 000 entrées supplémentaires relèvent du compte personnel de formation utilisé en autonomie, donc hors PIC, et juge les résultats du plan « limités mais réels ».",
+    "justification": "Les entrées en formation ont doublé, mais aucun décompte final de 2 millions de personnes formées grâce au PIC n'a été retrouvé, et une entrée en formation n'est pas une personne distincte. L'objectif est annoncé comme atteint par le Haut-commissariat en projection (avril 2021), et contesté dans son attribution par la Cour des comptes.",
+    "interpretations": "Deux lectures : le PIC est mesuré en entrées en formation supplémentaires financées (lecture du Haut-commissariat, objectif de 2 millions annoncé comme atteint) ou en personnes réellement formées grâce au plan (lecture stricte de la promesse). La seconde n'est pas documentée : partiellement est retenu.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2021-04-12",
+        "description": "Rapport provisoire du Haut-commissariat aux compétences : un peu plus d'un million d'entrées en formation supplémentaires financées depuis 2018.",
+        "url": "https://www.centre-inffo.fr/site-centre-inffo/actualites-centre-inffo/le-quotidien-de-la-formation-actualite-formation-professionnelle-apprentissage/articles-2021/leffet-du-plan-dinvestissement-dans-les-competences-pic-sur-la-formation-des-demandeurs-demploi"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Plan d'investissement dans les compétences : un programme d'ampleur évalué par un dispositif inédit",
+        "organisme": "Insee",
+        "url": "https://www.insee.fr/fr/statistiques/8305556?sommaire=8306008",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2022 : Travail et emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l21-163-332/l21-163-33214.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "L'objectif de former 2 millions de décrocheurs et de demandeurs d'emploi en 2022 sera atteint (Carine Seiler)",
+        "organisme": "Centre Inffo",
+        "url": "https://www.centre-inffo.fr/site-centre-inffo/actualites-centre-inffo/le-quotidien-de-la-formation-actualite-formation-professionnelle-apprentissage/articles-2021/leffet-du-plan-dinvestissement-dans-les-competences-pic-sur-la-formation-des-demandeurs-demploi",
+        "date": "2021-04-13",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Plan d'investissement dans les compétences : le bilan contradictoire de la Cour des comptes",
+        "organisme": "Management de la formation",
+        "url": "https://www.managementdelaformation.fr/plan-investissement-competences-pic-bilan-cour-des-comptes/",
+        "date": "2025-02-13",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2017-1-agriculteurs-5-milliards-modernisation",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Agriculture",
+    "titre": "Consacrer 5 milliards d'euros du plan d'investissement à la modernisation des exploitations agricoles",
+    "extraitProgramme": "5 milliards d’euros de notre Plan d’investissement seront consacrés à la modernisation de leurs exploitations.",
+    "reformulation": "Sur les 50 milliards du plan d'investissement, 5 milliards financent la modernisation des exploitations agricoles.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le Grand plan d'investissement présenté le 25 septembre 2017 comporte un volet agricole de 5 milliards d'euros sur 2018-2022, couvrant l'adaptation au climat, la compétitivité des filières (agriculture, pêche, agroalimentaire, forêt-bois) et la recherche.",
+    "justification": "L'enveloppe de 5 milliards d'euros est annoncée officiellement, mais le volet couvre l'ensemble des filières et non les seules exploitations, et aucun décompte des montants effectivement dépensés pour la modernisation des exploitations n'a été trouvé. Le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-09-25",
+        "description": "Présentation du Grand plan d'investissement 2018-2022 par le Premier ministre, avec un volet agricole de 5 milliards d'euros.",
+        "url": "https://agriculture.gouv.fr/grand-plan-dinvestissement-5-milliards-deuros-pour-lagriculture"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Grand Plan d'Investissement : 5 milliards d'euros pour l'agriculture",
+        "organisme": "Ministère de l'Agriculture",
+        "url": "https://agriculture.gouv.fr/grand-plan-dinvestissement-5-milliards-deuros-pour-lagriculture",
+        "date": "2017-09-25",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-agriculteurs-prix-juste-organisations-producteurs",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Agriculture",
+    "titre": "Aider les agriculteurs à être payés au prix juste en soutenant les organisations de producteurs",
+    "extraitProgramme": "nous les aiderons à être payés au prix juste en soutenant les organisations de producteurs dans leurs négociations avec les industriels.",
+    "reformulation": "Renforcer les organisations de producteurs face aux industriels pour que les agriculteurs obtiennent un prix rémunérateur.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "partiellement",
+    "confiance": "basse",
+    "actionMenee": "La loi du 30 octobre 2018 pour l'équilibre des relations commerciales dans le secteur agricole et alimentaire (EGalim) impose la contractualisation avec des clauses obligatoires, sanctionnées par des amendes pouvant atteindre 2 % du chiffre d'affaires, et vise l'inversion de la construction du prix à partir des coûts de production.",
+    "resultat": "Dans sa réponse du 6 mai 2021, le gouvernement fait état de « premiers résultats encourageants » dans la filière laitière et d'une déflation des prix en distribution ramenée à -0,1 % en 2020 contre -0,4 à -0,6 % avant la loi, tout en reconnaissant que les objectifs de la loi n'étaient pas entièrement atteints.",
+    "justification": "Le cadre légal annoncé existe (loi EGalim), mais la promesse porte sur un résultat, un prix juste, que la réponse ministérielle elle-même ne présente pas comme atteint. Le rôle précis de la loi pour soutenir les organisations de producteurs dans leurs négociations n'a pas été vérifié dans le texte de la loi.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-10-30",
+        "description": "Promulgation de la loi EGalim n° 2018-938.",
+        "url": "https://www.vie-publique.fr/loi/20790-loi-30-octobre-2018-egalim-equilibre-relations-commerciales-agriculture"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Application de la loi du 30 octobre 2018 pour l'équilibre des relations commerciales dans le secteur agricole (réponse ministérielle)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2021/qSEQ210220463.html",
+        "date": "2021-05-06",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 30 octobre 2018 EGalim : équilibre des relations commerciales dans le secteur agricole et alimentaire",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/loi/20790-loi-30-octobre-2018-egalim-equilibre-relations-commerciales-agriculture",
+        "date": "2018-10-30",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-droit-europeen-concurrence-agriculteurs",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Agriculture",
+    "titre": "Faire évoluer le droit européen de la concurrence en faveur des organisations de producteurs",
+    "extraitProgramme": "Nous nous battrons pour faire évoluer dans ce sens le droit européen de la concurrence.",
+    "reformulation": "Obtenir une évolution du droit européen de la concurrence qui permette aux producteurs de négocier de meilleurs prix.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le règlement (UE) 2017/2393, dit « Omnibus », adopté le 13 décembre 2017 par le Parlement européen et le Conseil, étend à tous les secteurs agricoles la possibilité pour les organisations de producteurs reconnues de négocier des contrats au nom de leurs membres, avec une dérogation à l'article 101 du traité sur le fonctionnement de l'Union européenne.",
+    "resultat": "La fixation collective des prix reste interdite. Le règlement ne suffit pas à garantir un prix rémunérateur.",
+    "justification": "La promesse est un engagement de négociation (« nous nous battrons »). Le règlement (UE) 2017/2393 du 13 décembre 2017 a étendu à tous les secteurs agricoles la dérogation au droit de la concurrence pour les organisations de producteurs, mais aucune source lue ne documente le rôle de la France dans son adoption. Le statut n’est donc pas tranché.",
+    "interpretations": "Le programme promet de « se battre » : si l'on juge l'engagement seul, aucune source lue ne documente la position française. Le statut retenu juge le résultat obtenu au niveau européen, comme la consigne le prévoit pour les promesses dépendant d'un tiers.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-12-13",
+        "description": "Adoption du règlement (UE) 2017/2393 (Omnibus) élargissant les pouvoirs des organisations de producteurs.",
+        "url": "https://www.senat.fr/rap/r19-649/r19-6491.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Agriculture et droit de la concurrence : redonner aux agriculteurs français un pouvoir de marché",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r19-649/r19-6491.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-pre-apprentissage",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Développer les périodes de pré-apprentissage",
+    "extraitProgramme": "Nous développerons les périodes de pré-apprentissage",
+    "reformulation": "Créer des parcours de préparation avant l'entrée en apprentissage.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 5 septembre 2018 permet à un jeune d'au moins 15 ans ayant terminé le premier cycle du secondaire d'entrer en formation par apprentissage, avec une période initiale de trois mois sous statut de stagiaire de la formation professionnelle. À partir de mars 2019, le dispositif « prépa apprentissage » accueille les 16-29 ans, avec 28 000 places prévues.",
+    "resultat": "Des parcours de préparation de cinq jours à six mois sont ouverts dans plus de 1 000 lieux, selon Pôle emploi (devenu France Travail).",
+    "justification": "Deux dispositifs de préparation à l'apprentissage sont créés dans le mandat, l'un dans la loi et l'autre par appel à projets. Le verbe « développer » ne fixe aucun seuil : la mesure est jugée sur l'existence et le déploiement des dispositifs.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-09-05",
+        "description": "Loi n° 2018-771 : possibilité d'entrer en apprentissage dès 15 ans après le premier cycle du secondaire (article L. 6222-12-1 du code du travail).",
+        "url": "https://www.senat.fr/questions/base/2019/qSEQ191113028.html"
+      },
+      {
+        "date": "2019-03-01",
+        "description": "Ouverture des premières prépas apprentissage.",
+        "url": "https://www.francetravail.fr/actualites/a-laffiche/la-prepa-apprentissage-une-nouve.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Accès à l'apprentissage des jeunes de moins de 16 ans (réponse ministérielle)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/questions/base/2019/qSEQ191113028.html",
+        "date": "2020-03-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La prépa apprentissage, une nouvelle voie d'insertion pour les jeunes",
+        "organisme": "France Travail",
+        "url": "https://www.francetravail.fr/actualites/a-laffiche/la-prepa-apprentissage-une-nouve.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-alternance-lycees-professionnels",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Développer les filières en alternance dans tous les lycées professionnels",
+    "extraitProgramme": "les filières en alternance dans tous les lycées professionnels.",
+    "reformulation": "Proposer une voie en alternance dans chaque lycée professionnel.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Aucune mesure précise rattachée à cette promesse n'a été établie par une source primaire lue.",
+    "justification": "La recherche a porté sur l'ouverture de sections d'apprentissage et la mixité des publics dans les lycées professionnels. Elle a seulement retrouvé la réforme de la voie professionnelle de 2018, dont le lien avec une généralisation de l'alternance à tous les lycées professionnels n'est documenté par aucune source officielle lue. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-1-licences-pro-trois-ans",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Préparer les licences professionnelles sur trois ans et en alternance",
+    "extraitProgramme": "Des licences professionnelles seront préparées sur trois ans et en alternance.",
+    "reformulation": "Allonger la préparation des licences professionnelles à trois ans, en alternance.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le bachelor universitaire de technologie (BUT) en trois ans, ouvert à l'alternance à partir de la deuxième année, remplace le DUT à la rentrée 2021, mais aucune source officielle lue ne le relie à cette promesse.",
+    "justification": "Le BUT est un diplôme distinct de la licence professionnelle, qui subsiste. Le rattacher à la promesse relèverait d'une interprétation que les sources lues n'établissent pas. Aucun texte prévoyant une licence professionnelle préparée sur trois ans n'a été trouvé.",
+    "interpretations": "Deux lectures : le BUT en trois ans, qui intègre la troisième année ex licence professionnelle des IUT, réalise l'esprit de la promesse, ou la promesse visait la licence professionnelle elle-même, qui reste sur un an. Aucune n'est tranchée par une source primaire lue.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-1-converger-contrats-alternance",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Faire converger les contrats d'alternance existants",
+    "extraitProgramme": "Nous ferons converger les contrats existants",
+    "reformulation": "Rapprocher les différents contrats de formation en alternance.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 5 septembre 2018 réforme le contrat d'apprentissage et le contrat de professionnalisation, et confie aux branches et à France compétences le rapprochement des niveaux de prise en charge financière.",
+    "justification": "La convergence peut s'entendre comme un rapprochement des règles de financement, ce que la loi organise, ou comme une fusion des contrats, qui n'a pas eu lieu. Aucune source lue ne permet de mesurer le degré de rapprochement des deux contrats, le statut n'est donc pas tranché.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-1-branches-professionnelles-apprentissage",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Impliquer les branches professionnelles dans l'organisation des formations en apprentissage",
+    "extraitProgramme": "impliquerons pleinement les branches professionnelles dans la définition des programmes et l’organisation des formations.",
+    "reformulation": "Donner aux branches professionnelles un rôle central dans les programmes et l'organisation de l'apprentissage.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 5 septembre 2018 crée France compétences et confie aux branches la fixation du niveau de prise en charge de chaque contrat d'apprentissage, sur la base de recommandations de France compétences. En mars 2019, 80 % des commissions paritaires nationales de l'emploi avaient transmis leurs niveaux dans les délais.",
+    "resultat": "Les branches déterminent le financement des contrats d'apprentissage de leur secteur, transmis aux opérateurs de compétences.",
+    "justification": "Le rôle des branches dans l'organisation et le financement de l'apprentissage est vérifié. Leur rôle dans la définition des programmes de formation, autre volet de la promesse, n'a pas été établi par une source lue.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-03-14",
+        "description": "France compétences publie ses premières recommandations aux branches sur le niveau de prise en charge des contrats d'apprentissage.",
+        "url": "https://www.francecompetences.fr/fiche/14-mars-2019-france-competences-emet-les-premieres-recommandations-a-destination-des-branches-sur-le-niveau-de-prise-en-charge-des-contrats-dapprentissage/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "France compétences émet les premières recommandations à destination des branches sur le niveau de prise en charge des contrats d'apprentissage",
+        "organisme": "France compétences",
+        "url": "https://www.francecompetences.fr/fiche/14-mars-2019-france-competences-emet-les-premieres-recommandations-a-destination-des-branches-sur-le-niveau-de-prise-en-charge-des-contrats-dapprentissage/",
+        "date": "2019-03-14",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Liberté de choisir son avenir professionnel",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/salle-de-presse/201806/liberte-de-choisir-son-avenir-professionnel.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-1-effort-massif-apprentissage",
+    "numero": 1,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Apprentissage",
+    "titre": "Fournir un effort massif pour l'apprentissage",
+    "extraitProgramme": "Nous ferons un effort massif pour l’apprentissage.",
+    "reformulation": "Développer fortement l'apprentissage.",
+    "pageProgramme": "chapitre 1, p. 7",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La loi du 5 septembre 2018 pour la liberté de choisir son avenir professionnel réforme le financement et la gouvernance de l’apprentissage et crée France compétences.",
+    "resultat": "Selon la Dares, 837 000 nouveaux contrats d'apprentissage sont signés en 2022, contre moins de 300 000 en 2017, d'après le compte rendu de la Banque des territoires.",
+    "justification": "La promesse est une ambition sans seuil ni échéance. Les chiffres disponibles montrent une forte hausse des contrats, mais le programme ne fixe aucun objectif contre lequel la mesurer, et la part de cette hausse due à la réforme n'est pas établie ici.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Apprentissage et contrat d'engagement jeune : 837.000 et 300.000 contrats signés en 2022",
+        "organisme": "Banque des territoires",
+        "url": "https://www.banquedesterritoires.fr/apprentissage-et-contrat-engagement-jeune-837000-et-300000-contrats-signes-en-2022",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2017-2-entrepreneurs-reduire-charges",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Entreprises",
+    "titre": "Réduire les charges des entrepreneurs",
+    "extraitProgramme": "Nous réduirons leurs charges",
+    "reformulation": "Alléger les charges qui pèsent sur les entrepreneurs.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse ne précise ni la nature des charges, ni un montant, ni une échéance. Des baisses de cotisations pour les indépendants figurent dans la loi de financement de la sécurité sociale pour 2018, mais les rattacher à cette phrase reviendrait à interpréter un texte voisin. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-2-micro-entreprise-doubler-plafonds",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Entreprises",
+    "titre": "Doubler les plafonds du régime fiscal de la micro-entreprise",
+    "extraitProgramme": "Nous doublerons les plafonds pour pouvoir bénéficier du régime fiscal de la microentreprise.",
+    "reformulation": "Relever au double les seuils de chiffre d'affaires donnant accès au régime fiscal de la micro-entreprise.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'article 22 de la loi de finances pour 2018 (loi n° 2017-1837 du 30 décembre 2017) porte les seuils d'accès au régime micro à 170 000 euros pour les activités de vente et à 70 000 euros pour les prestations de services et activités non commerciales. Les seuils, jusque-là alignés sur ceux de la franchise de TVA, étaient de 82 800 et 33 200 euros.",
+    "resultat": "Les nouveaux seuils s'appliquent aux revenus de 2017 déclarés en 2018.",
+    "justification": "Les plafonds sont multipliés par plus de deux, comme annoncé, et inscrits dans la loi. Le relèvement est effectif dès l'imposition des revenus de 2017.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-12-30",
+        "description": "Loi de finances pour 2018, article 22 : relèvement des seuils du régime micro.",
+        "url": "https://bofip.impots.gouv.fr/bofip/11409-PGP.html/identifiant=ACTU-2018-00067"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "IR - BNC - BIC - Augmentation des seuils des régimes d'imposition des micro-entreprises (loi n° 2017-1837 du 30 décembre 2017 de finances pour 2018, art. 22)",
+        "organisme": "Bofip-Impôts (direction générale des Finances publiques)",
+        "url": "https://bofip.impots.gouv.fr/bofip/11409-PGP.html/identifiant=ACTU-2018-00067",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-2-micro-entreprise-option-annuelle",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Entreprises",
+    "titre": "Permettre chaque année aux artisans et commerçants d'opter ou non pour le régime micro",
+    "extraitProgramme": "Nous mettrons fin à toute forme de concurrence déloyale en permettant chaque année à tous les artisans et commerçants d’opter ou non, selon leurs besoins, pour le régime fiscal de la microentreprise.",
+    "reformulation": "Laisser à chaque artisan et commerçant le choix annuel d'appliquer ou non le régime fiscal de la micro-entreprise.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La loi de finances pour 2018 relève les seuils du régime micro et permet de le conserver tout en étant soumis à la TVA au régime réel, mais aucune source lue ne prévoit une option annuelle nouvelle pour les artisans et commerçants, ni ne l’écarte. Une option pour le régime réel existait déjà. Sans texte établissant la nouveauté annoncée, le statut n’est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-2-cotisations-employeurs-6-points-cice",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Fiscalité",
+    "titre": "Baisser de 6 points les cotisations employeurs en remplacement du CICE, jusqu'à 10 points au niveau du SMIC",
+    "extraitProgramme": "Nous aiderons les entreprises à embaucher en baissant les cotisations sociales employeurs de 6 points en remplacement du CICE, et jusqu’à 10 points au niveau du SMIC",
+    "reformulation": "Remplacer le crédit d'impôt CICE par une baisse permanente des cotisations patronales de 6 points, davantage au niveau du SMIC.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La loi de financement de la sécurité sociale pour 2018 supprime le CICE à compter du 1er janvier 2019 et le remplace par une baisse de 6 points de la cotisation patronale d'assurance maladie pour les salaires jusqu'à 2,5 SMIC, ainsi qu'un renforcement de l'allègement général sur les bas salaires.",
+    "resultat": "La bascule est appliquée en 2019. Selon le Sénat, elle aggrave le déficit des administrations publiques de 0,9 point de PIB cette année-là, le CICE de l'année précédente et l'allègement étant versés simultanément.",
+    "justification": "La baisse de 6 points et le renforcement de l'allègement au niveau du SMIC sont inscrits dans la loi et appliqués en 2019. Le chiffre exact de 10 points au SMIC et les économies en euros par salarié n'ont pas été recalculés, d'où une confiance moyenne. Le sort du CICE lui-même est traité dans une autre fiche.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-12-30",
+        "description": "Loi de financement de la sécurité sociale pour 2018 : suppression du CICE et baisse de cotisations patronales à compter de 2019.",
+        "url": "https://www.senat.fr/rap/l17-077-2/l17-077-218.html"
+      },
+      {
+        "date": "2019-01-01",
+        "description": "Entrée en application de la baisse de 6 points de la cotisation patronale d'assurance maladie.",
+        "url": "https://www.senat.fr/rap/r19-600/r19-6003.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de financement de la sécurité sociale pour 2018 : examen des articles",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l17-077-2/l17-077-218.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Application de la loi de financement de la sécurité sociale pour 2019 et situation et perspectives des comptes sociaux",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r19-600/r19-6003.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-2-bonus-malus-assurance-chomage",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Emploi",
+    "titre": "Créer un bonus-malus sur l'assurance chômage pour limiter les contrats courts",
+    "extraitProgramme": "Nous créerons un bonus-malus sur l’assurance-chômage.",
+    "reformulation": "Moduler la contribution d'assurance chômage des employeurs selon leur recours aux contrats courts.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "en_cours",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage institue la modulation du taux de contribution. L'arrêté du 28 juin 2021 fixe les secteurs d'activité concernés. Le dispositif s'applique à partir du 1er septembre 2022, aux employeurs d'au moins 11 salariés de sept secteurs.",
+    "resultat": "Le taux de contribution varie entre 2,95 % et 5 % selon le taux de séparation de l'entreprise par rapport à la médiane de son secteur. À la fin du mandat, le 13 mai 2022, la modulation n'est pas encore appliquée.",
+    "justification": "Le texte est publié pendant le mandat, mais la modulation n'entre en vigueur qu'en septembre 2022, après la fin du mandat, et ne concerne que sept secteurs sur l'ensemble de l'économie. Le dispositif est lancé officiellement sans être en application à la date de jugement.",
+    "interpretations": "Deux lectures : la promesse est tenue dès la publication des textes (lecture par le moyen), ou elle exige une application effective à des employeurs (lecture par le résultat). La seconde est retenue, l'application ne débutant qu'après la fin du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-07-26",
+        "description": "Décret n° 2019-797 relatif au régime d'assurance chômage, instituant le bonus-malus.",
+        "url": "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000038868382"
+      },
+      {
+        "date": "2021-06-28",
+        "description": "Arrêté relatif aux secteurs d'activité et aux employeurs entrant dans le champ d'application du bonus-malus.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043715401"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Comment s'appliquent les règles du bonus-malus sur le taux de contribution à l'assurance chômage ?",
+        "organisme": "Unédic",
+        "url": "https://www.unedic.org/l-assurance-chomage-et-vous/employeur-du-secteur-prive/mes-contributions/comment-s-appliquent-les-regles-du-bonus-malus-sur-le-taux-de-contribution-a-l-assurance-chomage/",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000038868382",
+        "date": "2019-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Arrêté du 28 juin 2021 relatif aux secteurs d'activité et aux employeurs entrant dans le champ d'application du bonus-malus",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043715401",
+        "date": "2021-06-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-2-dialogue-social-accord-majoritaire",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Dialogue social",
+    "titre": "Négocier les horaires et l'organisation du travail au plus près du terrain, par accord majoritaire ou référendum d'entreprise",
+    "extraitProgramme": "les horaires effectifs ou l’organisation du travail seront négociés au plus près du terrain. Ils seront définis par accord majoritaire ou par référendum d’entreprise sur la base d’un accord.",
+    "reformulation": "Déplacer vers l'entreprise la négociation des horaires et de l'organisation du travail, validée par un accord majoritaire ou un référendum d'entreprise.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'ordonnance n° 2017-1385 du 22 septembre 2017 relative au renforcement de la négociation collective donne la priorité à l'accord d'entreprise sur l'accord de branche dans de nombreux domaines, permet à l'accord d'entreprise d'aménager le temps de travail, la rémunération et la mobilité, et ouvre à l'employeur la possibilité de faire valider un accord par une consultation des salariés. Elle est ratifiée par la loi n° 2018-217 du 29 mars 2018.",
+    "resultat": "Le Conseil d'État, statuant en référé le 16 novembre 2017, a refusé de suspendre les articles contestés par la CGT.",
+    "justification": "Les dispositions du droit du travail annoncées, accord majoritaire et consultation des salariés pour valider un accord, sont en vigueur depuis 2017 et 2018. La promesse est un texte : sa publication et sa ratification suffisent au statut réalisé.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-09-22",
+        "description": "Ordonnance n° 2017-1385 relative au renforcement de la négociation collective.",
+        "url": "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000035610958"
+      },
+      {
+        "date": "2018-03-29",
+        "description": "Loi de ratification n° 2018-217.",
+        "url": "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000035610958"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Ordonnance du 22 septembre 2017 relative au renforcement de la négociation collective",
+        "organisme": "Conseil d'État",
+        "url": "https://www.conseil-etat.fr/actualites/ordonnance-du-22-septembre-2017-relative-au-renforcement-de-la-negociation-collective",
+        "date": "2017-11-16",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Ordonnance n° 2017-1385 du 22 septembre 2017 relative au renforcement de la négociation collective : dossier législatif",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000035610958",
+        "date": "2017-09-22",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-2-assurance-chomage-independants",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Emploi",
+    "titre": "Ouvrir l'assurance chômage aux indépendants, professions libérales et agriculteurs",
+    "extraitProgramme": "Les artisans, les commerçants indépendants, les entrepreneurs, les professions libérales, et les agriculteurs disposeront, comme les salariés, de cette protection.",
+    "reformulation": "Donner aux travailleurs indépendants une protection contre la perte d'activité comparable à celle des salariés.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 5 septembre 2018 pour la liberté de choisir son avenir professionnel crée à son article 51 une indemnisation des travailleurs indépendants qui cessent leur activité. L'allocation des travailleurs indépendants (ATI) est versée depuis le 1er novembre 2019.",
+    "resultat": "L'ATI est d'environ 800 euros par mois pendant six mois (minimum 600 euros). Elle exige notamment une liquidation ou un redressement judiciaire, au moins 10 000 euros de revenu annuel et des ressources inférieures au RSA. L'Unédic dénombre environ 650 bénéficiaires fin 2024, très en dessous de la prévision initiale de 29 300.",
+    "justification": "Un droit à indemnisation existe pour les indépendants depuis 2019, ce qui répond à la promesse dans son principe. Les conditions, liées à la faillite de l'entreprise, sont beaucoup plus restrictives que l'assurance chômage des salariés, et la couverture de chaque catégorie citée (professions libérales, agriculteurs) n'a pas été vérifiée une à une. Le statut est partiel.",
+    "interpretations": "Deux lectures : toute protection contre la perte d'activité suffit (statut réalisé), ou le programme promet une protection « comme les salariés » (statut non réalisé faute d'équivalence). La position intermédiaire est retenue, la protection existant mais avec un champ étroit.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-09-05",
+        "description": "Promulgation de la loi n° 2018-771, article 51 : indemnisation des travailleurs indépendants.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660"
+      },
+      {
+        "date": "2019-11-01",
+        "description": "Mise en place de l'allocation des travailleurs indépendants.",
+        "url": "https://www.unedic.org/publications/allocation-des-travailleurs-independants-etat-des-lieux"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-771 du 5 septembre 2018 pour la liberté de choisir son avenir professionnel",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037367660",
+        "date": "2018-09-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Allocation des travailleurs indépendants : état des lieux",
+        "organisme": "Unédic",
+        "url": "https://www.unedic.org/publications/allocation-des-travailleurs-independants-etat-des-lieux",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-2-site-unique-reglementation-entreprises",
+    "numero": 2,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Entreprises",
+    "titre": "Créer un site Internet unique expliquant la réglementation aux TPE et PME",
+    "extraitProgramme": "Un site Internet unique donnera à chaque TPE ou PME les obligations légales et conventionnelles qu’elle doit respecter en fonction de sa situation.",
+    "reformulation": "Un service en ligne indique à chaque petite entreprise ses obligations légales et conventionnelles.",
+    "pageProgramme": "chapitre 2, p. 9",
+    "statut": "partiellement",
+    "confiance": "basse",
+    "actionMenee": "Le Code du travail numérique, lancé début 2020 par le ministère du Travail et inscrit dans les ordonnances de 2017, donne des réponses personnalisées selon la convention collective applicable, avec des modèles de documents et des simulateurs.",
+    "resultat": "Le service couvre le droit du travail des salariés du secteur privé et exclut les fonctionnaires et les travailleurs indépendants.",
+    "justification": "Un site public de réponse personnalisée existe, mais il ne traite que le droit du travail, pas l'ensemble des obligations d'une entreprise, et le caractère opposable des réponses face à l'administration, second volet de la promesse, n'a pas été établi par la page lue. Le statut est partiel, avec une confiance basse.",
+    "interpretations": "Deux lectures : le site unique désigne le Code du travail numérique, seul service public assez proche (retenu), ou un portail recouvrant toutes les obligations (fiscales, sociales, sectorielles), qui n'a pas été trouvé.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2020-01-16",
+        "description": "Lancement du Code du travail numérique par la ministre du Travail.",
+        "url": "https://code.travail.gouv.fr/a-propos"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "À propos du Code du travail numérique",
+        "organisme": "Ministère du Travail",
+        "url": "https://code.travail.gouv.fr/a-propos",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-plan-investissement-50-milliards",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Investissement",
+    "titre": "Lancer un Plan d'investissement de 50 milliards d'euros sur cinq ans",
+    "extraitProgramme": "Nous lancerons un grand Plan d’investissement de 50 milliards d’euros.",
+    "reformulation": "Engager 50 milliards d'euros sur cinq ans pour la formation, la transition écologique, le numérique et la modernisation des services publics.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le Premier ministre présente le 25 septembre 2017 le Grand plan d'investissement 2018-2022, doté de 57 milliards d'euros sur quatre axes : transition écologique (20 milliards), compétences (15), innovation (13) et État numérique (9).",
+    "resultat": "Le plan est annoncé au-dessus de la promesse de 50 milliards. Le Sénat indique, pour l'ensemble des programmes d'investissement d'avenir au 30 juin 2021, plus de 45,6 milliards d'euros contractualisés et près de 29 milliards décaissés. Le suivi propre au Grand plan n'a pas été retrouvé isolément.",
+    "justification": "Le plan promis est lancé dans les six mois du mandat, avec une dotation supérieure à celle annoncée et des axes proches de ceux du programme. L'exécution effective du Grand plan pris isolément n'a pas pu être vérifiée, d'où une confiance moyenne.",
+    "interpretations": "Deux lectures : la promesse est de lancer le plan (réalisée dès 2017), ou de dépenser 50 milliards (non établi ici, les chiffres d'exécution mêlant plusieurs programmes). La première est retenue, car le programme dit « nous lancerons ». Le programme cite la rénovation urbaine parmi les objectifs, qui ne figure pas comme axe du Grand plan.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-09-25",
+        "description": "Présentation du Grand plan d'investissement 2018-2022 (57 milliards d'euros) par le Premier ministre.",
+        "url": "https://agriculture.gouv.fr/grand-plan-dinvestissement-5-milliards-deuros-pour-lagriculture"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Grand Plan d'Investissement : 5 milliards d'euros pour l'agriculture",
+        "organisme": "Ministère de l'Agriculture",
+        "url": "https://agriculture.gouv.fr/grand-plan-dinvestissement-5-milliards-deuros-pour-lagriculture",
+        "date": "2017-09-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2022 : Investir pour la France de 2030",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l21-163-317/l21-163-317_mono.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Grand plan d'investissement : 57 milliards d'euros d'investissement public sur le quinquennat",
+        "organisme": "info.gouv.fr",
+        "url": "https://www.info.gouv.fr/actualite/grand-plan-d-investissement-57-milliards-d-euros-d-investissement-public-sur-le-quinquennat",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-fonds-industrie-innovation-10-milliards",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Investissement",
+    "titre": "Créer un Fonds pour l'industrie et l'innovation doté de 10 milliards d'euros de participations de l'État",
+    "extraitProgramme": "Nous créerons un Fonds pour l’industrie et l’innovation.",
+    "reformulation": "Financer l'industrie du futur par un fonds de 10 milliards d'euros adossé à des participations minoritaires de l'État.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Par décision du ministre de l'Économie et des Finances du 15 janvier 2018, le Fonds pour l'innovation et l'industrie est constitué au sein de l'établissement Bpifrance et doté de 10 milliards d'euros : 1,6 milliard en numéraire, issu des cessions d'Engie et de Renault en 2017, et 8,4 milliards en titres (13,30 % d'EDF et 25,76 % de Thales).",
+    "resultat": "La dotation n'est pas destinée à être consommée : elle produit un rendement estimé entre 200 et 300 millions d'euros par an, qui finance l'innovation.",
+    "justification": "Le fonds est créé en janvier 2018 avec la dotation de 10 milliards annoncée, issue de participations de l'État. Les cessions et transferts de titres sont documentés par le rapport du Sénat sur les participations financières de l'État.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-01-15",
+        "description": "Décision du ministre de l'Économie et des Finances dotant le Fonds pour l'innovation et l'industrie de 10 milliards d'euros.",
+        "url": "https://www.senat.fr/rap/a18-148-8/a18-148-82.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2019 : Participations financières de l'État",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a18-148-8/a18-148-82.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-perturbateurs-endocriniens-pesticides",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Écologie",
+    "titre": "Placer la France en tête du combat contre les perturbateurs endocriniens et les pesticides",
+    "extraitProgramme": "Nous placerons la France en tête du combat contre les perturbateurs endocriniens et les pesticides.",
+    "reformulation": "Faire de la France un pays de premier rang dans la lutte contre les perturbateurs endocriniens et les pesticides.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est un positionnement qualitatif : elle ne fixe ni mesure, ni chiffre, ni échéance. Une deuxième stratégie nationale sur les perturbateurs endocriniens (2019-2022, cinquante actions) a été publiée, mais elle ne permet pas de dire si la France était « en tête ». Aucune source lue ne mesure ce classement, le statut n'est donc pas deviné.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-3-renovation-million-logements",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Logement",
+    "titre": "Rénover 1 million de logements mal isolés d'ici 2022, en priorité ceux des propriétaires modestes",
+    "extraitProgramme": "Nous rénoverons 1 million de logements mal isolés d’ici 2022, et en priorité ceux des propriétaires les plus modestes.",
+    "reformulation": "Rénover l'isolation d'un million de logements en cinq ans, en commençant par les propriétaires aux revenus les plus faibles.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "MaPrimeRénov' est créée en 2020. La Cour des comptes recense, fin septembre 2021, 574 000 demandes déposées et environ 300 000 dossiers financés depuis 2020, pour 862 millions d'euros d'aides.",
+    "justification": "La promesse est un résultat chiffré, un million de logements mal isolés rénovés. Aucun décompte officiel cumulé des logements mal isolés effectivement rénovés entre 2017 et 2022 n'a été retrouvé : les aides successives (Habiter mieux, MaPrimeRénov') mesurent des dossiers, pas des logements sortis de la catégorie mal isolée. La Cour des comptes note par ailleurs que MaPrimeRénov' ne vise pas d'abord la précarité énergétique des propriétaires très modestes. Le statut n'est pas tranché.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Premiers enseignements du déploiement du dispositif MaPrimeRénov'",
+        "organisme": "Cour des comptes",
+        "url": "https://www.ccomptes.fr/fr/publications/premiers-enseignements-du-deploiement-du-dispositif-maprimerenov",
+        "date": "2021-09-30",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-leader-mondial-recherche-transition",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Recherche",
+    "titre": "Faire de la France le leader mondial de la recherche sur la transition environnementale",
+    "extraitProgramme": "Nous ferons de la France le leader mondial de la recherche sur la transition environnementale.",
+    "reformulation": "Placer la France au premier rang mondial de la recherche sur la transition environnementale.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Le programme « Make Our Planet Great Again », lancé en juin 2017 et doté de 60 millions d'euros, dont 30 millions de l'investissement d'avenir, sélectionne 43 chercheurs étrangers.",
+    "justification": "Le programme finance des chercheurs venus travailler en France, mais la promesse est un classement mondial (« leader ») sans indicateur ni échéance. Aucune source lue ne mesure la position de la France, le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Make our planet great again : ces chercheurs qui ont choisi la France",
+        "organisme": "CNRS Le journal",
+        "url": "https://lejournal.cnrs.fr/articles/make-our-planet-great-again-ces-chercheurs-qui-ont-choisi-la-france",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-specialistes-etrangers-formalites-accueil",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Recherche",
+    "titre": "Accélérer les formalités d'accueil des spécialistes étrangers de la recherche environnementale",
+    "extraitProgramme": "Les spécialistes étrangers bénéficieront de formalités d’accueil accélérées.",
+    "reformulation": "Faciliter et accélérer l'entrée en France des chercheurs étrangers spécialistes de la transition environnementale.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La recherche a porté sur des procédures de visa ou de titre de séjour accélérées pour les chercheurs étrangers spécialistes de l'environnement. L'article lu sur le programme « Make Our Planet Great Again » ne mentionne aucune procédure accélérée, et aucun texte officiel n'a été retrouvé. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-3-cantines-50-pourcent-durable",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Alimentation",
+    "titre": "Servir 50 % de produits bio, écologiques ou de circuits courts dans les cantines scolaires et restaurants d'entreprise d'ici 2022",
+    "extraitProgramme": "D’ici 2022, 50% des produits proposés par les cantines scolaires et les restaurants d’entreprise devront être bio, écologiques ou issus de circuits courts.",
+    "reformulation": "Imposer aux cantines scolaires et aux restaurants d'entreprise 50 % de produits bio, écologiques ou de circuits courts en 2022.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi EGalim du 30 octobre 2018, complétée par la loi Climat et résilience de 2021, impose 50 % de produits durables et de qualité, dont 20 % de bio, en restauration collective. L'obligation s'applique depuis le 1er janvier 2022 aux restaurants collectifs publics et depuis le 1er janvier 2024 aux établissements privés, dont les restaurants d'entreprise.",
+    "resultat": "Le bilan 2022 publié par le ministère de l'Agriculture donne 27,5 % de produits durables et de qualité, dont 13,1 % de bio, contre 23 % et 10,6 % en 2021, et juge la progression insuffisante au regard de la loi.",
+    "justification": "L'obligation légale existe et prend effet en 2022 pour la restauration publique, dont les cantines scolaires, mais pas pour les restaurants d'entreprise privés, visés seulement à partir de 2024. Les taux effectivement atteints en 2022 restent nettement inférieurs à 50 %. Le statut est partiel.",
+    "interpretations": "Deux lectures : la promesse est une obligation légale (« devront être », réalisée pour le secteur public en 2022) ou un taux à atteindre dans les assiettes (27,5 % en 2022, non atteint). La lecture par l'obligation est retenue pour le statut, la seconde est précisée dans le résultat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-10-30",
+        "description": "Promulgation de la loi EGalim n° 2018-938.",
+        "url": "https://www.vie-publique.fr/loi/20790-loi-30-octobre-2018-egalim-equilibre-relations-commerciales-agriculture"
+      },
+      {
+        "date": "2022-01-01",
+        "description": "Entrée en vigueur de l'obligation de 50 % de produits durables et de qualité en restauration collective publique.",
+        "url": "https://agriculture.gouv.fr/objectifs-egalim-en-restauration-collective-le-bilan-2022-publie-la-collecte-des-donnees-2023"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Objectifs EGAlim en restauration collective : le bilan 2022 publié, la collecte des données 2023",
+        "organisme": "Ministère de l'Agriculture",
+        "url": "https://agriculture.gouv.fr/objectifs-egalim-en-restauration-collective-le-bilan-2022-publie-la-collecte-des-donnees-2023",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-pollution-atmospherique-jours-divises-par-deux",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Écologie",
+    "titre": "Diviser par deux le nombre de jours de pollution atmosphérique",
+    "extraitProgramme": "Nous diviserons par deux le nombre de jours de pollution atmosphérique.",
+    "reformulation": "Réduire de moitié le nombre de jours de pollution de l'air.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La promesse est un résultat chiffré mais ne précise ni le polluant, ni le territoire, ni l'année de départ. Le bilan officiel de la qualité de l'air constate une amélioration continue depuis 2017 et six épisodes de pollution de portée nationale en 2022, mais ne publie pas d'indicateur de jours de pollution comparable d'une année à l'autre. Diviser par deux ne peut donc être ni établi, ni écarté.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-3-prime-1000-euros-vehicule-moins-polluant",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Transports",
+    "titre": "Créer une prime de 1 000 euros pour remplacer un vieux véhicule polluant",
+    "extraitProgramme": "Nous remplacerons les vieux véhicules polluants en créant une prime de 1000 euros pour acheter un véhicule neuf ou d’occasion moins polluant.",
+    "reformulation": "Aider les ménages à remplacer un vieux véhicule polluant par un véhicule neuf ou d'occasion moins polluant, par une prime de 1 000 euros.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret n° 2017-1851 du 29 décembre 2017 relatif aux aides à l'acquisition ou à la location des véhicules peu polluants met en place la prime à la conversion, applicable aux commandes à partir du 1er janvier 2018. Le barème 2018 prévoit 1 000 euros pour un ménage imposable et 2 000 euros pour un ménage non imposable, pour un véhicule électrique ou de vignette Crit'Air 1 ou 2, neuf ou d'occasion.",
+    "resultat": "Selon le portail public de l’environnement, 910 000 véhicules ont été remplacés grâce à la prime entre 2015 et 2021, dont 110 000 primes distribuées en 2021, et le dispositif a été renforcé en 2022.",
+    "justification": "La prime de 1 000 euros pour remplacer un vieux véhicule par un véhicule moins polluant, neuf ou d'occasion, est créée pour 2018 et versée à grande échelle. Le montant du barème 2018 provient d'une source associative, le texte du décret lu n'en donnant pas le détail, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-12-29",
+        "description": "Décret n° 2017-1851 relatif aux aides à l'acquisition ou à la location des véhicules peu polluants.",
+        "url": "https://legifrance.gouv.fr/affichTexte.do?categorieLien=id&cidTexte=JORFTEXT000036340682"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2017-1851 du 29 décembre 2017 relatif aux aides à l'acquisition ou à la location des véhicules peu polluants",
+        "organisme": "Légifrance",
+        "url": "https://legifrance.gouv.fr/affichTexte.do?categorieLien=id&cidTexte=JORFTEXT000036340682",
+        "date": "2017-12-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Bonus écologique et prime à la conversion : les barèmes 2018",
+        "organisme": "Avere-France",
+        "url": "https://www.avere-france.org/bonus-ecologique-et-prime-a-la-conversion-les-baremes-2018/",
+        "institutionnelle": false
+      },
+      {
+        "titre": "Quel est le bilan de la prime à la conversion des véhicules ?",
+        "organisme": "Notre-environnement.gouv.fr",
+        "url": "https://www.notre-environnement.gouv.fr/actualites/breves/article/quel-est-le-bilan-de-la-prime-a-la-conversion-des-vehicules",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-3-banque-donnees-numeriques-autorisations",
+    "numero": 3,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Numérique",
+    "titre": "Créer une banque de données numériques issues des administrations qui délivrent des autorisations",
+    "extraitProgramme": "Nous créerons une banque de données numériques.",
+    "reformulation": "Obliger les administrations qui autorisent des activités à ouvrir leurs données aux entreprises innovantes.",
+    "pageProgramme": "chapitre 3, p. 11",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La recherche a porté sur une banque de données ouverte par les administrations délivrant des autorisations (hôtels, chauffeurs de VTC). Elle n'a retrouvé que le cadre général de l'ouverture des données publiques, issu de la loi pour une République numérique de 2016, sans texte ni service propre correspondant à cette promesse. Le statut n'est pas deviné.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  }
+]
