@@ -94,6 +94,11 @@ for (const f of fiches) {
     msgs.push("aucune source alors que le statut n'est pas inevaluable");
   }
   if (/[–—]/.test(JSON.stringify(f))) msgs.push("tiret cadratin ou demi-cadratin");
+  // La base type ces colonnes en date : « 2014-01 » ou « 2013 » fait échouer tout le chargement.
+  const dates = [f.verifieLe, ...(f.sources ?? []).map((s) => s.date), ...(f.actions ?? []).map((a) => a.date)];
+  for (const d of dates) {
+    if (d !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(d)) msgs.push(`date incomplète (AAAA-MM-JJ exigé, ou champ omis) : ${d}`);
+  }
 
   const programme = f.mandatId ? PROGRAMMES[f.mandatId] : undefined;
   if (!programme) msgs.push(`mandat inconnu : ${f.mandatId}`);
