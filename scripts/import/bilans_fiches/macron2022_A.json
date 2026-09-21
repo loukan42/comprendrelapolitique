@@ -690,20 +690,25 @@
     "reformulation": "Regrouper des forces de sécurité pour contrôler les frontières nationales.",
     "pageProgramme": "pacte pour la République",
     "statut": "realise",
-    "confiance": "basse",
-    "actionMenee": "Une « Force frontière d'intervention rapide » a été lancée en 2023 : un état-major national coordonne policiers, gendarmes, douaniers et militaires de l'opération Sentinelle. Elle a d'abord été expérimentée à Menton, à la frontière italienne.",
-    "resultat": "Le dispositif a été activé lors du G7 d'Évian en juin 2024, puis pour un renfort à la frontière franco-espagnole à la fin de juillet 2026.",
-    "justification": "Une structure portant ce nom existe et a été employée. Les sources lues sont de la presse (Europe 1), sans texte officiel, d'où la confiance basse. Le programme ne définit pas la « force des frontières », et le rattachement de la promesse à ce dispositif est une interprétation.",
+    "confiance": "moyenne",
+    "actionMenee": "Un état-major opérationnel des frontières (EMOF) a été créé le 1er janvier 2024 et adossé à la direction nationale de la police aux frontières. Il réunit des policiers, des gendarmes et des douaniers. Un dispositif désigné « force frontière » a d’abord été expérimenté à partir de 2023 à la frontière italienne, dans les Alpes-Maritimes et les Hautes-Alpes.",
+    "resultat": "Une structure interservices dédiée aux frontières existe depuis le 1er janvier 2024, selon le rapport du Sénat sur le projet de loi de finances pour 2025.",
+    "justification": "Le programme ne définit pas la « force des frontières ». Une structure nouvelle, réunissant les trois services qui interviennent aux frontières, a été créée pendant le mandat et figure dans un rapport budgétaire du Sénat lu directement. Le nom exact employé par le programme n’apparaît pas dans ce rapport, et l’ampleur du déploiement n’est pas établie par une source lue, d’où une confiance moyenne.",
     "interpretations": "Le programme peut désigner une unité permanente dédiée, ce que le dispositif de 2023 n'est pas : c'est un état-major qui mobilise des renforts existants. La lecture retenue est celle d'un dispositif de coordination de forces aux frontières.",
     "verifieLe": "2026-09-20",
-    "actions": [],
+    "actions": [
+      {
+        "date": "2024-01-01",
+        "description": "Création de l’état-major opérationnel des frontières, adossé à la direction nationale de la police aux frontières.",
+        "url": "https://www.senat.fr/rap/l24-144-329-1/l24-144-329-17.html"
+      }
+    ],
     "sources": [
       {
-        "titre": "Crise migratoire à Ceuta : qu'est-ce que la Force Frontière d'intervention rapide déployée par la France ?",
-        "organisme": "Europe 1",
-        "url": "https://www.europe1.fr/police-justice/crise-migratoire-a-ceuta-quest-ce-que-la-force-frontiere-dintervention-rapide-deployee-par-la-france-994425",
-        "date": "2026-07-31",
-        "institutionnelle": false
+        "titre": "Projet de loi de finances pour 2025 : Sécurités (Gendarmerie nationale, Police nationale, Sécurité et éducation routières)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l24-144-329-1/l24-144-329-17.html",
+        "institutionnelle": true
       }
     ]
   },

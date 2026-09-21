@@ -55,7 +55,10 @@ async function code(url: string): Promise<number | string> {
 }
 
 function etat(c: number | string, url: string): "ok" | "bloque" | "mort" {
-  if (c === 200) return "ok";
+  // Tout 2xx est une réponse servie. EUR-Lex répond 202 sur ses pages de
+  // texte consolidé : les traiter comme mortes écarterait le Journal
+  // officiel de l'Union européenne.
+  if (typeof c === "number" && c >= 200 && c < 300) return "ok";
   if (c === 403 || c === 401 || c === 429) return "bloque";
   if (DOMAINES_PROTEGES.some((d) => url.includes(d))) return "bloque";
   return "mort";

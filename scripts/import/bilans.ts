@@ -1510,7 +1510,10 @@ const DOMAINES_PROTEGES = ["legifrance.gouv.fr", "urssaf.fr", "economie.gouv.fr"
  * la relecture humaine de les ouvrir.
  */
 function etatLien(code: number | string, url: string): "ok" | "bloque" | "mort" {
-  if (code === 200) return "ok";
+  // Tout 2xx est une réponse servie. EUR-Lex répond 202 sur ses pages de
+  // texte consolidé : les traiter comme mortes écarterait le Journal
+  // officiel de l'Union européenne.
+  if (typeof code === "number" && code >= 200 && code < 300) return "ok";
   if (code === 403 || code === 401 || code === 429) return "bloque";
   // Une coupure de connexion sur un domaine connu pour filtrer n'est pas une
   // preuve d'absence : ces sites rejettent le client avant de répondre.
