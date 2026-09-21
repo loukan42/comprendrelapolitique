@@ -24,7 +24,17 @@ const PROGRAMMES: Record<string, string> = {
 
 const STATUTS = ["realise", "partiellement", "en_cours", "non_realise", "abandonne", "inevaluable"];
 const CONFIANCES = ["haute", "moyenne", "basse"];
-const DOMAINES_PROTEGES = ["legifrance.gouv.fr", "urssaf.fr", "economie.gouv.fr"];
+/** Mêmes règles que `bilans.ts` : voir le commentaire de `etatLien` là-bas. */
+const SUFFIXES_INSTITUTIONNELS = ["gouv.fr", "europa.eu", "urssaf.fr", "senat.fr", "assemblee-nationale.fr"];
+
+function institutionnel(url: string): boolean {
+  try {
+    const hote = new URL(url).hostname;
+    return SUFFIXES_INSTITUTIONNELS.some((s) => hote === s || hote.endsWith(`.${s}`));
+  } catch {
+    return false;
+  }
+}
 
 interface Fiche {
   id?: string;
@@ -59,8 +69,9 @@ function etat(c: number | string, url: string): "ok" | "bloque" | "mort" {
   // texte consolidé : les traiter comme mortes écarterait le Journal
   // officiel de l'Union européenne.
   if (typeof c === "number" && c >= 200 && c < 300) return "ok";
+  if (c === 404 || c === 410) return "mort";
   if (c === 403 || c === 401 || c === 429) return "bloque";
-  if (DOMAINES_PROTEGES.some((d) => url.includes(d))) return "bloque";
+  if (institutionnel(url)) return "bloque";
   return "mort";
 }
 

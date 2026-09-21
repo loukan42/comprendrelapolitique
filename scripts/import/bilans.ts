@@ -1497,27 +1497,46 @@ async function tester(url: string): Promise<number | string> {
   }
 }
 
-/** Domaines dont on sait qu'ils refusent les requêtes automatisées. */
-const DOMAINES_PROTEGES = ["legifrance.gouv.fr", "urssaf.fr", "economie.gouv.fr"];
+/**
+ * Domaines institutionnels, dont l'indisponibilité ne prouve rien.
+ *
+ * Comparés sur le nom d'hôte et non sur l'URL entière : une adresse
+ * quelconque portant « gouv.fr » dans sa requête ne doit pas hériter de cette
+ * confiance.
+ */
+const SUFFIXES_INSTITUTIONNELS = ["gouv.fr", "europa.eu", "urssaf.fr", "senat.fr", "assemblee-nationale.fr"];
+
+function institutionnel(url: string): boolean {
+  try {
+    const hote = new URL(url).hostname;
+    return SUFFIXES_INSTITUTIONNELS.some((s) => hote === s || hote.endsWith(`.${s}`));
+  } catch {
+    return false;
+  }
+}
 
 /**
- * Un 403 n'est pas un lien mort.
+ * Un refus n'est pas un lien mort.
  *
- * Légifrance refuse les requêtes automatisées : l'URL est valide, elle
- * s'ouvre dans un navigateur. Traiter ce refus comme une absence
- * supprimerait précisément les sources les plus solides du bilan, celles du
- * droit publié. Le script le signale donc au lieu de les écarter, et c'est à
- * la relecture humaine de les ouvrir.
+ * Légifrance refuse les requêtes automatisées ; la DREES n'a pas répondu du
+ * tout au client de ce script le 21 septembre 2026, alors que le document
+ * cité était en ligne. Traiter ces cas comme des absences supprimerait
+ * précisément les sources les plus solides du bilan, celles du droit publié
+ * et de la statistique publique. Seule une réponse explicite du serveur
+ * disant que la page n'existe plus vaut donc preuve de disparition.
  */
 function etatLien(code: number | string, url: string): "ok" | "bloque" | "mort" {
   // Tout 2xx est une réponse servie. EUR-Lex répond 202 sur ses pages de
   // texte consolidé : les traiter comme mortes écarterait le Journal
   // officiel de l'Union européenne.
   if (typeof code === "number" && code >= 200 && code < 300) return "ok";
+  // Le serveur répond que la page n'existe plus : c'est la seule preuve
+  // d'absence, et elle vaut pour tous les domaines.
+  if (code === 404 || code === 410) return "mort";
   if (code === 403 || code === 401 || code === 429) return "bloque";
-  // Une coupure de connexion sur un domaine connu pour filtrer n'est pas une
-  // preuve d'absence : ces sites rejettent le client avant de répondre.
-  if (DOMAINES_PROTEGES.some((d) => url.includes(d))) return "bloque";
+  // Panne, filtrage ou coupure de connexion sur une source institutionnelle :
+  // à rouvrir à la main, pas à écarter.
+  if (institutionnel(url)) return "bloque";
   return "mort";
 }
 
