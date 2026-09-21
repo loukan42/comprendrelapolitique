@@ -3,7 +3,7 @@
 Document de reprise. Il dit où en est le projet, ce qui reste à faire, et ce
 qu'il faut savoir pour continuer sans refaire le chemin.
 
-**Dernière mise à jour : 15 septembre 2026.**
+**Dernière mise à jour : 21 septembre 2026.**
 
 À tenir à jour à chaque session. Un fichier d'état qui ment est pire que pas
 de fichier.
@@ -14,7 +14,7 @@ de fichier.
 
 ```sh
 npm run dev            # port 8080, premier rendu ~80 s
-npm test               # 43 tests, sans dépendance ajoutée
+npm test               # 48 tests, sans dépendance ajoutée
 npm run build
 ```
 
@@ -65,8 +65,11 @@ commencer avant d'en modifier le contenu.
   sourcé explique les termes techniques (peine plancher, IFI, part fiscale). Le décompte se fait dans
   le navigateur et rapporte chaque choix au nombre de questions où la
   formation figurait.
-- **Bilans** (`/bilans/emmanuel-macron`) : engagements face aux faits, sur les
-  deux mandats.
+- **Bilans** (`/bilans`) : engagements face aux faits, pour Sarkozy, Hollande et
+  Macron. Une fiche par promesse, avec son extrait de programme, ce qui a été
+  fait, ce qui en résulte et les sources. La page Hollande recense en plus les
+  60 engagements du programme de 2012 et indique combien de fiches portent sur
+  chacun.
 - **En ce moment** (`/actualite`) : derniers dépôts, votes sur l'ensemble et
   promulgations, lus dans les actes de procédure et les scrutins.
 
@@ -142,28 +145,58 @@ par Google Fonts. Raisons et contrastes détaillés dans `src/theme.ts`.
 | `question`, `question_scrutin` | banque du quiz des votes | 11 questions, 15 scrutins |
 | `question_position` | positions calculées par formation | 95 |
 | `programme`, `programme_position`, `programme_question` | programmes, citations, questions du QCM | 38 références, 111 citations, 17 questions |
-| `president`, `mandat_presidentiel`, `engagement` | bilans | 1 président, 2 mandats, 24 engagements |
+| `president`, `mandat_presidentiel`, `engagement` | bilans | 3 présidents, 4 mandats, 285 engagements |
 | `score_importance`, `dossier_theme` | score et classification | 10 647 dossiers |
 
 ---
 
 ## 3. Ce qui reste à faire
 
+Les sources externes vérifiées et leur ordre d'intégration sont recensés dans
+[SOURCES_EXTERNES.md](SOURCES_EXTERNES.md). Ce document distingue les sources
+institutionnelles, les séries statistiques et la couverture médiatique GDELT.
+
 ### Priorité haute
 
-1. **Corpus des bilans.** 24 engagements : 16 pour le mandat 2017-2022
-   (fiscalité, travail, entreprises, solidarité, santé, éducation, culture,
-   retraites) et 8 pour le mandat 2022-2027, tirés de la déclaration de
-   candidature déposée auprès de la commission de contrôle. Chaque extrait est
-   désormais vérifié contre le PDF du programme, par le même code que les
-   citations du comparateur. Méthode dans `scripts/import/bilans.ts`, à lire
-   avant d'ajouter quoi que ce soit.
+1. **Corpus des bilans.** 285 engagements, une fiche par promesse et non par
+   numéro de programme : un « engagement » numéroté en contient souvent trois à
+   six. Hollande 153 (les 60 engagements de 2012, sauf les blocs 19 à 24, 37 à
+   42 et 52 à 54, non traités), Macron 130 (programme de 2017, chapitres 1 à 6
+   et 7 à 13 ; tract de 2022), Sarkozy 2.
 
-   Engagements repérés et non encore traités : le versement automatique des
-   aides sociales et sa contrepartie d'activité, le doublement de la présence
-   des forces de l'ordre sur la voie publique, les livraisons d'équipements
-   militaires d'ici 2030, la rénovation de 700 000 logements par an. La table
-   des mesures hors programme reste vide.
+   Chaque extrait est vérifié mot pour mot contre le PDF du programme, par le
+   même code que les citations du comparateur. Les fiches produites par lots
+   sont des fichiers JSON dans `scripts/import/bilans_fiches/`, chargés par
+   `bilans.ts` avec les fiches écrites à la main. Deux outils encadrent leur
+   écriture, à utiliser avant tout ajout :
+
+   ```sh
+   node scripts/import/bilans_controle.ts <lot.json>   # champs, extraits, liens
+   node scripts/import/bilans_extrait.ts <mandat> "<extrait>"  # où la citation casse
+   ```
+
+   Règles apprises en produisant ce corpus, à ne pas relâcher :
+
+   - `non_realise` exige une preuve positive (état du droit lu à la fin du
+     mandat, texte censuré, abandon officiel). Une absence de résultat de
+     recherche ne prouve rien : c'est `inevaluable`.
+   - Une promesse qualitative (« lutter contre », « apporter une réponse à »)
+     est `inevaluable` : lui rattacher un texte voisin serait une
+     interprétation. De même pour « je proposerai » quand rien ne documente que
+     la proposition a été faite.
+   - Un statut positif ne se fonde pas sur la seule presse, ni sur un
+     rattachement que la justification qualifie elle-même d'interprétation.
+   - Les dates de source sont complètes ou absentes : `2014-01` faisait échouer
+     le chargement entier, la colonne étant typée `date`.
+
+   La table des mesures hors programme reste vide.
+
+   **Limite de source pour le mandat en cours.** Le programme de 2022 versé au
+   bilan est la déclaration de candidature déposée auprès de la commission de
+   contrôle, soit environ 9 000 caractères : c'est ce qui borne les 49 fiches du
+   mandat 2022-2027. Le projet détaillé publié pendant la campagne n'est plus
+   citable, `avecvous.fr` servant aujourd'hui le site de Renaissance tout en
+   répondant 200, illustration du piège décrit en section 5.
 
 2. **Banque du quiz des votes.** Onze questions, il en faut 20 à 25 pour la
    V1. Le blocage est levé depuis le chargement des amendements, voir
