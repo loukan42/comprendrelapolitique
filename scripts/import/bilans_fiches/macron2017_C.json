@@ -1,0 +1,955 @@
+[
+  {
+    "id": "2017-7-laicite-application-stricte",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Laïcité",
+    "titre": "Appliquer strictement le principe de laïcité",
+    "extraitProgramme": "Nous appliquerons strictement le principe de laïcité.",
+    "reformulation": "Faire appliquer sans accommodement le principe de séparation des cultes et de l'État.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "justification": "La phrase annonce une manière d'agir, sans mesure, sans échéance et sans indicateur permettant de dire si elle a été suivie. Les mesures concrètes que le programme range sous ce titre (formation des ministres du culte, dissolution d'associations, fermeture de lieux de culte) sont traitées dans des fiches distinctes. Aucune source primaire ne permet de mesurer le caractère « strict » d'une application.",
+    "verifieLe": "2026-09-20",
+    "sources": []
+  },
+  {
+    "id": "2017-7-formation-ministres-culte",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Laïcité",
+    "titre": "Organiser une formation universitaire pour les ministres du culte",
+    "extraitProgramme": "Nous organiserons pour les ministres du culte une formation universitaire à la laïcité, aux valeurs de la République et à la langue française.",
+    "reformulation": "Mettre en place une formation universitaire à la laïcité, aux valeurs de la République et au français destinée aux ministres du culte.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Les diplômes universitaires de formation civile et civique, soutenus par le ministère de l'Intérieur depuis 2008, ont continué de se développer pendant le mandat. Le Forum de l'islam de France, installé le 5 février 2022 par le ministère de l'Intérieur, comporte un groupe de travail consacré à la formation des imams. La loi du 24 août 2021 confortant le respect des principes de la République encadre les associations cultuelles et le financement des cultes sans créer d'obligation générale de diplôme universitaire pour les ministres du culte.",
+    "resultat": "À la fin du mandat, la formation universitaire à la laïcité reste facultative pour les ministres du culte, sauf pour les aumôniers des services publics, à qui un diplôme de formation civile et civique est imposé depuis le décret du 3 mai 2017. Aucune formation obligatoire à la langue française n'a été instituée pour les ministres du culte.",
+    "justification": "Un dispositif de formation existe et a été soutenu, mais il n'a pas été rendu obligatoire ni étendu à l'ensemble des ministres du culte, et le volet « langue française » n'a pas été mis en place. Le rattachement du Forum de l'islam de France à la promesse est direct puisque la formation des imams figure parmi ses groupes de travail, mais ce forum n'a été installé qu'au dernier trimestre du mandat. La lecture intégrale de la loi du 24 août 2021 n'a pas pu être faite sur Légifrance, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2022-02-05",
+        "description": "Installation du Forum de l'islam de France, avec un groupe de travail sur la formation des imams.",
+        "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/forum-de-lislam-de-france-etape-nouvelle-dans-dialogue-entre"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Forum de l'Islam de France : une étape nouvelle dans le dialogue entre les pouvoirs publics et le culte musulman",
+        "organisme": "Ministère de l'Intérieur",
+        "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/forum-de-lislam-de-france-etape-nouvelle-dans-dialogue-entre",
+        "date": "2022-02-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les diplômes universitaires de formation civile et civique : retours d'expérience sur un cursus singulier",
+        "organisme": "Revue du droit des religions",
+        "url": "https://journals.openedition.org/rdr/1814",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2017-7-fait-religieux-ecole",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Prévoir un enseignement spécifique sur le fait religieux à l'école",
+    "extraitProgramme": "Nous développerons la connaissance des différentes religions à l'école en prévoyant un enseignement spécifique sur le fait religieux.",
+    "reformulation": "Créer à l'école un enseignement propre au fait religieux, pour faire connaître les différentes religions.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le Conseil des sages de la laïcité a été installé au ministère de l'Éducation nationale le 8 janvier 2018, avec pour mission de préciser la position de l'institution scolaire en matière de laïcité et d'enseignement laïque des faits religieux. L'arrêté du 16 juillet 2021 a fixé le cahier des charges du continuum de formation obligatoire des personnels enseignants et d'éducation sur la laïcité et les valeurs de la République.",
+    "resultat": "L'enseignement des faits religieux est resté réparti entre les programmes existants (histoire, français, enseignement moral et civique). Aucune discipline ni aucun horaire propre au fait religieux n'a été créé dans les programmes scolaires pendant le mandat.",
+    "justification": "L'institution scolaire s'est dotée d'un cadre de doctrine et d'un plan de formation des enseignants sur la laïcité et les faits religieux, ce qui répond au premier terme de la promesse. Le second terme, un enseignement spécifique, suppose une place propre dans les programmes, qui n'a pas été créée. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2021-07-16",
+        "description": "Arrêté fixant le cahier des charges du continuum de formation obligatoire des personnels enseignants et d'éducation sur la laïcité et les valeurs de la République.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044036418"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Publications, notes et avis du Conseil des sages de la laïcité et des valeurs de la République",
+        "organisme": "Ministère de l'Éducation nationale",
+        "url": "https://www.education.gouv.fr/publications-notes-et-avis-du-conseil-des-sages-de-la-laicite-et-des-valeurs-de-la-republique-469133",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Arrêté du 16 juillet 2021 fixant le cahier des charges relatif au continuum de formation obligatoire des personnels enseignants et d'éducation concernant la laïcité et les valeurs de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044036418",
+        "date": "2021-07-16",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-voile-universite",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Laïcité",
+    "titre": "Ne pas étendre l'interdiction du voile à l'université",
+    "extraitProgramme": "Nous n'étendrons pas l'interdiction du voile à l'université.",
+    "reformulation": "Laisser les étudiants libres de porter un signe religieux dans les établissements publics d'enseignement supérieur.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Aucune loi étendant à l'enseignement supérieur l'interdiction posée par la loi du 15 mars 2004 pour les écoles, collèges et lycées n'a été adoptée pendant le mandat. La proposition de loi n° 227 déposée à l'Assemblée nationale le 27 septembre 2017, qui visait à interdire les signes religieux ostensibles dans les établissements publics d'enseignement supérieur, a été renvoyée en commission des lois sans être inscrite à l'ordre du jour. Une proposition de loi de même objet déposée au Sénat le 3 juillet 2018 n'a pas davantage été examinée.",
+    "resultat": "À la fin du mandat, les usagers de l'enseignement supérieur public peuvent porter un signe religieux, sous réserve de l'interdiction de dissimulation du visage issue de la loi du 11 octobre 2010.",
+    "justification": "La promesse est négative : elle est tenue si l'interdiction n'est pas étendue. Les deux propositions de loi allant dans ce sens n'ont pas prospéré et le droit applicable à l'université n'a pas changé. La confiance est moyenne parce que la preuve repose sur l'absence de suite donnée à ces textes, vérifiée sur les dossiers parlementaires.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Dossier législatif : interdiction du port de signe ou de tenues manifestant de manière ostensible une appartenance religieuse dans les établissements publics d'enseignement supérieur",
+        "organisme": "Assemblée nationale",
+        "url": "https://www.assemblee-nationale.fr/dyn/15/dossiers/interdiction_port_signe_religieux_enseignement_superieur",
+        "date": "2017-09-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Proposition de loi visant à interdire à l'université le port de signes manifestant de façon prosélyte l'adhésion à une opinion religieuse, politique ou philosophique",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/leg/ppl17-622.html",
+        "date": "2018-07-03",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-dissolution-associations",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Laïcité",
+    "titre": "Dissoudre les associations qui s'attaquent à la République sous couvert de religion",
+    "extraitProgramme": "Nous démantèlerons les associations qui, sous couvert de religion, s'attaquent à la République.",
+    "reformulation": "Prononcer la dissolution des associations qui se réclament d'une religion pour s'en prendre aux institutions.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'association BarakaCity a été dissoute par décret en conseil des ministres du 28 octobre 2020 et le Collectif contre l'islamophobie en France par décret du 2 décembre 2020, sur le fondement de l'article L. 212-1 du code de la sécurité intérieure. Le juge des référés du Conseil d'État a rejeté les demandes de suspension, et le Conseil d'État a confirmé les deux dissolutions le 24 septembre 2021. La loi du 24 août 2021 confortant le respect des principes de la République a ensuite réécrit l'article L. 212-1 en élargissant les motifs de dissolution et en permettant d'imputer à une association les agissements de ses membres.",
+    "resultat": "Des dissolutions ont été prononcées et validées par le juge administratif, et l'outil juridique a été élargi par la loi de 2021.",
+    "justification": "La promesse porte sur une action administrative, effectivement engagée et confirmée en justice, puis dotée d'une base légale élargie. Le nombre total d'associations dissoutes sur ce fondement pendant le mandat n'a pas été établi à partir d'une source officielle, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2020-11-25",
+        "description": "Le juge des référés du Conseil d'État rejette la demande de suspension de la dissolution de l'association BarakaCity.",
+        "url": "https://conseil-etat.fr/actualites/le-juge-des-referes-du-conseil-d-etat-rejette-la-demande-de-suspension-de-la-dissolution-de-l-association-barakacity"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le juge des référés du Conseil d'État rejette la demande de suspension de la dissolution de l'association Barakacity",
+        "organisme": "Conseil d'État",
+        "url": "https://conseil-etat.fr/actualites/le-juge-des-referes-du-conseil-d-etat-rejette-la-demande-de-suspension-de-la-dissolution-de-l-association-barakacity",
+        "institutionnelle": true
+      },
+      {
+        "titre": "LOI n° 2021-1109 du 24 août 2021 confortant le respect des principes de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043964778",
+        "date": "2021-08-24",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-fermeture-lieux-culte",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Laïcité",
+    "titre": "Fermer définitivement les lieux de culte où est prêchée l'apologie du terrorisme",
+    "extraitProgramme": "Nous fermerons définitivement les lieux de culte dans lesquels certaines prêchent l'apologie du terrorisme.",
+    "reformulation": "Prononcer la fermeture sans limite de durée des lieux de culte où sont tenus des propos faisant l'apologie du terrorisme.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 30 octobre 2017 renforçant la sécurité intérieure et la lutte contre le terrorisme a pérennisé dans le code de la sécurité intérieure la fermeture administrative des lieux de culte aux fins de prévention d'actes de terrorisme. L'article 87 de la loi du 24 août 2021 a ajouté un article 36-3 à la loi du 9 décembre 1905, qui permet au représentant de l'État de fermer un lieu de culte où les propos tenus, les idées diffusées ou les activités provoquent à la haine ou à la violence.",
+    "resultat": "Les deux dispositifs ne permettent que des fermetures temporaires : six mois au plus pour la mesure antiterroriste, deux mois au plus pour celle de 2021. Aucune fermeture définitive de lieu de culte n'est prévue par ces textes.",
+    "justification": "Le pouvoir de fermeture a bien été créé puis élargi pendant le mandat, mais il est borné dans le temps, alors que la promesse annonçait une fermeture définitive. Le texte de l'article 36-3 de la loi de 1905, lu sur Légifrance, fixe une durée maximale de deux mois renouvelable. D'où un statut partiel.",
+    "interpretations": "Une lecture large considérerait que la fermeture répétée d'un lieu de culte équivaut à une fermeture définitive. La fiche retient la lecture littérale du texte : la mesure administrative est temporaire, la fermeture définitive ne figure pas dans le droit issu du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2021-08-24",
+        "description": "Article 87 de la loi confortant le respect des principes de la République, qui insère l'article 36-3 dans la loi du 9 décembre 1905 (fermeture temporaire des lieux de culte).",
+        "url": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000043964900"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article 87 de la LOI n° 2021-1109 du 24 août 2021 confortant le respect des principes de la République",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000043964900",
+        "date": "2021-08-24",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 24 août 2021 confortant le respect des principes de la République : tout reste à faire",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r23-383/r23-38311.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-langue-nationalite",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Nationalité",
+    "titre": "Faire de la maîtrise du français le principal critère de la nationalité",
+    "extraitProgramme": "Nous ferons de la maîtrise de la langue française le principal critère de l'obtention de la nationalité française.",
+    "reformulation": "Placer le niveau de français au premier rang des conditions d'accès à la nationalité française.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le décret n° 2019-1507 du 30 décembre 2019 a relevé le niveau de français exigé des candidats à la naturalisation, à la réintégration et à la déclaration de nationalité par mariage : le niveau B1 est désormais exigé à l'oral et à l'écrit, alors qu'il ne l'était auparavant qu'à l'oral. La mesure s'applique aux demandes déposées à partir d'avril 2020.",
+    "resultat": "La condition linguistique a été durcie, mais l'article 21-24 du code civil continue de subordonner la naturalisation à une assimilation appréciée aussi au regard de l'histoire, de la culture et de la société françaises, et l'administration prend également en compte l'insertion professionnelle et le respect des valeurs de la République.",
+    "justification": "L'exigence de langue a été relevée pendant le mandat, ce qui va dans le sens de la promesse. Elle n'est pas pour autant devenue le critère principal : les autres conditions d'assimilation et de stabilité de séjour restent opposables au demandeur. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-12-30",
+        "description": "Décret relevant au niveau B1 oral et écrit le niveau de langue exigé pour l'acquisition de la nationalité française.",
+        "url": "https://www.justice.fr/fiche/nationalite-francaise-justifier-niveau-francais"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Nationalité française : comment justifier de son niveau en français ?",
+        "organisme": "Ministère de la Justice",
+        "url": "https://www.justice.fr/fiche/nationalite-francaise-justifier-niveau-francais",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Connaissance de la langue française, foire aux questions sur la naturalisation",
+        "organisme": "Préfecture de l'Hérault",
+        "url": "https://www.herault.gouv.fr/Demarches/Demarches-etrangers-asile-naturalisation/Naturalisation/Foire-aux-questions/Connaissance-de-la-langue-francaise",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-apprentissage-langue-naturalisation",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Immigration",
+    "titre": "Renforcer l'apprentissage du français pour les candidats à la naturalisation",
+    "extraitProgramme": "Nous renforcerons l'apprentissage de notre langue pour les candidats à la naturalisation.",
+    "reformulation": "Développer l'offre de cours de français destinée aux étrangers qui veulent devenir français.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le comité interministériel à l'intégration du 5 juin 2018 a décidé de doubler les volumes de formation linguistique du contrat d'intégration républicaine signé par les étrangers primo-arrivants : le parcours de 50 heures passe à 100 heures, celui de 100 heures à 200 heures, celui de 200 heures à 400 heures, et un parcours de 600 heures est créé. Les nouvelles formations sont entrées en vigueur au 1er mars 2019, avec une certification de niveau A1 en fin de parcours.",
+    "resultat": "L'offre publique de formation au français pour les étrangers résidant en France a doublé en volume horaire à partir de 2019. Aucun dispositif de formation linguistique visant spécifiquement les candidats à la naturalisation n'a été créé.",
+    "justification": "Le renforcement porte sur le contrat d'intégration républicaine, qui concerne les primo-arrivants, et non sur la procédure de naturalisation elle-même ; la formation ainsi suivie vise le niveau A1, très en deçà du B1 exigé pour la nationalité. Le rattachement à la promesse est donc partiel, et le statut retenu est partiel plutôt que réalisé.",
+    "interpretations": "Une lecture large estime que les candidats à la naturalisation sont d'anciens primo-arrivants et que le doublement des heures les concerne. Une lecture stricte observe que le programme visait les candidats à la naturalisation, pour lesquels aucune formation dédiée n'a été mise en place. La fiche retient la lecture stricte pour le statut et cite la mesure effectivement prise.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2019 : Asile, immigration, intégration et nationalité",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a18-153-2/a18-153-22.html",
+        "date": "2018-11-22",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-asile-six-mois",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Asile",
+    "titre": "Examiner les demandes d'asile en moins de six mois, recours compris",
+    "extraitProgramme": "Nous examinerons les demandes d'asile en moins de 6 mois, recours compris.",
+    "reformulation": "Ramener à six mois le délai total d'examen d'une demande d'asile, décision de l'Ofpra et recours devant la Cour nationale du droit d'asile inclus.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "non_realise",
+    "confiance": "haute",
+    "actionMenee": "La loi du 10 septembre 2018 pour une immigration maîtrisée, un droit d'asile effectif et une intégration réussie a eu pour premier objectif la réduction des délais d'examen des demandes d'asile et a raccourci plusieurs délais de procédure. Les moyens de l'Ofpra et de la Cour nationale du droit d'asile ont été augmentés sur la période.",
+    "resultat": "En 2021, dernière année pleine du mandat, le délai moyen de jugement de la Cour nationale du droit d'asile s'établit à 7 mois et 8 jours, pour le seul recours. Le délai d'instruction devant l'Ofpra s'y ajoute. Le délai total reste donc très supérieur à six mois.",
+    "justification": "La promesse est chiffrée et porte sur un résultat, pas sur un texte. Le rapport d'activité 2021 de la Cour nationale du droit d'asile montre que la phase de recours dépasse à elle seule les six mois annoncés pour l'ensemble de la procédure, ce qui suffit à établir que l'objectif n'a pas été atteint à la fin du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-09-10",
+        "description": "Promulgation de la loi pour une immigration maîtrisée, un droit d'asile effectif et une intégration réussie, dont un objectif est la réduction des délais d'examen des demandes d'asile.",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl17-464.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport annuel 2021 de la Cour nationale du droit d'asile",
+        "organisme": "Cour nationale du droit d'asile",
+        "url": "https://www.cnda.fr/publications/rapports-d-activite/rapport-annuel-2021",
+        "date": "2022-01-27",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Dossier législatif : immigration, droit d'asile et intégration (loi n° 2018-778 du 10 septembre 2018)",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl17-464.html",
+        "date": "2018-09-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-emplois-francs",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Emploi",
+    "titre": "Créer des emplois francs pour les habitants des quartiers prioritaires",
+    "extraitProgramme": "Nous créerons des emplois francs pour encourager l'embauche des habitants des quartiers prioritaires de la politique de la ville.",
+    "reformulation": "Instituer une aide à l'embauche versée aux entreprises qui recrutent un demandeur d'emploi résidant dans un quartier prioritaire.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'article 175 de la loi de finances pour 2018 a créé à titre expérimental le dispositif des emplois francs, mis en oeuvre par le décret n° 2018-230 du 30 mars 2018 à compter du 1er avril 2018 dans une partie des quartiers prioritaires. Le dispositif a été généralisé à l'ensemble des quartiers prioritaires de la politique de la ville au 1er janvier 2020.",
+    "resultat": "Selon le rapport du Sénat sur le budget « Travail et emploi » pour 2021, un peu moins de 35 000 contrats avaient été conclus depuis avril 2018 au 1er novembre 2020, un niveau inférieur aux objectifs fixés par le Gouvernement.",
+    "justification": "Le dispositif annoncé a été créé par la loi, mis en oeuvre par décret puis généralisé pendant le mandat. La promesse portait sur la création de l'outil, qui est acquise, indépendamment du nombre de contrats signés.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-03-30",
+        "description": "Décret relatif à l'expérimentation d'emplois francs.",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036756484"
+      },
+      {
+        "date": "2020-01-01",
+        "description": "Généralisation des emplois francs à l'ensemble des quartiers prioritaires de la politique de la ville.",
+        "url": "https://www.senat.fr/rap/a20-141-8/a20-141-83.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2018-230 du 30 mars 2018 relatif à l'expérimentation d'emplois francs",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036756484",
+        "date": "2018-03-30",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2021 : Travail et emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a20-141-8/a20-141-83.html",
+        "date": "2020-11-19",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-emplois-francs-prime-15000",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Emploi",
+    "titre": "Verser 15 000 euros sur trois ans pour une embauche en CDI, quel que soit le lieu de l'entreprise",
+    "extraitProgramme": "une entreprise qui recrutera en CDI un habitant de l'un de ces quartiers bénéficiera d'une prime de 15 000 euros sur 3 ans",
+    "reformulation": "Accorder à l'employeur 15 000 euros répartis sur trois ans pour l'embauche en contrat à durée indéterminée d'un habitant d'un quartier prioritaire, où que soit implantée l'entreprise.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "L'aide instituée par le décret du 30 mars 2018 s'élève à 5 000 euros par an pendant trois ans pour un recrutement en contrat à durée indéterminée, soit 15 000 euros, et à 2 500 euros par an pendant deux ans pour un contrat à durée déterminée d'au moins six mois. L'aide est attachée au lieu de résidence du salarié et non au lieu d'implantation de l'entreprise.",
+    "resultat": "Le montant et la durée correspondent à ceux annoncés dans le programme. Les montants sont proratisés selon le temps de travail et la durée du contrat.",
+    "justification": "Le rapport budgétaire du Sénat confirme le montant de 5 000 euros par an pendant trois ans pour un contrat à durée indéterminée, égal aux 15 000 euros annoncés, et le principe d'une aide liée au lieu de résidence du salarié.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Projet de loi de finances pour 2021 : Travail et emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a20-141-8/a20-141-83.html",
+        "date": "2020-11-19",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Projet de loi de finances pour 2020 : Travail et emploi",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/a19-143-8/a19-143-85.html",
+        "date": "2019-11-21",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-discrimination-priorite-nationale",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Discriminations",
+    "titre": "Faire de la lutte contre la discrimination une priorité nationale",
+    "extraitProgramme": "Nous ferons de la lutte contre la discrimination une priorité nationale.",
+    "reformulation": "Placer la lutte contre les discriminations au premier rang des priorités de l'action publique.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "Une plateforme de signalement et d'accompagnement des victimes de discriminations, antidiscriminations.fr, adossée au numéro 39 28, a été confiée au Défenseur des droits et lancée le 12 février 2021.",
+    "justification": "La promesse est une déclaration de priorité, sans mesure chiffrée, sans échéance et sans indicateur permettant de dire si elle a été tenue. Des mesures ont été prises pendant le mandat, dont la plateforme de signalement, mais aucune source primaire ne permet de juger si la lutte contre les discriminations est devenue une priorité nationale au sens où le programme l'annonce. Les mesures concrètes du même bloc sont traitées dans une fiche distincte.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Lancement de la plateforme contre les discriminations",
+        "organisme": "Gouvernement",
+        "url": "https://www.info.gouv.fr/actualite/lancement-de-la-plateforme-contre-les-discriminations",
+        "date": "2021-02-12",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-7-testings-discrimination",
+    "numero": 7,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Discriminations",
+    "titre": "Mener des contrôles aléatoires à grande échelle sur l'accès à l'emploi et au logement",
+    "extraitProgramme": "Nous développerons des opérations de contrôle aléatoires et imprévues à grande échelle, en matière d'accès à l'emploi ou au logement.",
+    "reformulation": "Tester sans prévenir, par envoi de candidatures fictives, les pratiques des employeurs et des bailleurs, à grande échelle.",
+    "pageProgramme": "chapitre 7, p. 18",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Une campagne de tests de discrimination à l'embauche a été commandée par les ministères du Travail et du Logement et le secrétariat d'État chargé de l'égalité entre les femmes et les hommes. Une première vague, portant sur une quarantaine de grandes entreprises tirées au sort dans le SBF 120 et conduite entre octobre 2018 et janvier 2019, a été rendue publique en 2020 ; une deuxième vague, portant sur quarante autres entreprises du même indice, a été lancée dans la foulée.",
+    "resultat": "Les résultats de la première vague montrent un écart de 11 points de réponses favorables entre les candidatures à consonance hexagonale et les candidatures à consonance maghrébine (47 % contre 36 %), et ont conduit à nommer publiquement sept entreprises.",
+    "justification": "Les contrôles par test ont bien été développés et leurs résultats publiés, ce qui répond au volet « accès à l'emploi » de la promesse. Le volet « accès au logement » n'a pas donné lieu à une campagne publique de même ampleur au cours du mandat, d'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Résultats de l'enquête « Discrimination à l'embauche selon l'origine »",
+        "organisme": "Ministère du Travail",
+        "url": "https://travail-emploi.gouv.fr/resultats-de-lenquete-discrimination-lembauche-selon-lorigine",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Lutte contre les discriminations : mise en ligne des résultats du 1er testing sur l'emploi et lancement d'une deuxième vague",
+        "organisme": "Ministère du Travail",
+        "url": "https://travail-emploi.gouv.fr/lutte-contre-les-discriminations-mise-en-ligne-des-resultats-du-1er-testing-sur-lemploi-et-lancement-dune-deuxieme-vague",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-budget-parlement-zone-euro",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Créer un budget de la zone euro voté par un Parlement de la zone euro",
+    "extraitProgramme": "nous voulons un budget de la zone euro voté par un Parlement de la zone euro",
+    "reformulation": "Doter la zone euro d'un budget propre et d'une assemblée parlementaire chargée de le voter.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'Eurogroupe s'est entendu en juin puis en octobre 2019 sur les caractéristiques d'un instrument budgétaire de convergence et de compétitivité pour la zone euro, dont la Commission avait proposé le cadre de gouvernance en juillet 2019. Cette proposition a été retirée par la Commission le 28 mai 2020, au profit de la facilité pour la reprise et la résilience, ouverte aux vingt-sept États membres et entrée en vigueur en février 2021.",
+    "resultat": "À la fin du mandat, la zone euro n'a ni budget propre ni assemblée parlementaire distincte. Le contrôle parlementaire des instruments budgétaires européens reste exercé par le Parlement européen à vingt-sept.",
+    "justification": "L'instrument budgétaire propre à la zone euro a été négocié puis retiré par la Commission en mai 2020, ce qui constitue la preuve positive de son abandon. Aucun Parlement de la zone euro n'a été institué : les traités n'ont pas été modifiés en ce sens.",
+    "interpretations": "Une lecture large considère que la facilité pour la reprise et la résilience, financée par un emprunt commun, tient lieu de capacité budgétaire commune. Elle ne correspond pas à la promesse sur deux points : son périmètre est celui de l'Union à vingt-sept, et elle n'est pas votée par une assemblée propre à la zone euro. La fiche retient donc la lecture littérale.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2020-05-28",
+        "description": "Retrait de la proposition de cadre de gouvernance de l'instrument budgétaire de convergence et de compétitivité pour la zone euro, dans la proposition établissant une facilité pour la reprise et la résilience.",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:52020PC0408R(02)"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Proposition de règlement établissant une facilité pour la reprise et la résilience",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:52020PC0408R(02)",
+        "date": "2020-05-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Governance framework for the budgetary instrument for convergence and competitiveness for the euro area (BICC)",
+        "organisme": "Parlement européen",
+        "url": "https://www.europarl.europa.eu/legislative-train/theme-an-economy-that-works-for-people/file-mff-bicc-budgetary-instrument-for-convergence-and-competitiveness",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-ministre-finances-zone-euro",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Instituer un ministre de l'Économie et des Finances de la zone euro",
+    "extraitProgramme": "exécuté par un ministre de l'Économie et des Finances de la zone euro",
+    "reformulation": "Créer un poste de ministre des Finances de la zone euro chargé d'exécuter son budget.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Aucune décision des États membres n’a créé de poste de ministre de l’Économie et des Finances de la zone euro pendant le mandat. L’instrument budgétaire de convergence et de compétitivité pour la zone euro, dont un tel ministre aurait eu la charge, a été retiré par la Commission le 28 mai 2020 au profit de la facilité pour la reprise et la résilience, ouverte aux vingt-sept États membres.",
+    "resultat": "À la fin du mandat, la zone euro reste dirigée par l'Eurogroupe, formation informelle des ministres des Finances présidée par un de ses membres. Aucun poste de ministre des Finances de la zone euro n'existe, et il n'y a pas de budget de la zone euro à exécuter.",
+    "justification": "La création d'un tel poste supposait l'accord des États membres, qui n'a pas été obtenu. L'instrument budgétaire propre à la zone euro, dont ce ministre aurait eu la charge, a lui-même été retiré en mai 2020. La confiance est moyenne parce que la preuve repose sur l'état des institutions à la fin du mandat plutôt que sur un refus formellement acté.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Proposition de règlement établissant une facilité pour la reprise et la résilience, qui retire la proposition d'instrument budgétaire de la zone euro",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:52020PC0408R(02)",
+        "date": "2020-05-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-arrangements-fiscaux",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Fiscalité",
+    "titre": "Lutter contre les arrangements fiscaux entre États et multinationales",
+    "extraitProgramme": "Nous lutterons contre les arrangements fiscaux entre États et entreprises multinationales.",
+    "reformulation": "Combattre les accords fiscaux conclus entre un État européen et une entreprise multinationale, qui faussent la concurrence.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La directive (UE) 2018/822 du 25 mai 2018 oblige les intermédiaires à déclarer aux administrations fiscales les dispositifs transfrontières présentant des marqueurs de planification fiscale agressive, et organise l'échange automatique de ces informations entre États membres. En octobre 2021, un accord réunissant plus de cent trente pays a fixé un taux minimum d'imposition de 15 % pour les groupes multinationaux.",
+    "resultat": "La directive européenne transposant ce taux minimum de 15 %, la directive (UE) 2022/2523, n'a été adoptée que le 14 décembre 2022, après la fin du mandat. Le Tribunal de l'Union européenne avait par ailleurs annulé en juillet 2020 la décision de la Commission sur le traitement fiscal d'Apple en Irlande, citée en exemple par le programme.",
+    "justification": "Des instruments contre les montages fiscaux ont été adoptés pendant le mandat, notamment l'obligation de déclaration des dispositifs transfrontières. La mesure la plus lourde, l'imposition minimale européenne, n'a été adoptée qu'après la fin du mandat, et le cas cité par le programme lui-même a été annulé en justice. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-05-25",
+        "description": "Adoption de la directive sur la déclaration des dispositifs transfrontières devant faire l'objet d'une déclaration (DAC 6).",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32018L0822"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Directive (UE) 2018/822 du Conseil du 25 mai 2018 en ce qui concerne l'échange automatique et obligatoire d'informations dans le domaine fiscal relatif aux dispositifs transfrontières devant faire l'objet d'une déclaration",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32018L0822",
+        "date": "2018-05-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Directive UE « DAC6 », déclaration des dispositifs transfrontières",
+        "organisme": "Direction générale des finances publiques",
+        "url": "https://www.impots.gouv.fr/directive-ue-dac6-declaration-des-dispositifs-transfrontieres",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-buy-european-act",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Réserver les marchés publics européens aux entreprises produisant en Europe",
+    "extraitProgramme": "Nous réserverons l'accès aux marchés publics européens aux entreprises qui localisent au moins la moitié de leur production en Europe dans le cadre d'un Buy European Act.",
+    "reformulation": "Interdire l'accès aux marchés publics de l'Union aux entreprises qui produisent moins de la moitié de leur production en Europe.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'Union a négocié pendant le mandat un instrument relatif aux marchés publics internationaux, dont le Conseil a arrêté le mandat de négociation le 2 juin 2021 et qui a fait l'objet d'un accord politique avec le Parlement européen le 14 mars 2022, sous présidence française du Conseil.",
+    "resultat": "Le règlement (UE) 2022/1031 a été adopté le 23 juin 2022, après la fin du mandat, et s'applique depuis le 29 août 2022. Il permet à la Commission de restreindre l'accès des soumissionnaires de pays tiers qui ferment leurs propres marchés publics. Il ne conditionne pas l'accès aux marchés publics européens à la localisation de la production en Europe.",
+    "justification": "Aucun texte adopté pendant le mandat ne réserve les marchés publics européens aux entreprises localisant au moins la moitié de leur production en Europe. L'instrument effectivement obtenu repose sur la réciprocité avec les pays tiers, un mécanisme différent de celui annoncé, et il a été adopté après le 13 mai 2022.",
+    "interpretations": "Une lecture large assimile l'instrument relatif aux marchés publics internationaux au « Buy European Act » annoncé, parce qu'il permet de réserver des marchés à des entreprises européennes. La fiche retient la lecture littérale : le critère de la promesse est la part de production localisée en Europe, qui ne figure dans aucun texte adopté.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Instrument relatif aux marchés publics internationaux : le Conseil donne son feu vert définitif à de nouvelles règles favorisant la réciprocité",
+        "organisme": "Conseil de l'Union européenne",
+        "url": "https://www.consilium.europa.eu/en/press/press-releases/2022/06/17/international-procurement-instrument-council-gives-final-go-ahead-to-new-rules-boosting-reciprocity/",
+        "date": "2022-06-17",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Publication de l'instrument relatif aux marchés publics internationaux",
+        "organisme": "Direction des affaires juridiques, ministère de l'Économie",
+        "url": "https://www.economie.gouv.fr/daj/publication-de-linstrument-relatif-aux-marches-publics-internationaux",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-erasmus-apprentis",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Généraliser Erasmus et l'étendre aux apprentis",
+    "extraitProgramme": "Nous généraliserons Erasmus et l'étendrons aux apprentis.",
+    "reformulation": "Ouvrir le programme Erasmus au plus grand nombre et le rendre accessible aux apprentis.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le budget français du programme Erasmus+ a été porté à 1,26 milliard d'euros sur la période 2014-2020, et le nombre de mobilités financées en France est passé de 67 500 en 2015 à 107 000 en 2020. Les mobilités d'apprentis financées sont passées d'environ 7 000 à plus de 20 000 sur la période 2014-2020.",
+    "resultat": "Les apprentis ont accès au programme et leur nombre de mobilités a plus que doublé, mais la mobilité reste minoritaire : l'Agence Erasmus+ France relève que près d'un étudiant français sur deux en mobilité sortante bénéficie d'un financement Erasmus+, sans que le programme concerne l'ensemble d'une classe d'âge.",
+    "justification": "L'extension aux apprentis est documentée et le volume a nettement progressé. La généralisation, entendue comme un accès effectif de tous, n'est pas établie par les chiffres de l'agence nationale. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Erasmus+ en France de 2014 à 2020 : chiffres clés",
+        "organisme": "Agence Erasmus+ France Éducation Formation",
+        "url": "https://agence.erasmusplus.fr/documents-de-presse/bilan-erasmus-2014-2020/",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-erasmus-200000-par-an",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Éducation",
+    "titre": "Envoyer 200 000 étudiants et apprentis par an dans un pays de l'Union",
+    "extraitProgramme": "200 000 étudiants et apprentis français partiront chaque année dans un pays de l'Union européenne.",
+    "reformulation": "Atteindre 200 000 départs annuels d'étudiants et d'apprentis français vers un autre pays de l'Union européenne.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Les crédits et le nombre de mobilités du programme Erasmus+ ont augmenté pendant le mandat, et le programme 2021-2027 a été doté d'un budget européen en forte hausse.",
+    "resultat": "En 2020, dernière année du programme 2014-2020, 107 000 mobilités ont été financées en France, tous publics confondus, y compris les enseignants, formateurs et personnels. Le nombre d'étudiants et d'apprentis partant chaque année reste donc très inférieur à 200 000.",
+    "justification": "La promesse est chiffrée et porte sur un résultat annuel. Le bilan publié par l'Agence Erasmus+ France montre un total de mobilités financées, toutes catégories réunies, inférieur de moitié à l'objectif annoncé pour les seuls étudiants et apprentis. La crise sanitaire a pesé sur les années 2020 et 2021, sans que l'ordre de grandeur de l'écart soit en cause.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Erasmus+ en France de 2014 à 2020 : chiffres clés",
+        "organisme": "Agence Erasmus+ France Éducation Formation",
+        "url": "https://agence.erasmusplus.fr/documents-de-presse/bilan-erasmus-2014-2020/",
+        "institutionnelle": true
+      },
+      {
+        "titre": "La mobilité étudiante Erasmus+ dans l'enseignement supérieur",
+        "organisme": "Ministère de l'Enseignement supérieur et de la Recherche",
+        "url": "https://publication.enseignementsup-recherche.gouv.fr/eesr/FR/EESR14_ES_15/la_mobilite_etudiante_erasmus_dans_l_enseignement_superieur/",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-fonds-europeen-defense",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Défense",
+    "titre": "Créer un Fonds européen de défense finançant des équipements communs",
+    "extraitProgramme": "Nous proposerons avec l'Allemagne une Europe de la défense associant les pays volontaires, en créant un Fonds européen de défense qui financera des équipements militaires communs",
+    "reformulation": "Mettre en place un fonds européen finançant en commun la recherche et le développement d'équipements militaires.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le règlement (UE) 2021/697 du Parlement européen et du Conseil du 29 avril 2021 établit le Fonds européen de la défense pour la période du 1er janvier 2021 au 31 décembre 2027 et abroge le règlement (UE) 2018/1092 qui avait ouvert un programme de développement industriel de la défense.",
+    "resultat": "Le fonds est doté de 7,953 milliards d'euros. Il finance la recherche collaborative et le développement collaboratif de produits et de technologies de défense, avec un taux de financement majoré pour les projets menés dans le cadre de la coopération structurée permanente.",
+    "justification": "Le fonds annoncé a été créé par un règlement européen pendant le mandat, avec un budget pluriannuel et l'objet décrit dans le programme, le financement d'équipements développés en commun.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2021-04-29",
+        "description": "Adoption du règlement (UE) 2021/697 établissant le Fonds européen de la défense.",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=celex%3A32021R0697"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Règlement (UE) 2021/697 du Parlement européen et du Conseil du 29 avril 2021 établissant le Fonds européen de la défense",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=celex%3A32021R0697",
+        "date": "2021-04-29",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Fonds européen de la défense (2021-2027), synthèse",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=LEGISSUM:4526707",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-quartier-general-europeen",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Défense",
+    "titre": "Doter l'Union d'un quartier général européen permanent",
+    "extraitProgramme": "un Quartier Général européen permanent",
+    "reformulation": "Créer un état-major permanent chargé de planifier et de conduire les opérations militaires de l'Union européenne.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La capacité militaire de planification et de conduite, structure permanente de commandement placée au sein de l'État-major de l'Union européenne, a été créée par décision du Conseil du 8 juin 2017. Le Conseil a étendu ses compétences le 19 novembre 2018 pour lui permettre de conduire une opération militaire exécutive de la taille d'un groupement tactique.",
+    "resultat": "L'Union dispose d'une structure de commandement permanente, mais son périmètre reste limité aux missions non exécutives et à une opération exécutive de taille réduite. Les opérations de plus grande ampleur continuent d'être conduites depuis des états-majors nationaux mis à disposition.",
+    "justification": "Une structure permanente existe et a été renforcée pendant le mandat, ce qui répond en partie à la promesse. Elle n'a pas le format d'un quartier général européen de plein exercice, ce qui exclut un statut réalisé.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Capacité de l'Union européenne en matière de planification et de conduite militaires, synthèse",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/FR/legal-content/summary/the-eu-s-military-planning-and-conduct-capability.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Quelle boussole stratégique pour l'Union européenne ?",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r20-753/r20-7533.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-controle-investissements-etrangers",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Instaurer un contrôle européen des investissements étrangers",
+    "extraitProgramme": "Nous voulons un mécanisme de contrôle des investissements étrangers en Europe afin de préserver nos secteurs stratégiques.",
+    "reformulation": "Créer au niveau européen un dispositif d'examen des investissements venus de pays tiers dans les secteurs stratégiques.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le règlement (UE) 2019/452 du Parlement européen et du Conseil du 19 mars 2019 établit un cadre pour le filtrage des investissements directs étrangers dans l'Union. Il est applicable depuis le 11 octobre 2020.",
+    "resultat": "Le règlement institue un mécanisme de coopération entre les États membres et la Commission, avec échange d'informations sur les investissements susceptibles de porter atteinte à la sécurité ou à l'ordre public, et fixe une liste de facteurs à prendre en compte, dont les infrastructures et technologies critiques.",
+    "justification": "Le mécanisme annoncé a été adopté sous forme de règlement pendant le mandat et est entré en application avant sa fin. La demande d'un tel cadre avait été formulée conjointement par la France, l'Allemagne et l'Italie auprès de la Commission.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-03-19",
+        "description": "Adoption du règlement établissant un cadre pour le filtrage des investissements directs étrangers dans l'Union.",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=CELEX%3A32019R0452"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Règlement (UE) 2019/452 du Parlement européen et du Conseil du 19 mars 2019 établissant un cadre pour le filtrage des investissements directs étrangers dans l'Union",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=CELEX%3A32019R0452",
+        "date": "2019-03-19",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Filtrage des investissements étrangers, dossier européen",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/ue/pac/EUR000009938.html",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-brexit-marche-unique",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Défendre l'intégrité du marché unique dans la négociation du Brexit",
+    "extraitProgramme": "Dans la discussion du Brexit, nous défendrons l'intégrité du marché unique européen.",
+    "reformulation": "Refuser que le Royaume-Uni conserve les avantages du marché unique sans en respecter les règles.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "L'Union a négocié en bloc, par l'intermédiaire de la Commission, l'accord de retrait puis l'accord de commerce et de coopération conclu le 24 décembre 2020 et entré en vigueur le 1er janvier 2021.",
+    "resultat": "Le Royaume-Uni est sorti du marché unique et de l'union douanière. L'accord comporte des dispositions sur les conditions de concurrence équitables, par lesquelles le Royaume-Uni s'engage à ne pas abaisser les normes sociales, environnementales et fiscales en vigueur au 31 décembre 2020, avec la possibilité de rétablir des droits de douane en cas de divergence. L'Irlande du Nord reste alignée sur un ensemble limité de règles du marché unique.",
+    "justification": "Le résultat de la négociation correspond à l'objectif annoncé : pas d'accès au marché unique sans respect de ses disciplines. La confiance est moyenne parce que la promesse porte sur une position de négociation menée à vingt-sept, dont la part revenant à la France ne peut pas être isolée.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "L'accord de commerce et de coopération UE, Royaume-Uni",
+        "organisme": "Commission européenne",
+        "url": "https://commission.europa.eu/strategy-and-policy/relations-united-kingdom/eu-uk-trade-and-cooperation-agreement_en",
+        "institutionnelle": true
+      },
+      {
+        "titre": "L'accord entre le Royaume-Uni et l'Union européenne, note d'information",
+        "organisme": "Assemblée nationale",
+        "url": "https://www2.assemblee-nationale.fr/content/download/325554/3175692/version/1/file/NotesInfo-AffEurop_n%C2%B0+17_Brexit.pdf",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-marche-unique-numerique",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Numérique",
+    "titre": "Créer un marché unique du numérique en Europe",
+    "extraitProgramme": "Nous créerons un marché unique du numérique en Europe.",
+    "reformulation": "Doter l'Union de règles communes pour les services et les plateformes numériques.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Un accord politique a été trouvé le 24 mars 2022 entre le Conseil et le Parlement européen sur la législation sur les marchés numériques, puis le 23 avril 2022 sur la législation sur les services numériques, dans les deux cas sous présidence française du Conseil de l'Union européenne.",
+    "resultat": "Les deux règlements n'ont été adoptés définitivement qu'après la fin du mandat, en juillet 2022. À la fin du mandat, les règles communes annoncées existaient donc à l'état d'accord politique entre colégislateurs, non de droit applicable.",
+    "justification": "La négociation a abouti à un accord politique avant le 13 mai 2022, ce qui va au delà d'un simple lancement, mais les textes n'étaient pas encore adoptés ni applicables à la fin du mandat. D'où un statut partiel plutôt que réalisé.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2022-03-24",
+        "description": "Accord entre le Conseil et le Parlement européen sur la législation sur les marchés numériques.",
+        "url": "https://www.consilium.europa.eu/en/press/press-releases/2022/03/25/council-and-european-parliament-reach-agreement-on-the-digital-markets-act/"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Législation sur les marchés numériques : accord entre le Conseil et le Parlement européen",
+        "organisme": "Conseil de l'Union européenne",
+        "url": "https://www.consilium.europa.eu/en/press/press-releases/2022/03/25/council-and-european-parliament-reach-agreement-on-the-digital-markets-act/",
+        "date": "2022-03-25",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-fonds-capital-risque-startups",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Europe",
+    "titre": "Créer un fonds de capital-risque pour les start-up européennes",
+    "extraitProgramme": "Un fonds de capital-risque permettra de financer le développement des start-ups européennes.",
+    "reformulation": "Mettre en place un fonds européen de capital-risque pour financer la croissance des jeunes entreprises innovantes.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La Commission européenne et le Fonds européen d'investissement ont lancé en avril 2018 le programme de fonds de fonds paneuropéens de capital-risque VentureEU. Une contribution de l'Union d'environ 410 millions d'euros doit permettre de lever 2,1 milliards d'euros d'investissements publics et privés, répartis entre six fonds sélectionnés.",
+    "resultat": "Environ 1 500 start-up et entreprises en croissance de l'Union devaient avoir accès à ces financements. Le montant effectivement investi pendant le mandat n'a pas été vérifié ici.",
+    "justification": "L'outil annoncé a été créé pendant le mandat, avec un financement européen identifié et des fonds sélectionnés. La confiance est moyenne parce que l'évaluation des sommes réellement déployées à la fin du mandat n'a pas été trouvée dans une source officielle.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-04-10",
+        "description": "Lancement du programme de fonds de fonds paneuropéens de capital-risque VentureEU.",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/fr/IP_18_2763"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "VentureEU : 2,1 milliards d'euros pour stimuler les investissements de capital-risque dans les start-up innovantes en Europe",
+        "organisme": "Commission européenne",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/fr/IP_18_2763",
+        "date": "2018-04-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-marche-unique-energie",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Énergie",
+    "titre": "Créer un marché unique de l'énergie en Europe",
+    "extraitProgramme": "Nous créerons un marché unique de l'énergie en Europe.",
+    "reformulation": "Unifier les règles et les réseaux du marché européen de l'énergie.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le paquet « Une énergie propre pour tous les Européens » a été achevé pendant le mandat : le règlement (UE) 2019/943 et la directive (UE) 2019/944 du 5 juin 2019 refondent les règles du marché intérieur de l'électricité, avec application du règlement au 1er janvier 2020. La directive a été transposée en France par l'ordonnance n° 2021-237 du 3 mars 2021.",
+    "resultat": "Les règles communes du marché de l'électricité ont été révisées, mais l'objectif d'un taux d'interconnexion de 15 % de la puissance appelée à l'horizon 2030 n'est pas atteint par l'ensemble des États membres, et les prix restent formés sur des marchés fortement nationaux.",
+    "justification": "Le cadre juridique commun a progressé pendant le mandat, ce qui répond en partie à la promesse. Un marché unique de l'énergie suppose aussi des réseaux interconnectés, condition qui n'est pas remplie à la fin du mandat. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-06-05",
+        "description": "Adoption du règlement (UE) 2019/943 et de la directive (UE) 2019/944 sur le marché intérieur de l'électricité.",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32019R0943"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Règlement (UE) 2019/943 du Parlement européen et du Conseil du 5 juin 2019 sur le marché intérieur de l'électricité",
+        "organisme": "EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32019R0943",
+        "date": "2019-06-05",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Marché intérieur de l'énergie, fiche thématique",
+        "organisme": "Parlement européen",
+        "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/45/marche-interieur-de-l-energie",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-8-prix-plancher-carbone",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Énergie",
+    "titre": "Fixer un prix plancher du carbone dans les pays de l'Union",
+    "extraitProgramme": "Nous fixerons un prix plancher du carbone dans les pays de l'Union.",
+    "reformulation": "Instaurer au niveau européen un prix minimum de la tonne de dioxyde de carbone.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "La France a défendu à plusieurs reprises l'instauration d'un prix plancher européen du carbone, notamment en mars 2018 et lors des discussions sur la révision du système d'échange de quotas d'émission. Plusieurs amendements en ce sens ont été déposés au Parlement européen lors de l'examen du paquet « Ajustement à l'objectif 55 », présenté par la Commission en juillet 2021.",
+    "resultat": "Aucun prix plancher du carbone n'a été inscrit dans le droit de l'Union pendant le mandat. Le prix reste déterminé par le marché de quotas, encadré par la réserve de stabilité mais sans plancher réglementaire.",
+    "justification": "La mesure dépendait d'un accord entre États membres, qui n'a pas été obtenu : plusieurs pays dépendants du charbon s'y sont opposés. À la fin du mandat, la révision du marché carbone était en cours d'examen et ne comportait pas de prix plancher.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Proposition de résolution sur le paquet « Ajustement à l'objectif 55 » : réformer le marché carbone pour bâtir une économie européenne souveraine, durable et juste",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r21-576/r21-5760.html",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les capitales encore très divisées sur un prix plancher du carbone",
+        "organisme": "Euractiv",
+        "url": "https://www.euractiv.fr/section/climat/news/ministers-highlight-european-divide-over-carbon-price-floor/",
+        "institutionnelle": false
+      }
+    ]
+  },
+  {
+    "id": "2017-8-conventions-citoyennes-europe",
+    "numero": 8,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Démocratie",
+    "titre": "Organiser des conventions citoyennes dans toute l'Europe dès fin 2017",
+    "extraitProgramme": "Nous proposerons des conventions citoyennes dans toute l'Europe dès la fin de l'année 2017 pour redonner un sens au projet européen.",
+    "reformulation": "Lancer dans tous les pays de l'Union des consultations de citoyens sur l'avenir de l'Europe, à partir de la fin 2017.",
+    "pageProgramme": "chapitre 8, p. 20",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Des consultations citoyennes sur l'Europe ont été organisées d'avril à octobre 2018 dans vingt-sept États membres, à l'initiative de la France, avec 1 700 consultations recensées dans vingt-cinq pays. Le rapport des consultations a été remis aux institutions européennes. La Conférence sur l'avenir de l'Europe a ensuite été lancée le 9 mai 2021 et ses travaux se sont achevés le 9 mai 2022.",
+    "resultat": "Les consultations ont eu lieu et ont nourri la Conférence sur l'avenir de l'Europe, dont les conclusions ont été publiées au printemps 2022. Elles n'ont pas abouti au projet adopté par les pays volontaires que le programme annonçait, et aucune procédure permettant de passer outre le blocage d'un État membre n'a été mise en place.",
+    "justification": "Le volet consultatif de la promesse a été mis en oeuvre, avec un décalage sur le calendrier annoncé, les consultations n'ayant commencé qu'en avril 2018. Le volet décisionnel, un projet adopté par les États volontaires sans possibilité de blocage, n'a pas été réalisé : la révision des traités relève toujours de l'unanimité. D'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-10-31",
+        "description": "Remise officielle du rapport des consultations citoyennes sur l’Europe.",
+        "url": "https://ue.delegfrance.org/consultations-citoyennes-remise"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Consultations citoyennes : remise officielle du rapport",
+        "organisme": "Représentation permanente de la France auprès de l'Union européenne",
+        "url": "https://ue.delegfrance.org/consultations-citoyennes-remise",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Consultation citoyenne : Conférence sur l’avenir de l’Europe",
+        "organisme": "vie-publique.fr",
+        "url": "https://www.vie-publique.fr/consultations/279529-consultation-citoyenne-conference-sur-lavenir-de-leurope",
+        "institutionnelle": true
+      }
+    ]
+  }
+]

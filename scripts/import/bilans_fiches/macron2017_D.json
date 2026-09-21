@@ -1,0 +1,741 @@
+[
+  {
+    "id": "2017-9-versement-social-unique",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Protection sociale",
+    "titre": "Créer un versement social unique",
+    "extraitProgramme": "Nous créerons un versement social unique.",
+    "reformulation": "Les différentes allocations sociales seraient regroupées en un seul versement.",
+    "pageProgramme": "chapitre 9",
+    "statut": "non_realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le projet a pris la forme du revenu universel d'activité (RUA), annoncé en septembre 2018. Une concertation a été lancée en 2019 sous la responsabilité d'un rapporteur général, Fabrice Lenglart, dont la première phase s'est achevée le 11 juillet 2019. La crise sanitaire a interrompu les travaux ; le rapport de préfiguration a été remis au gouvernement en janvier 2022.",
+    "resultat": "Aucun versement unique n'existait à la fin du mandat. Le rapport de préfiguration propose un « revenu social de référence » harmonisant les bases ressources, et non une allocation unique. Le Sénat relève que le RUA a été abandonné au profit d'un autre projet, la « solidarité à la source ».",
+    "justification": "La promesse porte sur la création d'un versement unique regroupant les prestations. Le dispositif n'a jamais été créé : la concertation a été interrompue, le rapport de préfiguration a été remis deux mois avant la fin du mandat et le projet a été remplacé. Le rapport du Sénat de 2023 documente cet abandon, ce qui constitue une preuve positive de non-mise en oeuvre.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-07-11",
+        "description": "Clôture de la première phase de concertation sur le revenu universel d'activité",
+        "url": "https://www.vie-publique.fr/discours/269033-agnes-buzyn-11072019-projet-de-revenu-universel-dactivite-rua"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Agnès Buzyn, 11 juillet 2019, projet de revenu universel d'activité (RUA)",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/discours/269033-agnes-buzyn-11072019-projet-de-revenu-universel-dactivite-rua",
+        "date": "2019-07-11",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Solidarité à la source : éviter les embûches pour assurer le versement à bon droit des prestations",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r22-836/r22-8363.html",
+        "date": "2023-07-05",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-allocations-meme-jour",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Protection sociale",
+    "titre": "Verser toutes les allocations sociales le même jour, au plus tard un trimestre après la constatation des revenus",
+    "extraitProgramme": "Toutes les allocations sociales (APL, RSA…) seront versées le même jour du mois, un trimestre maximum après la constatation des revenus (contre jusqu’à 2 ans aujourd’hui).",
+    "reformulation": "Les aides sociales seraient calculées sur des revenus récents et payées à une date commune.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La réforme du calcul des aides personnelles au logement est entrée en vigueur le 1er janvier 2021 : l'aide est calculée sur les ressources des douze derniers mois connus et réexaminée tous les trois mois, au lieu des revenus de l'avant-dernière année.",
+    "resultat": "Pour les APL, le décalage de deux ans a été supprimé et le réexamen est trimestriel. Le RSA et la prime d'activité reposaient déjà sur une déclaration trimestrielle de ressources. Aucune date de versement commune à l'ensemble des prestations n'a été instaurée, et aucun versement regroupé n'existe.",
+    "justification": "La partie de l'engagement portant sur l'actualité des ressources est tenue pour les aides au logement depuis janvier 2021. La partie portant sur un jour de versement commun à toutes les allocations n'a pas été mise en oeuvre, faute du versement social unique auquel elle était liée.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2021-01-01",
+        "description": "Entrée en vigueur du calcul des aides au logement sur les ressources des douze derniers mois, avec réexamen trimestriel",
+        "url": "https://www.senat.fr/rap/r22-836/r22-8363.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Solidarité à la source : éviter les embûches pour assurer le versement à bon droit des prestations",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r22-836/r22-8363.html",
+        "date": "2023-07-05",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-accelerateur-associations",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Vie associative",
+    "titre": "Créer un accélérateur d'associations",
+    "extraitProgramme": "Nous créerons un « accélérateur » d’associations.",
+    "reformulation": "Une structure publique serait chargée de faire essaimer dans tout le pays les associations jugées les plus utiles.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'accélérateur national d'innovation sociale et la bannière « French Impact » ont été lancés le 18 janvier 2018 par le ministre de la Transition écologique et solidaire et le haut-commissaire à l'économie sociale et solidaire.",
+    "resultat": "Un dispositif d'accompagnement au changement d'échelle existe depuis 2018, ouvert aux acteurs de l'économie sociale et solidaire, dont les associations. Il a sélectionné une première promotion de structures pionnières en 2018.",
+    "justification": "Un accélérateur a bien été créé, mais son périmètre est l'innovation sociale au sens large et non les seules associations, et aucun bilan officiel n'établit qu'il a déployé sur tout le territoire en moins de cinq ans les associations visées. Le statut retenu est donc partiel.",
+    "interpretations": "Une lecture stricte, limitée au mot « associations », conduirait à considérer la promesse comme non tenue puisque le dispositif créé vise l'ensemble de l'économie sociale et solidaire. La lecture retenue prend en compte le fait que les associations sont expressément dans le champ du dispositif.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-01-18",
+        "description": "Lancement de l'accélérateur national d'innovation sociale et de l'initiative French Impact",
+        "url": "https://www.ecologie.gouv.fr/invitation-presse-lancement-laccelerateur-national-dinnovation-sociale"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Invitation presse, lancement de l'Accélérateur national d'innovation sociale",
+        "organisme": "Ministère de la Transition écologique",
+        "url": "https://www.ecologie.gouv.fr/invitation-presse-lancement-laccelerateur-national-dinnovation-sociale",
+        "date": "2018-01-18",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-plan-investissement-sante",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Santé",
+    "titre": "Consacrer 5 milliards d'euros du plan d'investissement à la santé",
+    "extraitProgramme": "Nous consacrerons 5 milliards d’euros de notre Plan d’investissement à la santé",
+    "reformulation": "Une part du plan d'investissement du quinquennat serait réservée à la transformation du système de soins.",
+    "pageProgramme": "chapitre 9",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "Le rapport de Jean Pisani-Ferry remis au Premier ministre en septembre 2017 fixe le contenu du Grand plan d'investissement 2018-2022, doté de 57,1 milliards d'euros.",
+    "resultat": "Le quatrième axe du plan réserve 4,9 milliards d'euros au « virage numérique de notre système de santé » : 420 millions pour la numérisation des hôpitaux, 130 millions pour le programme e-parcours, 50 millions pour la télémédecine, 100 millions pour l'intelligence artificielle en santé et 400 millions pour les maisons et centres de santé.",
+    "justification": "L'engagement porte sur l'affectation d'une enveloppe. Le plan publié en septembre 2017 l'inscrit pour 4,9 milliards d'euros, montant conforme à l'annonce. La programmation est établie par le rapport officiel ; l'exécution réelle des crédits sur la période n'a pas été vérifiée ici, d'où une confiance moyenne.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-09-25",
+        "description": "Remise au Premier ministre du rapport sur le Grand plan d'investissement 2018-2022",
+        "url": "https://www.vie-publique.fr/rapport/36914-grand-plan-investissement-2018-2022-rapport-au-premier-ministre"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le grand plan d'investissement 2018-2022, rapport au Premier ministre",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/174000710.pdf",
+        "date": "2017-09-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Question n° 1664, interpellation sur le Grand plan d'investissement 2018-2022",
+        "organisme": "Assemblée nationale",
+        "url": "https://questions.assemblee-nationale.fr/q15/15-1664QE.htm",
+        "date": "2017-10-03",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-service-sanitaire",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Santé",
+    "titre": "Créer un service sanitaire de trois mois pour 40 000 étudiants en santé",
+    "extraitProgramme": "Nous créerons un service sanitaire. 40 000 étudiants en santé consacreront 3 mois à des actions de prévention dans les écoles et les entreprises.",
+    "reformulation": "Les étudiants en santé consacreraient une période de leur formation à des actions de prévention auprès du public.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "haute",
+    "actionMenee": "Le décret n° 2018-472 et l'arrêté du 12 juin 2018 créent le service sanitaire des étudiants en santé, applicable dès la rentrée universitaire 2018.",
+    "resultat": "L'arrêté fixe la durée à six semaines à temps plein, dont la moitié consacrée à l'action concrète de prévention, et non à trois mois. Les thèmes retenus sont l'alimentation, l'activité physique, les addictions et la santé sexuelle ; les publics visés sont d'abord les élèves et les étudiants.",
+    "justification": "Le dispositif a bien été créé et rendu obligatoire dès 2018, ce qui répond à la première partie de l'engagement. La durée retenue, six semaines, est inférieure aux trois mois annoncés, et le nombre d'étudiants concernés dépend des cohortes annuelles sans qu'un décompte officiel de 40 000 ait été relevé ici.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-06-12",
+        "description": "Publication du décret n° 2018-472 relatif au service sanitaire des étudiants en santé",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037051024"
+      },
+      {
+        "date": "2018-06-12",
+        "description": "Publication de l'arrêté relatif au service sanitaire, fixant sa durée à six semaines",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037051110"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Décret n° 2018-472 du 12 juin 2018 relatif au service sanitaire des étudiants en santé",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037051024",
+        "date": "2018-06-12",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Arrêté du 12 juin 2018 relatif au service sanitaire pour les étudiants en santé",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037051110",
+        "date": "2018-06-12",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-droit-oubli-renforce",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Santé",
+    "titre": "Renforcer le droit à l'oubli des anciens malades",
+    "extraitProgramme": "Nous renforcerons le droit à l’oubli pour les personnes ayant été malades.",
+    "reformulation": "Les anciens malades n'auraient plus à déclarer leur maladie à l'assureur au bout de cinq ans au lieu de dix.",
+    "pageProgramme": "chapitre 9",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2022-270 du 28 février 2022 pour un accès plus juste, plus simple et plus transparent au marché de l'assurance emprunteur ramène le délai du droit à l'oubli de dix à cinq ans.",
+    "resultat": "Aucune information médicale relative aux pathologies cancéreuses et à l'hépatite virale C ne peut être recueillie par l'assureur au-delà de cinq ans après la fin du protocole thérapeutique, sans distinction d'âge ni de type de cancer.",
+    "justification": "L'engagement portait sur le renforcement du droit à l'oubli et sur le passage de dix à cinq ans. La loi promulguée le 28 février 2022, avant la fin du mandat, opère exactement cette réduction et y ajoute l'hépatite C.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2022-02-28",
+        "description": "Promulgation de la loi n° 2022-270 pour un accès plus juste, plus simple et plus transparent au marché de l'assurance emprunteur",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045268729"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2022-270 du 28 février 2022 pour un accès plus juste, plus simple et plus transparent au marché de l'assurance emprunteur",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045268729",
+        "date": "2022-02-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 28 février 2022 pour un accès plus juste, plus simple et plus transparent au marché de l'assurance emprunteur",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/loi/282601-loi-28-fevrier-2022-lemoine-assurance-emprunteur-credit-immobilier",
+        "date": "2022-02-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-droit-oubli-nouvelles-maladies",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Santé",
+    "titre": "Étendre le droit à l'oubli à de nouvelles maladies",
+    "extraitProgramme": "Nous l’étendrons aussi à de nouvelles maladies.",
+    "reformulation": "Le droit à l'oubli devait couvrir d'autres pathologies que les cancers.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 28 février 2022 étend le droit à l'oubli à l'hépatite virale C et renvoie à la négociation de la convention AERAS l'accès au droit à l'oubli pour des pathologies autres que cancéreuses ainsi que l'élargissement de la grille de référence.",
+    "resultat": "À la fin du mandat, le droit à l'oubli couvre les pathologies cancéreuses et l'hépatite virale C. L'extension à d'autres maladies reste subordonnée à une négociation entre l'État, les assureurs et les associations, dans le cadre de la convention AERAS.",
+    "justification": "Une maladie nouvelle, l'hépatite virale C, a été ajoutée par la loi du 28 février 2022. L'extension à d'autres pathologies n'est pas acquise à la fin du mandat : la loi la renvoie à une négociation conventionnelle, ce qui rend l'engagement partiellement tenu.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2022-02-28",
+        "description": "Promulgation de la loi n° 2022-270, qui ajoute l'hépatite C au droit à l'oubli et renvoie les autres pathologies à la convention AERAS",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045268729"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Loi du 28 février 2022 pour un accès plus juste, plus simple et plus transparent au marché de l'assurance emprunteur",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/loi/282601-loi-28-fevrier-2022-lemoine-assurance-emprunteur-credit-immobilier",
+        "date": "2022-02-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "S'assurer et emprunter avec un risque aggravé de santé : la convention AERAS peut vous aider",
+        "organisme": "Ministère de l'Économie et des Finances",
+        "url": "https://economie.gouv.fr/particuliers/emprunter-et-sassurer/sassurer-et-emprunter-avec-un-risque-aggrave-de-sante-la",
+        "date": "2022-03-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-maisons-sante-doublement",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Santé",
+    "titre": "Doubler le nombre de maisons de santé",
+    "extraitProgramme": "Nous doublerons le nombre de maisons de santé.",
+    "reformulation": "Le nombre de structures regroupant plusieurs professionnels de santé devait être multiplié par deux.",
+    "pageProgramme": "chapitre 9",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "Le Grand plan d'investissement 2018-2022 prévoit de financer le doublement du nombre de maisons de santé et de centres de santé, avec 400 millions d'euros sur le quinquennat et un apport possible de 300 millions d'euros en fonds propres de la Caisse des dépôts.",
+    "resultat": "Le rapport du plan comptait près de 930 maisons de santé en septembre 2017. Le Sénat relève 1 889 maisons de santé en juin 2021, auxquelles s'ajoutent 499 centres de santé.",
+    "justification": "Les deux chiffres proviennent de sources publiques : 930 dans le rapport remis au Premier ministre en 2017, 1 889 dans un rapport d'information du Sénat de mars 2022 portant sur des données de juin 2021. Le doublement est atteint avant la fin du mandat.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-09-25",
+        "description": "Inscription du doublement des maisons de santé dans le Grand plan d'investissement 2018-2022",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/174000710.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Le grand plan d'investissement 2018-2022, rapport au Premier ministre (initiative 25, développer les maisons de santé)",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/files/rapport/pdf/174000710.pdf",
+        "date": "2017-09-25",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Rétablir l'équité territoriale en matière d'accès aux soins : agir avant qu'il ne soit trop tard",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r21-589/r21-5891.pdf",
+        "date": "2022-03-29",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-avs-tous-enfants",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Handicap",
+    "titre": "Donner un accompagnant à tous les enfants handicapés qui en ont besoin",
+    "extraitProgramme": "Nous donnerons accès à un(e) auxiliaire de vie scolaire à tous les enfants qui en ont besoin pour avoir une scolarité comme les autres.",
+    "reformulation": "Chaque élève handicapé dont le dossier le justifie devait disposer d'un accompagnant à l'école.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 26 juillet 2019 pour une école de la confiance a créé les pôles inclusifs d'accompagnement localisés, généralisés à la rentrée 2021, et le nombre d'accompagnants d'élèves en situation de handicap a été augmenté chaque année.",
+    "resultat": "Selon un rapport du Sénat de décembre 2022, les effectifs d'accompagnants ont progressé de 35 % en cinq ans, pour environ 132 000 personnes. Le même rapport constate que des élèves auxquels une aide humaine a été notifiée ne sont toujours pas accompagnés, surtout dans le premier degré.",
+    "justification": "L'engagement porte sur un résultat, l'accès effectif de tous les enfants concernés. Les moyens ont augmenté nettement, mais une source publique postérieure à la fin du mandat constate que des notifications restent sans exécution. Le statut retenu est donc partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-07-26",
+        "description": "Promulgation de la loi pour une école de la confiance, qui crée les pôles inclusifs d'accompagnement localisés",
+        "url": "https://www.senat.fr/rap/l22-171/l22-171_mono.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport sur la proposition de loi visant à lutter contre la précarité des accompagnants d'élèves en situation de handicap et des assistants d'éducation",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l22-171/l22-171_mono.html",
+        "date": "2022-12-07",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-9-avs-emploi-stable",
+    "numero": 9,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Handicap",
+    "titre": "Donner aux accompagnants scolaires un emploi stable et un salaire décent",
+    "extraitProgramme": "Ces AVS auront un emploi stable et un salaire décent.",
+    "reformulation": "Les accompagnants d'élèves handicapés devaient sortir de l'emploi précaire et être mieux payés.",
+    "pageProgramme": "chapitre 9",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi du 26 juillet 2019 pour une école de la confiance a généralisé le recrutement des accompagnants par un contrat à durée déterminée de trois ans renouvelable une fois, suivi d'un contrat à durée indéterminée au bout de six ans.",
+    "resultat": "Un rapport du Sénat de décembre 2022 relève une rémunération nette mensuelle d'environ 850 euros pour une quotité de 62 %, soit 24 heures par semaine, montant que le rapport situe sous le seuil de pauvreté. L'accès au contrat à durée indéterminée au bout de trois ans n'est intervenu qu'avec la loi du 16 décembre 2022, après la fin du mandat.",
+    "justification": "Le mandat a apporté un cadre d'emploi unifié et une perspective de contrat à durée indéterminée, ce qui va dans le sens de l'emploi stable. La rémunération, du fait des temps incomplets, reste au niveau décrit par le Sénat, et le raccourcissement du délai d'accès au contrat à durée indéterminée est postérieur au 13 mai 2022.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-07-26",
+        "description": "Promulgation de la loi pour une école de la confiance, qui unifie le cadre d'emploi des accompagnants",
+        "url": "https://www.senat.fr/rap/l22-171/l22-171_mono.html"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Rapport sur la proposition de loi visant à lutter contre la précarité des accompagnants d'élèves en situation de handicap et des assistants d'éducation",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/l22-171/l22-171_mono.html",
+        "date": "2022-12-07",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-droit-a-l-erreur",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Services publics",
+    "titre": "Créer un droit à l'erreur pour tous",
+    "extraitProgramme": "Nous créerons un droit à l’erreur pour tous.",
+    "reformulation": "Une personne de bonne foi qui se trompe dans une déclaration pourrait régulariser sans être sanctionnée.",
+    "pageProgramme": "chapitre 10",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La loi n° 2018-727 du 10 août 2018 pour un État au service d'une société de confiance, entrée en vigueur le 12 août 2018, inscrit le droit à l'erreur dans le code des relations entre le public et l'administration.",
+    "resultat": "L'article 2 de la loi pose une présomption de bonne foi : une personne qui a méconnu pour la première fois une règle applicable à sa situation peut régulariser sans sanction, sauf mauvaise foi, fraude, matière pénale ou atteinte à la santé, à la sécurité ou à l'environnement. Le droit bénéficie aux particuliers comme aux entreprises.",
+    "justification": "La promesse portait sur la création d'un droit nouveau. Ce droit est créé par une loi votée et promulguée pendant le mandat, dans un périmètre général. Les exceptions prévues, notamment en matière pénale, correspondent à celles que le programme annonçait.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2018-08-10",
+        "description": "Promulgation de la loi n° 2018-727 pour un État au service d'une société de confiance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037307624"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2018-727 du 10 août 2018 pour un Etat au service d'une société de confiance",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037307624",
+        "date": "2018-08-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Loi du 10 août 2018 pour un État au service d'une société de confiance",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/loi/21003-loi-10-aout-2018-essoc-pour-etat-au-service-dune-societe-de-confiance",
+        "date": "2018-08-10",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Droit à l'erreur : loi pour un État au service d'une société de confiance (ESSOC)",
+        "organisme": "Ministère de l'Économie et des Finances",
+        "url": "https://www.economie.gouv.fr/actualites/droit-lerreur-loi-pour-un-etat-au-service-dune-societe-de-confiance-essoc",
+        "date": "2018-08-13",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-renouvellements-en-ligne",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Services publics",
+    "titre": "Permettre le renouvellement en ligne de tous les documents officiels",
+    "extraitProgramme": "Tous les renouvellements de documents officiels (carte d’identité, passeport, carte grise, etc.) devront pouvoir se faire en ligne, sans nécessité de se déplacer.",
+    "reformulation": "Refaire sa carte d'identité, son passeport ou sa carte grise devait se faire depuis chez soi.",
+    "pageProgramme": "chapitre 10",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le plan Préfectures nouvelle génération a fermé les guichets d'immatriculation des préfectures le 6 novembre 2017 et basculé les démarches de certificat d'immatriculation sur le site de l'Agence nationale des titres sécurisés. Le programme Action publique 2022, lancé en octobre 2017, visait la dématérialisation des démarches administratives les plus courantes.",
+    "resultat": "Les démarches de carte grise se font en ligne depuis novembre 2017. Pour la carte nationale d'identité et le passeport, la présence physique reste indispensable pour la prise d'empreintes : la pré-demande en ligne ne dispense pas du déplacement en mairie. Le Sénat relève que 82 % des démarches se font en ligne.",
+    "justification": "La promesse porte sur tous les renouvellements et sur l'absence de déplacement. Elle est tenue pour le certificat d'immatriculation, pas pour les titres d'identité, dont le recueil des empreintes impose une comparution. Le statut retenu est donc partiel.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2017-11-06",
+        "description": "Bascule des démarches de certificat d'immatriculation en ligne et fermeture des guichets d'immatriculation en préfecture",
+        "url": "https://www.interieur.gouv.fr/Archives/Archives-des-actualites/2017-Actualites/Carte-grise-vos-demarches-accessibles-en-ligne"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Carte grise : vos démarches accessibles en ligne",
+        "organisme": "Ministère de l'Intérieur",
+        "url": "https://www.interieur.gouv.fr/Archives/Archives-des-actualites/2017-Actualites/Carte-grise-vos-demarches-accessibles-en-ligne",
+        "date": "2017-11-06",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Pré-demande en ligne de carte d'identité ou de passeport",
+        "organisme": "Service-public.gouv.fr",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21089",
+        "date": "2026-09-20",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Faciliter l'accès aux services publics : restaurer le lien de confiance entre les administrations et les administrés",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/rap/r24-895/r24-8957.html",
+        "date": "2025-09-17",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-horaires-services-publics",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Services publics",
+    "titre": "Élargir les horaires des services publics aux soirées et au samedi",
+    "extraitProgramme": "Les horaires d’ouverture des services publics seront par ailleurs élargis aux soirées et au samedi pour s’adapter aux nouveaux modes de vie des Français.",
+    "reformulation": "Les guichets publics devaient ouvrir en soirée et le samedi.",
+    "pageProgramme": "chapitre 10",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "L'article 68 de la loi du 10 août 2018 pour un État au service d'une société de confiance impose au gouvernement un rapport annuel au Parlement qui rend compte des actions entreprises pour étendre les horaires d'ouverture au public des administrations de l'État.",
+    "resultat": "Aucune donnée publique consultée ne mesure l'évolution des horaires d'ouverture des services publics sur la période, ni le nombre de guichets ouverts en soirée ou le samedi à la fin du mandat.",
+    "justification": "L'engagement porte sur un résultat mesurable, l'amplitude d'ouverture des guichets. La loi de 2018 prévoit un compte rendu de ces actions, ce qui établit l'intention mais non le résultat. Les recherches menées sur les sites du Sénat, de l'Assemblée nationale, de vie-publique.fr et des services de l'État n'ont pas fourni de bilan chiffré, et le champ visé (« les services publics ») dépasse les seules administrations de l'État. Le statut ne peut pas être tranché sans deviner.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Contrôle de l'application de la loi pour un État au service d'une société de confiance",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/application-des-lois/pjl17-259.html",
+        "date": "2018-08-10",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-prefets-organisation-etat",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Services publics",
+    "titre": "Donner aux préfets la capacité d'adapter l'organisation des services de l'État",
+    "extraitProgramme": "Nous donnerons aux préfets la capacité d’adapter l’organisation des services de l’État aux besoins de chaque région et département.",
+    "reformulation": "Les préfets pourraient modifier l'organisation des services de l'État selon les besoins de leur territoire.",
+    "pageProgramme": "chapitre 10",
+    "statut": "realise",
+    "confiance": "moyenne",
+    "actionMenee": "La circulaire du 12 juin 2019 sur la mise en oeuvre de la réforme de l'organisation territoriale de l'État demande aux préfets de proposer, avant fin octobre 2019, une organisation des services déconcentrés utilisant pleinement les instruments de modularité pour répondre aux besoins propres à leur territoire. Le décret n° 2020-412 du 8 avril 2020 généralise le droit de dérogation du préfet aux normes réglementaires.",
+    "resultat": "Les préfets de région et de département peuvent déroger à des normes réglementaires pour des décisions non réglementaires relevant de leur compétence, dans sept domaines dont l'emploi, l'environnement, l'urbanisme et le patrimoine culturel. La réorganisation des services déconcentrés, décidée localement, a été conduite à partir de 2019.",
+    "justification": "Deux textes publiés pendant le mandat donnent aux préfets les marges demandées : la circulaire de 2019 sur l'organisation des services déconcentrés et le décret de 2020 sur le droit de dérogation. La confiance reste moyenne parce que la portée réelle de ces marges n'a pas été mesurée ici.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-06-12",
+        "description": "Circulaire relative à la mise en oeuvre de la réforme de l'organisation territoriale de l'État",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038599066"
+      },
+      {
+        "date": "2020-04-08",
+        "description": "Publication du décret n° 2020-412 relatif au droit de dérogation reconnu au préfet",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041789766"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Circulaire du 12 juin 2019 relative à la mise en oeuvre de la réforme de l'organisation territoriale de l'Etat",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038599066",
+        "date": "2019-06-12",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Décret n° 2020-412 du 8 avril 2020 relatif au droit de dérogation reconnu au préfet",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000041789766",
+        "date": "2020-04-08",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-pas-de-surtransposition-agricole",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Agriculture",
+    "titre": "N'ajouter aucune norme nationale aux normes européennes dans l'agriculture, le maritime et la pêche",
+    "extraitProgramme": "Nous ne rajouterons aucune norme nationale aux normes européennes dans les secteurs agricole, maritime et de la pêche.",
+    "reformulation": "La France cesserait d'imposer à ses agriculteurs et pêcheurs des règles plus strictes que celles de l'Union européenne.",
+    "pageProgramme": "chapitre 10",
+    "statut": "inevaluable",
+    "confiance": "basse",
+    "actionMenee": "La circulaire du Premier ministre du 26 juillet 2017 sur la maîtrise du flux des textes réglementaires proscrit en principe toute mesure allant au-delà des exigences minimales d'une directive européenne, sauf arbitrage du cabinet du Premier ministre. Un projet de loi portant suppression de sur-transpositions de directives, comportant un chapitre agriculture, a été adopté par le Sénat le 7 novembre 2018 et transmis à l'Assemblée nationale le 8 novembre 2018.",
+    "resultat": "La règle générale posée en juillet 2017 couvre les trois secteurs visés, mais n'est pas propre à eux. Le projet de loi de suppression des sur-transpositions n'a pas été adopté définitivement.",
+    "justification": "L'engagement est négatif : il promet l'absence d'ajout de normes. Le vérifier suppose un recensement des normes nationales adoptées dans les secteurs agricole, maritime et de la pêche entre 2017 et 2022. Aucun bilan officiel de ce type n'a été trouvé sur les sites du Sénat, de l'Assemblée nationale, de vie-publique.fr ou de Légifrance. La circulaire de 2017 établit la règle, pas son respect, et le statut ne peut pas être tranché sans deviner.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "Circulaire du 26 juillet 2017 relative à la maîtrise du flux des textes réglementaires et de leur impact",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000035297602",
+        "date": "2017-07-26",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Sur-transpositions de directives européennes en droit français, dossier législatif",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/dossier-legislatif/pjl18-010.html",
+        "date": "2018-11-07",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-affichage-qualite-service",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Services publics",
+    "titre": "Obliger les services publics à afficher leurs résultats de qualité de service",
+    "extraitProgramme": "Tous les services publics accueillant du public (hôpital, école, tribunal, CAF, etc.) seront tenus d’afficher leurs résultats en termes de qualité de service (ex : temps d’attente, taux de satisfaction, etc.)",
+    "reformulation": "Chaque guichet public devrait publier ses délais et sa note de satisfaction.",
+    "pageProgramme": "chapitre 10",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "Le programme Services Publics +, généralisé à partir de 2020 aux services publics en contact avec les usagers, comporte un engagement de transparence sur les résultats. Une plateforme publique, plus.transformation.gouv.fr, rassemble les indicateurs.",
+    "resultat": "Des indicateurs de performance et de qualité perçue, mesurés au niveau local, sont publiés sur la plateforme et affichés dans les lieux d'accueil, avec une mise à jour trimestrielle. Ils portent sur des réseaux de services de l'État et des organismes sociaux, comme les préfectures et les directions départementales.",
+    "justification": "Un dispositif de publication des résultats existe et couvre une partie des services publics, ce qui répond au principe de l'engagement. Aucune obligation juridique générale ne s'impose à l'ensemble des structures citées par le programme, notamment les écoles, les hôpitaux et les tribunaux, d'où un statut partiel.",
+    "verifieLe": "2026-09-20",
+    "sources": [
+      {
+        "titre": "La transparence sur les résultats des services publics",
+        "organisme": "Services Publics +, direction interministérielle de la transformation publique",
+        "url": "https://www.plus.transformation.gouv.fr/la-transparence-sur-les-resultats-des-services-publics",
+        "date": "2021-01-28",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Les 8 engagements Services Publics + et la transparence sur les résultats de vos services publics",
+        "organisme": "Préfecture du Finistère",
+        "url": "https://www.finistere.gouv.fr/Publications/Demarche-Qualite/Les-8-engagements-Services-Publics-et-la-transparence-sur-les-resultats-de-vos-services-publics",
+        "date": "2021-01-28",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-tribunal-premiere-instance",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Justice",
+    "titre": "Établir dans chaque département un tribunal de première instance servant de guichet unique",
+    "extraitProgramme": "Nous établirons dans chaque département un tribunal de première instance qui sera le guichet unique permettant un accès facilité au juge.",
+    "reformulation": "Une seule juridiction de première instance par département servirait de porte d'entrée pour tous les litiges.",
+    "pageProgramme": "chapitre 10",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "La loi n° 2019-222 du 23 mars 2019 de programmation 2018-2022 et de réforme pour la justice fusionne les tribunaux d'instance et les tribunaux de grande instance en un tribunal judiciaire, au 1er janvier 2020.",
+    "resultat": "Les justiciables ne connaissent plus qu'une seule juridiction de droit commun en première instance. La fusion a donné 164 tribunaux judiciaires, plus d'un par département dans de nombreux cas, et les tribunaux d'instance situés dans une autre commune sont devenus des tribunaux de proximité.",
+    "justification": "L'unification de la première instance et la porte d'entrée unique annoncées sont acquises depuis le 1er janvier 2020. En revanche l'organisation retenue n'est pas départementale : le nom et le périmètre de tribunal de première instance départemental, défendus au Sénat pendant les débats, n'ont pas été repris par la loi.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-03-23",
+        "description": "Promulgation de la loi n° 2019-222 de programmation 2018-2022 et de réforme pour la justice",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038261631"
+      },
+      {
+        "date": "2020-01-01",
+        "description": "Entrée en vigueur du tribunal judiciaire, issu de la fusion des tribunaux d'instance et de grande instance",
+        "url": "https://www.justice.gouv.fr/actualites/actualite/reforme-lorganisation-judiciaire"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "LOI n° 2019-222 du 23 mars 2019 de programmation 2018-2022 et de réforme pour la justice",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038261631",
+        "date": "2019-03-23",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Réforme de l'organisation judiciaire",
+        "organisme": "Ministère de la Justice",
+        "url": "https://www.justice.gouv.fr/actualites/actualite/reforme-lorganisation-judiciaire",
+        "date": "2020-01-01",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-aucun-site-judiciaire-ferme",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Justice",
+    "titre": "Ne fermer aucun site judiciaire",
+    "extraitProgramme": "Nous ne fermerons aucun site.",
+    "reformulation": "Aucun tribunal existant ne devait disparaître du fait de la réorganisation.",
+    "pageProgramme": "chapitre 10",
+    "statut": "realise",
+    "confiance": "haute",
+    "actionMenee": "La réforme de l'organisation judiciaire entrée en vigueur le 1er janvier 2020 a fusionné les juridictions sans supprimer de lieu de justice : les tribunaux d'instance situés dans une commune différente du tribunal judiciaire sont devenus des tribunaux de proximité.",
+    "resultat": "Le ministère de la Justice indique qu'aucun site n'est supprimé. Les sites concernés ont été maintenus, notamment sous la forme de 125 tribunaux de proximité rattachés aux tribunaux judiciaires.",
+    "justification": "L'engagement est vérifiable sur un fait simple, la fermeture ou non de lieux de justice. Le ministère de la Justice et la présentation officielle de la réforme indiquent le maintien de tous les sites, par transformation en tribunaux de proximité.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2020-01-01",
+        "description": "Entrée en vigueur de la réforme de l'organisation judiciaire, sans suppression de site",
+        "url": "https://www.justice.gouv.fr/actualites/actualite/reforme-lorganisation-judiciaire"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Réforme de l'organisation judiciaire",
+        "organisme": "Ministère de la Justice",
+        "url": "https://www.justice.gouv.fr/actualites/actualite/reforme-lorganisation-judiciaire",
+        "date": "2020-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Ordonnance n° 2019-964 du 18 septembre 2019 prise en application de la loi n° 2019-222, dossier législatif",
+        "organisme": "Vie publique",
+        "url": "https://www.vie-publique.fr/dossierlegislatif/JORFDOLE000039114475",
+        "date": "2019-09-18",
+        "institutionnelle": true
+      }
+    ]
+  },
+  {
+    "id": "2017-10-litiges-faible-montant-en-ligne",
+    "numero": 10,
+    "couvreTout": false,
+    "mandatId": "macron-2017-2022",
+    "theme": "Justice",
+    "titre": "Dématérialiser entièrement les litiges inférieurs à 4 000 euros",
+    "extraitProgramme": "Nous raccourcirons les délais de jugement pour les litiges inférieurs à 4000 euros. La procédure les concernant sera entièrement dématérialisée et la décision sera rendue en ligne.",
+    "reformulation": "Les petits litiges seraient traités en ligne, sans audience, avec une décision rendue par voie électronique.",
+    "pageProgramme": "chapitre 10",
+    "statut": "partiellement",
+    "confiance": "moyenne",
+    "actionMenee": "L'article 26 de la loi du 23 mars 2019 crée l'article L. 212-5-2 du code de l'organisation judiciaire, qui permet de traiter dans une procédure dématérialisée et sans audience les oppositions aux injonctions de payer et les demandes portant sur une somme n'excédant pas un montant défini par décret en Conseil d'État. Cet article est entré en vigueur le 1er janvier 2022. Le jugement sans audience, avec l'accord exprès des parties, est possible devant le tribunal judiciaire depuis le 1er janvier 2020.",
+    "resultat": "Le montant plafond conditionnant la procédure dématérialisée doit être fixé par décret en Conseil d'État. Dans son contrôle publié le 19 janvier 2021, le Sénat classait ce décret parmi les mesures réglementaires prévues par la loi et non prises.",
+    "justification": "Une base légale a bien été créée pendant le mandat et le jugement sans audience est ouvert depuis 2020, ce qui répond en partie à l'engagement. La procédure entièrement dématérialisée avec décision rendue en ligne dépend d'un décret de seuil que le Sénat ne relevait pas comme pris, et le seuil de 4 000 euros annoncé n'apparaît dans aucun texte consulté.",
+    "verifieLe": "2026-09-20",
+    "actions": [
+      {
+        "date": "2019-03-23",
+        "description": "Promulgation de la loi n° 2019-222, dont l'article 26 crée la procédure dématérialisée pour les litiges de faible montant",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038261631"
+      },
+      {
+        "date": "2022-01-01",
+        "description": "Entrée en vigueur de l'article L. 212-5-2 du code de l'organisation judiciaire",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038264068"
+      }
+    ],
+    "sources": [
+      {
+        "titre": "Article L212-5-2 du code de l'organisation judiciaire",
+        "organisme": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038264068",
+        "date": "2022-01-01",
+        "institutionnelle": true
+      },
+      {
+        "titre": "Contrôle de l'application de la loi de programmation 2018-2022 et de réforme pour la justice",
+        "organisme": "Sénat",
+        "url": "https://www.senat.fr/application-des-lois/pjl17-463.html",
+        "date": "2021-01-19",
+        "institutionnelle": true
+      }
+    ]
+  }
+]
