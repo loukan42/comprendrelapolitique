@@ -1,10 +1,10 @@
 # ComprendreLaPolitique
 
+[Ouvrir Politiquizz en ligne](https://comprendrelapolitique.vercel.app/)
+
 Créer une page web vierge et le projet s'appelle comprendre la politique
 
 This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://comprendrelapolitique.lovable.app
 
 ## Build with Lovable
 
